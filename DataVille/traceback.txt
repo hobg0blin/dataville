@@ -1,18 +1,32 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
 While running game code:
-  File "game/script.rpy", line 60, in script
+  File "game/script.rpy", line 69, in script
     call screen test
   File "renpy/common/000statements.rpy", line 670, in execute_call_screen
     store._return = renpy.call_screen(name, *args, **kwargs)
-  File "game/script.rpy", line 21, in drag_log
-    get_child_by_name[d['name']].snap(drags[0].y - 50)
-NameError: name 'get_child_by_name' is not defined
+  File "game/script.rpy", line 32, in execute
+    screen test():
+  File "game/script.rpy", line 32, in execute
+    screen test():
+  File "game/script.rpy", line 46, in execute
+    window id 'done':
+  File "game/script.rpy", line 47, in execute
+    vbox:
+  File "game/script.rpy", line 49, in execute
+    textbutton "Done!" action finished()
+  File "game/script.rpy", line 49, in keywords
+    textbutton "Done!" action finished()
+  File "game/script.rpy", line 49, in <module>
+    textbutton "Done!" action finished()
+  File "game/script.rpy", line 29, in finished
+    Return(true)
+NameError: name 'true' is not defined
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "game/script.rpy", line 60, in script
+  File "game/script.rpy", line 69, in script
     call screen test
   File "/home/brent/Downloads/renpy-8.1.0-sdk/renpy/ast.py", line 2259, in execute
     self.call("execute")
@@ -28,27 +42,41 @@ Full traceback:
     rv = renpy.game.interface.interact(roll_forward=roll_forward, **kwargs)
   File "/home/brent/Downloads/renpy-8.1.0-sdk/renpy/display/core.py", line 3499, in interact
     repeat, rv = self.interact_core(preloads=preloads, trans_pause=trans_pause, pause=pause, pause_start=pause_start, pause_modal=pause_modal, **kwargs) # type: ignore
-  File "/home/brent/Downloads/renpy-8.1.0-sdk/renpy/display/core.py", line 4457, in interact_core
-    rv = root_widget.event(ev, x, y, 0)
-  File "/home/brent/Downloads/renpy-8.1.0-sdk/renpy/display/layout.py", line 1177, in event
-    rv = i.event(ev, x - xo, y - yo, cst)
-  File "/home/brent/Downloads/renpy-8.1.0-sdk/renpy/display/layout.py", line 1177, in event
-    rv = i.event(ev, x - xo, y - yo, cst)
-  File "/home/brent/Downloads/renpy-8.1.0-sdk/renpy/display/layout.py", line 1177, in event
-    rv = i.event(ev, x - xo, y - yo, cst)
-  File "/home/brent/Downloads/renpy-8.1.0-sdk/renpy/display/screen.py", line 770, in event
-    rv = self.child.event(ev, x, y, st)
-  File "/home/brent/Downloads/renpy-8.1.0-sdk/renpy/display/layout.py", line 1177, in event
-    rv = i.event(ev, x - xo, y - yo, cst)
-  File "/home/brent/Downloads/renpy-8.1.0-sdk/renpy/display/dragdrop.py", line 853, in event
-    rv = run(drag.dragged, joined, drop)
-  File "/home/brent/Downloads/renpy-8.1.0-sdk/renpy/display/behavior.py", line 375, in run
-    return action(*args, **kwargs)
-  File "game/script.rpy", line 21, in drag_log
-    get_child_by_name[d['name']].snap(drags[0].y - 50)
-NameError: name 'get_child_by_name' is not defined
+  File "/home/brent/Downloads/renpy-8.1.0-sdk/renpy/display/core.py", line 3969, in interact_core
+    root_widget.visit_all(lambda d : d.per_interact())
+  File "/home/brent/Downloads/renpy-8.1.0-sdk/renpy/display/core.py", line 605, in visit_all
+    d.visit_all(callback, seen)
+  File "/home/brent/Downloads/renpy-8.1.0-sdk/renpy/display/core.py", line 605, in visit_all
+    d.visit_all(callback, seen)
+  File "/home/brent/Downloads/renpy-8.1.0-sdk/renpy/display/core.py", line 605, in visit_all
+    d.visit_all(callback, seen)
+  File "/home/brent/Downloads/renpy-8.1.0-sdk/renpy/display/screen.py", line 476, in visit_all
+    callback(self)
+  File "/home/brent/Downloads/renpy-8.1.0-sdk/renpy/display/core.py", line 3969, in <lambda>
+    root_widget.visit_all(lambda d : d.per_interact())
+  File "/home/brent/Downloads/renpy-8.1.0-sdk/renpy/display/screen.py", line 487, in per_interact
+    self.update()
+  File "/home/brent/Downloads/renpy-8.1.0-sdk/renpy/display/screen.py", line 680, in update
+    self.screen.function(**self.scope)
+  File "game/script.rpy", line 32, in execute
+    screen test():
+  File "game/script.rpy", line 32, in execute
+    screen test():
+  File "game/script.rpy", line 46, in execute
+    window id 'done':
+  File "game/script.rpy", line 47, in execute
+    vbox:
+  File "game/script.rpy", line 49, in execute
+    textbutton "Done!" action finished()
+  File "game/script.rpy", line 49, in keywords
+    textbutton "Done!" action finished()
+  File "game/script.rpy", line 49, in <module>
+    textbutton "Done!" action finished()
+  File "game/script.rpy", line 29, in finished
+    Return(true)
+NameError: name 'true' is not defined
 
 Linux-5.19.0-43-generic-x86_64-with-glibc2.35 x86_64
 Ren'Py 8.1.0.23051307
 DataVille 1.0
-Sun Jun  4 13:40:46 2023
+Sun Jun  4 14:15:55 2023
