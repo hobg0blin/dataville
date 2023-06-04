@@ -1,0 +1,10 @@
+﻿I'm sorry, but errors were detected in your script. Please correct the
+errors listed below, and try again.
+
+
+File "game/script.rpy", line 18: invalid syntax
+    'ypos': 0}, {'name': "baking", 'text': " I enjoy baking an apple pie in my human kitchen."\
+           ^
+
+Ren'Py Version: Ren'Py 8.1.0.23051307
+Sun Jun  4 13:32:22 2023

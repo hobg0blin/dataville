@@ -1,0 +1,54 @@
+﻿I'm sorry, but an uncaught exception occurred.
+
+While running game code:
+  File "game/script.rpy", line 60, in script
+    call screen test
+  File "renpy/common/000statements.rpy", line 670, in execute_call_screen
+    store._return = renpy.call_screen(name, *args, **kwargs)
+  File "game/script.rpy", line 21, in drag_log
+    get_child_by_name[d['name']].snap(drags[0].y - 50)
+NameError: name 'get_child_by_name' is not defined
+
+-- Full Traceback ------------------------------------------------------------
+
+Full traceback:
+  File "game/script.rpy", line 60, in script
+    call screen test
+  File "/home/brent/Downloads/renpy-8.1.0-sdk/renpy/ast.py", line 2259, in execute
+    self.call("execute")
+  File "/home/brent/Downloads/renpy-8.1.0-sdk/renpy/ast.py", line 2241, in call
+    return renpy.statements.call(method, parsed, *args, **kwargs)
+  File "/home/brent/Downloads/renpy-8.1.0-sdk/renpy/statements.py", line 342, in call
+    return method(parsed, *args, **kwargs)
+  File "renpy/common/000statements.rpy", line 670, in execute_call_screen
+    store._return = renpy.call_screen(name, *args, **kwargs)
+  File "/home/brent/Downloads/renpy-8.1.0-sdk/renpy/exports.py", line 3336, in call_screen
+    rv = renpy.ui.interact(mouse="screen", type="screen", roll_forward=roll_forward)
+  File "/home/brent/Downloads/renpy-8.1.0-sdk/renpy/ui.py", line 299, in interact
+    rv = renpy.game.interface.interact(roll_forward=roll_forward, **kwargs)
+  File "/home/brent/Downloads/renpy-8.1.0-sdk/renpy/display/core.py", line 3499, in interact
+    repeat, rv = self.interact_core(preloads=preloads, trans_pause=trans_pause, pause=pause, pause_start=pause_start, pause_modal=pause_modal, **kwargs) # type: ignore
+  File "/home/brent/Downloads/renpy-8.1.0-sdk/renpy/display/core.py", line 4457, in interact_core
+    rv = root_widget.event(ev, x, y, 0)
+  File "/home/brent/Downloads/renpy-8.1.0-sdk/renpy/display/layout.py", line 1177, in event
+    rv = i.event(ev, x - xo, y - yo, cst)
+  File "/home/brent/Downloads/renpy-8.1.0-sdk/renpy/display/layout.py", line 1177, in event
+    rv = i.event(ev, x - xo, y - yo, cst)
+  File "/home/brent/Downloads/renpy-8.1.0-sdk/renpy/display/layout.py", line 1177, in event
+    rv = i.event(ev, x - xo, y - yo, cst)
+  File "/home/brent/Downloads/renpy-8.1.0-sdk/renpy/display/screen.py", line 770, in event
+    rv = self.child.event(ev, x, y, st)
+  File "/home/brent/Downloads/renpy-8.1.0-sdk/renpy/display/layout.py", line 1177, in event
+    rv = i.event(ev, x - xo, y - yo, cst)
+  File "/home/brent/Downloads/renpy-8.1.0-sdk/renpy/display/dragdrop.py", line 853, in event
+    rv = run(drag.dragged, joined, drop)
+  File "/home/brent/Downloads/renpy-8.1.0-sdk/renpy/display/behavior.py", line 375, in run
+    return action(*args, **kwargs)
+  File "game/script.rpy", line 21, in drag_log
+    get_child_by_name[d['name']].snap(drags[0].y - 50)
+NameError: name 'get_child_by_name' is not defined
+
+Linux-5.19.0-43-generic-x86_64-with-glibc2.35 x86_64
+Ren'Py 8.1.0.23051307
+DataVille 1.0
+Sun Jun  4 13:40:46 2023
