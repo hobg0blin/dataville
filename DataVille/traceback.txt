@@ -1,33 +1,37 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
 While running game code:
-  File "game/script.rpy", line 69, in script
-    call screen test
+  File "game/script.rpy", line 126, in script
+    call screen text_gui(text_boxes, "You're averaging 10 seconds faster than expected! Woohoo!", 'No major news happening today.', 'Put the phrases in order of how human they are.', 'Rent is due tomorrow.', 'Done!')
   File "renpy/common/000statements.rpy", line 670, in execute_call_screen
     store._return = renpy.call_screen(name, *args, **kwargs)
-  File "game/script.rpy", line 32, in execute
-    screen test():
-  File "game/script.rpy", line 32, in execute
-    screen test():
-  File "game/script.rpy", line 46, in execute
-    window id 'done':
-  File "game/script.rpy", line 47, in execute
-    vbox:
   File "game/script.rpy", line 49, in execute
-    textbutton "Done!" action finished()
-  File "game/script.rpy", line 49, in keywords
-    textbutton "Done!" action finished()
-  File "game/script.rpy", line 49, in <module>
-    textbutton "Done!" action finished()
-  File "game/script.rpy", line 29, in finished
-    Return(true)
-NameError: name 'true' is not defined
+    screen text_gui(text_boxes, streak_text, feed_text, instructions, status, button_text):
+  File "game/script.rpy", line 49, in execute
+    screen text_gui(text_boxes, streak_text, feed_text, instructions, status, button_text):
+  File "game/script.rpy", line 50, in execute
+    window id 'content':
+  File "game/script.rpy", line 53, in execute
+    window id 'labeler':
+  File "game/script.rpy", line 58, in execute
+    vbox:
+  File "game/script.rpy", line 59, in execute
+    for (i, box) in enumerate(text_boxes):
+  File "game/script.rpy", line 60, in execute
+    drag:
+  File "game/script.rpy", line 65, in execute
+    frame:
+  File "game/script.rpy", line 66, in execute
+    text {'size=-3'} + box['text']
+  File "game/script.rpy", line 66, in <module>
+    text {'size=-3'} + box['text']
+TypeError: unsupported operand type(s) for +: 'RevertableSet' and 'str'
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "game/script.rpy", line 69, in script
-    call screen test
+  File "game/script.rpy", line 126, in script
+    call screen text_gui(text_boxes, "You're averaging 10 seconds faster than expected! Woohoo!", 'No major news happening today.', 'Put the phrases in order of how human they are.', 'Rent is due tomorrow.', 'Done!')
   File "/home/brent/Downloads/renpy-8.1.0-sdk/renpy/ast.py", line 2259, in execute
     self.call("execute")
   File "/home/brent/Downloads/renpy-8.1.0-sdk/renpy/ast.py", line 2241, in call
@@ -58,25 +62,29 @@ Full traceback:
     self.update()
   File "/home/brent/Downloads/renpy-8.1.0-sdk/renpy/display/screen.py", line 680, in update
     self.screen.function(**self.scope)
-  File "game/script.rpy", line 32, in execute
-    screen test():
-  File "game/script.rpy", line 32, in execute
-    screen test():
-  File "game/script.rpy", line 46, in execute
-    window id 'done':
-  File "game/script.rpy", line 47, in execute
-    vbox:
   File "game/script.rpy", line 49, in execute
-    textbutton "Done!" action finished()
-  File "game/script.rpy", line 49, in keywords
-    textbutton "Done!" action finished()
-  File "game/script.rpy", line 49, in <module>
-    textbutton "Done!" action finished()
-  File "game/script.rpy", line 29, in finished
-    Return(true)
-NameError: name 'true' is not defined
+    screen text_gui(text_boxes, streak_text, feed_text, instructions, status, button_text):
+  File "game/script.rpy", line 49, in execute
+    screen text_gui(text_boxes, streak_text, feed_text, instructions, status, button_text):
+  File "game/script.rpy", line 50, in execute
+    window id 'content':
+  File "game/script.rpy", line 53, in execute
+    window id 'labeler':
+  File "game/script.rpy", line 58, in execute
+    vbox:
+  File "game/script.rpy", line 59, in execute
+    for (i, box) in enumerate(text_boxes):
+  File "game/script.rpy", line 60, in execute
+    drag:
+  File "game/script.rpy", line 65, in execute
+    frame:
+  File "game/script.rpy", line 66, in execute
+    text {'size=-3'} + box['text']
+  File "game/script.rpy", line 66, in <module>
+    text {'size=-3'} + box['text']
+TypeError: unsupported operand type(s) for +: 'RevertableSet' and 'str'
 
 Linux-5.19.0-43-generic-x86_64-with-glibc2.35 x86_64
 Ren'Py 8.1.0.23051307
 DataVille 1.0
-Sun Jun  4 14:15:55 2023
+Sat Jun 10 15:40:59 2023

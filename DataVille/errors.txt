@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/script.rpy", line 71: the yalign keyword argument was not given a value.
-    yalign: 1
-          ^
+File "game/script.rpy", line 138: expected python code
+    $ 
+      ^
 
 Ren'Py Version: Ren'Py 8.1.0.23051307
-Sun Jun  4 14:33:38 2023
+Sat Jun 10 15:50:53 2023
