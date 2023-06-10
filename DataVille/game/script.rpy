@@ -120,11 +120,11 @@ label start:
     # directory.
 
     # show eileen happy
-    #e "Welcome to Anthropic Solutions."
-    #e "We're pleased that you've taken the opportunity to join the fast-growing field of human identification software."
-    #e "Your pay will correspond directly to your performance: your speed and accuracy are crucial to keeping our systems human first."
-    #e "For your first day, we'll keep things simple."
-    #e "Let's start with text identification."
+    e "Welcome to Anthropic Solutions."
+    e "We're pleased that you've taken the opportunity to join the fast-growing field of human identification software."
+    e "Your pay will correspond directly to your performance: your speed and accuracy are crucial to keeping our systems human first."
+    e "For your first day, we'll keep things simple."
+    e "Let's start with text identification."
     e "Order the lines of text based on how human they are."
     $ time = 3
     $ timer_range = 3
