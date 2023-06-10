@@ -39,12 +39,12 @@ init python:
   def drag_log(drags, drop):
     # needs to have droppable enabled, i guess?
     # if drop:
-      print('dropped: ', drags[0].drag_name)
+      #print('dropped: ', drags[0].drag_name)
       for d in text_boxes:
-        print('d: ', d)
+      #  print('d: ', d)
         if d['name'] == drags[0].drag_name: 
           d['ypos'] = drags[0].y
-      print('text boxes: ', text_boxes)
+      #print('text boxes: ', text_boxes)
 
 
 screen text_gui(text_boxes, streak_text, feed_text, instructions, status, button_text):
@@ -139,7 +139,7 @@ label start:
       # These display lines of dialogue.
       python:
         order = map(lambda x, y: x['ypos'], text_boxes)
-        print ('order: ', order)
+        # print ('order: ', order)
         if order == [1, 2, 3]:
           case = 1
         elif order == [2, 1, 3]:
