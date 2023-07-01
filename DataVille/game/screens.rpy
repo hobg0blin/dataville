@@ -138,6 +138,14 @@ style window:
 
     background Image("gui/textbox.png", xalign=0.5, yalign=1.0)
 
+style window_nobox:
+    xalign 0.5
+    xfill True
+    yalign gui.textbox_yalign
+    ysize gui.textbox_height
+    background None
+
+
 style namebox:
     xpos gui.name_xpos
     xanchor gui.name_xalign
