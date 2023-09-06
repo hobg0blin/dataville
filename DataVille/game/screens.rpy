@@ -1613,3 +1613,139 @@ style slider_vbox:
 style slider_slider:
     variant "small"
     xsize 900
+
+################################################################
+#### CUSTOM SCREENS AND STYLING
+#################################################################
+# TIMER STUFF
+transform alpha_dissolve:
+  alpha 0.0
+  linear 0.5 alpha 1.0
+  on hide:
+    linear 0.5 alpha 0
+
+screen timer:
+  zorder 10
+  vbox:
+    xalign 0.9 
+    yalign 0.275
+    timer 0.01 repeat True action If(time > 0, true=SetVariable('time', time - 0.01))
+    bar value time range timer_range xalign 0.5 yalign 0.9 xmaximum 300 at alpha_dissolve
+
+
+
+# GENERAL 'ALWAYS-ON OVERLAY'
+# TODO:
+# add 'effects' map to gui input that then affects overlay, something like
+# if (order == 1) {
+#  {streak_text: 'nice',
+#  feed_text: 'good',
+#  status: 'hell yeah brother
+# } elif (order == 2) {
+# { streak_text: 'less nice' 
+# }
+# etc.
+# }
+
+screen overlay(state, button_text=False):
+# streak_text, feed_text, instructions, status, button_text=False):
+  window id 'content':
+    ymaximum 1200
+    xmaximum 1600
+    frame id 'streak':
+      xsize 300
+      ysize 300
+      xalign 1.0
+      yalign 0
+      text 'PROGRESS TRACKER'
+      text '\n\n{size=-5}' + state['labeling_performance'] 
+    frame id 'feed':
+      xsize 300
+      ysize 300
+      xalign 1.0
+      yalign 0.5
+      text 'NEWS'
+      text '\n{size=-5}' + state['current_news_story']['headline']
+    frame id 'instructions':
+      xsize 300
+      ysize 300
+      xalign 0.0
+      yalign 0.0
+      text 'INSTRUCTIONS'
+      text '\n{size=-5}' + state['instructions'] 
+    frame id 'status':
+      xsize 300
+      ysize 300
+      xalign 0.0
+      ypos 0.5
+      text 'PERSONAL'
+      text '\n{size=-5}' + state['budget']
+    if (button_text):
+      frame id 'overlay_button':
+        xsize 300
+        xalign 0.5
+        yalign 0.95
+        textbutton button_text action Return(True)
+#
+# SELECT DA IMAGES
+screen image_gui(state, button_text):
+  zorder 1 
+  # $ random.shuffle(state)
+  window id 'labeler':
+      style "window_nobox"
+      xmaximum 900
+      ymaximum 900
+      xalign 0.5
+      yalign 0.0
+      grid 3 4:
+        xmaximum 250
+        ymaximum 250
+        for (i, box) in enumerate(state): 
+          imagebutton:
+            xfill True
+            yfill True
+            idle Transform(f"{box['src']}", size=(150, 150))
+            hover Transform(f"{box['src']}", size=(200, 200))
+            action Function(select_image, box) 
+  frame id 'done':
+    xsize 300
+    xalign 0.5
+    yalign 0.9
+    textbutton button_text action Return(True)
+
+
+
+# ORDER THE TEXT
+
+screen text_gui(text_label_task_1, button_text):
+  zorder 1
+  # this animates random shuffle??? is that supposed to be happening? either renpy.random or regular random does it
+  #ok so use traditional python random library for actual randomization
+  $ random.shuffle(text_label_task_1.labels)
+  # # does not return a list but changes an existing one, generates same numbers every time
+  # $ renpy.random.shuffle(text_label_task_1)
+  window id 'labeler':
+    style "window_nobox"
+    xmaximum 900
+    ymaximum 900
+    xalign 0.5
+    yalign 0.0
+    vbox:
+      for (i, box) in enumerate(text_label_task_1.labels): 
+          drag:
+              draggable True
+              drag_name box['name']
+              xpos start_x_text ypos start_y_text
+              dragged drag_log
+              frame:
+                text '{size=-3}'+ box['text']
+          python: 
+            box['xpos'] = start_x_text
+            box['ypos'] = start_y_text + (50*i)
+            # for some reason if i increase start_y in here it loops when the timer is repeating. this seems insane to me and i would like to find out why (e.g if put start_y += 50 here)
+  frame id 'done':
+    xsize 300
+    xalign 0.5
+    yalign 0.9
+    textbutton button_text action Return(True)
+ 

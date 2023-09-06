@@ -1,46 +1,38 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
 While running game code:
-  File "game/script.rpy", line 263, in script
-    call screen image_gui(image_boxes, "Done!")
-  File "renpy/common/000statements.rpy", line 670, in execute_call_screen
-    store._return = renpy.call_screen(name, *args, **kwargs)
-TypeError: get_tooltip() missing 1 required positional argument: 'self'
+  File "game/script.rpy", line 210, in script
+    show screen overlay(state.ui_state)
+  File "renpy/common/000statements.rpy", line 634, in execute_show_screen
+    args, kwargs = a.evaluate()
+  File "game/script.rpy", line 210, in <module>
+    show screen overlay(state.ui_state)
+NameError: name 'state' is not defined
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "game/script.rpy", line 263, in script
-    call screen image_gui(image_boxes, "Done!")
+  File "game/script.rpy", line 210, in script
+    show screen overlay(state.ui_state)
   File "/home/brent/Downloads/renpy-8.1.0-sdk/renpy/ast.py", line 2259, in execute
     self.call("execute")
   File "/home/brent/Downloads/renpy-8.1.0-sdk/renpy/ast.py", line 2241, in call
     return renpy.statements.call(method, parsed, *args, **kwargs)
   File "/home/brent/Downloads/renpy-8.1.0-sdk/renpy/statements.py", line 342, in call
     return method(parsed, *args, **kwargs)
-  File "renpy/common/000statements.rpy", line 670, in execute_call_screen
-    store._return = renpy.call_screen(name, *args, **kwargs)
-  File "/home/brent/Downloads/renpy-8.1.0-sdk/renpy/exports.py", line 3336, in call_screen
-    rv = renpy.ui.interact(mouse="screen", type="screen", roll_forward=roll_forward)
-  File "/home/brent/Downloads/renpy-8.1.0-sdk/renpy/ui.py", line 299, in interact
-    rv = renpy.game.interface.interact(roll_forward=roll_forward, **kwargs)
-  File "/home/brent/Downloads/renpy-8.1.0-sdk/renpy/display/core.py", line 3499, in interact
-    repeat, rv = self.interact_core(preloads=preloads, trans_pause=trans_pause, pause=pause, pause_start=pause_start, pause_modal=pause_modal, **kwargs) # type: ignore
-  File "/home/brent/Downloads/renpy-8.1.0-sdk/renpy/display/core.py", line 4452, in interact_core
-    rv = renpy.display.focus.mouse_handler(ev, x, y)
-  File "/home/brent/Downloads/renpy-8.1.0-sdk/renpy/display/focus.py", line 604, in mouse_handler
-    return change_focus(new_focus, default=default)
-  File "/home/brent/Downloads/renpy-8.1.0-sdk/renpy/display/focus.py", line 530, in change_focus
-    set_focused(current, newfocus.arg, newfocus.screen)
-  File "/home/brent/Downloads/renpy-8.1.0-sdk/renpy/display/focus.py", line 201, in set_focused
-    new_tooltip = widget._get_tooltip()
-  File "/home/brent/Downloads/renpy-8.1.0-sdk/renpy/display/behavior.py", line 919, in _get_tooltip
-    return get_tooltip(self.action)
-  File "/home/brent/Downloads/renpy-8.1.0-sdk/renpy/display/behavior.py", line 428, in get_tooltip
-    return func()
-TypeError: get_tooltip() missing 1 required positional argument: 'self'
+  File "renpy/common/000statements.rpy", line 634, in execute_show_screen
+    args, kwargs = a.evaluate()
+  File "/home/brent/Downloads/renpy-8.1.0-sdk/renpy/ast.py", line 344, in evaluate
+    value = renpy.python.py_eval(v, locals=scope)
+  File "/home/brent/Downloads/renpy-8.1.0-sdk/renpy/python.py", line 1153, in py_eval
+    return py_eval_bytecode(code, globals, locals)
+  File "/home/brent/Downloads/renpy-8.1.0-sdk/renpy/python.py", line 1146, in py_eval_bytecode
+    return eval(bytecode, globals, locals)
+  File "game/script.rpy", line 210, in <module>
+    show screen overlay(state.ui_state)
+NameError: name 'state' is not defined
 
-Linux-5.19.0-43-generic-x86_64-with-glibc2.35 x86_64
+Linux-6.2.0-32-generic-x86_64-with-glibc2.35 x86_64
 Ren'Py 8.1.0.23051307
 DataVille 1.0
-Sat Jul  1 14:42:10 2023
+Wed Sep  6 17:10:19 2023

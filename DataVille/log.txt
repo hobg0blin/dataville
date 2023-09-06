@@ -1,5 +1,5 @@
-Sat Jul  1 14:52:28 2023
-Linux-5.19.0-43-generic-x86_64-with-glibc2.35
+Wed Sep  6 17:10:07 2023
+Linux-6.2.0-32-generic-x86_64-with-glibc2.35
 Ren'Py 8.1.0.23051307
  
 
@@ -7,19 +7,97 @@ Bootstrap to the start of init.init. took 0.03s
 Early init. took 0.00s
 Loader init. took 0.00s
 Loading error handling. took 0.02s
-Loading script. took 0.10s
+Loading script. took 0.14s
 Loading save slot metadata. took 0.02s
 Loading persistent. took 0.00s
-Running init code. took 0.03s
+game state:  {}
+counters:  {'current_day': 0, 'current_task': 0, 'employer_opinion': 0, 'alien_player_opinion': 0, 'alien_public_opinion': 0, 'bank_account': 0}
+Running init code. took 0.04s
+Loading analysis data. took 0.01s
+Analyze and compile ATL. took 0.00s
+Reloading save slot metadata. took 0.01s
+Index archives took 0.00s
+Dump and make backups. took 0.05s
+Cleaning cache. took 0.00s
+Making clean stores. took 0.00s
+Initial gc. took 0.03s
+DPI scale factor: 1.000000
+Creating interface object. took 0.00s
+Cleaning stores took 0.00s
+Init translation took 0.06s
+Build styles took 0.00s
+Load screen analysis took 0.03s
+Analyze screens took 0.00s
+Save screen analysis took 0.00s
+Prepare screens took 0.07s
+Save pyanalysis. took 0.00s
+Save bytecode. took 0.03s
+Running _start took 0.00s
+Performance test:
+Interface start. took 0.11s
+
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 1920, 1080)
+swap interval: 1 frames
+Windowed mode.
+Vendor: "b'Intel'"
+Renderer: b'Mesa Intel(R) UHD Graphics (CML GT2)'
+Version: b'4.6 (Compatibility Profile) Mesa 23.0.4-0ubuntu1~22.04.1'
+Display Info: None
+Screen sizes: virtual=(1920, 1080) physical=(1920, 1080) drawable=(1920, 1080)
+Maximum texture size: 4096x4096
+Screen sizes: virtual=(1920, 1080) physical=(1850, 1009) drawable=(1850, 1009)
+Maximum texture size: 4096x4096
+
+Full traceback:
+  File "game/script.rpy", line 210, in script
+    show screen overlay(state.ui_state)
+  File "/home/brent/Downloads/renpy-8.1.0-sdk/renpy/ast.py", line 2259, in execute
+    self.call("execute")
+  File "/home/brent/Downloads/renpy-8.1.0-sdk/renpy/ast.py", line 2241, in call
+    return renpy.statements.call(method, parsed, *args, **kwargs)
+  File "/home/brent/Downloads/renpy-8.1.0-sdk/renpy/statements.py", line 342, in call
+    return method(parsed, *args, **kwargs)
+  File "renpy/common/000statements.rpy", line 634, in execute_show_screen
+    args, kwargs = a.evaluate()
+  File "/home/brent/Downloads/renpy-8.1.0-sdk/renpy/ast.py", line 344, in evaluate
+    value = renpy.python.py_eval(v, locals=scope)
+  File "/home/brent/Downloads/renpy-8.1.0-sdk/renpy/python.py", line 1153, in py_eval
+    return py_eval_bytecode(code, globals, locals)
+  File "/home/brent/Downloads/renpy-8.1.0-sdk/renpy/python.py", line 1146, in py_eval_bytecode
+    return eval(bytecode, globals, locals)
+  File "game/script.rpy", line 210, in <module>
+    show screen overlay(state.ui_state)
+NameError: name 'state' is not defined
+
+While running game code:
+  File "game/script.rpy", line 210, in script
+    show screen overlay(state.ui_state)
+  File "renpy/common/000statements.rpy", line 634, in execute_show_screen
+    args, kwargs = a.evaluate()
+  File "game/script.rpy", line 210, in <module>
+    show screen overlay(state.ui_state)
+NameError: name 'state' is not defined
+Resetting cache.
+Bootstrap to the start of init.init. took 26.67s
+Early init. took 0.00s
+Loader init. took 0.00s
+Loading error handling. took 0.02s
+Loading script. took 0.08s
+Loading save slot metadata. took 0.01s
+Loading persistent. took 0.00s
+game state:  {}
+counters:  {'current_day': 0, 'current_task': 0, 'employer_opinion': 0, 'alien_player_opinion': 0, 'alien_public_opinion': 0, 'bank_account': 0}
+Running init code. took 0.02s
 Loading analysis data. took 0.01s
 Analyze and compile ATL. took 0.00s
 Reloading save slot metadata. took 0.01s
 Index archives took 0.00s
 Backing up script files to '/home/brent/.renpy/backups/DataVille':
-Dump and make backups. took 0.04s
+Dump and make backups. took 0.03s
 Cleaning cache. took 0.00s
 Making clean stores. took 0.00s
-Initial gc. took 0.01s
+Initial gc. took 0.02s
 DPI scale factor: 1.000000
 Creating interface object. took 0.00s
 Cleaning stores took 0.00s
@@ -27,7 +105,21 @@ Init translation took 0.02s
 Build styles took 0.00s
 Load screen analysis took 0.00s
 Analyze screens took 0.01s
-Save screen analysis took 0.02s
+Save screen analysis took 0.01s
 Prepare screens took 0.05s
-Save pyanalysis. took 0.01s
-Save bytecode. took 0.02s
+Save pyanalysis. took 0.00s
+Save bytecode. took 0.01s
+Running _start took 0.00s
+Performance test:
+Interface start. took 0.03s
+
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 1920, 1080)
+swap interval: 1 frames
+Windowed mode.
+Vendor: "b'Intel'"
+Renderer: b'Mesa Intel(R) UHD Graphics (CML GT2)'
+Version: b'4.6 (Compatibility Profile) Mesa 23.0.4-0ubuntu1~22.04.1'
+Display Info: None
+Screen sizes: virtual=(1920, 1080) physical=(1850, 1009) drawable=(1850, 1009)
+Maximum texture size: 4096x4096
