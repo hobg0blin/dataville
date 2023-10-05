@@ -1688,19 +1688,22 @@ screen overlay(state, button_text=False):
         textbutton button_text action Return(True)
 #
 # SELECT DA IMAGES
-screen image_gui(state, button_text):
+screen captcha_image(state, button_text):
   $ print('image state: ', state)
   zorder 1
   # $ random.shuffle(state)
   default images = []
   python:
-      from pathlib import Path
+      import os
       for imagepath in (renpy.list_files()):
           if imagepath.startswith("images/" + state['image_folder']):
             images.append(imagepath)
       print('images: ', images)
       def should_label(img, state):
-          if (Path(img).stem) in state['correct_images']:
+          base = os.path.basename(img)
+          strp = os.path.splitext(base)[0]
+          print('stripped imgpath: ', strp)
+          if strp in state['correct_images']:
               return True
           else:
               return False
@@ -1715,6 +1718,8 @@ screen image_gui(state, button_text):
         ymaximum 250
         for i, img in enumerate(images):
           python:
+              base = os.path.basename(img)
+              strp = os.path.splitext(base)[0]
               print('image: ', img)
               print('should label: ', should_label(img, state))
           imagebutton:
@@ -1722,7 +1727,7 @@ screen image_gui(state, button_text):
             yfill True
             idle Transform(f"{img}", size=(150, 150))
             hover Transform(f"{img}", size=(200, 200))
-            action Function(select_image, img)
+            action Function(select_image, strp)
   frame id 'done':
     xsize 300
     xalign 0.5
@@ -1733,7 +1738,7 @@ screen image_gui(state, button_text):
 
 # ORDER THE TEXT
 
-screen text_gui(text_label_task_1, button_text):
+screen order_text(text_label_task_1, button_text):
   zorder 1
   # this animates random shuffle??? is that supposed to be happening? either renpy.random or regular random does it
   #ok so use traditional python random library for actual randomization

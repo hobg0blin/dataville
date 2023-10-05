@@ -2,8 +2,13 @@
 errors listed below, and try again.
 
 
-File "game/screens.rpy", line 1698: invalid syntax
-        if imagepath.startswith("images/" + state['image_folder'])
+File "game/script.rpy", line 237: end of line expected.
+    call screen store.loop['text_task_1']['type'] pass (store.loop['text_task_1'], 'Done!')
+                     ^
 
-Ren'Py Version: Ren'Py 8.1.0.23051307
-Wed Oct  4 18:08:39 2023
+File "game/script.rpy", line 269: expected statement.
+    update_state(game_state, images_correct, task)
+                                                  ^
+
+Ren'Py Version: Ren'Py 8.1.3.23091805
+Thu Oct  5 13:43:56 2023
