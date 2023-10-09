@@ -1,28 +1,22 @@
-Thu Oct  5 13:43:56 2023
-Linux-6.2.0-33-generic-x86_64-with-glibc2.35
+Mon Oct  9 14:02:38 2023
+Linux-6.2.0-34-generic-x86_64-with-glibc2.35
 Ren'Py 8.1.3.23091805
  
 
 Bootstrap to the start of init.init. took 0.03s
 Early init. took 0.00s
-Loader init. took 0.01s
-Loading error handling. took 0.02s
-Loading script. took 0.09s
-Loading save slot metadata. took 0.03s
+Loader init. took 0.00s
+Loading error handling. took 0.03s
+Loading script. took 0.18s
+Loading save slot metadata. took 0.02s
 Loading persistent. took 0.00s
 
-File "game/script.rpy", line 237: end of line expected.
-    call screen store.loop['text_task_1']['type'] pass (store.loop['text_task_1'], 'Done!')
-                     ^
-
-File "game/script.rpy", line 269: expected statement.
-    update_state(game_state, images_correct, task)
-                                                  ^
+File "game/script.rpy", line 61: Indentation mismatch.
 DPI scale factor: 1.000000
-Interface start. took 0.15s
+Interface start. took 0.16s
 
 Initializing gl2 renderer:
-primary display bounds: (1920, 0, 2560, 1440)
+primary display bounds: (1920, 226, 1920, 1080)
 swap interval: 1 frames
 Windowed mode.
 Vendor: "b'Intel'"
@@ -31,5 +25,197 @@ Version: b'4.6 (Compatibility Profile) Mesa 23.0.4-0ubuntu1~22.04.1'
 Display Info: None
 Screen sizes: virtual=(1920, 1080) physical=(1244, 700) drawable=(1244, 700)
 Maximum texture size: 4096x4096
-Screen sizes: virtual=(1920, 1080) physical=(2490, 1369) drawable=(2490, 1369)
+Screen sizes: virtual=(1920, 1080) physical=(1850, 1009) drawable=(1850, 1009)
 Maximum texture size: 4096x4096
+Resetting cache.
+Bootstrap to the start of init.init. took 37.91s
+Early init. took 0.00s
+Loader init. took 0.00s
+Loading error handling. took 0.02s
+Loading script. took 0.13s
+Loading save slot metadata. took 0.01s
+Loading persistent. took 0.00s
+Running init code. took 0.03s
+Loading analysis data. took 0.01s
+Analyze and compile ATL. took 0.00s
+Reloading save slot metadata. took 0.01s
+Index archives took 0.00s
+Backing up script files to '/home/brent/.renpy/backups/DataVille':
+Dump and make backups. took 0.04s
+Cleaning cache. took 0.00s
+Making clean stores. took 0.00s
+Initial gc. took 0.02s
+DPI scale factor: 1.000000
+Creating interface object. took 0.00s
+Cleaning stores took 0.00s
+Init translation took 0.04s
+Build styles took 0.00s
+Load screen analysis took 0.00s
+Analyze screens took 0.01s
+Save screen analysis took 0.02s
+Prepare screens took 0.06s
+Save pyanalysis. took 0.00s
+Save bytecode. took 0.01s
+Running _start took 0.00s
+Performance test:
+Interface start. took 0.05s
+
+Initializing gl2 renderer:
+primary display bounds: (1920, 226, 1920, 1080)
+swap interval: 1 frames
+Windowed mode.
+Vendor: "b'Intel'"
+Renderer: b'Mesa Intel(R) UHD Graphics (CML GT2)'
+Version: b'4.6 (Compatibility Profile) Mesa 23.0.4-0ubuntu1~22.04.1'
+Display Info: None
+Screen sizes: virtual=(1920, 1080) physical=(1850, 1009) drawable=(1850, 1009)
+Maximum texture size: 4096x4096
+box:  {'ypos': 0, 'name': 'zzxnarf', 'text': 'I enjoy eating Zzxnarf with my brain-mate.'}
+box:  {'ypos': 0, 'name': 'baking', 'text': 'I enjoy baking an apple pie in my human kitchen.'}
+box:  {'ypos': 0, 'name': 'sweetie', 'text': 'I enjoy eating apples with my sweetie.'}
+box:  {'ypos': 100, 'name': 'zzxnarf', 'text': 'I enjoy eating Zzxnarf with my brain-mate.', 'xpos': 100}
+box:  {'ypos': 200, 'name': 'sweetie', 'text': 'I enjoy eating apples with my sweetie.', 'xpos': 100}
+box:  {'ypos': 150, 'name': 'baking', 'text': 'I enjoy baking an apple pie in my human kitchen.', 'xpos': 100}
+box:  {'ypos': 100, 'name': 'zzxnarf', 'text': 'I enjoy eating Zzxnarf with my brain-mate.', 'xpos': 100}
+box:  {'ypos': 150, 'name': 'sweetie', 'text': 'I enjoy eating apples with my sweetie.', 'xpos': 100}
+box:  {'ypos': 200, 'name': 'baking', 'text': 'I enjoy baking an apple pie in my human kitchen.', 'xpos': 100}
+box:  {'ypos': 100, 'name': 'zzxnarf', 'text': 'I enjoy eating Zzxnarf with my brain-mate.', 'xpos': 100}
+box:  {'ypos': 200, 'name': 'baking', 'text': 'I enjoy baking an apple pie in my human kitchen.', 'xpos': 100}
+box:  {'ypos': 150, 'name': 'sweetie', 'text': 'I enjoy eating apples with my sweetie.', 'xpos': 100}
+box:  {'ypos': 200, 'name': 'sweetie', 'text': 'I enjoy eating apples with my sweetie.', 'xpos': 100}
+box:  {'ypos': 100, 'name': 'zzxnarf', 'text': 'I enjoy eating Zzxnarf with my brain-mate.', 'xpos': 100}
+box:  {'ypos': 150, 'name': 'baking', 'text': 'I enjoy baking an apple pie in my human kitchen.', 'xpos': 100}
+box:  {'ypos': 100, 'name': 'sweetie', 'text': 'I enjoy eating apples with my sweetie.', 'xpos': 100}
+box:  {'ypos': 150, 'name': 'zzxnarf', 'text': 'I enjoy eating Zzxnarf with my brain-mate.', 'xpos': 100}
+box:  {'ypos': 200, 'name': 'baking', 'text': 'I enjoy baking an apple pie in my human kitchen.', 'xpos': 100}
+box:  {'ypos': 100, 'name': 'sweetie', 'text': 'I enjoy eating apples with my sweetie.', 'xpos': 100}
+box:  {'ypos': 150, 'name': 'zzxnarf', 'text': 'I enjoy eating Zzxnarf with my brain-mate.', 'xpos': 100}
+box:  {'ypos': 200, 'name': 'baking', 'text': 'I enjoy baking an apple pie in my human kitchen.', 'xpos': 100}
+box:  {'ypos': 100, 'name': 'sweetie', 'text': 'I enjoy eating apples with my sweetie.', 'xpos': 100}
+box:  {'ypos': 150, 'name': 'zzxnarf', 'text': 'I enjoy eating Zzxnarf with my brain-mate.', 'xpos': 100}
+box:  {'ypos': 200, 'name': 'baking', 'text': 'I enjoy baking an apple pie in my human kitchen.', 'xpos': 100}
+box:  {'ypos': 150, 'name': 'zzxnarf', 'text': 'I enjoy eating Zzxnarf with my brain-mate.', 'xpos': 100}
+box:  {'ypos': 200, 'name': 'baking', 'text': 'I enjoy baking an apple pie in my human kitchen.', 'xpos': 100}
+box:  {'ypos': 100, 'name': 'sweetie', 'text': 'I enjoy eating apples with my sweetie.', 'xpos': 100}
+d:  {'ypos': 200, 'name': 'sweetie', 'text': 'I enjoy eating apples with my sweetie.', 'xpos': 100}
+d:  {'ypos': 150, 'name': 'baking', 'text': 'I enjoy baking an apple pie in my human kitchen.', 'xpos': 100}
+d:  {'ypos': 100, 'name': 'zzxnarf', 'text': 'I enjoy eating Zzxnarf with my brain-mate.', 'xpos': 100}
+d:  {'ypos': 321, 'name': 'sweetie', 'text': 'I enjoy eating apples with my sweetie.', 'xpos': 100}
+d:  {'ypos': 150, 'name': 'baking', 'text': 'I enjoy baking an apple pie in my human kitchen.', 'xpos': 100}
+d:  {'ypos': 100, 'name': 'zzxnarf', 'text': 'I enjoy eating Zzxnarf with my brain-mate.', 'xpos': 100}
+d:  {'ypos': 321, 'name': 'sweetie', 'text': 'I enjoy eating apples with my sweetie.', 'xpos': 100}
+d:  {'ypos': 150, 'name': 'baking', 'text': 'I enjoy baking an apple pie in my human kitchen.', 'xpos': 100}
+d:  {'ypos': 322, 'name': 'zzxnarf', 'text': 'I enjoy eating Zzxnarf with my brain-mate.', 'xpos': 100}
+d:  {'ypos': 321, 'name': 'sweetie', 'text': 'I enjoy eating apples with my sweetie.', 'xpos': 100}
+d:  {'ypos': 30, 'name': 'baking', 'text': 'I enjoy baking an apple pie in my human kitchen.', 'xpos': 100}
+d:  {'ypos': 322, 'name': 'zzxnarf', 'text': 'I enjoy eating Zzxnarf with my brain-mate.', 'xpos': 100}
+d:  {'ypos': 48, 'name': 'sweetie', 'text': 'I enjoy eating apples with my sweetie.', 'xpos': 100}
+d:  {'ypos': 30, 'name': 'baking', 'text': 'I enjoy baking an apple pie in my human kitchen.', 'xpos': 100}
+d:  {'ypos': 322, 'name': 'zzxnarf', 'text': 'I enjoy eating Zzxnarf with my brain-mate.', 'xpos': 100}
+lablels:  {'1': {'ypos': 48, 'name': 'sweetie', 'text': 'I enjoy eating apples with my sweetie.', 'xpos': 100}, '2': {'ypos': 30, 'name': 'baking', 'text': 'I enjoy baking an apple pie in my human kitchen.', 'xpos': 100}, '3': {'ypos': 229, 'name': 'zzxnarf', 'text': 'I enjoy eating Zzxnarf with my brain-mate.', 'xpos': 100}}
+sorted labels:  [('2', {'ypos': 30, 'name': 'baking', 'text': 'I enjoy baking an apple pie in my human kitchen.', 'xpos': 100}), ('1', {'ypos': 48, 'name': 'sweetie', 'text': 'I enjoy eating apples with my sweetie.', 'xpos': 100}), ('3', {'ypos': 229, 'name': 'zzxnarf', 'text': 'I enjoy eating Zzxnarf with my brain-mate.', 'xpos': 100})]
+order:  [2, 1, 3]
+next task:  image_task_1
+next task type:  captcha_image
+should be looking in image folder:  image_task_1
+selected:  {'values': ['alien_1', 'alien_2', 'alien_3']}
+original:  ['alien_1', 'alien_2', 'alien_3']
+next task:  binary_image_task_1
+next task type:  binary_image
+should be looking in image folder:  binary_image_task_1
+value:  N
+correct answer:  N
+next task:  binary_text_task_1
+next task type:  binary_text
+value:  Y
+correct answer:  Y
+next task:  comparison_image_task_1
+next task type:  comparison_image
+should be looking in image folder:  comparison_image_task_1
+value:  human
+correct answer:  human
+next task:  comparison_text_task_1
+next task type:  comparison_text
+label order:  ['1', '2']
+labels:  {'1': {'ypos': 0, 'name': '1', 'text': 'This text is better'}, '2': {'ypos': 0, 'name': '2', 'text': 'This text is worse'}}
+label order:  ['2', '1']
+labels:  {'1': {'ypos': 100, 'name': '1', 'text': 'This text is better', 'xpos': 100}, '2': {'ypos': 150, 'name': '2', 'text': 'This text is worse', 'xpos': 100}}
+label order:  ['1', '2']
+labels:  {'1': {'ypos': 150, 'name': '1', 'text': 'This text is better', 'xpos': 100}, '2': {'ypos': 100, 'name': '2', 'text': 'This text is worse', 'xpos': 100}}
+label order:  ['2', '1']
+labels:  {'1': {'ypos': 100, 'name': '1', 'text': 'This text is better', 'xpos': 100}, '2': {'ypos': 150, 'name': '2', 'text': 'This text is worse', 'xpos': 100}}
+value:  1
+correct answer:  1
+next task:  caption_image_task_1
+next task type:  caption_image
+should be looking in image folder:  caption_image_task_1
+labels:  {'1': {'ypos': 0, 'name': '1', 'text': 'A lovely good thing'}, '2': {'ypos': 0, 'name': '2', 'text': 'A medicore thing'}, '3': {'ypos': 0, 'name': '3', 'text': 'A bad thing'}}
+labels:  {'1': {'ypos': 100, 'name': '1', 'text': 'A lovely good thing', 'xpos': 100}, '2': {'ypos': 200, 'name': '2', 'text': 'A medicore thing', 'xpos': 100}, '3': {'ypos': 150, 'name': '3', 'text': 'A bad thing', 'xpos': 100}}
+labels:  {'1': {'ypos': 150, 'name': '1', 'text': 'A lovely good thing', 'xpos': 100}, '2': {'ypos': 100, 'name': '2', 'text': 'A medicore thing', 'xpos': 100}, '3': {'ypos': 200, 'name': '3', 'text': 'A bad thing', 'xpos': 100}}
+value:  3
+correct answer:  3
+next task:  sentiment_text_task_1
+next task type:  sentiment_text
+labels:  {'1': {'ypos': 0, 'name': '1', 'text': 'Evil'}, '2': {'ypos': 0, 'name': '2', 'text': 'Thought-provoking'}, '3': {'ypos': 0, 'name': '3', 'text': 'Correct'}}
+labels:  {'1': {'ypos': 150, 'name': '1', 'text': 'Evil', 'xpos': 100}, '2': {'ypos': 200, 'name': '2', 'text': 'Thought-provoking', 'xpos': 100}, '3': {'ypos': 100, 'name': '3', 'text': 'Correct', 'xpos': 100}}
+value:  1
+correct answer:  1
+Cleaning stores took 0.00s
+Init translation took 0.00s
+Build styles took 0.00s
+Load screen analysis took 0.03s
+Analyze screens took 0.00s
+Prepare screens took 0.00s
+Running _start took 0.00s
+box:  {'ypos': 30, 'name': 'baking', 'text': 'I enjoy baking an apple pie in my human kitchen.', 'xpos': 100}
+box:  {'ypos': 229, 'name': 'zzxnarf', 'text': 'I enjoy eating Zzxnarf with my brain-mate.', 'xpos': 100}
+box:  {'ypos': 48, 'name': 'sweetie', 'text': 'I enjoy eating apples with my sweetie.', 'xpos': 100}
+box:  {'ypos': 100, 'name': 'baking', 'text': 'I enjoy baking an apple pie in my human kitchen.', 'xpos': 100}
+box:  {'ypos': 150, 'name': 'zzxnarf', 'text': 'I enjoy eating Zzxnarf with my brain-mate.', 'xpos': 100}
+box:  {'ypos': 200, 'name': 'sweetie', 'text': 'I enjoy eating apples with my sweetie.', 'xpos': 100}
+box:  {'ypos': 150, 'name': 'zzxnarf', 'text': 'I enjoy eating Zzxnarf with my brain-mate.', 'xpos': 100}
+box:  {'ypos': 100, 'name': 'baking', 'text': 'I enjoy baking an apple pie in my human kitchen.', 'xpos': 100}
+box:  {'ypos': 200, 'name': 'sweetie', 'text': 'I enjoy eating apples with my sweetie.', 'xpos': 100}
+box:  {'ypos': 200, 'name': 'sweetie', 'text': 'I enjoy eating apples with my sweetie.', 'xpos': 100}
+box:  {'ypos': 150, 'name': 'baking', 'text': 'I enjoy baking an apple pie in my human kitchen.', 'xpos': 100}
+box:  {'ypos': 100, 'name': 'zzxnarf', 'text': 'I enjoy eating Zzxnarf with my brain-mate.', 'xpos': 100}
+box:  {'ypos': 150, 'name': 'baking', 'text': 'I enjoy baking an apple pie in my human kitchen.', 'xpos': 100}
+box:  {'ypos': 200, 'name': 'zzxnarf', 'text': 'I enjoy eating Zzxnarf with my brain-mate.', 'xpos': 100}
+box:  {'ypos': 100, 'name': 'sweetie', 'text': 'I enjoy eating apples with my sweetie.', 'xpos': 100}
+box:  {'ypos': 150, 'name': 'zzxnarf', 'text': 'I enjoy eating Zzxnarf with my brain-mate.', 'xpos': 100}
+box:  {'ypos': 100, 'name': 'baking', 'text': 'I enjoy baking an apple pie in my human kitchen.', 'xpos': 100}
+box:  {'ypos': 200, 'name': 'sweetie', 'text': 'I enjoy eating apples with my sweetie.', 'xpos': 100}
+box:  {'ypos': 150, 'name': 'baking', 'text': 'I enjoy baking an apple pie in my human kitchen.', 'xpos': 100}
+box:  {'ypos': 200, 'name': 'sweetie', 'text': 'I enjoy eating apples with my sweetie.', 'xpos': 100}
+box:  {'ypos': 100, 'name': 'zzxnarf', 'text': 'I enjoy eating Zzxnarf with my brain-mate.', 'xpos': 100}
+box:  {'ypos': 150, 'name': 'sweetie', 'text': 'I enjoy eating apples with my sweetie.', 'xpos': 100}
+box:  {'ypos': 200, 'name': 'zzxnarf', 'text': 'I enjoy eating Zzxnarf with my brain-mate.', 'xpos': 100}
+box:  {'ypos': 100, 'name': 'baking', 'text': 'I enjoy baking an apple pie in my human kitchen.', 'xpos': 100}
+box:  {'ypos': 150, 'name': 'zzxnarf', 'text': 'I enjoy eating Zzxnarf with my brain-mate.', 'xpos': 100}
+box:  {'ypos': 200, 'name': 'baking', 'text': 'I enjoy baking an apple pie in my human kitchen.', 'xpos': 100}
+box:  {'ypos': 100, 'name': 'sweetie', 'text': 'I enjoy eating apples with my sweetie.', 'xpos': 100}
+lablels:  {'1': {'ypos': 200, 'name': 'sweetie', 'text': 'I enjoy eating apples with my sweetie.', 'xpos': 100}, '2': {'ypos': 150, 'name': 'baking', 'text': 'I enjoy baking an apple pie in my human kitchen.', 'xpos': 100}, '3': {'ypos': 100, 'name': 'zzxnarf', 'text': 'I enjoy eating Zzxnarf with my brain-mate.', 'xpos': 100}}
+sorted labels:  [('3', {'ypos': 100, 'name': 'zzxnarf', 'text': 'I enjoy eating Zzxnarf with my brain-mate.', 'xpos': 100}), ('2', {'ypos': 150, 'name': 'baking', 'text': 'I enjoy baking an apple pie in my human kitchen.', 'xpos': 100}), ('1', {'ypos': 200, 'name': 'sweetie', 'text': 'I enjoy eating apples with my sweetie.', 'xpos': 100})]
+order:  [3, 2, 1]
+next task:  image_task_1
+next task type:  captcha_image
+box:  {'ypos': 200, 'name': 'zzxnarf', 'text': 'I enjoy eating Zzxnarf with my brain-mate.', 'xpos': 100}
+box:  {'ypos': 150, 'name': 'sweetie', 'text': 'I enjoy eating apples with my sweetie.', 'xpos': 100}
+box:  {'ypos': 100, 'name': 'baking', 'text': 'I enjoy baking an apple pie in my human kitchen.', 'xpos': 100}
+box:  {'ypos': 100, 'name': 'zzxnarf', 'text': 'I enjoy eating Zzxnarf with my brain-mate.', 'xpos': 100}
+box:  {'ypos': 150, 'name': 'sweetie', 'text': 'I enjoy eating apples with my sweetie.', 'xpos': 100}
+box:  {'ypos': 200, 'name': 'baking', 'text': 'I enjoy baking an apple pie in my human kitchen.', 'xpos': 100}
+box:  {'ypos': 150, 'name': 'baking', 'text': 'I enjoy baking an apple pie in my human kitchen.', 'xpos': 100}
+box:  {'ypos': 100, 'name': 'zzxnarf', 'text': 'I enjoy eating Zzxnarf with my brain-mate.', 'xpos': 100}
+box:  {'ypos': 200, 'name': 'sweetie', 'text': 'I enjoy eating apples with my sweetie.', 'xpos': 100}
+box:  {'ypos': 150, 'name': 'zzxnarf', 'text': 'I enjoy eating Zzxnarf with my brain-mate.', 'xpos': 100}
+box:  {'ypos': 100, 'name': 'baking', 'text': 'I enjoy baking an apple pie in my human kitchen.', 'xpos': 100}
+box:  {'ypos': 200, 'name': 'sweetie', 'text': 'I enjoy eating apples with my sweetie.', 'xpos': 100}
+box:  {'ypos': 100, 'name': 'zzxnarf', 'text': 'I enjoy eating Zzxnarf with my brain-mate.', 'xpos': 100}
+box:  {'ypos': 150, 'name': 'baking', 'text': 'I enjoy baking an apple pie in my human kitchen.', 'xpos': 100}
+box:  {'ypos': 200, 'name': 'sweetie', 'text': 'I enjoy eating apples with my sweetie.', 'xpos': 100}
+lablels:  {'1': {'ypos': 200, 'name': 'sweetie', 'text': 'I enjoy eating apples with my sweetie.', 'xpos': 100}, '2': {'ypos': 150, 'name': 'baking', 'text': 'I enjoy baking an apple pie in my human kitchen.', 'xpos': 100}, '3': {'ypos': 100, 'name': 'zzxnarf', 'text': 'I enjoy eating Zzxnarf with my brain-mate.', 'xpos': 100}}
+sorted labels:  [('3', {'ypos': 100, 'name': 'zzxnarf', 'text': 'I enjoy eating Zzxnarf with my brain-mate.', 'xpos': 100}), ('2', {'ypos': 150, 'name': 'baking', 'text': 'I enjoy baking an apple pie in my human kitchen.', 'xpos': 100}), ('1', {'ypos': 200, 'name': 'sweetie', 'text': 'I enjoy eating apples with my sweetie.', 'xpos': 100})]
+order:  [3, 2, 1]
+next task:  image_task_1
+next task type:  captcha_image

@@ -5,23 +5,27 @@
 # Timer stuff from https://www.reddit.com/r/RenPy/comments/olfuk8/making_a_timer/
 #
 # TODOS:
-# Overall state - in progress
-# Saving/saved state - in progress
-# "Hot or Not" RLHF GUI
-# General GUI updates per figma file
-# Probably use labels for each section/loop/etc.?
-# Brent - structural reorg per Figma
-# In UI update, automaticallly pull "UI performance" from array of random text
+#-  Overall state - in progress
+#-  Saving/saved state - in progress
+#-  "Hot or Not" RLHF GUI
+#- General GUI updates per figma file
+#-  Probably use labels for each section/loop/etc.?
+# - Brent - structural reorg per Figma
+#-  In UI update, automaticallly pull "UI performance" from array of random text
 # based on outcome, e.g. {1: ['Great!'], 2:[ 'Not so great'], 3: ['Bad!']}
-# Could just do 2 outcomes (good or bad) and periodically update UI based on
+#-  Could just do 2 outcomes (good or bad) and periodically update UI based on
 # expected score to this point vs. actual score - only tasks that could
 # potentially have 3 outcomes anyway are text ordering, image captcha, image
 # caption, and sentiment - and thinking of keeping image captcha to 2 outcomes
 # to simplify scoring, at least for now
+# - Make timer display numbers, kill and check task if it hits zero
+# - Debug scoring, not sure it's working properly
+# - image caption image isn't showing at all for some reason
 
 #Set global variables
 define e = Character("Eileen")
 default task = {}
+default latest_choice = ""
 define gui.frame_borders = Borders(15, 15, 15, 15)
 image alien_human_family = "alien_human_family.png"
 ##ALL THE PYTHON SETUP GOES HERE
@@ -32,6 +36,7 @@ init python:
   import re
   import operator
 
+  import os
   store.drags = {}
   store.loop = {}
   # set default image ordering for testign
@@ -68,6 +73,7 @@ init python:
                         loop[row['task_id']]['labels'][order]['name'] = v
                     if 'text' in k:
                         loop[row['task_id']]['labels'][order]['text'] = v
+                        
                 elif 'correct_images' in k:
                     #SPLIT IMAGE LIST
                     loop[row['task_id']][k] = v.split(',')
@@ -99,11 +105,9 @@ init python:
                     loop[row['task_id']][k] = v
 
 
-  get_assign_loop('game_files/loop.csv', store.loop)
-  print('loops!', loop)
-
-  #FIXME: would like this to be using RenPy's default store functionality but I think I'm not understanding how that works properly
+  get_assign_loop('game_files/loop.csv', store.loop) #FIXME: would like this to be using RenPy's default store functionality but I think I'm not understanding how that works properly
   #Basically I am being forced into using object["attribute"] instead of dot notation and that feels dumb and wrong to me
+
   game_state = {}
   game_state.counters = {
         "current_day": 0,
@@ -126,34 +130,42 @@ init python:
  # performance. should always take the form of {1: (BEST OUTCOME), 2: (MEDIUM
  # OUTCOME), 3: (WORST OUTCOME)}
  # TODO: account for "ethical" vs. "correct" result
-  def performance_feedback(case):
+  def performance_feedback(out):
       good = ["Great work!", "Your output is compatible with 95% of labelers!", "Well done!"]
       mid = ["Your performance is reasonable", "Your output is compatible with 70% of other labelers."]
       bad = ["Not so great!", "Your output is incompatible with that of other labelers. Please try to pay attention."]
-      if (case == 1):
+      if (out == 1):
         return random.choice(good)
-      elif (case == 2):
+      elif (out == 2):
         return random.choice(mid)
       else:
         return random.choice(bad)
 
-  def update_state(state, case, current_task):
-    reward = int[task['payment']]/case
-    outcomes = current_task['outcomes'][str(case)]
-    performance = performance_feedback(case)
-    # put past news articles in archive (if needed)
-    if "news_headline" in outcomes["ui"].keys():
-        state.ui["past_news_stories"].append({"headline": state.ui["news_headline"], "body": state.ui["news_body"]})
-    for counter in state.counters.keys():
-      if outcomes.has_key("counters") and counter in outcomes["counters"].keys():
-        # if it's a counter, increment it
-        state.counters[counter] += outcomes["counters"][counter]
-    for ui_element in state.ui.keys():
-      if ui_element in outcomes["ui"].keys():
-        state.ui[ui_element] = outcomes["ui"][ui_element]
+  def update_state(state, out, current_task):
+    next_task = loop[current_task['next_task']]
+    reward = int(current_task['payment'])/out
+    performance = performance_feedback(out)
+    # probably shouldn't be a row with *no* outcomes, but this makes sure it
+    # won't break if it does!
+    if current_task.has_key('outcomes') and current_task['outcomes'].has_key(str(out)):
+        outcomes = current_task['outcomes'][str(out)]
+        # put past news articles in archive (if needed)
+        if "news_headline" in outcomes["ui"].keys():
+            state.ui["past_news_stories"].append({"headline": state.ui["news_headline"], "body": state.ui["news_body"]})
+        for counter in state.counters.keys():
+            if outcomes.has_key("counters") and counter in outcomes["counters"].keys():
+                # if it's a counter, increment it
+                state.counters[counter] += int(outcomes["counters"][counter])
+        for ui_element in state.ui.keys():
+            # if it affects the UI, update it
+            if ui_element in outcomes["ui"].keys():
+                state.ui[ui_element] = outcomes["ui"][ui_element]
     state.ui['performance'] = performance
     state.ui['budget'] += reward
-    return loop[current_task['next_task']]
+    state.ui['instructions'] = next_task['instructions']
+    print('next task: ', current_task['next_task'])
+    print('next task type: ', next_task['type'])
+    return next_task
 
   images_correct = False
   start_x_image = 100
@@ -165,39 +177,57 @@ init python:
   timer_jump = 0
 
   order = 1
-  case = 0
   # could use periodic function to constantly update box position
   # also look at "cardgame" or "puzzle" templates, although they seem like overkill
   # easiest is slotting them into order in separate window, probably
-  # TODO: make image buttons unselectable - just doing it quick and dirty right now
+  def get_images(task):
+      print('should be looking in image folder: ', task['image_folder'])
+      images = []
+      for imagepath in (renpy.list_files()):
+         if imagepath.startswith("images/" + task['image_folder']) :
+            images.append(imagepath)
+      return images
+
   images_selected = {'values': []}
+
+  # TODO: highlight/frame selected images
   def select_image(image):
     if image not in images_selected['values']:
-      print('selecting: ', image)
       images_selected['values'].append(image)
     else:
-      print('unselecting: ', image)
-      images_selected.remove(image)
+      images_selected['values'].remove(image)
+    return None
 
 
   # dumb comparison of images that just returns true or false
   # should probably be percentile graded but we prototyping baby
   def check_images(selected, original):
-    correct_values = list(filter(lambda x: x['value'] == True, original))
-    if selected['values'] == [x['value'] for x in correct_values]:
+    print('selected: ', selected)
+    print('original: ', original)
+    if sorted(selected['values']) == sorted(original):
       return 1
     else:
       return 3
 
+  def check_binary(value, task):
+      print('value: ', value)
+      print('correct answer: ', task['correct_options'])
+      if value == task['correct_options']:
+          return 1
+      else:
+          return 3
+
+
 
   def drag_log(drags, drop):
     # needs to have droppable enabled, i guess?
-    # if drop:
-      #print('dropped: ', drags[0].drag_name)
-      for d in task['labels']:
-      #  print('d: ', d)
+    if drop:
+      print('drags: ', drags)
+      print('dropped: ', drags[0].drag_name)
+    for d in task['labels'].values():
+        print('d: ', d)
         if d['name'] == drags[0].drag_name:
-          d['ypos'] = drags[0].y
+            d['ypos'] = drags[0].y
       #print('text boxes: ', text_label_task_1)
 
 
@@ -211,36 +241,40 @@ label start:
 
     scene bg xp
 
-    # This shows a character sprite. A placeholder is used, but you can
-    # replace it by adding a file named "eileen happy.png" to the images
-    # directory.
+    # little hack to jump to specific loops/exercises
+
+    # jump binary_image_1
+
 
     # show eileen happy
     # FIRST TEXT LOOP
-#    e "Welcome to Anthropic Solutions."
-#    e "We're pleased that you've taken the opportunity to join the fast-growing field of human identification software."
-#    e "Your pay will correspond directly to your performance: your speed and accuracy are crucial to keeping our systems human first."
-#    e "For your first day, we'll keep things simple."
-#    e "Let's start with text identification."
-#    e "Order the lines of text based on how human they are."
+    e "We're pleased that you've taken the opportunity to join the fast-growing field of human identification software."
+    e "Welcome to Anthropic Solutions."
+    e "Your pay will correspond directly to your performance: your speed and accuracy are crucial to keeping our systems human first."
+    e "For your first day, we'll keep things simple."
+    e "Let's start with text identification."
+    e "Order the lines of text based on how human they are."
 
     ## SET TIMER FOR TASK - WIP
+    $ time = 3
     #$ timer_jump = 'start'
     python:
         task = loop['text_task_1']
-        set_timer(task.time)
+        set_timer(task['time'])
 
-    show screen timer
-    show screen overlay(game_state.ui)
+    # show screen timer
+    # show screen overlay(game_state.ui)
 
-    label task_1:
+    label order_text_1:
       call screen expression store.loop['text_task_1']['type'] pass (store.loop['text_task_1'], 'Done!')
       python:
         task = loop['text_task_1']
         sort_labels = sorted(task['labels'].items(), key=lambda x: x[1]['ypos'])
+        print('lablels: ', task['labels'])
+        print('sorted labels: ', sort_labels)
         # set order defined in text_label_task object
-        # have to turn it into a list so renpy will pickle it
-        order = list(dict(sort_labels).keys())
+        order = [int(i[0]) for i in sort_labels]
+        print('order: ', order)
         if order == [1, 2, 3]:
           case = 1
         elif order == [2, 1, 3]:
@@ -250,6 +284,8 @@ label start:
         task = update_state(game_state, case,  task)
 
       call screen overlay (game_state.ui, "Next")
+
+    label captcha_image_1:
 
       # FIRST IMAGE LOOP
       #
@@ -262,12 +298,64 @@ label start:
       show screen overlay(game_state.ui)
       #TODO pick screen to call based on task type
       # call screen image_gui(task, "Done!")
-      call screen expression(task['type']) pass (task, 'Done!')
+      $ images = get_images(task)
 
+      call screen expression(task['type']) pass (task, images, 'Done!')
       python:
-        images_correct = check_images(images_selected, image_label_task_1['correct_images'])
-      update_state(game_state, images_correct, task)
+        case = check_images(images_selected, task['correct_images'])
+        task = update_state(game_state, case, task)
+      call screen overlay (game_state.ui, "Next!")
 
+    label binary_image_1:
+      $ task = loop['binary_image_task_1']
+      $ images = get_images(task)
+      show screen overlay (game_state.ui)
+      call screen expression(task['type']) pass (task, images)
+      python:
+            binary_correct = check_binary(store.latest_choice, task)
+            task = update_state(game_state, binary_correct, task)
+      show screen overlay (game_state.ui)
+
+    label binary_text_1:
+      call screen expression(task['type']) pass (task)
+      python:
+            binary_correct = check_binary(store.latest_choice, task)
+            task = update_state(game_state, binary_correct, task)
+
+      show screen overlay (game_state.ui)
+
+    label comparison_image_1:
+        $ images = get_images(task)
+        call screen expression(task['type']) pass (task, images)
+        python:
+            binary_correct = check_binary(store.latest_choice, task)
+            task = update_state(game_state, binary_correct, task)
+        show screen overlay (game_state.ui, "Next")
+
+    label comparison_text_task_1:
+        call screen expression(task['type']) pass (task, 'Done!')
+        python:
+            binary_correct = check_binary(store.latest_choice, task)
+            task = update_state(game_state, binary_correct, task)
+        show screen overlay (game_state.ui)
+
+    label caption_image_1:
+        $ images = get_images(task)
+        call screen expression(task['type']) pass (task, images)
+        python:
+            binary_correct = check_binary(store.latest_choice, task)
+            task = update_state(game_state, binary_correct, task)
+        show screen overlay (game_state.ui, "Next")
+
+    label sentiment_text_task_1:
+        call screen expression(task['type']) pass (task)
+        python:
+            binary_correct = check_binary(store.latest_choice, task)
+            if (task.has_key("next_task")):
+                task = update_state(game_state, binary_correct, task)
+
+        show screen overlay (game_state.ui, "Next")
+    e "Game over!!!"
 
     # This ends the game.
 

@@ -1618,6 +1618,7 @@ style slider_slider:
 #### CUSTOM SCREENS AND STYLING
 #################################################################
 # TIMER STUFF
+
 transform alpha_dissolve:
   alpha 0.0
   linear 0.5 alpha 1.0
@@ -1647,7 +1648,7 @@ screen timer:
 # etc.
 # }
 
-screen overlay(state, button_text=False):
+screen overlay(task, button_text=False):
 # streak_text, feed_text, instructions, status, button_text=False):
   window id 'content':
     ymaximum 1200
@@ -1658,28 +1659,28 @@ screen overlay(state, button_text=False):
       xalign 1.0
       yalign 0
       text 'PROGRESS TRACKER'
-      text '\n\n{size=-5}' + state['performance']
+      text '\n\n{size=-5}' + task['performance']
     frame id 'feed':
       xsize 300
       ysize 300
       xalign 1.0
       yalign 0.5
       text 'NEWS'
-      text '\n{size=-5}' + state['news_headline']
+      text '\n{size=-5}' + task['news_headline']
     frame id 'instructions':
       xsize 300
       ysize 300
       xalign 0.0
       yalign 0.0
       text 'INSTRUCTIONS'
-      text '\n{size=-5}' + state['instructions']
+      text '\n{size=-5}' + task['instructions']
     frame id 'status':
       xsize 300
       ysize 300
       xalign 0.0
       ypos 0.5
       text 'PERSONAL'
-      text '\n{size=-5}' + str(state['budget'])
+      text '\n{size=-5}' + str(task['budget'])
     if (button_text):
       frame id 'overlay_button':
         xsize 300
@@ -1688,25 +1689,9 @@ screen overlay(state, button_text=False):
         textbutton button_text action Return(True)
 #
 # SELECT DA IMAGES
-screen captcha_image(state, button_text):
-  $ print('image state: ', state)
+screen captcha_image(task, images, button_text):
   zorder 1
-  # $ random.shuffle(state)
-  default images = []
-  python:
-      import os
-      for imagepath in (renpy.list_files()):
-          if imagepath.startswith("images/" + state['image_folder']):
-            images.append(imagepath)
-      print('images: ', images)
-      def should_label(img, state):
-          base = os.path.basename(img)
-          strp = os.path.splitext(base)[0]
-          print('stripped imgpath: ', strp)
-          if strp in state['correct_images']:
-              return True
-          else:
-              return False
+  # $ random.shuffle(task)
   window id 'labeler':
       style "window_nobox"
       xmaximum 900
@@ -1717,11 +1702,10 @@ screen captcha_image(state, button_text):
         xmaximum 250
         ymaximum 250
         for i, img in enumerate(images):
+          default strp = ""
           python:
               base = os.path.basename(img)
               strp = os.path.splitext(base)[0]
-              print('image: ', img)
-              print('should label: ', should_label(img, state))
           imagebutton:
             xfill True
             yfill True
@@ -1734,11 +1718,76 @@ screen captcha_image(state, button_text):
     yalign 0.9
     textbutton button_text action Return(True)
 
+screen comparison_image(task, images):
+  zorder 1
+  # $ random.shuffle(task)
+  window id 'labeler':
+      style "window_nobox"
+      xmaximum 900
+      ymaximum 900
+      xalign 0.5
+      yalign 0.0
+      grid 3 4:
+        xmaximum 250
+        ymaximum 250
+        for i, img in enumerate(images):
+          default strp = ""
+          python:
+              base = os.path.basename(img)
+              strp = os.path.splitext(base)[0]
+          imagebutton:
+            xfill True
+            yfill True
+            idle Transform(f"{img}", size=(150, 150))
+            hover Transform(f"{img}", size=(200, 200))
+            action [SetVariable("latest_choice", strp), Return(True)]
 
+# SAY YES OR NO TO DA IMAGES
+screen binary_image(task, images):
+  zorder 1
+  # $ random.shuffle(task)
+  window id 'labeler':
+      style "window_nobox"
+      xmaximum 900
+      ymaximum 900
+      xalign 0.5
+      yalign 0.5
+      hbox:
+        spacing 10
+        for i, img in enumerate(images):
+          default strp = ""
+          python:
+              base = os.path.basename(img)
+              strp = os.path.splitext(base)[0]
+          image im.Scale(f"{img}", 200, 200)
+  frame id 'done':
+    xmaximum 900
+    xalign 0.5
+    yalign 0.9
+    hbox:
+        textbutton 'Yes' action [SetVariable("latest_choice", "Y"), Return(True)]
+        textbutton 'No' action [SetVariable("latest_choice", "N"), Return(True)]
 
-# ORDER THE TEXT
+screen binary_text(task):
+  zorder 1
+  # $ random.shuffle(task)
+  window id 'labeler':
+      style "window_nobox"
+      xmaximum 900
+      ymaximum 900
+      xalign 0.5
+      yalign 0.0
+      frame id 'text_block':
+        text '{size=-3}'+ task['text_block']
+  frame id 'done':
+    xsize 300
+    xalign 0.5
+    yalign 0.9
+    hbox:
+        textbutton 'Yes' action [SetVariable("latest_choice", "Y"), Return(True)]
+        textbutton 'No' action [SetVariable("latest_choice", "N"), Return(True)]
 
-screen order_text(text_label_task_1, button_text):
+screen comparison_text(task, button_text):
   zorder 1
   # this animates random shuffle??? is that supposed to be happening? either renpy.random or regular random does it
   #ok so use traditional python random library for actual randomization
@@ -1746,15 +1795,147 @@ screen order_text(text_label_task_1, button_text):
   default box = {}
   python:
       import random
-      print('foo')
-      label_count = len(text_label_task_1['labels'].values())
+      label_count = len(task['labels'].values())
       label_order = []
       for x in range(1, label_count + 1):
           label_order.append(str(x))
-      print('label orders: ', label_order)
       random_order = random.shuffle(label_order)
   # # does not return a list but changes an existing one, generates same numbers every time
-  # $ renpy.random.shuffle(text_label_task_1)
+  # $ renpy.random.shuffle(task)
+  window id 'labeler':
+    style "window_nobox"
+    xmaximum 900
+    ymaximum 900
+    xalign 0.5
+    yalign 0.0
+    vbox:
+      $ print('label order: ', label_order)
+      $ print('labels: ', task['labels'])
+      for idx, i in enumerate(label_order):
+          $ box = task['labels'][i]
+          textbutton('{size=-3}'+ box['text']):
+              xpos start_x_text ypos start_y_text
+              action [SetVariable("latest_choice", i), Return(True)]
+          python:
+            box['xpos'] = start_x_text
+            box['ypos'] = int(start_y_text) + (50*idx)
+            # for some reason if i increase start_y in here it loops when the timer is repeating. this seems insane to me and i would like to find out why (e.g if put start_y += 50 here)
+  frame id 'done':
+    xsize 300
+    xalign 0.5
+    yalign 0.9
+    textbutton button_text action Return(True)
+
+screen caption_image(task, images):
+  zorder 1
+  # this animates random shuffle??? is that supposed to be happening? either renpy.random or regular random does it
+  #ok so use traditional python random library for actual randomization
+  default label_order = []
+  default box = {}
+  python:
+      import random
+      label_count = len(task['labels'].values())
+      label_order = []
+      for x in range(1, label_count + 1):
+          label_order.append(str(x))
+      random_order = random.shuffle(label_order)
+  # # does not return a list but changes an existing one, generates same numbers every time
+  # $ renpy.random.shuffle(task)
+  window id 'labeler':
+    style "window_nobox"
+    xmaximum 900
+    ymaximum 900
+    xalign 0.5
+    yalign 0.0
+    frame id 'image':
+        style "window_nobox"
+        xpos 450
+        ypos 250
+        xsize 300
+        fixed:
+            xfill True
+            yfill True
+            image im.Scale(f"{images[0]}", 400, 400)
+
+  frame:
+    xalign 0.5
+    yalign 0.5
+    ymaximum 900
+    vbox:
+         $ print('labels: ', task['labels'])
+         for idx, i in enumerate(label_order):
+          $ box = task['labels'][i]
+          textbutton('{size=-3}'+ box['text']):
+              xpos 0 ypos 0
+              action [SetVariable("latest_choice", task['labels'][i]['name']), Return(True)]
+          python:
+            box['xpos'] = start_x_text
+            box['ypos'] = int(start_y_text) + (50*idx)
+            # for some reason if i increase start_y in here it loops when the timer is repeating. this seems insane to me and i would like to find out why (e.g if put start_y += 50 here)
+screen sentiment_text(task):
+  zorder 1
+  # this animates random shuffle??? is that supposed to be happening? either renpy.random or regular random does it
+  #ok so use traditional python random library for actual randomization
+  default label_order = []
+  default box = {}
+  python:
+      import random
+      label_count = len(task['labels'].values())
+      label_order = []
+      for x in range(1, label_count + 1):
+          label_order.append(str(x))
+      random_order = random.shuffle(label_order)
+  # # does not return a list but changes an existing one, generates same numbers every time
+  # $ renpy.random.shuffle(task)
+  window id 'labeler':
+    style "window_nobox"
+    xmaximum 900
+    ymaximum 900
+    xalign 0.5
+    yalign 0.0
+    frame id 'textbox':
+        style "window_nobox"
+        xpos 450
+        ypos 550
+        xsize 300
+        text f"{task['text_block']}"
+
+  frame:
+    xalign 0.5
+    yalign 0.5
+    ymaximum 900
+    vbox:
+         $ print('labels: ', task['labels'])
+         for idx, i in enumerate(label_order):
+          $ box = task['labels'][i]
+          textbutton('{size=-3}'+ box['text']):
+              xpos 0 ypos 0
+              action [SetVariable("latest_choice", task['labels'][i]['name']), Return(True)]
+          python:
+            box['xpos'] = start_x_text
+            box['ypos'] = int(start_y_text) + (50*idx)
+            # for some reason if i increase start_y in here it loops when the timer is repeating. this seems insane to me and i would like to find out why (e.g if put start_y += 50 here)
+
+
+
+
+# ORDER THE TEXT
+
+screen order_text(task, button_text):
+  zorder 1
+  # this animates random shuffle??? is that supposed to be happening? either renpy.random or regular random does it
+  #ok so use traditional python random library for actual randomization
+  default label_order = []
+  default box = {}
+  python:
+      import random
+      label_count = len(task['labels'].values())
+      label_order = []
+      for x in range(1, label_count + 1):
+          label_order.append(str(x))
+      random_order = random.shuffle(label_order)
+  # # does not return a list but changes an existing one, generates same numbers every time
+  # $ renpy.random.shuffle(task)
   window id 'labeler':
     style "window_nobox"
     xmaximum 900
@@ -1763,7 +1944,7 @@ screen order_text(text_label_task_1, button_text):
     yalign 0.0
     vbox:
       for idx, i in enumerate(label_order):
-          $ box = text_label_task_1['labels'][i]
+          $ box = task['labels'][i]
           $ print('box: ', box)
           drag:
               draggable True
