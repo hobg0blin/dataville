@@ -1668,7 +1668,6 @@ screen instructions(task):
       ysize 275
       xalign 0.1
       yalign 0.3
-      $ print('task: ', task['instructions'])
       text '{size=-5}' + task['instructions']
 
  
@@ -1721,8 +1720,6 @@ screen captcha_image(task, images, button_text):
               selected_image = im.Grayscale(f"{img}")
               def check_selected(img):
                 if img in images_selected['values']:
-                  print('img: ', img)
-                  print('images selected: ', images_selected)
                   return True
                 else:
                   return False

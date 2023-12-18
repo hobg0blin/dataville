@@ -178,7 +178,6 @@ init python:
     state.ui['performance'] = performance
     state.ui['budget'] += reward
     state.ui['instructions'] = next_task['instructions']
-    print("updated state: ", state)
     return next_task
 
   images_correct = False
@@ -234,7 +233,6 @@ init python:
     for d in task['labels'].values():
         if d['name'] == drags[0].drag_name:
             d['ypos'] = drags[0].y
-    print('drags: ', drags)
 
 
 # The game starts here.
@@ -318,7 +316,6 @@ label start:
       python:
         task = loop['text_task_1']
         sort_labels = sorted(task['labels'].items(), key=lambda x: x[1]['ypos'])
-        print('sort labels: ', sort_labels)
         # set order defined in text_label_task object
         order = [int(i[0]) for i in sort_labels]
         if order == [1, 2, 3]:
