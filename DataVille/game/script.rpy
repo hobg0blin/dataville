@@ -26,11 +26,17 @@
 
 
 #Set global variables
-define e = Character("Eileen")
+define m = Character("Me")
 default task = {}
 default latest_choice = ""
 define gui.frame_borders = Borders(15, 15, 15, 15)
-image alien_human_family = "alien_human_family.png"
+init: 
+  image alien_human_family = "alien_human_family.png"
+  image dark_green = Solid("#136366")
+  image bg black = Solid("#000000")
+  image supervisor = "supervisor.png"
+  image side supervisor = "supervisor.png"
+  define e = Character("Alex T.", image="supervisor", kind=bubble)
 ##ALL THE PYTHON SETUP GOES HERE
 init python:
   import random
@@ -166,15 +172,14 @@ init python:
     state.ui['performance'] = performance
     state.ui['budget'] += reward
     state.ui['instructions'] = next_task['instructions']
-    print('next task: ', current_task['next_task'])
-    print('next task type: ', next_task['type'])
+    print("updated state: ", state)
     return next_task
 
   images_correct = False
   start_x_image = 100
-  start_y_image = 100
+  start_y_image = 300
   start_x_text = 100
-  start_y_text = 100
+  start_y_text = 300
   # timer stuff
   timer_range = 0
   timer_jump = 0
@@ -184,7 +189,6 @@ init python:
   # also look at "cardgame" or "puzzle" templates, although they seem like overkill
   # easiest is slotting them into order in separate window, probably
   def get_images(task):
-      print('should be looking in image folder: ', task['image_folder'])
       images = []
       for imagepath in (renpy.list_files()):
          if imagepath.startswith("images/" + task['image_folder']) :
@@ -205,16 +209,12 @@ init python:
   # dumb comparison of images that just returns true or false
   # should probably be percentile graded but we prototyping baby
   def check_images(selected, original):
-    print('selected: ', selected)
-    print('original: ', original)
     if sorted(selected['values']) == sorted(original):
       return 1
     else:
       return 3
 
   def check_binary(value, task):
-      print('value: ', value)
-      print('correct answer: ', task['correct_options'])
       if value == task['correct_options']:
           return 1
       else:
@@ -224,14 +224,10 @@ init python:
 
   def drag_log(drags, drop):
     # needs to have droppable enabled, i guess?
-    if drop:
-      print('drags: ', drags)
-      print('dropped: ', drags[0].drag_name)
+    # if drop:
     for d in task['labels'].values():
-        print('d: ', d)
         if d['name'] == drags[0].drag_name:
             d['ypos'] = drags[0].y
-      #print('text boxes: ', text_label_task_1)
 
 
 # The game starts here.
@@ -241,43 +237,81 @@ label start:
     # Show a background. This uses a placeholder by default, but you can
     # add a file (named either "bg room.png" or "bg room.jpg") to the
     # images directory to show it.
+    image bg start_screen = im.FactorScale("images/intro_desk.jpg", 1.5)
+    scene bg start_screen
+    pause
+    label intro:
+      scene bg black
+      "The year is 2055."
+      "A lot has changed in the past 20 years."
+      "With the rise of generative AI in the 2020s, the economy shifted drastically."
+      "A significant number of formerly stable white collar jobs disappeared, and millions found themselves out of work."
+      "Instead, we found ourselves doing gig labor to survive."
+      "And the most popular gig of all became data labeling: helping train and improve the algorithms that had replaced us."
+      "In 2035, the aliens made first contact with us."
+      "There was no colony ship, no armies marching on our unprotected world."
+      "Just little, rundown ships, landing haphazardly across the world, their occupants looking for nothing more than a place of refuge."
+      "Their world had been devastated by solar flares, and those who managed to escape made their way to the closest habitable world."
+      "For the last twenty years, the refugee crisis has been the primary political issue in every country across the world."
+      "With a decimated middle class, and most of the world barely able to support themselves, many believe we should send the aliens back to where they came from."
+      "The younger generations, however, believe it's our duty as a species to welcome them into the fold."
+      "Despite these increasingly at-odds factions, we've managed to maintain an uneasy peace so far."
+      "The aliens have no legal status as citizens, and most of them live in refugee camps outside of the major metropolises."
+      "Their technology, culture and cuisine have managed to make it into the mainstream."
+      "And there are even humans who have found love among their numbers - the first generation of metahumans is now coming of age."
+      "Against this backdrop, the fifth UN convention on Alien-Human relations is fast approaching."
+      "Will aliens finally be recognized as citizens? Will they be sent away? Or will the status quo remain the same?"
+      "These are the questions on everyone's mind. But you have something even more pressing to deal with."
+      "You have to pay your rent."
 
-    scene bg xp
+      #TODO:
+      #how to interface with news/text in downtime
+      image bg apartment_1 = im.FactorScale("images/apartment/apartment_1.jpg", 1.5)
+      scene bg apartment_1
+      m "It's my first day at my new job."
+      m "They've given me a place to stay, and they say if I perform well I'll get even more perks."
+      m "Time to boot up my work computer and start the day, I guess!"
+    show dataville_intro
+    pause
+    show hiring_detail
+    pause
+    image bg overlay_background = Solid('#EFF3E6')
+    scene bg overlay_background
 
     # little hack to jump to specific loops/exercises
 
-    jump binary_image_1
+ #   jump binary_image_1
+    
 
-
-    # show eileen happy
     # FIRST TEXT LOOP
+    show screen supervisor
+    window hide
     e "We're pleased that you've taken the opportunity to join the fast-growing field of human identification software."
     e "Welcome to Anthropic Solutions."
     e "Your pay will correspond directly to your performance: your speed and accuracy are crucial to keeping our systems human first."
     e "For your first day, we'll keep things simple."
     e "Let's start with text identification."
     e "Order the lines of text based on how human they are."
+    hide screen supervisor
 
     ## SET TIMER FOR TASK - WIP
+    # TODO: SHOW TIMER IN SECONDS
     $ time = 3
     #$ timer_jump = 'start'
     python:
         task = loop['text_task_1']
         set_timer(task['time'])
 
-    # show screen timer
-    # show screen overlay(game_state.ui)
+    show screen timer
+    show screen overlay(game_state.ui)
 
     label order_text_1:
       call screen expression store.loop['text_task_1']['type'] pass (store.loop['text_task_1'], 'Done!')
       python:
         task = loop['text_task_1']
         sort_labels = sorted(task['labels'].items(), key=lambda x: x[1]['ypos'])
-        print('lablels: ', task['labels'])
-        print('sorted labels: ', sort_labels)
         # set order defined in text_label_task object
         order = [int(i[0]) for i in sort_labels]
-        print('order: ', order)
         if order == [1, 2, 3]:
           case = 1
         elif order == [2, 1, 3]:
@@ -287,6 +321,9 @@ label start:
         task = update_state(game_state, case,  task)
 
       call screen overlay (game_state.ui, "Next")
+
+    #TODO: Clear instructions in between tasks
+    #TODO: Have manager/AI assistant give feedback, performance in UI should just be score (or nothing?)
 
     label captcha_image_1:
 
@@ -307,6 +344,7 @@ label start:
       python:
         case = check_images(images_selected, task['correct_images'])
         task = update_state(game_state, case, task)
+      #TODO: clear instruction text in between tasks - call overlay twice?
       call screen overlay (game_state.ui, "Next!")
 
     label binary_image_1:
@@ -358,6 +396,7 @@ label start:
                 task = update_state(game_state, binary_correct, task)
 
         show screen overlay (game_state.ui, "Next")
+    #TODO: SHOW DIFF APARTMENT BASED ON STATE
     e "Game over!!!"
 
     # This ends the game.

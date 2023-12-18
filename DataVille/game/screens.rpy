@@ -1,9 +1,5 @@
 ﻿################################################################################
-## Initialization
-################################################################################
-
-init offset = -1
-
+## Initialization ############################################################################### init offset = -1
 
 ################################################################################
 ## Styles
@@ -169,6 +165,7 @@ style say_dialogue:
     ypos gui.dialogue_ypos
 
     adjust_spacing False
+
 
 ## Input screen ################################################################
 ##
@@ -1618,13 +1615,18 @@ style slider_slider:
 #### CUSTOM SCREENS AND STYLING
 #################################################################
 # TIMER STUFF
+#
+
 
 transform alpha_dissolve:
   alpha 0.0
   linear 0.5 alpha 1.0
   on hide:
     linear 0.5 alpha 0
-
+transform speech_bubble:
+  xalign 0.3
+  yalign 0.75
+  
 screen timer:
   zorder 10
   vbox:
@@ -1646,41 +1648,49 @@ screen timer:
 # { streak_text: 'less nice'
 # }
 # etc.
-# }
+# }j
 
+screen supervisor:
+   window id 'content':
+    ymaximum 1200
+    xmaximum 1600
+    frame id 'status_bar':
+      background "#136366"
+      has hbox
+      xsize 1600
+      image "images/logo_white.png"
+    hbox id 'supervisor':
+      xalign 0.3
+      yalign 0.75
+      image "images/supervisor.png"
+
+ 
 screen overlay(task, button_text=False):
 # streak_text, feed_text, instructions, status, button_text=False):
   window id 'content':
     ymaximum 1200
     xmaximum 1600
-    frame id 'streak':
-      xsize 300
+    frame id 'status_bar':
+      background "#136366"
+      has hbox
+      xsize 1600
+      image "images/logo_white.png"
+#TODO: just track number of tasks here
+#      text 'Performance:' + '\n{size=-5}' + task['performance']
+      text 'Earnings:' +'{size=-5}' + str(task['budget'])
+    hbox id 'aiden':
+      xsize 500
       ysize 300
-      xalign 1.0
-      yalign 0
-      text 'PROGRESS TRACKER'
-      text '\n\n{size=-5}' + task['performance']
-    frame id 'feed':
-      xsize 300
+      yalign 0.75
+      xalign 0
+      image "images/icons/asst_normal.png"
+      text 'Performance:' + '\n{size=-5}' + task['performance']
+    vbox id 'instructions':
+      xsize 500
       ysize 300
-      xalign 1.0
-      yalign 0.5
-      text 'NEWS'
-      text '\n{size=-5}' + task['news_headline']
-    frame id 'instructions':
-      xsize 300
-      ysize 300
-      xalign 0.0
-      yalign 0.0
-      text 'INSTRUCTIONS'
-      text '\n{size=-5}' + task['instructions']
-    frame id 'status':
-      xsize 300
-      ysize 300
-      xalign 0.0
-      ypos 0.5
-      text 'PERSONAL'
-      text '\n{size=-5}' + str(task['budget'])
+      xalign 0.5
+      yalign 0.2
+      text '{size=-5}' + task['instructions']
     if (button_text):
       frame id 'overlay_button':
         xsize 300
@@ -1692,15 +1702,15 @@ screen overlay(task, button_text=False):
 screen captcha_image(task, images, button_text):
   zorder 1
   # $ random.shuffle(task)
-  window id 'labeler':
+  window id 'labeler': 
       style "window_nobox"
       xmaximum 900
       ymaximum 900
-      xalign 0.5
-      yalign 0.0
+      xalign 0.65
+      yalign 0.8
       grid 3 4:
-        xmaximum 250
-        ymaximum 250
+        xmaximum 200
+        ymaximum 200
         for i, img in enumerate(images):
           default strp = ""
           python:
@@ -1708,9 +1718,8 @@ screen captcha_image(task, images, button_text):
               strp = os.path.splitext(base)[0]
           imagebutton:
             xfill True
-            yfill True
-            idle Transform(f"{img}", size=(150, 150))
-            hover Transform(f"{img}", size=(200, 200))
+            yfill True idle Transform(f"{img}", size=(150, 150))
+            hover Transform(f"{img}", size=(175, 175))
             action Function(select_image, strp)
   frame id 'done':
     xsize 300
@@ -1724,12 +1733,12 @@ screen comparison_image(task, images):
   window id 'labeler':
       style "window_nobox"
       xmaximum 900
-      ymaximum 900
-      xalign 0.5
-      yalign 0.0
+      ymaximum 1600
+      xalign 0.75
+      yalign 1.0
       grid 3 4:
-        xmaximum 250
-        ymaximum 250
+        xmaximum 200
+        ymaximum 200
         for i, img in enumerate(images):
           default strp = ""
           python:
@@ -1750,7 +1759,7 @@ screen binary_image(task, images):
       style "window_nobox"
       xmaximum 900
       ymaximum 900
-      xalign 0.5
+      xalign 0.75
       yalign 0.5
       hbox:
         spacing 10
@@ -1775,9 +1784,9 @@ screen binary_text(task):
       style "window_nobox"
       xmaximum 900
       ymaximum 900
-      xalign 0.5
-      yalign 0.0
-      frame id 'text_block':
+      xalign 0.75
+      yalign 0.5
+      vbox id 'text_block':
         text '{size=-3}'+ task['text_block']
   frame id 'done':
     xsize 300
@@ -1807,10 +1816,8 @@ screen comparison_text(task, button_text):
     xmaximum 900
     ymaximum 900
     xalign 0.5
-    yalign 0.0
+    yalign 0.25
     vbox:
-      $ print('label order: ', label_order)
-      $ print('labels: ', task['labels'])
       for idx, i in enumerate(label_order):
           $ box = task['labels'][i]
           textbutton('{size=-3}'+ box['text']):
@@ -1820,11 +1827,11 @@ screen comparison_text(task, button_text):
             box['xpos'] = start_x_text
             box['ypos'] = int(start_y_text) + (50*idx)
             # for some reason if i increase start_y in here it loops when the timer is repeating. this seems insane to me and i would like to find out why (e.g if put start_y += 50 here)
-  frame id 'done':
-    xsize 300
-    xalign 0.5
-    yalign 0.9
-    textbutton button_text action Return(True)
+#  frame id 'done':
+#    xsize 300
+#    xalign 0.5
+#    yalign 0.9
+#    textbutton button_text action Return(True)
 
 screen caption_image(task, images):
   zorder 1
@@ -1846,23 +1853,22 @@ screen caption_image(task, images):
     xmaximum 900
     ymaximum 900
     xalign 0.5
-    yalign 0.0
+    yalign 0.5
     frame id 'image':
         style "window_nobox"
-        xpos 450
-        ypos 250
-        xsize 300
+        xpos 350
+        ypos 75
+        xsize 200
         fixed:
             xfill True
             yfill True
-            image im.Scale(f"{images[0]}", 400, 400)
+            image im.Scale(f"{images[0]}", 300, 300)
 
   frame:
     xalign 0.5
-    yalign 0.5
+    yalign 0.65
     ymaximum 900
     vbox:
-         $ print('labels: ', task['labels'])
          for idx, i in enumerate(label_order):
           $ box = task['labels'][i]
           textbutton('{size=-3}'+ box['text']):
@@ -1905,7 +1911,6 @@ screen sentiment_text(task):
     yalign 0.5
     ymaximum 900
     vbox:
-         $ print('labels: ', task['labels'])
          for idx, i in enumerate(label_order):
           $ box = task['labels'][i]
           textbutton('{size=-3}'+ box['text']):
@@ -1945,7 +1950,6 @@ screen order_text(task, button_text):
     vbox:
       for idx, i in enumerate(label_order):
           $ box = task['labels'][i]
-          $ print('box: ', box)
           drag:
               draggable True
               drag_name box['name']

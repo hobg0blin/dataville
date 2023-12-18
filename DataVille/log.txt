@@ -1,22 +1,41 @@
-Mon Oct  9 14:02:38 2023
-Linux-6.2.0-34-generic-x86_64-with-glibc2.35
+Mon Dec 18 14:44:34 2023
+Linux-6.2.0-39-generic-x86_64-with-glibc2.35
 Ren'Py 8.1.3.23091805
  
 
 Bootstrap to the start of init.init. took 0.03s
 Early init. took 0.00s
 Loader init. took 0.00s
-Loading error handling. took 0.03s
-Loading script. took 0.18s
+Loading error handling. took 0.02s
+Loading script. took 0.15s
 Loading save slot metadata. took 0.02s
 Loading persistent. took 0.00s
-
-File "game/script.rpy", line 61: Indentation mismatch.
+Running init code. took 0.03s
+Loading analysis data. took 0.01s
+Analyze and compile ATL. took 0.00s
+Reloading save slot metadata. took 0.01s
+Index archives took 0.00s
+Dump and make backups. took 0.03s
+Cleaning cache. took 0.00s
+Making clean stores. took 0.00s
+Initial gc. took 0.01s
 DPI scale factor: 1.000000
-Interface start. took 0.16s
+Creating interface object. took 0.00s
+Cleaning stores took 0.00s
+Init translation took 0.02s
+Build styles took 0.00s
+Load screen analysis took 0.02s
+Analyze screens took 0.00s
+Save screen analysis took 0.00s
+Prepare screens took 0.05s
+Save pyanalysis. took 0.00s
+Save bytecode. took 0.02s
+Running _start took 0.00s
+Performance test:
+Interface start. took 0.09s
 
 Initializing gl2 renderer:
-primary display bounds: (1920, 226, 1920, 1080)
+primary display bounds: (1920, 0, 2560, 1440)
 swap interval: 1 frames
 Windowed mode.
 Vendor: "b'Intel'"
@@ -25,14 +44,150 @@ Version: b'4.6 (Compatibility Profile) Mesa 23.0.4-0ubuntu1~22.04.1'
 Display Info: None
 Screen sizes: virtual=(1920, 1080) physical=(1244, 700) drawable=(1244, 700)
 Maximum texture size: 4096x4096
-Screen sizes: virtual=(1920, 1080) physical=(1850, 1009) drawable=(1850, 1009)
+Screen sizes: virtual=(1920, 1080) physical=(2490, 1369) drawable=(2490, 1369)
 Maximum texture size: 4096x4096
 Resetting cache.
-Bootstrap to the start of init.init. took 37.91s
+Bootstrap to the start of init.init. took 22.41s
 Early init. took 0.00s
 Loader init. took 0.00s
 Loading error handling. took 0.02s
+Loading script. took 0.10s
+Loading save slot metadata. took 0.01s
+Loading persistent. took 0.00s
+Running init code. took 0.02s
+Loading analysis data. took 0.01s
+Analyze and compile ATL. took 0.00s
+Reloading save slot metadata. took 0.01s
+Index archives took 0.00s
+Backing up script files to '/home/brent/.renpy/backups/DataVille':
+Dump and make backups. took 0.03s
+Cleaning cache. took 0.00s
+Making clean stores. took 0.00s
+Initial gc. took 0.02s
+DPI scale factor: 1.000000
+Creating interface object. took 0.00s
+Cleaning stores took 0.00s
+Init translation took 0.02s
+Build styles took 0.00s
+Load screen analysis took 0.00s
+Analyze screens took 0.01s
+Save screen analysis took 0.01s
+Prepare screens took 0.05s
+Save pyanalysis. took 0.00s
+Save bytecode. took 0.01s
+Running _start took 0.00s
+Performance test:
+Interface start. took 0.03s
+
+Initializing gl2 renderer:
+primary display bounds: (1920, 0, 2560, 1440)
+swap interval: 1 frames
+Windowed mode.
+Vendor: "b'Intel'"
+Renderer: b'Mesa Intel(R) UHD Graphics (CML GT2)'
+Version: b'4.6 (Compatibility Profile) Mesa 23.0.4-0ubuntu1~22.04.1'
+Display Info: None
+Screen sizes: virtual=(1920, 1080) physical=(2490, 1369) drawable=(2490, 1369)
+Maximum texture size: 4096x4096
+Resetting cache.
+Bootstrap to the start of init.init. took 34.67s
+Early init. took 0.00s
+Loader init. took 0.00s
+Loading error handling. took 0.01s
+Loading script. took 0.08s
+Loading save slot metadata. took 0.01s
+Loading persistent. took 0.00s
+Running init code. took 0.02s
+Loading analysis data. took 0.01s
+Analyze and compile ATL. took 0.00s
+Reloading save slot metadata. took 0.01s
+Index archives took 0.00s
+Backing up script files to '/home/brent/.renpy/backups/DataVille':
+Dump and make backups. took 0.03s
+Cleaning cache. took 0.00s
+Making clean stores. took 0.00s
+Initial gc. took 0.03s
+DPI scale factor: 1.000000
+Creating interface object. took 0.00s
+Cleaning stores took 0.00s
+Init translation took 0.03s
+Build styles took 0.00s
+Load screen analysis took 0.00s
+Analyze screens took 0.02s
+Save screen analysis took 0.02s
+Prepare screens took 0.06s
+Save pyanalysis. took 0.00s
+Save bytecode. took 0.01s
+Running _start took 0.00s
+Performance test:
+Interface start. took 0.03s
+
+Initializing gl2 renderer:
+primary display bounds: (1920, 0, 2560, 1440)
+swap interval: 1 frames
+Windowed mode.
+Vendor: "b'Intel'"
+Renderer: b'Mesa Intel(R) UHD Graphics (CML GT2)'
+Version: b'4.6 (Compatibility Profile) Mesa 23.0.4-0ubuntu1~22.04.1'
+Display Info: None
+Screen sizes: virtual=(1920, 1080) physical=(2490, 1369) drawable=(2490, 1369)
+Maximum texture size: 4096x4096
+Resetting cache.
+Bootstrap to the start of init.init. took 107.15s
+Early init. took 0.00s
+Loader init. took 0.00s
+Loading error handling. took 0.01s
 Loading script. took 0.13s
+Loading save slot metadata. took 0.01s
+Loading persistent. took 0.00s
+
+File "game/screens.rpy", line 1628: expecting name after dot.
+    yalign.0.75
+             ^
+DPI scale factor: 1.000000
+Interface start. took 0.05s
+
+Initializing gl2 renderer:
+primary display bounds: (1920, 0, 2560, 1440)
+swap interval: 1 frames
+Windowed mode.
+Vendor: "b'Intel'"
+Renderer: b'Mesa Intel(R) UHD Graphics (CML GT2)'
+Version: b'4.6 (Compatibility Profile) Mesa 23.0.4-0ubuntu1~22.04.1'
+Display Info: None
+Screen sizes: virtual=(1920, 1080) physical=(2490, 1369) drawable=(2490, 1369)
+Maximum texture size: 4096x4096
+Resetting cache.
+Bootstrap to the start of init.init. took 123.75s
+Early init. took 0.00s
+Loader init. took 0.00s
+Loading error handling. took 0.01s
+Loading script. took 0.13s
+Loading save slot metadata. took 0.01s
+Loading persistent. took 0.00s
+
+File "game/screens.rpy", line 1628: expecting name after dot.
+    yalign.0.75
+             ^
+DPI scale factor: 1.000000
+Interface start. took 0.05s
+
+Initializing gl2 renderer:
+primary display bounds: (1920, 0, 2560, 1440)
+swap interval: 1 frames
+Windowed mode.
+Vendor: "b'Intel'"
+Renderer: b'Mesa Intel(R) UHD Graphics (CML GT2)'
+Version: b'4.6 (Compatibility Profile) Mesa 23.0.4-0ubuntu1~22.04.1'
+Display Info: None
+Screen sizes: virtual=(1920, 1080) physical=(2490, 1369) drawable=(2490, 1369)
+Maximum texture size: 4096x4096
+Resetting cache.
+Bootstrap to the start of init.init. took 137.41s
+Early init. took 0.00s
+Loader init. took 0.00s
+Loading error handling. took 0.01s
+Loading script. took 0.24s
 Loading save slot metadata. took 0.01s
 Loading persistent. took 0.00s
 Running init code. took 0.03s
@@ -44,11 +199,442 @@ Backing up script files to '/home/brent/.renpy/backups/DataVille':
 Dump and make backups. took 0.04s
 Cleaning cache. took 0.00s
 Making clean stores. took 0.00s
-Initial gc. took 0.02s
+Initial gc. took 0.01s
+DPI scale factor: 1.000000
+Creating interface object. took 0.00s
+Cleaning stores took 0.00s
+Init translation took 0.02s
+Build styles took 0.00s
+Load screen analysis took 0.00s
+Analyze screens took 0.01s
+Save screen analysis took 0.01s
+Prepare screens took 0.06s
+Save pyanalysis. took 0.01s
+Save bytecode. took 0.02s
+Running _start took 0.00s
+Performance test:
+Interface start. took 0.03s
+
+Initializing gl2 renderer:
+primary display bounds: (1920, 0, 2560, 1440)
+swap interval: 1 frames
+Windowed mode.
+Vendor: "b'Intel'"
+Renderer: b'Mesa Intel(R) UHD Graphics (CML GT2)'
+Version: b'4.6 (Compatibility Profile) Mesa 23.0.4-0ubuntu1~22.04.1'
+Display Info: None
+Screen sizes: virtual=(1920, 1080) physical=(2490, 1369) drawable=(2490, 1369)
+Maximum texture size: 4096x4096
+Resetting cache.
+Bootstrap to the start of init.init. took 148.24s
+Early init. took 0.00s
+Loader init. took 0.00s
+Loading error handling. took 0.02s
+Loading script. took 0.17s
+Loading save slot metadata. took 0.01s
+Loading persistent. took 0.00s
+Running init code. took 0.02s
+Loading analysis data. took 0.01s
+Analyze and compile ATL. took 0.00s
+Reloading save slot metadata. took 0.01s
+Index archives took 0.00s
+Backing up script files to '/home/brent/.renpy/backups/DataVille':
+Dump and make backups. took 0.03s
+Cleaning cache. took 0.00s
+Making clean stores. took 0.00s
+Initial gc. took 0.03s
+DPI scale factor: 1.000000
+Creating interface object. took 0.00s
+Cleaning stores took 0.00s
+Init translation took 0.03s
+Build styles took 0.00s
+Load screen analysis took 0.00s
+Analyze screens took 0.01s
+Save screen analysis took 0.01s
+Prepare screens took 0.05s
+Save pyanalysis. took 0.01s
+Save bytecode. took 0.01s
+Running _start took 0.00s
+Performance test:
+Interface start. took 0.04s
+
+Initializing gl2 renderer:
+primary display bounds: (1920, 0, 2560, 1440)
+swap interval: 1 frames
+Windowed mode.
+Vendor: "b'Intel'"
+Renderer: b'Mesa Intel(R) UHD Graphics (CML GT2)'
+Version: b'4.6 (Compatibility Profile) Mesa 23.0.4-0ubuntu1~22.04.1'
+Display Info: None
+Screen sizes: virtual=(1920, 1080) physical=(2490, 1369) drawable=(2490, 1369)
+Maximum texture size: 4096x4096
+Resetting cache.
+Bootstrap to the start of init.init. took 159.01s
+Early init. took 0.00s
+Loader init. took 0.00s
+Loading error handling. took 0.01s
+Loading script. took 0.17s
+Loading save slot metadata. took 0.01s
+Loading persistent. took 0.00s
+Running init code. took 0.02s
+Loading analysis data. took 0.01s
+Analyze and compile ATL. took 0.00s
+Reloading save slot metadata. took 0.01s
+Index archives took 0.00s
+Backing up script files to '/home/brent/.renpy/backups/DataVille':
+Dump and make backups. took 0.04s
+Cleaning cache. took 0.00s
+Making clean stores. took 0.00s
+Initial gc. took 0.03s
 DPI scale factor: 1.000000
 Creating interface object. took 0.00s
 Cleaning stores took 0.00s
 Init translation took 0.04s
+Build styles took 0.00s
+Load screen analysis took 0.00s
+Analyze screens took 0.01s
+Save screen analysis took 0.01s
+Prepare screens took 0.05s
+Save pyanalysis. took 0.01s
+Save bytecode. took 0.01s
+Running _start took 0.00s
+Performance test:
+Interface start. took 0.04s
+
+Initializing gl2 renderer:
+primary display bounds: (1920, 0, 2560, 1440)
+swap interval: 1 frames
+Windowed mode.
+Vendor: "b'Intel'"
+Renderer: b'Mesa Intel(R) UHD Graphics (CML GT2)'
+Version: b'4.6 (Compatibility Profile) Mesa 23.0.4-0ubuntu1~22.04.1'
+Display Info: None
+Screen sizes: virtual=(1920, 1080) physical=(2490, 1369) drawable=(2490, 1369)
+Maximum texture size: 4096x4096
+Resetting cache.
+Bootstrap to the start of init.init. took 654.21s
+Early init. took 0.00s
+Loader init. took 0.00s
+Loading error handling. took 0.01s
+Loading script. took 0.08s
+Loading save slot metadata. took 0.01s
+Loading persistent. took 0.00s
+Running init code. took 0.02s
+Loading analysis data. took 0.01s
+Analyze and compile ATL. took 0.00s
+Reloading save slot metadata. took 0.01s
+Index archives took 0.00s
+Backing up script files to '/home/brent/.renpy/backups/DataVille':
+Dump and make backups. took 0.04s
+Cleaning cache. took 0.00s
+Making clean stores. took 0.00s
+Initial gc. took 0.03s
+DPI scale factor: 1.000000
+Creating interface object. took 0.00s
+Cleaning stores took 0.00s
+Init translation took 0.03s
+Build styles took 0.00s
+Load screen analysis took 0.00s
+Analyze screens took 0.01s
+Save screen analysis took 0.01s
+Prepare screens took 0.05s
+Save pyanalysis. took 0.00s
+Save bytecode. took 0.01s
+Running _start took 0.00s
+Performance test:
+Interface start. took 0.03s
+
+Initializing gl2 renderer:
+primary display bounds: (1920, 0, 2560, 1440)
+swap interval: 1 frames
+Windowed mode.
+Vendor: "b'Intel'"
+Renderer: b'Mesa Intel(R) UHD Graphics (CML GT2)'
+Version: b'4.6 (Compatibility Profile) Mesa 23.0.4-0ubuntu1~22.04.1'
+Display Info: None
+Screen sizes: virtual=(1920, 1080) physical=(2490, 1369) drawable=(2490, 1369)
+Maximum texture size: 4096x4096
+Resetting cache.
+Bootstrap to the start of init.init. took 675.53s
+Early init. took 0.00s
+Loader init. took 0.00s
+Loading error handling. took 0.01s
+Loading script. took 0.18s
+Loading save slot metadata. took 0.01s
+Loading persistent. took 0.00s
+Running init code. took 0.02s
+Loading analysis data. took 0.01s
+Analyze and compile ATL. took 0.00s
+Reloading save slot metadata. took 0.01s
+Index archives took 0.00s
+Backing up script files to '/home/brent/.renpy/backups/DataVille':
+Dump and make backups. took 0.04s
+Cleaning cache. took 0.00s
+Making clean stores. took 0.00s
+Initial gc. took 0.03s
+DPI scale factor: 1.000000
+Creating interface object. took 0.00s
+Cleaning stores took 0.00s
+Init translation took 0.03s
+Build styles took 0.00s
+Load screen analysis took 0.00s
+Analyze screens took 0.01s
+Save screen analysis took 0.01s
+Prepare screens took 0.06s
+Save pyanalysis. took 0.01s
+Save bytecode. took 0.01s
+Running _start took 0.00s
+Performance test:
+Interface start. took 0.04s
+
+Initializing gl2 renderer:
+primary display bounds: (1920, 0, 2560, 1440)
+swap interval: 1 frames
+Windowed mode.
+Vendor: "b'Intel'"
+Renderer: b'Mesa Intel(R) UHD Graphics (CML GT2)'
+Version: b'4.6 (Compatibility Profile) Mesa 23.0.4-0ubuntu1~22.04.1'
+Display Info: None
+Screen sizes: virtual=(1920, 1080) physical=(2490, 1369) drawable=(2490, 1369)
+Maximum texture size: 4096x4096
+
+Full traceback:
+  File "game/script.rpy", line 285, in script
+    e "We're pleased that you've taken the opportunity to join the fast-growing field of human identification software."
+  File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/ast.py", line 930, in execute
+    renpy.exports.say(who, what, *args, **kwargs)
+  File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/exports.py", line 1474, in say
+    who(what, *args, **kwargs)
+  File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/character.py", line 1352, in __call__
+    self.do_display(who, what, cb_args=self.cb_args, dtt=dtt, **display_args)
+  File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/character.py", line 1003, in do_display
+    display_say(who,
+  File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/character.py", line 693, in display_say
+    rv = renpy.ui.interact(mouse='say', type=type, roll_forward=roll_forward)
+  File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/ui.py", line 299, in interact
+    rv = renpy.game.interface.interact(roll_forward=roll_forward, **kwargs)
+  File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/display/core.py", line 3582, in interact
+    repeat, rv = self.interact_core(preloads=preloads, trans_pause=trans_pause, pause=pause, pause_start=pause_start, pause_modal=pause_modal, **kwargs) # type: ignore
+  File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/display/core.py", line 4055, in interact_core
+    root_widget.visit_all(lambda d : d.per_interact())
+  File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/display/core.py", line 684, in visit_all
+    d.visit_all(callback, seen)
+  File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/display/core.py", line 684, in visit_all
+    d.visit_all(callback, seen)
+  File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/display/core.py", line 684, in visit_all
+    d.visit_all(callback, seen)
+  File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/display/screen.py", line 476, in visit_all
+    callback(self)
+  File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/display/core.py", line 4055, in <lambda>
+    root_widget.visit_all(lambda d : d.per_interact())
+  File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/display/screen.py", line 487, in per_interact
+    self.update()
+  File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/display/screen.py", line 680, in update
+    self.screen.function(**self.scope)
+  File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/ast.py", line 296, in apply_arguments
+    return parameters.apply(args, kwargs, ignore_errors)
+  File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/ast.py", line 232, in apply
+    raise TypeError(
+TypeError: Missing required positional arguments: 'text'
+
+While running game code:
+  File "game/script.rpy", line 285, in script
+    e "We're pleased that you've taken the opportunity to join the fast-growing field of human identification software."
+TypeError: Missing required positional arguments: 'text'
+Resetting cache.
+Bootstrap to the start of init.init. took 710.98s
+Early init. took 0.00s
+Loader init. took 0.00s
+Loading error handling. took 0.01s
+Loading script. took 0.17s
+Loading save slot metadata. took 0.01s
+Loading persistent. took 0.00s
+Running init code. took 0.02s
+Loading analysis data. took 0.01s
+Analyze and compile ATL. took 0.00s
+Reloading save slot metadata. took 0.01s
+Index archives took 0.00s
+Backing up script files to '/home/brent/.renpy/backups/DataVille':
+Dump and make backups. took 0.03s
+Cleaning cache. took 0.00s
+Making clean stores. took 0.00s
+Initial gc. took 0.03s
+DPI scale factor: 1.000000
+Creating interface object. took 0.00s
+Cleaning stores took 0.00s
+Init translation took 0.03s
+Build styles took 0.00s
+Load screen analysis took 0.00s
+Analyze screens took 0.01s
+Save screen analysis took 0.01s
+Prepare screens took 0.05s
+Save pyanalysis. took 0.00s
+Save bytecode. took 0.01s
+Running _start took 0.00s
+Performance test:
+Interface start. took 0.04s
+
+Initializing gl2 renderer:
+primary display bounds: (1920, 0, 2560, 1440)
+swap interval: 1 frames
+Windowed mode.
+Vendor: "b'Intel'"
+Renderer: b'Mesa Intel(R) UHD Graphics (CML GT2)'
+Version: b'4.6 (Compatibility Profile) Mesa 23.0.4-0ubuntu1~22.04.1'
+Display Info: None
+Screen sizes: virtual=(1920, 1080) physical=(2490, 1369) drawable=(2490, 1369)
+Maximum texture size: 4096x4096
+Resetting cache.
+Bootstrap to the start of init.init. took 733.21s
+Early init. took 0.00s
+Loader init. took 0.00s
+Loading error handling. took 0.01s
+Loading script. took 0.17s
+Loading save slot metadata. took 0.01s
+Loading persistent. took 0.00s
+Running init code. took 0.02s
+Loading analysis data. took 0.01s
+Analyze and compile ATL. took 0.00s
+Reloading save slot metadata. took 0.01s
+Index archives took 0.00s
+Backing up script files to '/home/brent/.renpy/backups/DataVille':
+Dump and make backups. took 0.04s
+Cleaning cache. took 0.00s
+Making clean stores. took 0.00s
+Initial gc. took 0.03s
+DPI scale factor: 1.000000
+Creating interface object. took 0.00s
+Cleaning stores took 0.00s
+Init translation took 0.03s
+Build styles took 0.00s
+Load screen analysis took 0.00s
+Analyze screens took 0.01s
+Save screen analysis took 0.02s
+Prepare screens took 0.05s
+Save pyanalysis. took 0.01s
+Save bytecode. took 0.01s
+Running _start took 0.00s
+Performance test:
+Interface start. took 0.03s
+
+Initializing gl2 renderer:
+primary display bounds: (1920, 0, 2560, 1440)
+swap interval: 1 frames
+Windowed mode.
+Vendor: "b'Intel'"
+Renderer: b'Mesa Intel(R) UHD Graphics (CML GT2)'
+Version: b'4.6 (Compatibility Profile) Mesa 23.0.4-0ubuntu1~22.04.1'
+Display Info: None
+Screen sizes: virtual=(1920, 1080) physical=(2490, 1369) drawable=(2490, 1369)
+Maximum texture size: 4096x4096
+Resetting cache.
+Bootstrap to the start of init.init. took 855.37s
+Early init. took 0.00s
+Loader init. took 0.00s
+Loading error handling. took 0.01s
+Loading script. took 0.08s
+Loading save slot metadata. took 0.01s
+Loading persistent. took 0.00s
+Running init code. took 0.02s
+Loading analysis data. took 0.01s
+Analyze and compile ATL. took 0.00s
+Reloading save slot metadata. took 0.01s
+Index archives took 0.00s
+Backing up script files to '/home/brent/.renpy/backups/DataVille':
+Dump and make backups. took 0.04s
+Cleaning cache. took 0.00s
+Making clean stores. took 0.00s
+Initial gc. took 0.04s
+DPI scale factor: 1.000000
+Creating interface object. took 0.00s
+Cleaning stores took 0.00s
+Init translation took 0.03s
+Build styles took 0.00s
+Load screen analysis took 0.00s
+Analyze screens took 0.01s
+Save screen analysis took 0.01s
+Prepare screens took 0.06s
+Save pyanalysis. took 0.00s
+Save bytecode. took 0.01s
+Running _start took 0.00s
+Performance test:
+Interface start. took 0.04s
+
+Initializing gl2 renderer:
+primary display bounds: (1920, 0, 2560, 1440)
+swap interval: 1 frames
+Windowed mode.
+Vendor: "b'Intel'"
+Renderer: b'Mesa Intel(R) UHD Graphics (CML GT2)'
+Version: b'4.6 (Compatibility Profile) Mesa 23.0.4-0ubuntu1~22.04.1'
+Display Info: None
+Screen sizes: virtual=(1920, 1080) physical=(2490, 1369) drawable=(2490, 1369)
+Maximum texture size: 4096x4096
+Resetting cache.
+Bootstrap to the start of init.init. took 881.11s
+Early init. took 0.00s
+Loader init. took 0.00s
+Loading error handling. took 0.01s
+Loading script. took 0.08s
+Loading save slot metadata. took 0.01s
+Loading persistent. took 0.00s
+Running init code. took 0.02s
+Loading analysis data. took 0.01s
+Analyze and compile ATL. took 0.00s
+Reloading save slot metadata. took 0.01s
+Index archives took 0.00s
+Backing up script files to '/home/brent/.renpy/backups/DataVille':
+Dump and make backups. took 0.04s
+Cleaning cache. took 0.00s
+Making clean stores. took 0.00s
+Initial gc. took 0.03s
+DPI scale factor: 1.000000
+Creating interface object. took 0.00s
+Cleaning stores took 0.00s
+Init translation took 0.03s
+Build styles took 0.00s
+Load screen analysis took 0.00s
+Analyze screens took 0.01s
+Save screen analysis took 0.01s
+Prepare screens took 0.05s
+Save pyanalysis. took 0.00s
+Save bytecode. took 0.01s
+Running _start took 0.00s
+Performance test:
+Interface start. took 0.03s
+
+Initializing gl2 renderer:
+primary display bounds: (1920, 0, 2560, 1440)
+swap interval: 1 frames
+Windowed mode.
+Vendor: "b'Intel'"
+Renderer: b'Mesa Intel(R) UHD Graphics (CML GT2)'
+Version: b'4.6 (Compatibility Profile) Mesa 23.0.4-0ubuntu1~22.04.1'
+Display Info: None
+Screen sizes: virtual=(1920, 1080) physical=(2490, 1369) drawable=(2490, 1369)
+Maximum texture size: 4096x4096
+Resetting cache.
+Bootstrap to the start of init.init. took 895.23s
+Early init. took 0.00s
+Loader init. took 0.00s
+Loading error handling. took 0.01s
+Loading script. took 0.08s
+Loading save slot metadata. took 0.01s
+Loading persistent. took 0.00s
+Running init code. took 0.02s
+Loading analysis data. took 0.01s
+Analyze and compile ATL. took 0.00s
+Reloading save slot metadata. took 0.01s
+Index archives took 0.00s
+Backing up script files to '/home/brent/.renpy/backups/DataVille':
+Dump and make backups. took 0.03s
+Cleaning cache. took 0.00s
+Making clean stores. took 0.00s
+Initial gc. took 0.03s
+DPI scale factor: 1.000000
+Creating interface object. took 0.00s
+Cleaning stores took 0.00s
+Init translation took 0.03s
 Build styles took 0.00s
 Load screen analysis took 0.00s
 Analyze screens took 0.01s
@@ -61,161 +647,457 @@ Performance test:
 Interface start. took 0.05s
 
 Initializing gl2 renderer:
-primary display bounds: (1920, 226, 1920, 1080)
+primary display bounds: (1920, 0, 2560, 1440)
 swap interval: 1 frames
 Windowed mode.
 Vendor: "b'Intel'"
 Renderer: b'Mesa Intel(R) UHD Graphics (CML GT2)'
 Version: b'4.6 (Compatibility Profile) Mesa 23.0.4-0ubuntu1~22.04.1'
 Display Info: None
-Screen sizes: virtual=(1920, 1080) physical=(1850, 1009) drawable=(1850, 1009)
+Screen sizes: virtual=(1920, 1080) physical=(2490, 1369) drawable=(2490, 1369)
 Maximum texture size: 4096x4096
-box:  {'ypos': 0, 'name': 'zzxnarf', 'text': 'I enjoy eating Zzxnarf with my brain-mate.'}
-box:  {'ypos': 0, 'name': 'baking', 'text': 'I enjoy baking an apple pie in my human kitchen.'}
-box:  {'ypos': 0, 'name': 'sweetie', 'text': 'I enjoy eating apples with my sweetie.'}
-box:  {'ypos': 100, 'name': 'zzxnarf', 'text': 'I enjoy eating Zzxnarf with my brain-mate.', 'xpos': 100}
-box:  {'ypos': 200, 'name': 'sweetie', 'text': 'I enjoy eating apples with my sweetie.', 'xpos': 100}
-box:  {'ypos': 150, 'name': 'baking', 'text': 'I enjoy baking an apple pie in my human kitchen.', 'xpos': 100}
-box:  {'ypos': 100, 'name': 'zzxnarf', 'text': 'I enjoy eating Zzxnarf with my brain-mate.', 'xpos': 100}
-box:  {'ypos': 150, 'name': 'sweetie', 'text': 'I enjoy eating apples with my sweetie.', 'xpos': 100}
-box:  {'ypos': 200, 'name': 'baking', 'text': 'I enjoy baking an apple pie in my human kitchen.', 'xpos': 100}
-box:  {'ypos': 100, 'name': 'zzxnarf', 'text': 'I enjoy eating Zzxnarf with my brain-mate.', 'xpos': 100}
-box:  {'ypos': 200, 'name': 'baking', 'text': 'I enjoy baking an apple pie in my human kitchen.', 'xpos': 100}
-box:  {'ypos': 150, 'name': 'sweetie', 'text': 'I enjoy eating apples with my sweetie.', 'xpos': 100}
-box:  {'ypos': 200, 'name': 'sweetie', 'text': 'I enjoy eating apples with my sweetie.', 'xpos': 100}
-box:  {'ypos': 100, 'name': 'zzxnarf', 'text': 'I enjoy eating Zzxnarf with my brain-mate.', 'xpos': 100}
-box:  {'ypos': 150, 'name': 'baking', 'text': 'I enjoy baking an apple pie in my human kitchen.', 'xpos': 100}
-box:  {'ypos': 100, 'name': 'sweetie', 'text': 'I enjoy eating apples with my sweetie.', 'xpos': 100}
-box:  {'ypos': 150, 'name': 'zzxnarf', 'text': 'I enjoy eating Zzxnarf with my brain-mate.', 'xpos': 100}
-box:  {'ypos': 200, 'name': 'baking', 'text': 'I enjoy baking an apple pie in my human kitchen.', 'xpos': 100}
-box:  {'ypos': 100, 'name': 'sweetie', 'text': 'I enjoy eating apples with my sweetie.', 'xpos': 100}
-box:  {'ypos': 150, 'name': 'zzxnarf', 'text': 'I enjoy eating Zzxnarf with my brain-mate.', 'xpos': 100}
-box:  {'ypos': 200, 'name': 'baking', 'text': 'I enjoy baking an apple pie in my human kitchen.', 'xpos': 100}
-box:  {'ypos': 100, 'name': 'sweetie', 'text': 'I enjoy eating apples with my sweetie.', 'xpos': 100}
-box:  {'ypos': 150, 'name': 'zzxnarf', 'text': 'I enjoy eating Zzxnarf with my brain-mate.', 'xpos': 100}
-box:  {'ypos': 200, 'name': 'baking', 'text': 'I enjoy baking an apple pie in my human kitchen.', 'xpos': 100}
-box:  {'ypos': 150, 'name': 'zzxnarf', 'text': 'I enjoy eating Zzxnarf with my brain-mate.', 'xpos': 100}
-box:  {'ypos': 200, 'name': 'baking', 'text': 'I enjoy baking an apple pie in my human kitchen.', 'xpos': 100}
-box:  {'ypos': 100, 'name': 'sweetie', 'text': 'I enjoy eating apples with my sweetie.', 'xpos': 100}
-d:  {'ypos': 200, 'name': 'sweetie', 'text': 'I enjoy eating apples with my sweetie.', 'xpos': 100}
-d:  {'ypos': 150, 'name': 'baking', 'text': 'I enjoy baking an apple pie in my human kitchen.', 'xpos': 100}
-d:  {'ypos': 100, 'name': 'zzxnarf', 'text': 'I enjoy eating Zzxnarf with my brain-mate.', 'xpos': 100}
-d:  {'ypos': 321, 'name': 'sweetie', 'text': 'I enjoy eating apples with my sweetie.', 'xpos': 100}
-d:  {'ypos': 150, 'name': 'baking', 'text': 'I enjoy baking an apple pie in my human kitchen.', 'xpos': 100}
-d:  {'ypos': 100, 'name': 'zzxnarf', 'text': 'I enjoy eating Zzxnarf with my brain-mate.', 'xpos': 100}
-d:  {'ypos': 321, 'name': 'sweetie', 'text': 'I enjoy eating apples with my sweetie.', 'xpos': 100}
-d:  {'ypos': 150, 'name': 'baking', 'text': 'I enjoy baking an apple pie in my human kitchen.', 'xpos': 100}
-d:  {'ypos': 322, 'name': 'zzxnarf', 'text': 'I enjoy eating Zzxnarf with my brain-mate.', 'xpos': 100}
-d:  {'ypos': 321, 'name': 'sweetie', 'text': 'I enjoy eating apples with my sweetie.', 'xpos': 100}
-d:  {'ypos': 30, 'name': 'baking', 'text': 'I enjoy baking an apple pie in my human kitchen.', 'xpos': 100}
-d:  {'ypos': 322, 'name': 'zzxnarf', 'text': 'I enjoy eating Zzxnarf with my brain-mate.', 'xpos': 100}
-d:  {'ypos': 48, 'name': 'sweetie', 'text': 'I enjoy eating apples with my sweetie.', 'xpos': 100}
-d:  {'ypos': 30, 'name': 'baking', 'text': 'I enjoy baking an apple pie in my human kitchen.', 'xpos': 100}
-d:  {'ypos': 322, 'name': 'zzxnarf', 'text': 'I enjoy eating Zzxnarf with my brain-mate.', 'xpos': 100}
-lablels:  {'1': {'ypos': 48, 'name': 'sweetie', 'text': 'I enjoy eating apples with my sweetie.', 'xpos': 100}, '2': {'ypos': 30, 'name': 'baking', 'text': 'I enjoy baking an apple pie in my human kitchen.', 'xpos': 100}, '3': {'ypos': 229, 'name': 'zzxnarf', 'text': 'I enjoy eating Zzxnarf with my brain-mate.', 'xpos': 100}}
-sorted labels:  [('2', {'ypos': 30, 'name': 'baking', 'text': 'I enjoy baking an apple pie in my human kitchen.', 'xpos': 100}), ('1', {'ypos': 48, 'name': 'sweetie', 'text': 'I enjoy eating apples with my sweetie.', 'xpos': 100}), ('3', {'ypos': 229, 'name': 'zzxnarf', 'text': 'I enjoy eating Zzxnarf with my brain-mate.', 'xpos': 100})]
-order:  [2, 1, 3]
-next task:  image_task_1
-next task type:  captcha_image
-should be looking in image folder:  image_task_1
-selected:  {'values': ['alien_1', 'alien_2', 'alien_3']}
-original:  ['alien_1', 'alien_2', 'alien_3']
-next task:  binary_image_task_1
-next task type:  binary_image
-should be looking in image folder:  binary_image_task_1
-value:  N
-correct answer:  N
-next task:  binary_text_task_1
-next task type:  binary_text
-value:  Y
-correct answer:  Y
-next task:  comparison_image_task_1
-next task type:  comparison_image
-should be looking in image folder:  comparison_image_task_1
-value:  human
-correct answer:  human
-next task:  comparison_text_task_1
-next task type:  comparison_text
-label order:  ['1', '2']
-labels:  {'1': {'ypos': 0, 'name': '1', 'text': 'This text is better'}, '2': {'ypos': 0, 'name': '2', 'text': 'This text is worse'}}
-label order:  ['2', '1']
-labels:  {'1': {'ypos': 100, 'name': '1', 'text': 'This text is better', 'xpos': 100}, '2': {'ypos': 150, 'name': '2', 'text': 'This text is worse', 'xpos': 100}}
-label order:  ['1', '2']
-labels:  {'1': {'ypos': 150, 'name': '1', 'text': 'This text is better', 'xpos': 100}, '2': {'ypos': 100, 'name': '2', 'text': 'This text is worse', 'xpos': 100}}
-label order:  ['2', '1']
-labels:  {'1': {'ypos': 100, 'name': '1', 'text': 'This text is better', 'xpos': 100}, '2': {'ypos': 150, 'name': '2', 'text': 'This text is worse', 'xpos': 100}}
-value:  1
-correct answer:  1
-next task:  caption_image_task_1
-next task type:  caption_image
-should be looking in image folder:  caption_image_task_1
-labels:  {'1': {'ypos': 0, 'name': '1', 'text': 'A lovely good thing'}, '2': {'ypos': 0, 'name': '2', 'text': 'A medicore thing'}, '3': {'ypos': 0, 'name': '3', 'text': 'A bad thing'}}
-labels:  {'1': {'ypos': 100, 'name': '1', 'text': 'A lovely good thing', 'xpos': 100}, '2': {'ypos': 200, 'name': '2', 'text': 'A medicore thing', 'xpos': 100}, '3': {'ypos': 150, 'name': '3', 'text': 'A bad thing', 'xpos': 100}}
-labels:  {'1': {'ypos': 150, 'name': '1', 'text': 'A lovely good thing', 'xpos': 100}, '2': {'ypos': 100, 'name': '2', 'text': 'A medicore thing', 'xpos': 100}, '3': {'ypos': 200, 'name': '3', 'text': 'A bad thing', 'xpos': 100}}
-value:  3
-correct answer:  3
-next task:  sentiment_text_task_1
-next task type:  sentiment_text
-labels:  {'1': {'ypos': 0, 'name': '1', 'text': 'Evil'}, '2': {'ypos': 0, 'name': '2', 'text': 'Thought-provoking'}, '3': {'ypos': 0, 'name': '3', 'text': 'Correct'}}
-labels:  {'1': {'ypos': 150, 'name': '1', 'text': 'Evil', 'xpos': 100}, '2': {'ypos': 200, 'name': '2', 'text': 'Thought-provoking', 'xpos': 100}, '3': {'ypos': 100, 'name': '3', 'text': 'Correct', 'xpos': 100}}
-value:  1
-correct answer:  1
+Resetting cache.
+Bootstrap to the start of init.init. took 904.52s
+Early init. took 0.00s
+Loader init. took 0.00s
+Loading error handling. took 0.02s
+Loading script. took 0.10s
+Loading save slot metadata. took 0.02s
+Loading persistent. took 0.00s
+Running init code. took 0.02s
+Loading analysis data. took 0.01s
+Analyze and compile ATL. took 0.00s
+Reloading save slot metadata. took 0.01s
+Index archives took 0.00s
+Backing up script files to '/home/brent/.renpy/backups/DataVille':
+Dump and make backups. took 0.04s
+Cleaning cache. took 0.00s
+Making clean stores. took 0.00s
+Initial gc. took 0.04s
+DPI scale factor: 1.000000
+Creating interface object. took 0.00s
 Cleaning stores took 0.00s
-Init translation took 0.00s
+Init translation took 0.03s
 Build styles took 0.00s
-Load screen analysis took 0.03s
-Analyze screens took 0.00s
-Prepare screens took 0.00s
+Load screen analysis took 0.00s
+Analyze screens took 0.01s
+Save screen analysis took 0.02s
+Prepare screens took 0.05s
+Save pyanalysis. took 0.00s
+Save bytecode. took 0.01s
 Running _start took 0.00s
-box:  {'ypos': 30, 'name': 'baking', 'text': 'I enjoy baking an apple pie in my human kitchen.', 'xpos': 100}
-box:  {'ypos': 229, 'name': 'zzxnarf', 'text': 'I enjoy eating Zzxnarf with my brain-mate.', 'xpos': 100}
-box:  {'ypos': 48, 'name': 'sweetie', 'text': 'I enjoy eating apples with my sweetie.', 'xpos': 100}
-box:  {'ypos': 100, 'name': 'baking', 'text': 'I enjoy baking an apple pie in my human kitchen.', 'xpos': 100}
-box:  {'ypos': 150, 'name': 'zzxnarf', 'text': 'I enjoy eating Zzxnarf with my brain-mate.', 'xpos': 100}
-box:  {'ypos': 200, 'name': 'sweetie', 'text': 'I enjoy eating apples with my sweetie.', 'xpos': 100}
-box:  {'ypos': 150, 'name': 'zzxnarf', 'text': 'I enjoy eating Zzxnarf with my brain-mate.', 'xpos': 100}
-box:  {'ypos': 100, 'name': 'baking', 'text': 'I enjoy baking an apple pie in my human kitchen.', 'xpos': 100}
-box:  {'ypos': 200, 'name': 'sweetie', 'text': 'I enjoy eating apples with my sweetie.', 'xpos': 100}
-box:  {'ypos': 200, 'name': 'sweetie', 'text': 'I enjoy eating apples with my sweetie.', 'xpos': 100}
-box:  {'ypos': 150, 'name': 'baking', 'text': 'I enjoy baking an apple pie in my human kitchen.', 'xpos': 100}
-box:  {'ypos': 100, 'name': 'zzxnarf', 'text': 'I enjoy eating Zzxnarf with my brain-mate.', 'xpos': 100}
-box:  {'ypos': 150, 'name': 'baking', 'text': 'I enjoy baking an apple pie in my human kitchen.', 'xpos': 100}
-box:  {'ypos': 200, 'name': 'zzxnarf', 'text': 'I enjoy eating Zzxnarf with my brain-mate.', 'xpos': 100}
-box:  {'ypos': 100, 'name': 'sweetie', 'text': 'I enjoy eating apples with my sweetie.', 'xpos': 100}
-box:  {'ypos': 150, 'name': 'zzxnarf', 'text': 'I enjoy eating Zzxnarf with my brain-mate.', 'xpos': 100}
-box:  {'ypos': 100, 'name': 'baking', 'text': 'I enjoy baking an apple pie in my human kitchen.', 'xpos': 100}
-box:  {'ypos': 200, 'name': 'sweetie', 'text': 'I enjoy eating apples with my sweetie.', 'xpos': 100}
-box:  {'ypos': 150, 'name': 'baking', 'text': 'I enjoy baking an apple pie in my human kitchen.', 'xpos': 100}
-box:  {'ypos': 200, 'name': 'sweetie', 'text': 'I enjoy eating apples with my sweetie.', 'xpos': 100}
-box:  {'ypos': 100, 'name': 'zzxnarf', 'text': 'I enjoy eating Zzxnarf with my brain-mate.', 'xpos': 100}
-box:  {'ypos': 150, 'name': 'sweetie', 'text': 'I enjoy eating apples with my sweetie.', 'xpos': 100}
-box:  {'ypos': 200, 'name': 'zzxnarf', 'text': 'I enjoy eating Zzxnarf with my brain-mate.', 'xpos': 100}
-box:  {'ypos': 100, 'name': 'baking', 'text': 'I enjoy baking an apple pie in my human kitchen.', 'xpos': 100}
-box:  {'ypos': 150, 'name': 'zzxnarf', 'text': 'I enjoy eating Zzxnarf with my brain-mate.', 'xpos': 100}
-box:  {'ypos': 200, 'name': 'baking', 'text': 'I enjoy baking an apple pie in my human kitchen.', 'xpos': 100}
-box:  {'ypos': 100, 'name': 'sweetie', 'text': 'I enjoy eating apples with my sweetie.', 'xpos': 100}
-lablels:  {'1': {'ypos': 200, 'name': 'sweetie', 'text': 'I enjoy eating apples with my sweetie.', 'xpos': 100}, '2': {'ypos': 150, 'name': 'baking', 'text': 'I enjoy baking an apple pie in my human kitchen.', 'xpos': 100}, '3': {'ypos': 100, 'name': 'zzxnarf', 'text': 'I enjoy eating Zzxnarf with my brain-mate.', 'xpos': 100}}
-sorted labels:  [('3', {'ypos': 100, 'name': 'zzxnarf', 'text': 'I enjoy eating Zzxnarf with my brain-mate.', 'xpos': 100}), ('2', {'ypos': 150, 'name': 'baking', 'text': 'I enjoy baking an apple pie in my human kitchen.', 'xpos': 100}), ('1', {'ypos': 200, 'name': 'sweetie', 'text': 'I enjoy eating apples with my sweetie.', 'xpos': 100})]
-order:  [3, 2, 1]
-next task:  image_task_1
-next task type:  captcha_image
-box:  {'ypos': 200, 'name': 'zzxnarf', 'text': 'I enjoy eating Zzxnarf with my brain-mate.', 'xpos': 100}
-box:  {'ypos': 150, 'name': 'sweetie', 'text': 'I enjoy eating apples with my sweetie.', 'xpos': 100}
-box:  {'ypos': 100, 'name': 'baking', 'text': 'I enjoy baking an apple pie in my human kitchen.', 'xpos': 100}
-box:  {'ypos': 100, 'name': 'zzxnarf', 'text': 'I enjoy eating Zzxnarf with my brain-mate.', 'xpos': 100}
-box:  {'ypos': 150, 'name': 'sweetie', 'text': 'I enjoy eating apples with my sweetie.', 'xpos': 100}
-box:  {'ypos': 200, 'name': 'baking', 'text': 'I enjoy baking an apple pie in my human kitchen.', 'xpos': 100}
-box:  {'ypos': 150, 'name': 'baking', 'text': 'I enjoy baking an apple pie in my human kitchen.', 'xpos': 100}
-box:  {'ypos': 100, 'name': 'zzxnarf', 'text': 'I enjoy eating Zzxnarf with my brain-mate.', 'xpos': 100}
-box:  {'ypos': 200, 'name': 'sweetie', 'text': 'I enjoy eating apples with my sweetie.', 'xpos': 100}
-box:  {'ypos': 150, 'name': 'zzxnarf', 'text': 'I enjoy eating Zzxnarf with my brain-mate.', 'xpos': 100}
-box:  {'ypos': 100, 'name': 'baking', 'text': 'I enjoy baking an apple pie in my human kitchen.', 'xpos': 100}
-box:  {'ypos': 200, 'name': 'sweetie', 'text': 'I enjoy eating apples with my sweetie.', 'xpos': 100}
-box:  {'ypos': 100, 'name': 'zzxnarf', 'text': 'I enjoy eating Zzxnarf with my brain-mate.', 'xpos': 100}
-box:  {'ypos': 150, 'name': 'baking', 'text': 'I enjoy baking an apple pie in my human kitchen.', 'xpos': 100}
-box:  {'ypos': 200, 'name': 'sweetie', 'text': 'I enjoy eating apples with my sweetie.', 'xpos': 100}
-lablels:  {'1': {'ypos': 200, 'name': 'sweetie', 'text': 'I enjoy eating apples with my sweetie.', 'xpos': 100}, '2': {'ypos': 150, 'name': 'baking', 'text': 'I enjoy baking an apple pie in my human kitchen.', 'xpos': 100}, '3': {'ypos': 100, 'name': 'zzxnarf', 'text': 'I enjoy eating Zzxnarf with my brain-mate.', 'xpos': 100}}
-sorted labels:  [('3', {'ypos': 100, 'name': 'zzxnarf', 'text': 'I enjoy eating Zzxnarf with my brain-mate.', 'xpos': 100}), ('2', {'ypos': 150, 'name': 'baking', 'text': 'I enjoy baking an apple pie in my human kitchen.', 'xpos': 100}), ('1', {'ypos': 200, 'name': 'sweetie', 'text': 'I enjoy eating apples with my sweetie.', 'xpos': 100})]
-order:  [3, 2, 1]
-next task:  image_task_1
-next task type:  captcha_image
+Performance test:
+Interface start. took 0.03s
+
+Initializing gl2 renderer:
+primary display bounds: (1920, 0, 2560, 1440)
+swap interval: 1 frames
+Windowed mode.
+Vendor: "b'Intel'"
+Renderer: b'Mesa Intel(R) UHD Graphics (CML GT2)'
+Version: b'4.6 (Compatibility Profile) Mesa 23.0.4-0ubuntu1~22.04.1'
+Display Info: None
+Screen sizes: virtual=(1920, 1080) physical=(2490, 1369) drawable=(2490, 1369)
+Maximum texture size: 4096x4096
+Resetting cache.
+Bootstrap to the start of init.init. took 1488.51s
+Early init. took 0.00s
+Loader init. took 0.00s
+Loading error handling. took 0.01s
+Loading script. took 0.08s
+Loading save slot metadata. took 0.01s
+Loading persistent. took 0.00s
+Running init code. took 0.02s
+Loading analysis data. took 0.01s
+Analyze and compile ATL. took 0.00s
+Reloading save slot metadata. took 0.01s
+Index archives took 0.00s
+Backing up script files to '/home/brent/.renpy/backups/DataVille':
+Dump and make backups. took 0.03s
+Cleaning cache. took 0.00s
+Making clean stores. took 0.00s
+Initial gc. took 0.02s
+DPI scale factor: 1.000000
+Creating interface object. took 0.00s
+Cleaning stores took 0.00s
+Init translation took 0.02s
+Build styles took 0.00s
+Load screen analysis took 0.00s
+Analyze screens took 0.01s
+Save screen analysis took 0.01s
+Prepare screens took 0.07s
+Save pyanalysis. took 0.00s
+Save bytecode. took 0.01s
+Running _start took 0.00s
+Performance test:
+Interface start. took 0.06s
+
+Initializing gl2 renderer:
+primary display bounds: (1920, 0, 2560, 1440)
+swap interval: 1 frames
+Windowed mode.
+Vendor: "b'Intel'"
+Renderer: b'Mesa Intel(R) UHD Graphics (CML GT2)'
+Version: b'4.6 (Compatibility Profile) Mesa 23.0.4-0ubuntu1~22.04.1'
+Display Info: None
+Screen sizes: virtual=(1920, 1080) physical=(2490, 1369) drawable=(2490, 1369)
+Maximum texture size: 4096x4096
+Resetting cache.
+Bootstrap to the start of init.init. took 1552.07s
+Early init. took 0.00s
+Loader init. took 0.00s
+Loading error handling. took 0.01s
+Loading script. took 0.05s
+Loading save slot metadata. took 0.01s
+Loading persistent. took 0.00s
+Running init code. took 0.02s
+Loading analysis data. took 0.01s
+Analyze and compile ATL. took 0.00s
+Reloading save slot metadata. took 0.01s
+Index archives took 0.00s
+Dump and make backups. took 0.03s
+Cleaning cache. took 0.00s
+Making clean stores. took 0.00s
+Initial gc. took 0.02s
+DPI scale factor: 1.000000
+Creating interface object. took 0.00s
+Cleaning stores took 0.00s
+Init translation took 0.03s
+Build styles took 0.00s
+Load screen analysis took 0.02s
+Analyze screens took 0.00s
+Save screen analysis took 0.00s
+Prepare screens took 0.06s
+Save pyanalysis. took 0.00s
+Save bytecode. took 0.00s
+Running _start took 0.00s
+Performance test:
+Interface start. took 0.05s
+
+Initializing gl2 renderer:
+primary display bounds: (1920, 0, 2560, 1440)
+swap interval: 1 frames
+Windowed mode.
+Vendor: "b'Intel'"
+Renderer: b'Mesa Intel(R) UHD Graphics (CML GT2)'
+Version: b'4.6 (Compatibility Profile) Mesa 23.0.4-0ubuntu1~22.04.1'
+Display Info: None
+Screen sizes: virtual=(1920, 1080) physical=(2490, 1369) drawable=(2490, 1369)
+Maximum texture size: 4096x4096
+Resetting cache.
+Bootstrap to the start of init.init. took 1556.80s
+Early init. took 0.00s
+Loader init. took 0.00s
+Loading error handling. took 0.01s
+Loading script. took 0.06s
+Loading save slot metadata. took 0.01s
+Loading persistent. took 0.00s
+Running init code. took 0.02s
+Loading analysis data. took 0.01s
+Analyze and compile ATL. took 0.00s
+Reloading save slot metadata. took 0.01s
+Index archives took 0.00s
+Dump and make backups. took 0.04s
+Cleaning cache. took 0.00s
+Making clean stores. took 0.00s
+Initial gc. took 0.02s
+DPI scale factor: 1.000000
+Creating interface object. took 0.00s
+Cleaning stores took 0.00s
+Init translation took 0.02s
+Build styles took 0.00s
+Load screen analysis took 0.02s
+Analyze screens took 0.00s
+Save screen analysis took 0.00s
+Prepare screens took 0.05s
+Save pyanalysis. took 0.00s
+Save bytecode. took 0.00s
+Running _start took 0.00s
+Performance test:
+Interface start. took 0.04s
+
+Initializing gl2 renderer:
+primary display bounds: (1920, 0, 2560, 1440)
+swap interval: 1 frames
+Windowed mode.
+Vendor: "b'Intel'"
+Renderer: b'Mesa Intel(R) UHD Graphics (CML GT2)'
+Version: b'4.6 (Compatibility Profile) Mesa 23.0.4-0ubuntu1~22.04.1'
+Display Info: None
+Screen sizes: virtual=(1920, 1080) physical=(2490, 1369) drawable=(2490, 1369)
+Maximum texture size: 4096x4096
+Resetting cache.
+Bootstrap to the start of init.init. took 1731.51s
+Early init. took 0.00s
+Loader init. took 0.00s
+Loading error handling. took 0.01s
+Loading script. took 0.06s
+Loading save slot metadata. took 0.01s
+Loading persistent. took 0.00s
+
+File "game/script.rpy", line 29: expected 'word' not found.
+    style.say_window.background = Frame( im.Alpha("frame.png", 0.3),  15,15 )
+         ^
+DPI scale factor: 1.000000
+Interface start. took 0.06s
+
+Initializing gl2 renderer:
+primary display bounds: (1920, 0, 2560, 1440)
+swap interval: 1 frames
+Windowed mode.
+Vendor: "b'Intel'"
+Renderer: b'Mesa Intel(R) UHD Graphics (CML GT2)'
+Version: b'4.6 (Compatibility Profile) Mesa 23.0.4-0ubuntu1~22.04.1'
+Display Info: None
+Screen sizes: virtual=(1920, 1080) physical=(2490, 1369) drawable=(2490, 1369)
+Maximum texture size: 4096x4096
+Resetting cache.
+Bootstrap to the start of init.init. took 1734.61s
+Early init. took 0.00s
+Loader init. took 0.00s
+Loading error handling. took 0.01s
+Loading script. took 0.07s
+Loading save slot metadata. took 0.01s
+Loading persistent. took 0.00s
+
+File "game/script.rpy", line 29: expected 'word' not found.
+    style.say_window.background = Frame( im.Alpha("frame.png", 0.3),  15,15 )
+         ^
+DPI scale factor: 1.000000
+Interface start. took 0.06s
+
+Initializing gl2 renderer:
+primary display bounds: (1920, 0, 2560, 1440)
+swap interval: 1 frames
+Windowed mode.
+Vendor: "b'Intel'"
+Renderer: b'Mesa Intel(R) UHD Graphics (CML GT2)'
+Version: b'4.6 (Compatibility Profile) Mesa 23.0.4-0ubuntu1~22.04.1'
+Display Info: None
+Screen sizes: virtual=(1920, 1080) physical=(2490, 1369) drawable=(2490, 1369)
+Maximum texture size: 4096x4096
+Resetting cache.
+Bootstrap to the start of init.init. took 1761.74s
+Early init. took 0.00s
+Loader init. took 0.00s
+Loading error handling. took 0.01s
+Loading script. took 0.13s
+Loading save slot metadata. took 0.01s
+Loading persistent. took 0.00s
+
+File "game/screens.rpy", line 125: expected 'word' not found.
+    style.say_window.background = Frame( im.Alpha("frame.png", 0.3),  15,15 )
+         ^
+
+File "game/script.rpy", line 29: expected 'word' not found.
+    style.say_window.background = Frame( im.Alpha("frame.png", 0.3),  15,15 )
+         ^
+DPI scale factor: 1.000000
+Interface start. took 0.05s
+
+Initializing gl2 renderer:
+primary display bounds: (1920, 0, 2560, 1440)
+swap interval: 1 frames
+Windowed mode.
+Vendor: "b'Intel'"
+Renderer: b'Mesa Intel(R) UHD Graphics (CML GT2)'
+Version: b'4.6 (Compatibility Profile) Mesa 23.0.4-0ubuntu1~22.04.1'
+Display Info: None
+Screen sizes: virtual=(1920, 1080) physical=(2490, 1369) drawable=(2490, 1369)
+Maximum texture size: 4096x4096
+Resetting cache.
+Bootstrap to the start of init.init. took 1775.39s
+Early init. took 0.00s
+Loader init. took 0.00s
+Loading error handling. took 0.01s
+Loading script. took 0.10s
+Loading save slot metadata. took 0.02s
+Loading persistent. took 0.00s
+
+File "game/script.rpy", line 29: expected 'word' not found.
+    style.say_window.background = Frame( im.Alpha("frame.png", 0.3),  15,15 )
+         ^
+DPI scale factor: 1.000000
+Interface start. took 0.06s
+
+Initializing gl2 renderer:
+primary display bounds: (1920, 0, 2560, 1440)
+swap interval: 1 frames
+Windowed mode.
+Vendor: "b'Intel'"
+Renderer: b'Mesa Intel(R) UHD Graphics (CML GT2)'
+Version: b'4.6 (Compatibility Profile) Mesa 23.0.4-0ubuntu1~22.04.1'
+Display Info: None
+Screen sizes: virtual=(1920, 1080) physical=(2490, 1369) drawable=(2490, 1369)
+Maximum texture size: 4096x4096
+Resetting cache.
+Bootstrap to the start of init.init. took 3491.62s
+Early init. took 0.00s
+Loader init. took 0.00s
+Loading error handling. took 0.01s
+Loading script. took 0.05s
+Loading save slot metadata. took 0.01s
+Loading persistent. took 0.00s
+Running init code. took 0.03s
+Loading analysis data. took 0.01s
+Analyze and compile ATL. took 0.00s
+Reloading save slot metadata. took 0.01s
+Index archives took 0.00s
+Dump and make backups. took 0.03s
+Cleaning cache. took 0.00s
+Making clean stores. took 0.00s
+Initial gc. took 0.01s
+DPI scale factor: 1.000000
+Creating interface object. took 0.00s
+Cleaning stores took 0.00s
+Init translation took 0.02s
+Build styles took 0.00s
+Load screen analysis took 0.02s
+Analyze screens took 0.00s
+Save screen analysis took 0.00s
+Prepare screens took 0.05s
+Save pyanalysis. took 0.00s
+Save bytecode. took 0.01s
+Running _start took 0.00s
+Performance test:
+Interface start. took 0.04s
+
+Initializing gl2 renderer:
+primary display bounds: (1920, 0, 2560, 1440)
+swap interval: 1 frames
+Windowed mode.
+Vendor: "b'Intel'"
+Renderer: b'Mesa Intel(R) UHD Graphics (CML GT2)'
+Version: b'4.6 (Compatibility Profile) Mesa 23.0.4-0ubuntu1~22.04.1'
+Display Info: None
+Screen sizes: virtual=(1920, 1080) physical=(2490, 1369) drawable=(2490, 1369)
+Maximum texture size: 4096x4096
+Resetting cache.
+Bootstrap to the start of init.init. took 3521.23s
+Early init. took 0.00s
+Loader init. took 0.00s
+Loading error handling. took 0.01s
+Loading script. took 0.08s
+Loading save slot metadata. took 0.01s
+Loading persistent. took 0.00s
+Running init code. took 0.02s
+Loading analysis data. took 0.01s
+Analyze and compile ATL. took 0.00s
+Reloading save slot metadata. took 0.01s
+Index archives took 0.00s
+Backing up script files to '/home/brent/.renpy/backups/DataVille':
+Dump and make backups. took 0.04s
+Cleaning cache. took 0.00s
+Making clean stores. took 0.00s
+Initial gc. took 0.03s
+DPI scale factor: 1.000000
+Creating interface object. took 0.00s
+Cleaning stores took 0.00s
+Init translation took 0.03s
+Build styles took 0.00s
+Load screen analysis took 0.00s
+Analyze screens took 0.01s
+Save screen analysis took 0.02s
+Prepare screens took 0.06s
+Save pyanalysis. took 0.00s
+Save bytecode. took 0.01s
+Running _start took 0.00s
+Performance test:
+Interface start. took 0.03s
+
+Initializing gl2 renderer:
+primary display bounds: (1920, 0, 2560, 1440)
+swap interval: 1 frames
+Windowed mode.
+Vendor: "b'Intel'"
+Renderer: b'Mesa Intel(R) UHD Graphics (CML GT2)'
+Version: b'4.6 (Compatibility Profile) Mesa 23.0.4-0ubuntu1~22.04.1'
+Display Info: None
+Screen sizes: virtual=(1920, 1080) physical=(2490, 1369) drawable=(2490, 1369)
+Maximum texture size: 4096x4096
+Resetting cache.
+Bootstrap to the start of init.init. took 3667.76s
+Early init. took 0.00s
+Loader init. took 0.00s
+Loading error handling. took 0.01s
+Loading script. took 0.09s
+Loading save slot metadata. took 0.01s
+Loading persistent. took 0.00s
+Running init code. took 0.02s
+Loading analysis data. took 0.01s
+Analyze and compile ATL. took 0.00s
+Reloading save slot metadata. took 0.01s
+Index archives took 0.00s
+Backing up script files to '/home/brent/.renpy/backups/DataVille':
+Dump and make backups. took 0.04s
+Cleaning cache. took 0.00s
+Making clean stores. took 0.00s
+Initial gc. took 0.03s
+DPI scale factor: 1.000000
+Creating interface object. took 0.00s
+Cleaning stores took 0.00s
+Init translation took 0.03s
+Build styles took 0.00s
+Load screen analysis took 0.00s
+Analyze screens took 0.01s
+Save screen analysis took 0.02s
+Prepare screens took 0.06s
+Save pyanalysis. took 0.00s
+Save bytecode. took 0.01s
+Running _start took 0.00s
+Performance test:
+Interface start. took 0.05s
+
+Initializing gl2 renderer:
+primary display bounds: (1920, 0, 2560, 1440)
+swap interval: 1 frames
+Windowed mode.
+Vendor: "b'Intel'"
+Renderer: b'Mesa Intel(R) UHD Graphics (CML GT2)'
+Version: b'4.6 (Compatibility Profile) Mesa 23.0.4-0ubuntu1~22.04.1'
+Display Info: None
+Screen sizes: virtual=(1920, 1080) physical=(2490, 1369) drawable=(2490, 1369)
+Maximum texture size: 4096x4096
+Resetting cache.
+Bootstrap to the start of init.init. took 3738.67s
+Early init. took 0.00s
+Loader init. took 0.00s
+Loading error handling. took 0.01s
+Loading script. took 0.09s
+Loading save slot metadata. took 0.01s
+Loading persistent. took 0.00s
+Running init code. took 0.02s
+Loading analysis data. took 0.01s
+Analyze and compile ATL. took 0.00s
+Reloading save slot metadata. took 0.01s
+Index archives took 0.00s
+Backing up script files to '/home/brent/.renpy/backups/DataVille':
+Dump and make backups. took 0.04s
+Cleaning cache. took 0.00s
+Making clean stores. took 0.00s
+Initial gc. took 0.03s
+DPI scale factor: 1.000000
+Creating interface object. took 0.00s
+Cleaning stores took 0.00s
+Init translation took 0.02s
+Build styles took 0.00s
+Load screen analysis took 0.00s
+Analyze screens took 0.01s
+Save screen analysis took 0.01s
+Prepare screens took 0.05s
+Save pyanalysis. took 0.00s
+Save bytecode. took 0.01s
+Running _start took 0.00s
+Performance test:
+Interface start. took 0.03s
+
+Initializing gl2 renderer:
+primary display bounds: (1920, 0, 2560, 1440)
+swap interval: 1 frames
+Windowed mode.
+Vendor: "b'Intel'"
+Renderer: b'Mesa Intel(R) UHD Graphics (CML GT2)'
+Version: b'4.6 (Compatibility Profile) Mesa 23.0.4-0ubuntu1~22.04.1'
+Display Info: None
+Screen sizes: virtual=(1920, 1080) physical=(2490, 1369) drawable=(2490, 1369)
+Maximum texture size: 4096x4096
