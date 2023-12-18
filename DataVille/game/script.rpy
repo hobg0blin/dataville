@@ -22,6 +22,9 @@
 # - Debug scoring, not sure it's working properly
 # - image caption image isn't showing at all for some reason
 
+
+
+
 #Set global variables
 define e = Character("Eileen")
 default task = {}
@@ -243,7 +246,7 @@ label start:
 
     # little hack to jump to specific loops/exercises
 
-    # jump binary_image_1
+    jump binary_image_1
 
 
     # show eileen happy
