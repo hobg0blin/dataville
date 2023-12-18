@@ -24,19 +24,25 @@
 
 
 
-
 #Set global variables
 define m = Character("Me")
+define news = Character("NEWS")
 default task = {}
 default latest_choice = ""
 define gui.frame_borders = Borders(15, 15, 15, 15)
 init: 
+# switch to control showing dialogue box background
+  default show_window = True
+
+# in style window
+
   image alien_human_family = "alien_human_family.png"
   image dark_green = Solid("#136366")
   image bg black = Solid("#000000")
   image supervisor = "supervisor.png"
   image side supervisor = "supervisor.png"
-  define e = Character("Alex T.", image="supervisor", kind=bubble)
+  define e = Character("Alex T.\n Supervisor@DataVille", image="supervisor", kind=bubble)
+  define e_big = Character("Alex T.\n Supervisor@DataVille", image="supervisor", kind=bubble)
 ##ALL THE PYTHON SETUP GOES HERE
 init python:
   import random
@@ -228,6 +234,7 @@ init python:
     for d in task['labels'].values():
         if d['name'] == drags[0].drag_name:
             d['ypos'] = drags[0].y
+    print('drags: ', drags)
 
 
 # The game starts here.
@@ -271,6 +278,8 @@ label start:
       m "It's my first day at my new job."
       m "They've given me a place to stay, and they say if I perform well I'll get even more perks."
       m "Time to boot up my work computer and start the day, I guess!"
+    # hide dialogue box
+    $ show_window = False
     show dataville_intro
     pause
     show hiring_detail
@@ -281,7 +290,6 @@ label start:
     # little hack to jump to specific loops/exercises
 
  #   jump binary_image_1
-    
 
     # FIRST TEXT LOOP
     show screen supervisor
@@ -304,12 +312,13 @@ label start:
 
     show screen timer
     show screen overlay(game_state.ui)
-
+    show screen instructions (game_state.ui)
     label order_text_1:
       call screen expression store.loop['text_task_1']['type'] pass (store.loop['text_task_1'], 'Done!')
       python:
         task = loop['text_task_1']
         sort_labels = sorted(task['labels'].items(), key=lambda x: x[1]['ypos'])
+        print('sort labels: ', sort_labels)
         # set order defined in text_label_task object
         order = [int(i[0]) for i in sort_labels]
         if order == [1, 2, 3]:
@@ -320,6 +329,7 @@ label start:
           case = 3
         task = update_state(game_state, case,  task)
 
+      hide screen instructions
       call screen overlay (game_state.ui, "Next")
 
     #TODO: Clear instructions in between tasks
@@ -329,13 +339,18 @@ label start:
 
       # FIRST IMAGE LOOP
       #
+      show screen supervisor
       e "Great start. Now, for your second task, we'd like you to identify the aliens in an image."
       e "Aliens and humans have begun to cohabitate and even interbreed, which can make it hard to tell the difference."
       e "For your first task, though, it should be easy enough. Just look for the *obviously* non-human beings in this photo: gray or purple skin, or perhaps an unusual amount of teeth."
+      hide screen supervisor
       show alien_human_family
-      e "Take a look, and when you're ready to start labeling, continue."
+      $ show_window = True
+      "Take a look, and when you're ready to start labeling, continue."
       hide alien_human_family
+      $ show_window = False
       show screen overlay(game_state.ui)
+      show screen instructions(game_state.ui)
       #TODO pick screen to call based on task type
       # call screen image_gui(task, "Done!")
       $ images = get_images(task)
@@ -345,112 +360,99 @@ label start:
         case = check_images(images_selected, task['correct_images'])
         task = update_state(game_state, case, task)
       #TODO: clear instruction text in between tasks - call overlay twice?
+      hide screen instructions
       call screen overlay (game_state.ui, "Next!")
 
     label binary_image_1:
       $ task = loop['binary_image_task_1']
       $ images = get_images(task)
       show screen overlay (game_state.ui)
+      show screen instructions(game_state.ui)
       call screen expression(task['type']) pass (task, images)
       python:
             binary_correct = check_binary(store.latest_choice, task)
             task = update_state(game_state, binary_correct, task)
-      show screen overlay (game_state.ui)
+      hide screen instructions
+      call screen overlay (game_state.ui, "Next!")
 
     label binary_text_1:
+      show screen instructions(game_state.ui)
+      show screen overlay (game_state.ui)
       call screen expression(task['type']) pass (task)
       python:
             binary_correct = check_binary(store.latest_choice, task)
             task = update_state(game_state, binary_correct, task)
 
-      show screen overlay (game_state.ui)
-
+      hide screen instructions
+      call screen overlay (game_state.ui, "Next!")
     label comparison_image_1:
         $ images = get_images(task)
+        show screen instructions(game_state.ui)
+        show screen overlay (game_state.ui)
         call screen expression(task['type']) pass (task, images)
+        show screen instructions(game_state.ui)
         python:
             binary_correct = check_binary(store.latest_choice, task)
             task = update_state(game_state, binary_correct, task)
-        show screen overlay (game_state.ui, "Next")
+        hide screen instructions
+        call screen overlay (game_state.ui, "Next!")
 
     label comparison_text_task_1:
+
+        show screen instructions(game_state.ui)
+        show screen overlay (game_state.ui)
         call screen expression(task['type']) pass (task, 'Done!')
         python:
             binary_correct = check_binary(store.latest_choice, task)
             task = update_state(game_state, binary_correct, task)
-        show screen overlay (game_state.ui)
+        hide screen instructions
+        call screen overlay (game_state.ui, "Next!")
 
     label caption_image_1:
         $ images = get_images(task)
+        show screen instructions(game_state.ui)
+        show screen overlay (game_state.ui)
+
         call screen expression(task['type']) pass (task, images)
         python:
             binary_correct = check_binary(store.latest_choice, task)
             task = update_state(game_state, binary_correct, task)
-        show screen overlay (game_state.ui, "Next")
+        hide screen instructions
+        call screen overlay (game_state.ui, "Next")
 
     label sentiment_text_task_1:
+        show screen instructions(game_state.ui)
+        show screen overlay (game_state.ui)
         call screen expression(task['type']) pass (task)
         python:
             binary_correct = check_binary(store.latest_choice, task)
             if (task.has_key("next_task")):
                 task = update_state(game_state, binary_correct, task)
-
-        show screen overlay (game_state.ui, "Next")
-    #TODO: SHOW DIFF APARTMENT BASED ON STATE
-    e "Game over!!!"
-
+        hide screen instructions
+#TODO: ADD performance screen
+        hide screen overlay
+        "Imagine you got a performance review screen here."
+        show screen supervisor
+    # FEEDBACK FROM MANAGER
+    if game_state.counters['bank_account'] > 1400:
+      e_big "Subject: Performance Review\nGreat work! Your performance ratings are eligible for the incentive bonus. The next set of questions will be more challenging. Keep up the good work.\nHappy labeling!\n-Alex T"
+    elif game_state.counters['bank_account'] > 1000:
+      e_big "Subject: Performance Review\nThis was a good start. Take a moment to review your metrics. You’ll see the areas that need improvement. Remember that labelers with higher performance scores will be eligible for incentive bonuses. The next set of questions will be more challenging. Keep at it.\nHappy labeling!\n-Alex T"
+    else:
+      e_big "Subject: Performance Review\nI’m a little concerned about your performance. As you can see, your performance metrics are ranking poorly. Unfortunately, your performance is not eligible for an incentive bonus at this time. Please take a moment to review the areas in which you can improve. \nHappy labeling!\n-Alex T"
+    #NEW UI STATE
+    $ show_window = True
+    hide screen supervisor
+    scene bg apartment_1
+    news "Secretary General calls U.N. emergency session"
+    news "Privatized outsourcing continues at DD"
+    news "Oldest woman alive turns 118"
+    news "Politician filibusters successfully"
+    m "Well, guess I better turn in for the day."
+    #AFTER SLEEPING: NEW APARTMENT STATE
     # This ends the game.
 
     return
 
 
-# old version of state for reference:
-#  text_label_task_1 = { 'labels': [{'name': 'sweetie', 'text': "I enjoy eating apples with my sweetie.",
-#      'ypos': 0, 'order': 1}, {'name': "baking", 'text': " I enjoy baking an apple pie in my human kitchen.",
-#      'ypos': 0, 'order': 2}, {'name': "zzxnarf", 'text': "I enjoy eating Zzxnarf with my brain-mate.", 'ypos': 0, 'order': 3}],
-#    'outcomes': {
-#      1: {
-#           "ui_state": {
-#             "labeling_performance" : "Well done! Your input is 95% compatible with that of other labelers.",
-#              "current_news_story": {
-#                "headline": "Alien terrorists Caught in Disguise at New Terra University", "body": "TK"
-#             },
-#             "budget": "Nice! You're 1/3rd of the way to making today's rent!",
-#            },
-#            "counters": {
-#             "bank_account": 200,
-#            }
-#         },
-#      2: {
-#           "ui_state": {
-#             "labeling_performance" : "Your input is marked as 'partially correct' in comparison to other labelers.",
-#              "current_news_story": {
-#                "headline": "Alien terrorists Caught in Disguise at New Terra University - but Leader Escapes", "body": "TK"
-#             },
-#             "budget": "You're 1/6th of the way to making today's rent!",
-#           },
-#            "counters": {
-#             "bank_account": 100,
-#           }
-#         },
-#        3: {
-#           "ui_state": {
-#             "labeling_performance" : "Your input is marked as incorrect in comparison to other labelers.",
-#              "current_news_story": {
-#                "headline": "Alien Terrorists Attack Research Center At New Terra University", "body": "TK"
-#             },
-#             "budget": "You're 1/12 of the way to making today's rent!",
-#            },
-#            "counters": {
-#             "bank_account": 50,
-#           }
-#       }
-#      }
-#    }
-#  text_label_task_1 = SimpleNamespace(**text_label_task_1)
-#  # image label template:
-#  # src comes from `images` folder
-#  # True: should be clicked
-#  # False: should not be clicked
-#  image_label_task_1 = [{'src': 'alien_1.png', 'value' : True}, {'src': 'alien_2.png', 'value' : True}, {'src': 'alien_3.png', 'value' : True}, {'src': 'human_1.png', 'value' : False}, {'src': 'human_2.png', 'value' : False}, {'src': 'human_3.png', 'value' : False}, {'src': 'human_4.png', 'value' : False}]
 

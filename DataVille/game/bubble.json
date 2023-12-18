@@ -10,5 +10,13 @@
             405
         ],
         "properties": "bottom_left"
+    },
+    "sentiment_text_task_1_c869a619": {
+        "area": [
+            800,
+            90,
+            640,
+            675
+        ]
     }
 }

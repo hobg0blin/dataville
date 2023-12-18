@@ -96,7 +96,6 @@ screen say(who, what):
 
     window:
         id "window"
-
         if who is not None:
 
             window:
@@ -131,8 +130,7 @@ style window:
     xfill True
     yalign gui.textbox_yalign
     ysize gui.textbox_height
-
-    background Image("gui/textbox.png", xalign=0.5, yalign=1.0)
+    background ConditionSwitch('not show_window', Null(), 'True', Image("gui/textbox.png", xalign=0.5, yalign=1.0))
 
 style window_nobox:
     xalign 0.5
@@ -1664,38 +1662,41 @@ screen supervisor:
       yalign 0.75
       image "images/supervisor.png"
 
+screen instructions(task):
+    vbox id 'instructions':
+      xsize 500
+      ysize 275
+      xalign 0.1
+      yalign 0.3
+      $ print('task: ', task['instructions'])
+      text '{size=-5}' + task['instructions']
+
  
 screen overlay(task, button_text=False):
 # streak_text, feed_text, instructions, status, button_text=False):
   window id 'content':
     ymaximum 1200
-    xmaximum 1600
+    xmaximum 1800
     frame id 'status_bar':
       background "#136366"
       has hbox
-      xsize 1600
+      xsize 1800
       image "images/logo_white.png"
 #TODO: just track number of tasks here
 #      text 'Performance:' + '\n{size=-5}' + task['performance']
       text 'Earnings:' +'{size=-5}' + str(task['budget'])
     hbox id 'aiden':
-      xsize 500
+      xsize 400
       ysize 300
       yalign 0.75
       xalign 0
       image "images/icons/asst_normal.png"
-      text 'Performance:' + '\n{size=-5}' + task['performance']
-    vbox id 'instructions':
-      xsize 500
-      ysize 300
-      xalign 0.5
-      yalign 0.2
-      text '{size=-5}' + task['instructions']
+      text '\n{size=-5}' + task['performance']
     if (button_text):
       frame id 'overlay_button':
         xsize 300
         xalign 0.5
-        yalign 0.95
+        yalign 0.55
         textbutton button_text action Return(True)
 #
 # SELECT DA IMAGES
@@ -1713,14 +1714,26 @@ screen captcha_image(task, images, button_text):
         ymaximum 200
         for i, img in enumerate(images):
           default strp = ""
+          default btn_selected=False
           python:
               base = os.path.basename(img)
               strp = os.path.splitext(base)[0]
+              selected_image = im.Grayscale(f"{img}")
+              def check_selected(img):
+                if img in images_selected['values']:
+                  print('img: ', img)
+                  print('images selected: ', images_selected)
+                  return True
+                else:
+                  return False
           imagebutton:
             xfill True
             yfill True idle Transform(f"{img}", size=(150, 150))
             hover Transform(f"{img}", size=(175, 175))
-            action Function(select_image, strp)
+            selected_idle Transform(selected_image, size=(150,150))
+            selected_hover Transform(selected_image, size=(175,175))
+            action [Function(select_image, strp), SelectedIf(check_selected(strp))]
+#            selected (Function(check_selected, strp))
   frame id 'done':
     xsize 300
     xalign 0.5
@@ -1734,22 +1747,24 @@ screen comparison_image(task, images):
       style "window_nobox"
       xmaximum 900
       ymaximum 1600
-      xalign 0.75
+      xalign 0.55
       yalign 1.0
       grid 3 4:
-        xmaximum 200
+        xmaximum 500
         ymaximum 200
         for i, img in enumerate(images):
           default strp = ""
           python:
               base = os.path.basename(img)
               strp = os.path.splitext(base)[0]
-          imagebutton:
-            xfill True
-            yfill True
-            idle Transform(f"{img}", size=(150, 150))
-            hover Transform(f"{img}", size=(200, 200))
-            action [SetVariable("latest_choice", strp), Return(True)]
+          hbox:
+            spacing 10
+            imagebutton:
+              xfill True
+              yfill True
+              idle Transform(f"{img}", size=(350, 350))
+              hover Transform(f"{img}", size=(375, 375))
+              action [SetVariable("latest_choice", strp), Return(True)]
 
 # SAY YES OR NO TO DA IMAGES
 screen binary_image(task, images):
@@ -1760,7 +1775,7 @@ screen binary_image(task, images):
       xmaximum 900
       ymaximum 900
       xalign 0.75
-      yalign 0.5
+      yalign 0.35
       hbox:
         spacing 10
         for i, img in enumerate(images):
@@ -1769,13 +1784,16 @@ screen binary_image(task, images):
               base = os.path.basename(img)
               strp = os.path.splitext(base)[0]
           image im.Scale(f"{img}", 200, 200)
-  frame id 'done':
+  hbox id 'done':
     xmaximum 900
-    xalign 0.5
-    yalign 0.9
-    hbox:
-        textbutton 'Yes' action [SetVariable("latest_choice", "Y"), Return(True)]
-        textbutton 'No' action [SetVariable("latest_choice", "N"), Return(True)]
+    xalign 0.45
+    yalign 0.7
+
+    spacing 20
+    frame:
+      textbutton 'Yes' action [SetVariable("latest_choice", "Y"), Return(True)]
+    frame:
+      textbutton 'No' action [SetVariable("latest_choice", "N"), Return(True)]
 
 screen binary_text(task):
   zorder 1
@@ -1785,16 +1803,20 @@ screen binary_text(task):
       xmaximum 900
       ymaximum 900
       xalign 0.75
-      yalign 0.5
+      yalign 0.4
       vbox id 'text_block':
         text '{size=-3}'+ task['text_block']
-  frame id 'done':
-    xsize 300
-    xalign 0.5
-    yalign 0.9
-    hbox:
-        textbutton 'Yes' action [SetVariable("latest_choice", "Y"), Return(True)]
-        textbutton 'No' action [SetVariable("latest_choice", "N"), Return(True)]
+  hbox id 'done':
+    xmaximum 900
+    xalign 0.45
+    yalign 0.7
+
+
+    spacing 20
+    frame:
+      textbutton 'Yes' action [SetVariable("latest_choice", "Y"), Return(True)]
+    frame:
+      textbutton 'No' action [SetVariable("latest_choice", "N"), Return(True)]
 
 screen comparison_text(task, button_text):
   zorder 1
@@ -1816,7 +1838,7 @@ screen comparison_text(task, button_text):
     xmaximum 900
     ymaximum 900
     xalign 0.5
-    yalign 0.25
+    yalign 0.05
     vbox:
       for idx, i in enumerate(label_order):
           $ box = task['labels'][i]
