@@ -1648,6 +1648,7 @@ screen timer:
 # etc.
 # }j
 
+# COMPUTER screens
 screen supervisor:
    window id 'content':
     ymaximum 1200
@@ -1662,12 +1663,27 @@ screen supervisor:
       yalign 0.75
       image "images/supervisor.png"
 
+screen assistant:
+   window id 'content':
+    ymaximum 1200
+    xmaximum 1600
+    frame id 'status_bar':
+      background "#136366"
+      has hbox
+      xsize 1600
+      image "images/logo_white.png"
+    hbox id 'assistant':
+      xalign 0.3
+      yalign 0.75
+      image "images/icons/asst_normal.png"
+
 screen instructions(task):
     vbox id 'instructions':
       xsize 500
       ysize 275
       xalign 0.1
       yalign 0.3
+      $ print('task: ', task['instructions'])
       text '{size=-5}' + task['instructions']
 
  
@@ -1720,12 +1736,15 @@ screen captcha_image(task, images, button_text):
               selected_image = im.Grayscale(f"{img}")
               def check_selected(img):
                 if img in images_selected['values']:
+                  print('img: ', img)
+                  print('images selected: ', images_selected)
                   return True
                 else:
                   return False
           imagebutton:
             xfill True
-            yfill True idle Transform(f"{img}", size=(150, 150))
+            yfill True 
+            idle Transform(f"{img}", size=(150, 150))
             hover Transform(f"{img}", size=(175, 175))
             selected_idle Transform(selected_image, size=(150,150))
             selected_hover Transform(selected_image, size=(175,175))
@@ -1985,4 +2004,70 @@ screen order_text(task, button_text):
     xalign 0.5
     yalign 0.9
     textbutton button_text action Return(True)
+
+# apartment screens
+# sticky notes zoom
+# tv zoom
+# window zoom
+# MAYBE: CAT?
+
+screen apartment(data):
+  fixed:
+    imagebutton:
+      xpos 120 ypos 15
+      idle "images/apartment/note.png" 
+      action Show("zoomed_note", None, store.apartment_data)
+    imagebutton:
+      xpos 200 ypos 300
+      idle Transform("images/apartment/tv.png", size=(800, 500)) 
+      action Show("zoomed_tv", None, store.apartment_data)
+    imagebutton:
+      xpos 450 ypos 10
+      idle Transform("images/apartment/window.png", size=(1200, 500)) 
+      action Show("zoomed_window", None, store.apartment_data)
+    frame:
+      xalign 0.5
+      yalign 0.9
+      textbutton data["button_text"] action Return()
+
+screen zoomed_note(data):
+  modal True
+  vbox:
+    xalign 0.5
+    yalign 0
+    image Transform("images/apartment/note.png", size=(1200, 1000)) 
+  vbox:
+    xalign 0.5
+    yalign 0.2
+    for note in data["notes"]:
+        text note
+  frame:
+    textbutton "X" action Hide("zoomed_note", None)
+
+screen zoomed_tv(data, index=0):
+  modal True
+  python:
+# advance through news items
+    print(data["news"])
+    print("length: ", len(data["news"]))
+    length = len(data["news"])
+    if index > length - 1:
+      index = 0
+    item = data["news"][index]
+    index +=1
+  image item["image"]
+  window:
+    textbutton item["text"] action Show("zoomed_tv", None, data, index)
+  frame:
+    textbutton "X" action Hide("zoomed_tv", None)
+
+screen zoomed_window(data):
+  modal True
+  frame:
+    xalign 0.5
+    background Transform("images/apartment/window.png", size=(1800, 1200))
+    vbox:
+      xalign 0.5
+      image Transform(data["window_background"], size=(1600, 1000))
+    textbutton "X" action Hide("zoomed_window", None)
 

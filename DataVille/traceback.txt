@@ -1,34 +1,26 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
 While running game code:
-  File "game/script.rpy", line 396, in script
-    call screen expression(task['type']) pass (task, 'Done!')
-  File "renpy/common/000statements.rpy", line 670, in execute_call_screen
-    store._return = renpy.call_screen(name, *args, **kwargs)
-Exception: Screen comparison_text is not known.
-
+  File "game/script.rpy", line 255, in script
+    image bg apartment_1 = im.FactorScale("images/apartment/apartment_" + store.apartment_data["apartment_background"] + ".jpg", 1.5)
+  File "game/script.rpy", line 255, in <module>
+    image bg apartment_1 = im.FactorScale("images/apartment/apartment_" + store.apartment_data["apartment_background"] + ".jpg", 1.5)
+AttributeError: 'StoreModule' object has no attribute 'apartment_data'
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "game/script.rpy", line 396, in script
-    call screen expression(task['type']) pass (task, 'Done!')
-  File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/ast.py", line 2259, in execute
-    self.call("execute")
-  File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/ast.py", line 2241, in call
-    return renpy.statements.call(method, parsed, *args, **kwargs)
-  File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/statements.py", line 342, in call
-    return method(parsed, *args, **kwargs)
-  File "renpy/common/000statements.rpy", line 670, in execute_call_screen
-    store._return = renpy.call_screen(name, *args, **kwargs)
-  File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/exports.py", line 3333, in call_screen
-    show_screen(_screen_name, _transient=True, *args, **kwargs)
-  File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/display/screen.py", line 1220, in show_screen
-    raise Exception("Screen %s is not known.\n" % (name[0],))
-Exception: Screen comparison_text is not known.
-
+  File "game/script.rpy", line 255, in script
+    image bg apartment_1 = im.FactorScale("images/apartment/apartment_" + store.apartment_data["apartment_background"] + ".jpg", 1.5)
+  File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/ast.py", line 1237, in execute
+    img = renpy.python.py_eval_bytecode(self.code.bytecode)
+  File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/python.py", line 1146, in py_eval_bytecode
+    return eval(bytecode, globals, locals)
+  File "game/script.rpy", line 255, in <module>
+    image bg apartment_1 = im.FactorScale("images/apartment/apartment_" + store.apartment_data["apartment_background"] + ".jpg", 1.5)
+AttributeError: 'StoreModule' object has no attribute 'apartment_data'
 
 Linux-6.2.0-39-generic-x86_64-with-glibc2.35 x86_64
 Ren'Py 8.1.3.23091805
 DataVille 1.0
-Mon Dec 18 18:12:52 2023
+Tue Dec 19 18:12:17 2023

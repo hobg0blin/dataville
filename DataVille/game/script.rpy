@@ -50,8 +50,8 @@ init python:
   from types import SimpleNamespace
   import re
   import operator
-
   import os
+
   store.drags = {}
   store.loop = {}
   # set default image ordering for testign
@@ -64,6 +64,9 @@ init python:
     num_match = re.search(r'[0-9]+', label)
     num_str = num_match.group()
     return num_str
+
+#TODO: need to probably convert apartment state stuff to CSV as well
+  store.apartment_data = {"apartment_background": "1", "notes": ["note 1", "note_2", "note_3"], "news": [{"image": "images/news/human_alien.png", "text": "test test"}, {"image": "images/news/kiss.png", "text": "OH SHIT THEY KISSING!!!!"}], "window_background": "images/window/city_scape.png", "button_text": "Go to work!"}
 
  # FIXME: make this smarter
   def get_assign_loop(filename, loop):
@@ -244,35 +247,15 @@ label start:
     # images directory to show it.
     image bg start_screen = im.FactorScale("images/intro_desk.jpg", 1.5)
     scene bg start_screen
-    pause
-    label intro:
-      scene bg black
-      "The year is 2055."
-      "A lot has changed in the past 20 years."
-      "With the rise of generative AI in the 2020s, the economy shifted drastically."
-      "A significant number of formerly stable white collar jobs disappeared, and millions found themselves out of work."
-      "Instead, we found ourselves doing gig labor to survive."
-      "And the most popular gig of all became data labeling: helping train and improve the algorithms that had replaced us."
-      "In 2035, the aliens made first contact with us."
-      "There was no colony ship, no armies marching on our unprotected world."
-      "Just little, rundown ships, landing haphazardly across the world, their occupants looking for nothing more than a place of refuge."
-      "Their world had been devastated by solar flares, and those who managed to escape made their way to the closest habitable world."
-      "For the last twenty years, the refugee crisis has been the primary political issue in every country across the world."
-      "With a decimated middle class, and most of the world barely able to support themselves, many believe we should send the aliens back to where they came from."
-      "The younger generations, however, believe it's our duty as a species to welcome them into the fold."
-      "Despite these increasingly at-odds factions, we've managed to maintain an uneasy peace so far."
-      "The aliens have no legal status as citizens, and most of them live in refugee camps outside of the major metropolises."
-      "Their technology, culture and cuisine have managed to make it into the mainstream."
-      "And there are even humans who have found love among their numbers - the first generation of metahumans is now coming of age."
-      "Against this backdrop, the fifth UN convention on Alien-Human relations is fast approaching."
-      "Will aliens finally be recognized as citizens? Will they be sent away? Or will the status quo remain the same?"
-      "These are the questions on everyone's mind. But you have something even more pressing to deal with."
-      "You have to pay your rent."
 
+    $ show_window = True
       #TODO:
       #how to interface with news/text in downtime
-      image bg apartment_1 = im.FactorScale("images/apartment/apartment_1.jpg", 1.5)
+    label intro:
+      image bg apartment_1 = im.FactorScale("images/apartment/apartment_" + store.apartment_data["apartment_background"] + ".jpg", 1.5)
       scene bg apartment_1
+      call screen apartment(store.apartment_data)
+      # hide screen apartment
       m "It's my first day at my new job."
       m "They've given me a place to stay, and they say if I perform well I'll get even more perks."
       m "Time to boot up my work computer and start the day, I guess!"

@@ -1,4 +1,4 @@
-Mon Dec 18 18:43:57 2023
+Tue Dec 19 18:26:25 2023
 Linux-6.2.0-39-generic-x86_64-with-glibc2.35
 Ren'Py 8.1.3.23091805
  
@@ -7,27 +7,90 @@ Bootstrap to the start of init.init. took 0.03s
 Early init. took 0.00s
 Loader init. took 0.00s
 Loading error handling. took 0.02s
-Loading script. took 0.26s
+Loading script. took 0.17s
 Loading save slot metadata. took 0.02s
 Loading persistent. took 0.00s
-Running init code. took 0.03s
-Loading analysis data. took 0.01s
+Running init code. took 0.04s
+Loading analysis data. took 0.02s
 Analyze and compile ATL. took 0.00s
 Reloading save slot metadata. took 0.01s
 Index archives took 0.00s
-Backing up script files to '/home/brent/.renpy/backups/DataVille':
 Dump and make backups. took 0.04s
 Cleaning cache. took 0.00s
 Making clean stores. took 0.00s
-Initial gc. took 0.01s
+Initial gc. took 0.02s
 DPI scale factor: 1.000000
 Creating interface object. took 0.00s
 Cleaning stores took 0.00s
-Init translation took 0.02s
+Init translation took 0.03s
 Build styles took 0.00s
-Load screen analysis took 0.00s
-Analyze screens took 0.01s
-Save screen analysis took 0.02s
+Load screen analysis took 0.02s
+Analyze screens took 0.00s
+Save screen analysis took 0.00s
 Prepare screens took 0.06s
-Save pyanalysis. took 0.01s
+Save pyanalysis. took 0.00s
 Save bytecode. took 0.02s
+Running _start took 0.00s
+Performance test:
+Interface start. took 0.13s
+
+Initializing gl2 renderer:
+primary display bounds: (1920, 0, 2560, 1440)
+swap interval: 1 frames
+Windowed mode.
+Vendor: "b'Intel'"
+Renderer: b'Mesa Intel(R) UHD Graphics (CML GT2)'
+Version: b'4.6 (Compatibility Profile) Mesa 23.0.4-0ubuntu1~22.04.1'
+Display Info: None
+Screen sizes: virtual=(1920, 1080) physical=(1244, 700) drawable=(1244, 700)
+Maximum texture size: 4096x4096
+Screen sizes: virtual=(1920, 1080) physical=(2490, 1369) drawable=(2490, 1369)
+Maximum texture size: 4096x4096
+[{'image': 'images/news/human_alien.png', 'text': 'test test'}, {'image': 'images/news/kiss.png', 'text': 'OH SHIT THEY KISSING!!!!'}]
+length:  2
+[{'image': 'images/news/human_alien.png', 'text': 'test test'}, {'image': 'images/news/kiss.png', 'text': 'OH SHIT THEY KISSING!!!!'}]
+length:  2
+[{'image': 'images/news/human_alien.png', 'text': 'test test'}, {'image': 'images/news/kiss.png', 'text': 'OH SHIT THEY KISSING!!!!'}]
+length:  2
+[{'image': 'images/news/human_alien.png', 'text': 'test test'}, {'image': 'images/news/kiss.png', 'text': 'OH SHIT THEY KISSING!!!!'}]
+length:  2
+[{'image': 'images/news/human_alien.png', 'text': 'test test'}, {'image': 'images/news/kiss.png', 'text': 'OH SHIT THEY KISSING!!!!'}]
+length:  2
+[{'image': 'images/news/human_alien.png', 'text': 'test test'}, {'image': 'images/news/kiss.png', 'text': 'OH SHIT THEY KISSING!!!!'}]
+length:  2
+[{'image': 'images/news/human_alien.png', 'text': 'test test'}, {'image': 'images/news/kiss.png', 'text': 'OH SHIT THEY KISSING!!!!'}]
+length:  2
+Traceback (most recent call last):
+  File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/lib/py3-linux-x86_64/../../renpy.py", line 244, in <module>
+    main()
+  File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/lib/py3-linux-x86_64/../../renpy.py", line 240, in main
+    renpy.bootstrap.bootstrap(renpy_base)
+  File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/bootstrap.py", line 275, in bootstrap
+    renpy.main.main()
+  File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/main.py", line 670, in main
+    run(restart)
+  File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/main.py", line 144, in run
+    renpy.execution.run_context(True)
+  File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/execution.py", line 955, in run_context
+    context.run()
+  File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/execution.py", line 596, in run
+    node.execute()
+  File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/ast.py", line 2259, in execute
+    self.call("execute")
+  File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/ast.py", line 2241, in call
+    return renpy.statements.call(method, parsed, *args, **kwargs)
+  File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/statements.py", line 342, in call
+    return method(parsed, *args, **kwargs)
+  File "renpy/common/000statements.rpy", line 670, in execute_call_screen
+    store._return = renpy.call_screen(name, *args, **kwargs)
+  File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/exports.py", line 3347, in call_screen
+    rv = renpy.ui.interact(mouse="screen", type="screen", roll_forward=roll_forward)
+  File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/ui.py", line 299, in interact
+    rv = renpy.game.interface.interact(roll_forward=roll_forward, **kwargs)
+  File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/display/core.py", line 3582, in interact
+    repeat, rv = self.interact_core(preloads=preloads, trans_pause=trans_pause, pause=pause, pause_start=pause_start, pause_modal=pause_modal, **kwargs) # type: ignore
+  File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/display/core.py", line 4316, in interact_core
+    ev = self.event_wait()
+  File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/display/core.py", line 3126, in event_wait
+    ev = pygame.event.wait()
+KeyboardInterrupt
