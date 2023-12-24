@@ -1626,12 +1626,14 @@ transform speech_bubble:
   yalign 0.75
   
 screen timer:
-  zorder 10
+#  zorder 10
+  $ print('time: ', time)
+  $ print('timer_range: ', timer_range)
   vbox:
     xalign 0.9
-    yalign 0.275
+    yalign 0.95
     timer 0.01 repeat True action If(time > 0, true=SetVariable('time', time - 0.01))
-    bar value time range timer_range xalign 0.5 yalign 0.9 xmaximum 300 at alpha_dissolve
+    bar value time range timer_range xalign 0.0 yalign 1 xmaximum 1800 at alpha_dissolve
 
 
 
@@ -1649,8 +1651,15 @@ screen timer:
 # }j
 
 # COMPUTER screens
-screen supervisor:
-   window id 'content':
+screen message(sender):
+  python:
+    if sender == 'supervisor':
+      avatar = "images/supervisor.png" 
+    elif sender == 'stranger':
+      avatar = "images/stranger.png"
+    else:
+      avatar = "images/icons/asst_normal.png"
+  window id 'content':
     ymaximum 1200
     xmaximum 1600
     frame id 'status_bar':
@@ -1661,7 +1670,7 @@ screen supervisor:
     hbox id 'supervisor':
       xalign 0.3
       yalign 0.75
-      image "images/supervisor.png"
+      image avatar
 
 screen assistant:
    window id 'content':
@@ -1683,7 +1692,6 @@ screen instructions(task):
       ysize 275
       xalign 0.1
       yalign 0.3
-      $ print('task: ', task['instructions'])
       text '{size=-5}' + task['instructions']
 
  
@@ -1699,12 +1707,13 @@ screen overlay(task, button_text=False):
       image "images/logo_white.png"
 #TODO: just track number of tasks here
 #      text 'Performance:' + '\n{size=-5}' + task['performance']
-      text 'Earnings:' +'{size=-5}' + str(task['budget'])
-    hbox id 'aiden':
+      text 'Earnings:' +'{size=-5}' + str(task['earnings'])
+    hbox id 'cogni':
       xsize 400
       ysize 300
       yalign 0.75
       xalign 0
+      #TODO: diff version of cogni based on performance
       image "images/icons/asst_normal.png"
       text '\n{size=-5}' + task['performance']
     if (button_text):
@@ -1736,8 +1745,6 @@ screen captcha_image(task, images, button_text):
               selected_image = im.Grayscale(f"{img}")
               def check_selected(img):
                 if img in images_selected['values']:
-                  print('img: ', img)
-                  print('images selected: ', images_selected)
                   return True
                 else:
                   return False
@@ -1834,7 +1841,7 @@ screen binary_text(task):
     frame:
       textbutton 'No' action [SetVariable("latest_choice", "N"), Return(True)]
 
-screen comparison_text(task, button_text):
+screen comparison_text(task, button_text='Done!'):
   zorder 1
   # this animates random shuffle??? is that supposed to be happening? either renpy.random or regular random does it
   #ok so use traditional python random library for actual randomization
@@ -1846,7 +1853,7 @@ screen comparison_text(task, button_text):
       label_order = []
       for x in range(1, label_count + 1):
           label_order.append(str(x))
-      random_order = random.shuffle(label_order)
+#      random_order = random.shuffle(label_order)
   # # does not return a list but changes an existing one, generates same numbers every time
   # $ renpy.random.shuffle(task)
   window id 'labeler':
@@ -1883,7 +1890,7 @@ screen caption_image(task, images):
       label_order = []
       for x in range(1, label_count + 1):
           label_order.append(str(x))
-      random_order = random.shuffle(label_order)
+#      random_order = random.shuffle(label_order)
   # # does not return a list but changes an existing one, generates same numbers every time
   # $ renpy.random.shuffle(task)
   window id 'labeler':
@@ -1928,7 +1935,7 @@ screen sentiment_text(task):
       label_order = []
       for x in range(1, label_count + 1):
           label_order.append(str(x))
-      random_order = random.shuffle(label_order)
+#      random_order = random.shuffle(label_order)
   # # does not return a list but changes an existing one, generates same numbers every time
   # $ renpy.random.shuffle(task)
   window id 'labeler':
@@ -1964,7 +1971,7 @@ screen sentiment_text(task):
 
 # ORDER THE TEXT
 
-screen order_text(task, button_text):
+screen order_text(task, button_text='Done!'):
   zorder 1
   # this animates random shuffle??? is that supposed to be happening? either renpy.random or regular random does it
   #ok so use traditional python random library for actual randomization
@@ -1976,9 +1983,12 @@ screen order_text(task, button_text):
       label_order = []
       for x in range(1, label_count + 1):
           label_order.append(str(x))
-      random_order = random.shuffle(label_order)
+      #disabling random for now because it keeps causing an animation, i don't know why
+      # could just set a random position for them, I guess? Or have them side by side
+#      random.shuffle(label_order)
   # # does not return a list but changes an existing one, generates same numbers every time
   # $ renpy.random.shuffle(task)
+
   window id 'labeler':
     style "window_nobox"
     xmaximum 900
@@ -2011,7 +2021,12 @@ screen order_text(task, button_text):
 # window zoom
 # MAYBE: CAT?
 
-screen apartment(data):
+screen apartment(data, time):
+  python:
+    if time == "end":
+      btn = "Go to sleep"
+    else:
+      btn = "Go to work"
   fixed:
     imagebutton:
       xpos 120 ypos 15
@@ -2028,7 +2043,7 @@ screen apartment(data):
     frame:
       xalign 0.5
       yalign 0.9
-      textbutton data["button_text"] action Return()
+      textbutton btn action Return()
 
 screen zoomed_note(data):
   modal True
@@ -2039,8 +2054,8 @@ screen zoomed_note(data):
   vbox:
     xalign 0.5
     yalign 0.2
-    for note in data["notes"]:
-        text note
+    for note in data["sticky_note"]:
+        text note["text"]
   frame:
     textbutton "X" action Hide("zoomed_note", None)
 
@@ -2048,8 +2063,7 @@ screen zoomed_tv(data, index=0):
   modal True
   python:
 # advance through news items
-    print(data["news"])
-    print("length: ", len(data["news"]))
+    print('data: ', data)
     length = len(data["news"])
     if index > length - 1:
       index = 0
@@ -2071,3 +2085,18 @@ screen zoomed_window(data):
       image Transform(data["window_background"], size=(1600, 1000))
     textbutton "X" action Hide("zoomed_window", None)
 
+screen performance(state, average):
+  frame:
+    xalign 0.5
+    yalign 0.2
+    xmaximum 1200
+    has vbox
+    text("Approval rating")
+    bar value state["approval_rate"] range 100
+    bar value average["score"] range 100
+    text("Average speed")
+    bar value state["average_time"] range 10
+    bar value average["time"] range 10
+    text("Average earnings")
+    bar value state["earnings"] range 200
+    bar value average["earnings"] range 200
