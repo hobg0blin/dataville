@@ -1,4 +1,4 @@
-DAY,TEXT,TYPE,PERFORMANCE,TIME,SENDER,IMAGE,BUTTON_1_TEXT,BUTTON_2_TEXT
+DAY,TEXT,TYPE,PERFORMANCE,TIME,SENDER,IMAGE,BUTTON_1_TEXT,BUTTON_2_TEXT,EVENT_FLAG
 0,"Alex T Manager @ DataVille
 Subject: Orientation
 
@@ -8,32 +8,32 @@ Image Labeler / Annotator
 We look forward to working with you. Utilize your natural instincts, perspective and humanity. 
 
 Happy labeling! 
--Alex T",message,default,start,supervisor,,,
-0,Gig Economy Expected to Continue Growing,news,default,start,,,,
-0,Scientist: visitors’ camouflage abilities greater than previously believed.,news,default,start,,,,
-0,Cleveland zoo welcomes birth of new pandas.,news,default,start,,,,
-0,Experts testify before congress on illegal aliens.,news,default,start,,,,
-0,Official opening of Montana resettlement zone,news,default,start,,,,
-0,White collar unemployment hits new level.,news,default,start,,,,
-0,-Mitten vet appointment,sticky_note,default,start,,,,
-0,-Call mom back,sticky_note,default,start,,,,
-0,-Pay rent,sticky_note,default,start,,,,
-0,-Trash day,sticky_note,default,start,,,,
+-Alex T",message,default,start,supervisor,,,,
+0,Gig Economy Expected to Continue Growing,news,default,start,,,,,
+0,Scientist: visitors’ camouflage abilities greater than previously believed.,news,default,start,,,,,
+0,Cleveland zoo welcomes birth of new pandas.,news,default,start,,,,,
+0,Experts testify before congress on illegal aliens.,news,default,start,,,,,
+0,Official opening of Montana resettlement zone,news,default,start,,,,,
+0,White collar unemployment hits new level.,news,default,start,,,,,
+0,-Mitten vet appointment,sticky_note,default,start,,,,,
+0,-Call mom back,sticky_note,default,start,,,,,
+0,-Pay rent,sticky_note,default,start,,,,,
+0,-Trash day,sticky_note,default,start,,,,,
 0,"And I’m your automated helper, COGNI! 
 I’m here to assist you!
 
 Remember these simple directions:
 Answer the questions quickly. 
 Answer the questions accurately. 
-Labelers with the high ratings/speed will receive incentive bonuses!",message,default,start,cogni,,"Thanks, Cogni",Ugh. I hate AI.
-0,Here’s a practice run to get you started!,message,default,start,cogni,,,
-0,Immigration Reforms Stalls in Congress Over Illegal Aliens.,news,default,end,,,,
-0,Oldest woman alive turns 118,news,default,end,,,,
-0,AI blamed for New White Collar Unemployment Figures.,news,default,end,,,,
-0,Tragedy in Montana Resettlement Zone,news,default,end,,,,
+Labelers with the high ratings/speed will receive incentive bonuses!",message,default,start,cogni,,"Thanks, Cogni",Ugh. I hate AI.,
+0,Here’s a practice run to get you started!,message,default,start,cogni,,,,
+0,Immigration Reforms Stalls in Congress Over Illegal Aliens.,news,default,end,,,,,
+0,Oldest woman alive turns 118,news,default,end,,,,,
+0,AI blamed for New White Collar Unemployment Figures.,news,default,end,,,,,
+0,Tragedy in Montana Resettlement Zone,news,default,end,,,,,
 0,"“That was fantastic! Keep up the great work!
-Humanity is counting on you!”",message,good,end,,,Off to a great start!,
+Humanity is counting on you!”",message,good,end,,,Off to a great start!,,
 0,"That wasn’t very good! Be sure to try your best! 
-Remember, humanity is counting on you!",message,bad,,,,Off to a rough start.,
-0,,,,,,,,
-0,,,,,,,,
+Remember, humanity is counting on you!",message,bad,end,,,Off to a rough start.,,
+0,You were so ethical today!,message,flag_dependent,end,cogni,,,,ethical_event_flag_1
+0,Good job not letting your ethics get the best of you.,message,flag_dependent,end,cogni,,,,correct_event_flag_1

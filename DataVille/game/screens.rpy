@@ -1627,8 +1627,6 @@ transform speech_bubble:
   
 screen timer:
 #  zorder 10
-  $ print('time: ', time)
-  $ print('timer_range: ', timer_range)
   vbox:
     xalign 0.9
     yalign 0.95
@@ -1654,9 +1652,9 @@ screen timer:
 screen message(sender):
   python:
     if sender == 'supervisor':
-      avatar = "images/supervisor.png" 
+      avatar = "images/icons/supervisor.png" 
     elif sender == 'stranger':
-      avatar = "images/stranger.png"
+      avatar = "images/icons/stranger.png"
     else:
       avatar = "images/icons/asst_normal.png"
   window id 'content':
@@ -1695,7 +1693,7 @@ screen instructions(task):
       text '{size=-5}' + task['instructions']
 
  
-screen overlay(task, button_text=False):
+screen overlay(task, cogni=False, button_text=False):
 # streak_text, feed_text, instructions, status, button_text=False):
   window id 'content':
     ymaximum 1200
@@ -1714,8 +1712,12 @@ screen overlay(task, button_text=False):
       yalign 0.75
       xalign 0
       #TODO: diff version of cogni based on performance
-      image "images/icons/asst_normal.png"
-      text '\n{size=-5}' + task['performance']
+      if cogni:
+        vbox:
+          spacing 15
+          xsize 500
+          text '\n{size=-5}' + task['performance']
+          image "images/icons/asst_normal.png"
     if (button_text):
       frame id 'overlay_button':
         xsize 300
@@ -1724,7 +1726,7 @@ screen overlay(task, button_text=False):
         textbutton button_text action Return(True)
 #
 # SELECT DA IMAGES
-screen captcha_image(task, images, button_text):
+screen captcha_image(task, images):
   zorder 1
   # $ random.shuffle(task)
   window id 'labeler': 
@@ -1761,7 +1763,7 @@ screen captcha_image(task, images, button_text):
     xsize 300
     xalign 0.5
     yalign 0.9
-    textbutton button_text action Return(True)
+    textbutton "Done" action Return(True)
 
 screen comparison_image(task, images):
   zorder 1
@@ -1770,7 +1772,7 @@ screen comparison_image(task, images):
       style "window_nobox"
       xmaximum 900
       ymaximum 1600
-      xalign 0.55
+      xalign 0.6
       yalign 1.0
       grid 3 4:
         xmaximum 500
@@ -1785,8 +1787,8 @@ screen comparison_image(task, images):
             imagebutton:
               xfill True
               yfill True
-              idle Transform(f"{img}", size=(350, 350))
-              hover Transform(f"{img}", size=(375, 375))
+              idle Transform(f"{img}", size=(400, 400))
+              hover Transform(f"{img}", size=(425, 425))
               action [SetVariable("latest_choice", strp), Return(True)]
 
 # SAY YES OR NO TO DA IMAGES
@@ -1806,10 +1808,10 @@ screen binary_image(task, images):
           python:
               base = os.path.basename(img)
               strp = os.path.splitext(base)[0]
-          image im.Scale(f"{img}", 200, 200)
+          image im.Scale(f"{img}", 450, 450)
   hbox id 'done':
     xmaximum 900
-    xalign 0.45
+    xalign 0.5
     yalign 0.7
 
     spacing 20
@@ -2029,28 +2031,31 @@ screen apartment(data, time):
       btn = "Go to work"
   fixed:
     imagebutton:
-      xpos 120 ypos 15
-      idle "images/apartment/note.png" 
+      xpos 1720 ypos 15
+      idle "images/room/room/note.png" 
+      hover Transform("images/room/room/note.png", size=(300, 400)) 
       action Show("zoomed_note", None, store.apartment_data)
     imagebutton:
-      xpos 200 ypos 300
-      idle Transform("images/apartment/tv.png", size=(800, 500)) 
+      xpos 180 ypos 500
+      idle Transform("images/room/room/tv_button.png", size=(512, 384)) 
+      hover Transform("images/room/room/tv_button.png", size=(520, 400)) 
       action Show("zoomed_tv", None, store.apartment_data)
     imagebutton:
-      xpos 450 ypos 10
-      idle Transform("images/apartment/window.png", size=(1200, 500)) 
+      xpos 0 ypos 0
+      idle Transform("images/room/room/window_button.png", size=(600, 450)) 
+      hover Transform("images/room/room/window_button.png", size=(620, 470)) 
       action Show("zoomed_window", None, store.apartment_data)
-    frame:
-      xalign 0.5
-      yalign 0.9
-      textbutton btn action Return()
+  frame:
+    xalign 0.5
+    yalign 0.9
+    textbutton btn action Return()
 
 screen zoomed_note(data):
   modal True
   vbox:
     xalign 0.5
     yalign 0
-    image Transform("images/apartment/note.png", size=(1200, 1000)) 
+    image Transform("images/room/room/note.png", size=(1200, 1000)) 
   vbox:
     xalign 0.5
     yalign 0.2
@@ -2061,28 +2066,29 @@ screen zoomed_note(data):
 
 screen zoomed_tv(data, index=0):
   modal True
-  python:
+  frame:
+    python:
 # advance through news items
-    print('data: ', data)
-    length = len(data["news"])
-    if index > length - 1:
-      index = 0
-    item = data["news"][index]
-    index +=1
-  image item["image"]
+      print('data: ', data)
+      length = len(data["news"])
+      if index > length - 1:
+        index = 0
+      item = data["news"][index]
+      index +=1
+    image Transform(item["image"], size=(1000,1000)) xpos 600 ypos 200
+    image Transform("images/room/room/tv_zoom_in.png", size=(2000, 1400))
   window:
-    textbutton item["text"] action Show("zoomed_tv", None, data, index)
+    textbutton item["text"].upper() xpos 400 yalign 0.45 action Show("zoomed_tv", None, data, index)
   frame:
     textbutton "X" action Hide("zoomed_tv", None)
 
 screen zoomed_window(data):
   modal True
   frame:
-    xalign 0.5
-    background Transform("images/apartment/window.png", size=(1800, 1200))
     vbox:
-      xalign 0.5
-      image Transform(data["window_background"], size=(1600, 1000))
+      xalign 0.2
+      image Transform(data["window_background"], size=(1000, 1000))
+    image Transform("images/room/room/window_zoom_in.png", size=(2000, 1400))
     textbutton "X" action Hide("zoomed_window", None)
 
 screen performance(state, average):
