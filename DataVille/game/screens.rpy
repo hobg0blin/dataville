@@ -2069,7 +2069,6 @@ screen zoomed_tv(data, index=0):
   frame:
     python:
 # advance through news items
-      print('data: ', data)
       length = len(data["news"])
       if index > length - 1:
         index = 0

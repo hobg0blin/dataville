@@ -63,3 +63,4 @@ Maximum texture size: 4096x4096
 127.0.0.1 - - [26/Dec/2023 17:15:52] "GET /game/images/room/room/note.png HTTP/1.1" 200 -
 127.0.0.1 - - [26/Dec/2023 17:15:52] "GET /game/images/room/room/tv_button.png HTTP/1.1" 200 -
 127.0.0.1 - - [26/Dec/2023 17:15:52] "GET /game/images/room/room/window_button.png HTTP/1.1" 200 -
+----

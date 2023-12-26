@@ -498,7 +498,6 @@ label start:
       else: 
         call screen expression(task['type']) pass (task)
       python:
-        print('task: ', task)
         if (task['type'] == 'captcha_image'):
           case = check_images(images_selected, task['correct_images'])
           store.latest_score = case
