@@ -74,7 +74,6 @@ init python:
         'time': 8,
         'earnings': 1200
         },
-
     }
 # these should only be updated after a game loop
   store.game_state = {}
@@ -107,7 +106,7 @@ init python:
 
   store.apartment_data = {"apartment_background": "1", "sticky_note": [], "message": [], "news": [], "window_background": "images/window/city_scape.png", "button_text": "Go to work!"}
 
-  # set default image ordering for testign
+  # set default image ordering
   store.order = [3,2,1]
 # DEFAULT TIMER VARIABLES
   timer_range = 0
@@ -440,6 +439,12 @@ label start:
           images = get_images(task)
           time = int(task['time'])
           timer_range = time
+      if 'custom_dialogue' in task:
+        show screen message(task['custom_dialogue_sender'])
+        $ custom_dialogue = task['custom_dialogue']
+        e_big "[custom_dialogue]"
+        hide screen message
+
       show screen instructions(store.game_state.ui)
 
       show screen timer
