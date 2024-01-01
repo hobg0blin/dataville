@@ -239,18 +239,31 @@ init python:
         return {'text': random.choice(mid), 'score': 66}
       else:
         return {'text': random.choice(bad), 'score': 33}
+  def set_performance_rating():
+
+    if (store.game_state.performance['approval_rate'] > store.averages['day_' + str(store.game_state.day)]['score']):
+      store.game_state.performance_rating = "good"
+    elif (store.game_state.performance['approval_rate'] == store.averages['day_' + str(store.game_state.day)]['score']):
+      store.game_state.performance_rating = "neutral"
+    else:
+      store.game_state.performance_rating = "bad"
 
   def update_state(state, out, current_task):
     if (current_task['next_task'] == 'break'):
-      if (store.game_state.performance['approval_rate'] > store.averages['day_' + str(store.game_state.day)]['score']):
-        store.game_state.performance_rating = "good"
-      elif (store.game_state.performance['approval_rate'] == store.averages['day_' + str(store.game_state.day)]['score']):
-        store.game_state.performance_rating = "neutral"
-      else:
-        store.game_state.performance_rating = "bad"
+      set_performance_rating()
       next_task = 'break'
     else:
       next_task = store.loop[current_task['next_task']]
+    #if event flag dependency isn't met, skip task
+      if ('event_flag_dependency' in next_task):
+        if next_task['event_flag_dependency'] not in store.event_flags:
+          if next_task['next_task'] == 'break': 
+            set_performance_rating()
+            next_task = 'break'
+          else:
+              next_task = store.loop[next_task['next_task']]
+
+  
     reward = int(current_task['payment'])/out
 
     performance = performance_feedback(out)
