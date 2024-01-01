@@ -155,6 +155,9 @@ init python:
     for k in performance: performance[k] = 0
   
 # PULL APARTMENT STATE FROM CSV
+  def get_apartment_image(folder, file):
+    return f"images/room/{folder}/{file}"
+
   def update_apartment_state(filename, apartment, game_state):
     messages = []
     store.apartment_data = {"apartment_background": "1", "sticky_note": [], "news": [], "message": [], "window_background": "images/window/city_scape.png", "button_text": "Go to work!"}
@@ -179,7 +182,10 @@ init python:
           story_object['text'] = row['TEXT']
 #          story_object['image'] = row['IMAGE']
 #          #FIXME: PLACEHOLDER IMAGE
-          story_object['image'] = 'images/news/kiss.png'
+          if len(row['IMAGE_FOLDER']) > 0:
+            story_object['image'] = get_apartment_image(row['IMAGE_FOLDER'], row['IMAGE'])
+          else:
+            story_object['image'] = "images/placeholder.png"
         elif row['TYPE'] == 'sticky_note':
           story_object['text'] = row['TEXT']
         apartment_data[row['TYPE']].append(story_object) 
