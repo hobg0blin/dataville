@@ -2091,6 +2091,8 @@ screen zoomed_window(data):
     textbutton "X" action Hide("zoomed_window", None)
 
 screen performance(state, average):
+  $ print('state: ', state)
+  $ print('average: ', average)
   frame:
     xalign 0.5
     yalign 0.2
@@ -2103,5 +2105,5 @@ screen performance(state, average):
     bar value state["average_time"] range 10
     bar value average["time"] range 10
     text("Average earnings")
-    bar value state["earnings"] range 200
-    bar value average["earnings"] range 200
+    bar value state["earnings"] range 1200
+    bar value average["earnings"] range 1200

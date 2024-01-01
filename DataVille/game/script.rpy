@@ -85,9 +85,6 @@ init python:
   store.game_state.performance_rating = 'neutral'
   store.game_state.task_count = 0
   store.apartment_file = ""
-  #
-  #FIXME: would like this to be using RenPy's default store functionality but I think I'm not understanding how that works properly
-  #Basically I am being forced into using object["attribute"] instead of dot notation and that feels dumb and wrong to me
 
 
   store.game_state.ui = {
@@ -103,6 +100,8 @@ init python:
   store.game_state.performance = {
         "earnings": 0,
         "average_time": 0,
+        "total_time": 0,
+        "total_score": 0,
         "approval_rate": 0,
       }
 
@@ -110,8 +109,7 @@ init python:
 
   # set default image ordering for testign
   store.order = [3,2,1]
-  # search for a string, assign that as its order/ID within its text labeling
-  # task
+# DEFAULT TIMER VARIABLES
   timer_range = 0
   time = 0
   timer_jump = ''
@@ -122,8 +120,8 @@ init python:
     num_match = re.search(r'[0-9]+', label)
     num_str = num_match.group()
     return num_str
-
- # FIXME: make this smarter
+# STATE FUNCTIONS
+# set tasks from CSV
   def make_task_loop(filename, loop):
       with open(renpy.loader.transfn(filename), 'r') as current_loop:
           reader = csv.DictReader(current_loop)
@@ -153,6 +151,7 @@ init python:
                 else:
                     #OTHERWISE, SET ATTRIBUTE ON MAIN LOOP OBJECT
                     loop[row['task_id']][k] = v
+
   def reset_performance(performance):
     for k in performance: performance[k] = 0
   
@@ -185,17 +184,8 @@ init python:
         elif row['TYPE'] == 'sticky_note':
           story_object['text'] = row['TEXT']
         apartment_data[row['TYPE']].append(story_object) 
-  def day_start():
-    store.game_state.day += 1
-    day = str(store.game_state.day)
-    store.game_state.time = 'start'
-    make_task_loop('game_files/tasks_day_' + day + '.csv', store.loop) 
-    update_apartment_state('game_files/apt_day_' + day + '.csv', store.apartment_data, store.game_state)
 
-  def day_end():
-    store.game_state.time = 'end'
-    day = str(store.game_state.day)
-
+# remove items from apartment state when conditions aren't met (e.g. performance and event flags)
   def clean(apartment):
     output = {}
     for k in apartment:
@@ -219,6 +209,19 @@ init python:
       return False
 
 
+#
+# UPDATE STATE BASED ON TIME CHANGE
+  def day_start():
+    store.game_state.day += 1
+    day = str(store.game_state.day)
+    store.game_state.time = 'start'
+    make_task_loop('game_files/tasks_day_' + day + '.csv', store.loop) 
+    update_apartment_state('game_files/apt_day_' + day + '.csv', store.apartment_data, store.game_state)
+
+  def day_end():
+    store.game_state.time = 'end'
+    day = str(store.game_state.day)
+
   day_start()
 
 
@@ -239,6 +242,7 @@ init python:
         return {'text': random.choice(mid), 'score': 66}
       else:
         return {'text': random.choice(bad), 'score': 33}
+
   def set_performance_rating():
 
     if (store.game_state.performance['approval_rate'] > store.averages['day_' + str(store.game_state.day)]['score']):
@@ -248,6 +252,7 @@ init python:
     else:
       store.game_state.performance_rating = "bad"
 
+# update task after it's scored, update state with scores
   def update_state(state, out, current_task):
     if (current_task['next_task'] == 'break'):
       set_performance_rating()
@@ -275,26 +280,12 @@ init python:
       store.event_flags.append(current_task['correct_choice_event_flag'])
     #SCORING
     store.game_state.task_count += 1
-    store.game_state.performance['approval_rate'] = (store.game_state.performance['approval_rate'] + performance['score'])/store.game_state.task_count
+    store.game_state.performance['total_score'] = (store.game_state.performance['total_score'] + performance['score'])
+    store.game_state.performance['approval_rate'] = (store.game_state.performance['total_score']/store.game_state.task_count)
     # TIME TRACKER
-    store.game_state.performance['average_time'] = (store.game_state.performance['average_time'] + (10 - time))/store.game_state.task_count    
-    # probably shouldn't be a row with *no* outcomes, but this makes sure it
-    # won't break if it does!
-    # MOST OF THIS IS NOT CURRENTLY IN USE - TODO REFACTOR
-#    if current_task.has_key('outcomes') and current_task['outcomes'].has_key(str(out)):
-#        outcomes = current_task['outcomes'][str(out)]
-#        # put past news articles in archive (if needed)
-#        if "news_headline" in outcomes["ui"].keys():
-#            state.ui["past_news_stories"].append({"headline": state.ui["news_headline"], "body": state.ui["news_body"]})
-#        for counter in state.counters.keys():
-#            if outcomes.has_key("counters") and counter in outcomes["counters"].keys():
-#                # if it's a counter, increment it
-#                state.counters[counter] += int(outcomes["counters"][counter])
-#        for ui_element in state.ui.keys():
-#            # if it affects the UI, update it
-#            if ui_element in outcomes["ui"].keys():
-#                state.ui[ui_element] = outcomes["ui"][ui_element]
-    return set_ui_state( next_task, state, performance_text, reward)
+    store.game_state.performance['total_time'] = (store.game_state.performance['total_time'] + (10 - time))    
+    store.game_state.performance['average_time'] = (store.game_state.performance['total_time'] /store.game_state.task_count)    
+    return set_ui_state(next_task, state, performance_text, reward)
 
   def set_ui_state( task, state, performance_text = '', reward = 0):
     state.ui['performance'] = performance_text
@@ -307,6 +298,8 @@ init python:
       state.ui['timer'] = task['time']
       return task
 
+# IMAGE TASK FUNCTIONS
+# default captcha image variables
   images_correct = False
   start_x_image = 100
   start_y_image = 300
@@ -349,6 +342,7 @@ init python:
           return 1
       else:
           return 3
+
   def check_ethical(value, task):
     if 'ethical_options' in task:
       if value == task['ethical_options']:
@@ -358,6 +352,7 @@ init python:
     else:
       return False
 
+# TEXT ORDERING FUNCTIONS (currently not in use because buggy)
   def drag_log(drags, drop):
     # needs to have droppable enabled, i guess?
     # if drop:
@@ -382,16 +377,13 @@ init python:
 
 label start:
 
-    # Show a background. This uses a placeholder by default, but you can
-    # add a file (named either "bg room.png" or "bg room.jpg") to the
-    # images directory to show it.
     image bg start_screen = im.FactorScale("images/intro_desk.jpg", 1.5)
     scene bg start_screen
-
+    pause
+    # show standard dialogue box - only for news chyrons
     $ show_window = True
-      #TODO:
-      #how to interface with news/text in downtime
     label intro:
+#      manual stuff for game start
 #      image bg apartment_1 = im.FactorScale("images/room/room/room_" + store.apartment_data["apartment_background"] + ".jpg", 1.5)
       image bg apartment_1 = im.FactorScale("images/room/room/room.png", 0.3)
       
@@ -409,11 +401,8 @@ label start:
     image bg black = Solid('#FFFFFF')
     scene bg overlay_background
 
-    # little hack to jump to specific loops/exercises
 
- #   jump binary_image_1
-
-    # FIRST TEXT LOOP
+# manually check messsages on first loop 
     $ cleaned = clean(store.apartment_data)
     label check_messages:
       while cleaned['message']:
@@ -423,65 +412,13 @@ label start:
         window hide
         e_big "[text]"
     hide screen message
+#manually set task & variables for first loop
     $ time = store.game_state.ui['timer']
-    ## SET TIMER FOR TASK - WIP
-    # TODO: SHOW TIMER IN SECONDS
-    #$ timer_jump = 'start'
 
-#    label order_text_1:
-#      show screen overlay(store.game_state.ui)
-#      show screen instructions(store.game_state.ui)
-#      python:
-#        task = store.loop['text_task_1']
-#        time = int(task['time'])
-#        timer_range = time
-#
-#      show screen timer
-#      call screen expression store.loop['text_task_1']['type'] pass (store.loop['text_task_1'], 'Done!')
-#      python:
-#        case = check_order_text(task)
-#        task = update_state(store.game_state, case,  task)
-#
-#      hide screen instructions
-#      call screen overlay (store.game_state.ui, "Next")
-#
-#
-#    label captcha_image_1:
-#
-#      # FIRST IMAGE LOOP
-#      #
-#
-#      show screen message('cogni')
-#      e_big "Great start. Now, for your second task, we'd like you to identify the aliens in an image."
-#      e_big "Aliens and humans have begun to cohabitate and even interbreed, which can make it hard to tell the difference."
-#      e_big "For your first task, though, it should be easy enough. Just look for the *obviously* non-human beings in this photo: gray or purple skin, or perhaps an unusual amount of teeth."
-#      hide screen message
-#      show alien_human_family
-#      $ show_window = True
-#      "Take a look, and when you're ready to start labeling, continue."
-#      $ show_window = False
-#      hide alien_human_family
-##      $ show_window = False
-#      show screen overlay(store.game_state.ui)
-#      show screen instructions(store.game_state.ui)
-#      #TODO pick screen to call based on task type
-#      # call screen image_gui(task, "Done!")
-#      $ images = get_images(task)
-#
-#      call screen expression(task['type']) pass (task, images, 'Done!')
-#        case = check_images(images_selected, task['correct_images'])
-#        task = update_state(store.game_state, case, task)
-#      #TODO: clear instruction text in between tasks - call overlay twice?
-#      hide screen instructions
-#      call screen overlay (store.game_state.ui, "Next!")
-
-# interstitial (apartment) and task loop take turns calling each other until final day is reached 
-# FIXME: ideally there would be a container loop function for this instead of each function calling the other
-# but when I tried that I ran into some weird bugs
-#THIS AUTOMATES GOING THROUGH TASKS WHEN INSTRUCTIONS/ETC. ARE UNNECESSARY
     python:
       task = store.loop['start_task']
       set_ui_state(task, store.game_state)
+#THIS AUTOMATES GOING THROUGH TASKS WHEN INSTRUCTIONS/ETC. ARE UNNECESSARY
     label task_loop:
       scene bg overlay_background
       $ show_window = False
@@ -497,6 +434,7 @@ label start:
           pause
       python:
         is_image = False
+        print('task: ', task)
         if ('image' in task['type']):
           is_image = True
           images = get_images(task)
@@ -576,11 +514,6 @@ label start:
       else:
         return
 
-
-
-
-      
-  #AFTER SLEEPING: NEW APARTMENT STATE
     # This ends the game.
     "game end!"
     return
