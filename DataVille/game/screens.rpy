@@ -1649,7 +1649,8 @@ screen timer:
 # }j
 
 # COMPUTER screens
-screen message(sender):
+screen message(sender, buttons=None):
+  $ print('buttons: ', buttons)
   python:
     if sender == 'supervisor':
       avatar = "images/icons/supervisor.png" 
@@ -1669,6 +1670,14 @@ screen message(sender):
       xalign 0.3
       yalign 0.75
       image avatar
+    if buttons != None:
+      hbox id 'buttons':
+        xalign 0.5
+        yalign 0.9
+        spacing 10
+        for button_text in buttons:
+          frame:
+            textbutton button_text action Return(True)
 
 screen assistant:
    window id 'content':

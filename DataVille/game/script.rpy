@@ -171,10 +171,10 @@ init python:
         if row['TYPE'] == 'message':
           story_object['text'] = row['TEXT']
           story_object['sender'] = row['SENDER']
-          if 'button_text_1' in row:
-            story_object['button_1'] = row['BUTTON_1_TEXT']
-          if 'button_text_2' in row:
-            story_object['button_2'] = row['BUTTON_2_TEXT']
+          if len(row['BUTTON_1_TEXT']) > 0:
+            story_object['button_1_text'] = row['BUTTON_1_TEXT']
+          if len(row['BUTTON_2_TEXT']):
+            story_object['button_2_text'] = row['BUTTON_2_TEXT']
         elif row['TYPE'] == 'news':
           story_object['text'] = row['TEXT']
 #          story_object['image'] = row['IMAGE']
@@ -405,12 +405,18 @@ label start:
     $ cleaned = clean(store.apartment_data)
     label check_messages:
       while cleaned['message']:
-        $ message = cleaned['message'].pop(0)
-        $ text = message['text']
-        show screen message(message['sender'])
+        python:
+          message = cleaned['message'].pop(0)
+          text = message['text']
+          buttons = None
+          if 'button_1_text' in message:
+            buttons = [message['button_1_text']]
+          if 'button_2_text' in message:
+            buttons.append(message['button_2_text'])
+        show screen message(message['sender'], buttons)
         window hide
         e_big "[text]"
-    hide screen message
+        hide screen message
 #manually set task & variables for first loop
     $ time = store.game_state.ui['timer']
 
@@ -424,9 +430,15 @@ label start:
       show screen overlay (store.game_state.ui)
       if store.game_state.day != 0 and len(cleaned['message'])>0:
           while cleaned['message']:
-            $ message = cleaned['message'].pop(0)
-            $ text = message['text']
-            show screen message(message['sender'])
+            python:
+              message = cleaned['message'].pop(0)
+              text = message['text']
+              buttons = None
+              if 'button_1_text' in message:
+                buttons = [message['button_1_text']]
+              if 'button_2_text' in message:
+                buttons.append(message['button_2_text'])
+            show screen message(message['sender'], buttons)
             window hide
             e_big "[text]"
           hide screen message
@@ -488,9 +500,15 @@ label start:
         #NEW UI STATE
         $ cleaned = clean(store.apartment_data)
         while cleaned['message']:
-          $ message = cleaned['message'].pop(0)
-          $ text = message['text']
-          show screen message(message['sender'])
+          python:
+            message = cleaned['message'].pop(0)
+            text = message['text']
+            buttons = None
+            if 'button_1_text' in message:
+              buttons = [message['button_1_text']]
+            if 'button_2_text' in message:
+              buttons.append(message['button_2_text'])
+          show screen message(message['sender'], buttons)
           window hide
           e_big "[text]"
           hide screen message
