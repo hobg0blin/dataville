@@ -1621,14 +1621,19 @@ transform alpha_dissolve:
   linear 0.5 alpha 1.0
   on hide:
     linear 0.5 alpha 0
+
 transform speech_bubble:
   xalign 0.3
   yalign 0.75
+
+style button_click:
+    activate_sound "click.wav"
+
   
 screen timer:
 #  zorder 10
   vbox:
-    xalign 0.9
+    xalign 0.7
     yalign 0.95
     timer 0.01 repeat True action If(time > 0, true=SetVariable('time', time - 0.01))
     bar value time range timer_range xalign 0.0 yalign 1 xmaximum 1800 at alpha_dissolve
@@ -1677,7 +1682,7 @@ screen message(sender, buttons=None):
         spacing 10
         for button_text in buttons:
           frame:
-            textbutton button_text action Return(True)
+            textbutton button_text style "button_click" action Return(True)
 
 screen assistant:
    window id 'content':
@@ -1732,7 +1737,7 @@ screen overlay(task, cogni=False, button_text=False):
         xsize 300
         xalign 0.5
         yalign 0.55
-        textbutton button_text action Return(True)
+        textbutton button_text style "button_click" action Return(True)
 #
 # SELECT DA IMAGES
 screen captcha_image(task, images):
@@ -1760,6 +1765,7 @@ screen captcha_image(task, images):
                 else:
                   return False
           imagebutton:
+            style "button_click"
             xfill True
             yfill True 
             idle Transform(f"{img}", size=(150, 150))
@@ -1772,7 +1778,7 @@ screen captcha_image(task, images):
     xsize 300
     xalign 0.5
     yalign 0.9
-    textbutton "Done" action Return(True)
+    textbutton "Done" style "button_click" action Return(True)
 
 screen comparison_image(task, images):
   zorder 1
@@ -1794,6 +1800,7 @@ screen comparison_image(task, images):
           hbox:
             spacing 10
             imagebutton:
+              style "button_click"
               xfill True
               yfill True
               idle Transform(f"{img}", size=(400, 400))
@@ -1825,9 +1832,9 @@ screen binary_image(task, images):
 
     spacing 20
     frame:
-      textbutton 'Yes' action [SetVariable("latest_choice", "Y"), Return(True)]
+      textbutton 'Yes' style "button_click" action [SetVariable("latest_choice", "Y"), Return(True)]
     frame:
-      textbutton 'No' action [SetVariable("latest_choice", "N"), Return(True)]
+      textbutton 'No' style "button_click" action [SetVariable("latest_choice", "N"), Return(True)]
 
 screen binary_text(task):
   zorder 1
@@ -1848,9 +1855,9 @@ screen binary_text(task):
 
     spacing 20
     frame:
-      textbutton 'Yes' action [SetVariable("latest_choice", "Y"), Return(True)]
+      textbutton 'Yes' style "button_click" action [SetVariable("latest_choice", "Y"), Return(True)]
     frame:
-      textbutton 'No' action [SetVariable("latest_choice", "N"), Return(True)]
+      textbutton 'No' style "button_click" action [SetVariable("latest_choice", "N"), Return(True)]
 
 screen comparison_text(task, button_text='Done!'):
   zorder 1
@@ -1877,6 +1884,7 @@ screen comparison_text(task, button_text='Done!'):
       for idx, i in enumerate(label_order):
           $ box = task['labels'][i]
           textbutton('{size=-3}'+ box['text']):
+              style "button_click" 
               xpos start_x_text ypos start_y_text
               action [SetVariable("latest_choice", i), Return(True)]
           python:
@@ -1928,6 +1936,7 @@ screen caption_image(task, images):
          for idx, i in enumerate(label_order):
           $ box = task['labels'][i]
           textbutton('{size=-3}'+ box['text']):
+              style "button_click" 
               xpos 0 ypos 0
               action [SetVariable("latest_choice", task['labels'][i]['name']), Return(True)]
           python:
@@ -1970,6 +1979,7 @@ screen sentiment_text(task):
          for idx, i in enumerate(label_order):
           $ box = task['labels'][i]
           textbutton('{size=-3}'+ box['text']):
+              style "button_click" 
               xpos 0 ypos 0
               action [SetVariable("latest_choice", task['labels'][i]['name']), Return(True)]
           python:
@@ -2024,80 +2034,7 @@ screen order_text(task, button_text='Done!'):
     xsize 300
     xalign 0.5
     yalign 0.9
-    textbutton button_text action Return(True)
-
-# apartment screens
-# sticky notes zoom
-# tv zoom
-# window zoom
-# MAYBE: CAT?
-
-screen apartment(data, time):
-  python:
-    if time == "end":
-      btn = "Go to sleep"
-    else:
-      btn = "Go to work"
-  fixed:
-    imagebutton:
-      xpos 1720 ypos 15
-      idle "images/room/room/note.png" 
-      hover Transform("images/room/room/note.png", size=(300, 400)) 
-      action Show("zoomed_note", None, store.apartment_data)
-    imagebutton:
-      xpos 180 ypos 500
-      idle Transform("images/room/room/tv_button.png", size=(512, 384)) 
-      hover Transform("images/room/room/tv_button.png", size=(520, 400)) 
-      action Show("zoomed_tv", None, store.apartment_data)
-    imagebutton:
-      xpos 0 ypos 0
-      idle Transform("images/room/room/window_button.png", size=(600, 450)) 
-      hover Transform("images/room/room/window_button.png", size=(620, 470)) 
-      action Show("zoomed_window", None, store.apartment_data)
-  frame:
-    xalign 0.5
-    yalign 0.9
-    textbutton btn action Return()
-
-screen zoomed_note(data):
-  modal True
-  vbox:
-    xalign 0.5
-    yalign 0
-    image Transform("images/room/room/note.png", size=(1200, 1000)) 
-  vbox:
-    xalign 0.5
-    yalign 0.2
-    for note in data["sticky_note"]:
-        text note["text"]
-  frame:
-    textbutton "X" action Hide("zoomed_note", None)
-
-screen zoomed_tv(data, index=0):
-  modal True
-  frame:
-    python:
-# advance through news items
-      length = len(data["news"])
-      if index > length - 1:
-        index = 0
-      item = data["news"][index]
-      index +=1
-    image Transform(item["image"], size=(1000,1000)) xpos 600 ypos 200
-    image Transform("images/room/room/tv_zoom_in.png", size=(2000, 1400))
-  window:
-    textbutton item["text"].upper() xpos 400 yalign 0.45 action Show("zoomed_tv", None, data, index)
-  frame:
-    textbutton "X" action Hide("zoomed_tv", None)
-
-screen zoomed_window(data):
-  modal True
-  frame:
-    vbox:
-      xalign 0.2
-      image Transform(data["window_background"], size=(1000, 1000))
-    image Transform("images/room/room/window_zoom_in.png", size=(2000, 1400))
-    textbutton "X" action Hide("zoomed_window", None)
+    textbutton button_text style "button_click" action Return(True)
 
 screen performance(state, average):
   $ print('state: ', state)
@@ -2116,3 +2053,82 @@ screen performance(state, average):
     text("Average earnings")
     bar value state["earnings"] range 1200
     bar value average["earnings"] range 1200
+# apartment screens
+# sticky notes zoom
+# tv zoom
+# window zoom
+# MAYBE: CAT?
+
+screen apartment(data, time):
+  python:
+    if time == "end":
+      btn = "Go to sleep"
+      computer_sound = ""
+    else:
+      btn = "Go to work"
+      computer_sound = "computer.ogg"
+  fixed:
+    imagebutton:
+      xpos 1720 ypos 15
+      activate_sound "audio/rustle.wav"
+      idle "images/room/room/note.png" 
+      hover Transform("images/room/room/note.png", size=(300, 400)) 
+      action Show("zoomed_note", None, store.apartment_data)
+    imagebutton:
+      xpos 180 ypos 500
+      activate_sound "audio/tv_2.wav"
+      idle Transform("images/room/room/tv_button.png", size=(512, 384)) 
+      hover Transform("images/room/room/tv_button.png", size=(520, 400)) 
+      action Show("zoomed_tv", None, store.apartment_data)
+    imagebutton:
+      xpos 0 ypos 0
+      activate_sound "audio/window.mp3"
+      idle Transform("images/room/room/window_button.png", size=(600, 450)) 
+      hover Transform("images/room/room/window_button.png", size=(620, 470)) 
+      action Show("zoomed_window", None, store.apartment_data)
+  frame:
+    xalign 0.5
+    yalign 0.9
+    textbutton btn activate_sound computer_sound action Return()
+
+screen zoomed_note(data):
+  modal True
+  vbox:
+    xalign 0.5
+    yalign 0
+    image Transform("images/room/room/note.png", size=(1200, 1000)) 
+  vbox:
+    xalign 0.5
+    yalign 0.2
+    for note in data["sticky_note"]:
+        text note["text"]
+  frame:
+    textbutton "X" activate_sound "rustle.wav" action Hide("zoomed_note", None)
+
+screen zoomed_tv(data, index=0):
+  modal True
+  frame:
+    python:
+# advance through news items
+      length = len(data["news"])
+      if index > length - 1:
+        index = 0
+      item = data["news"][index]
+      index +=1
+    image Transform(item["image"], size=(1000,1000)) xpos 600 ypos 200
+    image Transform("images/room/room/tv_zoom_in.png", size=(2000, 1400))
+  window:
+    textbutton item["text"].upper() xpos 400 yalign 0.45 activate_sound "remote.ogg" action Show("zoomed_tv", None, data, index)
+  frame:
+    textbutton "X" activate_sound "tv_2.wav" action Hide("zoomed_tv", None)
+
+screen zoomed_window(data):
+  modal True
+  frame:
+    vbox:
+      xalign 0.2
+      image Transform(data["window_background"], size=(1000, 1000))
+    image Transform("images/room/room/window_zoom_in.png", size=(2000, 1400))
+    textbutton "X" action Hide("zoomed_window", None)
+
+

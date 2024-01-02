@@ -95,7 +95,6 @@ init python:
         "instructions": "", 
         "timer": 10
       }
-  store.rating = "neutral"
   store.game_state.performance = {
         "earnings": 0,
         "average_time": 0,
@@ -381,7 +380,6 @@ init python:
 # The game starts here.
 
 label start:
-
     image bg start_screen = im.FactorScale("images/intro_desk.jpg", 1.5)
     scene bg start_screen
     pause
@@ -393,10 +391,12 @@ label start:
       image bg apartment_1 = im.FactorScale("images/room/room/room.png", 0.3)
       
       scene bg apartment_1
+      play music "dataville_apartment_neutral.wav"
       call screen apartment(clean(store.apartment_data), store.game_state.time)
       hide screen apartment
     # hide dialogue box
     $ show_window = False
+    play music "dataville_workspace_neutral.wav" fadein 2.0
     if store.game_state.day == 0:
         show dataville_intro
         pause
@@ -522,6 +522,7 @@ label start:
         "Waking up..."
       hide screen overlay
       scene bg apartment_1
+      play music f"dataville_apartment_{store.game_state.performance_rating}.wav"
       $ show_window = True
       call screen apartment(clean(store.apartment_data), store.game_state.time)
       $ show_window = False
@@ -537,6 +538,7 @@ label start:
           $ task = store.loop["start_task"]
           $ set_ui_state(task, store.game_state)
           $ cleaned = clean(store.apartment_data)
+          play music f"dataville_workspace_{store.game_state.performance_rating}.wav" fadein 2.0
           call task_loop
         else:
           "game state is broken!!!"

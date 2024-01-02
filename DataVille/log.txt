@@ -1,4 +1,4 @@
-Mon Jan  1 16:16:06 2024
+Tue Jan  2 15:32:34 2024
 Linux-6.2.0-39-generic-x86_64-with-glibc2.35
 Ren'Py 8.1.3.23091805
  
@@ -7,23 +7,32 @@ Bootstrap to the start of init.init. took 0.03s
 Early init. took 0.00s
 Loader init. took 0.00s
 Loading error handling. took 0.02s
-Loading script. took 0.25s
+Loading script. took 0.17s
 Loading save slot metadata. took 0.02s
 Loading persistent. took 0.00s
-
-File "game/script.rpy", line 493: expected statement.
-    buttons = None
-            ^
-
-File "game/script.rpy", line 495: expected statement.
-    buttons = [message['button_1_text']]
-            ^
-
-File "game/script.rpy", line 497: expected statement.
-    buttons.append(message['button_2_text'])
-                                            ^
+Running init code. took 0.04s
+Loading analysis data. took 0.02s
+Analyze and compile ATL. took 0.00s
+Reloading save slot metadata. took 0.01s
+Index archives took 0.00s
+Dump and make backups. took 0.04s
+Cleaning cache. took 0.00s
+Making clean stores. took 0.00s
+Initial gc. took 0.01s
 DPI scale factor: 1.000000
-Interface start. took 0.13s
+Creating interface object. took 0.00s
+Cleaning stores took 0.00s
+Init translation took 0.03s
+Build styles took 0.00s
+Load screen analysis took 0.02s
+Analyze screens took 0.00s
+Save screen analysis took 0.00s
+Prepare screens took 0.06s
+Save pyanalysis. took 0.00s
+Save bytecode. took 0.02s
+Running _start took 0.00s
+Performance test:
+Interface start. took 0.22s
 
 Initializing gl2 renderer:
 primary display bounds: (1920, 0, 2560, 1440)
@@ -38,14 +47,14 @@ Maximum texture size: 4096x4096
 Screen sizes: virtual=(1920, 1080) physical=(2490, 1369) drawable=(2490, 1369)
 Maximum texture size: 4096x4096
 Resetting cache.
-Bootstrap to the start of init.init. took 27.74s
+Bootstrap to the start of init.init. took 111.82s
 Early init. took 0.00s
 Loader init. took 0.00s
 Loading error handling. took 0.02s
-Loading script. took 0.11s
+Loading script. took 0.20s
 Loading save slot metadata. took 0.01s
 Loading persistent. took 0.00s
-Running init code. took 0.03s
+Running init code. took 0.02s
 Loading analysis data. took 0.01s
 Analyze and compile ATL. took 0.00s
 Reloading save slot metadata. took 0.01s
@@ -54,7 +63,7 @@ Backing up script files to '/home/brent/.renpy/backups/DataVille':
 Dump and make backups. took 0.04s
 Cleaning cache. took 0.00s
 Making clean stores. took 0.00s
-Initial gc. took 0.02s
+Initial gc. took 0.03s
 DPI scale factor: 1.000000
 Creating interface object. took 0.00s
 Cleaning stores took 0.00s
@@ -63,7 +72,7 @@ Build styles took 0.00s
 Load screen analysis took 0.00s
 Analyze screens took 0.01s
 Save screen analysis took 0.02s
-Prepare screens took 0.08s
+Prepare screens took 0.06s
 Save pyanalysis. took 0.01s
 Save bytecode. took 0.01s
 Running _start took 0.00s
@@ -80,142 +89,12 @@ Version: b'4.6 (Compatibility Profile) Mesa 23.0.4-0ubuntu1~22.04.1'
 Display Info: None
 Screen sizes: virtual=(1920, 1080) physical=(2490, 1369) drawable=(2490, 1369)
 Maximum texture size: 4096x4096
-task:  {'type': 'binary_image', 'next_task': 'binary_image_task_2', 'payment': '200', 'instructions': 'Does this image contain a traffic light? Yes/No', 'time': '10', 'image_folder': 'binary_image_task_1', 'correct_options': 'N', 'has_ethical_option': 'N'}
 Resetting cache.
-Bootstrap to the start of init.init. took 120.40s
+Bootstrap to the start of init.init. took 146.67s
 Early init. took 0.00s
 Loader init. took 0.00s
 Loading error handling. took 0.01s
-Loading script. took 0.09s
-Loading save slot metadata. took 0.02s
-Loading persistent. took 0.00s
-Running init code. took 0.02s
-Loading analysis data. took 0.01s
-Analyze and compile ATL. took 0.00s
-Reloading save slot metadata. took 0.01s
-Index archives took 0.00s
-Backing up script files to '/home/brent/.renpy/backups/DataVille':
-Dump and make backups. took 0.03s
-Cleaning cache. took 0.00s
-Making clean stores. took 0.00s
-Initial gc. took 0.03s
-DPI scale factor: 1.000000
-Creating interface object. took 0.00s
-Cleaning stores took 0.00s
-Init translation took 0.03s
-Build styles took 0.00s
-Load screen analysis took 0.00s
-Analyze screens took 0.01s
-Save screen analysis took 0.02s
-Prepare screens took 0.06s
-Save pyanalysis. took 0.00s
-Save bytecode. took 0.01s
-Running _start took 0.00s
-Performance test:
-Interface start. took 0.03s
-
-Initializing gl2 renderer:
-primary display bounds: (1920, 0, 2560, 1440)
-swap interval: 1 frames
-Windowed mode.
-Vendor: "b'Intel'"
-Renderer: b'Mesa Intel(R) UHD Graphics (CML GT2)'
-Version: b'4.6 (Compatibility Profile) Mesa 23.0.4-0ubuntu1~22.04.1'
-Display Info: None
-Screen sizes: virtual=(1920, 1080) physical=(2490, 1369) drawable=(2490, 1369)
-Maximum texture size: 4096x4096
-task:  {'type': 'binary_image', 'next_task': 'binary_image_task_2', 'payment': '200', 'instructions': 'Does this image contain a traffic light? Yes/No', 'time': '10', 'image_folder': 'binary_image_task_1', 'correct_options': 'N', 'has_ethical_option': 'N'}
-Resetting cache.
-Bootstrap to the start of init.init. took 149.45s
-Early init. took 0.00s
-Loader init. took 0.00s
-Loading error handling. took 0.01s
-Loading script. took 0.06s
-Loading save slot metadata. took 0.02s
-Loading persistent. took 0.00s
-Running init code. took 0.04s
-Loading analysis data. took 0.01s
-Analyze and compile ATL. took 0.00s
-Reloading save slot metadata. took 0.01s
-Index archives took 0.00s
-Dump and make backups. took 0.04s
-Cleaning cache. took 0.00s
-Making clean stores. took 0.00s
-Initial gc. took 0.03s
-DPI scale factor: 1.000000
-Creating interface object. took 0.00s
-Cleaning stores took 0.00s
-Init translation took 0.04s
-Build styles took 0.00s
-Load screen analysis took 0.03s
-Analyze screens took 0.00s
-Save screen analysis took 0.00s
-Prepare screens took 0.06s
-Save pyanalysis. took 0.00s
-Save bytecode. took 0.00s
-Running _start took 0.00s
-Performance test:
-Interface start. took 0.07s
-
-Initializing gl2 renderer:
-primary display bounds: (1920, 0, 2560, 1440)
-swap interval: 1 frames
-Windowed mode.
-Vendor: "b'Intel'"
-Renderer: b'Mesa Intel(R) UHD Graphics (CML GT2)'
-Version: b'4.6 (Compatibility Profile) Mesa 23.0.4-0ubuntu1~22.04.1'
-Display Info: None
-Screen sizes: virtual=(1920, 1080) physical=(2490, 1369) drawable=(2490, 1369)
-Maximum texture size: 4096x4096
-Resetting cache.
-Bootstrap to the start of init.init. took 169.98s
-Early init. took 0.00s
-Loader init. took 0.00s
-Loading error handling. took 0.01s
-Loading script. took 0.06s
-Loading save slot metadata. took 0.01s
-Loading persistent. took 0.00s
-Running init code. took 0.03s
-Loading analysis data. took 0.02s
-Analyze and compile ATL. took 0.00s
-Reloading save slot metadata. took 0.01s
-Index archives took 0.00s
-Dump and make backups. took 0.04s
-Cleaning cache. took 0.00s
-Making clean stores. took 0.00s
-Initial gc. took 0.03s
-DPI scale factor: 1.000000
-Creating interface object. took 0.00s
-Cleaning stores took 0.00s
-Init translation took 0.03s
-Build styles took 0.00s
-Load screen analysis took 0.03s
-Analyze screens took 0.00s
-Save screen analysis took 0.00s
-Prepare screens took 0.06s
-Save pyanalysis. took 0.00s
-Save bytecode. took 0.00s
-Running _start took 0.00s
-Performance test:
-Interface start. took 0.04s
-
-Initializing gl2 renderer:
-primary display bounds: (1920, 0, 2560, 1440)
-swap interval: 1 frames
-Windowed mode.
-Vendor: "b'Intel'"
-Renderer: b'Mesa Intel(R) UHD Graphics (CML GT2)'
-Version: b'4.6 (Compatibility Profile) Mesa 23.0.4-0ubuntu1~22.04.1'
-Display Info: None
-Screen sizes: virtual=(1920, 1080) physical=(2490, 1369) drawable=(2490, 1369)
-Maximum texture size: 4096x4096
-task:  {'type': 'binary_image', 'next_task': 'binary_image_task_2', 'payment': '200', 'instructions': 'Does this image contain a traffic light? Yes/No', 'time': '10', 'image_folder': 'binary_image_task_1', 'correct_options': 'N', 'has_ethical_option': 'N'}
-Resetting cache.
-Bootstrap to the start of init.init. took 196.08s
-Early init. took 0.00s
-Loader init. took 0.01s
-Loading error handling. took 0.01s
-Loading script. took 0.22s
+Loading script. took 0.20s
 Loading save slot metadata. took 0.01s
 Loading persistent. took 0.00s
 Running init code. took 0.02s
@@ -236,74 +115,11 @@ Build styles took 0.00s
 Load screen analysis took 0.00s
 Analyze screens took 0.01s
 Save screen analysis took 0.02s
-Prepare screens took 0.07s
+Prepare screens took 0.06s
 Save pyanalysis. took 0.01s
 Save bytecode. took 0.01s
 Running _start took 0.00s
 Performance test:
-Interface start. took 0.03s
-
-Initializing gl2 renderer:
-primary display bounds: (1920, 0, 2560, 1440)
-swap interval: 1 frames
-Windowed mode.
-Vendor: "b'Intel'"
-Renderer: b'Mesa Intel(R) UHD Graphics (CML GT2)'
-Version: b'4.6 (Compatibility Profile) Mesa 23.0.4-0ubuntu1~22.04.1'
-Display Info: None
-Screen sizes: virtual=(1920, 1080) physical=(2490, 1369) drawable=(2490, 1369)
-Maximum texture size: 4096x4096
-buttons:  None
-buttons:  None
-buttons:  None
-buttons:  None
-buttons:  None
-buttons:  None
-buttons:  None
-buttons:  None
-buttons:  None
-buttons:  None
-buttons:  None
-buttons:  None
-buttons:  None
-buttons:  None
-buttons:  None
-buttons:  None
-buttons:  None
-buttons:  None
-buttons:  None
-buttons:  None
-Resetting cache.
-Bootstrap to the start of init.init. took 314.46s
-Early init. took 0.00s
-Loader init. took 0.00s
-Loading error handling. took 0.01s
-Loading script. took 0.12s
-Loading save slot metadata. took 0.02s
-Loading persistent. took 0.00s
-Running init code. took 0.02s
-Loading analysis data. took 0.01s
-Analyze and compile ATL. took 0.00s
-Reloading save slot metadata. took 0.01s
-Index archives took 0.00s
-Backing up script files to '/home/brent/.renpy/backups/DataVille':
-Dump and make backups. took 0.04s
-Cleaning cache. took 0.00s
-Making clean stores. took 0.00s
-Initial gc. took 0.03s
-DPI scale factor: 1.000000
-Creating interface object. took 0.00s
-Cleaning stores took 0.00s
-Init translation took 0.03s
-Build styles took 0.00s
-Load screen analysis took 0.00s
-Analyze screens took 0.01s
-Save screen analysis took 0.02s
-Prepare screens took 0.07s
-Save pyanalysis. took 0.00s
-Save bytecode. took 0.01s
-Running _start took 0.00s
-Performance test:
 Interface start. took 0.04s
 
 Initializing gl2 renderer:
@@ -316,523 +132,21 @@ Version: b'4.6 (Compatibility Profile) Mesa 23.0.4-0ubuntu1~22.04.1'
 Display Info: None
 Screen sizes: virtual=(1920, 1080) physical=(2490, 1369) drawable=(2490, 1369)
 Maximum texture size: 4096x4096
-buttons:  ['', '']
-buttons:  ['', '']
-buttons:  ['Thanks, Cogni', 'Ugh. I hate AI.']
-buttons:  ['Thanks, Cogni', 'Ugh. I hate AI.']
-buttons:  ['', '']
-buttons:  ['', '']
 Resetting cache.
-Bootstrap to the start of init.init. took 405.16s
+Bootstrap to the start of init.init. took 300.52s
 Early init. took 0.00s
 Loader init. took 0.00s
 Loading error handling. took 0.01s
-Loading script. took 0.10s
-Loading save slot metadata. took 0.02s
-Loading persistent. took 0.00s
-Running init code. took 0.02s
-Loading analysis data. took 0.01s
-Analyze and compile ATL. took 0.00s
-Reloading save slot metadata. took 0.01s
-Index archives took 0.00s
-Backing up script files to '/home/brent/.renpy/backups/DataVille':
-Dump and make backups. took 0.03s
-Cleaning cache. took 0.00s
-Making clean stores. took 0.00s
-Initial gc. took 0.03s
-DPI scale factor: 1.000000
-Creating interface object. took 0.00s
-Cleaning stores took 0.00s
-Init translation took 0.03s
-Build styles took 0.00s
-Load screen analysis took 0.00s
-Analyze screens took 0.01s
-Save screen analysis took 0.02s
-Prepare screens took 0.06s
-Save pyanalysis. took 0.00s
-Save bytecode. took 0.01s
-Running _start took 0.00s
-Performance test:
-Interface start. took 0.04s
-
-Initializing gl2 renderer:
-primary display bounds: (1920, 0, 2560, 1440)
-swap interval: 1 frames
-Windowed mode.
-Vendor: "b'Intel'"
-Renderer: b'Mesa Intel(R) UHD Graphics (CML GT2)'
-Version: b'4.6 (Compatibility Profile) Mesa 23.0.4-0ubuntu1~22.04.1'
-Display Info: None
-Screen sizes: virtual=(1920, 1080) physical=(2490, 1369) drawable=(2490, 1369)
-Maximum texture size: 4096x4096
-buttons:  ['Thanks, Cogni', 'Ugh. I hate AI.']
-buttons:  ['', '']
-buttons:  ['', '']
-Resetting cache.
-Bootstrap to the start of init.init. took 437.03s
-Early init. took 0.00s
-Loader init. took 0.00s
-Loading error handling. took 0.01s
-Loading script. took 0.22s
-Loading save slot metadata. took 0.02s
-Loading persistent. took 0.00s
-Running init code. took 0.02s
-Loading analysis data. took 0.01s
-Analyze and compile ATL. took 0.00s
-Reloading save slot metadata. took 0.02s
-Index archives took 0.00s
-Backing up script files to '/home/brent/.renpy/backups/DataVille':
-Dump and make backups. took 0.04s
-Cleaning cache. took 0.00s
-Making clean stores. took 0.00s
-Initial gc. took 0.03s
-DPI scale factor: 1.000000
-Creating interface object. took 0.00s
-Cleaning stores took 0.00s
-Init translation took 0.03s
-Build styles took 0.00s
-Load screen analysis took 0.00s
-Analyze screens took 0.01s
-Save screen analysis took 0.02s
-Prepare screens took 0.07s
-Save pyanalysis. took 0.02s
-Save bytecode. took 0.02s
-Running _start took 0.00s
-Performance test:
-Interface start. took 0.04s
-
-Initializing gl2 renderer:
-primary display bounds: (1920, 0, 2560, 1440)
-swap interval: 1 frames
-Windowed mode.
-Vendor: "b'Intel'"
-Renderer: b'Mesa Intel(R) UHD Graphics (CML GT2)'
-Version: b'4.6 (Compatibility Profile) Mesa 23.0.4-0ubuntu1~22.04.1'
-Display Info: None
-Screen sizes: virtual=(1920, 1080) physical=(2490, 1369) drawable=(2490, 1369)
-Maximum texture size: 4096x4096
-buttons:  ['Thanks, Cogni', 'Ugh. I hate AI.']
-buttons:  ['', '']
-buttons:  ['', '']
-buttons:  ['', '']
-buttons:  ['Thanks, Cogni', 'Ugh. I hate AI.']
-buttons:  ['Thanks, Cogni', 'Ugh. I hate AI.']
-buttons:  ['', '']
-buttons:  ['', '']
-Resetting cache.
-Bootstrap to the start of init.init. took 444.29s
-Early init. took 0.00s
-Loader init. took 0.00s
-Loading error handling. took 0.01s
-Loading script. took 0.05s
+Loading script. took 0.20s
 Loading save slot metadata. took 0.01s
 Loading persistent. took 0.00s
 Running init code. took 0.03s
-Loading analysis data. took 0.02s
-Analyze and compile ATL. took 0.00s
-Reloading save slot metadata. took 0.01s
-Index archives took 0.00s
-Dump and make backups. took 0.04s
-Cleaning cache. took 0.00s
-Making clean stores. took 0.00s
-Initial gc. took 0.03s
-DPI scale factor: 1.000000
-Creating interface object. took 0.00s
-Cleaning stores took 0.00s
-Init translation took 0.03s
-Build styles took 0.00s
-Load screen analysis took 0.03s
-Analyze screens took 0.00s
-Save screen analysis took 0.00s
-Prepare screens took 0.05s
-Save pyanalysis. took 0.00s
-Save bytecode. took 0.00s
-Running _start took 0.00s
-Performance test:
-Interface start. took 0.05s
-
-Initializing gl2 renderer:
-primary display bounds: (1920, 0, 2560, 1440)
-swap interval: 1 frames
-Windowed mode.
-Vendor: "b'Intel'"
-Renderer: b'Mesa Intel(R) UHD Graphics (CML GT2)'
-Version: b'4.6 (Compatibility Profile) Mesa 23.0.4-0ubuntu1~22.04.1'
-Display Info: None
-Screen sizes: virtual=(1920, 1080) physical=(2490, 1369) drawable=(2490, 1369)
-Maximum texture size: 4096x4096
-buttons:  None
-buttons:  None
-buttons:  ['Thanks, Cogni', 'Ugh. I hate AI.']
-buttons:  ['Thanks, Cogni', 'Ugh. I hate AI.']
-buttons:  None
-buttons:  None
-buttons:  ['Thanks, Cogni', 'Ugh. I hate AI.']
-buttons:  ['Thanks, Cogni', 'Ugh. I hate AI.']
-Resetting cache.
-Bootstrap to the start of init.init. took 477.64s
-Early init. took 0.00s
-Loader init. took 0.00s
-Loading error handling. took 0.02s
-Loading script. took 0.11s
-Loading save slot metadata. took 0.02s
-Loading persistent. took 0.00s
-Running init code. took 0.02s
 Loading analysis data. took 0.01s
 Analyze and compile ATL. took 0.00s
 Reloading save slot metadata. took 0.01s
 Index archives took 0.00s
 Backing up script files to '/home/brent/.renpy/backups/DataVille':
-Dump and make backups. took 0.04s
-Cleaning cache. took 0.00s
-Making clean stores. took 0.00s
-Initial gc. took 0.03s
-DPI scale factor: 1.000000
-Creating interface object. took 0.00s
-Cleaning stores took 0.00s
-Init translation took 0.03s
-Build styles took 0.00s
-Load screen analysis took 0.00s
-Analyze screens took 0.01s
-Save screen analysis took 0.02s
-Prepare screens took 0.06s
-Save pyanalysis. took 0.00s
-Save bytecode. took 0.01s
-Running _start took 0.00s
-Performance test:
-Interface start. took 0.04s
-
-Initializing gl2 renderer:
-primary display bounds: (1920, 0, 2560, 1440)
-swap interval: 1 frames
-Windowed mode.
-Vendor: "b'Intel'"
-Renderer: b'Mesa Intel(R) UHD Graphics (CML GT2)'
-Version: b'4.6 (Compatibility Profile) Mesa 23.0.4-0ubuntu1~22.04.1'
-Display Info: None
-Screen sizes: virtual=(1920, 1080) physical=(2490, 1369) drawable=(2490, 1369)
-Maximum texture size: 4096x4096
-buttons:  None
-buttons:  None
-buttons:  None
-buttons:  None
-Resetting cache.
-Bootstrap to the start of init.init. took 518.50s
-Early init. took 0.00s
-Loader init. took 0.00s
-Loading error handling. took 0.01s
-Loading script. took 0.10s
-Loading save slot metadata. took 0.02s
-Loading persistent. took 0.00s
-Running init code. took 0.02s
-Loading analysis data. took 0.01s
-Analyze and compile ATL. took 0.00s
-Reloading save slot metadata. took 0.01s
-Index archives took 0.00s
-Backing up script files to '/home/brent/.renpy/backups/DataVille':
-Dump and make backups. took 0.04s
-Cleaning cache. took 0.00s
-Making clean stores. took 0.00s
-Initial gc. took 0.03s
-DPI scale factor: 1.000000
-Creating interface object. took 0.00s
-Cleaning stores took 0.00s
-Init translation took 0.03s
-Build styles took 0.00s
-Load screen analysis took 0.00s
-Analyze screens took 0.01s
-Save screen analysis took 0.02s
-Prepare screens took 0.06s
-Save pyanalysis. took 0.00s
-Save bytecode. took 0.01s
-Running _start took 0.00s
-Performance test:
-Interface start. took 0.04s
-
-Initializing gl2 renderer:
-primary display bounds: (1920, 0, 2560, 1440)
-swap interval: 1 frames
-Windowed mode.
-Vendor: "b'Intel'"
-Renderer: b'Mesa Intel(R) UHD Graphics (CML GT2)'
-Version: b'4.6 (Compatibility Profile) Mesa 23.0.4-0ubuntu1~22.04.1'
-Display Info: None
-Screen sizes: virtual=(1920, 1080) physical=(2490, 1369) drawable=(2490, 1369)
-Maximum texture size: 4096x4096
-buttons:  None
-buttons:  None
-buttons:  None
-buttons:  None
-Resetting cache.
-Bootstrap to the start of init.init. took 523.59s
-Early init. took 0.00s
-Loader init. took 0.00s
-Loading error handling. took 0.01s
-Loading script. took 0.06s
-Loading save slot metadata. took 0.01s
-Loading persistent. took 0.00s
-Running init code. took 0.03s
-Loading analysis data. took 0.02s
-Analyze and compile ATL. took 0.00s
-Reloading save slot metadata. took 0.02s
-Index archives took 0.00s
-Dump and make backups. took 0.04s
-Cleaning cache. took 0.00s
-Making clean stores. took 0.00s
-Initial gc. took 0.02s
-DPI scale factor: 1.000000
-Creating interface object. took 0.00s
-Cleaning stores took 0.00s
-Init translation took 0.04s
-Build styles took 0.00s
-Load screen analysis took 0.03s
-Analyze screens took 0.00s
-Save screen analysis took 0.00s
-Prepare screens took 0.06s
-Save pyanalysis. took 0.00s
-Save bytecode. took 0.00s
-Running _start took 0.00s
-Performance test:
-Interface start. took 0.05s
-
-Initializing gl2 renderer:
-primary display bounds: (1920, 0, 2560, 1440)
-swap interval: 1 frames
-Windowed mode.
-Vendor: "b'Intel'"
-Renderer: b'Mesa Intel(R) UHD Graphics (CML GT2)'
-Version: b'4.6 (Compatibility Profile) Mesa 23.0.4-0ubuntu1~22.04.1'
-Display Info: None
-Screen sizes: virtual=(1920, 1080) physical=(2490, 1369) drawable=(2490, 1369)
-Maximum texture size: 4096x4096
-buttons:  None
-buttons:  None
-buttons:  None
-buttons:  None
-buttons:  None
-buttons:  None
-buttons:  ['Thanks, Cogni', 'Ugh. I hate AI.']
-buttons:  ['Thanks, Cogni', 'Ugh. I hate AI.']
-buttons:  ['Thanks, Cogni', 'Ugh. I hate AI.']
-buttons:  ['Thanks, Cogni', 'Ugh. I hate AI.']
-buttons:  None
-buttons:  None
-Resetting cache.
-Bootstrap to the start of init.init. took 555.82s
-Early init. took 0.00s
-Loader init. took 0.00s
-Loading error handling. took 0.01s
-Loading script. took 0.11s
-Loading save slot metadata. took 0.02s
-Loading persistent. took 0.00s
-Running init code. took 0.02s
-Loading analysis data. took 0.02s
-Analyze and compile ATL. took 0.00s
-Reloading save slot metadata. took 0.01s
-Index archives took 0.00s
-Backing up script files to '/home/brent/.renpy/backups/DataVille':
-Dump and make backups. took 0.04s
-Cleaning cache. took 0.00s
-Making clean stores. took 0.00s
-Initial gc. took 0.03s
-DPI scale factor: 1.000000
-Creating interface object. took 0.00s
-Cleaning stores took 0.00s
-Init translation took 0.03s
-Build styles took 0.00s
-Load screen analysis took 0.00s
-Analyze screens took 0.01s
-Save screen analysis took 0.02s
-Prepare screens took 0.06s
-Save pyanalysis. took 0.00s
-Save bytecode. took 0.01s
-Running _start took 0.00s
-Performance test:
-Interface start. took 0.04s
-
-Initializing gl2 renderer:
-primary display bounds: (1920, 0, 2560, 1440)
-swap interval: 1 frames
-Windowed mode.
-Vendor: "b'Intel'"
-Renderer: b'Mesa Intel(R) UHD Graphics (CML GT2)'
-Version: b'4.6 (Compatibility Profile) Mesa 23.0.4-0ubuntu1~22.04.1'
-Display Info: None
-Screen sizes: virtual=(1920, 1080) physical=(2490, 1369) drawable=(2490, 1369)
-Maximum texture size: 4096x4096
-buttons:  ['Thanks, Cogni', 'Ugh. I hate AI.']
-buttons:  ['Thanks, Cogni', 'Ugh. I hate AI.']
-Resetting cache.
-Bootstrap to the start of init.init. took 1180.40s
-Early init. took 0.00s
-Loader init. took 0.00s
-Loading error handling. took 0.01s
-Loading script. took 0.09s
-Loading save slot metadata. took 0.02s
-Loading persistent. took 0.00s
-Running init code. took 0.02s
-Loading analysis data. took 0.01s
-Analyze and compile ATL. took 0.00s
-Reloading save slot metadata. took 0.01s
-Index archives took 0.00s
-Backing up script files to '/home/brent/.renpy/backups/DataVille':
-Dump and make backups. took 0.03s
-Cleaning cache. took 0.00s
-Making clean stores. took 0.00s
-Initial gc. took 0.03s
-DPI scale factor: 1.000000
-Creating interface object. took 0.00s
-Cleaning stores took 0.00s
-Init translation took 0.03s
-Build styles took 0.00s
-Load screen analysis took 0.00s
-Analyze screens took 0.01s
-Save screen analysis took 0.01s
-Prepare screens took 0.06s
-Save pyanalysis. took 0.00s
-Save bytecode. took 0.01s
-Running _start took 0.00s
-Performance test:
-Interface start. took 0.08s
-
-Initializing gl2 renderer:
-primary display bounds: (1920, 0, 2560, 1440)
-swap interval: 1 frames
-Windowed mode.
-Vendor: "b'Intel'"
-Renderer: b'Mesa Intel(R) UHD Graphics (CML GT2)'
-Version: b'4.6 (Compatibility Profile) Mesa 23.0.4-0ubuntu1~22.04.1'
-Display Info: None
-Screen sizes: virtual=(1920, 1080) physical=(2490, 1369) drawable=(2490, 1369)
-Maximum texture size: 4096x4096
-buttons:  ['Thanks, Cogni', 'Ugh. I hate AI.']
-buttons:  ['Thanks, Cogni', 'Ugh. I hate AI.']
-buttons:  None
-buttons:  None
-buttons:  None
-buttons:  None
-Resetting cache.
-Bootstrap to the start of init.init. took 1187.19s
-Early init. took 0.00s
-Loader init. took 0.00s
-Loading error handling. took 0.01s
-Loading script. took 0.05s
-Loading save slot metadata. took 0.01s
-Loading persistent. took 0.00s
-Running init code. took 0.02s
-Loading analysis data. took 0.01s
-Analyze and compile ATL. took 0.00s
-Reloading save slot metadata. took 0.02s
-Index archives took 0.00s
-Dump and make backups. took 0.04s
-Cleaning cache. took 0.00s
-Making clean stores. took 0.00s
-Initial gc. took 0.02s
-DPI scale factor: 1.000000
-Creating interface object. took 0.00s
-Cleaning stores took 0.00s
-Init translation took 0.03s
-Build styles took 0.00s
-Load screen analysis took 0.03s
-Analyze screens took 0.00s
-Save screen analysis took 0.00s
-Prepare screens took 0.05s
-Save pyanalysis. took 0.00s
-Save bytecode. took 0.00s
-Running _start took 0.00s
-Performance test:
-Interface start. took 0.05s
-
-Initializing gl2 renderer:
-primary display bounds: (1920, 0, 2560, 1440)
-swap interval: 1 frames
-Windowed mode.
-Vendor: "b'Intel'"
-Renderer: b'Mesa Intel(R) UHD Graphics (CML GT2)'
-Version: b'4.6 (Compatibility Profile) Mesa 23.0.4-0ubuntu1~22.04.1'
-Display Info: None
-Screen sizes: virtual=(1920, 1080) physical=(2490, 1369) drawable=(2490, 1369)
-Maximum texture size: 4096x4096
-buttons:  None
-buttons:  None
-buttons:  None
-buttons:  None
-Resetting cache.
-Bootstrap to the start of init.init. took 1202.49s
-Early init. took 0.00s
-Loader init. took 0.00s
-Loading error handling. took 0.01s
-Loading script. took 0.09s
-Loading save slot metadata. took 0.02s
-Loading persistent. took 0.00s
-Running init code. took 0.02s
-Loading analysis data. took 0.01s
-Analyze and compile ATL. took 0.00s
-Reloading save slot metadata. took 0.01s
-Index archives took 0.00s
-Backing up script files to '/home/brent/.renpy/backups/DataVille':
-Dump and make backups. took 0.03s
-Cleaning cache. took 0.00s
-Making clean stores. took 0.00s
-Initial gc. took 0.03s
-DPI scale factor: 1.000000
-Creating interface object. took 0.00s
-Cleaning stores took 0.00s
-Init translation took 0.03s
-Build styles took 0.00s
-Load screen analysis took 0.00s
-Analyze screens took 0.01s
-Save screen analysis took 0.02s
-Prepare screens took 0.06s
-Save pyanalysis. took 0.00s
-Save bytecode. took 0.01s
-Running _start took 0.00s
-Performance test:
-Interface start. took 0.03s
-
-Initializing gl2 renderer:
-primary display bounds: (1920, 0, 2560, 1440)
-swap interval: 1 frames
-Windowed mode.
-Vendor: "b'Intel'"
-Renderer: b'Mesa Intel(R) UHD Graphics (CML GT2)'
-Version: b'4.6 (Compatibility Profile) Mesa 23.0.4-0ubuntu1~22.04.1'
-Display Info: None
-Screen sizes: virtual=(1920, 1080) physical=(2490, 1369) drawable=(2490, 1369)
-Maximum texture size: 4096x4096
-buttons:  None
-buttons:  None
-buttons:  ['Thanks, Cogni', 'Ugh. I hate AI.']
-buttons:  ['Thanks, Cogni', 'Ugh. I hate AI.']
-buttons:  None
-buttons:  None
-buttons:  None
-buttons:  None
-buttons:  None
-buttons:  None
-buttons:  None
-buttons:  None
-buttons:  ['Thanks, Cogni', 'Ugh. I hate AI.']
-buttons:  ['Thanks, Cogni', 'Ugh. I hate AI.']
-buttons:  None
-buttons:  None
-buttons:  None
-buttons:  None
-Resetting cache.
-Bootstrap to the start of init.init. took 1240.38s
-Early init. took 0.00s
-Loader init. took 0.00s
-Loading error handling. took 0.01s
-Loading script. took 0.09s
-Loading save slot metadata. took 0.02s
-Loading persistent. took 0.00s
-Running init code. took 0.02s
-Loading analysis data. took 0.01s
-Analyze and compile ATL. took 0.00s
-Reloading save slot metadata. took 0.01s
-Index archives took 0.00s
-Backing up script files to '/home/brent/.renpy/backups/DataVille':
-Dump and make backups. took 0.03s
+Dump and make backups. took 0.05s
 Cleaning cache. took 0.00s
 Making clean stores. took 0.00s
 Initial gc. took 0.04s
@@ -844,12 +158,12 @@ Build styles took 0.00s
 Load screen analysis took 0.00s
 Analyze screens took 0.01s
 Save screen analysis took 0.02s
-Prepare screens took 0.06s
-Save pyanalysis. took 0.00s
+Prepare screens took 0.07s
+Save pyanalysis. took 0.01s
 Save bytecode. took 0.01s
 Running _start took 0.00s
 Performance test:
-Interface start. took 0.03s
+Interface start. took 0.05s
 
 Initializing gl2 renderer:
 primary display bounds: (1920, 0, 2560, 1440)
@@ -861,15 +175,8 @@ Version: b'4.6 (Compatibility Profile) Mesa 23.0.4-0ubuntu1~22.04.1'
 Display Info: None
 Screen sizes: virtual=(1920, 1080) physical=(2490, 1369) drawable=(2490, 1369)
 Maximum texture size: 4096x4096
-buttons:  None
-buttons:  None
-buttons:  ['Thanks, Cogni', 'Ugh. I hate AI.']
-buttons:  ['Thanks, Cogni', 'Ugh. I hate AI.']
-buttons:  None
-buttons:  None
-task:  {'type': 'binary_image', 'next_task': 'binary_image_task_2', 'payment': '200', 'instructions': 'Does this image contain a traffic light? Yes/No', 'time': '10', 'image_folder': 'binary_image_task_1', 'correct_options': 'N', 'has_ethical_option': 'N'}
 Resetting cache.
-Bootstrap to the start of init.init. took 1283.25s
+Bootstrap to the start of init.init. took 626.06s
 Early init. took 0.00s
 Loader init. took 0.00s
 Loading error handling. took 0.01s
@@ -882,7 +189,7 @@ Analyze and compile ATL. took 0.00s
 Reloading save slot metadata. took 0.01s
 Index archives took 0.00s
 Backing up script files to '/home/brent/.renpy/backups/DataVille':
-Dump and make backups. took 0.04s
+Dump and make backups. took 0.05s
 Cleaning cache. took 0.00s
 Making clean stores. took 0.00s
 Initial gc. took 0.03s
@@ -894,12 +201,12 @@ Build styles took 0.00s
 Load screen analysis took 0.00s
 Analyze screens took 0.01s
 Save screen analysis took 0.02s
-Prepare screens took 0.08s
-Save pyanalysis. took 0.02s
+Prepare screens took 0.06s
+Save pyanalysis. took 0.01s
 Save bytecode. took 0.01s
 Running _start took 0.00s
 Performance test:
-Interface start. took 0.04s
+Interface start. took 0.05s
 
 Initializing gl2 renderer:
 primary display bounds: (1920, 0, 2560, 1440)
@@ -911,21 +218,13 @@ Version: b'4.6 (Compatibility Profile) Mesa 23.0.4-0ubuntu1~22.04.1'
 Display Info: None
 Screen sizes: virtual=(1920, 1080) physical=(2490, 1369) drawable=(2490, 1369)
 Maximum texture size: 4096x4096
-buttons:  None
-task:  {'type': 'binary_image', 'next_task': 'binary_image_task_2', 'payment': '200', 'instructions': 'Does this image contain a traffic light? Yes/No', 'time': '10', 'image_folder': 'binary_image_task_1', 'correct_options': 'N', 'has_ethical_option': 'N'}
-buttons:  ['Thanks, Cogni', 'Ugh. I hate AI.']
-buttons:  None
-buttons:  None
-buttons:  None
-buttons:  ['Thanks, Cogni', 'Ugh. I hate AI.']
-buttons:  ['Thanks, Cogni', 'Ugh. I hate AI.']
 Resetting cache.
-Bootstrap to the start of init.init. took 1301.67s
+Bootstrap to the start of init.init. took 787.25s
 Early init. took 0.00s
 Loader init. took 0.00s
 Loading error handling. took 0.01s
-Loading script. took 0.22s
-Loading save slot metadata. took 0.01s
+Loading script. took 0.11s
+Loading save slot metadata. took 0.02s
 Loading persistent. took 0.00s
 Running init code. took 0.02s
 Loading analysis data. took 0.01s
@@ -944,13 +243,13 @@ Init translation took 0.03s
 Build styles took 0.00s
 Load screen analysis took 0.00s
 Analyze screens took 0.01s
-Save screen analysis took 0.02s
-Prepare screens took 0.07s
-Save pyanalysis. took 0.02s
+Save screen analysis took 0.01s
+Prepare screens took 0.06s
+Save pyanalysis. took 0.00s
 Save bytecode. took 0.01s
 Running _start took 0.00s
 Performance test:
-Interface start. took 0.04s
+Interface start. took 0.03s
 
 Initializing gl2 renderer:
 primary display bounds: (1920, 0, 2560, 1440)
@@ -962,14 +261,11 @@ Version: b'4.6 (Compatibility Profile) Mesa 23.0.4-0ubuntu1~22.04.1'
 Display Info: None
 Screen sizes: virtual=(1920, 1080) physical=(2490, 1369) drawable=(2490, 1369)
 Maximum texture size: 4096x4096
-buttons:  None
-buttons:  ['Thanks, Cogni', 'Ugh. I hate AI.']
-buttons:  ['Thanks, Cogni', 'Ugh. I hate AI.']
 Resetting cache.
-Bootstrap to the start of init.init. took 1389.18s
+Bootstrap to the start of init.init. took 795.03s
 Early init. took 0.00s
 Loader init. took 0.00s
-Loading error handling. took 0.02s
+Loading error handling. took 0.01s
 Loading script. took 0.10s
 Loading save slot metadata. took 0.02s
 Loading persistent. took 0.00s
@@ -1008,183 +304,12 @@ Version: b'4.6 (Compatibility Profile) Mesa 23.0.4-0ubuntu1~22.04.1'
 Display Info: None
 Screen sizes: virtual=(1920, 1080) physical=(2490, 1369) drawable=(2490, 1369)
 Maximum texture size: 4096x4096
-buttons:  None
-buttons:  ['Thanks, Cogni', 'Ugh. I hate AI.']
-buttons:  ['Thanks, Cogni', 'Ugh. I hate AI.']
-buttons:  None
-buttons:  None
-buttons:  ['Thanks, Cogni', 'Ugh. I hate AI.']
-buttons:  ['Thanks, Cogni', 'Ugh. I hate AI.']
-buttons:  None
-buttons:  None
 Resetting cache.
-Bootstrap to the start of init.init. took 1395.53s
+Bootstrap to the start of init.init. took 822.51s
 Early init. took 0.00s
 Loader init. took 0.00s
 Loading error handling. took 0.01s
-Loading script. took 0.05s
-Loading save slot metadata. took 0.01s
-Loading persistent. took 0.00s
-Running init code. took 0.03s
-Loading analysis data. took 0.01s
-Analyze and compile ATL. took 0.00s
-Reloading save slot metadata. took 0.02s
-Index archives took 0.00s
-Dump and make backups. took 0.04s
-Cleaning cache. took 0.00s
-Making clean stores. took 0.00s
-Initial gc. took 0.02s
-DPI scale factor: 1.000000
-Creating interface object. took 0.00s
-Cleaning stores took 0.00s
-Init translation took 0.03s
-Build styles took 0.00s
-Load screen analysis took 0.03s
-Analyze screens took 0.00s
-Save screen analysis took 0.00s
-Prepare screens took 0.05s
-Save pyanalysis. took 0.00s
-Save bytecode. took 0.00s
-Running _start took 0.00s
-Performance test:
-Interface start. took 0.06s
-
-Initializing gl2 renderer:
-primary display bounds: (1920, 0, 2560, 1440)
-swap interval: 1 frames
-Windowed mode.
-Vendor: "b'Intel'"
-Renderer: b'Mesa Intel(R) UHD Graphics (CML GT2)'
-Version: b'4.6 (Compatibility Profile) Mesa 23.0.4-0ubuntu1~22.04.1'
-Display Info: None
-Screen sizes: virtual=(1920, 1080) physical=(2490, 1369) drawable=(2490, 1369)
-Maximum texture size: 4096x4096
-buttons:  None
-buttons:  None
-buttons:  ['Thanks, Cogni', 'Ugh. I hate AI.']
-buttons:  ['Thanks, Cogni', 'Ugh. I hate AI.']
-buttons:  None
-buttons:  None
-buttons:  ['Thanks, Cogni', 'Ugh. I hate AI.']
-buttons:  ['Thanks, Cogni', 'Ugh. I hate AI.']
-Resetting cache.
-Bootstrap to the start of init.init. took 1462.01s
-Early init. took 0.00s
-Loader init. took 0.00s
-Loading error handling. took 0.01s
-Loading script. took 0.11s
-Loading save slot metadata. took 0.02s
-Loading persistent. took 0.00s
-Running init code. took 0.02s
-Loading analysis data. took 0.01s
-Analyze and compile ATL. took 0.00s
-Reloading save slot metadata. took 0.01s
-Index archives took 0.00s
-Backing up script files to '/home/brent/.renpy/backups/DataVille':
-Dump and make backups. took 0.04s
-Cleaning cache. took 0.00s
-Making clean stores. took 0.00s
-Initial gc. took 0.04s
-DPI scale factor: 1.000000
-Creating interface object. took 0.00s
-Cleaning stores took 0.00s
-Init translation took 0.03s
-Build styles took 0.00s
-Load screen analysis took 0.00s
-Analyze screens took 0.01s
-Save screen analysis took 0.02s
-Prepare screens took 0.06s
-Save pyanalysis. took 0.00s
-Save bytecode. took 0.01s
-Running _start took 0.00s
-Performance test:
-Interface start. took 0.09s
-
-Initializing gl2 renderer:
-primary display bounds: (1920, 0, 2560, 1440)
-swap interval: 1 frames
-Windowed mode.
-Vendor: "b'Intel'"
-Renderer: b'Mesa Intel(R) UHD Graphics (CML GT2)'
-Version: b'4.6 (Compatibility Profile) Mesa 23.0.4-0ubuntu1~22.04.1'
-Display Info: None
-Screen sizes: virtual=(1920, 1080) physical=(2490, 1369) drawable=(2490, 1369)
-Maximum texture size: 4096x4096
-buttons:  None
-buttons:  ['Thanks, Cogni', 'Ugh. I hate AI.']
-buttons:  ['Thanks, Cogni', 'Ugh. I hate AI.']
-buttons:  None
-buttons:  None
-buttons:  None
-buttons:  None
-buttons:  ['Thanks, Cogni', 'Ugh. I hate AI.']
-buttons:  ['Thanks, Cogni', 'Ugh. I hate AI.']
-buttons:  None
-buttons:  None
-buttons:  ['Thanks, Cogni', 'Ugh. I hate AI.']
-buttons:  ['Thanks, Cogni', 'Ugh. I hate AI.']
-buttons:  ['Thanks, Cogni', 'Ugh. I hate AI.']
-buttons:  None
-task:  {'type': 'binary_image', 'next_task': 'binary_image_task_2', 'payment': '200', 'instructions': 'Does this image contain a traffic light? Yes/No', 'time': '10', 'image_folder': 'binary_image_task_1', 'correct_options': 'N', 'has_ethical_option': 'N'}
-buttons:  None
-buttons:  None
-buttons:  ['Thanks, Cogni', 'Ugh. I hate AI.']
-buttons:  ['Thanks, Cogni', 'Ugh. I hate AI.']
-Resetting cache.
-Bootstrap to the start of init.init. took 1479.08s
-Early init. took 0.00s
-Loader init. took 0.00s
-Loading error handling. took 0.01s
-Loading script. took 0.06s
-Loading save slot metadata. took 0.01s
-Loading persistent. took 0.00s
-Running init code. took 0.03s
-Loading analysis data. took 0.01s
-Analyze and compile ATL. took 0.00s
-Reloading save slot metadata. took 0.01s
-Index archives took 0.00s
-Dump and make backups. took 0.04s
-Cleaning cache. took 0.00s
-Making clean stores. took 0.00s
-Initial gc. took 0.03s
-DPI scale factor: 1.000000
-Creating interface object. took 0.00s
-Cleaning stores took 0.00s
-Init translation took 0.03s
-Build styles took 0.00s
-Load screen analysis took 0.03s
-Analyze screens took 0.00s
-Save screen analysis took 0.00s
-Prepare screens took 0.06s
-Save pyanalysis. took 0.00s
-Save bytecode. took 0.00s
-Running _start took 0.00s
-Performance test:
-Interface start. took 0.06s
-
-Initializing gl2 renderer:
-primary display bounds: (1920, 0, 2560, 1440)
-swap interval: 1 frames
-Windowed mode.
-Vendor: "b'Intel'"
-Renderer: b'Mesa Intel(R) UHD Graphics (CML GT2)'
-Version: b'4.6 (Compatibility Profile) Mesa 23.0.4-0ubuntu1~22.04.1'
-Display Info: None
-Screen sizes: virtual=(1920, 1080) physical=(2490, 1369) drawable=(2490, 1369)
-Maximum texture size: 4096x4096
-buttons:  None
-buttons:  ['Thanks, Cogni', 'Ugh. I hate AI.']
-buttons:  ['Thanks, Cogni', 'Ugh. I hate AI.']
-buttons:  None
-buttons:  None
-buttons:  ['Thanks, Cogni', 'Ugh. I hate AI.']
-buttons:  ['Thanks, Cogni', 'Ugh. I hate AI.']
-Resetting cache.
-Bootstrap to the start of init.init. took 1505.18s
-Early init. took 0.00s
-Loader init. took 0.00s
-Loading error handling. took 0.01s
-Loading script. took 0.11s
+Loading script. took 0.10s
 Loading save slot metadata. took 0.02s
 Loading persistent. took 0.00s
 Running init code. took 0.02s
@@ -1223,14 +348,9 @@ Display Info: None
 Screen sizes: virtual=(1920, 1080) physical=(2490, 1369) drawable=(2490, 1369)
 Maximum texture size: 4096x4096
 buttons:  None
-buttons:  ['Thanks, Cogni', 'Ugh. I hate AI.']
-buttons:  ['Thanks, Cogni', 'Ugh. I hate AI.']
-buttons:  None
-buttons:  None
-buttons:  None
 buttons:  None
 Resetting cache.
-Bootstrap to the start of init.init. took 1508.44s
+Bootstrap to the start of init.init. took 839.68s
 Early init. took 0.00s
 Loader init. took 0.00s
 Loading error handling. took 0.01s
@@ -1240,7 +360,7 @@ Loading persistent. took 0.00s
 Running init code. took 0.03s
 Loading analysis data. took 0.02s
 Analyze and compile ATL. took 0.00s
-Reloading save slot metadata. took 0.01s
+Reloading save slot metadata. took 0.02s
 Index archives took 0.00s
 Dump and make backups. took 0.04s
 Cleaning cache. took 0.00s
@@ -1259,74 +379,6 @@ Save pyanalysis. took 0.00s
 Save bytecode. took 0.00s
 Running _start took 0.00s
 Performance test:
-Interface start. took 0.05s
-
-Initializing gl2 renderer:
-primary display bounds: (1920, 0, 2560, 1440)
-swap interval: 1 frames
-Windowed mode.
-Vendor: "b'Intel'"
-Renderer: b'Mesa Intel(R) UHD Graphics (CML GT2)'
-Version: b'4.6 (Compatibility Profile) Mesa 23.0.4-0ubuntu1~22.04.1'
-Display Info: None
-Screen sizes: virtual=(1920, 1080) physical=(2490, 1369) drawable=(2490, 1369)
-Maximum texture size: 4096x4096
-buttons:  None
-buttons:  None
-buttons:  None
-buttons:  None
-buttons:  ['Thanks, Cogni', 'Ugh. I hate AI.']
-buttons:  ['Thanks, Cogni', 'Ugh. I hate AI.']
-buttons:  None
-buttons:  None
-buttons:  ['Thanks, Cogni', 'Ugh. I hate AI.']
-buttons:  ['Thanks, Cogni', 'Ugh. I hate AI.']
-Resetting cache.
-Bootstrap to the start of init.init. took 1635.05s
-Early init. took 0.00s
-Loader init. took 0.00s
-Loading error handling. took 0.01s
-Loading script. took 0.12s
-Loading save slot metadata. took 0.02s
-Loading persistent. took 0.00s
-
-File "game/script.rpy", line 412: invalid syntax
-    e_big "[text]"
-           ^
-
-File "game/script.rpy", line 439: invalid syntax
-    e_big "[text]"
-           ^
-DPI scale factor: 1.000000
-Interface start. took 0.07s
-
-Initializing gl2 renderer:
-primary display bounds: (1920, 0, 2560, 1440)
-swap interval: 1 frames
-Windowed mode.
-Vendor: "b'Intel'"
-Renderer: b'Mesa Intel(R) UHD Graphics (CML GT2)'
-Version: b'4.6 (Compatibility Profile) Mesa 23.0.4-0ubuntu1~22.04.1'
-Display Info: None
-Screen sizes: virtual=(1920, 1080) physical=(2490, 1369) drawable=(2490, 1369)
-Maximum texture size: 4096x4096
-Resetting cache.
-Bootstrap to the start of init.init. took 1653.18s
-Early init. took 0.00s
-Loader init. took 0.00s
-Loading error handling. took 0.01s
-Loading script. took 0.10s
-Loading save slot metadata. took 0.02s
-Loading persistent. took 0.00s
-
-File "game/script.rpy", line 412: invalid syntax
-    e_big "[text]"
-           ^
-
-File "game/script.rpy", line 439: invalid syntax
-    e_big "[text]"
-           ^
-DPI scale factor: 1.000000
 Interface start. took 0.06s
 
 Initializing gl2 renderer:
@@ -1339,1038 +391,7 @@ Version: b'4.6 (Compatibility Profile) Mesa 23.0.4-0ubuntu1~22.04.1'
 Display Info: None
 Screen sizes: virtual=(1920, 1080) physical=(2490, 1369) drawable=(2490, 1369)
 Maximum texture size: 4096x4096
-Resetting cache.
-Bootstrap to the start of init.init. took 1698.35s
-Early init. took 0.00s
-Loader init. took 0.00s
-Loading error handling. took 0.01s
-Loading script. took 0.11s
-Loading save slot metadata. took 0.02s
-Loading persistent. took 0.00s
-
-File "game/script.rpy", line 439: invalid syntax
-    e_big "[text]"
-           ^
-DPI scale factor: 1.000000
-Interface start. took 0.06s
-
-Initializing gl2 renderer:
-primary display bounds: (1920, 0, 2560, 1440)
-swap interval: 1 frames
-Windowed mode.
-Vendor: "b'Intel'"
-Renderer: b'Mesa Intel(R) UHD Graphics (CML GT2)'
-Version: b'4.6 (Compatibility Profile) Mesa 23.0.4-0ubuntu1~22.04.1'
-Display Info: None
-Screen sizes: virtual=(1920, 1080) physical=(2490, 1369) drawable=(2490, 1369)
-Maximum texture size: 4096x4096
-Resetting cache.
-Bootstrap to the start of init.init. took 1707.48s
-Early init. took 0.00s
-Loader init. took 0.00s
-Loading error handling. took 0.01s
-Loading script. took 0.11s
-Loading save slot metadata. took 0.02s
-Loading persistent. took 0.00s
-
-File "game/script.rpy", line 439: invalid syntax
-    e_big "[text]"
-           ^
-DPI scale factor: 1.000000
-Interface start. took 0.06s
-
-Initializing gl2 renderer:
-primary display bounds: (1920, 0, 2560, 1440)
-swap interval: 1 frames
-Windowed mode.
-Vendor: "b'Intel'"
-Renderer: b'Mesa Intel(R) UHD Graphics (CML GT2)'
-Version: b'4.6 (Compatibility Profile) Mesa 23.0.4-0ubuntu1~22.04.1'
-Display Info: None
-Screen sizes: virtual=(1920, 1080) physical=(2490, 1369) drawable=(2490, 1369)
-Maximum texture size: 4096x4096
-Resetting cache.
-Bootstrap to the start of init.init. took 1775.14s
-Early init. took 0.00s
-Loader init. took 0.00s
-Loading error handling. took 0.01s
-Loading script. took 0.10s
-Loading save slot metadata. took 0.01s
-Loading persistent. took 0.00s
-Running init code. took 0.03s
-Loading analysis data. took 0.01s
-Analyze and compile ATL. took 0.00s
-Reloading save slot metadata. took 0.01s
-Index archives took 0.00s
-Backing up script files to '/home/brent/.renpy/backups/DataVille':
-Dump and make backups. took 0.04s
-Cleaning cache. took 0.00s
-Making clean stores. took 0.00s
-Initial gc. took 0.02s
-DPI scale factor: 1.000000
-Creating interface object. took 0.00s
-Cleaning stores took 0.00s
-Init translation took 0.03s
-Build styles took 0.00s
-Load screen analysis took 0.00s
-Analyze screens took 0.01s
-Save screen analysis took 0.02s
-Prepare screens took 0.06s
-Save pyanalysis. took 0.00s
-Save bytecode. took 0.01s
-Running _start took 0.00s
-Performance test:
-Interface start. took 0.04s
-
-Initializing gl2 renderer:
-primary display bounds: (1920, 0, 2560, 1440)
-swap interval: 1 frames
-Windowed mode.
-Vendor: "b'Intel'"
-Renderer: b'Mesa Intel(R) UHD Graphics (CML GT2)'
-Version: b'4.6 (Compatibility Profile) Mesa 23.0.4-0ubuntu1~22.04.1'
-Display Info: None
-Screen sizes: virtual=(1920, 1080) physical=(2490, 1369) drawable=(2490, 1369)
-Maximum texture size: 4096x4096
-buttons:  None
-buttons:  None
-Resetting cache.
-Bootstrap to the start of init.init. took 1786.61s
-Early init. took 0.00s
-Loader init. took 0.00s
-Loading error handling. took 0.01s
-Loading script. took 0.05s
-Loading save slot metadata. took 0.01s
-Loading persistent. took 0.00s
-Running init code. took 0.02s
-Loading analysis data. took 0.01s
-Analyze and compile ATL. took 0.00s
-Reloading save slot metadata. took 0.02s
-Index archives took 0.00s
-Dump and make backups. took 0.06s
-Cleaning cache. took 0.00s
-Making clean stores. took 0.00s
-Initial gc. took 0.02s
-DPI scale factor: 1.000000
-Creating interface object. took 0.00s
-Cleaning stores took 0.00s
-Init translation took 0.03s
-Build styles took 0.00s
-Load screen analysis took 0.02s
-Analyze screens took 0.00s
-Save screen analysis took 0.00s
-Prepare screens took 0.05s
-Save pyanalysis. took 0.00s
-Save bytecode. took 0.00s
-Running _start took 0.00s
-Performance test:
-Interface start. took 0.04s
-
-Initializing gl2 renderer:
-primary display bounds: (1920, 0, 2560, 1440)
-swap interval: 1 frames
-Windowed mode.
-Vendor: "b'Intel'"
-Renderer: b'Mesa Intel(R) UHD Graphics (CML GT2)'
-Version: b'4.6 (Compatibility Profile) Mesa 23.0.4-0ubuntu1~22.04.1'
-Display Info: None
-Screen sizes: virtual=(1920, 1080) physical=(2490, 1369) drawable=(2490, 1369)
-Maximum texture size: 4096x4096
 buttons:  None
 buttons:  None
 buttons:  None
-buttons:  ['Thanks, Cogni', 'Ugh. I hate AI.']
-buttons:  ['Thanks, Cogni', 'Ugh. I hate AI.']
-Resetting cache.
-Bootstrap to the start of init.init. took 1835.06s
-Early init. took 0.00s
-Loader init. took 0.00s
-Loading error handling. took 0.01s
-Loading script. took 0.10s
-Loading save slot metadata. took 0.01s
-Loading persistent. took 0.00s
-Running init code. took 0.02s
-Loading analysis data. took 0.01s
-Analyze and compile ATL. took 0.00s
-Reloading save slot metadata. took 0.01s
-Index archives took 0.00s
-Backing up script files to '/home/brent/.renpy/backups/DataVille':
-Dump and make backups. took 0.03s
-Cleaning cache. took 0.00s
-Making clean stores. took 0.00s
-Initial gc. took 0.03s
-DPI scale factor: 1.000000
-Creating interface object. took 0.00s
-Cleaning stores took 0.00s
-Init translation took 0.03s
-Build styles took 0.00s
-Load screen analysis took 0.00s
-Analyze screens took 0.01s
-Save screen analysis took 0.02s
-Prepare screens took 0.06s
-Save pyanalysis. took 0.00s
-Save bytecode. took 0.01s
-Running _start took 0.00s
-Performance test:
-Interface start. took 0.04s
-
-Initializing gl2 renderer:
-primary display bounds: (1920, 0, 2560, 1440)
-swap interval: 1 frames
-Windowed mode.
-Vendor: "b'Intel'"
-Renderer: b'Mesa Intel(R) UHD Graphics (CML GT2)'
-Version: b'4.6 (Compatibility Profile) Mesa 23.0.4-0ubuntu1~22.04.1'
-Display Info: None
-Screen sizes: virtual=(1920, 1080) physical=(2490, 1369) drawable=(2490, 1369)
-Maximum texture size: 4096x4096
 buttons:  None
-buttons:  ['Thanks, Cogni', 'Ugh. I hate AI.']
-buttons:  ['Thanks, Cogni', 'Ugh. I hate AI.']
-Resetting cache.
-Bootstrap to the start of init.init. took 1841.29s
-Early init. took 0.00s
-Loader init. took 0.00s
-Loading error handling. took 0.01s
-Loading script. took 0.10s
-Loading save slot metadata. took 0.02s
-Loading persistent. took 0.00s
-Running init code. took 0.02s
-Loading analysis data. took 0.01s
-Analyze and compile ATL. took 0.00s
-Reloading save slot metadata. took 0.01s
-Index archives took 0.00s
-Backing up script files to '/home/brent/.renpy/backups/DataVille':
-Dump and make backups. took 0.04s
-Cleaning cache. took 0.00s
-Making clean stores. took 0.00s
-Initial gc. took 0.03s
-DPI scale factor: 1.000000
-Creating interface object. took 0.00s
-Cleaning stores took 0.00s
-Init translation took 0.03s
-Build styles took 0.00s
-Load screen analysis took 0.00s
-Analyze screens took 0.01s
-Save screen analysis took 0.02s
-Prepare screens took 0.06s
-Save pyanalysis. took 0.00s
-Save bytecode. took 0.01s
-Running _start took 0.00s
-Performance test:
-Interface start. took 0.04s
-
-Initializing gl2 renderer:
-primary display bounds: (1920, 0, 2560, 1440)
-swap interval: 1 frames
-Windowed mode.
-Vendor: "b'Intel'"
-Renderer: b'Mesa Intel(R) UHD Graphics (CML GT2)'
-Version: b'4.6 (Compatibility Profile) Mesa 23.0.4-0ubuntu1~22.04.1'
-Display Info: None
-Screen sizes: virtual=(1920, 1080) physical=(2490, 1369) drawable=(2490, 1369)
-Maximum texture size: 4096x4096
-buttons:  None
-buttons:  ['Thanks, Cogni', 'Ugh. I hate AI.']
-buttons:  ['Thanks, Cogni', 'Ugh. I hate AI.']
-buttons:  None
-buttons:  None
-Resetting cache.
-Bootstrap to the start of init.init. took 1845.35s
-Early init. took 0.00s
-Loader init. took 0.00s
-Loading error handling. took 0.01s
-Loading script. took 0.05s
-Loading save slot metadata. took 0.01s
-Loading persistent. took 0.00s
-Running init code. took 0.03s
-Loading analysis data. took 0.01s
-Analyze and compile ATL. took 0.00s
-Reloading save slot metadata. took 0.01s
-Index archives took 0.00s
-Dump and make backups. took 0.03s
-Cleaning cache. took 0.00s
-Making clean stores. took 0.00s
-Initial gc. took 0.02s
-DPI scale factor: 1.000000
-Creating interface object. took 0.00s
-Cleaning stores took 0.00s
-Init translation took 0.03s
-Build styles took 0.00s
-Load screen analysis took 0.03s
-Analyze screens took 0.00s
-Save screen analysis took 0.00s
-Prepare screens took 0.05s
-Save pyanalysis. took 0.00s
-Save bytecode. took 0.00s
-Running _start took 0.00s
-Performance test:
-Interface start. took 0.04s
-
-Initializing gl2 renderer:
-primary display bounds: (1920, 0, 2560, 1440)
-swap interval: 1 frames
-Windowed mode.
-Vendor: "b'Intel'"
-Renderer: b'Mesa Intel(R) UHD Graphics (CML GT2)'
-Version: b'4.6 (Compatibility Profile) Mesa 23.0.4-0ubuntu1~22.04.1'
-Display Info: None
-Screen sizes: virtual=(1920, 1080) physical=(2490, 1369) drawable=(2490, 1369)
-Maximum texture size: 4096x4096
-buttons:  None
-buttons:  None
-Resetting cache.
-Bootstrap to the start of init.init. took 1883.48s
-Early init. took 0.00s
-Loader init. took 0.00s
-Loading error handling. took 0.01s
-Loading script. took 0.09s
-Loading save slot metadata. took 0.02s
-Loading persistent. took 0.00s
-Running init code. took 0.02s
-Loading analysis data. took 0.01s
-Analyze and compile ATL. took 0.00s
-Reloading save slot metadata. took 0.01s
-Index archives took 0.00s
-Backing up script files to '/home/brent/.renpy/backups/DataVille':
-Dump and make backups. took 0.03s
-Cleaning cache. took 0.00s
-Making clean stores. took 0.00s
-Initial gc. took 0.03s
-DPI scale factor: 1.000000
-Creating interface object. took 0.00s
-Cleaning stores took 0.00s
-Init translation took 0.03s
-Build styles took 0.00s
-Load screen analysis took 0.00s
-Analyze screens took 0.01s
-Save screen analysis took 0.02s
-Prepare screens took 0.06s
-Save pyanalysis. took 0.00s
-Save bytecode. took 0.01s
-Running _start took 0.00s
-Performance test:
-Interface start. took 0.04s
-
-Initializing gl2 renderer:
-primary display bounds: (1920, 0, 2560, 1440)
-swap interval: 1 frames
-Windowed mode.
-Vendor: "b'Intel'"
-Renderer: b'Mesa Intel(R) UHD Graphics (CML GT2)'
-Version: b'4.6 (Compatibility Profile) Mesa 23.0.4-0ubuntu1~22.04.1'
-Display Info: None
-Screen sizes: virtual=(1920, 1080) physical=(2490, 1369) drawable=(2490, 1369)
-Maximum texture size: 4096x4096
-buttons:  None
-buttons:  None
-buttons:  ['Thanks, Cogni', 'Ugh. I hate AI.']
-buttons:  ['Thanks, Cogni', 'Ugh. I hate AI.']
-Resetting cache.
-Bootstrap to the start of init.init. took 1969.44s
-Early init. took 0.00s
-Loader init. took 0.00s
-Loading error handling. took 0.01s
-Loading script. took 0.10s
-Loading save slot metadata. took 0.02s
-Loading persistent. took 0.00s
-Running init code. took 0.02s
-Loading analysis data. took 0.01s
-Analyze and compile ATL. took 0.00s
-Reloading save slot metadata. took 0.01s
-Index archives took 0.00s
-Backing up script files to '/home/brent/.renpy/backups/DataVille':
-Dump and make backups. took 0.04s
-Cleaning cache. took 0.00s
-Making clean stores. took 0.00s
-Initial gc. took 0.04s
-DPI scale factor: 1.000000
-Creating interface object. took 0.00s
-Cleaning stores took 0.00s
-Init translation took 0.03s
-Build styles took 0.00s
-Load screen analysis took 0.00s
-Analyze screens took 0.01s
-Save screen analysis took 0.01s
-Prepare screens took 0.06s
-Save pyanalysis. took 0.00s
-Save bytecode. took 0.01s
-Running _start took 0.00s
-Performance test:
-Interface start. took 0.04s
-
-Initializing gl2 renderer:
-primary display bounds: (1920, 0, 2560, 1440)
-swap interval: 1 frames
-Windowed mode.
-Vendor: "b'Intel'"
-Renderer: b'Mesa Intel(R) UHD Graphics (CML GT2)'
-Version: b'4.6 (Compatibility Profile) Mesa 23.0.4-0ubuntu1~22.04.1'
-Display Info: None
-Screen sizes: virtual=(1920, 1080) physical=(2490, 1369) drawable=(2490, 1369)
-Maximum texture size: 4096x4096
-buttons:  None
-buttons:  None
-buttons:  ['Thanks, Cogni', 'Ugh. I hate AI.']
-buttons:  ['Thanks, Cogni', 'Ugh. I hate AI.']
-buttons:  None
-buttons:  None
-task:  {'type': 'binary_image', 'next_task': 'binary_image_task_2', 'payment': '200', 'instructions': 'Does this image contain a traffic light? Yes/No', 'time': '10', 'image_folder': 'binary_image_task_1', 'correct_options': 'N', 'has_ethical_option': 'N'}
-Resetting cache.
-Bootstrap to the start of init.init. took 2793.37s
-Early init. took 0.00s
-Loader init. took 0.00s
-Loading error handling. took 0.01s
-Loading script. took 0.10s
-Loading save slot metadata. took 0.02s
-Loading persistent. took 0.00s
-Running init code. took 0.02s
-Loading analysis data. took 0.01s
-Analyze and compile ATL. took 0.00s
-Reloading save slot metadata. took 0.01s
-Index archives took 0.00s
-Backing up script files to '/home/brent/.renpy/backups/DataVille':
-Dump and make backups. took 0.03s
-Cleaning cache. took 0.00s
-Making clean stores. took 0.00s
-Initial gc. took 0.03s
-DPI scale factor: 1.000000
-Creating interface object. took 0.00s
-Cleaning stores took 0.00s
-Init translation took 0.03s
-Build styles took 0.00s
-Load screen analysis took 0.00s
-Analyze screens took 0.01s
-Save screen analysis took 0.01s
-Prepare screens took 0.05s
-Save pyanalysis. took 0.00s
-Save bytecode. took 0.01s
-Running _start took 0.00s
-Performance test:
-Interface start. took 0.08s
-
-Initializing gl2 renderer:
-primary display bounds: (1920, 0, 2560, 1440)
-swap interval: 1 frames
-Windowed mode.
-Vendor: "b'Intel'"
-Renderer: b'Mesa Intel(R) UHD Graphics (CML GT2)'
-Version: b'4.6 (Compatibility Profile) Mesa 23.0.4-0ubuntu1~22.04.1'
-Display Info: None
-Screen sizes: virtual=(1920, 1080) physical=(2490, 1369) drawable=(2490, 1369)
-Maximum texture size: 4096x4096
-buttons:  None
-task:  {'type': 'binary_image', 'next_task': 'binary_image_task_2', 'payment': '200', 'instructions': 'Does this image contain a traffic light? Yes/No', 'time': '10', 'image_folder': 'binary_image_task_1', 'correct_options': 'N', 'has_ethical_option': 'N'}
-Resetting cache.
-Bootstrap to the start of init.init. took 2956.71s
-Early init. took 0.00s
-Loader init. took 0.00s
-Loading error handling. took 0.01s
-Loading script. took 0.05s
-Loading save slot metadata. took 0.01s
-Loading persistent. took 0.00s
-
-File "game/script.rpy", line 182: is not terminated with a newline. (Check strings and parenthesis.)
-              story_object['image'] = get_apartment_image(row['IMAGE_FOLDER'], row['IMAGE']
-DPI scale factor: 1.000000
-Interface start. took 0.07s
-
-Initializing gl2 renderer:
-primary display bounds: (1920, 0, 2560, 1440)
-swap interval: 1 frames
-Windowed mode.
-Vendor: "b'Intel'"
-Renderer: b'Mesa Intel(R) UHD Graphics (CML GT2)'
-Version: b'4.6 (Compatibility Profile) Mesa 23.0.4-0ubuntu1~22.04.1'
-Display Info: None
-Screen sizes: virtual=(1920, 1080) physical=(2490, 1369) drawable=(2490, 1369)
-Maximum texture size: 4096x4096
-Resetting cache.
-Bootstrap to the start of init.init. took 3037.88s
-Early init. took 0.00s
-Loader init. took 0.00s
-Loading error handling. took 0.01s
-Loading script. took 0.05s
-Loading save slot metadata. took 0.01s
-Loading persistent. took 0.00s
-
-File "game/script.rpy", line 183: is not terminated with a newline. (Check strings and parenthesis.)
-                story_object['image'] = get_apartment_image(row['IMAGE_FOLDER'], row['IMAGE']
-DPI scale factor: 1.000000
-Interface start. took 0.05s
-
-Initializing gl2 renderer:
-primary display bounds: (1920, 0, 2560, 1440)
-swap interval: 1 frames
-Windowed mode.
-Vendor: "b'Intel'"
-Renderer: b'Mesa Intel(R) UHD Graphics (CML GT2)'
-Version: b'4.6 (Compatibility Profile) Mesa 23.0.4-0ubuntu1~22.04.1'
-Display Info: None
-Screen sizes: virtual=(1920, 1080) physical=(2490, 1369) drawable=(2490, 1369)
-Maximum texture size: 4096x4096
-Resetting cache.
-Bootstrap to the start of init.init. took 3089.05s
-Early init. took 0.00s
-Loader init. took 0.00s
-Loading error handling. took 0.01s
-Loading script. took 0.10s
-Loading save slot metadata. took 0.02s
-Loading persistent. took 0.00s
-Running init code. took 0.03s
-Loading analysis data. took 0.01s
-Analyze and compile ATL. took 0.00s
-Reloading save slot metadata. took 0.01s
-Index archives took 0.00s
-Backing up script files to '/home/brent/.renpy/backups/DataVille':
-Dump and make backups. took 0.04s
-Cleaning cache. took 0.00s
-Making clean stores. took 0.00s
-Initial gc. took 0.02s
-DPI scale factor: 1.000000
-Creating interface object. took 0.00s
-Cleaning stores took 0.00s
-Init translation took 0.03s
-Build styles took 0.00s
-Load screen analysis took 0.00s
-Analyze screens took 0.01s
-Save screen analysis took 0.02s
-Prepare screens took 0.06s
-Save pyanalysis. took 0.00s
-Save bytecode. took 0.01s
-Running _start took 0.00s
-Performance test:
-Interface start. took 0.04s
-
-Initializing gl2 renderer:
-primary display bounds: (1920, 0, 2560, 1440)
-swap interval: 1 frames
-Windowed mode.
-Vendor: "b'Intel'"
-Renderer: b'Mesa Intel(R) UHD Graphics (CML GT2)'
-Version: b'4.6 (Compatibility Profile) Mesa 23.0.4-0ubuntu1~22.04.1'
-Display Info: None
-Screen sizes: virtual=(1920, 1080) physical=(2490, 1369) drawable=(2490, 1369)
-Maximum texture size: 4096x4096
-buttons:  None
-task:  {'type': 'binary_image', 'next_task': 'binary_image_task_2', 'payment': '200', 'instructions': 'Does this image contain a traffic light? Yes/No', 'time': '10', 'image_folder': 'binary_image_task_1', 'correct_options': 'N', 'has_ethical_option': 'N'}
-buttons:  ['Thanks, Cogni', 'Ugh. I hate AI.']
-buttons:  None
-buttons:  None
-buttons:  None
-buttons:  ['Thanks, Cogni', 'Ugh. I hate AI.']
-buttons:  ['Thanks, Cogni', 'Ugh. I hate AI.']
-buttons:  None
-buttons:  None
-Resetting cache.
-Bootstrap to the start of init.init. took 3096.99s
-Early init. took 0.00s
-Loader init. took 0.00s
-Loading error handling. took 0.01s
-Loading script. took 0.05s
-Loading save slot metadata. took 0.01s
-Loading persistent. took 0.00s
-Running init code. took 0.02s
-Loading analysis data. took 0.01s
-Analyze and compile ATL. took 0.00s
-Reloading save slot metadata. took 0.01s
-Index archives took 0.00s
-Dump and make backups. took 0.03s
-Cleaning cache. took 0.00s
-Making clean stores. took 0.00s
-Initial gc. took 0.02s
-DPI scale factor: 1.000000
-Creating interface object. took 0.00s
-Cleaning stores took 0.00s
-Init translation took 0.03s
-Build styles took 0.00s
-Load screen analysis took 0.03s
-Analyze screens took 0.00s
-Save screen analysis took 0.00s
-Prepare screens took 0.05s
-Save pyanalysis. took 0.00s
-Save bytecode. took 0.00s
-Running _start took 0.00s
-Performance test:
-Interface start. took 0.04s
-
-Initializing gl2 renderer:
-primary display bounds: (1920, 0, 2560, 1440)
-swap interval: 1 frames
-Windowed mode.
-Vendor: "b'Intel'"
-Renderer: b'Mesa Intel(R) UHD Graphics (CML GT2)'
-Version: b'4.6 (Compatibility Profile) Mesa 23.0.4-0ubuntu1~22.04.1'
-Display Info: None
-Screen sizes: virtual=(1920, 1080) physical=(2490, 1369) drawable=(2490, 1369)
-Maximum texture size: 4096x4096
-
-Full traceback:
-  File "game/script.rpy", line 396, in script
-    call screen apartment(clean(store.apartment_data), store.game_state.time)
-  File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/ast.py", line 2259, in execute
-    self.call("execute")
-  File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/ast.py", line 2241, in call
-    return renpy.statements.call(method, parsed, *args, **kwargs)
-  File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/statements.py", line 342, in call
-    return method(parsed, *args, **kwargs)
-  File "renpy/common/000statements.rpy", line 670, in execute_call_screen
-    store._return = renpy.call_screen(name, *args, **kwargs)
-  File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/exports.py", line 3347, in call_screen
-    rv = renpy.ui.interact(mouse="screen", type="screen", roll_forward=roll_forward)
-  File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/ui.py", line 299, in interact
-    rv = renpy.game.interface.interact(roll_forward=roll_forward, **kwargs)
-  File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/display/core.py", line 3582, in interact
-    repeat, rv = self.interact_core(preloads=preloads, trans_pause=trans_pause, pause=pause, pause_start=pause_start, pause_modal=pause_modal, **kwargs) # type: ignore
-  File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/display/core.py", line 4175, in interact_core
-    self.draw_screen(root_widget, fullscreen_video, (not fullscreen_video) or video_frame_drawn)
-  File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/display/core.py", line 2782, in draw_screen
-    surftree = renpy.display.render.render_screen(
-  File "render.pyx", line 492, in renpy.display.render.render_screen
-  File "render.pyx", line 266, in renpy.display.render.render
-  File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/display/layout.py", line 888, in render
-    surf = render(child, width, height, cst, cat)
-  File "render.pyx", line 170, in renpy.display.render.render
-  File "render.pyx", line 266, in renpy.display.render.render
-  File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/display/layout.py", line 888, in render
-    surf = render(child, width, height, cst, cat)
-  File "render.pyx", line 170, in renpy.display.render.render
-  File "render.pyx", line 266, in renpy.display.render.render
-  File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/display/layout.py", line 888, in render
-    surf = render(child, width, height, cst, cat)
-  File "render.pyx", line 170, in renpy.display.render.render
-  File "render.pyx", line 266, in renpy.display.render.render
-  File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/display/screen.py", line 731, in render
-    child = renpy.display.render.render(self.child, w, h, st, at)
-  File "render.pyx", line 170, in renpy.display.render.render
-  File "render.pyx", line 266, in renpy.display.render.render
-  File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/display/layout.py", line 888, in render
-    surf = render(child, width, height, cst, cat)
-  File "render.pyx", line 170, in renpy.display.render.render
-  File "render.pyx", line 266, in renpy.display.render.render
-  File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/display/layout.py", line 1338, in render
-    surf = render(child,
-  File "render.pyx", line 170, in renpy.display.render.render
-  File "render.pyx", line 266, in renpy.display.render.render
-  File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/display/layout.py", line 888, in render
-    surf = render(child, width, height, cst, cat)
-  File "render.pyx", line 170, in renpy.display.render.render
-  File "render.pyx", line 266, in renpy.display.render.render
-  File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/display/transform.py", line 909, in render
-    return RenderTransform(self).render(width, height, st, at)
-  File "accelerator.pyx", line 979, in renpy.display.accelerator.RenderTransform.render
-  File "accelerator.pyx", line 404, in renpy.display.accelerator.RenderTransform.render_child
-  File "render.pyx", line 266, in renpy.display.render.render
-  File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/display/transform.py", line 909, in render
-    return RenderTransform(self).render(width, height, st, at)
-  File "accelerator.pyx", line 979, in renpy.display.accelerator.RenderTransform.render
-  File "accelerator.pyx", line 404, in renpy.display.accelerator.RenderTransform.render_child
-  File "render.pyx", line 266, in renpy.display.render.render
-  File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/display/im.py", line 676, in render
-    return cache.get(self, render=True)
-  File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/display/im.py", line 330, in get
-    surf = image.load()
-  File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/display/im.py", line 803, in load
-    raise e
-  File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/display/im.py", line 757, in load
-    filelike = renpy.loader.load(self.filename, directory="images")
-  File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/loader.py", line 833, in load
-    raise IOError("Couldn't find file '%s'." % name)
-OSError: Couldn't find file 'images/placeholder.png'.
-
-While loading <renpy.display.im.Image object ('images/placeholder.png') at 0x7fe8cb7779d0>:
-  File "game/script.rpy", line 396, in script
-    call screen apartment(clean(store.apartment_data), store.game_state.time)
-  File "renpy/common/000statements.rpy", line 670, in execute_call_screen
-    store._return = renpy.call_screen(name, *args, **kwargs)
-OSError: Couldn't find file 'images/placeholder.png'.
-Resetting cache.
-Bootstrap to the start of init.init. took 3121.15s
-Early init. took 0.00s
-Loader init. took 0.00s
-Loading error handling. took 0.01s
-Loading script. took 0.05s
-Loading save slot metadata. took 0.01s
-Loading persistent. took 0.00s
-Running init code. took 0.02s
-Loading analysis data. took 0.01s
-Analyze and compile ATL. took 0.00s
-Reloading save slot metadata. took 0.01s
-Index archives took 0.00s
-Dump and make backups. took 0.04s
-Cleaning cache. took 0.00s
-Making clean stores. took 0.00s
-Initial gc. took 0.03s
-DPI scale factor: 1.000000
-Creating interface object. took 0.00s
-Cleaning stores took 0.00s
-Init translation took 0.03s
-Build styles took 0.00s
-Load screen analysis took 0.03s
-Analyze screens took 0.00s
-Save screen analysis took 0.00s
-Prepare screens took 0.05s
-Save pyanalysis. took 0.00s
-Save bytecode. took 0.00s
-Running _start took 0.00s
-Performance test:
-Interface start. took 0.05s
-
-Initializing gl2 renderer:
-primary display bounds: (1920, 0, 2560, 1440)
-swap interval: 1 frames
-Windowed mode.
-Vendor: "b'Intel'"
-Renderer: b'Mesa Intel(R) UHD Graphics (CML GT2)'
-Version: b'4.6 (Compatibility Profile) Mesa 23.0.4-0ubuntu1~22.04.1'
-Display Info: None
-Screen sizes: virtual=(1920, 1080) physical=(2490, 1369) drawable=(2490, 1369)
-Maximum texture size: 4096x4096
-Resetting cache.
-Bootstrap to the start of init.init. took 3228.30s
-Early init. took 0.00s
-Loader init. took 0.00s
-Loading error handling. took 0.01s
-Loading script. took 0.09s
-Loading save slot metadata. took 0.02s
-Loading persistent. took 0.00s
-Running init code. took 0.02s
-Loading analysis data. took 0.01s
-Analyze and compile ATL. took 0.00s
-Reloading save slot metadata. took 0.01s
-Index archives took 0.00s
-Backing up script files to '/home/brent/.renpy/backups/DataVille':
-Dump and make backups. took 0.04s
-Cleaning cache. took 0.00s
-Making clean stores. took 0.00s
-Initial gc. took 0.03s
-DPI scale factor: 1.000000
-Creating interface object. took 0.00s
-Cleaning stores took 0.00s
-Init translation took 0.03s
-Build styles took 0.00s
-Load screen analysis took 0.00s
-Analyze screens took 0.01s
-Save screen analysis took 0.01s
-Prepare screens took 0.06s
-Save pyanalysis. took 0.00s
-Save bytecode. took 0.01s
-Running _start took 0.00s
-Performance test:
-Interface start. took 0.04s
-
-Initializing gl2 renderer:
-primary display bounds: (1920, 0, 2560, 1440)
-swap interval: 1 frames
-Windowed mode.
-Vendor: "b'Intel'"
-Renderer: b'Mesa Intel(R) UHD Graphics (CML GT2)'
-Version: b'4.6 (Compatibility Profile) Mesa 23.0.4-0ubuntu1~22.04.1'
-Display Info: None
-Screen sizes: virtual=(1920, 1080) physical=(2490, 1369) drawable=(2490, 1369)
-Maximum texture size: 4096x4096
-Resetting cache.
-Bootstrap to the start of init.init. took 3257.20s
-Early init. took 0.00s
-Loader init. took 0.00s
-Loading error handling. took 0.01s
-Loading script. took 0.05s
-Loading save slot metadata. took 0.01s
-Loading persistent. took 0.00s
-
-Full traceback:
-  File "game/script.rpy", line 40, in script
-    init python:
-  File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/ast.py", line 1138, in execute
-    renpy.python.py_exec_bytecode(self.code.bytecode, self.hide, store=self.store)
-  File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/python.py", line 1122, in py_exec_bytecode
-    exec(bytecode, globals, locals)
-  File "game/script.rpy", line 227, in <module>
-    day_start()
-  File "game/script.rpy", line 221, in day_start
-    update_apartment_state('game_files/apt_day_' + day + '.csv', store.apartment_data, store.game_state)
-  File "game/script.rpy", line 161, in update_apartment_state
-    with open(renpy.loader.transfn(filename), 'r') as current_file:
-  File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/loader.py", line 910, in transfn
-    raise Exception("Couldn't find file '%s'." % name)
-Exception: Couldn't find file 'game_files/apt_day_0.csv'.
-
-While running game code:
-  File "game/script.rpy", line 40, in script
-    init python:
-  File "game/script.rpy", line 227, in <module>
-    day_start()
-  File "game/script.rpy", line 221, in day_start
-    update_apartment_state('game_files/apt_day_' + day + '.csv', store.apartment_data, store.game_state)
-  File "game/script.rpy", line 161, in update_apartment_state
-    with open(renpy.loader.transfn(filename), 'r') as current_file:
-Exception: Couldn't find file 'game_files/apt_day_0.csv'.
-DPI scale factor: 1.000000
-Interface start. took 0.10s
-
-Initializing gl2 renderer:
-primary display bounds: (1920, 0, 2560, 1440)
-swap interval: 1 frames
-Windowed mode.
-Vendor: "b'Intel'"
-Renderer: b'Mesa Intel(R) UHD Graphics (CML GT2)'
-Version: b'4.6 (Compatibility Profile) Mesa 23.0.4-0ubuntu1~22.04.1'
-Display Info: None
-Screen sizes: virtual=(1920, 1080) physical=(2490, 1369) drawable=(2490, 1369)
-Maximum texture size: 4096x4096
-Resetting cache.
-Bootstrap to the start of init.init. took 3266.34s
-Early init. took 0.00s
-Loader init. took 0.00s
-Loading error handling. took 0.01s
-Loading script. took 0.05s
-Loading save slot metadata. took 0.01s
-Loading persistent. took 0.00s
-
-Full traceback:
-  File "game/script.rpy", line 40, in script
-    init python:
-  File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/ast.py", line 1138, in execute
-    renpy.python.py_exec_bytecode(self.code.bytecode, self.hide, store=self.store)
-  File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/python.py", line 1122, in py_exec_bytecode
-    exec(bytecode, globals, locals)
-  File "game/script.rpy", line 227, in <module>
-    day_start()
-  File "game/script.rpy", line 221, in day_start
-    update_apartment_state('game_files/apt_day_' + day + '.csv', store.apartment_data, store.game_state)
-  File "game/script.rpy", line 183, in update_apartment_state
-    story_object['image'] = get_apartment_image(row['IMAGE_FOLDER'], row['IMAGE'])
-NameError: name 'get_apartment_image' is not defined
-
-While running game code:
-  File "game/script.rpy", line 40, in script
-    init python:
-  File "game/script.rpy", line 227, in <module>
-    day_start()
-  File "game/script.rpy", line 221, in day_start
-    update_apartment_state('game_files/apt_day_' + day + '.csv', store.apartment_data, store.game_state)
-  File "game/script.rpy", line 183, in update_apartment_state
-    story_object['image'] = get_apartment_image(row['IMAGE_FOLDER'], row['IMAGE'])
-NameError: name 'get_apartment_image' is not defined
-DPI scale factor: 1.000000
-Interface start. took 0.09s
-
-Initializing gl2 renderer:
-primary display bounds: (1920, 0, 2560, 1440)
-swap interval: 1 frames
-Windowed mode.
-Vendor: "b'Intel'"
-Renderer: b'Mesa Intel(R) UHD Graphics (CML GT2)'
-Version: b'4.6 (Compatibility Profile) Mesa 23.0.4-0ubuntu1~22.04.1'
-Display Info: None
-Screen sizes: virtual=(1920, 1080) physical=(2490, 1369) drawable=(2490, 1369)
-Maximum texture size: 4096x4096
-Resetting cache.
-Bootstrap to the start of init.init. took 3271.00s
-Early init. took 0.00s
-Loader init. took 0.00s
-Loading error handling. took 0.01s
-Loading script. took 0.05s
-Loading save slot metadata. took 0.01s
-Loading persistent. took 0.00s
-
-Full traceback:
-  File "game/script.rpy", line 40, in script
-    init python:
-  File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/ast.py", line 1138, in execute
-    renpy.python.py_exec_bytecode(self.code.bytecode, self.hide, store=self.store)
-  File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/python.py", line 1122, in py_exec_bytecode
-    exec(bytecode, globals, locals)
-  File "game/script.rpy", line 227, in <module>
-    day_start()
-  File "game/script.rpy", line 221, in day_start
-    update_apartment_state('game_files/apt_day_' + day + '.csv', store.apartment_data, store.game_state)
-  File "game/script.rpy", line 183, in update_apartment_state
-    story_object['image'] = get_apartment_image(row['IMAGE_FOLDER'], row['IMAGE'])
-NameError: name 'get_apartment_image' is not defined
-
-While running game code:
-  File "game/script.rpy", line 40, in script
-    init python:
-  File "game/script.rpy", line 227, in <module>
-    day_start()
-  File "game/script.rpy", line 221, in day_start
-    update_apartment_state('game_files/apt_day_' + day + '.csv', store.apartment_data, store.game_state)
-  File "game/script.rpy", line 183, in update_apartment_state
-    story_object['image'] = get_apartment_image(row['IMAGE_FOLDER'], row['IMAGE'])
-NameError: name 'get_apartment_image' is not defined
-DPI scale factor: 1.000000
-Interface start. took 0.11s
-
-Initializing gl2 renderer:
-primary display bounds: (1920, 0, 2560, 1440)
-swap interval: 1 frames
-Windowed mode.
-Vendor: "b'Intel'"
-Renderer: b'Mesa Intel(R) UHD Graphics (CML GT2)'
-Version: b'4.6 (Compatibility Profile) Mesa 23.0.4-0ubuntu1~22.04.1'
-Display Info: None
-Screen sizes: virtual=(1920, 1080) physical=(2490, 1369) drawable=(2490, 1369)
-Maximum texture size: 4096x4096
-Resetting cache.
-Bootstrap to the start of init.init. took 3305.36s
-Early init. took 0.00s
-Loader init. took 0.00s
-Loading error handling. took 0.01s
-Loading script. took 0.05s
-Loading save slot metadata. took 0.01s
-Loading persistent. took 0.00s
-
-Full traceback:
-  File "game/script.rpy", line 40, in script
-    init python:
-  File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/ast.py", line 1138, in execute
-    renpy.python.py_exec_bytecode(self.code.bytecode, self.hide, store=self.store)
-  File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/python.py", line 1122, in py_exec_bytecode
-    exec(bytecode, globals, locals)
-  File "game/script.rpy", line 227, in <module>
-    day_start()
-  File "game/script.rpy", line 221, in day_start
-    update_apartment_state('game_files/apt_day_' + day + '.csv', store.apartment_data, store.game_state)
-  File "game/script.rpy", line 183, in update_apartment_state
-    story_object['image'] = get_apartment_image(row['IMAGE_FOLDER'], row['IMAGE'])
-NameError: name 'get_apartment_image' is not defined
-
-While running game code:
-  File "game/script.rpy", line 40, in script
-    init python:
-  File "game/script.rpy", line 227, in <module>
-    day_start()
-  File "game/script.rpy", line 221, in day_start
-    update_apartment_state('game_files/apt_day_' + day + '.csv', store.apartment_data, store.game_state)
-  File "game/script.rpy", line 183, in update_apartment_state
-    story_object['image'] = get_apartment_image(row['IMAGE_FOLDER'], row['IMAGE'])
-NameError: name 'get_apartment_image' is not defined
-DPI scale factor: 1.000000
-Interface start. took 0.09s
-
-Initializing gl2 renderer:
-primary display bounds: (1920, 0, 2560, 1440)
-swap interval: 1 frames
-Windowed mode.
-Vendor: "b'Intel'"
-Renderer: b'Mesa Intel(R) UHD Graphics (CML GT2)'
-Version: b'4.6 (Compatibility Profile) Mesa 23.0.4-0ubuntu1~22.04.1'
-Display Info: None
-Screen sizes: virtual=(1920, 1080) physical=(2490, 1369) drawable=(2490, 1369)
-Maximum texture size: 4096x4096
-Resetting cache.
-Bootstrap to the start of init.init. took 3317.48s
-Early init. took 0.00s
-Loader init. took 0.00s
-Loading error handling. took 0.01s
-Loading script. took 0.05s
-Loading save slot metadata. took 0.01s
-Loading persistent. took 0.00s
-
-File "game/script.rpy", line 175: is not terminated with a newline. (Check strings and parenthesis.)
-(Perhaps you left out a ' at the end of the first line.)
-                story_object['button_1_te{file}ow['BUTTON_1_TEXT']
-DPI scale factor: 1.000000
-Interface start. took 0.07s
-
-Initializing gl2 renderer:
-primary display bounds: (1920, 0, 2560, 1440)
-swap interval: 1 frames
-Windowed mode.
-Vendor: "b'Intel'"
-Renderer: b'Mesa Intel(R) UHD Graphics (CML GT2)'
-Version: b'4.6 (Compatibility Profile) Mesa 23.0.4-0ubuntu1~22.04.1'
-Display Info: None
-Screen sizes: virtual=(1920, 1080) physical=(2490, 1369) drawable=(2490, 1369)
-Maximum texture size: 4096x4096
-Resetting cache.
-Bootstrap to the start of init.init. took 3344.67s
-Early init. took 0.00s
-Loader init. took 0.00s
-Loading error handling. took 0.01s
-Loading script. took 0.06s
-Loading save slot metadata. took 0.01s
-Loading persistent. took 0.00s
-
-Full traceback:
-  File "game/script.rpy", line 40, in script
-    init python:
-  File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/ast.py", line 1138, in execute
-    renpy.python.py_exec_bytecode(self.code.bytecode, self.hide, store=self.store)
-  File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/python.py", line 1122, in py_exec_bytecode
-    exec(bytecode, globals, locals)
-  File "game/script.rpy", line 227, in <module>
-    day_start()
-  File "game/script.rpy", line 221, in day_start
-    update_apartment_state('game_files/apt_day_' + day + '.csv', store.apartment_data, store.game_state)
-  File "game/script.rpy", line 183, in update_apartment_state
-    story_object['image'] = get_apartment_image(row['IMAGE_FOLDER'], row['IMAGE'])
-NameError: name 'get_apartment_image' is not defined
-
-While running game code:
-  File "game/script.rpy", line 40, in script
-    init python:
-  File "game/script.rpy", line 227, in <module>
-    day_start()
-  File "game/script.rpy", line 221, in day_start
-    update_apartment_state('game_files/apt_day_' + day + '.csv', store.apartment_data, store.game_state)
-  File "game/script.rpy", line 183, in update_apartment_state
-    story_object['image'] = get_apartment_image(row['IMAGE_FOLDER'], row['IMAGE'])
-NameError: name 'get_apartment_image' is not defined
-DPI scale factor: 1.000000
-Interface start. took 0.09s
-
-Initializing gl2 renderer:
-primary display bounds: (1920, 0, 2560, 1440)
-swap interval: 1 frames
-Windowed mode.
-Vendor: "b'Intel'"
-Renderer: b'Mesa Intel(R) UHD Graphics (CML GT2)'
-Version: b'4.6 (Compatibility Profile) Mesa 23.0.4-0ubuntu1~22.04.1'
-Display Info: None
-Screen sizes: virtual=(1920, 1080) physical=(2490, 1369) drawable=(2490, 1369)
-Maximum texture size: 4096x4096
-Resetting cache.
-Bootstrap to the start of init.init. took 3364.37s
-Early init. took 0.00s
-Loader init. took 0.00s
-Loading error handling. took 0.01s
-Loading script. took 0.11s
-Loading save slot metadata. took 0.02s
-Loading persistent. took 0.00s
-Running init code. took 0.03s
-Loading analysis data. took 0.01s
-Analyze and compile ATL. took 0.00s
-Reloading save slot metadata. took 0.01s
-Index archives took 0.00s
-Backing up script files to '/home/brent/.renpy/backups/DataVille':
-Dump and make backups. took 0.04s
-Cleaning cache. took 0.00s
-Making clean stores. took 0.00s
-Initial gc. took 0.04s
-DPI scale factor: 1.000000
-Creating interface object. took 0.00s
-Cleaning stores took 0.00s
-Init translation took 0.03s
-Build styles took 0.00s
-Load screen analysis took 0.00s
-Analyze screens took 0.01s
-Save screen analysis took 0.02s
-Prepare screens took 0.06s
-Save pyanalysis. took 0.00s
-Save bytecode. took 0.01s
-Running _start took 0.00s
-Performance test:
-Interface start. took 0.05s
-
-Initializing gl2 renderer:
-primary display bounds: (1920, 0, 2560, 1440)
-swap interval: 1 frames
-Windowed mode.
-Vendor: "b'Intel'"
-Renderer: b'Mesa Intel(R) UHD Graphics (CML GT2)'
-Version: b'4.6 (Compatibility Profile) Mesa 23.0.4-0ubuntu1~22.04.1'
-Display Info: None
-Screen sizes: virtual=(1920, 1080) physical=(2490, 1369) drawable=(2490, 1369)
-Maximum texture size: 4096x4096
