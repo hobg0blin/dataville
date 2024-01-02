@@ -2145,11 +2145,66 @@ screen set_state():
         yfill 1200
         xfill 1800
         vbox:
+            frame:
+                textbutton "Set day" action Show("set_day", None)
+            frame:
+                textbutton "Set task" action Show("set_task", None)
+            frame:
+                textbutton "Set performance" action Show("set_performance", None)
+            frame:
+                textbutton "Set time" action Show("set_time", None)
+            frame:
+                textbutton "close" action Hide("set_state", None)
+#
+# TODO: refactor so these are one screen that takes a variable
+
+screen set_performance():
+    modal True
+# streak_text, feed_text, instructions, status, button_text=False):
+    frame id 'content':
+        xalign 0
+        yalign 0
+        background "#136366"
+        yfill 1200
+        xfill 1800
+        vbox:
+            text "set your performance (bad/good/neutral):"
+            input default "":
+                value VariableInputValue("performance_string")
+            frame:
+                textbutton "Set" action [Function(update_from_state_menu), Hide("set_performance", None), Show("set_state", None)]
+
+screen set_time():
+    modal True
+# streak_text, feed_text, instructions, status, button_text=False):
+    frame id 'content':
+        xalign 0
+        yalign 0
+        background "#136366"
+        yfill 1200
+        xfill 1800
+        vbox:
+            text "set the time of day (start/end):"
+            input default "":
+                value VariableInputValue("time_string")
+            frame:
+                textbutton "Set" action [Function(update_from_state_menu), Hide("set_time", None), Show("set_state", None)]
+
+screen set_day():
+    modal True
+# streak_text, feed_text, instructions, status, button_text=False):
+    frame id 'content':
+        xalign 0
+        yalign 0
+        background "#136366"
+        yfill 1200
+        xfill 1800
+        vbox:
             text "set the day:"
             input default "":
                 value VariableInputValue("day_string")
             frame:
-                textbutton "Set" action [Hide("set_state", None), Show("set_task", None)]
+                textbutton "Set" action [Function(update_from_state_menu), Hide("set_day", None), Show("set_state", None)]
 
 screen set_task():
     modal True
@@ -2165,5 +2220,6 @@ screen set_task():
             input default "":
                 value VariableInputValue("task_string")
             frame:
-                textbutton "Set" action [Function(update_from_state_menu), Hide("set_task", None)]
+
+                textbutton "Set" action [Function(update_from_state_menu), Hide("set_task", None), Show("set_state", None)]
 

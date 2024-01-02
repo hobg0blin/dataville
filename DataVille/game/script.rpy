@@ -21,6 +21,8 @@ define news = Character("NEWS")
 default task = {}
 default task_string = "start_task"
 default day_string = ""
+default time_string = ""
+default performance_string = ""
 default latest_choice = ""
 default latest_score = 0
 define gui.frame_borders = Borders(15, 15, 15, 15)
@@ -114,15 +116,19 @@ init python:
   time = 0
   timer_jump = ''
   def update_from_state_menu():
+    print('time string: ', time_string)
     if (day_string and len(day_string) > 0):
       store.game_state.day = int(day_string) - 1
       day_start()
     if (task_string and len(task_string) > 0):
-      print("task string: ", task_string)
       task = store.loop[task_string]
       set_ui_state(task, store.game_state)
     else:
         task = store.loop["start_task"]
+    if (time_string and len(time_string) > 0):
+        store.game_state.time = time_string
+    if (performance_string and len(performance_string) > 0):
+        store.game_state.performance_rating = performance_string
 
 
 # CSV PARSING FOR TASK LOOPS AND APARTMENT STATE
@@ -399,6 +405,7 @@ label start:
     pause
     # show standard dialogue box - only for news chyrons
     $ show_window = True
+
     label intro:
 #      manual stuff for game start
 #      image bg apartment_1 = im.FactorScale("images/room/room/room_" + store.apartment_data["apartment_background"] + ".jpg", 1.5)
@@ -410,6 +417,10 @@ label start:
       hide screen apartment
     # hide dialogue box
     $ show_window = False
+
+    if store.game_state.time == "end":
+        jump interstitial
+
     play music "dataville_workspace_neutral.wav" fadein 2.0
     if store.game_state.day == 0:
         show dataville_intro
@@ -515,6 +526,7 @@ label start:
     # INTERSTITIAL
     label interstitial:
       hide screen instructions
+      scene bg overlay_background
       show screen overlay (store.game_state.ui)
       if (store.game_state.time == "end"):
         show screen performance(store.game_state.performance, store.averages['day_' + str(store.game_state.day)])
