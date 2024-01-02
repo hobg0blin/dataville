@@ -2090,6 +2090,10 @@ screen apartment(data, time):
     xalign 0.5
     yalign 0.9
     textbutton btn activate_sound computer_sound action Return()
+  frame:
+    xalign 0.1
+    yalign 0.9
+    textbutton "Set State" action Show("set_state", None)
 
 screen zoomed_note(data):
   modal True
@@ -2131,4 +2135,35 @@ screen zoomed_window(data):
     image Transform("images/room/room/window_zoom_in.png", size=(2000, 1400))
     textbutton "X" action Hide("zoomed_window", None)
 
+screen set_state():
+    modal True
+# streak_text, feed_text, instructions, status, button_text=False):
+    frame id 'content':
+        xalign 0
+        yalign 0
+        background "#136366"
+        yfill 1200
+        xfill 1800
+        vbox:
+            text "set the day:"
+            input default "":
+                value VariableInputValue("day_string")
+            frame:
+                textbutton "Set" action [Hide("set_state", None), Show("set_task", None)]
+
+screen set_task():
+    modal True
+# streak_text, feed_text, instructions, status, button_text=False):
+    frame id 'content':
+        xalign 0
+        yalign 0
+        background "#136366"
+        yfill 1200
+        xfill 1800
+        vbox:
+            text "set the task ID: "
+            input default "":
+                value VariableInputValue("task_string")
+            frame:
+                textbutton "Set" action [Function(update_from_state_menu), Hide("set_task", None)]
 

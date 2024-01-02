@@ -1,40 +1,68 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
 While running game code:
-  File "game/script.rpy", line 435, in script
-    play music f"dataville_workspace_{store.performance_rating}.wav"
-  File "renpy/common/000statements.rpy", line 123, in execute_play_music
-    renpy.music.play(_audio_eval(p["file"]),
-  File "renpy/common/000statements.rpy", line 32, in _audio_eval
-    return eval(expr, locals=store.audio.__dict__)
-  File "game/script.rpy", line 435, in <module>
-    play music f"dataville_workspace_{store.performance_rating}.wav"
-AttributeError: 'StoreModule' object has no attribute 'performance_rating'
+  File "game/script.rpy", line 409, in script
+    call screen apartment(clean(store.apartment_data), store.game_state.time)
+  File "renpy/common/000statements.rpy", line 670, in execute_call_screen
+    store._return = renpy.call_screen(name, *args, **kwargs)
+  File "renpy/common/00action_other.rpy", line 585, in __call__
+    rv = self.callable(*self.args, **self.kwargs)
+  File "game/script.rpy", line 120, in update_from_state_menu
+    if (len(task_string) > 0):
+UnboundLocalError: local variable 'task_string' referenced before assignment
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "game/script.rpy", line 435, in script
-    play music f"dataville_workspace_{store.performance_rating}.wav"
+  File "game/script.rpy", line 409, in script
+    call screen apartment(clean(store.apartment_data), store.game_state.time)
   File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/ast.py", line 2259, in execute
     self.call("execute")
   File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/ast.py", line 2241, in call
     return renpy.statements.call(method, parsed, *args, **kwargs)
   File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/statements.py", line 342, in call
     return method(parsed, *args, **kwargs)
-  File "renpy/common/000statements.rpy", line 123, in execute_play_music
-    renpy.music.play(_audio_eval(p["file"]),
-  File "renpy/common/000statements.rpy", line 32, in _audio_eval
-    return eval(expr, locals=store.audio.__dict__)
-  File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/python.py", line 1153, in py_eval
-    return py_eval_bytecode(code, globals, locals)
-  File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/python.py", line 1146, in py_eval_bytecode
-    return eval(bytecode, globals, locals)
-  File "game/script.rpy", line 435, in <module>
-    play music f"dataville_workspace_{store.performance_rating}.wav"
-AttributeError: 'StoreModule' object has no attribute 'performance_rating'
+  File "renpy/common/000statements.rpy", line 670, in execute_call_screen
+    store._return = renpy.call_screen(name, *args, **kwargs)
+  File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/exports.py", line 3347, in call_screen
+    rv = renpy.ui.interact(mouse="screen", type="screen", roll_forward=roll_forward)
+  File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/ui.py", line 299, in interact
+    rv = renpy.game.interface.interact(roll_forward=roll_forward, **kwargs)
+  File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/display/core.py", line 3582, in interact
+    repeat, rv = self.interact_core(preloads=preloads, trans_pause=trans_pause, pause=pause, pause_start=pause_start, pause_modal=pause_modal, **kwargs) # type: ignore
+  File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/display/core.py", line 4543, in interact_core
+    rv = root_widget.event(ev, x, y, 0)
+  File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/display/layout.py", line 1179, in event
+    rv = i.event(ev, x - xo, y - yo, cst)
+  File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/display/layout.py", line 1179, in event
+    rv = i.event(ev, x - xo, y - yo, cst)
+  File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/display/layout.py", line 1179, in event
+    rv = i.event(ev, x - xo, y - yo, cst)
+  File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/display/screen.py", line 770, in event
+    rv = self.child.event(ev, x, y, st)
+  File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/display/layout.py", line 1179, in event
+    rv = i.event(ev, x - xo, y - yo, cst)
+  File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/display/layout.py", line 1403, in event
+    rv = super(Window, self).event(ev, x, y, st)
+  File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/display/layout.py", line 281, in event
+    rv = d.event(ev, x - xo, y - yo, st)
+  File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/display/layout.py", line 1179, in event
+    rv = i.event(ev, x - xo, y - yo, cst)
+  File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/display/behavior.py", line 1142, in event
+    return handle_click(self.clicked)
+  File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/display/behavior.py", line 1075, in handle_click
+    rv = run(action)
+  File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/display/behavior.py", line 372, in run
+    new_rv = run(i, *args, **kwargs)
+  File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/display/behavior.py", line 379, in run
+    return action(*args, **kwargs)
+  File "renpy/common/00action_other.rpy", line 585, in __call__
+    rv = self.callable(*self.args, **self.kwargs)
+  File "game/script.rpy", line 120, in update_from_state_menu
+    if (len(task_string) > 0):
+UnboundLocalError: local variable 'task_string' referenced before assignment
 
 Linux-6.2.0-39-generic-x86_64-with-glibc2.35 x86_64
 Ren'Py 8.1.3.23091805
 DataVille 1.0
-Tue Jan  2 15:05:52 2024
+Tue Jan  2 17:01:25 2024

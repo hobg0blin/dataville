@@ -1,4 +1,4 @@
-﻿# The script of the game goes in this file performance.
+﻿# The s]cript of the game goes in this file performance.
 
 # Declare characters used by this game. The color argument colorizes the
 # name of the character.
@@ -19,6 +19,8 @@
 define m = Character("Me")
 define news = Character("NEWS")
 default task = {}
+default task_string = "start_task"
+default day_string = ""
 default latest_choice = ""
 default latest_score = 0
 define gui.frame_borders = Borders(15, 15, 15, 15)
@@ -111,6 +113,16 @@ init python:
   timer_range = 0
   time = 0
   timer_jump = ''
+  def update_from_state_menu():
+    if (day_string and len(day_string) > 0):
+      store.game_state.day = int(day_string) - 1
+      day_start()
+    if (task_string and len(task_string) > 0):
+      print("task string: ", task_string)
+      task = store.loop[task_string]
+      set_ui_state(task, store.game_state)
+    else:
+        task = store.loop["start_task"]
 
 
 # CSV PARSING FOR TASK LOOPS AND APARTMENT STATE
@@ -181,7 +193,7 @@ init python:
           story_object['text'] = row['TEXT']
 #          story_object['image'] = row['IMAGE']
 #          #FIXME: PLACEHOLDER IMAGE
-          if len(row['IMAGE_FOLDER']) > 0:
+          if 'IMAGE_FOLDER' in row and len(row['IMAGE_FOLDER']) > 0:
             story_object['image'] = get_apartment_image(row['IMAGE_FOLDER'], row['IMAGE'])
           else:
             story_object['image'] = "images/placeholder.png"
@@ -218,6 +230,7 @@ init python:
   def day_start():
     store.game_state.day += 1
     day = str(store.game_state.day)
+    print('day: ', day)
     store.game_state.time = 'start'
     make_task_loop('game_files/tasks_day_' + day + '.csv', store.loop) 
     update_apartment_state('game_files/apt_day_' + day + '.csv', store.apartment_data, store.game_state)
@@ -227,7 +240,7 @@ init python:
     day = str(store.game_state.day)
 
   day_start()
-
+  task = store.loop['start_task']
 
 
  # update state with "outcomes" attribute from current loop, based on
@@ -292,6 +305,7 @@ init python:
     return set_ui_state(next_task, state, performance_text, reward)
 
   def set_ui_state( task, state, performance_text = '', reward = 0):
+    print('task: ', task)
     state.ui['performance'] = performance_text
     state.ui['earnings'] += reward
     state.performance['earnings'] += reward
@@ -299,7 +313,7 @@ init python:
       return task
     else:
       state.ui['instructions'] = task['instructions']
-      state.ui['timer'] = task['time']
+      state.ui['timer'] = int(task['time'])
       return task
 
 # IMAGE TASK FUNCTIONS
@@ -427,8 +441,12 @@ label start:
     $ time = store.game_state.ui['timer']
 
     python:
-      task = store.loop['start_task']
+      if len(task_string) > 0:
+        task = store.loop[task_string]
+      else:
+        task = store.loop["start_task"]
       set_ui_state(task, store.game_state)
+
 #THIS AUTOMATES GOING THROUGH TASKS WHEN INSTRUCTIONS/ETC. ARE UNNECESSARY
     label task_loop:
       scene bg overlay_background
