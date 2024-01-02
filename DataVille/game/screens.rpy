@@ -2145,6 +2145,7 @@ screen set_state():
         yfill 1200
         xfill 1800
         vbox:
+            spacing 10
             frame:
                 textbutton "Set day" action Show("set_day", None)
             frame:
@@ -2154,7 +2155,9 @@ screen set_state():
             frame:
                 textbutton "Set time" action Show("set_time", None)
             frame:
-                textbutton "close" action Hide("set_state", None)
+                textbutton "Add event flag" action Show("add_event_flag", None)
+            frame:
+                textbutton "Close" action Hide("set_state", None)
 #
 # TODO: refactor so these are one screen that takes a variable
 
@@ -2222,4 +2225,21 @@ screen set_task():
             frame:
 
                 textbutton "Set" action [Function(update_from_state_menu), Hide("set_task", None), Show("set_state", None)]
+
+screen add_event_flag():
+    modal True
+# streak_text, feed_text, instructions, status, button_text=False):
+    frame id 'content':
+        xalign 0
+        yalign 0
+        background "#136366"
+        yfill 1200
+        xfill 1800
+        vbox:
+            text "add an event flag: "
+            input default "":
+                value VariableInputValue("event_flag_string")
+            frame:
+
+                textbutton "Set" action [Function(update_from_state_menu), Hide("add_event_flag", None), Show("set_state", None)]
 

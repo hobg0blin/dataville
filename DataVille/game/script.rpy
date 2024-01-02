@@ -23,6 +23,7 @@ default task_string = "start_task"
 default day_string = ""
 default time_string = ""
 default performance_string = ""
+default event_flag_string = ""
 default latest_choice = ""
 default latest_score = 0
 define gui.frame_borders = Borders(15, 15, 15, 15)
@@ -129,6 +130,8 @@ init python:
         store.game_state.time = time_string
     if (performance_string and len(performance_string) > 0):
         store.game_state.performance_rating = performance_string
+    if (event_flag_string and len(event_flag_string) > 0) and event_flag_string not in store.event_flags:
+        store.event_flags.append(event_flag_string)
 
 
 # CSV PARSING FOR TASK LOOPS AND APARTMENT STATE

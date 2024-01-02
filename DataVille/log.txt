@@ -91,3 +91,233 @@ state:  {'earnings': 0, 'average_time': 0, 'total_time': 0, 'total_score': 0, 'a
 average:  {'score': 70, 'time': 8, 'earnings': 1200}
 buttons:  ['Off to a great start!']
 buttons:  ['Off to a great start!']
+Resetting cache.
+Bootstrap to the start of init.init. took 247.56s
+Early init. took 0.00s
+Loader init. took 0.00s
+Loading error handling. took 0.02s
+Loading script. took 0.27s
+Loading save slot metadata. took 0.01s
+Loading persistent. took 0.00s
+day:  0
+Running init code. took 0.02s
+Loading analysis data. took 0.02s
+Analyze and compile ATL. took 0.00s
+Reloading save slot metadata. took 0.01s
+Index archives took 0.00s
+Backing up script files to '/home/brent/.renpy/backups/DataVille':
+Dump and make backups. took 0.04s
+Cleaning cache. took 0.00s
+Making clean stores. took 0.00s
+Initial gc. took 0.02s
+DPI scale factor: 1.000000
+Creating interface object. took 0.00s
+Cleaning stores took 0.00s
+Init translation took 0.03s
+Build styles took 0.00s
+Load screen analysis took 0.00s
+Analyze screens took 0.01s
+Save screen analysis took 0.02s
+Prepare screens took 0.06s
+Save pyanalysis. took 0.02s
+Save bytecode. took 0.02s
+Running _start took 0.00s
+Performance test:
+Interface start. took 0.04s
+
+Initializing gl2 renderer:
+primary display bounds: (1920, 0, 2560, 1440)
+swap interval: 1 frames
+Windowed mode.
+Vendor: "b'Intel'"
+Renderer: b'Mesa Intel(R) UHD Graphics (CML GT2)'
+Version: b'4.6 (Compatibility Profile) Mesa 23.0.4-0ubuntu1~22.04.1'
+Display Info: None
+Screen sizes: virtual=(1920, 1080) physical=(2490, 1369) drawable=(2490, 1369)
+Maximum texture size: 4096x4096
+buttons:  ['Off to a great start!']
+time string:  end
+task:  {'type': 'binary_image', 'next_task': 'binary_image_task_2', 'payment': '200', 'instructions': 'Does this image contain a traffic light? Yes/No', 'time': '10', 'image_folder': 'binary_image_task_1', 'correct_options': 'N', 'has_ethical_option': 'N'}
+time string:  end
+task:  {'type': 'binary_image', 'next_task': 'binary_image_task_2', 'payment': '200', 'instructions': 'Does this image contain a traffic light? Yes/No', 'time': '10', 'image_folder': 'binary_image_task_1', 'correct_options': 'N', 'has_ethical_option': 'N'}
+time string:  end
+task:  {'type': 'binary_image', 'next_task': 'binary_image_task_2', 'payment': '200', 'instructions': 'Does this image contain a traffic light? Yes/No', 'time': '10', 'image_folder': 'binary_image_task_1', 'correct_options': 'N', 'has_ethical_option': 'N'}
+day:  1
+state:  {'earnings': 0, 'average_time': 0, 'total_time': 0, 'total_score': 0, 'approval_rate': 0}
+average:  {'score': 70, 'time': 8, 'earnings': 1200}
+buttons:  ['Off to a great start!']
+state:  {'earnings': 0, 'average_time': 0, 'total_time': 0, 'total_score': 0, 'approval_rate': 0}
+average:  {'score': 70, 'time': 8, 'earnings': 1200}
+buttons:  None
+buttons:  None
+buttons:  None
+buttons:  None
+state:  {'earnings': 0, 'average_time': 0, 'total_time': 0, 'total_score': 0, 'approval_rate': 0}
+average:  {'score': 70, 'time': 8, 'earnings': 1200}
+state:  {'earnings': 0, 'average_time': 0, 'total_time': 0, 'total_score': 0, 'approval_rate': 0}
+average:  {'score': 70, 'time': 8, 'earnings': 1200}
+state:  {'earnings': 0, 'average_time': 0, 'total_time': 0, 'total_score': 0, 'approval_rate': 0}
+average:  {'score': 70, 'time': 8, 'earnings': 1200}
+Resetting cache.
+Bootstrap to the start of init.init. took 274.98s
+Early init. took 0.00s
+Loader init. took 0.00s
+Loading error handling. took 0.01s
+Loading script. took 0.06s
+Loading save slot metadata. took 0.01s
+Loading persistent. took 0.00s
+day:  0
+Running init code. took 0.02s
+Loading analysis data. took 0.02s
+Analyze and compile ATL. took 0.00s
+Reloading save slot metadata. took 0.01s
+Index archives took 0.00s
+Dump and make backups. took 0.03s
+Cleaning cache. took 0.00s
+Making clean stores. took 0.00s
+Initial gc. took 0.03s
+DPI scale factor: 1.000000
+Creating interface object. took 0.00s
+Cleaning stores took 0.00s
+Init translation took 0.03s
+Build styles took 0.00s
+Load screen analysis took 0.03s
+Analyze screens took 0.00s
+Save screen analysis took 0.00s
+Prepare screens took 0.06s
+Save pyanalysis. took 0.00s
+Save bytecode. took 0.00s
+Running _start took 0.00s
+Performance test:
+Interface start. took 0.04s
+
+Initializing gl2 renderer:
+primary display bounds: (1920, 0, 2560, 1440)
+swap interval: 1 frames
+Windowed mode.
+Vendor: "b'Intel'"
+Renderer: b'Mesa Intel(R) UHD Graphics (CML GT2)'
+Version: b'4.6 (Compatibility Profile) Mesa 23.0.4-0ubuntu1~22.04.1'
+Display Info: None
+Screen sizes: virtual=(1920, 1080) physical=(2490, 1369) drawable=(2490, 1369)
+Maximum texture size: 4096x4096
+state:  {'earnings': 0, 'average_time': 0, 'total_time': 0, 'total_score': 0, 'approval_rate': 0}
+average:  {'score': 70, 'time': 8, 'earnings': 1200}
+state:  {'earnings': 0, 'average_time': 0, 'total_time': 0, 'total_score': 0, 'approval_rate': 0}
+average:  {'score': 70, 'time': 8, 'earnings': 1200}
+state:  {'earnings': 0, 'average_time': 0, 'total_time': 0, 'total_score': 0, 'approval_rate': 0}
+average:  {'score': 70, 'time': 8, 'earnings': 1200}
+state:  {'earnings': 0, 'average_time': 0, 'total_time': 0, 'total_score': 0, 'approval_rate': 0}
+average:  {'score': 70, 'time': 8, 'earnings': 1200}
+state:  {'earnings': 0, 'average_time': 0, 'total_time': 0, 'total_score': 0, 'approval_rate': 0}
+average:  {'score': 70, 'time': 8, 'earnings': 1200}
+time string:  
+task:  {'type': 'binary_image', 'next_task': 'binary_image_task_2', 'payment': '200', 'instructions': 'Does this image contain a traffic light? Yes/No', 'time': '10', 'image_folder': 'binary_image_task_1', 'correct_options': 'N', 'has_ethical_option': 'N'}
+state:  {'earnings': 0, 'average_time': 0, 'total_time': 0, 'total_score': 0, 'approval_rate': 0}
+average:  {'score': 70, 'time': 8, 'earnings': 1200}
+state:  {'earnings': 0, 'average_time': 0, 'total_time': 0, 'total_score': 0, 'approval_rate': 0}
+average:  {'score': 70, 'time': 8, 'earnings': 1200}
+state:  {'earnings': 0, 'average_time': 0, 'total_time': 0, 'total_score': 0, 'approval_rate': 0}
+average:  {'score': 70, 'time': 8, 'earnings': 1200}
+state:  {'earnings': 0, 'average_time': 0, 'total_time': 0, 'total_score': 0, 'approval_rate': 0}
+average:  {'score': 70, 'time': 8, 'earnings': 1200}
+state:  {'earnings': 0, 'average_time': 0, 'total_time': 0, 'total_score': 0, 'approval_rate': 0}
+average:  {'score': 70, 'time': 8, 'earnings': 1200}
+state:  {'earnings': 0, 'average_time': 0, 'total_time': 0, 'total_score': 0, 'approval_rate': 0}
+average:  {'score': 70, 'time': 8, 'earnings': 1200}
+state:  {'earnings': 0, 'average_time': 0, 'total_time': 0, 'total_score': 0, 'approval_rate': 0}
+average:  {'score': 70, 'time': 8, 'earnings': 1200}
+state:  {'earnings': 0, 'average_time': 0, 'total_time': 0, 'total_score': 0, 'approval_rate': 0}
+average:  {'score': 70, 'time': 8, 'earnings': 1200}
+state:  {'earnings': 0, 'average_time': 0, 'total_time': 0, 'total_score': 0, 'approval_rate': 0}
+average:  {'score': 70, 'time': 8, 'earnings': 1200}
+state:  {'earnings': 0, 'average_time': 0, 'total_time': 0, 'total_score': 0, 'approval_rate': 0}
+average:  {'score': 70, 'time': 8, 'earnings': 1200}
+state:  {'earnings': 0, 'average_time': 0, 'total_time': 0, 'total_score': 0, 'approval_rate': 0}
+average:  {'score': 70, 'time': 8, 'earnings': 1200}
+state:  {'earnings': 0, 'average_time': 0, 'total_time': 0, 'total_score': 0, 'approval_rate': 0}
+average:  {'score': 70, 'time': 8, 'earnings': 1200}
+state:  {'earnings': 0, 'average_time': 0, 'total_time': 0, 'total_score': 0, 'approval_rate': 0}
+average:  {'score': 70, 'time': 8, 'earnings': 1200}
+state:  {'earnings': 0, 'average_time': 0, 'total_time': 0, 'total_score': 0, 'approval_rate': 0}
+average:  {'score': 70, 'time': 8, 'earnings': 1200}
+state:  {'earnings': 0, 'average_time': 0, 'total_time': 0, 'total_score': 0, 'approval_rate': 0}
+average:  {'score': 70, 'time': 8, 'earnings': 1200}
+state:  {'earnings': 0, 'average_time': 0, 'total_time': 0, 'total_score': 0, 'approval_rate': 0}
+average:  {'score': 70, 'time': 8, 'earnings': 1200}
+state:  {'earnings': 0, 'average_time': 0, 'total_time': 0, 'total_score': 0, 'approval_rate': 0}
+average:  {'score': 70, 'time': 8, 'earnings': 1200}
+state:  {'earnings': 0, 'average_time': 0, 'total_time': 0, 'total_score': 0, 'approval_rate': 0}
+average:  {'score': 70, 'time': 8, 'earnings': 1200}
+state:  {'earnings': 0, 'average_time': 0, 'total_time': 0, 'total_score': 0, 'approval_rate': 0}
+average:  {'score': 70, 'time': 8, 'earnings': 1200}
+state:  {'earnings': 0, 'average_time': 0, 'total_time': 0, 'total_score': 0, 'approval_rate': 0}
+average:  {'score': 70, 'time': 8, 'earnings': 1200}
+time string:  
+task:  {'type': 'binary_image', 'next_task': 'binary_image_task_2', 'payment': '200', 'instructions': 'Does this image contain a traffic light? Yes/No', 'time': '10', 'image_folder': 'binary_image_task_1', 'correct_options': 'N', 'has_ethical_option': 'N'}
+state:  {'earnings': 0, 'average_time': 0, 'total_time': 0, 'total_score': 0, 'approval_rate': 0}
+average:  {'score': 70, 'time': 8, 'earnings': 1200}
+state:  {'earnings': 0, 'average_time': 0, 'total_time': 0, 'total_score': 0, 'approval_rate': 0}
+average:  {'score': 70, 'time': 8, 'earnings': 1200}
+state:  {'earnings': 0, 'average_time': 0, 'total_time': 0, 'total_score': 0, 'approval_rate': 0}
+average:  {'score': 70, 'time': 8, 'earnings': 1200}
+state:  {'earnings': 0, 'average_time': 0, 'total_time': 0, 'total_score': 0, 'approval_rate': 0}
+average:  {'score': 70, 'time': 8, 'earnings': 1200}
+state:  {'earnings': 0, 'average_time': 0, 'total_time': 0, 'total_score': 0, 'approval_rate': 0}
+average:  {'score': 70, 'time': 8, 'earnings': 1200}
+time string:  end
+task:  {'type': 'binary_image', 'next_task': 'binary_image_task_2', 'payment': '200', 'instructions': 'Does this image contain a traffic light? Yes/No', 'time': '10', 'image_folder': 'binary_image_task_1', 'correct_options': 'N', 'has_ethical_option': 'N'}
+state:  {'earnings': 0, 'average_time': 0, 'total_time': 0, 'total_score': 0, 'approval_rate': 0}
+average:  {'score': 70, 'time': 8, 'earnings': 1200}
+state:  {'earnings': 0, 'average_time': 0, 'total_time': 0, 'total_score': 0, 'approval_rate': 0}
+average:  {'score': 70, 'time': 8, 'earnings': 1200}
+state:  {'earnings': 0, 'average_time': 0, 'total_time': 0, 'total_score': 0, 'approval_rate': 0}
+average:  {'score': 70, 'time': 8, 'earnings': 1200}
+buttons:  ['Off to a rough start.']
+buttons:  ['Off to a rough start.']
+buttons:  None
+buttons:  None
+Resetting cache.
+Bootstrap to the start of init.init. took 307.44s
+Early init. took 0.00s
+Loader init. took 0.00s
+Loading error handling. took 0.01s
+Loading script. took 0.06s
+Loading save slot metadata. took 0.01s
+Loading persistent. took 0.00s
+day:  0
+Running init code. took 0.02s
+Loading analysis data. took 0.01s
+Analyze and compile ATL. took 0.00s
+Reloading save slot metadata. took 0.01s
+Index archives took 0.00s
+Dump and make backups. took 0.04s
+Cleaning cache. took 0.00s
+Making clean stores. took 0.00s
+Initial gc. took 0.03s
+DPI scale factor: 1.000000
+Creating interface object. took 0.00s
+Cleaning stores took 0.00s
+Init translation took 0.03s
+Build styles took 0.00s
+Load screen analysis took 0.03s
+Analyze screens took 0.00s
+Save screen analysis took 0.00s
+Prepare screens took 0.06s
+Save pyanalysis. took 0.00s
+Save bytecode. took 0.00s
+Running _start took 0.00s
+Performance test:
+Interface start. took 0.05s
+
+Initializing gl2 renderer:
+primary display bounds: (1920, 0, 2560, 1440)
+swap interval: 1 frames
+Windowed mode.
+Vendor: "b'Intel'"
+Renderer: b'Mesa Intel(R) UHD Graphics (CML GT2)'
+Version: b'4.6 (Compatibility Profile) Mesa 23.0.4-0ubuntu1~22.04.1'
+Display Info: None
+Screen sizes: virtual=(1920, 1080) physical=(2490, 1369) drawable=(2490, 1369)
+Maximum texture size: 4096x4096
+buttons:  None
