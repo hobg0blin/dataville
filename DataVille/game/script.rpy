@@ -492,7 +492,6 @@ label start:
             window hide
             e_big "[text]"
           hide screen message
-          pause
       python:
         is_image = False
         print('task: ', task)
@@ -563,6 +562,7 @@ label start:
           window hide
           e_big "[text]"
           hide screen message
+
 #      else:
       hide screen overlay
       scene bg apartment_1
@@ -575,6 +575,7 @@ label start:
       $ show_window = False
       if store.game_state.day < 4:
         if store.game_state.time == "end":
+            scene bg black_bg
             $ dream_counter = 0
             $ dream_len = len(store.apartment_data['dream'])
             while dream_counter < dream_len:
@@ -582,14 +583,11 @@ label start:
                 if dream['time'] != 'start':
                     $ print('calling dream: ', dream)
                     hide screen apartment
-#                    call screen dream(dream['text'], dream['buttons'])
+                    call screen dream(dream['text'], dream['buttons'])
                 $ dream_counter += 1
-#            scene bg black_bg
-#            "Sleeping..."
             python:
                 reset_performance(store.game_state.performance)
                 day_start()
-#            "Waking up..."
             call interstitial
         elif store.game_state.time == "start":
           $ task = store.loop["start_task"]

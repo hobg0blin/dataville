@@ -2080,9 +2080,8 @@ screen apartment(data, time):
   python:
     if time == "end":
       btn = "Go to sleep"
-      computer_sound = ""
     else:
-      btn = "Go to work"
+      btn = "Back to work"
       computer_sound = "computer.ogg"
   fixed:
     imagebutton:
@@ -2106,7 +2105,10 @@ screen apartment(data, time):
   frame:
     xalign 0.5
     yalign 0.9
-    textbutton btn activate_sound computer_sound action Return()
+    if time == "end":
+        textbutton btn action Return()
+    else:
+        textbutton btn activate_sound computer_sound action Return()
   frame:
     xalign 0.1
     yalign 0.9
