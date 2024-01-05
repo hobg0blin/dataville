@@ -1684,6 +1684,23 @@ screen message(sender, buttons=None):
           frame:
             textbutton button_text style "button_click" action Return(True)
 
+screen dream(dream_text, buttons):
+    window id 'content':
+        style "window_nobox"
+        xmaximum 1600
+        ymaximum 1200
+        hbox id 'text':
+            yalign 0.4
+            xalign 0.5
+            text dream_text 
+        hbox id 'buttons':
+            yalign 0.8
+            xalign 0.5
+            spacing 15
+            for button_text in buttons:
+                frame:
+                    textbutton button_text style "button_click" action Return(True)
+
 screen assistant:
    window id 'content':
     ymaximum 1200

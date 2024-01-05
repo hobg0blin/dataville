@@ -9,6 +9,7 @@ We look forward to working with you. Utilize your natural instincts, perspective
 
 Happy labeling! 
 -Alex T",message,default,start,supervisor,,,,,
+0,Aliens among us!,news,default,start,,tv_content,kiss.png,,,
 0,Gig Economy Expected to Continue Growing,news,default,start,,tv_content,kiss.png,,,
 0,Scientist: visitors’ camouflage abilities greater than previously believed.,news,default,start,,,,,,
 0,Cleveland zoo welcomes birth of new pandas.,news,default,start,,,,,,
@@ -27,13 +28,23 @@ Answer the questions quickly.
 Answer the questions accurately. 
 Labelers with the high ratings/speed will receive incentive bonuses!",message,default,start,cogni,,,"Thanks, Cogni",Ugh. I hate AI.,
 0,Here’s a practice run to get you started!,message,default,start,cogni,,,,,
-0,Immigration Reforms Stalls in Congress Over Illegal Aliens.,news,default,end,,,,,,
-0,Oldest woman alive turns 118,news,default,end,,,,,,
-0,AI blamed for New White Collar Unemployment Figures.,news,default,end,,,,,,
-0,Tragedy in Montana Resettlement Zone,news,default,end,,,,,,
-0,"“That was fantastic! Keep up the great work!
-Humanity is counting on you!”",message,good,end,,,,Off to a great start!,,
+0,Senator proposes ‘Resettlement Zone’ for alien migrants.,news,default,end,,,,,,
+0,AI blamed for new white collar unemployment figures.,news,default,end,,,,,,
+0,Congress tackles the question of alien rights.,news,default,end,,,,,,
+0,Chef Tony’s wows DC diners!,news,default,end,,,,,,
+0,Exclusive: celebrity weight loss secret.,news,default,end,,,,,,
+0,"That was fantastic! Keep up the great work!
+You’re a great fit with our company values!",message,good,end,cogni,,,Off to a great start!,,
+0,"Your performance so far is average.
+
+Keep our company values in mind going forward!",message,neutral,end,cogni,,,Off to a great start!,,
 0,"That wasn’t very good! Be sure to try your best! 
-Remember, humanity is counting on you!",message,bad,end,,,,Off to a rough start.,,
+Try your best to align with our company’s values.",message,bad,end,cogni,,,Off to a rough start.,,
 0,You were so ethical today!,message,flag_dependent,end,cogni,,,,,ethical_event_flag_1
 0,Good job not letting your ethics get the best of you.,message,flag_dependent,end,cogni,,,,,correct_event_flag_1
+0,Do you have strong career goals?,dream,,start,,,,My career is my passion!,I'm just looking for a paycheck.,
+0,Do you want to be a part of a vibrant community?,dream,,start,,,,I want to be a part of something!,People make me nervous.,
+0,Do you want to make the world a safer place?,dream,,start,,,,Where do I sign up?,No thanks.,
+0,This new job is tough.,dream,,,,,,But I’m going to try my best!,I’ll muddle through for the money.,
+0,I’m not sure how I feel about my company.,dream,,,,,,But at least my boss seems cool!,Something is suspicious.,
+0,The world is going downhill.,,,,,,,But at least my life is improving!,I feel helpless.,

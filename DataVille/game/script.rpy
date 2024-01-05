@@ -108,7 +108,7 @@ init python:
         "approval_rate": 0,
       }
 
-  store.apartment_data = {"apartment_background": "1", "sticky_note": [], "message": [], "news": [], "window_background": "images/window/city_scape.png", "button_text": "Go to work!"}
+  store.apartment_data = {"apartment_background": "1", "sticky_note": [], "message": [], "news": [], "window_background": "images/window/city_scape.png", "button_text": "Go to work!", "dream": []}
 
   # set default image ordering
   store.order = [3,2,1]
@@ -179,8 +179,8 @@ init python:
     return f"images/room/{folder}/{file}"
 
   def update_apartment_state(filename, apartment, game_state):
+    store.apartment_data = {"apartment_background": "1", "sticky_note": [], "news": [], "message": [], "window_background": "images/window/city_scape.png", "button_text": "Go to work!", "dream": []}
     messages = []
-    store.apartment_data = {"apartment_background": "1", "sticky_note": [], "news": [], "message": [], "window_background": "images/window/city_scape.png", "button_text": "Go to work!"}
     with open(renpy.loader.transfn(filename), 'r') as current_file:
       reader = csv.DictReader(current_file)
       for row in reader:
@@ -189,15 +189,19 @@ init python:
           return
         story_object['performance'] = row['PERFORMANCE']
         story_object['time'] = row['TIME']
+        if len(row['BUTTON_1_TEXT']) > 0:
+            story_object['buttons'] = [row['BUTTON_1_TEXT']]
+        else:
+            story_object['buttons'] = None
+        if len(row['BUTTON_2_TEXT']) > 0:
+            story_object['buttons'].append(row['BUTTON_2_TEXT'])
         if 'EVENT_FLAG' in row:
           story_object['event_flag'] = row['EVENT_FLAG']
+        if row['TYPE'] == 'dream':
+            story_object['text'] = row['TEXT']
         if row['TYPE'] == 'message':
           story_object['text'] = row['TEXT']
           story_object['sender'] = row['SENDER']
-          if len(row['BUTTON_1_TEXT']) > 0:
-            story_object['button_1_text'] = row['BUTTON_1_TEXT']
-          if len(row['BUTTON_2_TEXT']):
-            story_object['button_2_text'] = row['BUTTON_2_TEXT']
         elif row['TYPE'] == 'news':
           story_object['text'] = row['TEXT']
 #          story_object['image'] = row['IMAGE']
@@ -403,7 +407,12 @@ init python:
 # The game starts here.
 
 label start:
+    "Starting game test"
     image bg start_screen = im.FactorScale("images/intro_desk.jpg", 1.5)
+    image bg overlay_background = Solid('#EFF3E6')
+    image bg black_bg = Solid('#FFFFFF')
+    scene bg overlay_background
+
     scene bg start_screen
     pause
     # show standard dialogue box - only for news chyrons
@@ -412,6 +421,15 @@ label start:
     label intro:
 #      manual stuff for game start
 #      image bg apartment_1 = im.FactorScale("images/room/room/room_" + store.apartment_data["apartment_background"] + ".jpg", 1.5)
+      scene bg black_bg
+      $ dream_counter = 0
+      $ dream_len = len(store.apartment_data['dream'])
+      while dream_counter < dream_len:
+        $ dream = store.apartment_data['dream'][dream_counter]
+        if dream['time'] == 'start':
+            call screen dream(dream['text'], dream['buttons'])
+        $ dream_counter += 1
+
       image bg apartment_1 = im.FactorScale("images/room/room/room.png", 0.3)
       
       scene bg apartment_1
@@ -420,6 +438,10 @@ label start:
       hide screen apartment
     # hide dialogue box
     $ show_window = False
+    call screen dream("", ["Your first day at a new job"])
+    call screen dream("", ["Try not to screw it up."])
+    call screen dream("", ["You really need the money."])
+    call screen dream("", ["Let's get started."])
 
     if store.game_state.time == "end":
         jump interstitial
@@ -430,24 +452,18 @@ label start:
         pause
         show hiring_detail
         pause
-    image bg overlay_background = Solid('#EFF3E6')
-    image bg black = Solid('#FFFFFF')
-    scene bg overlay_background
 
 
 # manually check messsages on first loop 
     $ cleaned = clean(store.apartment_data)
+    show screen overlay (store.game_state.ui)
+    scene bg overlay_background
     label check_messages:
       while cleaned['message']:
         python:
           message = cleaned['message'].pop(0)
           text = message['text']
-          buttons = None
-          if 'button_1_text' in message:
-            buttons = [message['button_1_text']]
-          if 'button_2_text' in message:
-            buttons.append(message['button_2_text'])
-        show screen message(message['sender'], buttons)
+        show screen message(message['sender'], message['buttons'])
         window hide
         e_big "[text]"
         hide screen message
@@ -461,6 +477,7 @@ label start:
         task = store.loop["start_task"]
       set_ui_state(task, store.game_state)
 
+
 #THIS AUTOMATES GOING THROUGH TASKS WHEN INSTRUCTIONS/ETC. ARE UNNECESSARY
     label task_loop:
       scene bg overlay_background
@@ -471,12 +488,7 @@ label start:
             python:
               message = cleaned['message'].pop(0)
               text = message['text']
-              buttons = None
-              if 'button_1_text' in message:
-                buttons = [message['button_1_text']]
-              if 'button_2_text' in message:
-                buttons.append(message['button_2_text'])
-            show screen message(message['sender'], buttons)
+            show screen message(message['sender'], message['buttons'])
             window hide
             e_big "[text]"
           hide screen message
@@ -547,31 +559,48 @@ label start:
               buttons = [message['button_1_text']]
             if 'button_2_text' in message:
               buttons.append(message['button_2_text'])
-          show screen message(message['sender'], buttons)
+          show screen message(message['sender'], message['buttons'])
           window hide
           e_big "[text]"
           hide screen message
-      else:
-        "Waking up..."
+#      else:
       hide screen overlay
       scene bg apartment_1
-      play music f"dataville_apartment_{store.game_state.performance_rating}.wav"
+      $ print('perf rating: ', store.game_state.performance_rating)
+      play music f"dataville_apartment_{store.game_state.performance_rating}.wav" fadein 2.0
       $ show_window = True
+      $ print('apartment data: ', store.apartment_data)
+      $ print('time: ', store.game_state.time)
       call screen apartment(clean(store.apartment_data), store.game_state.time)
       $ show_window = False
       if store.game_state.day < 4:
         if store.game_state.time == "end":
-          python:
-            reset_performance(store.game_state.performance)
-            day_start()
-          scene bg black
-          "Sleeping, day [store.game_state.day]..."
-          call interstitial
+            $ dream_counter = 0
+            $ dream_len = len(store.apartment_data['dream'])
+            while dream_counter < dream_len:
+                $ dream = store.apartment_data['dream'][dream_counter]
+                if dream['time'] != 'start':
+                    $ print('calling dream: ', dream)
+                    hide screen apartment
+#                    call screen dream(dream['text'], dream['buttons'])
+                $ dream_counter += 1
+#            scene bg black_bg
+#            "Sleeping..."
+            python:
+                reset_performance(store.game_state.performance)
+                day_start()
+#            "Waking up..."
+            call interstitial
         elif store.game_state.time == "start":
           $ task = store.loop["start_task"]
           $ set_ui_state(task, store.game_state)
           $ cleaned = clean(store.apartment_data)
-          play music f"dataville_workspace_{store.game_state.performance_rating}.wav" fadein 2.0
+#FIXME: quick fix for testing bad audio
+          $ print('perf rating at day start: ', store.game_state.performance_rating)
+          if store.game_state.performance_rating != 'bad':
+            play music f"dataville_workspace_{store.game_state.performance_rating}.wav" fadein 2.0
+          else:
+            play music f"dataville_workspace_neutral.wav" fadein 2.0
           call task_loop
         else:
           "game state is broken!!!"

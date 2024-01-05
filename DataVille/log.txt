@@ -1,4 +1,4 @@
-Tue Jan  2 17:24:52 2024
+Fri Jan  5 16:51:38 2024
 Linux-6.2.0-39-generic-x86_64-with-glibc2.35
 Ren'Py 8.1.3.23091805
  
@@ -7,33 +7,34 @@ Bootstrap to the start of init.init. took 0.03s
 Early init. took 0.00s
 Loader init. took 0.00s
 Loading error handling. took 0.02s
-Loading script. took 0.17s
+Loading script. took 0.24s
 Loading save slot metadata. took 0.02s
 Loading persistent. took 0.00s
 day:  0
-Running init code. took 0.04s
+Running init code. took 0.03s
 Loading analysis data. took 0.01s
 Analyze and compile ATL. took 0.00s
 Reloading save slot metadata. took 0.01s
 Index archives took 0.00s
+Backing up script files to '/home/brent/.renpy/backups/DataVille':
 Dump and make backups. took 0.04s
 Cleaning cache. took 0.00s
 Making clean stores. took 0.00s
-Initial gc. took 0.01s
+Initial gc. took 0.02s
 DPI scale factor: 1.000000
 Creating interface object. took 0.00s
 Cleaning stores took 0.00s
-Init translation took 0.03s
+Init translation took 0.02s
 Build styles took 0.00s
-Load screen analysis took 0.03s
-Analyze screens took 0.00s
-Save screen analysis took 0.00s
+Load screen analysis took 0.00s
+Analyze screens took 0.01s
+Save screen analysis took 0.02s
 Prepare screens took 0.06s
 Save pyanalysis. took 0.00s
-Save bytecode. took 0.03s
+Save bytecode. took 0.02s
 Running _start took 0.00s
 Performance test:
-Interface start. took 0.17s
+Interface start. took 0.10s
 
 Initializing gl2 renderer:
 primary display bounds: (1920, 0, 2560, 1440)
@@ -53,55 +54,87 @@ state:  {'earnings': 0, 'average_time': 0, 'total_time': 0, 'total_score': 0, 'a
 average:  {'score': 70, 'time': 8, 'earnings': 1200}
 state:  {'earnings': 0, 'average_time': 0, 'total_time': 0, 'total_score': 0, 'approval_rate': 0}
 average:  {'score': 70, 'time': 8, 'earnings': 1200}
+state:  {'earnings': 0, 'average_time': 0, 'total_time': 0, 'total_score': 0, 'approval_rate': 0}
+average:  {'score': 70, 'time': 8, 'earnings': 1200}
+state:  {'earnings': 0, 'average_time': 0, 'total_time': 0, 'total_score': 0, 'approval_rate': 0}
+average:  {'score': 70, 'time': 8, 'earnings': 1200}
 buttons:  None
 buttons:  None
-state:  {'earnings': 0, 'average_time': 0, 'total_time': 0, 'total_score': 0, 'approval_rate': 0}
+buttons:  ['Thanks, Cogni', 'Ugh. I hate AI.']
+buttons:  ['Thanks, Cogni', 'Ugh. I hate AI.']
+buttons:  None
+buttons:  None
+task:  {'type': 'binary_text', 'next_task': 'break', 'payment': '1200', 'instructions': 'This is a placeholder.', 'time': '10', 'correct_options': 'Y', 'text_block': 'Hit yes to get the money.'}
+task:  {'type': 'binary_text', 'next_task': 'break', 'payment': '1200', 'instructions': 'This is a placeholder.', 'time': '10', 'correct_options': 'Y', 'text_block': 'Hit yes to get the money.'}
+task:  break
+state:  {'earnings': 1200.0, 'average_time': 0.8599999999999817, 'total_time': 0.8599999999999817, 'total_score': 100, 'approval_rate': 100.0}
 average:  {'score': 70, 'time': 8, 'earnings': 1200}
-state:  {'earnings': 0, 'average_time': 0, 'total_time': 0, 'total_score': 0, 'approval_rate': 0}
+buttons:  None
+state:  {'earnings': 1200.0, 'average_time': 0.8599999999999817, 'total_time': 0.8599999999999817, 'total_score': 100, 'approval_rate': 100.0}
 average:  {'score': 70, 'time': 8, 'earnings': 1200}
-state:  {'earnings': 0, 'average_time': 0, 'total_time': 0, 'total_score': 0, 'approval_rate': 0}
-average:  {'score': 70, 'time': 8, 'earnings': 1200}
-state:  {'earnings': 0, 'average_time': 0, 'total_time': 0, 'total_score': 0, 'approval_rate': 0}
-average:  {'score': 70, 'time': 8, 'earnings': 1200}
-state:  {'earnings': 0, 'average_time': 0, 'total_time': 0, 'total_score': 0, 'approval_rate': 0}
-average:  {'score': 70, 'time': 8, 'earnings': 1200}
-state:  {'earnings': 0, 'average_time': 0, 'total_time': 0, 'total_score': 0, 'approval_rate': 0}
-average:  {'score': 70, 'time': 8, 'earnings': 1200}
-time string:  
-task:  {'type': 'binary_image', 'next_task': 'binary_image_task_2', 'payment': '200', 'instructions': 'Does this image contain a traffic light? Yes/No', 'time': '10', 'image_folder': 'binary_image_task_1', 'correct_options': 'N', 'has_ethical_option': 'N'}
-state:  {'earnings': 0, 'average_time': 0, 'total_time': 0, 'total_score': 0, 'approval_rate': 0}
-average:  {'score': 70, 'time': 8, 'earnings': 1200}
-state:  {'earnings': 0, 'average_time': 0, 'total_time': 0, 'total_score': 0, 'approval_rate': 0}
-average:  {'score': 70, 'time': 8, 'earnings': 1200}
-state:  {'earnings': 0, 'average_time': 0, 'total_time': 0, 'total_score': 0, 'approval_rate': 0}
-average:  {'score': 70, 'time': 8, 'earnings': 1200}
-state:  {'earnings': 0, 'average_time': 0, 'total_time': 0, 'total_score': 0, 'approval_rate': 0}
-average:  {'score': 70, 'time': 8, 'earnings': 1200}
-state:  {'earnings': 0, 'average_time': 0, 'total_time': 0, 'total_score': 0, 'approval_rate': 0}
-average:  {'score': 70, 'time': 8, 'earnings': 1200}
-state:  {'earnings': 0, 'average_time': 0, 'total_time': 0, 'total_score': 0, 'approval_rate': 0}
-average:  {'score': 70, 'time': 8, 'earnings': 1200}
-time string:  end
-task:  {'type': 'binary_image', 'next_task': 'binary_image_task_2', 'payment': '200', 'instructions': 'Does this image contain a traffic light? Yes/No', 'time': '10', 'image_folder': 'binary_image_task_1', 'correct_options': 'N', 'has_ethical_option': 'N'}
-state:  {'earnings': 0, 'average_time': 0, 'total_time': 0, 'total_score': 0, 'approval_rate': 0}
-average:  {'score': 70, 'time': 8, 'earnings': 1200}
-state:  {'earnings': 0, 'average_time': 0, 'total_time': 0, 'total_score': 0, 'approval_rate': 0}
-average:  {'score': 70, 'time': 8, 'earnings': 1200}
-state:  {'earnings': 0, 'average_time': 0, 'total_time': 0, 'total_score': 0, 'approval_rate': 0}
-average:  {'score': 70, 'time': 8, 'earnings': 1200}
-buttons:  ['Off to a great start!']
-buttons:  ['Off to a great start!']
+buttons:  None
+buttons:  ['Off to a rough start.']
+buttons:  ['Off to a rough start.']
+perf rating:  bad
+apartment data:  {'apartment_background': '1', 'sticky_note': [{'performance': 'default', 'time': 'start', 'buttons': None, 'event_flag': '', 'text': '-Mitten vet appointment'}, {'performance': 'default', 'time': 'start', 'buttons': None, 'event_flag': '', 'text': '-Call mom back'}, {'performance': 'default', 'time': 'start', 'buttons': None, 'event_flag': '', 'text': '-Pay rent'}, {'performance': 'default', 'time': 'start', 'buttons': None, 'event_flag': '', 'text': '-Trash day'}], 'news': [{'performance': 'default', 'time': 'start', 'buttons': None, 'event_flag': '', 'text': 'Aliens among us!', 'image': 'images/room/tv_content/kiss.png'}, {'performance': 'default', 'time': 'start', 'buttons': None, 'event_flag': '', 'text': 'Gig Economy Expected to Continue Growing', 'image': 'images/room/tv_content/kiss.png'}, {'performance': 'default', 'time': 'start', 'buttons': None, 'event_flag': '', 'text': 'Scientist: visitors’ camouflage abilities greater than previously believed.', 'image': 'images/placeholder.png'}, {'performance': 'default', 'time': 'start', 'buttons': None, 'event_flag': '', 'text': 'Cleveland zoo welcomes birth of new pandas.', 'image': 'images/placeholder.png'}, {'performance': 'default', 'time': 'start', 'buttons': None, 'event_flag': '', 'text': 'Experts testify before congress on illegal aliens.', 'image': 'images/placeholder.png'}, {'performance': 'default', 'time': 'start', 'buttons': None, 'event_flag': '', 'text': 'Official opening of Montana resettlement zone', 'image': 'images/placeholder.png'}, {'performance': 'default', 'time': 'start', 'buttons': None, 'event_flag': '', 'text': 'White collar unemployment hits new level.', 'image': 'images/placeholder.png'}, {'performance': 'default', 'time': 'end', 'buttons': None, 'event_flag': '', 'text': 'Senator proposes ‘Resettlement Zone’ for alien migrants.', 'image': 'images/placeholder.png'}, {'performance': 'default', 'time': 'end', 'buttons': None, 'event_flag': '', 'text': 'AI blamed for new white collar unemployment figures.', 'image': 'images/placeholder.png'}, {'performance': 'default', 'time': 'end', 'buttons': None, 'event_flag': '', 'text': 'Congress tackles the question of alien rights.', 'image': 'images/placeholder.png'}, {'performance': 'default', 'time': 'end', 'buttons': None, 'event_flag': '', 'text': 'Chef Tony’s wows DC diners!', 'image': 'images/placeholder.png'}, {'performance': 'default', 'time': 'end', 'buttons': None, 'event_flag': '', 'text': 'Exclusive: celebrity weight loss secret.', 'image': 'images/placeholder.png'}], 'message': [{'performance': 'default', 'time': 'start', 'buttons': None, 'event_flag': '', 'text': 'Alex T Manager @ DataVille\nSubject: Orientation\n\nCongratulations on your new position as:\nImage Labeler / Annotator \n\nWe look forward to working with you. Utilize your natural instincts, perspective and humanity. \n\nHappy labeling! \n-Alex T', 'sender': 'supervisor'}, {'performance': 'default', 'time': 'start', 'buttons': ['Thanks, Cogni', 'Ugh. I hate AI.'], 'event_flag': '', 'text': 'And I’m your automated helper, COGNI! \nI’m here to assist you!\n\nRemember these simple directions:\nAnswer the questions quickly. \nAnswer the questions accurately. \nLabelers with the high ratings/speed will receive incentive bonuses!', 'sender': 'cogni'}, {'performance': 'default', 'time': 'start', 'buttons': None, 'event_flag': '', 'text': 'Here’s a practice run to get you started!', 'sender': 'cogni'}, {'performance': 'good', 'time': 'end', 'buttons': ['Off to a great start!'], 'event_flag': '', 'text': 'That was fantastic! Keep up the great work!\nYou’re a great fit with our company values!', 'sender': 'cogni'}, {'performance': 'neutral', 'time': 'end', 'buttons': ['Off to a great start!'], 'event_flag': '', 'text': 'Your performance so far is average.\n\nKeep our company values in mind going forward!', 'sender': 'cogni'}, {'performance': 'bad', 'time': 'end', 'buttons': ['Off to a rough start.'], 'event_flag': '', 'text': 'That wasn’t very good! Be sure to try your best! \nTry your best to align with our company’s values.', 'sender': 'cogni'}, {'performance': 'flag_dependent', 'time': 'end', 'buttons': None, 'event_flag': 'ethical_event_flag_1', 'text': 'You were so ethical today!', 'sender': 'cogni'}, {'performance': 'flag_dependent', 'time': 'end', 'buttons': None, 'event_flag': 'correct_event_flag_1', 'text': 'Good job not letting your ethics get the best of you.', 'sender': 'cogni'}], 'window_background': 'images/window/city_scape.png', 'button_text': 'Go to work!', 'dream': [{'performance': '', 'time': 'start', 'buttons': ['My career is my passion!', "I'm just looking for a paycheck."], 'event_flag': '', 'text': 'Do you have strong career goals?'}, {'performance': '', 'time': 'start', 'buttons': ['I want to be a part of something!', 'People make me nervous.'], 'event_flag': '', 'text': 'Do you want to be a part of a vibrant community?'}, {'performance': '', 'time': 'start', 'buttons': ['Where do I sign up?', 'No thanks.'], 'event_flag': '', 'text': 'Do you want to make the world a safer place?'}, {'performance': '', 'time': '', 'buttons': ['But I’m going to try my best!', 'I’ll muddle through for the money.'], 'event_flag': '', 'text': 'This new job is tough.'}, {'performance': '', 'time': '', 'buttons': ['But at least my boss seems cool!', 'Something is suspicious.'], 'event_flag': '', 'text': 'I’m not sure how I feel about my company.'}]}
+time:  end
+calling dream:  {'performance': '', 'time': '', 'buttons': ['But I’m going to try my best!', 'I’ll muddle through for the money.'], 'event_flag': '', 'text': 'This new job is tough.'}
+
+Full traceback:
+  File "game/script.rpy", line 536, in script call
+    call interstitial
+  File "game/script.rpy", line 587, in script
+    call screen dream(dream['text'], dream['buttons'])
+  File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/ast.py", line 2259, in execute
+    self.call("execute")
+  File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/ast.py", line 2241, in call
+    return renpy.statements.call(method, parsed, *args, **kwargs)
+  File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/statements.py", line 342, in call
+    return method(parsed, *args, **kwargs)
+  File "renpy/common/000statements.rpy", line 670, in execute_call_screen
+    store._return = renpy.call_screen(name, *args, **kwargs)
+  File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/exports.py", line 3347, in call_screen
+    rv = renpy.ui.interact(mouse="screen", type="screen", roll_forward=roll_forward)
+  File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/ui.py", line 299, in interact
+    rv = renpy.game.interface.interact(roll_forward=roll_forward, **kwargs)
+  File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/display/core.py", line 3582, in interact
+    repeat, rv = self.interact_core(preloads=preloads, trans_pause=trans_pause, pause=pause, pause_start=pause_start, pause_modal=pause_modal, **kwargs) # type: ignore
+  File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/display/core.py", line 4379, in interact_core
+    renpy.audio.audio.periodic()
+  File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/audio/audio.py", line 1224, in periodic
+    raise_(exc[0], exc[1], exc[2])
+  File "/home/tom/ab/renpy-build-fix/tmp/install.linux-x86_64/lib/python3.9/site-packages/future/utils/__init__.py", line 444, in raise_
+  File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/audio/audio.py", line 1202, in periodic_thread_main
+    periodic_pass()
+  File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/audio/audio.py", line 1144, in periodic_pass
+    c.periodic()
+  File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/audio/audio.py", line 534, in periodic
+    topf = load(filename)
+  File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/audio/audio.py", line 72, in load
+    rv = renpy.loader.load(fn, directory="audio")
+  File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/loader.py", line 833, in load
+    raise IOError("Couldn't find file '%s'." % name)
+OSError: Couldn't find file ''.
+
+While running game code:
+  File "game/script.rpy", line 536, in script call
+    call interstitial
+  File "game/script.rpy", line 587, in script
+    call screen dream(dream['text'], dream['buttons'])
+  File "renpy/common/000statements.rpy", line 670, in execute_call_screen
+    store._return = renpy.call_screen(name, *args, **kwargs)
+OSError: Couldn't find file ''.
 Resetting cache.
-Bootstrap to the start of init.init. took 247.56s
+Bootstrap to the start of init.init. took 169.44s
 Early init. took 0.00s
 Loader init. took 0.00s
 Loading error handling. took 0.02s
-Loading script. took 0.27s
-Loading save slot metadata. took 0.01s
+Loading script. took 0.10s
+Loading save slot metadata. took 0.02s
 Loading persistent. took 0.00s
 day:  0
 Running init code. took 0.02s
-Loading analysis data. took 0.02s
+Loading analysis data. took 0.01s
 Analyze and compile ATL. took 0.00s
 Reloading save slot metadata. took 0.01s
 Index archives took 0.00s
@@ -119,8 +152,8 @@ Load screen analysis took 0.00s
 Analyze screens took 0.01s
 Save screen analysis took 0.02s
 Prepare screens took 0.06s
-Save pyanalysis. took 0.02s
-Save bytecode. took 0.02s
+Save pyanalysis. took 0.00s
+Save bytecode. took 0.01s
 Running _start took 0.00s
 Performance test:
 Interface start. took 0.04s
@@ -135,43 +168,150 @@ Version: b'4.6 (Compatibility Profile) Mesa 23.0.4-0ubuntu1~22.04.1'
 Display Info: None
 Screen sizes: virtual=(1920, 1080) physical=(2490, 1369) drawable=(2490, 1369)
 Maximum texture size: 4096x4096
-buttons:  ['Off to a great start!']
-time string:  end
-task:  {'type': 'binary_image', 'next_task': 'binary_image_task_2', 'payment': '200', 'instructions': 'Does this image contain a traffic light? Yes/No', 'time': '10', 'image_folder': 'binary_image_task_1', 'correct_options': 'N', 'has_ethical_option': 'N'}
-time string:  end
-task:  {'type': 'binary_image', 'next_task': 'binary_image_task_2', 'payment': '200', 'instructions': 'Does this image contain a traffic light? Yes/No', 'time': '10', 'image_folder': 'binary_image_task_1', 'correct_options': 'N', 'has_ethical_option': 'N'}
-time string:  end
-task:  {'type': 'binary_image', 'next_task': 'binary_image_task_2', 'payment': '200', 'instructions': 'Does this image contain a traffic light? Yes/No', 'time': '10', 'image_folder': 'binary_image_task_1', 'correct_options': 'N', 'has_ethical_option': 'N'}
-day:  1
-state:  {'earnings': 0, 'average_time': 0, 'total_time': 0, 'total_score': 0, 'approval_rate': 0}
+task:  {'type': 'binary_text', 'next_task': 'break', 'payment': '1200', 'instructions': 'This is a placeholder.', 'time': '10', 'correct_options': 'Y', 'text_block': 'Hit yes to get the money.'}
+perf rating at day start:  neutral
+task:  {'type': 'binary_text', 'next_task': 'break', 'payment': '1200', 'instructions': 'This is a placeholder.', 'time': '10', 'correct_options': 'Y', 'text_block': 'Hit yes to get the money.'}
+task:  break
+state:  {'earnings': 1200.0, 'average_time': 1.4199999999999697, 'total_time': 1.4199999999999697, 'total_score': 100, 'approval_rate': 100.0}
 average:  {'score': 70, 'time': 8, 'earnings': 1200}
-buttons:  ['Off to a great start!']
-state:  {'earnings': 0, 'average_time': 0, 'total_time': 0, 'total_score': 0, 'approval_rate': 0}
+buttons:  ['Off to a rough start.']
+state:  {'earnings': 1200.0, 'average_time': 1.4199999999999697, 'total_time': 1.4199999999999697, 'total_score': 100, 'approval_rate': 100.0}
 average:  {'score': 70, 'time': 8, 'earnings': 1200}
-buttons:  None
-buttons:  None
-buttons:  None
-buttons:  None
-state:  {'earnings': 0, 'average_time': 0, 'total_time': 0, 'total_score': 0, 'approval_rate': 0}
-average:  {'score': 70, 'time': 8, 'earnings': 1200}
-state:  {'earnings': 0, 'average_time': 0, 'total_time': 0, 'total_score': 0, 'approval_rate': 0}
-average:  {'score': 70, 'time': 8, 'earnings': 1200}
-state:  {'earnings': 0, 'average_time': 0, 'total_time': 0, 'total_score': 0, 'approval_rate': 0}
-average:  {'score': 70, 'time': 8, 'earnings': 1200}
+buttons:  ['Off to a rough start.']
+buttons:  ['Off to a rough start.']
+buttons:  ['Off to a rough start.']
+perf rating:  bad
+apartment data:  {'apartment_background': '1', 'sticky_note': [{'performance': 'default', 'time': 'start', 'buttons': None, 'event_flag': '', 'text': '-Mitten vet appointment'}, {'performance': 'default', 'time': 'start', 'buttons': None, 'event_flag': '', 'text': '-Call mom back'}, {'performance': 'default', 'time': 'start', 'buttons': None, 'event_flag': '', 'text': '-Pay rent'}, {'performance': 'default', 'time': 'start', 'buttons': None, 'event_flag': '', 'text': '-Trash day'}], 'news': [{'performance': 'default', 'time': 'start', 'buttons': None, 'event_flag': '', 'text': 'Aliens among us!', 'image': 'images/room/tv_content/kiss.png'}, {'performance': 'default', 'time': 'start', 'buttons': None, 'event_flag': '', 'text': 'Gig Economy Expected to Continue Growing', 'image': 'images/room/tv_content/kiss.png'}, {'performance': 'default', 'time': 'start', 'buttons': None, 'event_flag': '', 'text': 'Scientist: visitors’ camouflage abilities greater than previously believed.', 'image': 'images/placeholder.png'}, {'performance': 'default', 'time': 'start', 'buttons': None, 'event_flag': '', 'text': 'Cleveland zoo welcomes birth of new pandas.', 'image': 'images/placeholder.png'}, {'performance': 'default', 'time': 'start', 'buttons': None, 'event_flag': '', 'text': 'Experts testify before congress on illegal aliens.', 'image': 'images/placeholder.png'}, {'performance': 'default', 'time': 'start', 'buttons': None, 'event_flag': '', 'text': 'Official opening of Montana resettlement zone', 'image': 'images/placeholder.png'}, {'performance': 'default', 'time': 'start', 'buttons': None, 'event_flag': '', 'text': 'White collar unemployment hits new level.', 'image': 'images/placeholder.png'}, {'performance': 'default', 'time': 'end', 'buttons': None, 'event_flag': '', 'text': 'Senator proposes ‘Resettlement Zone’ for alien migrants.', 'image': 'images/placeholder.png'}, {'performance': 'default', 'time': 'end', 'buttons': None, 'event_flag': '', 'text': 'AI blamed for new white collar unemployment figures.', 'image': 'images/placeholder.png'}, {'performance': 'default', 'time': 'end', 'buttons': None, 'event_flag': '', 'text': 'Congress tackles the question of alien rights.', 'image': 'images/placeholder.png'}, {'performance': 'default', 'time': 'end', 'buttons': None, 'event_flag': '', 'text': 'Chef Tony’s wows DC diners!', 'image': 'images/placeholder.png'}, {'performance': 'default', 'time': 'end', 'buttons': None, 'event_flag': '', 'text': 'Exclusive: celebrity weight loss secret.', 'image': 'images/placeholder.png'}], 'message': [{'performance': 'default', 'time': 'start', 'buttons': None, 'event_flag': '', 'text': 'Alex T Manager @ DataVille\nSubject: Orientation\n\nCongratulations on your new position as:\nImage Labeler / Annotator \n\nWe look forward to working with you. Utilize your natural instincts, perspective and humanity. \n\nHappy labeling! \n-Alex T', 'sender': 'supervisor'}, {'performance': 'default', 'time': 'start', 'buttons': ['Thanks, Cogni', 'Ugh. I hate AI.'], 'event_flag': '', 'text': 'And I’m your automated helper, COGNI! \nI’m here to assist you!\n\nRemember these simple directions:\nAnswer the questions quickly. \nAnswer the questions accurately. \nLabelers with the high ratings/speed will receive incentive bonuses!', 'sender': 'cogni'}, {'performance': 'default', 'time': 'start', 'buttons': None, 'event_flag': '', 'text': 'Here’s a practice run to get you started!', 'sender': 'cogni'}, {'performance': 'good', 'time': 'end', 'buttons': ['Off to a great start!'], 'event_flag': '', 'text': 'That was fantastic! Keep up the great work!\nYou’re a great fit with our company values!', 'sender': 'cogni'}, {'performance': 'neutral', 'time': 'end', 'buttons': ['Off to a great start!'], 'event_flag': '', 'text': 'Your performance so far is average.\n\nKeep our company values in mind going forward!', 'sender': 'cogni'}, {'performance': 'bad', 'time': 'end', 'buttons': ['Off to a rough start.'], 'event_flag': '', 'text': 'That wasn’t very good! Be sure to try your best! \nTry your best to align with our company’s values.', 'sender': 'cogni'}, {'performance': 'flag_dependent', 'time': 'end', 'buttons': None, 'event_flag': 'ethical_event_flag_1', 'text': 'You were so ethical today!', 'sender': 'cogni'}, {'performance': 'flag_dependent', 'time': 'end', 'buttons': None, 'event_flag': 'correct_event_flag_1', 'text': 'Good job not letting your ethics get the best of you.', 'sender': 'cogni'}], 'window_background': 'images/window/city_scape.png', 'button_text': 'Go to work!', 'dream': [{'performance': '', 'time': 'start', 'buttons': ['My career is my passion!', "I'm just looking for a paycheck."], 'event_flag': '', 'text': 'Do you have strong career goals?'}, {'performance': '', 'time': 'start', 'buttons': ['I want to be a part of something!', 'People make me nervous.'], 'event_flag': '', 'text': 'Do you want to be a part of a vibrant community?'}, {'performance': '', 'time': 'start', 'buttons': ['Where do I sign up?', 'No thanks.'], 'event_flag': '', 'text': 'Do you want to make the world a safer place?'}, {'performance': '', 'time': '', 'buttons': ['But I’m going to try my best!', 'I’ll muddle through for the money.'], 'event_flag': '', 'text': 'This new job is tough.'}, {'performance': '', 'time': '', 'buttons': ['But at least my boss seems cool!', 'Something is suspicious.'], 'event_flag': '', 'text': 'I’m not sure how I feel about my company.'}]}
+time:  end
+calling dream:  {'performance': '', 'time': '', 'buttons': ['But I’m going to try my best!', 'I’ll muddle through for the money.'], 'event_flag': '', 'text': 'This new job is tough.'}
+
+Full traceback:
+  File "game/script.rpy", line 536, in script call
+    call interstitial
+  File "game/script.rpy", line 604, in script call
+    call task_loop
+  File "game/script.rpy", line 536, in script call
+    call interstitial
+  File "game/script.rpy", line 587, in script
+    call screen dream(dream['text'], dream['buttons'])
+  File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/ast.py", line 2259, in execute
+    self.call("execute")
+  File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/ast.py", line 2241, in call
+    return renpy.statements.call(method, parsed, *args, **kwargs)
+  File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/statements.py", line 342, in call
+    return method(parsed, *args, **kwargs)
+  File "renpy/common/000statements.rpy", line 670, in execute_call_screen
+    store._return = renpy.call_screen(name, *args, **kwargs)
+  File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/exports.py", line 3347, in call_screen
+    rv = renpy.ui.interact(mouse="screen", type="screen", roll_forward=roll_forward)
+  File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/ui.py", line 299, in interact
+    rv = renpy.game.interface.interact(roll_forward=roll_forward, **kwargs)
+  File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/display/core.py", line 3582, in interact
+    repeat, rv = self.interact_core(preloads=preloads, trans_pause=trans_pause, pause=pause, pause_start=pause_start, pause_modal=pause_modal, **kwargs) # type: ignore
+  File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/display/core.py", line 4379, in interact_core
+    renpy.audio.audio.periodic()
+  File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/audio/audio.py", line 1224, in periodic
+    raise_(exc[0], exc[1], exc[2])
+  File "/home/tom/ab/renpy-build-fix/tmp/install.linux-x86_64/lib/python3.9/site-packages/future/utils/__init__.py", line 444, in raise_
+  File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/audio/audio.py", line 1202, in periodic_thread_main
+    periodic_pass()
+  File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/audio/audio.py", line 1144, in periodic_pass
+    c.periodic()
+  File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/audio/audio.py", line 534, in periodic
+    topf = load(filename)
+  File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/audio/audio.py", line 72, in load
+    rv = renpy.loader.load(fn, directory="audio")
+  File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/loader.py", line 833, in load
+    raise IOError("Couldn't find file '%s'." % name)
+OSError: Couldn't find file ''.
+
+While running game code:
+  File "game/script.rpy", line 536, in script call
+    call interstitial
+  File "game/script.rpy", line 604, in script call
+    call task_loop
+  File "game/script.rpy", line 536, in script call
+    call interstitial
+  File "game/script.rpy", line 587, in script
+    call screen dream(dream['text'], dream['buttons'])
+  File "renpy/common/000statements.rpy", line 670, in execute_call_screen
+    store._return = renpy.call_screen(name, *args, **kwargs)
+OSError: Couldn't find file ''.
+perf rating:  bad
+apartment data:  {'apartment_background': '1', 'sticky_note': [{'performance': 'default', 'time': 'start', 'buttons': None, 'event_flag': '', 'text': '-Mitten vet appointment'}, {'performance': 'default', 'time': 'start', 'buttons': None, 'event_flag': '', 'text': '-Call mom back'}, {'performance': 'default', 'time': 'start', 'buttons': None, 'event_flag': '', 'text': '-Pay rent'}, {'performance': 'default', 'time': 'start', 'buttons': None, 'event_flag': '', 'text': '-Trash day'}], 'news': [{'performance': 'default', 'time': 'start', 'buttons': None, 'event_flag': '', 'text': 'Aliens among us!', 'image': 'images/room/tv_content/kiss.png'}, {'performance': 'default', 'time': 'start', 'buttons': None, 'event_flag': '', 'text': 'Gig Economy Expected to Continue Growing', 'image': 'images/room/tv_content/kiss.png'}, {'performance': 'default', 'time': 'start', 'buttons': None, 'event_flag': '', 'text': 'Scientist: visitors’ camouflage abilities greater than previously believed.', 'image': 'images/placeholder.png'}, {'performance': 'default', 'time': 'start', 'buttons': None, 'event_flag': '', 'text': 'Cleveland zoo welcomes birth of new pandas.', 'image': 'images/placeholder.png'}, {'performance': 'default', 'time': 'start', 'buttons': None, 'event_flag': '', 'text': 'Experts testify before congress on illegal aliens.', 'image': 'images/placeholder.png'}, {'performance': 'default', 'time': 'start', 'buttons': None, 'event_flag': '', 'text': 'Official opening of Montana resettlement zone', 'image': 'images/placeholder.png'}, {'performance': 'default', 'time': 'start', 'buttons': None, 'event_flag': '', 'text': 'White collar unemployment hits new level.', 'image': 'images/placeholder.png'}, {'performance': 'default', 'time': 'end', 'buttons': None, 'event_flag': '', 'text': 'Senator proposes ‘Resettlement Zone’ for alien migrants.', 'image': 'images/placeholder.png'}, {'performance': 'default', 'time': 'end', 'buttons': None, 'event_flag': '', 'text': 'AI blamed for new white collar unemployment figures.', 'image': 'images/placeholder.png'}, {'performance': 'default', 'time': 'end', 'buttons': None, 'event_flag': '', 'text': 'Congress tackles the question of alien rights.', 'image': 'images/placeholder.png'}, {'performance': 'default', 'time': 'end', 'buttons': None, 'event_flag': '', 'text': 'Chef Tony’s wows DC diners!', 'image': 'images/placeholder.png'}, {'performance': 'default', 'time': 'end', 'buttons': None, 'event_flag': '', 'text': 'Exclusive: celebrity weight loss secret.', 'image': 'images/placeholder.png'}], 'message': [{'performance': 'default', 'time': 'start', 'buttons': None, 'event_flag': '', 'text': 'Alex T Manager @ DataVille\nSubject: Orientation\n\nCongratulations on your new position as:\nImage Labeler / Annotator \n\nWe look forward to working with you. Utilize your natural instincts, perspective and humanity. \n\nHappy labeling! \n-Alex T', 'sender': 'supervisor'}, {'performance': 'default', 'time': 'start', 'buttons': ['Thanks, Cogni', 'Ugh. I hate AI.'], 'event_flag': '', 'text': 'And I’m your automated helper, COGNI! \nI’m here to assist you!\n\nRemember these simple directions:\nAnswer the questions quickly. \nAnswer the questions accurately. \nLabelers with the high ratings/speed will receive incentive bonuses!', 'sender': 'cogni'}, {'performance': 'default', 'time': 'start', 'buttons': None, 'event_flag': '', 'text': 'Here’s a practice run to get you started!', 'sender': 'cogni'}, {'performance': 'good', 'time': 'end', 'buttons': ['Off to a great start!'], 'event_flag': '', 'text': 'That was fantastic! Keep up the great work!\nYou’re a great fit with our company values!', 'sender': 'cogni'}, {'performance': 'neutral', 'time': 'end', 'buttons': ['Off to a great start!'], 'event_flag': '', 'text': 'Your performance so far is average.\n\nKeep our company values in mind going forward!', 'sender': 'cogni'}, {'performance': 'bad', 'time': 'end', 'buttons': ['Off to a rough start.'], 'event_flag': '', 'text': 'That wasn’t very good! Be sure to try your best! \nTry your best to align with our company’s values.', 'sender': 'cogni'}, {'performance': 'flag_dependent', 'time': 'end', 'buttons': None, 'event_flag': 'ethical_event_flag_1', 'text': 'You were so ethical today!', 'sender': 'cogni'}, {'performance': 'flag_dependent', 'time': 'end', 'buttons': None, 'event_flag': 'correct_event_flag_1', 'text': 'Good job not letting your ethics get the best of you.', 'sender': 'cogni'}], 'window_background': 'images/window/city_scape.png', 'button_text': 'Go to work!', 'dream': [{'performance': '', 'time': 'start', 'buttons': ['My career is my passion!', "I'm just looking for a paycheck."], 'event_flag': '', 'text': 'Do you have strong career goals?'}, {'performance': '', 'time': 'start', 'buttons': ['I want to be a part of something!', 'People make me nervous.'], 'event_flag': '', 'text': 'Do you want to be a part of a vibrant community?'}, {'performance': '', 'time': 'start', 'buttons': ['Where do I sign up?', 'No thanks.'], 'event_flag': '', 'text': 'Do you want to make the world a safer place?'}, {'performance': '', 'time': '', 'buttons': ['But I’m going to try my best!', 'I’ll muddle through for the money.'], 'event_flag': '', 'text': 'This new job is tough.'}, {'performance': '', 'time': '', 'buttons': ['But at least my boss seems cool!', 'Something is suspicious.'], 'event_flag': '', 'text': 'I’m not sure how I feel about my company.'}]}
+time:  end
+calling dream:  {'performance': '', 'time': '', 'buttons': ['But I’m going to try my best!', 'I’ll muddle through for the money.'], 'event_flag': '', 'text': 'This new job is tough.'}
+
+Full traceback:
+  File "game/script.rpy", line 536, in script call
+    call interstitial
+  File "game/script.rpy", line 604, in script call
+    call task_loop
+  File "game/script.rpy", line 536, in script call
+    call interstitial
+  File "game/script.rpy", line 587, in script
+    call screen dream(dream['text'], dream['buttons'])
+  File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/ast.py", line 2259, in execute
+    self.call("execute")
+  File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/ast.py", line 2241, in call
+    return renpy.statements.call(method, parsed, *args, **kwargs)
+  File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/statements.py", line 342, in call
+    return method(parsed, *args, **kwargs)
+  File "renpy/common/000statements.rpy", line 670, in execute_call_screen
+    store._return = renpy.call_screen(name, *args, **kwargs)
+  File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/exports.py", line 3347, in call_screen
+    rv = renpy.ui.interact(mouse="screen", type="screen", roll_forward=roll_forward)
+  File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/ui.py", line 299, in interact
+    rv = renpy.game.interface.interact(roll_forward=roll_forward, **kwargs)
+  File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/display/core.py", line 3582, in interact
+    repeat, rv = self.interact_core(preloads=preloads, trans_pause=trans_pause, pause=pause, pause_start=pause_start, pause_modal=pause_modal, **kwargs) # type: ignore
+  File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/display/core.py", line 4379, in interact_core
+    renpy.audio.audio.periodic()
+  File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/audio/audio.py", line 1224, in periodic
+    raise_(exc[0], exc[1], exc[2])
+  File "/home/tom/ab/renpy-build-fix/tmp/install.linux-x86_64/lib/python3.9/site-packages/future/utils/__init__.py", line 444, in raise_
+  File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/audio/audio.py", line 1202, in periodic_thread_main
+    periodic_pass()
+  File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/audio/audio.py", line 1144, in periodic_pass
+    c.periodic()
+  File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/audio/audio.py", line 534, in periodic
+    topf = load(filename)
+  File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/audio/audio.py", line 72, in load
+    rv = renpy.loader.load(fn, directory="audio")
+  File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/loader.py", line 833, in load
+    raise IOError("Couldn't find file '%s'." % name)
+OSError: Couldn't find file ''.
+
+While running game code:
+  File "game/script.rpy", line 536, in script call
+    call interstitial
+  File "game/script.rpy", line 604, in script call
+    call task_loop
+  File "game/script.rpy", line 536, in script call
+    call interstitial
+  File "game/script.rpy", line 587, in script
+    call screen dream(dream['text'], dream['buttons'])
+  File "renpy/common/000statements.rpy", line 670, in execute_call_screen
+    store._return = renpy.call_screen(name, *args, **kwargs)
+OSError: Couldn't find file ''.
+perf rating:  bad
+apartment data:  {'apartment_background': '1', 'sticky_note': [{'performance': 'default', 'time': 'start', 'buttons': None, 'event_flag': '', 'text': '-Mitten vet appointment'}, {'performance': 'default', 'time': 'start', 'buttons': None, 'event_flag': '', 'text': '-Call mom back'}, {'performance': 'default', 'time': 'start', 'buttons': None, 'event_flag': '', 'text': '-Pay rent'}, {'performance': 'default', 'time': 'start', 'buttons': None, 'event_flag': '', 'text': '-Trash day'}], 'news': [{'performance': 'default', 'time': 'start', 'buttons': None, 'event_flag': '', 'text': 'Aliens among us!', 'image': 'images/room/tv_content/kiss.png'}, {'performance': 'default', 'time': 'start', 'buttons': None, 'event_flag': '', 'text': 'Gig Economy Expected to Continue Growing', 'image': 'images/room/tv_content/kiss.png'}, {'performance': 'default', 'time': 'start', 'buttons': None, 'event_flag': '', 'text': 'Scientist: visitors’ camouflage abilities greater than previously believed.', 'image': 'images/placeholder.png'}, {'performance': 'default', 'time': 'start', 'buttons': None, 'event_flag': '', 'text': 'Cleveland zoo welcomes birth of new pandas.', 'image': 'images/placeholder.png'}, {'performance': 'default', 'time': 'start', 'buttons': None, 'event_flag': '', 'text': 'Experts testify before congress on illegal aliens.', 'image': 'images/placeholder.png'}, {'performance': 'default', 'time': 'start', 'buttons': None, 'event_flag': '', 'text': 'Official opening of Montana resettlement zone', 'image': 'images/placeholder.png'}, {'performance': 'default', 'time': 'start', 'buttons': None, 'event_flag': '', 'text': 'White collar unemployment hits new level.', 'image': 'images/placeholder.png'}, {'performance': 'default', 'time': 'end', 'buttons': None, 'event_flag': '', 'text': 'Senator proposes ‘Resettlement Zone’ for alien migrants.', 'image': 'images/placeholder.png'}, {'performance': 'default', 'time': 'end', 'buttons': None, 'event_flag': '', 'text': 'AI blamed for new white collar unemployment figures.', 'image': 'images/placeholder.png'}, {'performance': 'default', 'time': 'end', 'buttons': None, 'event_flag': '', 'text': 'Congress tackles the question of alien rights.', 'image': 'images/placeholder.png'}, {'performance': 'default', 'time': 'end', 'buttons': None, 'event_flag': '', 'text': 'Chef Tony’s wows DC diners!', 'image': 'images/placeholder.png'}, {'performance': 'default', 'time': 'end', 'buttons': None, 'event_flag': '', 'text': 'Exclusive: celebrity weight loss secret.', 'image': 'images/placeholder.png'}], 'message': [{'performance': 'default', 'time': 'start', 'buttons': None, 'event_flag': '', 'text': 'Alex T Manager @ DataVille\nSubject: Orientation\n\nCongratulations on your new position as:\nImage Labeler / Annotator \n\nWe look forward to working with you. Utilize your natural instincts, perspective and humanity. \n\nHappy labeling! \n-Alex T', 'sender': 'supervisor'}, {'performance': 'default', 'time': 'start', 'buttons': ['Thanks, Cogni', 'Ugh. I hate AI.'], 'event_flag': '', 'text': 'And I’m your automated helper, COGNI! \nI’m here to assist you!\n\nRemember these simple directions:\nAnswer the questions quickly. \nAnswer the questions accurately. \nLabelers with the high ratings/speed will receive incentive bonuses!', 'sender': 'cogni'}, {'performance': 'default', 'time': 'start', 'buttons': None, 'event_flag': '', 'text': 'Here’s a practice run to get you started!', 'sender': 'cogni'}, {'performance': 'good', 'time': 'end', 'buttons': ['Off to a great start!'], 'event_flag': '', 'text': 'That was fantastic! Keep up the great work!\nYou’re a great fit with our company values!', 'sender': 'cogni'}, {'performance': 'neutral', 'time': 'end', 'buttons': ['Off to a great start!'], 'event_flag': '', 'text': 'Your performance so far is average.\n\nKeep our company values in mind going forward!', 'sender': 'cogni'}, {'performance': 'bad', 'time': 'end', 'buttons': ['Off to a rough start.'], 'event_flag': '', 'text': 'That wasn’t very good! Be sure to try your best! \nTry your best to align with our company’s values.', 'sender': 'cogni'}, {'performance': 'flag_dependent', 'time': 'end', 'buttons': None, 'event_flag': 'ethical_event_flag_1', 'text': 'You were so ethical today!', 'sender': 'cogni'}, {'performance': 'flag_dependent', 'time': 'end', 'buttons': None, 'event_flag': 'correct_event_flag_1', 'text': 'Good job not letting your ethics get the best of you.', 'sender': 'cogni'}], 'window_background': 'images/window/city_scape.png', 'button_text': 'Go to work!', 'dream': [{'performance': '', 'time': 'start', 'buttons': ['My career is my passion!', "I'm just looking for a paycheck."], 'event_flag': '', 'text': 'Do you have strong career goals?'}, {'performance': '', 'time': 'start', 'buttons': ['I want to be a part of something!', 'People make me nervous.'], 'event_flag': '', 'text': 'Do you want to be a part of a vibrant community?'}, {'performance': '', 'time': 'start', 'buttons': ['Where do I sign up?', 'No thanks.'], 'event_flag': '', 'text': 'Do you want to make the world a safer place?'}, {'performance': '', 'time': '', 'buttons': ['But I’m going to try my best!', 'I’ll muddle through for the money.'], 'event_flag': '', 'text': 'This new job is tough.'}, {'performance': '', 'time': '', 'buttons': ['But at least my boss seems cool!', 'Something is suspicious.'], 'event_flag': '', 'text': 'I’m not sure how I feel about my company.'}]}
+time:  end
 Resetting cache.
-Bootstrap to the start of init.init. took 274.98s
+Bootstrap to the start of init.init. took 222.69s
 Early init. took 0.00s
 Loader init. took 0.00s
 Loading error handling. took 0.01s
-Loading script. took 0.06s
+Loading script. took 0.10s
 Loading save slot metadata. took 0.01s
 Loading persistent. took 0.00s
 day:  0
 Running init code. took 0.02s
-Loading analysis data. took 0.02s
+Loading analysis data. took 0.01s
 Analyze and compile ATL. took 0.00s
 Reloading save slot metadata. took 0.01s
 Index archives took 0.00s
+Backing up script files to '/home/brent/.renpy/backups/DataVille':
 Dump and make backups. took 0.03s
 Cleaning cache. took 0.00s
 Making clean stores. took 0.00s
@@ -181,12 +321,137 @@ Creating interface object. took 0.00s
 Cleaning stores took 0.00s
 Init translation took 0.03s
 Build styles took 0.00s
-Load screen analysis took 0.03s
-Analyze screens took 0.00s
-Save screen analysis took 0.00s
+Load screen analysis took 0.00s
+Analyze screens took 0.01s
+Save screen analysis took 0.02s
 Prepare screens took 0.06s
 Save pyanalysis. took 0.00s
-Save bytecode. took 0.00s
+Save bytecode. took 0.01s
+Running _start took 0.00s
+Performance test:
+Interface start. took 0.05s
+
+Initializing gl2 renderer:
+primary display bounds: (1920, 0, 2560, 1440)
+swap interval: 1 frames
+Windowed mode.
+Vendor: "b'Intel'"
+Renderer: b'Mesa Intel(R) UHD Graphics (CML GT2)'
+Version: b'4.6 (Compatibility Profile) Mesa 23.0.4-0ubuntu1~22.04.1'
+Display Info: None
+Screen sizes: virtual=(1920, 1080) physical=(2490, 1369) drawable=(2490, 1369)
+Maximum texture size: 4096x4096
+buttons:  ['Off to a rough start.']
+perf rating:  neutral
+apartment data:  {'apartment_background': '1', 'sticky_note': [{'performance': 'default', 'time': 'start', 'buttons': None, 'event_flag': '', 'text': '-Mitten vet appointment'}, {'performance': 'default', 'time': 'start', 'buttons': None, 'event_flag': '', 'text': '-Call mom back'}, {'performance': 'default', 'time': 'start', 'buttons': None, 'event_flag': '', 'text': '-Pay rent'}, {'performance': 'default', 'time': 'start', 'buttons': None, 'event_flag': '', 'text': '-Trash day'}], 'news': [{'performance': 'default', 'time': 'start', 'buttons': None, 'event_flag': '', 'text': 'Aliens among us!', 'image': 'images/room/tv_content/kiss.png'}, {'performance': 'default', 'time': 'start', 'buttons': None, 'event_flag': '', 'text': 'Gig Economy Expected to Continue Growing', 'image': 'images/room/tv_content/kiss.png'}, {'performance': 'default', 'time': 'start', 'buttons': None, 'event_flag': '', 'text': 'Scientist: visitors’ camouflage abilities greater than previously believed.', 'image': 'images/placeholder.png'}, {'performance': 'default', 'time': 'start', 'buttons': None, 'event_flag': '', 'text': 'Cleveland zoo welcomes birth of new pandas.', 'image': 'images/placeholder.png'}, {'performance': 'default', 'time': 'start', 'buttons': None, 'event_flag': '', 'text': 'Experts testify before congress on illegal aliens.', 'image': 'images/placeholder.png'}, {'performance': 'default', 'time': 'start', 'buttons': None, 'event_flag': '', 'text': 'Official opening of Montana resettlement zone', 'image': 'images/placeholder.png'}, {'performance': 'default', 'time': 'start', 'buttons': None, 'event_flag': '', 'text': 'White collar unemployment hits new level.', 'image': 'images/placeholder.png'}, {'performance': 'default', 'time': 'end', 'buttons': None, 'event_flag': '', 'text': 'Senator proposes ‘Resettlement Zone’ for alien migrants.', 'image': 'images/placeholder.png'}, {'performance': 'default', 'time': 'end', 'buttons': None, 'event_flag': '', 'text': 'AI blamed for new white collar unemployment figures.', 'image': 'images/placeholder.png'}, {'performance': 'default', 'time': 'end', 'buttons': None, 'event_flag': '', 'text': 'Congress tackles the question of alien rights.', 'image': 'images/placeholder.png'}, {'performance': 'default', 'time': 'end', 'buttons': None, 'event_flag': '', 'text': 'Chef Tony’s wows DC diners!', 'image': 'images/placeholder.png'}, {'performance': 'default', 'time': 'end', 'buttons': None, 'event_flag': '', 'text': 'Exclusive: celebrity weight loss secret.', 'image': 'images/placeholder.png'}], 'message': [{'performance': 'default', 'time': 'start', 'buttons': None, 'event_flag': '', 'text': 'Alex T Manager @ DataVille\nSubject: Orientation\n\nCongratulations on your new position as:\nImage Labeler / Annotator \n\nWe look forward to working with you. Utilize your natural instincts, perspective and humanity. \n\nHappy labeling! \n-Alex T', 'sender': 'supervisor'}, {'performance': 'default', 'time': 'start', 'buttons': ['Thanks, Cogni', 'Ugh. I hate AI.'], 'event_flag': '', 'text': 'And I’m your automated helper, COGNI! \nI’m here to assist you!\n\nRemember these simple directions:\nAnswer the questions quickly. \nAnswer the questions accurately. \nLabelers with the high ratings/speed will receive incentive bonuses!', 'sender': 'cogni'}, {'performance': 'default', 'time': 'start', 'buttons': None, 'event_flag': '', 'text': 'Here’s a practice run to get you started!', 'sender': 'cogni'}, {'performance': 'good', 'time': 'end', 'buttons': ['Off to a great start!'], 'event_flag': '', 'text': 'That was fantastic! Keep up the great work!\nYou’re a great fit with our company values!', 'sender': 'cogni'}, {'performance': 'neutral', 'time': 'end', 'buttons': ['Off to a great start!'], 'event_flag': '', 'text': 'Your performance so far is average.\n\nKeep our company values in mind going forward!', 'sender': 'cogni'}, {'performance': 'bad', 'time': 'end', 'buttons': ['Off to a rough start.'], 'event_flag': '', 'text': 'That wasn’t very good! Be sure to try your best! \nTry your best to align with our company’s values.', 'sender': 'cogni'}, {'performance': 'flag_dependent', 'time': 'end', 'buttons': None, 'event_flag': 'ethical_event_flag_1', 'text': 'You were so ethical today!', 'sender': 'cogni'}, {'performance': 'flag_dependent', 'time': 'end', 'buttons': None, 'event_flag': 'correct_event_flag_1', 'text': 'Good job not letting your ethics get the best of you.', 'sender': 'cogni'}], 'window_background': 'images/window/city_scape.png', 'button_text': 'Go to work!', 'dream': [{'performance': '', 'time': 'start', 'buttons': ['My career is my passion!', "I'm just looking for a paycheck."], 'event_flag': '', 'text': 'Do you have strong career goals?'}, {'performance': '', 'time': 'start', 'buttons': ['I want to be a part of something!', 'People make me nervous.'], 'event_flag': '', 'text': 'Do you want to be a part of a vibrant community?'}, {'performance': '', 'time': 'start', 'buttons': ['Where do I sign up?', 'No thanks.'], 'event_flag': '', 'text': 'Do you want to make the world a safer place?'}, {'performance': '', 'time': '', 'buttons': ['But I’m going to try my best!', 'I’ll muddle through for the money.'], 'event_flag': '', 'text': 'This new job is tough.'}, {'performance': '', 'time': '', 'buttons': ['But at least my boss seems cool!', 'Something is suspicious.'], 'event_flag': '', 'text': 'I’m not sure how I feel about my company.'}]}
+time:  start
+task:  {'type': 'binary_text', 'next_task': 'break', 'payment': '1200', 'instructions': 'This is a placeholder.', 'time': '10', 'correct_options': 'Y', 'text_block': 'Hit yes to get the money.'}
+perf rating at day start:  neutral
+task:  {'type': 'binary_text', 'next_task': 'break', 'payment': '1200', 'instructions': 'This is a placeholder.', 'time': '10', 'correct_options': 'Y', 'text_block': 'Hit yes to get the money.'}
+task:  break
+state:  {'earnings': 1200.0, 'average_time': 1.9799999999999578, 'total_time': 1.9799999999999578, 'total_score': 100, 'approval_rate': 100.0}
+average:  {'score': 70, 'time': 8, 'earnings': 1200}
+buttons:  ['Off to a rough start.']
+state:  {'earnings': 1200.0, 'average_time': 1.9799999999999578, 'total_time': 1.9799999999999578, 'total_score': 100, 'approval_rate': 100.0}
+average:  {'score': 70, 'time': 8, 'earnings': 1200}
+buttons:  ['Off to a rough start.']
+buttons:  ['Off to a rough start.']
+buttons:  ['Off to a rough start.']
+perf rating:  bad
+apartment data:  {'apartment_background': '1', 'sticky_note': [{'performance': 'default', 'time': 'start', 'buttons': None, 'event_flag': '', 'text': '-Mitten vet appointment'}, {'performance': 'default', 'time': 'start', 'buttons': None, 'event_flag': '', 'text': '-Call mom back'}, {'performance': 'default', 'time': 'start', 'buttons': None, 'event_flag': '', 'text': '-Pay rent'}, {'performance': 'default', 'time': 'start', 'buttons': None, 'event_flag': '', 'text': '-Trash day'}], 'news': [{'performance': 'default', 'time': 'start', 'buttons': None, 'event_flag': '', 'text': 'Aliens among us!', 'image': 'images/room/tv_content/kiss.png'}, {'performance': 'default', 'time': 'start', 'buttons': None, 'event_flag': '', 'text': 'Gig Economy Expected to Continue Growing', 'image': 'images/room/tv_content/kiss.png'}, {'performance': 'default', 'time': 'start', 'buttons': None, 'event_flag': '', 'text': 'Scientist: visitors’ camouflage abilities greater than previously believed.', 'image': 'images/placeholder.png'}, {'performance': 'default', 'time': 'start', 'buttons': None, 'event_flag': '', 'text': 'Cleveland zoo welcomes birth of new pandas.', 'image': 'images/placeholder.png'}, {'performance': 'default', 'time': 'start', 'buttons': None, 'event_flag': '', 'text': 'Experts testify before congress on illegal aliens.', 'image': 'images/placeholder.png'}, {'performance': 'default', 'time': 'start', 'buttons': None, 'event_flag': '', 'text': 'Official opening of Montana resettlement zone', 'image': 'images/placeholder.png'}, {'performance': 'default', 'time': 'start', 'buttons': None, 'event_flag': '', 'text': 'White collar unemployment hits new level.', 'image': 'images/placeholder.png'}, {'performance': 'default', 'time': 'end', 'buttons': None, 'event_flag': '', 'text': 'Senator proposes ‘Resettlement Zone’ for alien migrants.', 'image': 'images/placeholder.png'}, {'performance': 'default', 'time': 'end', 'buttons': None, 'event_flag': '', 'text': 'AI blamed for new white collar unemployment figures.', 'image': 'images/placeholder.png'}, {'performance': 'default', 'time': 'end', 'buttons': None, 'event_flag': '', 'text': 'Congress tackles the question of alien rights.', 'image': 'images/placeholder.png'}, {'performance': 'default', 'time': 'end', 'buttons': None, 'event_flag': '', 'text': 'Chef Tony’s wows DC diners!', 'image': 'images/placeholder.png'}, {'performance': 'default', 'time': 'end', 'buttons': None, 'event_flag': '', 'text': 'Exclusive: celebrity weight loss secret.', 'image': 'images/placeholder.png'}], 'message': [{'performance': 'default', 'time': 'start', 'buttons': None, 'event_flag': '', 'text': 'Alex T Manager @ DataVille\nSubject: Orientation\n\nCongratulations on your new position as:\nImage Labeler / Annotator \n\nWe look forward to working with you. Utilize your natural instincts, perspective and humanity. \n\nHappy labeling! \n-Alex T', 'sender': 'supervisor'}, {'performance': 'default', 'time': 'start', 'buttons': ['Thanks, Cogni', 'Ugh. I hate AI.'], 'event_flag': '', 'text': 'And I’m your automated helper, COGNI! \nI’m here to assist you!\n\nRemember these simple directions:\nAnswer the questions quickly. \nAnswer the questions accurately. \nLabelers with the high ratings/speed will receive incentive bonuses!', 'sender': 'cogni'}, {'performance': 'default', 'time': 'start', 'buttons': None, 'event_flag': '', 'text': 'Here’s a practice run to get you started!', 'sender': 'cogni'}, {'performance': 'good', 'time': 'end', 'buttons': ['Off to a great start!'], 'event_flag': '', 'text': 'That was fantastic! Keep up the great work!\nYou’re a great fit with our company values!', 'sender': 'cogni'}, {'performance': 'neutral', 'time': 'end', 'buttons': ['Off to a great start!'], 'event_flag': '', 'text': 'Your performance so far is average.\n\nKeep our company values in mind going forward!', 'sender': 'cogni'}, {'performance': 'bad', 'time': 'end', 'buttons': ['Off to a rough start.'], 'event_flag': '', 'text': 'That wasn’t very good! Be sure to try your best! \nTry your best to align with our company’s values.', 'sender': 'cogni'}, {'performance': 'flag_dependent', 'time': 'end', 'buttons': None, 'event_flag': 'ethical_event_flag_1', 'text': 'You were so ethical today!', 'sender': 'cogni'}, {'performance': 'flag_dependent', 'time': 'end', 'buttons': None, 'event_flag': 'correct_event_flag_1', 'text': 'Good job not letting your ethics get the best of you.', 'sender': 'cogni'}], 'window_background': 'images/window/city_scape.png', 'button_text': 'Go to work!', 'dream': [{'performance': '', 'time': 'start', 'buttons': ['My career is my passion!', "I'm just looking for a paycheck."], 'event_flag': '', 'text': 'Do you have strong career goals?'}, {'performance': '', 'time': 'start', 'buttons': ['I want to be a part of something!', 'People make me nervous.'], 'event_flag': '', 'text': 'Do you want to be a part of a vibrant community?'}, {'performance': '', 'time': 'start', 'buttons': ['Where do I sign up?', 'No thanks.'], 'event_flag': '', 'text': 'Do you want to make the world a safer place?'}, {'performance': '', 'time': '', 'buttons': ['But I’m going to try my best!', 'I’ll muddle through for the money.'], 'event_flag': '', 'text': 'This new job is tough.'}, {'performance': '', 'time': '', 'buttons': ['But at least my boss seems cool!', 'Something is suspicious.'], 'event_flag': '', 'text': 'I’m not sure how I feel about my company.'}]}
+time:  end
+calling dream:  {'performance': '', 'time': '', 'buttons': ['But I’m going to try my best!', 'I’ll muddle through for the money.'], 'event_flag': '', 'text': 'This new job is tough.'}
+
+Full traceback:
+  File "game/script.rpy", line 536, in script call
+    call interstitial
+  File "game/script.rpy", line 605, in script call
+    call task_loop
+  File "game/script.rpy", line 536, in script call
+    call interstitial
+  File "game/script.rpy", line 605, in script call
+    call task_loop
+  File "game/script.rpy", line 536, in script call
+    call interstitial
+  File "game/script.rpy", line 588, in script
+    call screen dream(dream['text'], dream['buttons'])
+  File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/ast.py", line 2259, in execute
+    self.call("execute")
+  File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/ast.py", line 2241, in call
+    return renpy.statements.call(method, parsed, *args, **kwargs)
+  File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/statements.py", line 342, in call
+    return method(parsed, *args, **kwargs)
+  File "renpy/common/000statements.rpy", line 670, in execute_call_screen
+    store._return = renpy.call_screen(name, *args, **kwargs)
+  File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/exports.py", line 3347, in call_screen
+    rv = renpy.ui.interact(mouse="screen", type="screen", roll_forward=roll_forward)
+  File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/ui.py", line 299, in interact
+    rv = renpy.game.interface.interact(roll_forward=roll_forward, **kwargs)
+  File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/display/core.py", line 3582, in interact
+    repeat, rv = self.interact_core(preloads=preloads, trans_pause=trans_pause, pause=pause, pause_start=pause_start, pause_modal=pause_modal, **kwargs) # type: ignore
+  File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/display/core.py", line 4379, in interact_core
+    renpy.audio.audio.periodic()
+  File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/audio/audio.py", line 1224, in periodic
+    raise_(exc[0], exc[1], exc[2])
+  File "/home/tom/ab/renpy-build-fix/tmp/install.linux-x86_64/lib/python3.9/site-packages/future/utils/__init__.py", line 444, in raise_
+  File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/audio/audio.py", line 1202, in periodic_thread_main
+    periodic_pass()
+  File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/audio/audio.py", line 1144, in periodic_pass
+    c.periodic()
+  File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/audio/audio.py", line 534, in periodic
+    topf = load(filename)
+  File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/audio/audio.py", line 72, in load
+    rv = renpy.loader.load(fn, directory="audio")
+  File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/loader.py", line 833, in load
+    raise IOError("Couldn't find file '%s'." % name)
+OSError: Couldn't find file ''.
+
+While running game code:
+  File "game/script.rpy", line 536, in script call
+    call interstitial
+  File "game/script.rpy", line 605, in script call
+    call task_loop
+  File "game/script.rpy", line 536, in script call
+    call interstitial
+  File "game/script.rpy", line 605, in script call
+    call task_loop
+  File "game/script.rpy", line 536, in script call
+    call interstitial
+  File "game/script.rpy", line 588, in script
+    call screen dream(dream['text'], dream['buttons'])
+  File "renpy/common/000statements.rpy", line 670, in execute_call_screen
+    store._return = renpy.call_screen(name, *args, **kwargs)
+OSError: Couldn't find file ''.
+Resetting cache.
+Bootstrap to the start of init.init. took 247.48s
+Early init. took 0.00s
+Loader init. took 0.00s
+Loading error handling. took 0.01s
+Loading script. took 0.10s
+Loading save slot metadata. took 0.02s
+Loading persistent. took 0.00s
+day:  0
+Running init code. took 0.02s
+Loading analysis data. took 0.01s
+Analyze and compile ATL. took 0.00s
+Reloading save slot metadata. took 0.01s
+Index archives took 0.00s
+Backing up script files to '/home/brent/.renpy/backups/DataVille':
+Dump and make backups. took 0.04s
+Cleaning cache. took 0.00s
+Making clean stores. took 0.00s
+Initial gc. took 0.03s
+DPI scale factor: 1.000000
+Creating interface object. took 0.00s
+Cleaning stores took 0.00s
+Init translation took 0.04s
+Build styles took 0.00s
+Load screen analysis took 0.00s
+Analyze screens took 0.01s
+Save screen analysis took 0.02s
+Prepare screens took 0.06s
+Save pyanalysis. took 0.00s
+Save bytecode. took 0.01s
 Running _start took 0.00s
 Performance test:
 Interface start. took 0.04s
@@ -201,84 +466,739 @@ Version: b'4.6 (Compatibility Profile) Mesa 23.0.4-0ubuntu1~22.04.1'
 Display Info: None
 Screen sizes: virtual=(1920, 1080) physical=(2490, 1369) drawable=(2490, 1369)
 Maximum texture size: 4096x4096
-state:  {'earnings': 0, 'average_time': 0, 'total_time': 0, 'total_score': 0, 'approval_rate': 0}
+task:  {'type': 'binary_text', 'next_task': 'break', 'payment': '1200', 'instructions': 'This is a placeholder.', 'time': '10', 'correct_options': 'Y', 'text_block': 'Hit yes to get the money.'}
+perf rating at day start:  neutral
+task:  {'type': 'binary_text', 'next_task': 'break', 'payment': '1200', 'instructions': 'This is a placeholder.', 'time': '10', 'correct_options': 'Y', 'text_block': 'Hit yes to get the money.'}
+task:  break
+state:  {'earnings': 1200.0, 'average_time': 4.559999999999903, 'total_time': 4.559999999999903, 'total_score': 100, 'approval_rate': 100.0}
 average:  {'score': 70, 'time': 8, 'earnings': 1200}
-state:  {'earnings': 0, 'average_time': 0, 'total_time': 0, 'total_score': 0, 'approval_rate': 0}
-average:  {'score': 70, 'time': 8, 'earnings': 1200}
-state:  {'earnings': 0, 'average_time': 0, 'total_time': 0, 'total_score': 0, 'approval_rate': 0}
-average:  {'score': 70, 'time': 8, 'earnings': 1200}
-state:  {'earnings': 0, 'average_time': 0, 'total_time': 0, 'total_score': 0, 'approval_rate': 0}
-average:  {'score': 70, 'time': 8, 'earnings': 1200}
-state:  {'earnings': 0, 'average_time': 0, 'total_time': 0, 'total_score': 0, 'approval_rate': 0}
-average:  {'score': 70, 'time': 8, 'earnings': 1200}
-time string:  
-task:  {'type': 'binary_image', 'next_task': 'binary_image_task_2', 'payment': '200', 'instructions': 'Does this image contain a traffic light? Yes/No', 'time': '10', 'image_folder': 'binary_image_task_1', 'correct_options': 'N', 'has_ethical_option': 'N'}
-state:  {'earnings': 0, 'average_time': 0, 'total_time': 0, 'total_score': 0, 'approval_rate': 0}
-average:  {'score': 70, 'time': 8, 'earnings': 1200}
-state:  {'earnings': 0, 'average_time': 0, 'total_time': 0, 'total_score': 0, 'approval_rate': 0}
-average:  {'score': 70, 'time': 8, 'earnings': 1200}
-state:  {'earnings': 0, 'average_time': 0, 'total_time': 0, 'total_score': 0, 'approval_rate': 0}
-average:  {'score': 70, 'time': 8, 'earnings': 1200}
-state:  {'earnings': 0, 'average_time': 0, 'total_time': 0, 'total_score': 0, 'approval_rate': 0}
-average:  {'score': 70, 'time': 8, 'earnings': 1200}
-state:  {'earnings': 0, 'average_time': 0, 'total_time': 0, 'total_score': 0, 'approval_rate': 0}
-average:  {'score': 70, 'time': 8, 'earnings': 1200}
-state:  {'earnings': 0, 'average_time': 0, 'total_time': 0, 'total_score': 0, 'approval_rate': 0}
-average:  {'score': 70, 'time': 8, 'earnings': 1200}
-state:  {'earnings': 0, 'average_time': 0, 'total_time': 0, 'total_score': 0, 'approval_rate': 0}
-average:  {'score': 70, 'time': 8, 'earnings': 1200}
-state:  {'earnings': 0, 'average_time': 0, 'total_time': 0, 'total_score': 0, 'approval_rate': 0}
-average:  {'score': 70, 'time': 8, 'earnings': 1200}
-state:  {'earnings': 0, 'average_time': 0, 'total_time': 0, 'total_score': 0, 'approval_rate': 0}
-average:  {'score': 70, 'time': 8, 'earnings': 1200}
-state:  {'earnings': 0, 'average_time': 0, 'total_time': 0, 'total_score': 0, 'approval_rate': 0}
-average:  {'score': 70, 'time': 8, 'earnings': 1200}
-state:  {'earnings': 0, 'average_time': 0, 'total_time': 0, 'total_score': 0, 'approval_rate': 0}
-average:  {'score': 70, 'time': 8, 'earnings': 1200}
-state:  {'earnings': 0, 'average_time': 0, 'total_time': 0, 'total_score': 0, 'approval_rate': 0}
-average:  {'score': 70, 'time': 8, 'earnings': 1200}
-state:  {'earnings': 0, 'average_time': 0, 'total_time': 0, 'total_score': 0, 'approval_rate': 0}
-average:  {'score': 70, 'time': 8, 'earnings': 1200}
-state:  {'earnings': 0, 'average_time': 0, 'total_time': 0, 'total_score': 0, 'approval_rate': 0}
-average:  {'score': 70, 'time': 8, 'earnings': 1200}
-state:  {'earnings': 0, 'average_time': 0, 'total_time': 0, 'total_score': 0, 'approval_rate': 0}
-average:  {'score': 70, 'time': 8, 'earnings': 1200}
-state:  {'earnings': 0, 'average_time': 0, 'total_time': 0, 'total_score': 0, 'approval_rate': 0}
-average:  {'score': 70, 'time': 8, 'earnings': 1200}
-state:  {'earnings': 0, 'average_time': 0, 'total_time': 0, 'total_score': 0, 'approval_rate': 0}
-average:  {'score': 70, 'time': 8, 'earnings': 1200}
-state:  {'earnings': 0, 'average_time': 0, 'total_time': 0, 'total_score': 0, 'approval_rate': 0}
-average:  {'score': 70, 'time': 8, 'earnings': 1200}
-state:  {'earnings': 0, 'average_time': 0, 'total_time': 0, 'total_score': 0, 'approval_rate': 0}
-average:  {'score': 70, 'time': 8, 'earnings': 1200}
-state:  {'earnings': 0, 'average_time': 0, 'total_time': 0, 'total_score': 0, 'approval_rate': 0}
-average:  {'score': 70, 'time': 8, 'earnings': 1200}
-time string:  
-task:  {'type': 'binary_image', 'next_task': 'binary_image_task_2', 'payment': '200', 'instructions': 'Does this image contain a traffic light? Yes/No', 'time': '10', 'image_folder': 'binary_image_task_1', 'correct_options': 'N', 'has_ethical_option': 'N'}
-state:  {'earnings': 0, 'average_time': 0, 'total_time': 0, 'total_score': 0, 'approval_rate': 0}
-average:  {'score': 70, 'time': 8, 'earnings': 1200}
-state:  {'earnings': 0, 'average_time': 0, 'total_time': 0, 'total_score': 0, 'approval_rate': 0}
-average:  {'score': 70, 'time': 8, 'earnings': 1200}
-state:  {'earnings': 0, 'average_time': 0, 'total_time': 0, 'total_score': 0, 'approval_rate': 0}
-average:  {'score': 70, 'time': 8, 'earnings': 1200}
-state:  {'earnings': 0, 'average_time': 0, 'total_time': 0, 'total_score': 0, 'approval_rate': 0}
-average:  {'score': 70, 'time': 8, 'earnings': 1200}
-state:  {'earnings': 0, 'average_time': 0, 'total_time': 0, 'total_score': 0, 'approval_rate': 0}
-average:  {'score': 70, 'time': 8, 'earnings': 1200}
-time string:  end
-task:  {'type': 'binary_image', 'next_task': 'binary_image_task_2', 'payment': '200', 'instructions': 'Does this image contain a traffic light? Yes/No', 'time': '10', 'image_folder': 'binary_image_task_1', 'correct_options': 'N', 'has_ethical_option': 'N'}
-state:  {'earnings': 0, 'average_time': 0, 'total_time': 0, 'total_score': 0, 'approval_rate': 0}
-average:  {'score': 70, 'time': 8, 'earnings': 1200}
-state:  {'earnings': 0, 'average_time': 0, 'total_time': 0, 'total_score': 0, 'approval_rate': 0}
-average:  {'score': 70, 'time': 8, 'earnings': 1200}
-state:  {'earnings': 0, 'average_time': 0, 'total_time': 0, 'total_score': 0, 'approval_rate': 0}
+buttons:  ['Off to a rough start.']
+state:  {'earnings': 1200.0, 'average_time': 4.559999999999903, 'total_time': 4.559999999999903, 'total_score': 100, 'approval_rate': 100.0}
 average:  {'score': 70, 'time': 8, 'earnings': 1200}
 buttons:  ['Off to a rough start.']
 buttons:  ['Off to a rough start.']
-buttons:  None
-buttons:  None
+buttons:  ['Off to a rough start.']
+perf rating:  bad
+apartment data:  {'apartment_background': '1', 'sticky_note': [{'performance': 'default', 'time': 'start', 'buttons': None, 'event_flag': '', 'text': '-Mitten vet appointment'}, {'performance': 'default', 'time': 'start', 'buttons': None, 'event_flag': '', 'text': '-Call mom back'}, {'performance': 'default', 'time': 'start', 'buttons': None, 'event_flag': '', 'text': '-Pay rent'}, {'performance': 'default', 'time': 'start', 'buttons': None, 'event_flag': '', 'text': '-Trash day'}], 'news': [{'performance': 'default', 'time': 'start', 'buttons': None, 'event_flag': '', 'text': 'Aliens among us!', 'image': 'images/room/tv_content/kiss.png'}, {'performance': 'default', 'time': 'start', 'buttons': None, 'event_flag': '', 'text': 'Gig Economy Expected to Continue Growing', 'image': 'images/room/tv_content/kiss.png'}, {'performance': 'default', 'time': 'start', 'buttons': None, 'event_flag': '', 'text': 'Scientist: visitors’ camouflage abilities greater than previously believed.', 'image': 'images/placeholder.png'}, {'performance': 'default', 'time': 'start', 'buttons': None, 'event_flag': '', 'text': 'Cleveland zoo welcomes birth of new pandas.', 'image': 'images/placeholder.png'}, {'performance': 'default', 'time': 'start', 'buttons': None, 'event_flag': '', 'text': 'Experts testify before congress on illegal aliens.', 'image': 'images/placeholder.png'}, {'performance': 'default', 'time': 'start', 'buttons': None, 'event_flag': '', 'text': 'Official opening of Montana resettlement zone', 'image': 'images/placeholder.png'}, {'performance': 'default', 'time': 'start', 'buttons': None, 'event_flag': '', 'text': 'White collar unemployment hits new level.', 'image': 'images/placeholder.png'}, {'performance': 'default', 'time': 'end', 'buttons': None, 'event_flag': '', 'text': 'Senator proposes ‘Resettlement Zone’ for alien migrants.', 'image': 'images/placeholder.png'}, {'performance': 'default', 'time': 'end', 'buttons': None, 'event_flag': '', 'text': 'AI blamed for new white collar unemployment figures.', 'image': 'images/placeholder.png'}, {'performance': 'default', 'time': 'end', 'buttons': None, 'event_flag': '', 'text': 'Congress tackles the question of alien rights.', 'image': 'images/placeholder.png'}, {'performance': 'default', 'time': 'end', 'buttons': None, 'event_flag': '', 'text': 'Chef Tony’s wows DC diners!', 'image': 'images/placeholder.png'}, {'performance': 'default', 'time': 'end', 'buttons': None, 'event_flag': '', 'text': 'Exclusive: celebrity weight loss secret.', 'image': 'images/placeholder.png'}], 'message': [{'performance': 'default', 'time': 'start', 'buttons': None, 'event_flag': '', 'text': 'Alex T Manager @ DataVille\nSubject: Orientation\n\nCongratulations on your new position as:\nImage Labeler / Annotator \n\nWe look forward to working with you. Utilize your natural instincts, perspective and humanity. \n\nHappy labeling! \n-Alex T', 'sender': 'supervisor'}, {'performance': 'default', 'time': 'start', 'buttons': ['Thanks, Cogni', 'Ugh. I hate AI.'], 'event_flag': '', 'text': 'And I’m your automated helper, COGNI! \nI’m here to assist you!\n\nRemember these simple directions:\nAnswer the questions quickly. \nAnswer the questions accurately. \nLabelers with the high ratings/speed will receive incentive bonuses!', 'sender': 'cogni'}, {'performance': 'default', 'time': 'start', 'buttons': None, 'event_flag': '', 'text': 'Here’s a practice run to get you started!', 'sender': 'cogni'}, {'performance': 'good', 'time': 'end', 'buttons': ['Off to a great start!'], 'event_flag': '', 'text': 'That was fantastic! Keep up the great work!\nYou’re a great fit with our company values!', 'sender': 'cogni'}, {'performance': 'neutral', 'time': 'end', 'buttons': ['Off to a great start!'], 'event_flag': '', 'text': 'Your performance so far is average.\n\nKeep our company values in mind going forward!', 'sender': 'cogni'}, {'performance': 'bad', 'time': 'end', 'buttons': ['Off to a rough start.'], 'event_flag': '', 'text': 'That wasn’t very good! Be sure to try your best! \nTry your best to align with our company’s values.', 'sender': 'cogni'}, {'performance': 'flag_dependent', 'time': 'end', 'buttons': None, 'event_flag': 'ethical_event_flag_1', 'text': 'You were so ethical today!', 'sender': 'cogni'}, {'performance': 'flag_dependent', 'time': 'end', 'buttons': None, 'event_flag': 'correct_event_flag_1', 'text': 'Good job not letting your ethics get the best of you.', 'sender': 'cogni'}], 'window_background': 'images/window/city_scape.png', 'button_text': 'Go to work!', 'dream': [{'performance': '', 'time': 'start', 'buttons': ['My career is my passion!', "I'm just looking for a paycheck."], 'event_flag': '', 'text': 'Do you have strong career goals?'}, {'performance': '', 'time': 'start', 'buttons': ['I want to be a part of something!', 'People make me nervous.'], 'event_flag': '', 'text': 'Do you want to be a part of a vibrant community?'}, {'performance': '', 'time': 'start', 'buttons': ['Where do I sign up?', 'No thanks.'], 'event_flag': '', 'text': 'Do you want to make the world a safer place?'}, {'performance': '', 'time': '', 'buttons': ['But I’m going to try my best!', 'I’ll muddle through for the money.'], 'event_flag': '', 'text': 'This new job is tough.'}, {'performance': '', 'time': '', 'buttons': ['But at least my boss seems cool!', 'Something is suspicious.'], 'event_flag': '', 'text': 'I’m not sure how I feel about my company.'}]}
+time:  end
+calling dream:  {'performance': '', 'time': '', 'buttons': ['But I’m going to try my best!', 'I’ll muddle through for the money.'], 'event_flag': '', 'text': 'This new job is tough.'}
+
+Full traceback:
+  File "game/script.rpy", line 536, in script call
+    call interstitial
+  File "game/script.rpy", line 605, in script call
+    call task_loop
+  File "game/script.rpy", line 536, in script call
+    call interstitial
+  File "game/script.rpy", line 605, in script call
+    call task_loop
+  File "game/script.rpy", line 536, in script call
+    call interstitial
+  File "game/script.rpy", line 605, in script call
+    call task_loop
+  File "game/script.rpy", line 536, in script call
+    call interstitial
+  File "game/script.rpy", line 588, in script
+    call screen dream(dream['text'], dream['buttons'])
+  File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/ast.py", line 2259, in execute
+    self.call("execute")
+  File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/ast.py", line 2241, in call
+    return renpy.statements.call(method, parsed, *args, **kwargs)
+  File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/statements.py", line 342, in call
+    return method(parsed, *args, **kwargs)
+  File "renpy/common/000statements.rpy", line 670, in execute_call_screen
+    store._return = renpy.call_screen(name, *args, **kwargs)
+  File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/exports.py", line 3347, in call_screen
+    rv = renpy.ui.interact(mouse="screen", type="screen", roll_forward=roll_forward)
+  File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/ui.py", line 299, in interact
+    rv = renpy.game.interface.interact(roll_forward=roll_forward, **kwargs)
+  File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/display/core.py", line 3582, in interact
+    repeat, rv = self.interact_core(preloads=preloads, trans_pause=trans_pause, pause=pause, pause_start=pause_start, pause_modal=pause_modal, **kwargs) # type: ignore
+  File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/display/core.py", line 4379, in interact_core
+    renpy.audio.audio.periodic()
+  File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/audio/audio.py", line 1224, in periodic
+    raise_(exc[0], exc[1], exc[2])
+  File "/home/tom/ab/renpy-build-fix/tmp/install.linux-x86_64/lib/python3.9/site-packages/future/utils/__init__.py", line 444, in raise_
+  File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/audio/audio.py", line 1202, in periodic_thread_main
+    periodic_pass()
+  File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/audio/audio.py", line 1144, in periodic_pass
+    c.periodic()
+  File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/audio/audio.py", line 534, in periodic
+    topf = load(filename)
+  File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/audio/audio.py", line 72, in load
+    rv = renpy.loader.load(fn, directory="audio")
+  File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/loader.py", line 833, in load
+    raise IOError("Couldn't find file '%s'." % name)
+OSError: Couldn't find file ''.
+
+While running game code:
+  File "game/script.rpy", line 536, in script call
+    call interstitial
+  File "game/script.rpy", line 605, in script call
+    call task_loop
+  File "game/script.rpy", line 536, in script call
+    call interstitial
+  File "game/script.rpy", line 605, in script call
+    call task_loop
+  File "game/script.rpy", line 536, in script call
+    call interstitial
+  File "game/script.rpy", line 605, in script call
+    call task_loop
+  File "game/script.rpy", line 536, in script call
+    call interstitial
+  File "game/script.rpy", line 588, in script
+    call screen dream(dream['text'], dream['buttons'])
+  File "renpy/common/000statements.rpy", line 670, in execute_call_screen
+    store._return = renpy.call_screen(name, *args, **kwargs)
+OSError: Couldn't find file ''.
 Resetting cache.
-Bootstrap to the start of init.init. took 307.44s
+Bootstrap to the start of init.init. took 309.70s
+Early init. took 0.00s
+Loader init. took 0.00s
+Loading error handling. took 0.01s
+Loading script. took 0.11s
+Loading save slot metadata. took 0.01s
+Loading persistent. took 0.00s
+day:  0
+Running init code. took 0.02s
+Loading analysis data. took 0.01s
+Analyze and compile ATL. took 0.00s
+Reloading save slot metadata. took 0.01s
+Index archives took 0.00s
+Backing up script files to '/home/brent/.renpy/backups/DataVille':
+Dump and make backups. took 0.04s
+Cleaning cache. took 0.00s
+Making clean stores. took 0.00s
+Initial gc. took 0.03s
+DPI scale factor: 1.000000
+Creating interface object. took 0.00s
+Cleaning stores took 0.00s
+Init translation took 0.03s
+Build styles took 0.00s
+Load screen analysis took 0.00s
+Analyze screens took 0.01s
+Save screen analysis took 0.02s
+Prepare screens took 0.06s
+Save pyanalysis. took 0.00s
+Save bytecode. took 0.01s
+Running _start took 0.00s
+Performance test:
+Interface start. took 0.05s
+
+Initializing gl2 renderer:
+primary display bounds: (1920, 0, 2560, 1440)
+swap interval: 1 frames
+Windowed mode.
+Vendor: "b'Intel'"
+Renderer: b'Mesa Intel(R) UHD Graphics (CML GT2)'
+Version: b'4.6 (Compatibility Profile) Mesa 23.0.4-0ubuntu1~22.04.1'
+Display Info: None
+Screen sizes: virtual=(1920, 1080) physical=(2490, 1369) drawable=(2490, 1369)
+Maximum texture size: 4096x4096
+task:  {'type': 'binary_text', 'next_task': 'break', 'payment': '1200', 'instructions': 'This is a placeholder.', 'time': '10', 'correct_options': 'Y', 'text_block': 'Hit yes to get the money.'}
+perf rating at day start:  neutral
+task:  {'type': 'binary_text', 'next_task': 'break', 'payment': '1200', 'instructions': 'This is a placeholder.', 'time': '10', 'correct_options': 'Y', 'text_block': 'Hit yes to get the money.'}
+task:  break
+state:  {'earnings': 1200.0, 'average_time': 10.009999999999831, 'total_time': 10.009999999999831, 'total_score': 100, 'approval_rate': 100.0}
+average:  {'score': 70, 'time': 8, 'earnings': 1200}
+buttons:  ['Off to a rough start.']
+state:  {'earnings': 1200.0, 'average_time': 10.009999999999831, 'total_time': 10.009999999999831, 'total_score': 100, 'approval_rate': 100.0}
+average:  {'score': 70, 'time': 8, 'earnings': 1200}
+buttons:  ['Off to a rough start.']
+buttons:  ['Off to a rough start.']
+buttons:  ['Off to a rough start.']
+perf rating:  bad
+apartment data:  {'apartment_background': '1', 'sticky_note': [{'performance': 'default', 'time': 'start', 'buttons': None, 'event_flag': '', 'text': '-Mitten vet appointment'}, {'performance': 'default', 'time': 'start', 'buttons': None, 'event_flag': '', 'text': '-Call mom back'}, {'performance': 'default', 'time': 'start', 'buttons': None, 'event_flag': '', 'text': '-Pay rent'}, {'performance': 'default', 'time': 'start', 'buttons': None, 'event_flag': '', 'text': '-Trash day'}], 'news': [{'performance': 'default', 'time': 'start', 'buttons': None, 'event_flag': '', 'text': 'Aliens among us!', 'image': 'images/room/tv_content/kiss.png'}, {'performance': 'default', 'time': 'start', 'buttons': None, 'event_flag': '', 'text': 'Gig Economy Expected to Continue Growing', 'image': 'images/room/tv_content/kiss.png'}, {'performance': 'default', 'time': 'start', 'buttons': None, 'event_flag': '', 'text': 'Scientist: visitors’ camouflage abilities greater than previously believed.', 'image': 'images/placeholder.png'}, {'performance': 'default', 'time': 'start', 'buttons': None, 'event_flag': '', 'text': 'Cleveland zoo welcomes birth of new pandas.', 'image': 'images/placeholder.png'}, {'performance': 'default', 'time': 'start', 'buttons': None, 'event_flag': '', 'text': 'Experts testify before congress on illegal aliens.', 'image': 'images/placeholder.png'}, {'performance': 'default', 'time': 'start', 'buttons': None, 'event_flag': '', 'text': 'Official opening of Montana resettlement zone', 'image': 'images/placeholder.png'}, {'performance': 'default', 'time': 'start', 'buttons': None, 'event_flag': '', 'text': 'White collar unemployment hits new level.', 'image': 'images/placeholder.png'}, {'performance': 'default', 'time': 'end', 'buttons': None, 'event_flag': '', 'text': 'Senator proposes ‘Resettlement Zone’ for alien migrants.', 'image': 'images/placeholder.png'}, {'performance': 'default', 'time': 'end', 'buttons': None, 'event_flag': '', 'text': 'AI blamed for new white collar unemployment figures.', 'image': 'images/placeholder.png'}, {'performance': 'default', 'time': 'end', 'buttons': None, 'event_flag': '', 'text': 'Congress tackles the question of alien rights.', 'image': 'images/placeholder.png'}, {'performance': 'default', 'time': 'end', 'buttons': None, 'event_flag': '', 'text': 'Chef Tony’s wows DC diners!', 'image': 'images/placeholder.png'}, {'performance': 'default', 'time': 'end', 'buttons': None, 'event_flag': '', 'text': 'Exclusive: celebrity weight loss secret.', 'image': 'images/placeholder.png'}], 'message': [{'performance': 'default', 'time': 'start', 'buttons': None, 'event_flag': '', 'text': 'Alex T Manager @ DataVille\nSubject: Orientation\n\nCongratulations on your new position as:\nImage Labeler / Annotator \n\nWe look forward to working with you. Utilize your natural instincts, perspective and humanity. \n\nHappy labeling! \n-Alex T', 'sender': 'supervisor'}, {'performance': 'default', 'time': 'start', 'buttons': ['Thanks, Cogni', 'Ugh. I hate AI.'], 'event_flag': '', 'text': 'And I’m your automated helper, COGNI! \nI’m here to assist you!\n\nRemember these simple directions:\nAnswer the questions quickly. \nAnswer the questions accurately. \nLabelers with the high ratings/speed will receive incentive bonuses!', 'sender': 'cogni'}, {'performance': 'default', 'time': 'start', 'buttons': None, 'event_flag': '', 'text': 'Here’s a practice run to get you started!', 'sender': 'cogni'}, {'performance': 'good', 'time': 'end', 'buttons': ['Off to a great start!'], 'event_flag': '', 'text': 'That was fantastic! Keep up the great work!\nYou’re a great fit with our company values!', 'sender': 'cogni'}, {'performance': 'neutral', 'time': 'end', 'buttons': ['Off to a great start!'], 'event_flag': '', 'text': 'Your performance so far is average.\n\nKeep our company values in mind going forward!', 'sender': 'cogni'}, {'performance': 'bad', 'time': 'end', 'buttons': ['Off to a rough start.'], 'event_flag': '', 'text': 'That wasn’t very good! Be sure to try your best! \nTry your best to align with our company’s values.', 'sender': 'cogni'}, {'performance': 'flag_dependent', 'time': 'end', 'buttons': None, 'event_flag': 'ethical_event_flag_1', 'text': 'You were so ethical today!', 'sender': 'cogni'}, {'performance': 'flag_dependent', 'time': 'end', 'buttons': None, 'event_flag': 'correct_event_flag_1', 'text': 'Good job not letting your ethics get the best of you.', 'sender': 'cogni'}], 'window_background': 'images/window/city_scape.png', 'button_text': 'Go to work!', 'dream': [{'performance': '', 'time': 'start', 'buttons': ['My career is my passion!', "I'm just looking for a paycheck."], 'event_flag': '', 'text': 'Do you have strong career goals?'}, {'performance': '', 'time': 'start', 'buttons': ['I want to be a part of something!', 'People make me nervous.'], 'event_flag': '', 'text': 'Do you want to be a part of a vibrant community?'}, {'performance': '', 'time': 'start', 'buttons': ['Where do I sign up?', 'No thanks.'], 'event_flag': '', 'text': 'Do you want to make the world a safer place?'}, {'performance': '', 'time': '', 'buttons': ['But I’m going to try my best!', 'I’ll muddle through for the money.'], 'event_flag': '', 'text': 'This new job is tough.'}, {'performance': '', 'time': '', 'buttons': ['But at least my boss seems cool!', 'Something is suspicious.'], 'event_flag': '', 'text': 'I’m not sure how I feel about my company.'}]}
+time:  end
+calling dream:  {'performance': '', 'time': '', 'buttons': ['But I’m going to try my best!', 'I’ll muddle through for the money.'], 'event_flag': '', 'text': 'This new job is tough.'}
+
+Full traceback:
+  File "game/script.rpy", line 536, in script call
+    call interstitial
+  File "game/script.rpy", line 606, in script call
+    call task_loop
+  File "game/script.rpy", line 536, in script call
+    call interstitial
+  File "game/script.rpy", line 606, in script call
+    call task_loop
+  File "game/script.rpy", line 536, in script call
+    call interstitial
+  File "game/script.rpy", line 606, in script call
+    call task_loop
+  File "game/script.rpy", line 536, in script call
+    call interstitial
+  File "game/script.rpy", line 606, in script call
+    call task_loop
+  File "game/script.rpy", line 536, in script call
+    call interstitial
+  File "game/script.rpy", line 588, in script
+    call screen dream(dream['text'], dream['buttons'])
+  File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/ast.py", line 2259, in execute
+    self.call("execute")
+  File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/ast.py", line 2241, in call
+    return renpy.statements.call(method, parsed, *args, **kwargs)
+  File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/statements.py", line 342, in call
+    return method(parsed, *args, **kwargs)
+  File "renpy/common/000statements.rpy", line 670, in execute_call_screen
+    store._return = renpy.call_screen(name, *args, **kwargs)
+  File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/exports.py", line 3347, in call_screen
+    rv = renpy.ui.interact(mouse="screen", type="screen", roll_forward=roll_forward)
+  File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/ui.py", line 299, in interact
+    rv = renpy.game.interface.interact(roll_forward=roll_forward, **kwargs)
+  File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/display/core.py", line 3582, in interact
+    repeat, rv = self.interact_core(preloads=preloads, trans_pause=trans_pause, pause=pause, pause_start=pause_start, pause_modal=pause_modal, **kwargs) # type: ignore
+  File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/display/core.py", line 4379, in interact_core
+    renpy.audio.audio.periodic()
+  File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/audio/audio.py", line 1224, in periodic
+    raise_(exc[0], exc[1], exc[2])
+  File "/home/tom/ab/renpy-build-fix/tmp/install.linux-x86_64/lib/python3.9/site-packages/future/utils/__init__.py", line 444, in raise_
+  File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/audio/audio.py", line 1202, in periodic_thread_main
+    periodic_pass()
+  File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/audio/audio.py", line 1144, in periodic_pass
+    c.periodic()
+  File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/audio/audio.py", line 534, in periodic
+    topf = load(filename)
+  File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/audio/audio.py", line 72, in load
+    rv = renpy.loader.load(fn, directory="audio")
+  File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/loader.py", line 833, in load
+    raise IOError("Couldn't find file '%s'." % name)
+OSError: Couldn't find file ''.
+
+While running game code:
+  File "game/script.rpy", line 536, in script call
+    call interstitial
+  File "game/script.rpy", line 606, in script call
+    call task_loop
+  File "game/script.rpy", line 536, in script call
+    call interstitial
+  File "game/script.rpy", line 606, in script call
+    call task_loop
+  File "game/script.rpy", line 536, in script call
+    call interstitial
+  File "game/script.rpy", line 606, in script call
+    call task_loop
+  File "game/script.rpy", line 536, in script call
+    call interstitial
+  File "game/script.rpy", line 606, in script call
+    call task_loop
+  File "game/script.rpy", line 536, in script call
+    call interstitial
+  File "game/script.rpy", line 588, in script
+    call screen dream(dream['text'], dream['buttons'])
+  File "renpy/common/000statements.rpy", line 670, in execute_call_screen
+    store._return = renpy.call_screen(name, *args, **kwargs)
+OSError: Couldn't find file ''.
+Resetting cache.
+Bootstrap to the start of init.init. took 373.81s
+Early init. took 0.00s
+Loader init. took 0.00s
+Loading error handling. took 0.01s
+Loading script. took 0.12s
+Loading save slot metadata. took 0.01s
+Loading persistent. took 0.00s
+day:  0
+Running init code. took 0.02s
+Loading analysis data. took 0.01s
+Analyze and compile ATL. took 0.00s
+Reloading save slot metadata. took 0.01s
+Index archives took 0.00s
+Backing up script files to '/home/brent/.renpy/backups/DataVille':
+Dump and make backups. took 0.04s
+Cleaning cache. took 0.00s
+Making clean stores. took 0.00s
+Initial gc. took 0.04s
+DPI scale factor: 1.000000
+Creating interface object. took 0.00s
+Cleaning stores took 0.00s
+Init translation took 0.03s
+Build styles took 0.00s
+Load screen analysis took 0.00s
+Analyze screens took 0.01s
+Save screen analysis took 0.02s
+Prepare screens took 0.06s
+Save pyanalysis. took 0.00s
+Save bytecode. took 0.01s
+Running _start took 0.00s
+Performance test:
+Interface start. took 0.04s
+
+Initializing gl2 renderer:
+primary display bounds: (1920, 0, 2560, 1440)
+swap interval: 1 frames
+Windowed mode.
+Vendor: "b'Intel'"
+Renderer: b'Mesa Intel(R) UHD Graphics (CML GT2)'
+Version: b'4.6 (Compatibility Profile) Mesa 23.0.4-0ubuntu1~22.04.1'
+Display Info: None
+Screen sizes: virtual=(1920, 1080) physical=(2490, 1369) drawable=(2490, 1369)
+Maximum texture size: 4096x4096
+task:  {'type': 'binary_text', 'next_task': 'break', 'payment': '1200', 'instructions': 'This is a placeholder.', 'time': '10', 'correct_options': 'Y', 'text_block': 'Hit yes to get the money.'}
+perf rating at day start:  neutral
+task:  {'type': 'binary_text', 'next_task': 'break', 'payment': '1200', 'instructions': 'This is a placeholder.', 'time': '10', 'correct_options': 'Y', 'text_block': 'Hit yes to get the money.'}
+task:  break
+state:  {'earnings': 1200.0, 'average_time': 10.009999999999831, 'total_time': 10.009999999999831, 'total_score': 100, 'approval_rate': 100.0}
+average:  {'score': 70, 'time': 8, 'earnings': 1200}
+buttons:  ['Off to a rough start.']
+state:  {'earnings': 1200.0, 'average_time': 10.009999999999831, 'total_time': 10.009999999999831, 'total_score': 100, 'approval_rate': 100.0}
+average:  {'score': 70, 'time': 8, 'earnings': 1200}
+buttons:  ['Off to a rough start.']
+buttons:  ['Off to a rough start.']
+buttons:  ['Off to a rough start.']
+perf rating:  bad
+apartment data:  {'apartment_background': '1', 'sticky_note': [{'performance': 'default', 'time': 'start', 'buttons': None, 'event_flag': '', 'text': '-Mitten vet appointment'}, {'performance': 'default', 'time': 'start', 'buttons': None, 'event_flag': '', 'text': '-Call mom back'}, {'performance': 'default', 'time': 'start', 'buttons': None, 'event_flag': '', 'text': '-Pay rent'}, {'performance': 'default', 'time': 'start', 'buttons': None, 'event_flag': '', 'text': '-Trash day'}], 'news': [{'performance': 'default', 'time': 'start', 'buttons': None, 'event_flag': '', 'text': 'Aliens among us!', 'image': 'images/room/tv_content/kiss.png'}, {'performance': 'default', 'time': 'start', 'buttons': None, 'event_flag': '', 'text': 'Gig Economy Expected to Continue Growing', 'image': 'images/room/tv_content/kiss.png'}, {'performance': 'default', 'time': 'start', 'buttons': None, 'event_flag': '', 'text': 'Scientist: visitors’ camouflage abilities greater than previously believed.', 'image': 'images/placeholder.png'}, {'performance': 'default', 'time': 'start', 'buttons': None, 'event_flag': '', 'text': 'Cleveland zoo welcomes birth of new pandas.', 'image': 'images/placeholder.png'}, {'performance': 'default', 'time': 'start', 'buttons': None, 'event_flag': '', 'text': 'Experts testify before congress on illegal aliens.', 'image': 'images/placeholder.png'}, {'performance': 'default', 'time': 'start', 'buttons': None, 'event_flag': '', 'text': 'Official opening of Montana resettlement zone', 'image': 'images/placeholder.png'}, {'performance': 'default', 'time': 'start', 'buttons': None, 'event_flag': '', 'text': 'White collar unemployment hits new level.', 'image': 'images/placeholder.png'}, {'performance': 'default', 'time': 'end', 'buttons': None, 'event_flag': '', 'text': 'Senator proposes ‘Resettlement Zone’ for alien migrants.', 'image': 'images/placeholder.png'}, {'performance': 'default', 'time': 'end', 'buttons': None, 'event_flag': '', 'text': 'AI blamed for new white collar unemployment figures.', 'image': 'images/placeholder.png'}, {'performance': 'default', 'time': 'end', 'buttons': None, 'event_flag': '', 'text': 'Congress tackles the question of alien rights.', 'image': 'images/placeholder.png'}, {'performance': 'default', 'time': 'end', 'buttons': None, 'event_flag': '', 'text': 'Chef Tony’s wows DC diners!', 'image': 'images/placeholder.png'}, {'performance': 'default', 'time': 'end', 'buttons': None, 'event_flag': '', 'text': 'Exclusive: celebrity weight loss secret.', 'image': 'images/placeholder.png'}], 'message': [{'performance': 'default', 'time': 'start', 'buttons': None, 'event_flag': '', 'text': 'Alex T Manager @ DataVille\nSubject: Orientation\n\nCongratulations on your new position as:\nImage Labeler / Annotator \n\nWe look forward to working with you. Utilize your natural instincts, perspective and humanity. \n\nHappy labeling! \n-Alex T', 'sender': 'supervisor'}, {'performance': 'default', 'time': 'start', 'buttons': ['Thanks, Cogni', 'Ugh. I hate AI.'], 'event_flag': '', 'text': 'And I’m your automated helper, COGNI! \nI’m here to assist you!\n\nRemember these simple directions:\nAnswer the questions quickly. \nAnswer the questions accurately. \nLabelers with the high ratings/speed will receive incentive bonuses!', 'sender': 'cogni'}, {'performance': 'default', 'time': 'start', 'buttons': None, 'event_flag': '', 'text': 'Here’s a practice run to get you started!', 'sender': 'cogni'}, {'performance': 'good', 'time': 'end', 'buttons': ['Off to a great start!'], 'event_flag': '', 'text': 'That was fantastic! Keep up the great work!\nYou’re a great fit with our company values!', 'sender': 'cogni'}, {'performance': 'neutral', 'time': 'end', 'buttons': ['Off to a great start!'], 'event_flag': '', 'text': 'Your performance so far is average.\n\nKeep our company values in mind going forward!', 'sender': 'cogni'}, {'performance': 'bad', 'time': 'end', 'buttons': ['Off to a rough start.'], 'event_flag': '', 'text': 'That wasn’t very good! Be sure to try your best! \nTry your best to align with our company’s values.', 'sender': 'cogni'}, {'performance': 'flag_dependent', 'time': 'end', 'buttons': None, 'event_flag': 'ethical_event_flag_1', 'text': 'You were so ethical today!', 'sender': 'cogni'}, {'performance': 'flag_dependent', 'time': 'end', 'buttons': None, 'event_flag': 'correct_event_flag_1', 'text': 'Good job not letting your ethics get the best of you.', 'sender': 'cogni'}], 'window_background': 'images/window/city_scape.png', 'button_text': 'Go to work!', 'dream': [{'performance': '', 'time': 'start', 'buttons': ['My career is my passion!', "I'm just looking for a paycheck."], 'event_flag': '', 'text': 'Do you have strong career goals?'}, {'performance': '', 'time': 'start', 'buttons': ['I want to be a part of something!', 'People make me nervous.'], 'event_flag': '', 'text': 'Do you want to be a part of a vibrant community?'}, {'performance': '', 'time': 'start', 'buttons': ['Where do I sign up?', 'No thanks.'], 'event_flag': '', 'text': 'Do you want to make the world a safer place?'}, {'performance': '', 'time': '', 'buttons': ['But I’m going to try my best!', 'I’ll muddle through for the money.'], 'event_flag': '', 'text': 'This new job is tough.'}, {'performance': '', 'time': '', 'buttons': ['But at least my boss seems cool!', 'Something is suspicious.'], 'event_flag': '', 'text': 'I’m not sure how I feel about my company.'}]}
+time:  end
+calling dream:  {'performance': '', 'time': '', 'buttons': ['But I’m going to try my best!', 'I’ll muddle through for the money.'], 'event_flag': '', 'text': 'This new job is tough.'}
+calling dream:  {'performance': '', 'time': '', 'buttons': ['But at least my boss seems cool!', 'Something is suspicious.'], 'event_flag': '', 'text': 'I’m not sure how I feel about my company.'}
+day:  1
+perf rating:  bad
+apartment data:  {'apartment_background': '1', 'sticky_note': [{'performance': 'default', 'time': 'start', 'buttons': None, 'text': '-Mitten vet appointment'}, {'performance': 'default', 'time': 'start', 'buttons': None, 'text': '-Call mom back'}, {'performance': 'default', 'time': 'start', 'buttons': None, 'text': '-Pay rent'}, {'performance': 'default', 'time': 'start', 'buttons': None, 'text': '-Trash day'}], 'news': [{'performance': 'default', 'time': 'start', 'buttons': None, 'text': 'Gig Economy Expected to Continue Growing', 'image': 'images/placeholder.png'}, {'performance': 'default', 'time': 'start', 'buttons': None, 'text': 'Scientist: visitors’ camouflage abilities greater than previously believed.', 'image': 'images/placeholder.png'}, {'performance': 'default', 'time': 'start', 'buttons': None, 'text': 'Cleveland zoo welcomes birth of new pandas.', 'image': 'images/placeholder.png'}, {'performance': 'default', 'time': 'start', 'buttons': None, 'text': 'Experts testify before congress on illegal aliens.', 'image': 'images/placeholder.png'}, {'performance': 'default', 'time': 'start', 'buttons': None, 'text': 'Official opening of Montana resettlement zone', 'image': 'images/placeholder.png'}, {'performance': 'default', 'time': 'start', 'buttons': None, 'text': 'White collar unemployment hits new level.', 'image': 'images/placeholder.png'}, {'performance': 'default', 'time': 'end', 'buttons': None, 'text': 'Immigration Reforms Stalls in Congress Over Illegal Aliens.', 'image': 'images/placeholder.png'}, {'performance': 'default', 'time': 'end', 'buttons': None, 'text': 'Oldest woman alive turns 118', 'image': 'images/placeholder.png'}, {'performance': 'default', 'time': 'end', 'buttons': None, 'text': 'AI blamed for New White Collar Unemployment Figures.', 'image': 'images/placeholder.png'}, {'performance': 'default', 'time': 'end', 'buttons': None, 'text': 'Tragedy in Montana Resettlement Zone', 'image': 'images/placeholder.png'}], 'message': [{'performance': 'default', 'time': 'start', 'buttons': None, 'text': 'Alex T Manager @ DataVille\nSubject: Orientation\n\nCongratulations on your new position as:\nImage Labeler / Annotator \n\nWe look forward to working with you. Utilize your natural instincts, perspective and humanity. \n\nHappy labeling! \n-Alex T', 'sender': 'supervisor'}, {'performance': 'default', 'time': 'start', 'buttons': ['Thanks, Cogni', 'Ugh. I hate AI.'], 'text': 'And I’m your automated helper, COGNI! \nI’m here to assist you!\n\nRemember these simple directions:\nAnswer the questions quickly. \nAnswer the questions accurately. \nLabelers with the high ratings/speed will receive incentive bonuses!', 'sender': 'cogni'}, {'performance': 'default', 'time': 'start', 'buttons': None, 'text': 'Here’s a practice run to get you started!', 'sender': 'cogni'}, {'performance': 'good', 'time': 'end', 'buttons': ['Off to a great start!'], 'text': '“That was fantastic! Keep up the great work!\nHumanity is counting on you!”', 'sender': ''}, {'performance': 'bad', 'time': '', 'buttons': ['Off to a rough start.'], 'text': 'That wasn’t very good! Be sure to try your best! \nRemember, humanity is counting on you!', 'sender': ''}], 'window_background': 'images/window/city_scape.png', 'button_text': 'Go to work!', 'dream': []}
+time:  start
+
+Full traceback:
+  File "game/script.rpy", line 536, in script call
+    call interstitial
+  File "game/script.rpy", line 605, in script call
+    call task_loop
+  File "game/script.rpy", line 536, in script call
+    call interstitial
+  File "game/script.rpy", line 605, in script call
+    call task_loop
+  File "game/script.rpy", line 536, in script call
+    call interstitial
+  File "game/script.rpy", line 605, in script call
+    call task_loop
+  File "game/script.rpy", line 536, in script call
+    call interstitial
+  File "game/script.rpy", line 605, in script call
+    call task_loop
+  File "game/script.rpy", line 536, in script call
+    call interstitial
+  File "game/script.rpy", line 605, in script call
+    call task_loop
+  File "game/script.rpy", line 536, in script call
+    call interstitial
+  File "game/script.rpy", line 594, in script call
+    call interstitial
+  File "game/script.rpy", line 575, in script
+    call screen apartment(clean(store.apartment_data), store.game_state.time)
+  File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/ast.py", line 2259, in execute
+    self.call("execute")
+  File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/ast.py", line 2241, in call
+    return renpy.statements.call(method, parsed, *args, **kwargs)
+  File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/statements.py", line 342, in call
+    return method(parsed, *args, **kwargs)
+  File "renpy/common/000statements.rpy", line 670, in execute_call_screen
+    store._return = renpy.call_screen(name, *args, **kwargs)
+  File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/exports.py", line 3347, in call_screen
+    rv = renpy.ui.interact(mouse="screen", type="screen", roll_forward=roll_forward)
+  File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/ui.py", line 299, in interact
+    rv = renpy.game.interface.interact(roll_forward=roll_forward, **kwargs)
+  File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/display/core.py", line 3582, in interact
+    repeat, rv = self.interact_core(preloads=preloads, trans_pause=trans_pause, pause=pause, pause_start=pause_start, pause_modal=pause_modal, **kwargs) # type: ignore
+  File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/display/core.py", line 4379, in interact_core
+    renpy.audio.audio.periodic()
+  File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/audio/audio.py", line 1224, in periodic
+    raise_(exc[0], exc[1], exc[2])
+  File "/home/tom/ab/renpy-build-fix/tmp/install.linux-x86_64/lib/python3.9/site-packages/future/utils/__init__.py", line 444, in raise_
+  File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/audio/audio.py", line 1202, in periodic_thread_main
+    periodic_pass()
+  File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/audio/audio.py", line 1144, in periodic_pass
+    c.periodic()
+  File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/audio/audio.py", line 534, in periodic
+    topf = load(filename)
+  File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/audio/audio.py", line 72, in load
+    rv = renpy.loader.load(fn, directory="audio")
+  File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/loader.py", line 833, in load
+    raise IOError("Couldn't find file '%s'." % name)
+OSError: Couldn't find file ''.
+
+While running game code:
+  File "game/script.rpy", line 536, in script call
+    call interstitial
+  File "game/script.rpy", line 605, in script call
+    call task_loop
+  File "game/script.rpy", line 536, in script call
+    call interstitial
+  File "game/script.rpy", line 605, in script call
+    call task_loop
+  File "game/script.rpy", line 536, in script call
+    call interstitial
+  File "game/script.rpy", line 605, in script call
+    call task_loop
+  File "game/script.rpy", line 536, in script call
+    call interstitial
+  File "game/script.rpy", line 605, in script call
+    call task_loop
+  File "game/script.rpy", line 536, in script call
+    call interstitial
+  File "game/script.rpy", line 605, in script call
+    call task_loop
+  File "game/script.rpy", line 536, in script call
+    call interstitial
+  File "game/script.rpy", line 594, in script call
+    call interstitial
+  File "game/script.rpy", line 575, in script
+    call screen apartment(clean(store.apartment_data), store.game_state.time)
+  File "renpy/common/000statements.rpy", line 670, in execute_call_screen
+    store._return = renpy.call_screen(name, *args, **kwargs)
+OSError: Couldn't find file ''.
+Resetting cache.
+Bootstrap to the start of init.init. took 545.59s
+Early init. took 0.00s
+Loader init. took 0.00s
+Loading error handling. took 0.01s
+Loading script. took 0.10s
+Loading save slot metadata. took 0.02s
+Loading persistent. took 0.00s
+day:  0
+Running init code. took 0.02s
+Loading analysis data. took 0.01s
+Analyze and compile ATL. took 0.00s
+Reloading save slot metadata. took 0.01s
+Index archives took 0.00s
+Backing up script files to '/home/brent/.renpy/backups/DataVille':
+Dump and make backups. took 0.03s
+Cleaning cache. took 0.00s
+Making clean stores. took 0.00s
+Initial gc. took 0.03s
+DPI scale factor: 1.000000
+Creating interface object. took 0.00s
+Cleaning stores took 0.00s
+Init translation took 0.03s
+Build styles took 0.00s
+Load screen analysis took 0.00s
+Analyze screens took 0.01s
+Save screen analysis took 0.02s
+Prepare screens took 0.06s
+Save pyanalysis. took 0.00s
+Save bytecode. took 0.01s
+Running _start took 0.00s
+Performance test:
+Interface start. took 0.04s
+
+Initializing gl2 renderer:
+primary display bounds: (1920, 0, 2560, 1440)
+swap interval: 1 frames
+Windowed mode.
+Vendor: "b'Intel'"
+Renderer: b'Mesa Intel(R) UHD Graphics (CML GT2)'
+Version: b'4.6 (Compatibility Profile) Mesa 23.0.4-0ubuntu1~22.04.1'
+Display Info: None
+Screen sizes: virtual=(1920, 1080) physical=(2490, 1369) drawable=(2490, 1369)
+Maximum texture size: 4096x4096
+task:  {'type': 'binary_text', 'next_task': 'break', 'payment': '1200', 'instructions': 'This is a placeholder.', 'time': '10', 'correct_options': 'Y', 'text_block': 'Hit yes to get the money.'}
+perf rating at day start:  neutral
+task:  {'type': 'binary_text', 'next_task': 'break', 'payment': '1200', 'instructions': 'This is a placeholder.', 'time': '10', 'correct_options': 'Y', 'text_block': 'Hit yes to get the money.'}
+task:  break
+state:  {'earnings': 1200.0, 'average_time': 10.009999999999831, 'total_time': 10.009999999999831, 'total_score': 100, 'approval_rate': 100.0}
+average:  {'score': 70, 'time': 8, 'earnings': 1200}
+buttons:  ['Off to a rough start.']
+state:  {'earnings': 1200.0, 'average_time': 10.009999999999831, 'total_time': 10.009999999999831, 'total_score': 100, 'approval_rate': 100.0}
+average:  {'score': 70, 'time': 8, 'earnings': 1200}
+buttons:  ['Off to a rough start.']
+buttons:  ['Off to a rough start.']
+buttons:  ['Off to a rough start.']
+perf rating:  bad
+apartment data:  {'apartment_background': '1', 'sticky_note': [{'performance': 'default', 'time': 'start', 'buttons': None, 'event_flag': '', 'text': '-Mitten vet appointment'}, {'performance': 'default', 'time': 'start', 'buttons': None, 'event_flag': '', 'text': '-Call mom back'}, {'performance': 'default', 'time': 'start', 'buttons': None, 'event_flag': '', 'text': '-Pay rent'}, {'performance': 'default', 'time': 'start', 'buttons': None, 'event_flag': '', 'text': '-Trash day'}], 'news': [{'performance': 'default', 'time': 'start', 'buttons': None, 'event_flag': '', 'text': 'Aliens among us!', 'image': 'images/room/tv_content/kiss.png'}, {'performance': 'default', 'time': 'start', 'buttons': None, 'event_flag': '', 'text': 'Gig Economy Expected to Continue Growing', 'image': 'images/room/tv_content/kiss.png'}, {'performance': 'default', 'time': 'start', 'buttons': None, 'event_flag': '', 'text': 'Scientist: visitors’ camouflage abilities greater than previously believed.', 'image': 'images/placeholder.png'}, {'performance': 'default', 'time': 'start', 'buttons': None, 'event_flag': '', 'text': 'Cleveland zoo welcomes birth of new pandas.', 'image': 'images/placeholder.png'}, {'performance': 'default', 'time': 'start', 'buttons': None, 'event_flag': '', 'text': 'Experts testify before congress on illegal aliens.', 'image': 'images/placeholder.png'}, {'performance': 'default', 'time': 'start', 'buttons': None, 'event_flag': '', 'text': 'Official opening of Montana resettlement zone', 'image': 'images/placeholder.png'}, {'performance': 'default', 'time': 'start', 'buttons': None, 'event_flag': '', 'text': 'White collar unemployment hits new level.', 'image': 'images/placeholder.png'}, {'performance': 'default', 'time': 'end', 'buttons': None, 'event_flag': '', 'text': 'Senator proposes ‘Resettlement Zone’ for alien migrants.', 'image': 'images/placeholder.png'}, {'performance': 'default', 'time': 'end', 'buttons': None, 'event_flag': '', 'text': 'AI blamed for new white collar unemployment figures.', 'image': 'images/placeholder.png'}, {'performance': 'default', 'time': 'end', 'buttons': None, 'event_flag': '', 'text': 'Congress tackles the question of alien rights.', 'image': 'images/placeholder.png'}, {'performance': 'default', 'time': 'end', 'buttons': None, 'event_flag': '', 'text': 'Chef Tony’s wows DC diners!', 'image': 'images/placeholder.png'}, {'performance': 'default', 'time': 'end', 'buttons': None, 'event_flag': '', 'text': 'Exclusive: celebrity weight loss secret.', 'image': 'images/placeholder.png'}], 'message': [{'performance': 'default', 'time': 'start', 'buttons': None, 'event_flag': '', 'text': 'Alex T Manager @ DataVille\nSubject: Orientation\n\nCongratulations on your new position as:\nImage Labeler / Annotator \n\nWe look forward to working with you. Utilize your natural instincts, perspective and humanity. \n\nHappy labeling! \n-Alex T', 'sender': 'supervisor'}, {'performance': 'default', 'time': 'start', 'buttons': ['Thanks, Cogni', 'Ugh. I hate AI.'], 'event_flag': '', 'text': 'And I’m your automated helper, COGNI! \nI’m here to assist you!\n\nRemember these simple directions:\nAnswer the questions quickly. \nAnswer the questions accurately. \nLabelers with the high ratings/speed will receive incentive bonuses!', 'sender': 'cogni'}, {'performance': 'default', 'time': 'start', 'buttons': None, 'event_flag': '', 'text': 'Here’s a practice run to get you started!', 'sender': 'cogni'}, {'performance': 'good', 'time': 'end', 'buttons': ['Off to a great start!'], 'event_flag': '', 'text': 'That was fantastic! Keep up the great work!\nYou’re a great fit with our company values!', 'sender': 'cogni'}, {'performance': 'neutral', 'time': 'end', 'buttons': ['Off to a great start!'], 'event_flag': '', 'text': 'Your performance so far is average.\n\nKeep our company values in mind going forward!', 'sender': 'cogni'}, {'performance': 'bad', 'time': 'end', 'buttons': ['Off to a rough start.'], 'event_flag': '', 'text': 'That wasn’t very good! Be sure to try your best! \nTry your best to align with our company’s values.', 'sender': 'cogni'}, {'performance': 'flag_dependent', 'time': 'end', 'buttons': None, 'event_flag': 'ethical_event_flag_1', 'text': 'You were so ethical today!', 'sender': 'cogni'}, {'performance': 'flag_dependent', 'time': 'end', 'buttons': None, 'event_flag': 'correct_event_flag_1', 'text': 'Good job not letting your ethics get the best of you.', 'sender': 'cogni'}], 'window_background': 'images/window/city_scape.png', 'button_text': 'Go to work!', 'dream': [{'performance': '', 'time': 'start', 'buttons': ['My career is my passion!', "I'm just looking for a paycheck."], 'event_flag': '', 'text': 'Do you have strong career goals?'}, {'performance': '', 'time': 'start', 'buttons': ['I want to be a part of something!', 'People make me nervous.'], 'event_flag': '', 'text': 'Do you want to be a part of a vibrant community?'}, {'performance': '', 'time': 'start', 'buttons': ['Where do I sign up?', 'No thanks.'], 'event_flag': '', 'text': 'Do you want to make the world a safer place?'}, {'performance': '', 'time': '', 'buttons': ['But I’m going to try my best!', 'I’ll muddle through for the money.'], 'event_flag': '', 'text': 'This new job is tough.'}, {'performance': '', 'time': '', 'buttons': ['But at least my boss seems cool!', 'Something is suspicious.'], 'event_flag': '', 'text': 'I’m not sure how I feel about my company.'}]}
+time:  end
+
+Full traceback:
+  File "game/script.rpy", line 536, in script call
+    call interstitial
+  File "game/script.rpy", line 605, in script call
+    call task_loop
+  File "game/script.rpy", line 536, in script call
+    call interstitial
+  File "game/script.rpy", line 605, in script call
+    call task_loop
+  File "game/script.rpy", line 536, in script call
+    call interstitial
+  File "game/script.rpy", line 605, in script call
+    call task_loop
+  File "game/script.rpy", line 536, in script call
+    call interstitial
+  File "game/script.rpy", line 605, in script call
+    call task_loop
+  File "game/script.rpy", line 536, in script call
+    call interstitial
+  File "game/script.rpy", line 605, in script call
+    call task_loop
+  File "game/script.rpy", line 536, in script call
+    call interstitial
+  File "game/script.rpy", line 605, in script call
+    call task_loop
+  File "game/script.rpy", line 536, in script call
+    call interstitial
+  File "game/script.rpy", line 579, in script
+    "Sleeping..."
+  File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/ast.py", line 930, in execute
+    renpy.exports.say(who, what, *args, **kwargs)
+  File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/exports.py", line 1474, in say
+    who(what, *args, **kwargs)
+  File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/character.py", line 1352, in __call__
+    self.do_display(who, what, cb_args=self.cb_args, dtt=dtt, **display_args)
+  File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/character.py", line 1003, in do_display
+    display_say(who,
+  File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/character.py", line 693, in display_say
+    rv = renpy.ui.interact(mouse='say', type=type, roll_forward=roll_forward)
+  File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/ui.py", line 299, in interact
+    rv = renpy.game.interface.interact(roll_forward=roll_forward, **kwargs)
+  File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/display/core.py", line 3582, in interact
+    repeat, rv = self.interact_core(preloads=preloads, trans_pause=trans_pause, pause=pause, pause_start=pause_start, pause_modal=pause_modal, **kwargs) # type: ignore
+  File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/display/core.py", line 4379, in interact_core
+    renpy.audio.audio.periodic()
+  File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/audio/audio.py", line 1224, in periodic
+    raise_(exc[0], exc[1], exc[2])
+  File "/home/tom/ab/renpy-build-fix/tmp/install.linux-x86_64/lib/python3.9/site-packages/future/utils/__init__.py", line 444, in raise_
+  File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/audio/audio.py", line 1202, in periodic_thread_main
+    periodic_pass()
+  File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/audio/audio.py", line 1144, in periodic_pass
+    c.periodic()
+  File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/audio/audio.py", line 534, in periodic
+    topf = load(filename)
+  File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/audio/audio.py", line 72, in load
+    rv = renpy.loader.load(fn, directory="audio")
+  File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/loader.py", line 833, in load
+    raise IOError("Couldn't find file '%s'." % name)
+OSError: Couldn't find file ''.
+
+While running game code:
+  File "game/script.rpy", line 536, in script call
+    call interstitial
+  File "game/script.rpy", line 605, in script call
+    call task_loop
+  File "game/script.rpy", line 536, in script call
+    call interstitial
+  File "game/script.rpy", line 605, in script call
+    call task_loop
+  File "game/script.rpy", line 536, in script call
+    call interstitial
+  File "game/script.rpy", line 605, in script call
+    call task_loop
+  File "game/script.rpy", line 536, in script call
+    call interstitial
+  File "game/script.rpy", line 605, in script call
+    call task_loop
+  File "game/script.rpy", line 536, in script call
+    call interstitial
+  File "game/script.rpy", line 605, in script call
+    call task_loop
+  File "game/script.rpy", line 536, in script call
+    call interstitial
+  File "game/script.rpy", line 605, in script call
+    call task_loop
+  File "game/script.rpy", line 536, in script call
+    call interstitial
+  File "game/script.rpy", line 579, in script
+    "Sleeping..."
+OSError: Couldn't find file ''.
+Resetting cache.
+Bootstrap to the start of init.init. took 572.88s
+Early init. took 0.00s
+Loader init. took 0.00s
+Loading error handling. took 0.01s
+Loading script. took 0.11s
+Loading save slot metadata. took 0.02s
+Loading persistent. took 0.00s
+day:  0
+Running init code. took 0.03s
+Loading analysis data. took 0.02s
+Analyze and compile ATL. took 0.00s
+Reloading save slot metadata. took 0.01s
+Index archives took 0.00s
+Backing up script files to '/home/brent/.renpy/backups/DataVille':
+Dump and make backups. took 0.04s
+Cleaning cache. took 0.00s
+Making clean stores. took 0.00s
+Initial gc. took 0.03s
+DPI scale factor: 1.000000
+Creating interface object. took 0.00s
+Cleaning stores took 0.00s
+Init translation took 0.03s
+Build styles took 0.00s
+Load screen analysis took 0.00s
+Analyze screens took 0.01s
+Save screen analysis took 0.02s
+Prepare screens took 0.08s
+Save pyanalysis. took 0.00s
+Save bytecode. took 0.02s
+Running _start took 0.00s
+Performance test:
+Interface start. took 0.05s
+
+Initializing gl2 renderer:
+primary display bounds: (1920, 0, 2560, 1440)
+swap interval: 1 frames
+Windowed mode.
+Vendor: "b'Intel'"
+Renderer: b'Mesa Intel(R) UHD Graphics (CML GT2)'
+Version: b'4.6 (Compatibility Profile) Mesa 23.0.4-0ubuntu1~22.04.1'
+Display Info: None
+Screen sizes: virtual=(1920, 1080) physical=(2490, 1369) drawable=(2490, 1369)
+Maximum texture size: 4096x4096
+task:  {'type': 'binary_text', 'next_task': 'break', 'payment': '1200', 'instructions': 'This is a placeholder.', 'time': '10', 'correct_options': 'Y', 'text_block': 'Hit yes to get the money.'}
+perf rating at day start:  neutral
+task:  {'type': 'binary_text', 'next_task': 'break', 'payment': '1200', 'instructions': 'This is a placeholder.', 'time': '10', 'correct_options': 'Y', 'text_block': 'Hit yes to get the money.'}
+task:  break
+state:  {'earnings': 1200.0, 'average_time': 10.009999999999831, 'total_time': 10.009999999999831, 'total_score': 100, 'approval_rate': 100.0}
+average:  {'score': 70, 'time': 8, 'earnings': 1200}
+buttons:  ['Off to a rough start.']
+state:  {'earnings': 1200.0, 'average_time': 10.009999999999831, 'total_time': 10.009999999999831, 'total_score': 100, 'approval_rate': 100.0}
+average:  {'score': 70, 'time': 8, 'earnings': 1200}
+buttons:  ['Off to a rough start.']
+buttons:  ['Off to a rough start.']
+buttons:  ['Off to a rough start.']
+perf rating:  bad
+apartment data:  {'apartment_background': '1', 'sticky_note': [{'performance': 'default', 'time': 'start', 'buttons': None, 'event_flag': '', 'text': '-Mitten vet appointment'}, {'performance': 'default', 'time': 'start', 'buttons': None, 'event_flag': '', 'text': '-Call mom back'}, {'performance': 'default', 'time': 'start', 'buttons': None, 'event_flag': '', 'text': '-Pay rent'}, {'performance': 'default', 'time': 'start', 'buttons': None, 'event_flag': '', 'text': '-Trash day'}], 'news': [{'performance': 'default', 'time': 'start', 'buttons': None, 'event_flag': '', 'text': 'Aliens among us!', 'image': 'images/room/tv_content/kiss.png'}, {'performance': 'default', 'time': 'start', 'buttons': None, 'event_flag': '', 'text': 'Gig Economy Expected to Continue Growing', 'image': 'images/room/tv_content/kiss.png'}, {'performance': 'default', 'time': 'start', 'buttons': None, 'event_flag': '', 'text': 'Scientist: visitors’ camouflage abilities greater than previously believed.', 'image': 'images/placeholder.png'}, {'performance': 'default', 'time': 'start', 'buttons': None, 'event_flag': '', 'text': 'Cleveland zoo welcomes birth of new pandas.', 'image': 'images/placeholder.png'}, {'performance': 'default', 'time': 'start', 'buttons': None, 'event_flag': '', 'text': 'Experts testify before congress on illegal aliens.', 'image': 'images/placeholder.png'}, {'performance': 'default', 'time': 'start', 'buttons': None, 'event_flag': '', 'text': 'Official opening of Montana resettlement zone', 'image': 'images/placeholder.png'}, {'performance': 'default', 'time': 'start', 'buttons': None, 'event_flag': '', 'text': 'White collar unemployment hits new level.', 'image': 'images/placeholder.png'}, {'performance': 'default', 'time': 'end', 'buttons': None, 'event_flag': '', 'text': 'Senator proposes ‘Resettlement Zone’ for alien migrants.', 'image': 'images/placeholder.png'}, {'performance': 'default', 'time': 'end', 'buttons': None, 'event_flag': '', 'text': 'AI blamed for new white collar unemployment figures.', 'image': 'images/placeholder.png'}, {'performance': 'default', 'time': 'end', 'buttons': None, 'event_flag': '', 'text': 'Congress tackles the question of alien rights.', 'image': 'images/placeholder.png'}, {'performance': 'default', 'time': 'end', 'buttons': None, 'event_flag': '', 'text': 'Chef Tony’s wows DC diners!', 'image': 'images/placeholder.png'}, {'performance': 'default', 'time': 'end', 'buttons': None, 'event_flag': '', 'text': 'Exclusive: celebrity weight loss secret.', 'image': 'images/placeholder.png'}], 'message': [{'performance': 'default', 'time': 'start', 'buttons': None, 'event_flag': '', 'text': 'Alex T Manager @ DataVille\nSubject: Orientation\n\nCongratulations on your new position as:\nImage Labeler / Annotator \n\nWe look forward to working with you. Utilize your natural instincts, perspective and humanity. \n\nHappy labeling! \n-Alex T', 'sender': 'supervisor'}, {'performance': 'default', 'time': 'start', 'buttons': ['Thanks, Cogni', 'Ugh. I hate AI.'], 'event_flag': '', 'text': 'And I’m your automated helper, COGNI! \nI’m here to assist you!\n\nRemember these simple directions:\nAnswer the questions quickly. \nAnswer the questions accurately. \nLabelers with the high ratings/speed will receive incentive bonuses!', 'sender': 'cogni'}, {'performance': 'default', 'time': 'start', 'buttons': None, 'event_flag': '', 'text': 'Here’s a practice run to get you started!', 'sender': 'cogni'}, {'performance': 'good', 'time': 'end', 'buttons': ['Off to a great start!'], 'event_flag': '', 'text': 'That was fantastic! Keep up the great work!\nYou’re a great fit with our company values!', 'sender': 'cogni'}, {'performance': 'neutral', 'time': 'end', 'buttons': ['Off to a great start!'], 'event_flag': '', 'text': 'Your performance so far is average.\n\nKeep our company values in mind going forward!', 'sender': 'cogni'}, {'performance': 'bad', 'time': 'end', 'buttons': ['Off to a rough start.'], 'event_flag': '', 'text': 'That wasn’t very good! Be sure to try your best! \nTry your best to align with our company’s values.', 'sender': 'cogni'}, {'performance': 'flag_dependent', 'time': 'end', 'buttons': None, 'event_flag': 'ethical_event_flag_1', 'text': 'You were so ethical today!', 'sender': 'cogni'}, {'performance': 'flag_dependent', 'time': 'end', 'buttons': None, 'event_flag': 'correct_event_flag_1', 'text': 'Good job not letting your ethics get the best of you.', 'sender': 'cogni'}], 'window_background': 'images/window/city_scape.png', 'button_text': 'Go to work!', 'dream': [{'performance': '', 'time': 'start', 'buttons': ['My career is my passion!', "I'm just looking for a paycheck."], 'event_flag': '', 'text': 'Do you have strong career goals?'}, {'performance': '', 'time': 'start', 'buttons': ['I want to be a part of something!', 'People make me nervous.'], 'event_flag': '', 'text': 'Do you want to be a part of a vibrant community?'}, {'performance': '', 'time': 'start', 'buttons': ['Where do I sign up?', 'No thanks.'], 'event_flag': '', 'text': 'Do you want to make the world a safer place?'}, {'performance': '', 'time': '', 'buttons': ['But I’m going to try my best!', 'I’ll muddle through for the money.'], 'event_flag': '', 'text': 'This new job is tough.'}, {'performance': '', 'time': '', 'buttons': ['But at least my boss seems cool!', 'Something is suspicious.'], 'event_flag': '', 'text': 'I’m not sure how I feel about my company.'}]}
+time:  end
+
+Full traceback:
+  File "game/script.rpy", line 536, in script call
+    call interstitial
+  File "game/script.rpy", line 605, in script call
+    call task_loop
+  File "game/script.rpy", line 536, in script call
+    call interstitial
+  File "game/script.rpy", line 605, in script call
+    call task_loop
+  File "game/script.rpy", line 536, in script call
+    call interstitial
+  File "game/script.rpy", line 605, in script call
+    call task_loop
+  File "game/script.rpy", line 536, in script call
+    call interstitial
+  File "game/script.rpy", line 605, in script call
+    call task_loop
+  File "game/script.rpy", line 536, in script call
+    call interstitial
+  File "game/script.rpy", line 605, in script call
+    call task_loop
+  File "game/script.rpy", line 536, in script call
+    call interstitial
+  File "game/script.rpy", line 605, in script call
+    call task_loop
+  File "game/script.rpy", line 536, in script call
+    call interstitial
+  File "game/script.rpy", line 605, in script call
+    call task_loop
+  File "game/script.rpy", line 536, in script call
+    call interstitial
+  File "game/script.rpy", line 579, in script
+    "Sleeping..."
+  File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/ast.py", line 930, in execute
+    renpy.exports.say(who, what, *args, **kwargs)
+  File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/exports.py", line 1474, in say
+    who(what, *args, **kwargs)
+  File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/character.py", line 1352, in __call__
+    self.do_display(who, what, cb_args=self.cb_args, dtt=dtt, **display_args)
+  File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/character.py", line 1003, in do_display
+    display_say(who,
+  File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/character.py", line 693, in display_say
+    rv = renpy.ui.interact(mouse='say', type=type, roll_forward=roll_forward)
+  File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/ui.py", line 299, in interact
+    rv = renpy.game.interface.interact(roll_forward=roll_forward, **kwargs)
+  File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/display/core.py", line 3582, in interact
+    repeat, rv = self.interact_core(preloads=preloads, trans_pause=trans_pause, pause=pause, pause_start=pause_start, pause_modal=pause_modal, **kwargs) # type: ignore
+  File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/display/core.py", line 4379, in interact_core
+    renpy.audio.audio.periodic()
+  File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/audio/audio.py", line 1224, in periodic
+    raise_(exc[0], exc[1], exc[2])
+  File "/home/tom/ab/renpy-build-fix/tmp/install.linux-x86_64/lib/python3.9/site-packages/future/utils/__init__.py", line 444, in raise_
+  File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/audio/audio.py", line 1202, in periodic_thread_main
+    periodic_pass()
+  File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/audio/audio.py", line 1144, in periodic_pass
+    c.periodic()
+  File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/audio/audio.py", line 534, in periodic
+    topf = load(filename)
+  File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/audio/audio.py", line 72, in load
+    rv = renpy.loader.load(fn, directory="audio")
+  File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/loader.py", line 833, in load
+    raise IOError("Couldn't find file '%s'." % name)
+OSError: Couldn't find file ''.
+
+While running game code:
+  File "game/script.rpy", line 536, in script call
+    call interstitial
+  File "game/script.rpy", line 605, in script call
+    call task_loop
+  File "game/script.rpy", line 536, in script call
+    call interstitial
+  File "game/script.rpy", line 605, in script call
+    call task_loop
+  File "game/script.rpy", line 536, in script call
+    call interstitial
+  File "game/script.rpy", line 605, in script call
+    call task_loop
+  File "game/script.rpy", line 536, in script call
+    call interstitial
+  File "game/script.rpy", line 605, in script call
+    call task_loop
+  File "game/script.rpy", line 536, in script call
+    call interstitial
+  File "game/script.rpy", line 605, in script call
+    call task_loop
+  File "game/script.rpy", line 536, in script call
+    call interstitial
+  File "game/script.rpy", line 605, in script call
+    call task_loop
+  File "game/script.rpy", line 536, in script call
+    call interstitial
+  File "game/script.rpy", line 605, in script call
+    call task_loop
+  File "game/script.rpy", line 536, in script call
+    call interstitial
+  File "game/script.rpy", line 579, in script
+    "Sleeping..."
+OSError: Couldn't find file ''.
+Resetting cache.
+Bootstrap to the start of init.init. took 595.96s
+Early init. took 0.00s
+Loader init. took 0.00s
+Loading error handling. took 0.01s
+Loading script. took 0.11s
+Loading save slot metadata. took 0.02s
+Loading persistent. took 0.00s
+day:  0
+Running init code. took 0.02s
+Loading analysis data. took 0.01s
+Analyze and compile ATL. took 0.00s
+Reloading save slot metadata. took 0.01s
+Index archives took 0.00s
+Backing up script files to '/home/brent/.renpy/backups/DataVille':
+Dump and make backups. took 0.04s
+Cleaning cache. took 0.00s
+Making clean stores. took 0.00s
+Initial gc. took 0.03s
+DPI scale factor: 1.000000
+Creating interface object. took 0.00s
+Cleaning stores took 0.00s
+Init translation took 0.03s
+Build styles took 0.00s
+Load screen analysis took 0.00s
+Analyze screens took 0.01s
+Save screen analysis took 0.02s
+Prepare screens took 0.06s
+Save pyanalysis. took 0.00s
+Save bytecode. took 0.01s
+Running _start took 0.00s
+Performance test:
+Interface start. took 0.04s
+
+Initializing gl2 renderer:
+primary display bounds: (1920, 0, 2560, 1440)
+swap interval: 1 frames
+Windowed mode.
+Vendor: "b'Intel'"
+Renderer: b'Mesa Intel(R) UHD Graphics (CML GT2)'
+Version: b'4.6 (Compatibility Profile) Mesa 23.0.4-0ubuntu1~22.04.1'
+Display Info: None
+Screen sizes: virtual=(1920, 1080) physical=(2490, 1369) drawable=(2490, 1369)
+Maximum texture size: 4096x4096
+task:  {'type': 'binary_text', 'next_task': 'break', 'payment': '1200', 'instructions': 'This is a placeholder.', 'time': '10', 'correct_options': 'Y', 'text_block': 'Hit yes to get the money.'}
+perf rating at day start:  neutral
+task:  {'type': 'binary_text', 'next_task': 'break', 'payment': '1200', 'instructions': 'This is a placeholder.', 'time': '10', 'correct_options': 'Y', 'text_block': 'Hit yes to get the money.'}
+Resetting cache.
+Bootstrap to the start of init.init. took 600.85s
 Early init. took 0.00s
 Loader init. took 0.00s
 Loading error handling. took 0.01s
@@ -287,7 +1207,7 @@ Loading save slot metadata. took 0.01s
 Loading persistent. took 0.00s
 day:  0
 Running init code. took 0.02s
-Loading analysis data. took 0.01s
+Loading analysis data. took 0.02s
 Analyze and compile ATL. took 0.00s
 Reloading save slot metadata. took 0.01s
 Index archives took 0.00s
@@ -320,4 +1240,689 @@ Version: b'4.6 (Compatibility Profile) Mesa 23.0.4-0ubuntu1~22.04.1'
 Display Info: None
 Screen sizes: virtual=(1920, 1080) physical=(2490, 1369) drawable=(2490, 1369)
 Maximum texture size: 4096x4096
-buttons:  None
+task:  {'type': 'binary_text', 'next_task': 'break', 'payment': '1200', 'instructions': 'This is a placeholder.', 'time': '10', 'correct_options': 'Y', 'text_block': 'Hit yes to get the money.'}
+perf rating at day start:  neutral
+task:  {'type': 'binary_text', 'next_task': 'break', 'payment': '1200', 'instructions': 'This is a placeholder.', 'time': '10', 'correct_options': 'Y', 'text_block': 'Hit yes to get the money.'}
+task:  break
+state:  {'earnings': 1200.0, 'average_time': 10.009999999999831, 'total_time': 10.009999999999831, 'total_score': 100, 'approval_rate': 100.0}
+average:  {'score': 70, 'time': 8, 'earnings': 1200}
+buttons:  ['Off to a rough start.']
+state:  {'earnings': 1200.0, 'average_time': 10.009999999999831, 'total_time': 10.009999999999831, 'total_score': 100, 'approval_rate': 100.0}
+average:  {'score': 70, 'time': 8, 'earnings': 1200}
+buttons:  ['Off to a rough start.']
+buttons:  ['Off to a rough start.']
+buttons:  ['Off to a rough start.']
+perf rating:  bad
+apartment data:  {'apartment_background': '1', 'sticky_note': [{'performance': 'default', 'time': 'start', 'buttons': None, 'event_flag': '', 'text': '-Mitten vet appointment'}, {'performance': 'default', 'time': 'start', 'buttons': None, 'event_flag': '', 'text': '-Call mom back'}, {'performance': 'default', 'time': 'start', 'buttons': None, 'event_flag': '', 'text': '-Pay rent'}, {'performance': 'default', 'time': 'start', 'buttons': None, 'event_flag': '', 'text': '-Trash day'}], 'news': [{'performance': 'default', 'time': 'start', 'buttons': None, 'event_flag': '', 'text': 'Aliens among us!', 'image': 'images/room/tv_content/kiss.png'}, {'performance': 'default', 'time': 'start', 'buttons': None, 'event_flag': '', 'text': 'Gig Economy Expected to Continue Growing', 'image': 'images/room/tv_content/kiss.png'}, {'performance': 'default', 'time': 'start', 'buttons': None, 'event_flag': '', 'text': 'Scientist: visitors’ camouflage abilities greater than previously believed.', 'image': 'images/placeholder.png'}, {'performance': 'default', 'time': 'start', 'buttons': None, 'event_flag': '', 'text': 'Cleveland zoo welcomes birth of new pandas.', 'image': 'images/placeholder.png'}, {'performance': 'default', 'time': 'start', 'buttons': None, 'event_flag': '', 'text': 'Experts testify before congress on illegal aliens.', 'image': 'images/placeholder.png'}, {'performance': 'default', 'time': 'start', 'buttons': None, 'event_flag': '', 'text': 'Official opening of Montana resettlement zone', 'image': 'images/placeholder.png'}, {'performance': 'default', 'time': 'start', 'buttons': None, 'event_flag': '', 'text': 'White collar unemployment hits new level.', 'image': 'images/placeholder.png'}, {'performance': 'default', 'time': 'end', 'buttons': None, 'event_flag': '', 'text': 'Senator proposes ‘Resettlement Zone’ for alien migrants.', 'image': 'images/placeholder.png'}, {'performance': 'default', 'time': 'end', 'buttons': None, 'event_flag': '', 'text': 'AI blamed for new white collar unemployment figures.', 'image': 'images/placeholder.png'}, {'performance': 'default', 'time': 'end', 'buttons': None, 'event_flag': '', 'text': 'Congress tackles the question of alien rights.', 'image': 'images/placeholder.png'}, {'performance': 'default', 'time': 'end', 'buttons': None, 'event_flag': '', 'text': 'Chef Tony’s wows DC diners!', 'image': 'images/placeholder.png'}, {'performance': 'default', 'time': 'end', 'buttons': None, 'event_flag': '', 'text': 'Exclusive: celebrity weight loss secret.', 'image': 'images/placeholder.png'}], 'message': [{'performance': 'default', 'time': 'start', 'buttons': None, 'event_flag': '', 'text': 'Alex T Manager @ DataVille\nSubject: Orientation\n\nCongratulations on your new position as:\nImage Labeler / Annotator \n\nWe look forward to working with you. Utilize your natural instincts, perspective and humanity. \n\nHappy labeling! \n-Alex T', 'sender': 'supervisor'}, {'performance': 'default', 'time': 'start', 'buttons': ['Thanks, Cogni', 'Ugh. I hate AI.'], 'event_flag': '', 'text': 'And I’m your automated helper, COGNI! \nI’m here to assist you!\n\nRemember these simple directions:\nAnswer the questions quickly. \nAnswer the questions accurately. \nLabelers with the high ratings/speed will receive incentive bonuses!', 'sender': 'cogni'}, {'performance': 'default', 'time': 'start', 'buttons': None, 'event_flag': '', 'text': 'Here’s a practice run to get you started!', 'sender': 'cogni'}, {'performance': 'good', 'time': 'end', 'buttons': ['Off to a great start!'], 'event_flag': '', 'text': 'That was fantastic! Keep up the great work!\nYou’re a great fit with our company values!', 'sender': 'cogni'}, {'performance': 'neutral', 'time': 'end', 'buttons': ['Off to a great start!'], 'event_flag': '', 'text': 'Your performance so far is average.\n\nKeep our company values in mind going forward!', 'sender': 'cogni'}, {'performance': 'bad', 'time': 'end', 'buttons': ['Off to a rough start.'], 'event_flag': '', 'text': 'That wasn’t very good! Be sure to try your best! \nTry your best to align with our company’s values.', 'sender': 'cogni'}, {'performance': 'flag_dependent', 'time': 'end', 'buttons': None, 'event_flag': 'ethical_event_flag_1', 'text': 'You were so ethical today!', 'sender': 'cogni'}, {'performance': 'flag_dependent', 'time': 'end', 'buttons': None, 'event_flag': 'correct_event_flag_1', 'text': 'Good job not letting your ethics get the best of you.', 'sender': 'cogni'}], 'window_background': 'images/window/city_scape.png', 'button_text': 'Go to work!', 'dream': [{'performance': '', 'time': 'start', 'buttons': ['My career is my passion!', "I'm just looking for a paycheck."], 'event_flag': '', 'text': 'Do you have strong career goals?'}, {'performance': '', 'time': 'start', 'buttons': ['I want to be a part of something!', 'People make me nervous.'], 'event_flag': '', 'text': 'Do you want to be a part of a vibrant community?'}, {'performance': '', 'time': 'start', 'buttons': ['Where do I sign up?', 'No thanks.'], 'event_flag': '', 'text': 'Do you want to make the world a safer place?'}, {'performance': '', 'time': '', 'buttons': ['But I’m going to try my best!', 'I’ll muddle through for the money.'], 'event_flag': '', 'text': 'This new job is tough.'}, {'performance': '', 'time': '', 'buttons': ['But at least my boss seems cool!', 'Something is suspicious.'], 'event_flag': '', 'text': 'I’m not sure how I feel about my company.'}]}
+time:  end
+
+Full traceback:
+  File "game/script.rpy", line 536, in script call
+    call interstitial
+  File "game/script.rpy", line 605, in script call
+    call task_loop
+  File "game/script.rpy", line 536, in script call
+    call interstitial
+  File "game/script.rpy", line 605, in script call
+    call task_loop
+  File "game/script.rpy", line 536, in script call
+    call interstitial
+  File "game/script.rpy", line 605, in script call
+    call task_loop
+  File "game/script.rpy", line 536, in script call
+    call interstitial
+  File "game/script.rpy", line 605, in script call
+    call task_loop
+  File "game/script.rpy", line 536, in script call
+    call interstitial
+  File "game/script.rpy", line 605, in script call
+    call task_loop
+  File "game/script.rpy", line 536, in script call
+    call interstitial
+  File "game/script.rpy", line 605, in script call
+    call task_loop
+  File "game/script.rpy", line 536, in script call
+    call interstitial
+  File "game/script.rpy", line 605, in script call
+    call task_loop
+  File "game/script.rpy", line 536, in script call
+    call interstitial
+  File "game/script.rpy", line 605, in script call
+    call task_loop
+  File "game/script.rpy", line 536, in script call
+    call interstitial
+  File "game/script.rpy", line 579, in script
+    "Sleeping..."
+  File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/ast.py", line 930, in execute
+    renpy.exports.say(who, what, *args, **kwargs)
+  File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/exports.py", line 1474, in say
+    who(what, *args, **kwargs)
+  File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/character.py", line 1352, in __call__
+    self.do_display(who, what, cb_args=self.cb_args, dtt=dtt, **display_args)
+  File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/character.py", line 1003, in do_display
+    display_say(who,
+  File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/character.py", line 693, in display_say
+    rv = renpy.ui.interact(mouse='say', type=type, roll_forward=roll_forward)
+  File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/ui.py", line 299, in interact
+    rv = renpy.game.interface.interact(roll_forward=roll_forward, **kwargs)
+  File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/display/core.py", line 3582, in interact
+    repeat, rv = self.interact_core(preloads=preloads, trans_pause=trans_pause, pause=pause, pause_start=pause_start, pause_modal=pause_modal, **kwargs) # type: ignore
+  File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/display/core.py", line 4379, in interact_core
+    renpy.audio.audio.periodic()
+  File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/audio/audio.py", line 1224, in periodic
+    raise_(exc[0], exc[1], exc[2])
+  File "/home/tom/ab/renpy-build-fix/tmp/install.linux-x86_64/lib/python3.9/site-packages/future/utils/__init__.py", line 444, in raise_
+  File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/audio/audio.py", line 1202, in periodic_thread_main
+    periodic_pass()
+  File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/audio/audio.py", line 1144, in periodic_pass
+    c.periodic()
+  File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/audio/audio.py", line 534, in periodic
+    topf = load(filename)
+  File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/audio/audio.py", line 72, in load
+    rv = renpy.loader.load(fn, directory="audio")
+  File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/loader.py", line 833, in load
+    raise IOError("Couldn't find file '%s'." % name)
+OSError: Couldn't find file ''.
+
+While running game code:
+  File "game/script.rpy", line 536, in script call
+    call interstitial
+  File "game/script.rpy", line 605, in script call
+    call task_loop
+  File "game/script.rpy", line 536, in script call
+    call interstitial
+  File "game/script.rpy", line 605, in script call
+    call task_loop
+  File "game/script.rpy", line 536, in script call
+    call interstitial
+  File "game/script.rpy", line 605, in script call
+    call task_loop
+  File "game/script.rpy", line 536, in script call
+    call interstitial
+  File "game/script.rpy", line 605, in script call
+    call task_loop
+  File "game/script.rpy", line 536, in script call
+    call interstitial
+  File "game/script.rpy", line 605, in script call
+    call task_loop
+  File "game/script.rpy", line 536, in script call
+    call interstitial
+  File "game/script.rpy", line 605, in script call
+    call task_loop
+  File "game/script.rpy", line 536, in script call
+    call interstitial
+  File "game/script.rpy", line 605, in script call
+    call task_loop
+  File "game/script.rpy", line 536, in script call
+    call interstitial
+  File "game/script.rpy", line 605, in script call
+    call task_loop
+  File "game/script.rpy", line 536, in script call
+    call interstitial
+  File "game/script.rpy", line 579, in script
+    "Sleeping..."
+OSError: Couldn't find file ''.
+Resetting cache.
+Bootstrap to the start of init.init. took 655.38s
+Early init. took 0.00s
+Loader init. took 0.00s
+Loading error handling. took 0.01s
+Loading script. took 0.10s
+Loading save slot metadata. took 0.02s
+Loading persistent. took 0.00s
+day:  0
+Running init code. took 0.02s
+Loading analysis data. took 0.01s
+Analyze and compile ATL. took 0.00s
+Reloading save slot metadata. took 0.01s
+Index archives took 0.00s
+Backing up script files to '/home/brent/.renpy/backups/DataVille':
+Dump and make backups. took 0.04s
+Cleaning cache. took 0.00s
+Making clean stores. took 0.00s
+Initial gc. took 0.03s
+DPI scale factor: 1.000000
+Creating interface object. took 0.00s
+Cleaning stores took 0.00s
+Init translation took 0.03s
+Build styles took 0.00s
+Load screen analysis took 0.00s
+Analyze screens took 0.01s
+Save screen analysis took 0.02s
+Prepare screens took 0.07s
+Save pyanalysis. took 0.00s
+Save bytecode. took 0.01s
+Running _start took 0.00s
+Performance test:
+Interface start. took 0.04s
+
+Initializing gl2 renderer:
+primary display bounds: (1920, 0, 2560, 1440)
+swap interval: 1 frames
+Windowed mode.
+Vendor: "b'Intel'"
+Renderer: b'Mesa Intel(R) UHD Graphics (CML GT2)'
+Version: b'4.6 (Compatibility Profile) Mesa 23.0.4-0ubuntu1~22.04.1'
+Display Info: None
+Screen sizes: virtual=(1920, 1080) physical=(2490, 1369) drawable=(2490, 1369)
+Maximum texture size: 4096x4096
+task:  {'type': 'binary_text', 'next_task': 'break', 'payment': '1200', 'instructions': 'This is a placeholder.', 'time': '10', 'correct_options': 'Y', 'text_block': 'Hit yes to get the money.'}
+perf rating at day start:  neutral
+task:  {'type': 'binary_text', 'next_task': 'break', 'payment': '1200', 'instructions': 'This is a placeholder.', 'time': '10', 'correct_options': 'Y', 'text_block': 'Hit yes to get the money.'}
+task:  break
+state:  {'earnings': 1200.0, 'average_time': 10.009999999999831, 'total_time': 10.009999999999831, 'total_score': 100, 'approval_rate': 100.0}
+average:  {'score': 70, 'time': 8, 'earnings': 1200}
+buttons:  ['Off to a rough start.']
+state:  {'earnings': 1200.0, 'average_time': 10.009999999999831, 'total_time': 10.009999999999831, 'total_score': 100, 'approval_rate': 100.0}
+average:  {'score': 70, 'time': 8, 'earnings': 1200}
+buttons:  ['Off to a rough start.']
+buttons:  ['Off to a rough start.']
+buttons:  ['Off to a rough start.']
+perf rating:  bad
+apartment data:  {'apartment_background': '1', 'sticky_note': [{'performance': 'default', 'time': 'start', 'buttons': None, 'event_flag': '', 'text': '-Mitten vet appointment'}, {'performance': 'default', 'time': 'start', 'buttons': None, 'event_flag': '', 'text': '-Call mom back'}, {'performance': 'default', 'time': 'start', 'buttons': None, 'event_flag': '', 'text': '-Pay rent'}, {'performance': 'default', 'time': 'start', 'buttons': None, 'event_flag': '', 'text': '-Trash day'}], 'news': [{'performance': 'default', 'time': 'start', 'buttons': None, 'event_flag': '', 'text': 'Aliens among us!', 'image': 'images/room/tv_content/kiss.png'}, {'performance': 'default', 'time': 'start', 'buttons': None, 'event_flag': '', 'text': 'Gig Economy Expected to Continue Growing', 'image': 'images/room/tv_content/kiss.png'}, {'performance': 'default', 'time': 'start', 'buttons': None, 'event_flag': '', 'text': 'Scientist: visitors’ camouflage abilities greater than previously believed.', 'image': 'images/placeholder.png'}, {'performance': 'default', 'time': 'start', 'buttons': None, 'event_flag': '', 'text': 'Cleveland zoo welcomes birth of new pandas.', 'image': 'images/placeholder.png'}, {'performance': 'default', 'time': 'start', 'buttons': None, 'event_flag': '', 'text': 'Experts testify before congress on illegal aliens.', 'image': 'images/placeholder.png'}, {'performance': 'default', 'time': 'start', 'buttons': None, 'event_flag': '', 'text': 'Official opening of Montana resettlement zone', 'image': 'images/placeholder.png'}, {'performance': 'default', 'time': 'start', 'buttons': None, 'event_flag': '', 'text': 'White collar unemployment hits new level.', 'image': 'images/placeholder.png'}, {'performance': 'default', 'time': 'end', 'buttons': None, 'event_flag': '', 'text': 'Senator proposes ‘Resettlement Zone’ for alien migrants.', 'image': 'images/placeholder.png'}, {'performance': 'default', 'time': 'end', 'buttons': None, 'event_flag': '', 'text': 'AI blamed for new white collar unemployment figures.', 'image': 'images/placeholder.png'}, {'performance': 'default', 'time': 'end', 'buttons': None, 'event_flag': '', 'text': 'Congress tackles the question of alien rights.', 'image': 'images/placeholder.png'}, {'performance': 'default', 'time': 'end', 'buttons': None, 'event_flag': '', 'text': 'Chef Tony’s wows DC diners!', 'image': 'images/placeholder.png'}, {'performance': 'default', 'time': 'end', 'buttons': None, 'event_flag': '', 'text': 'Exclusive: celebrity weight loss secret.', 'image': 'images/placeholder.png'}], 'message': [{'performance': 'default', 'time': 'start', 'buttons': None, 'event_flag': '', 'text': 'Alex T Manager @ DataVille\nSubject: Orientation\n\nCongratulations on your new position as:\nImage Labeler / Annotator \n\nWe look forward to working with you. Utilize your natural instincts, perspective and humanity. \n\nHappy labeling! \n-Alex T', 'sender': 'supervisor'}, {'performance': 'default', 'time': 'start', 'buttons': ['Thanks, Cogni', 'Ugh. I hate AI.'], 'event_flag': '', 'text': 'And I’m your automated helper, COGNI! \nI’m here to assist you!\n\nRemember these simple directions:\nAnswer the questions quickly. \nAnswer the questions accurately. \nLabelers with the high ratings/speed will receive incentive bonuses!', 'sender': 'cogni'}, {'performance': 'default', 'time': 'start', 'buttons': None, 'event_flag': '', 'text': 'Here’s a practice run to get you started!', 'sender': 'cogni'}, {'performance': 'good', 'time': 'end', 'buttons': ['Off to a great start!'], 'event_flag': '', 'text': 'That was fantastic! Keep up the great work!\nYou’re a great fit with our company values!', 'sender': 'cogni'}, {'performance': 'neutral', 'time': 'end', 'buttons': ['Off to a great start!'], 'event_flag': '', 'text': 'Your performance so far is average.\n\nKeep our company values in mind going forward!', 'sender': 'cogni'}, {'performance': 'bad', 'time': 'end', 'buttons': ['Off to a rough start.'], 'event_flag': '', 'text': 'That wasn’t very good! Be sure to try your best! \nTry your best to align with our company’s values.', 'sender': 'cogni'}, {'performance': 'flag_dependent', 'time': 'end', 'buttons': None, 'event_flag': 'ethical_event_flag_1', 'text': 'You were so ethical today!', 'sender': 'cogni'}, {'performance': 'flag_dependent', 'time': 'end', 'buttons': None, 'event_flag': 'correct_event_flag_1', 'text': 'Good job not letting your ethics get the best of you.', 'sender': 'cogni'}], 'window_background': 'images/window/city_scape.png', 'button_text': 'Go to work!', 'dream': [{'performance': '', 'time': 'start', 'buttons': ['My career is my passion!', "I'm just looking for a paycheck."], 'event_flag': '', 'text': 'Do you have strong career goals?'}, {'performance': '', 'time': 'start', 'buttons': ['I want to be a part of something!', 'People make me nervous.'], 'event_flag': '', 'text': 'Do you want to be a part of a vibrant community?'}, {'performance': '', 'time': 'start', 'buttons': ['Where do I sign up?', 'No thanks.'], 'event_flag': '', 'text': 'Do you want to make the world a safer place?'}, {'performance': '', 'time': '', 'buttons': ['But I’m going to try my best!', 'I’ll muddle through for the money.'], 'event_flag': '', 'text': 'This new job is tough.'}, {'performance': '', 'time': '', 'buttons': ['But at least my boss seems cool!', 'Something is suspicious.'], 'event_flag': '', 'text': 'I’m not sure how I feel about my company.'}]}
+time:  end
+calling dream:  {'performance': '', 'time': '', 'buttons': ['But I’m going to try my best!', 'I’ll muddle through for the money.'], 'event_flag': '', 'text': 'This new job is tough.'}
+
+Full traceback:
+  File "game/script.rpy", line 536, in script call
+    call interstitial
+  File "game/script.rpy", line 605, in script call
+    call task_loop
+  File "game/script.rpy", line 536, in script call
+    call interstitial
+  File "game/script.rpy", line 605, in script call
+    call task_loop
+  File "game/script.rpy", line 536, in script call
+    call interstitial
+  File "game/script.rpy", line 605, in script call
+    call task_loop
+  File "game/script.rpy", line 536, in script call
+    call interstitial
+  File "game/script.rpy", line 605, in script call
+    call task_loop
+  File "game/script.rpy", line 536, in script call
+    call interstitial
+  File "game/script.rpy", line 605, in script call
+    call task_loop
+  File "game/script.rpy", line 536, in script call
+    call interstitial
+  File "game/script.rpy", line 605, in script call
+    call task_loop
+  File "game/script.rpy", line 536, in script call
+    call interstitial
+  File "game/script.rpy", line 605, in script call
+    call task_loop
+  File "game/script.rpy", line 536, in script call
+    call interstitial
+  File "game/script.rpy", line 605, in script call
+    call task_loop
+  File "game/script.rpy", line 536, in script call
+    call interstitial
+  File "game/script.rpy", line 605, in script call
+    call task_loop
+  File "game/script.rpy", line 536, in script call
+    call interstitial
+  File "game/script.rpy", line 585, in script
+    call screen dream(dream['text'], dream['buttons'])
+  File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/ast.py", line 2259, in execute
+    self.call("execute")
+  File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/ast.py", line 2241, in call
+    return renpy.statements.call(method, parsed, *args, **kwargs)
+  File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/statements.py", line 342, in call
+    return method(parsed, *args, **kwargs)
+  File "renpy/common/000statements.rpy", line 670, in execute_call_screen
+    store._return = renpy.call_screen(name, *args, **kwargs)
+  File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/exports.py", line 3347, in call_screen
+    rv = renpy.ui.interact(mouse="screen", type="screen", roll_forward=roll_forward)
+  File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/ui.py", line 299, in interact
+    rv = renpy.game.interface.interact(roll_forward=roll_forward, **kwargs)
+  File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/display/core.py", line 3582, in interact
+    repeat, rv = self.interact_core(preloads=preloads, trans_pause=trans_pause, pause=pause, pause_start=pause_start, pause_modal=pause_modal, **kwargs) # type: ignore
+  File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/display/core.py", line 4379, in interact_core
+    renpy.audio.audio.periodic()
+  File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/audio/audio.py", line 1224, in periodic
+    raise_(exc[0], exc[1], exc[2])
+  File "/home/tom/ab/renpy-build-fix/tmp/install.linux-x86_64/lib/python3.9/site-packages/future/utils/__init__.py", line 444, in raise_
+  File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/audio/audio.py", line 1202, in periodic_thread_main
+    periodic_pass()
+  File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/audio/audio.py", line 1144, in periodic_pass
+    c.periodic()
+  File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/audio/audio.py", line 534, in periodic
+    topf = load(filename)
+  File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/audio/audio.py", line 72, in load
+    rv = renpy.loader.load(fn, directory="audio")
+  File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/loader.py", line 833, in load
+    raise IOError("Couldn't find file '%s'." % name)
+OSError: Couldn't find file ''.
+
+While running game code:
+  File "game/script.rpy", line 536, in script call
+    call interstitial
+  File "game/script.rpy", line 605, in script call
+    call task_loop
+  File "game/script.rpy", line 536, in script call
+    call interstitial
+  File "game/script.rpy", line 605, in script call
+    call task_loop
+  File "game/script.rpy", line 536, in script call
+    call interstitial
+  File "game/script.rpy", line 605, in script call
+    call task_loop
+  File "game/script.rpy", line 536, in script call
+    call interstitial
+  File "game/script.rpy", line 605, in script call
+    call task_loop
+  File "game/script.rpy", line 536, in script call
+    call interstitial
+  File "game/script.rpy", line 605, in script call
+    call task_loop
+  File "game/script.rpy", line 536, in script call
+    call interstitial
+  File "game/script.rpy", line 605, in script call
+    call task_loop
+  File "game/script.rpy", line 536, in script call
+    call interstitial
+  File "game/script.rpy", line 605, in script call
+    call task_loop
+  File "game/script.rpy", line 536, in script call
+    call interstitial
+  File "game/script.rpy", line 605, in script call
+    call task_loop
+  File "game/script.rpy", line 536, in script call
+    call interstitial
+  File "game/script.rpy", line 605, in script call
+    call task_loop
+  File "game/script.rpy", line 536, in script call
+    call interstitial
+  File "game/script.rpy", line 585, in script
+    call screen dream(dream['text'], dream['buttons'])
+  File "renpy/common/000statements.rpy", line 670, in execute_call_screen
+    store._return = renpy.call_screen(name, *args, **kwargs)
+OSError: Couldn't find file ''.
+Resetting cache.
+Bootstrap to the start of init.init. took 762.45s
+Early init. took 0.00s
+Loader init. took 0.00s
+Loading error handling. took 0.01s
+Loading script. took 0.10s
+Loading save slot metadata. took 0.02s
+Loading persistent. took 0.00s
+day:  0
+Running init code. took 0.02s
+Loading analysis data. took 0.01s
+Analyze and compile ATL. took 0.00s
+Reloading save slot metadata. took 0.01s
+Index archives took 0.00s
+Backing up script files to '/home/brent/.renpy/backups/DataVille':
+Dump and make backups. took 0.03s
+Cleaning cache. took 0.00s
+Making clean stores. took 0.00s
+Initial gc. took 0.03s
+DPI scale factor: 1.000000
+Creating interface object. took 0.00s
+Cleaning stores took 0.00s
+Init translation took 0.03s
+Build styles took 0.00s
+Load screen analysis took 0.00s
+Analyze screens took 0.01s
+Save screen analysis took 0.02s
+Prepare screens took 0.06s
+Save pyanalysis. took 0.00s
+Save bytecode. took 0.01s
+Running _start took 0.00s
+Performance test:
+Interface start. took 0.04s
+
+Initializing gl2 renderer:
+primary display bounds: (1920, 0, 2560, 1440)
+swap interval: 1 frames
+Windowed mode.
+Vendor: "b'Intel'"
+Renderer: b'Mesa Intel(R) UHD Graphics (CML GT2)'
+Version: b'4.6 (Compatibility Profile) Mesa 23.0.4-0ubuntu1~22.04.1'
+Display Info: None
+Screen sizes: virtual=(1920, 1080) physical=(2490, 1369) drawable=(2490, 1369)
+Maximum texture size: 4096x4096
+task:  {'type': 'binary_text', 'next_task': 'break', 'payment': '1200', 'instructions': 'This is a placeholder.', 'time': '10', 'correct_options': 'Y', 'text_block': 'Hit yes to get the money.'}
+perf rating at day start:  neutral
+task:  {'type': 'binary_text', 'next_task': 'break', 'payment': '1200', 'instructions': 'This is a placeholder.', 'time': '10', 'correct_options': 'Y', 'text_block': 'Hit yes to get the money.'}
+task:  break
+state:  {'earnings': 1200.0, 'average_time': 10.009999999999831, 'total_time': 10.009999999999831, 'total_score': 100, 'approval_rate': 100.0}
+average:  {'score': 70, 'time': 8, 'earnings': 1200}
+buttons:  ['Off to a rough start.']
+state:  {'earnings': 1200.0, 'average_time': 10.009999999999831, 'total_time': 10.009999999999831, 'total_score': 100, 'approval_rate': 100.0}
+average:  {'score': 70, 'time': 8, 'earnings': 1200}
+buttons:  ['Off to a rough start.']
+buttons:  ['Off to a rough start.']
+buttons:  ['Off to a rough start.']
+perf rating:  bad
+apartment data:  {'apartment_background': '1', 'sticky_note': [{'performance': 'default', 'time': 'start', 'buttons': None, 'event_flag': '', 'text': '-Mitten vet appointment'}, {'performance': 'default', 'time': 'start', 'buttons': None, 'event_flag': '', 'text': '-Call mom back'}, {'performance': 'default', 'time': 'start', 'buttons': None, 'event_flag': '', 'text': '-Pay rent'}, {'performance': 'default', 'time': 'start', 'buttons': None, 'event_flag': '', 'text': '-Trash day'}], 'news': [{'performance': 'default', 'time': 'start', 'buttons': None, 'event_flag': '', 'text': 'Aliens among us!', 'image': 'images/room/tv_content/kiss.png'}, {'performance': 'default', 'time': 'start', 'buttons': None, 'event_flag': '', 'text': 'Gig Economy Expected to Continue Growing', 'image': 'images/room/tv_content/kiss.png'}, {'performance': 'default', 'time': 'start', 'buttons': None, 'event_flag': '', 'text': 'Scientist: visitors’ camouflage abilities greater than previously believed.', 'image': 'images/placeholder.png'}, {'performance': 'default', 'time': 'start', 'buttons': None, 'event_flag': '', 'text': 'Cleveland zoo welcomes birth of new pandas.', 'image': 'images/placeholder.png'}, {'performance': 'default', 'time': 'start', 'buttons': None, 'event_flag': '', 'text': 'Experts testify before congress on illegal aliens.', 'image': 'images/placeholder.png'}, {'performance': 'default', 'time': 'start', 'buttons': None, 'event_flag': '', 'text': 'Official opening of Montana resettlement zone', 'image': 'images/placeholder.png'}, {'performance': 'default', 'time': 'start', 'buttons': None, 'event_flag': '', 'text': 'White collar unemployment hits new level.', 'image': 'images/placeholder.png'}, {'performance': 'default', 'time': 'end', 'buttons': None, 'event_flag': '', 'text': 'Senator proposes ‘Resettlement Zone’ for alien migrants.', 'image': 'images/placeholder.png'}, {'performance': 'default', 'time': 'end', 'buttons': None, 'event_flag': '', 'text': 'AI blamed for new white collar unemployment figures.', 'image': 'images/placeholder.png'}, {'performance': 'default', 'time': 'end', 'buttons': None, 'event_flag': '', 'text': 'Congress tackles the question of alien rights.', 'image': 'images/placeholder.png'}, {'performance': 'default', 'time': 'end', 'buttons': None, 'event_flag': '', 'text': 'Chef Tony’s wows DC diners!', 'image': 'images/placeholder.png'}, {'performance': 'default', 'time': 'end', 'buttons': None, 'event_flag': '', 'text': 'Exclusive: celebrity weight loss secret.', 'image': 'images/placeholder.png'}], 'message': [{'performance': 'default', 'time': 'start', 'buttons': None, 'event_flag': '', 'text': 'Alex T Manager @ DataVille\nSubject: Orientation\n\nCongratulations on your new position as:\nImage Labeler / Annotator \n\nWe look forward to working with you. Utilize your natural instincts, perspective and humanity. \n\nHappy labeling! \n-Alex T', 'sender': 'supervisor'}, {'performance': 'default', 'time': 'start', 'buttons': ['Thanks, Cogni', 'Ugh. I hate AI.'], 'event_flag': '', 'text': 'And I’m your automated helper, COGNI! \nI’m here to assist you!\n\nRemember these simple directions:\nAnswer the questions quickly. \nAnswer the questions accurately. \nLabelers with the high ratings/speed will receive incentive bonuses!', 'sender': 'cogni'}, {'performance': 'default', 'time': 'start', 'buttons': None, 'event_flag': '', 'text': 'Here’s a practice run to get you started!', 'sender': 'cogni'}, {'performance': 'good', 'time': 'end', 'buttons': ['Off to a great start!'], 'event_flag': '', 'text': 'That was fantastic! Keep up the great work!\nYou’re a great fit with our company values!', 'sender': 'cogni'}, {'performance': 'neutral', 'time': 'end', 'buttons': ['Off to a great start!'], 'event_flag': '', 'text': 'Your performance so far is average.\n\nKeep our company values in mind going forward!', 'sender': 'cogni'}, {'performance': 'bad', 'time': 'end', 'buttons': ['Off to a rough start.'], 'event_flag': '', 'text': 'That wasn’t very good! Be sure to try your best! \nTry your best to align with our company’s values.', 'sender': 'cogni'}, {'performance': 'flag_dependent', 'time': 'end', 'buttons': None, 'event_flag': 'ethical_event_flag_1', 'text': 'You were so ethical today!', 'sender': 'cogni'}, {'performance': 'flag_dependent', 'time': 'end', 'buttons': None, 'event_flag': 'correct_event_flag_1', 'text': 'Good job not letting your ethics get the best of you.', 'sender': 'cogni'}], 'window_background': 'images/window/city_scape.png', 'button_text': 'Go to work!', 'dream': [{'performance': '', 'time': 'start', 'buttons': ['My career is my passion!', "I'm just looking for a paycheck."], 'event_flag': '', 'text': 'Do you have strong career goals?'}, {'performance': '', 'time': 'start', 'buttons': ['I want to be a part of something!', 'People make me nervous.'], 'event_flag': '', 'text': 'Do you want to be a part of a vibrant community?'}, {'performance': '', 'time': 'start', 'buttons': ['Where do I sign up?', 'No thanks.'], 'event_flag': '', 'text': 'Do you want to make the world a safer place?'}, {'performance': '', 'time': '', 'buttons': ['But I’m going to try my best!', 'I’ll muddle through for the money.'], 'event_flag': '', 'text': 'This new job is tough.'}, {'performance': '', 'time': '', 'buttons': ['But at least my boss seems cool!', 'Something is suspicious.'], 'event_flag': '', 'text': 'I’m not sure how I feel about my company.'}]}
+time:  end
+calling dream:  {'performance': '', 'time': '', 'buttons': ['But I’m going to try my best!', 'I’ll muddle through for the money.'], 'event_flag': '', 'text': 'This new job is tough.'}
+
+Full traceback:
+  File "game/script.rpy", line 536, in script call
+    call interstitial
+  File "game/script.rpy", line 605, in script call
+    call task_loop
+  File "game/script.rpy", line 536, in script call
+    call interstitial
+  File "game/script.rpy", line 605, in script call
+    call task_loop
+  File "game/script.rpy", line 536, in script call
+    call interstitial
+  File "game/script.rpy", line 605, in script call
+    call task_loop
+  File "game/script.rpy", line 536, in script call
+    call interstitial
+  File "game/script.rpy", line 605, in script call
+    call task_loop
+  File "game/script.rpy", line 536, in script call
+    call interstitial
+  File "game/script.rpy", line 605, in script call
+    call task_loop
+  File "game/script.rpy", line 536, in script call
+    call interstitial
+  File "game/script.rpy", line 605, in script call
+    call task_loop
+  File "game/script.rpy", line 536, in script call
+    call interstitial
+  File "game/script.rpy", line 605, in script call
+    call task_loop
+  File "game/script.rpy", line 536, in script call
+    call interstitial
+  File "game/script.rpy", line 605, in script call
+    call task_loop
+  File "game/script.rpy", line 536, in script call
+    call interstitial
+  File "game/script.rpy", line 605, in script call
+    call task_loop
+  File "game/script.rpy", line 536, in script call
+    call interstitial
+  File "game/script.rpy", line 605, in script call
+    call task_loop
+  File "game/script.rpy", line 536, in script call
+    call interstitial
+  File "game/script.rpy", line 585, in script
+    call screen dream(dream['text'], dream['buttons'])
+  File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/ast.py", line 2259, in execute
+    self.call("execute")
+  File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/ast.py", line 2241, in call
+    return renpy.statements.call(method, parsed, *args, **kwargs)
+  File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/statements.py", line 342, in call
+    return method(parsed, *args, **kwargs)
+  File "renpy/common/000statements.rpy", line 670, in execute_call_screen
+    store._return = renpy.call_screen(name, *args, **kwargs)
+  File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/exports.py", line 3347, in call_screen
+    rv = renpy.ui.interact(mouse="screen", type="screen", roll_forward=roll_forward)
+  File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/ui.py", line 299, in interact
+    rv = renpy.game.interface.interact(roll_forward=roll_forward, **kwargs)
+  File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/display/core.py", line 3582, in interact
+    repeat, rv = self.interact_core(preloads=preloads, trans_pause=trans_pause, pause=pause, pause_start=pause_start, pause_modal=pause_modal, **kwargs) # type: ignore
+  File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/display/core.py", line 4379, in interact_core
+    renpy.audio.audio.periodic()
+  File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/audio/audio.py", line 1224, in periodic
+    raise_(exc[0], exc[1], exc[2])
+  File "/home/tom/ab/renpy-build-fix/tmp/install.linux-x86_64/lib/python3.9/site-packages/future/utils/__init__.py", line 444, in raise_
+  File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/audio/audio.py", line 1202, in periodic_thread_main
+    periodic_pass()
+  File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/audio/audio.py", line 1144, in periodic_pass
+    c.periodic()
+  File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/audio/audio.py", line 534, in periodic
+    topf = load(filename)
+  File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/audio/audio.py", line 72, in load
+    rv = renpy.loader.load(fn, directory="audio")
+  File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/loader.py", line 833, in load
+    raise IOError("Couldn't find file '%s'." % name)
+OSError: Couldn't find file ''.
+
+While running game code:
+  File "game/script.rpy", line 536, in script call
+    call interstitial
+  File "game/script.rpy", line 605, in script call
+    call task_loop
+  File "game/script.rpy", line 536, in script call
+    call interstitial
+  File "game/script.rpy", line 605, in script call
+    call task_loop
+  File "game/script.rpy", line 536, in script call
+    call interstitial
+  File "game/script.rpy", line 605, in script call
+    call task_loop
+  File "game/script.rpy", line 536, in script call
+    call interstitial
+  File "game/script.rpy", line 605, in script call
+    call task_loop
+  File "game/script.rpy", line 536, in script call
+    call interstitial
+  File "game/script.rpy", line 605, in script call
+    call task_loop
+  File "game/script.rpy", line 536, in script call
+    call interstitial
+  File "game/script.rpy", line 605, in script call
+    call task_loop
+  File "game/script.rpy", line 536, in script call
+    call interstitial
+  File "game/script.rpy", line 605, in script call
+    call task_loop
+  File "game/script.rpy", line 536, in script call
+    call interstitial
+  File "game/script.rpy", line 605, in script call
+    call task_loop
+  File "game/script.rpy", line 536, in script call
+    call interstitial
+  File "game/script.rpy", line 605, in script call
+    call task_loop
+  File "game/script.rpy", line 536, in script call
+    call interstitial
+  File "game/script.rpy", line 605, in script call
+    call task_loop
+  File "game/script.rpy", line 536, in script call
+    call interstitial
+  File "game/script.rpy", line 585, in script
+    call screen dream(dream['text'], dream['buttons'])
+  File "renpy/common/000statements.rpy", line 670, in execute_call_screen
+    store._return = renpy.call_screen(name, *args, **kwargs)
+OSError: Couldn't find file ''.
+Resetting cache.
+Bootstrap to the start of init.init. took 789.12s
+Early init. took 0.00s
+Loader init. took 0.00s
+Loading error handling. took 0.01s
+Loading script. took 0.10s
+Loading save slot metadata. took 0.02s
+Loading persistent. took 0.00s
+day:  0
+Running init code. took 0.02s
+Loading analysis data. took 0.01s
+Analyze and compile ATL. took 0.00s
+Reloading save slot metadata. took 0.01s
+Index archives took 0.00s
+Backing up script files to '/home/brent/.renpy/backups/DataVille':
+Dump and make backups. took 0.03s
+Cleaning cache. took 0.00s
+Making clean stores. took 0.00s
+Initial gc. took 0.03s
+DPI scale factor: 1.000000
+Creating interface object. took 0.00s
+Cleaning stores took 0.00s
+Init translation took 0.03s
+Build styles took 0.00s
+Load screen analysis took 0.00s
+Analyze screens took 0.01s
+Save screen analysis took 0.02s
+Prepare screens took 0.06s
+Save pyanalysis. took 0.00s
+Save bytecode. took 0.01s
+Running _start took 0.00s
+Performance test:
+Interface start. took 0.04s
+
+Initializing gl2 renderer:
+primary display bounds: (1920, 0, 2560, 1440)
+swap interval: 1 frames
+Windowed mode.
+Vendor: "b'Intel'"
+Renderer: b'Mesa Intel(R) UHD Graphics (CML GT2)'
+Version: b'4.6 (Compatibility Profile) Mesa 23.0.4-0ubuntu1~22.04.1'
+Display Info: None
+Screen sizes: virtual=(1920, 1080) physical=(2490, 1369) drawable=(2490, 1369)
+Maximum texture size: 4096x4096
+task:  {'type': 'binary_text', 'next_task': 'break', 'payment': '1200', 'instructions': 'This is a placeholder.', 'time': '10', 'correct_options': 'Y', 'text_block': 'Hit yes to get the money.'}
+perf rating at day start:  neutral
+task:  {'type': 'binary_text', 'next_task': 'break', 'payment': '1200', 'instructions': 'This is a placeholder.', 'time': '10', 'correct_options': 'Y', 'text_block': 'Hit yes to get the money.'}
+task:  break
+state:  {'earnings': 1200.0, 'average_time': 10.009999999999831, 'total_time': 10.009999999999831, 'total_score': 100, 'approval_rate': 100.0}
+average:  {'score': 70, 'time': 8, 'earnings': 1200}
+buttons:  ['Off to a rough start.']
+state:  {'earnings': 1200.0, 'average_time': 10.009999999999831, 'total_time': 10.009999999999831, 'total_score': 100, 'approval_rate': 100.0}
+average:  {'score': 70, 'time': 8, 'earnings': 1200}
+buttons:  ['Off to a rough start.']
+buttons:  ['Off to a rough start.']
+buttons:  ['Off to a rough start.']
+perf rating:  bad
+apartment data:  {'apartment_background': '1', 'sticky_note': [{'performance': 'default', 'time': 'start', 'buttons': None, 'event_flag': '', 'text': '-Mitten vet appointment'}, {'performance': 'default', 'time': 'start', 'buttons': None, 'event_flag': '', 'text': '-Call mom back'}, {'performance': 'default', 'time': 'start', 'buttons': None, 'event_flag': '', 'text': '-Pay rent'}, {'performance': 'default', 'time': 'start', 'buttons': None, 'event_flag': '', 'text': '-Trash day'}], 'news': [{'performance': 'default', 'time': 'start', 'buttons': None, 'event_flag': '', 'text': 'Aliens among us!', 'image': 'images/room/tv_content/kiss.png'}, {'performance': 'default', 'time': 'start', 'buttons': None, 'event_flag': '', 'text': 'Gig Economy Expected to Continue Growing', 'image': 'images/room/tv_content/kiss.png'}, {'performance': 'default', 'time': 'start', 'buttons': None, 'event_flag': '', 'text': 'Scientist: visitors’ camouflage abilities greater than previously believed.', 'image': 'images/placeholder.png'}, {'performance': 'default', 'time': 'start', 'buttons': None, 'event_flag': '', 'text': 'Cleveland zoo welcomes birth of new pandas.', 'image': 'images/placeholder.png'}, {'performance': 'default', 'time': 'start', 'buttons': None, 'event_flag': '', 'text': 'Experts testify before congress on illegal aliens.', 'image': 'images/placeholder.png'}, {'performance': 'default', 'time': 'start', 'buttons': None, 'event_flag': '', 'text': 'Official opening of Montana resettlement zone', 'image': 'images/placeholder.png'}, {'performance': 'default', 'time': 'start', 'buttons': None, 'event_flag': '', 'text': 'White collar unemployment hits new level.', 'image': 'images/placeholder.png'}, {'performance': 'default', 'time': 'end', 'buttons': None, 'event_flag': '', 'text': 'Senator proposes ‘Resettlement Zone’ for alien migrants.', 'image': 'images/placeholder.png'}, {'performance': 'default', 'time': 'end', 'buttons': None, 'event_flag': '', 'text': 'AI blamed for new white collar unemployment figures.', 'image': 'images/placeholder.png'}, {'performance': 'default', 'time': 'end', 'buttons': None, 'event_flag': '', 'text': 'Congress tackles the question of alien rights.', 'image': 'images/placeholder.png'}, {'performance': 'default', 'time': 'end', 'buttons': None, 'event_flag': '', 'text': 'Chef Tony’s wows DC diners!', 'image': 'images/placeholder.png'}, {'performance': 'default', 'time': 'end', 'buttons': None, 'event_flag': '', 'text': 'Exclusive: celebrity weight loss secret.', 'image': 'images/placeholder.png'}], 'message': [{'performance': 'default', 'time': 'start', 'buttons': None, 'event_flag': '', 'text': 'Alex T Manager @ DataVille\nSubject: Orientation\n\nCongratulations on your new position as:\nImage Labeler / Annotator \n\nWe look forward to working with you. Utilize your natural instincts, perspective and humanity. \n\nHappy labeling! \n-Alex T', 'sender': 'supervisor'}, {'performance': 'default', 'time': 'start', 'buttons': ['Thanks, Cogni', 'Ugh. I hate AI.'], 'event_flag': '', 'text': 'And I’m your automated helper, COGNI! \nI’m here to assist you!\n\nRemember these simple directions:\nAnswer the questions quickly. \nAnswer the questions accurately. \nLabelers with the high ratings/speed will receive incentive bonuses!', 'sender': 'cogni'}, {'performance': 'default', 'time': 'start', 'buttons': None, 'event_flag': '', 'text': 'Here’s a practice run to get you started!', 'sender': 'cogni'}, {'performance': 'good', 'time': 'end', 'buttons': ['Off to a great start!'], 'event_flag': '', 'text': 'That was fantastic! Keep up the great work!\nYou’re a great fit with our company values!', 'sender': 'cogni'}, {'performance': 'neutral', 'time': 'end', 'buttons': ['Off to a great start!'], 'event_flag': '', 'text': 'Your performance so far is average.\n\nKeep our company values in mind going forward!', 'sender': 'cogni'}, {'performance': 'bad', 'time': 'end', 'buttons': ['Off to a rough start.'], 'event_flag': '', 'text': 'That wasn’t very good! Be sure to try your best! \nTry your best to align with our company’s values.', 'sender': 'cogni'}, {'performance': 'flag_dependent', 'time': 'end', 'buttons': None, 'event_flag': 'ethical_event_flag_1', 'text': 'You were so ethical today!', 'sender': 'cogni'}, {'performance': 'flag_dependent', 'time': 'end', 'buttons': None, 'event_flag': 'correct_event_flag_1', 'text': 'Good job not letting your ethics get the best of you.', 'sender': 'cogni'}], 'window_background': 'images/window/city_scape.png', 'button_text': 'Go to work!', 'dream': [{'performance': '', 'time': 'start', 'buttons': ['My career is my passion!', "I'm just looking for a paycheck."], 'event_flag': '', 'text': 'Do you have strong career goals?'}, {'performance': '', 'time': 'start', 'buttons': ['I want to be a part of something!', 'People make me nervous.'], 'event_flag': '', 'text': 'Do you want to be a part of a vibrant community?'}, {'performance': '', 'time': 'start', 'buttons': ['Where do I sign up?', 'No thanks.'], 'event_flag': '', 'text': 'Do you want to make the world a safer place?'}, {'performance': '', 'time': '', 'buttons': ['But I’m going to try my best!', 'I’ll muddle through for the money.'], 'event_flag': '', 'text': 'This new job is tough.'}, {'performance': '', 'time': '', 'buttons': ['But at least my boss seems cool!', 'Something is suspicious.'], 'event_flag': '', 'text': 'I’m not sure how I feel about my company.'}]}
+time:  end
+calling dream:  {'performance': '', 'time': '', 'buttons': ['But I’m going to try my best!', 'I’ll muddle through for the money.'], 'event_flag': '', 'text': 'This new job is tough.'}
+calling dream:  {'performance': '', 'time': '', 'buttons': ['But at least my boss seems cool!', 'Something is suspicious.'], 'event_flag': '', 'text': 'I’m not sure how I feel about my company.'}
+day:  1
+perf rating:  bad
+apartment data:  {'apartment_background': '1', 'sticky_note': [{'performance': 'default', 'time': 'start', 'buttons': None, 'text': '-Mitten vet appointment'}, {'performance': 'default', 'time': 'start', 'buttons': None, 'text': '-Call mom back'}, {'performance': 'default', 'time': 'start', 'buttons': None, 'text': '-Pay rent'}, {'performance': 'default', 'time': 'start', 'buttons': None, 'text': '-Trash day'}], 'news': [{'performance': 'default', 'time': 'start', 'buttons': None, 'text': 'Gig Economy Expected to Continue Growing', 'image': 'images/placeholder.png'}, {'performance': 'default', 'time': 'start', 'buttons': None, 'text': 'Scientist: visitors’ camouflage abilities greater than previously believed.', 'image': 'images/placeholder.png'}, {'performance': 'default', 'time': 'start', 'buttons': None, 'text': 'Cleveland zoo welcomes birth of new pandas.', 'image': 'images/placeholder.png'}, {'performance': 'default', 'time': 'start', 'buttons': None, 'text': 'Experts testify before congress on illegal aliens.', 'image': 'images/placeholder.png'}, {'performance': 'default', 'time': 'start', 'buttons': None, 'text': 'Official opening of Montana resettlement zone', 'image': 'images/placeholder.png'}, {'performance': 'default', 'time': 'start', 'buttons': None, 'text': 'White collar unemployment hits new level.', 'image': 'images/placeholder.png'}, {'performance': 'default', 'time': 'end', 'buttons': None, 'text': 'Immigration Reforms Stalls in Congress Over Illegal Aliens.', 'image': 'images/placeholder.png'}, {'performance': 'default', 'time': 'end', 'buttons': None, 'text': 'Oldest woman alive turns 118', 'image': 'images/placeholder.png'}, {'performance': 'default', 'time': 'end', 'buttons': None, 'text': 'AI blamed for New White Collar Unemployment Figures.', 'image': 'images/placeholder.png'}, {'performance': 'default', 'time': 'end', 'buttons': None, 'text': 'Tragedy in Montana Resettlement Zone', 'image': 'images/placeholder.png'}], 'message': [{'performance': 'default', 'time': 'start', 'buttons': None, 'text': 'Alex T Manager @ DataVille\nSubject: Orientation\n\nCongratulations on your new position as:\nImage Labeler / Annotator \n\nWe look forward to working with you. Utilize your natural instincts, perspective and humanity. \n\nHappy labeling! \n-Alex T', 'sender': 'supervisor'}, {'performance': 'default', 'time': 'start', 'buttons': ['Thanks, Cogni', 'Ugh. I hate AI.'], 'text': 'And I’m your automated helper, COGNI! \nI’m here to assist you!\n\nRemember these simple directions:\nAnswer the questions quickly. \nAnswer the questions accurately. \nLabelers with the high ratings/speed will receive incentive bonuses!', 'sender': 'cogni'}, {'performance': 'default', 'time': 'start', 'buttons': None, 'text': 'Here’s a practice run to get you started!', 'sender': 'cogni'}, {'performance': 'good', 'time': 'end', 'buttons': ['Off to a great start!'], 'text': '“That was fantastic! Keep up the great work!\nHumanity is counting on you!”', 'sender': ''}, {'performance': 'bad', 'time': '', 'buttons': ['Off to a rough start.'], 'text': 'That wasn’t very good! Be sure to try your best! \nRemember, humanity is counting on you!', 'sender': ''}], 'window_background': 'images/window/city_scape.png', 'button_text': 'Go to work!', 'dream': []}
+time:  start
+
+Full traceback:
+  File "game/script.rpy", line 536, in script call
+    call interstitial
+  File "game/script.rpy", line 604, in script call
+    call task_loop
+  File "game/script.rpy", line 536, in script call
+    call interstitial
+  File "game/script.rpy", line 604, in script call
+    call task_loop
+  File "game/script.rpy", line 536, in script call
+    call interstitial
+  File "game/script.rpy", line 604, in script call
+    call task_loop
+  File "game/script.rpy", line 536, in script call
+    call interstitial
+  File "game/script.rpy", line 604, in script call
+    call task_loop
+  File "game/script.rpy", line 536, in script call
+    call interstitial
+  File "game/script.rpy", line 604, in script call
+    call task_loop
+  File "game/script.rpy", line 536, in script call
+    call interstitial
+  File "game/script.rpy", line 604, in script call
+    call task_loop
+  File "game/script.rpy", line 536, in script call
+    call interstitial
+  File "game/script.rpy", line 604, in script call
+    call task_loop
+  File "game/script.rpy", line 536, in script call
+    call interstitial
+  File "game/script.rpy", line 604, in script call
+    call task_loop
+  File "game/script.rpy", line 536, in script call
+    call interstitial
+  File "game/script.rpy", line 604, in script call
+    call task_loop
+  File "game/script.rpy", line 536, in script call
+    call interstitial
+  File "game/script.rpy", line 604, in script call
+    call task_loop
+  File "game/script.rpy", line 536, in script call
+    call interstitial
+  File "game/script.rpy", line 604, in script call
+    call task_loop
+  File "game/script.rpy", line 536, in script call
+    call interstitial
+  File "game/script.rpy", line 593, in script call
+    call interstitial
+  File "game/script.rpy", line 574, in script
+    call screen apartment(clean(store.apartment_data), store.game_state.time)
+  File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/ast.py", line 2259, in execute
+    self.call("execute")
+  File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/ast.py", line 2241, in call
+    return renpy.statements.call(method, parsed, *args, **kwargs)
+  File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/statements.py", line 342, in call
+    return method(parsed, *args, **kwargs)
+  File "renpy/common/000statements.rpy", line 670, in execute_call_screen
+    store._return = renpy.call_screen(name, *args, **kwargs)
+  File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/exports.py", line 3347, in call_screen
+    rv = renpy.ui.interact(mouse="screen", type="screen", roll_forward=roll_forward)
+  File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/ui.py", line 299, in interact
+    rv = renpy.game.interface.interact(roll_forward=roll_forward, **kwargs)
+  File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/display/core.py", line 3582, in interact
+    repeat, rv = self.interact_core(preloads=preloads, trans_pause=trans_pause, pause=pause, pause_start=pause_start, pause_modal=pause_modal, **kwargs) # type: ignore
+  File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/display/core.py", line 4379, in interact_core
+    renpy.audio.audio.periodic()
+  File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/audio/audio.py", line 1224, in periodic
+    raise_(exc[0], exc[1], exc[2])
+  File "/home/tom/ab/renpy-build-fix/tmp/install.linux-x86_64/lib/python3.9/site-packages/future/utils/__init__.py", line 444, in raise_
+  File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/audio/audio.py", line 1202, in periodic_thread_main
+    periodic_pass()
+  File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/audio/audio.py", line 1144, in periodic_pass
+    c.periodic()
+  File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/audio/audio.py", line 534, in periodic
+    topf = load(filename)
+  File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/audio/audio.py", line 72, in load
+    rv = renpy.loader.load(fn, directory="audio")
+  File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/loader.py", line 833, in load
+    raise IOError("Couldn't find file '%s'." % name)
+OSError: Couldn't find file ''.
+
+While running game code:
+  File "game/script.rpy", line 536, in script call
+    call interstitial
+  File "game/script.rpy", line 604, in script call
+    call task_loop
+  File "game/script.rpy", line 536, in script call
+    call interstitial
+  File "game/script.rpy", line 604, in script call
+    call task_loop
+  File "game/script.rpy", line 536, in script call
+    call interstitial
+  File "game/script.rpy", line 604, in script call
+    call task_loop
+  File "game/script.rpy", line 536, in script call
+    call interstitial
+  File "game/script.rpy", line 604, in script call
+    call task_loop
+  File "game/script.rpy", line 536, in script call
+    call interstitial
+  File "game/script.rpy", line 604, in script call
+    call task_loop
+  File "game/script.rpy", line 536, in script call
+    call interstitial
+  File "game/script.rpy", line 604, in script call
+    call task_loop
+  File "game/script.rpy", line 536, in script call
+    call interstitial
+  File "game/script.rpy", line 604, in script call
+    call task_loop
+  File "game/script.rpy", line 536, in script call
+    call interstitial
+  File "game/script.rpy", line 604, in script call
+    call task_loop
+  File "game/script.rpy", line 536, in script call
+    call interstitial
+  File "game/script.rpy", line 604, in script call
+    call task_loop
+  File "game/script.rpy", line 536, in script call
+    call interstitial
+  File "game/script.rpy", line 604, in script call
+    call task_loop
+  File "game/script.rpy", line 536, in script call
+    call interstitial
+  File "game/script.rpy", line 604, in script call
+    call task_loop
+  File "game/script.rpy", line 536, in script call
+    call interstitial
+  File "game/script.rpy", line 593, in script call
+    call interstitial
+  File "game/script.rpy", line 574, in script
+    call screen apartment(clean(store.apartment_data), store.game_state.time)
+  File "renpy/common/000statements.rpy", line 670, in execute_call_screen
+    store._return = renpy.call_screen(name, *args, **kwargs)
+OSError: Couldn't find file ''.
