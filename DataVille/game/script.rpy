@@ -206,7 +206,7 @@ init python:
           story_object['text'] = row['TEXT']
 #          story_object['image'] = row['IMAGE']
 #          #FIXME: PLACEHOLDER IMAGE
-          if 'IMAGE_FOLDER' in row and len(row['IMAGE_FOLDER']) > 0:
+          if 'IMAGE' in row and len(row['IMAGE']) > 0:
             story_object['image'] = get_apartment_image(row['IMAGE_FOLDER'], row['IMAGE'])
           else:
             story_object['image'] = "images/placeholder.png"

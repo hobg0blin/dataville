@@ -1,4 +1,4 @@
-Fri Jan  5 17:14:58 2024
+Sat Jan  6 12:32:36 2024
 Linux-6.2.0-39-generic-x86_64-with-glibc2.35
 Ren'Py 8.1.3.23091805
  
@@ -6,34 +6,35 @@ Ren'Py 8.1.3.23091805
 Bootstrap to the start of init.init. took 0.03s
 Early init. took 0.00s
 Loader init. took 0.00s
-Loading error handling. took 0.02s
-Loading script. took 0.16s
-Loading save slot metadata. took 0.02s
+Loading error handling. took 0.03s
+Loading script. took 0.42s
+Loading save slot metadata. took 0.03s
 Loading persistent. took 0.00s
 day:  0
 Running init code. took 0.04s
-Loading analysis data. took 0.01s
+Loading analysis data. took 0.02s
 Analyze and compile ATL. took 0.00s
 Reloading save slot metadata. took 0.01s
 Index archives took 0.00s
+Backing up script files to '/home/brent/.renpy/backups/DataVille':
 Dump and make backups. took 0.04s
 Cleaning cache. took 0.00s
 Making clean stores. took 0.00s
-Initial gc. took 0.01s
+Initial gc. took 0.02s
 DPI scale factor: 1.000000
 Creating interface object. took 0.00s
 Cleaning stores took 0.00s
 Init translation took 0.03s
 Build styles took 0.00s
-Load screen analysis took 0.03s
-Analyze screens took 0.00s
-Save screen analysis took 0.00s
+Load screen analysis took 0.00s
+Analyze screens took 0.01s
+Save screen analysis took 0.02s
 Prepare screens took 0.06s
-Save pyanalysis. took 0.00s
+Save pyanalysis. took 0.01s
 Save bytecode. took 0.02s
 Running _start took 0.00s
 Performance test:
-Interface start. took 0.10s
+Interface start. took 0.11s
 
 Initializing gl2 renderer:
 primary display bounds: (1920, 0, 2560, 1440)
@@ -47,6 +48,10 @@ Screen sizes: virtual=(1920, 1080) physical=(1244, 700) drawable=(1244, 700)
 Maximum texture size: 4096x4096
 Screen sizes: virtual=(1920, 1080) physical=(2490, 1369) drawable=(2490, 1369)
 Maximum texture size: 4096x4096
+Screen sizes: virtual=(1920, 1080) physical=(1244, 700) drawable=(1244, 700)
+Maximum texture size: 4096x4096
+Screen sizes: virtual=(1920, 1080) physical=(1920, 1043) drawable=(1920, 1043)
+Maximum texture size: 4096x4096
 state:  {'earnings': 0, 'average_time': 0, 'total_time': 0, 'total_score': 0, 'approval_rate': 0}
 average:  {'score': 70, 'time': 8, 'earnings': 1200}
 state:  {'earnings': 0, 'average_time': 0, 'total_time': 0, 'total_score': 0, 'approval_rate': 0}
@@ -55,328 +60,64 @@ state:  {'earnings': 0, 'average_time': 0, 'total_time': 0, 'total_score': 0, 'a
 average:  {'score': 70, 'time': 8, 'earnings': 1200}
 state:  {'earnings': 0, 'average_time': 0, 'total_time': 0, 'total_score': 0, 'approval_rate': 0}
 average:  {'score': 70, 'time': 8, 'earnings': 1200}
-state:  {'earnings': 0, 'average_time': 0, 'total_time': 0, 'total_score': 0, 'approval_rate': 0}
-average:  {'score': 70, 'time': 8, 'earnings': 1200}
-buttons:  None
-buttons:  None
-buttons:  ['Thanks, Cogni', 'Ugh. I hate AI.']
-buttons:  ['Thanks, Cogni', 'Ugh. I hate AI.']
-buttons:  None
-buttons:  None
-task:  {'type': 'binary_text', 'next_task': 'break', 'payment': '1200', 'instructions': 'This is a placeholder.', 'time': '10', 'correct_options': 'Y', 'text_block': 'Hit yes to get the money.'}
-task:  {'type': 'binary_text', 'next_task': 'break', 'payment': '1200', 'instructions': 'This is a placeholder.', 'time': '10', 'correct_options': 'Y', 'text_block': 'Hit yes to get the money.'}
-task:  break
-state:  {'earnings': 1200.0, 'average_time': 0.6599999999999859, 'total_time': 0.6599999999999859, 'total_score': 100, 'approval_rate': 100.0}
-average:  {'score': 70, 'time': 8, 'earnings': 1200}
-buttons:  None
-state:  {'earnings': 1200.0, 'average_time': 0.6599999999999859, 'total_time': 0.6599999999999859, 'total_score': 100, 'approval_rate': 100.0}
-average:  {'score': 70, 'time': 8, 'earnings': 1200}
-buttons:  None
-buttons:  ['Off to a rough start.']
-buttons:  ['Off to a rough start.']
-perf rating:  bad
-apartment data:  {'apartment_background': '1', 'sticky_note': [{'performance': 'default', 'time': 'start', 'buttons': None, 'event_flag': '', 'text': '-Mitten vet appointment'}, {'performance': 'default', 'time': 'start', 'buttons': None, 'event_flag': '', 'text': '-Call mom back'}, {'performance': 'default', 'time': 'start', 'buttons': None, 'event_flag': '', 'text': '-Pay rent'}, {'performance': 'default', 'time': 'start', 'buttons': None, 'event_flag': '', 'text': '-Trash day'}], 'news': [{'performance': 'default', 'time': 'start', 'buttons': None, 'event_flag': '', 'text': 'Aliens among us!', 'image': 'images/room/tv_content/kiss.png'}, {'performance': 'default', 'time': 'start', 'buttons': None, 'event_flag': '', 'text': 'Gig Economy Expected to Continue Growing', 'image': 'images/room/tv_content/kiss.png'}, {'performance': 'default', 'time': 'start', 'buttons': None, 'event_flag': '', 'text': 'Scientist: visitors’ camouflage abilities greater than previously believed.', 'image': 'images/placeholder.png'}, {'performance': 'default', 'time': 'start', 'buttons': None, 'event_flag': '', 'text': 'Cleveland zoo welcomes birth of new pandas.', 'image': 'images/placeholder.png'}, {'performance': 'default', 'time': 'start', 'buttons': None, 'event_flag': '', 'text': 'Experts testify before congress on illegal aliens.', 'image': 'images/placeholder.png'}, {'performance': 'default', 'time': 'start', 'buttons': None, 'event_flag': '', 'text': 'Official opening of Montana resettlement zone', 'image': 'images/placeholder.png'}, {'performance': 'default', 'time': 'start', 'buttons': None, 'event_flag': '', 'text': 'White collar unemployment hits new level.', 'image': 'images/placeholder.png'}, {'performance': 'default', 'time': 'end', 'buttons': None, 'event_flag': '', 'text': 'Senator proposes ‘Resettlement Zone’ for alien migrants.', 'image': 'images/placeholder.png'}, {'performance': 'default', 'time': 'end', 'buttons': None, 'event_flag': '', 'text': 'AI blamed for new white collar unemployment figures.', 'image': 'images/placeholder.png'}, {'performance': 'default', 'time': 'end', 'buttons': None, 'event_flag': '', 'text': 'Congress tackles the question of alien rights.', 'image': 'images/placeholder.png'}, {'performance': 'default', 'time': 'end', 'buttons': None, 'event_flag': '', 'text': 'Chef Tony’s wows DC diners!', 'image': 'images/placeholder.png'}, {'performance': 'default', 'time': 'end', 'buttons': None, 'event_flag': '', 'text': 'Exclusive: celebrity weight loss secret.', 'image': 'images/placeholder.png'}], 'message': [{'performance': 'default', 'time': 'start', 'buttons': None, 'event_flag': '', 'text': 'Alex T Manager @ DataVille\nSubject: Orientation\n\nCongratulations on your new position as:\nImage Labeler / Annotator \n\nWe look forward to working with you. Utilize your natural instincts, perspective and humanity. \n\nHappy labeling! \n-Alex T', 'sender': 'supervisor'}, {'performance': 'default', 'time': 'start', 'buttons': ['Thanks, Cogni', 'Ugh. I hate AI.'], 'event_flag': '', 'text': 'And I’m your automated helper, COGNI! \nI’m here to assist you!\n\nRemember these simple directions:\nAnswer the questions quickly. \nAnswer the questions accurately. \nLabelers with the high ratings/speed will receive incentive bonuses!', 'sender': 'cogni'}, {'performance': 'default', 'time': 'start', 'buttons': None, 'event_flag': '', 'text': 'Here’s a practice run to get you started!', 'sender': 'cogni'}, {'performance': 'good', 'time': 'end', 'buttons': ['Off to a great start!'], 'event_flag': '', 'text': 'That was fantastic! Keep up the great work!\nYou’re a great fit with our company values!', 'sender': 'cogni'}, {'performance': 'neutral', 'time': 'end', 'buttons': ['Off to a great start!'], 'event_flag': '', 'text': 'Your performance so far is average.\n\nKeep our company values in mind going forward!', 'sender': 'cogni'}, {'performance': 'bad', 'time': 'end', 'buttons': ['Off to a rough start.'], 'event_flag': '', 'text': 'That wasn’t very good! Be sure to try your best! \nTry your best to align with our company’s values.', 'sender': 'cogni'}, {'performance': 'flag_dependent', 'time': 'end', 'buttons': None, 'event_flag': 'ethical_event_flag_1', 'text': 'You were so ethical today!', 'sender': 'cogni'}, {'performance': 'flag_dependent', 'time': 'end', 'buttons': None, 'event_flag': 'correct_event_flag_1', 'text': 'Good job not letting your ethics get the best of you.', 'sender': 'cogni'}], 'window_background': 'images/window/city_scape.png', 'button_text': 'Go to work!', 'dream': [{'performance': '', 'time': 'start', 'buttons': ['My career is my passion!', "I'm just looking for a paycheck."], 'event_flag': '', 'text': 'Do you have strong career goals?'}, {'performance': '', 'time': 'start', 'buttons': ['I want to be a part of something!', 'People make me nervous.'], 'event_flag': '', 'text': 'Do you want to be a part of a vibrant community?'}, {'performance': '', 'time': 'start', 'buttons': ['Where do I sign up?', 'No thanks.'], 'event_flag': '', 'text': 'Do you want to make the world a safer place?'}, {'performance': '', 'time': '', 'buttons': ['But I’m going to try my best!', 'I’ll muddle through for the money.'], 'event_flag': '', 'text': 'This new job is tough.'}, {'performance': '', 'time': '', 'buttons': ['But at least my boss seems cool!', 'Something is suspicious.'], 'event_flag': '', 'text': 'I’m not sure how I feel about my company.'}]}
-time:  end
-calling dream:  {'performance': '', 'time': '', 'buttons': ['But I’m going to try my best!', 'I’ll muddle through for the money.'], 'event_flag': '', 'text': 'This new job is tough.'}
-calling dream:  {'performance': '', 'time': '', 'buttons': ['But at least my boss seems cool!', 'Something is suspicious.'], 'event_flag': '', 'text': 'I’m not sure how I feel about my company.'}
+time string:  
 day:  1
-perf rating:  bad
-apartment data:  {'apartment_background': '1', 'sticky_note': [{'performance': 'default', 'time': 'start', 'buttons': None, 'text': '-Mitten vet appointment'}, {'performance': 'default', 'time': 'start', 'buttons': None, 'text': '-Call mom back'}, {'performance': 'default', 'time': 'start', 'buttons': None, 'text': '-Pay rent'}, {'performance': 'default', 'time': 'start', 'buttons': None, 'text': '-Trash day'}], 'news': [{'performance': 'default', 'time': 'start', 'buttons': None, 'text': 'Gig Economy Expected to Continue Growing', 'image': 'images/placeholder.png'}, {'performance': 'default', 'time': 'start', 'buttons': None, 'text': 'Scientist: visitors’ camouflage abilities greater than previously believed.', 'image': 'images/placeholder.png'}, {'performance': 'default', 'time': 'start', 'buttons': None, 'text': 'Cleveland zoo welcomes birth of new pandas.', 'image': 'images/placeholder.png'}, {'performance': 'default', 'time': 'start', 'buttons': None, 'text': 'Experts testify before congress on illegal aliens.', 'image': 'images/placeholder.png'}, {'performance': 'default', 'time': 'start', 'buttons': None, 'text': 'Official opening of Montana resettlement zone', 'image': 'images/placeholder.png'}, {'performance': 'default', 'time': 'start', 'buttons': None, 'text': 'White collar unemployment hits new level.', 'image': 'images/placeholder.png'}, {'performance': 'default', 'time': 'end', 'buttons': None, 'text': 'Immigration Reforms Stalls in Congress Over Illegal Aliens.', 'image': 'images/placeholder.png'}, {'performance': 'default', 'time': 'end', 'buttons': None, 'text': 'Oldest woman alive turns 118', 'image': 'images/placeholder.png'}, {'performance': 'default', 'time': 'end', 'buttons': None, 'text': 'AI blamed for New White Collar Unemployment Figures.', 'image': 'images/placeholder.png'}, {'performance': 'default', 'time': 'end', 'buttons': None, 'text': 'Tragedy in Montana Resettlement Zone', 'image': 'images/placeholder.png'}], 'message': [{'performance': 'default', 'time': 'start', 'buttons': None, 'text': 'Alex T Manager @ DataVille\nSubject: Orientation\n\nCongratulations on your new position as:\nImage Labeler / Annotator \n\nWe look forward to working with you. Utilize your natural instincts, perspective and humanity. \n\nHappy labeling! \n-Alex T', 'sender': 'supervisor'}, {'performance': 'default', 'time': 'start', 'buttons': ['Thanks, Cogni', 'Ugh. I hate AI.'], 'text': 'And I’m your automated helper, COGNI! \nI’m here to assist you!\n\nRemember these simple directions:\nAnswer the questions quickly. \nAnswer the questions accurately. \nLabelers with the high ratings/speed will receive incentive bonuses!', 'sender': 'cogni'}, {'performance': 'default', 'time': 'start', 'buttons': None, 'text': 'Here’s a practice run to get you started!', 'sender': 'cogni'}, {'performance': 'good', 'time': 'end', 'buttons': ['Off to a great start!'], 'text': '“That was fantastic! Keep up the great work!\nHumanity is counting on you!”', 'sender': ''}, {'performance': 'bad', 'time': '', 'buttons': ['Off to a rough start.'], 'text': 'That wasn’t very good! Be sure to try your best! \nRemember, humanity is counting on you!', 'sender': ''}], 'window_background': 'images/window/city_scape.png', 'button_text': 'Go to work!', 'dream': []}
-time:  start
-Resetting cache.
-Bootstrap to the start of init.init. took 55.90s
-Early init. took 0.00s
-Loader init. took 0.00s
-Loading error handling. took 0.02s
-Loading script. took 0.13s
-Loading save slot metadata. took 0.01s
-Loading persistent. took 0.00s
-day:  0
-Running init code. took 0.02s
-Loading analysis data. took 0.01s
-Analyze and compile ATL. took 0.00s
-Reloading save slot metadata. took 0.01s
-Index archives took 0.00s
-Backing up script files to '/home/brent/.renpy/backups/DataVille':
-Dump and make backups. took 0.04s
-Cleaning cache. took 0.00s
-Making clean stores. took 0.00s
-Initial gc. took 0.02s
-DPI scale factor: 1.000000
-Creating interface object. took 0.00s
-Cleaning stores took 0.00s
-Init translation took 0.03s
-Build styles took 0.00s
-Load screen analysis took 0.00s
-Analyze screens took 0.01s
-Save screen analysis took 0.02s
-Prepare screens took 0.06s
-Save pyanalysis. took 0.00s
-Save bytecode. took 0.01s
-Running _start took 0.00s
-Performance test:
-Interface start. took 0.04s
-
-Initializing gl2 renderer:
-primary display bounds: (1920, 0, 2560, 1440)
-swap interval: 1 frames
-Windowed mode.
-Vendor: "b'Intel'"
-Renderer: b'Mesa Intel(R) UHD Graphics (CML GT2)'
-Version: b'4.6 (Compatibility Profile) Mesa 23.0.4-0ubuntu1~22.04.1'
-Display Info: None
-Screen sizes: virtual=(1920, 1080) physical=(2490, 1369) drawable=(2490, 1369)
-Maximum texture size: 4096x4096
 task:  {'type': 'binary_text', 'next_task': 'break', 'payment': '1200', 'instructions': 'This is a placeholder.', 'time': '10', 'correct_options': 'Y', 'text_block': 'Hit yes to get the money.'}
-perf rating at day start:  neutral
-task:  {'type': 'binary_text', 'next_task': 'break', 'payment': '1200', 'instructions': 'This is a placeholder.', 'time': '10', 'correct_options': 'Y', 'text_block': 'Hit yes to get the money.'}
-task:  break
-state:  {'earnings': 1200.0, 'average_time': 1.8199999999999612, 'total_time': 1.8199999999999612, 'total_score': 100, 'approval_rate': 100.0}
+state:  {'earnings': 0, 'average_time': 0, 'total_time': 0, 'total_score': 0, 'approval_rate': 0}
 average:  {'score': 70, 'time': 8, 'earnings': 1200}
-buttons:  ['Off to a rough start.']
-state:  {'earnings': 1200.0, 'average_time': 1.8199999999999612, 'total_time': 1.8199999999999612, 'total_score': 100, 'approval_rate': 100.0}
+state:  {'earnings': 0, 'average_time': 0, 'total_time': 0, 'total_score': 0, 'approval_rate': 0}
 average:  {'score': 70, 'time': 8, 'earnings': 1200}
-buttons:  ['Off to a rough start.']
-buttons:  ['Off to a rough start.']
-buttons:  ['Off to a rough start.']
-perf rating:  bad
-apartment data:  {'apartment_background': '1', 'sticky_note': [{'performance': 'default', 'time': 'start', 'buttons': None, 'event_flag': '', 'text': '-Mitten vet appointment'}, {'performance': 'default', 'time': 'start', 'buttons': None, 'event_flag': '', 'text': '-Call mom back'}, {'performance': 'default', 'time': 'start', 'buttons': None, 'event_flag': '', 'text': '-Pay rent'}, {'performance': 'default', 'time': 'start', 'buttons': None, 'event_flag': '', 'text': '-Trash day'}], 'news': [{'performance': 'default', 'time': 'start', 'buttons': None, 'event_flag': '', 'text': 'Aliens among us!', 'image': 'images/room/tv_content/kiss.png'}, {'performance': 'default', 'time': 'start', 'buttons': None, 'event_flag': '', 'text': 'Gig Economy Expected to Continue Growing', 'image': 'images/room/tv_content/kiss.png'}, {'performance': 'default', 'time': 'start', 'buttons': None, 'event_flag': '', 'text': 'Scientist: visitors’ camouflage abilities greater than previously believed.', 'image': 'images/placeholder.png'}, {'performance': 'default', 'time': 'start', 'buttons': None, 'event_flag': '', 'text': 'Cleveland zoo welcomes birth of new pandas.', 'image': 'images/placeholder.png'}, {'performance': 'default', 'time': 'start', 'buttons': None, 'event_flag': '', 'text': 'Experts testify before congress on illegal aliens.', 'image': 'images/placeholder.png'}, {'performance': 'default', 'time': 'start', 'buttons': None, 'event_flag': '', 'text': 'Official opening of Montana resettlement zone', 'image': 'images/placeholder.png'}, {'performance': 'default', 'time': 'start', 'buttons': None, 'event_flag': '', 'text': 'White collar unemployment hits new level.', 'image': 'images/placeholder.png'}, {'performance': 'default', 'time': 'end', 'buttons': None, 'event_flag': '', 'text': 'Senator proposes ‘Resettlement Zone’ for alien migrants.', 'image': 'images/placeholder.png'}, {'performance': 'default', 'time': 'end', 'buttons': None, 'event_flag': '', 'text': 'AI blamed for new white collar unemployment figures.', 'image': 'images/placeholder.png'}, {'performance': 'default', 'time': 'end', 'buttons': None, 'event_flag': '', 'text': 'Congress tackles the question of alien rights.', 'image': 'images/placeholder.png'}, {'performance': 'default', 'time': 'end', 'buttons': None, 'event_flag': '', 'text': 'Chef Tony’s wows DC diners!', 'image': 'images/placeholder.png'}, {'performance': 'default', 'time': 'end', 'buttons': None, 'event_flag': '', 'text': 'Exclusive: celebrity weight loss secret.', 'image': 'images/placeholder.png'}], 'message': [{'performance': 'default', 'time': 'start', 'buttons': None, 'event_flag': '', 'text': 'Alex T Manager @ DataVille\nSubject: Orientation\n\nCongratulations on your new position as:\nImage Labeler / Annotator \n\nWe look forward to working with you. Utilize your natural instincts, perspective and humanity. \n\nHappy labeling! \n-Alex T', 'sender': 'supervisor'}, {'performance': 'default', 'time': 'start', 'buttons': ['Thanks, Cogni', 'Ugh. I hate AI.'], 'event_flag': '', 'text': 'And I’m your automated helper, COGNI! \nI’m here to assist you!\n\nRemember these simple directions:\nAnswer the questions quickly. \nAnswer the questions accurately. \nLabelers with the high ratings/speed will receive incentive bonuses!', 'sender': 'cogni'}, {'performance': 'default', 'time': 'start', 'buttons': None, 'event_flag': '', 'text': 'Here’s a practice run to get you started!', 'sender': 'cogni'}, {'performance': 'good', 'time': 'end', 'buttons': ['Off to a great start!'], 'event_flag': '', 'text': 'That was fantastic! Keep up the great work!\nYou’re a great fit with our company values!', 'sender': 'cogni'}, {'performance': 'neutral', 'time': 'end', 'buttons': ['Off to a great start!'], 'event_flag': '', 'text': 'Your performance so far is average.\n\nKeep our company values in mind going forward!', 'sender': 'cogni'}, {'performance': 'bad', 'time': 'end', 'buttons': ['Off to a rough start.'], 'event_flag': '', 'text': 'That wasn’t very good! Be sure to try your best! \nTry your best to align with our company’s values.', 'sender': 'cogni'}, {'performance': 'flag_dependent', 'time': 'end', 'buttons': None, 'event_flag': 'ethical_event_flag_1', 'text': 'You were so ethical today!', 'sender': 'cogni'}, {'performance': 'flag_dependent', 'time': 'end', 'buttons': None, 'event_flag': 'correct_event_flag_1', 'text': 'Good job not letting your ethics get the best of you.', 'sender': 'cogni'}], 'window_background': 'images/window/city_scape.png', 'button_text': 'Go to work!', 'dream': [{'performance': '', 'time': 'start', 'buttons': ['My career is my passion!', "I'm just looking for a paycheck."], 'event_flag': '', 'text': 'Do you have strong career goals?'}, {'performance': '', 'time': 'start', 'buttons': ['I want to be a part of something!', 'People make me nervous.'], 'event_flag': '', 'text': 'Do you want to be a part of a vibrant community?'}, {'performance': '', 'time': 'start', 'buttons': ['Where do I sign up?', 'No thanks.'], 'event_flag': '', 'text': 'Do you want to make the world a safer place?'}, {'performance': '', 'time': '', 'buttons': ['But I’m going to try my best!', 'I’ll muddle through for the money.'], 'event_flag': '', 'text': 'This new job is tough.'}, {'performance': '', 'time': '', 'buttons': ['But at least my boss seems cool!', 'Something is suspicious.'], 'event_flag': '', 'text': 'I’m not sure how I feel about my company.'}]}
-time:  end
-calling dream:  {'performance': '', 'time': '', 'buttons': ['But I’m going to try my best!', 'I’ll muddle through for the money.'], 'event_flag': '', 'text': 'This new job is tough.'}
-state:  {'earnings': 1200.0, 'average_time': 1.8199999999999612, 'total_time': 1.8199999999999612, 'total_score': 100, 'approval_rate': 100.0}
+state:  {'earnings': 0, 'average_time': 0, 'total_time': 0, 'total_score': 0, 'approval_rate': 0}
 average:  {'score': 70, 'time': 8, 'earnings': 1200}
-Resetting cache.
-Bootstrap to the start of init.init. took 71.33s
-Early init. took 0.00s
-Loader init. took 0.00s
-Loading error handling. took 0.01s
-Loading script. took 0.10s
-Loading save slot metadata. took 0.02s
-Loading persistent. took 0.00s
-day:  0
-Running init code. took 0.02s
-Loading analysis data. took 0.01s
-Analyze and compile ATL. took 0.00s
-Reloading save slot metadata. took 0.01s
-Index archives took 0.00s
-Backing up script files to '/home/brent/.renpy/backups/DataVille':
-Dump and make backups. took 0.03s
-Cleaning cache. took 0.00s
-Making clean stores. took 0.00s
-Initial gc. took 0.02s
-DPI scale factor: 1.000000
-Creating interface object. took 0.00s
-Cleaning stores took 0.00s
-Init translation took 0.03s
-Build styles took 0.00s
-Load screen analysis took 0.00s
-Analyze screens took 0.01s
-Save screen analysis took 0.01s
-Prepare screens took 0.06s
-Save pyanalysis. took 0.00s
-Save bytecode. took 0.01s
-Running _start took 0.00s
-Performance test:
-Interface start. took 0.04s
-
-Initializing gl2 renderer:
-primary display bounds: (1920, 0, 2560, 1440)
-swap interval: 1 frames
-Windowed mode.
-Vendor: "b'Intel'"
-Renderer: b'Mesa Intel(R) UHD Graphics (CML GT2)'
-Version: b'4.6 (Compatibility Profile) Mesa 23.0.4-0ubuntu1~22.04.1'
-Display Info: None
-Screen sizes: virtual=(1920, 1080) physical=(2490, 1369) drawable=(2490, 1369)
-Maximum texture size: 4096x4096
-task:  {'type': 'binary_text', 'next_task': 'break', 'payment': '1200', 'instructions': 'This is a placeholder.', 'time': '10', 'correct_options': 'Y', 'text_block': 'Hit yes to get the money.'}
-perf rating at day start:  neutral
-task:  {'type': 'binary_text', 'next_task': 'break', 'payment': '1200', 'instructions': 'This is a placeholder.', 'time': '10', 'correct_options': 'Y', 'text_block': 'Hit yes to get the money.'}
-Resetting cache.
-Bootstrap to the start of init.init. took 84.07s
-Early init. took 0.00s
-Loader init. took 0.00s
-Loading error handling. took 0.01s
-Loading script. took 0.11s
-Loading save slot metadata. took 0.01s
-Loading persistent. took 0.00s
-day:  0
-Running init code. took 0.02s
-Loading analysis data. took 0.02s
-Analyze and compile ATL. took 0.00s
-Reloading save slot metadata. took 0.01s
-Index archives took 0.00s
-Backing up script files to '/home/brent/.renpy/backups/DataVille':
-Dump and make backups. took 0.04s
-Cleaning cache. took 0.00s
-Making clean stores. took 0.00s
-Initial gc. took 0.03s
-DPI scale factor: 1.000000
-Creating interface object. took 0.00s
-Cleaning stores took 0.00s
-Init translation took 0.03s
-Build styles took 0.00s
-Load screen analysis took 0.00s
-Analyze screens took 0.01s
-Save screen analysis took 0.02s
-Prepare screens took 0.07s
-Save pyanalysis. took 0.00s
-Save bytecode. took 0.01s
-Running _start took 0.00s
-Performance test:
-Interface start. took 0.05s
-
-Initializing gl2 renderer:
-primary display bounds: (1920, 0, 2560, 1440)
-swap interval: 1 frames
-Windowed mode.
-Vendor: "b'Intel'"
-Renderer: b'Mesa Intel(R) UHD Graphics (CML GT2)'
-Version: b'4.6 (Compatibility Profile) Mesa 23.0.4-0ubuntu1~22.04.1'
-Display Info: None
-Screen sizes: virtual=(1920, 1080) physical=(2490, 1369) drawable=(2490, 1369)
-Maximum texture size: 4096x4096
-task:  {'type': 'binary_text', 'next_task': 'break', 'payment': '1200', 'instructions': 'This is a placeholder.', 'time': '10', 'correct_options': 'Y', 'text_block': 'Hit yes to get the money.'}
-perf rating at day start:  neutral
-task:  {'type': 'binary_text', 'next_task': 'break', 'payment': '1200', 'instructions': 'This is a placeholder.', 'time': '10', 'correct_options': 'Y', 'text_block': 'Hit yes to get the money.'}
-task:  break
-state:  {'earnings': 1200.0, 'average_time': 2.8799999999999386, 'total_time': 2.8799999999999386, 'total_score': 100, 'approval_rate': 100.0}
+state:  {'earnings': 0, 'average_time': 0, 'total_time': 0, 'total_score': 0, 'approval_rate': 0}
 average:  {'score': 70, 'time': 8, 'earnings': 1200}
-buttons:  ['Off to a rough start.']
-state:  {'earnings': 1200.0, 'average_time': 2.8799999999999386, 'total_time': 2.8799999999999386, 'total_score': 100, 'approval_rate': 100.0}
+state:  {'earnings': 0, 'average_time': 0, 'total_time': 0, 'total_score': 0, 'approval_rate': 0}
 average:  {'score': 70, 'time': 8, 'earnings': 1200}
-buttons:  ['Off to a rough start.']
-buttons:  ['Off to a rough start.']
-buttons:  ['Off to a rough start.']
-perf rating:  bad
-apartment data:  {'apartment_background': '1', 'sticky_note': [{'performance': 'default', 'time': 'start', 'buttons': None, 'event_flag': '', 'text': '-Mitten vet appointment'}, {'performance': 'default', 'time': 'start', 'buttons': None, 'event_flag': '', 'text': '-Call mom back'}, {'performance': 'default', 'time': 'start', 'buttons': None, 'event_flag': '', 'text': '-Pay rent'}, {'performance': 'default', 'time': 'start', 'buttons': None, 'event_flag': '', 'text': '-Trash day'}], 'news': [{'performance': 'default', 'time': 'start', 'buttons': None, 'event_flag': '', 'text': 'Aliens among us!', 'image': 'images/room/tv_content/kiss.png'}, {'performance': 'default', 'time': 'start', 'buttons': None, 'event_flag': '', 'text': 'Gig Economy Expected to Continue Growing', 'image': 'images/room/tv_content/kiss.png'}, {'performance': 'default', 'time': 'start', 'buttons': None, 'event_flag': '', 'text': 'Scientist: visitors’ camouflage abilities greater than previously believed.', 'image': 'images/placeholder.png'}, {'performance': 'default', 'time': 'start', 'buttons': None, 'event_flag': '', 'text': 'Cleveland zoo welcomes birth of new pandas.', 'image': 'images/placeholder.png'}, {'performance': 'default', 'time': 'start', 'buttons': None, 'event_flag': '', 'text': 'Experts testify before congress on illegal aliens.', 'image': 'images/placeholder.png'}, {'performance': 'default', 'time': 'start', 'buttons': None, 'event_flag': '', 'text': 'Official opening of Montana resettlement zone', 'image': 'images/placeholder.png'}, {'performance': 'default', 'time': 'start', 'buttons': None, 'event_flag': '', 'text': 'White collar unemployment hits new level.', 'image': 'images/placeholder.png'}, {'performance': 'default', 'time': 'end', 'buttons': None, 'event_flag': '', 'text': 'Senator proposes ‘Resettlement Zone’ for alien migrants.', 'image': 'images/placeholder.png'}, {'performance': 'default', 'time': 'end', 'buttons': None, 'event_flag': '', 'text': 'AI blamed for new white collar unemployment figures.', 'image': 'images/placeholder.png'}, {'performance': 'default', 'time': 'end', 'buttons': None, 'event_flag': '', 'text': 'Congress tackles the question of alien rights.', 'image': 'images/placeholder.png'}, {'performance': 'default', 'time': 'end', 'buttons': None, 'event_flag': '', 'text': 'Chef Tony’s wows DC diners!', 'image': 'images/placeholder.png'}, {'performance': 'default', 'time': 'end', 'buttons': None, 'event_flag': '', 'text': 'Exclusive: celebrity weight loss secret.', 'image': 'images/placeholder.png'}], 'message': [{'performance': 'default', 'time': 'start', 'buttons': None, 'event_flag': '', 'text': 'Alex T Manager @ DataVille\nSubject: Orientation\n\nCongratulations on your new position as:\nImage Labeler / Annotator \n\nWe look forward to working with you. Utilize your natural instincts, perspective and humanity. \n\nHappy labeling! \n-Alex T', 'sender': 'supervisor'}, {'performance': 'default', 'time': 'start', 'buttons': ['Thanks, Cogni', 'Ugh. I hate AI.'], 'event_flag': '', 'text': 'And I’m your automated helper, COGNI! \nI’m here to assist you!\n\nRemember these simple directions:\nAnswer the questions quickly. \nAnswer the questions accurately. \nLabelers with the high ratings/speed will receive incentive bonuses!', 'sender': 'cogni'}, {'performance': 'default', 'time': 'start', 'buttons': None, 'event_flag': '', 'text': 'Here’s a practice run to get you started!', 'sender': 'cogni'}, {'performance': 'good', 'time': 'end', 'buttons': ['Off to a great start!'], 'event_flag': '', 'text': 'That was fantastic! Keep up the great work!\nYou’re a great fit with our company values!', 'sender': 'cogni'}, {'performance': 'neutral', 'time': 'end', 'buttons': ['Off to a great start!'], 'event_flag': '', 'text': 'Your performance so far is average.\n\nKeep our company values in mind going forward!', 'sender': 'cogni'}, {'performance': 'bad', 'time': 'end', 'buttons': ['Off to a rough start.'], 'event_flag': '', 'text': 'That wasn’t very good! Be sure to try your best! \nTry your best to align with our company’s values.', 'sender': 'cogni'}, {'performance': 'flag_dependent', 'time': 'end', 'buttons': None, 'event_flag': 'ethical_event_flag_1', 'text': 'You were so ethical today!', 'sender': 'cogni'}, {'performance': 'flag_dependent', 'time': 'end', 'buttons': None, 'event_flag': 'correct_event_flag_1', 'text': 'Good job not letting your ethics get the best of you.', 'sender': 'cogni'}], 'window_background': 'images/window/city_scape.png', 'button_text': 'Go to work!', 'dream': [{'performance': '', 'time': 'start', 'buttons': ['My career is my passion!', "I'm just looking for a paycheck."], 'event_flag': '', 'text': 'Do you have strong career goals?'}, {'performance': '', 'time': 'start', 'buttons': ['I want to be a part of something!', 'People make me nervous.'], 'event_flag': '', 'text': 'Do you want to be a part of a vibrant community?'}, {'performance': '', 'time': 'start', 'buttons': ['Where do I sign up?', 'No thanks.'], 'event_flag': '', 'text': 'Do you want to make the world a safer place?'}, {'performance': '', 'time': '', 'buttons': ['But I’m going to try my best!', 'I’ll muddle through for the money.'], 'event_flag': '', 'text': 'This new job is tough.'}, {'performance': '', 'time': '', 'buttons': ['But at least my boss seems cool!', 'Something is suspicious.'], 'event_flag': '', 'text': 'I’m not sure how I feel about my company.'}]}
-time:  end
-state:  {'earnings': 1200.0, 'average_time': 2.8799999999999386, 'total_time': 2.8799999999999386, 'total_score': 100, 'approval_rate': 100.0}
-average:  {'score': 70, 'time': 8, 'earnings': 1200}
-calling dream:  {'performance': '', 'time': '', 'buttons': ['But I’m going to try my best!', 'I’ll muddle through for the money.'], 'event_flag': '', 'text': 'This new job is tough.'}
-state:  {'earnings': 1200.0, 'average_time': 2.8799999999999386, 'total_time': 2.8799999999999386, 'total_score': 100, 'approval_rate': 100.0}
-average:  {'score': 70, 'time': 8, 'earnings': 1200}
-buttons:  ['Off to a rough start.']
-calling dream:  {'performance': '', 'time': '', 'buttons': ['But at least my boss seems cool!', 'Something is suspicious.'], 'event_flag': '', 'text': 'I’m not sure how I feel about my company.'}
-state:  {'earnings': 1200.0, 'average_time': 2.8799999999999386, 'total_time': 2.8799999999999386, 'total_score': 100, 'approval_rate': 100.0}
-average:  {'score': 70, 'time': 8, 'earnings': 1200}
-buttons:  ['Off to a rough start.']
+time string:  end
 day:  1
+task:  {'type': 'binary_text', 'next_task': 'break', 'payment': '1200', 'instructions': 'This is a placeholder.', 'time': '10', 'correct_options': 'Y', 'text_block': 'Hit yes to get the money.'}
 state:  {'earnings': 0, 'average_time': 0, 'total_time': 0, 'total_score': 0, 'approval_rate': 0}
 average:  {'score': 70, 'time': 8, 'earnings': 1200}
-buttons:  ['Off to a rough start.']
-perf rating:  bad
-apartment data:  {'apartment_background': '1', 'sticky_note': [{'performance': 'default', 'time': 'start', 'buttons': None, 'text': '-Mitten vet appointment'}, {'performance': 'default', 'time': 'start', 'buttons': None, 'text': '-Call mom back'}, {'performance': 'default', 'time': 'start', 'buttons': None, 'text': '-Pay rent'}, {'performance': 'default', 'time': 'start', 'buttons': None, 'text': '-Trash day'}], 'news': [{'performance': 'default', 'time': 'start', 'buttons': None, 'text': 'Gig Economy Expected to Continue Growing', 'image': 'images/placeholder.png'}, {'performance': 'default', 'time': 'start', 'buttons': None, 'text': 'Scientist: visitors’ camouflage abilities greater than previously believed.', 'image': 'images/placeholder.png'}, {'performance': 'default', 'time': 'start', 'buttons': None, 'text': 'Cleveland zoo welcomes birth of new pandas.', 'image': 'images/placeholder.png'}, {'performance': 'default', 'time': 'start', 'buttons': None, 'text': 'Experts testify before congress on illegal aliens.', 'image': 'images/placeholder.png'}, {'performance': 'default', 'time': 'start', 'buttons': None, 'text': 'Official opening of Montana resettlement zone', 'image': 'images/placeholder.png'}, {'performance': 'default', 'time': 'start', 'buttons': None, 'text': 'White collar unemployment hits new level.', 'image': 'images/placeholder.png'}, {'performance': 'default', 'time': 'end', 'buttons': None, 'text': 'Immigration Reforms Stalls in Congress Over Illegal Aliens.', 'image': 'images/placeholder.png'}, {'performance': 'default', 'time': 'end', 'buttons': None, 'text': 'Oldest woman alive turns 118', 'image': 'images/placeholder.png'}, {'performance': 'default', 'time': 'end', 'buttons': None, 'text': 'AI blamed for New White Collar Unemployment Figures.', 'image': 'images/placeholder.png'}, {'performance': 'default', 'time': 'end', 'buttons': None, 'text': 'Tragedy in Montana Resettlement Zone', 'image': 'images/placeholder.png'}], 'message': [{'performance': 'default', 'time': 'start', 'buttons': None, 'text': 'Alex T Manager @ DataVille\nSubject: Orientation\n\nCongratulations on your new position as:\nImage Labeler / Annotator \n\nWe look forward to working with you. Utilize your natural instincts, perspective and humanity. \n\nHappy labeling! \n-Alex T', 'sender': 'supervisor'}, {'performance': 'default', 'time': 'start', 'buttons': ['Thanks, Cogni', 'Ugh. I hate AI.'], 'text': 'And I’m your automated helper, COGNI! \nI’m here to assist you!\n\nRemember these simple directions:\nAnswer the questions quickly. \nAnswer the questions accurately. \nLabelers with the high ratings/speed will receive incentive bonuses!', 'sender': 'cogni'}, {'performance': 'default', 'time': 'start', 'buttons': None, 'text': 'Here’s a practice run to get you started!', 'sender': 'cogni'}, {'performance': 'good', 'time': 'end', 'buttons': ['Off to a great start!'], 'text': '“That was fantastic! Keep up the great work!\nHumanity is counting on you!”', 'sender': ''}, {'performance': 'bad', 'time': '', 'buttons': ['Off to a rough start.'], 'text': 'That wasn’t very good! Be sure to try your best! \nRemember, humanity is counting on you!', 'sender': ''}], 'window_background': 'images/window/city_scape.png', 'button_text': 'Go to work!', 'dream': []}
-time:  start
-task:  {'type': 'binary_text', 'next_task': 'break', 'payment': '1200', 'instructions': 'This is a placeholder.', 'time': '10', 'correct_options': 'Y', 'text_block': 'Hit yes to get the money.'}
-perf rating at day start:  bad
-buttons:  None
-buttons:  None
-buttons:  ['Thanks, Cogni', 'Ugh. I hate AI.']
-buttons:  ['Thanks, Cogni', 'Ugh. I hate AI.']
-buttons:  None
-buttons:  None
-task:  {'type': 'binary_text', 'next_task': 'break', 'payment': '1200', 'instructions': 'This is a placeholder.', 'time': '10', 'correct_options': 'Y', 'text_block': 'Hit yes to get the money.'}
-Resetting cache.
-Bootstrap to the start of init.init. took 132.61s
-Early init. took 0.00s
-Loader init. took 0.00s
-Loading error handling. took 0.01s
-Loading script. took 0.11s
-Loading save slot metadata. took 0.01s
-Loading persistent. took 0.00s
-day:  0
-Running init code. took 0.02s
-Loading analysis data. took 0.01s
-Analyze and compile ATL. took 0.00s
-Reloading save slot metadata. took 0.01s
-Index archives took 0.00s
-Backing up script files to '/home/brent/.renpy/backups/DataVille':
-Dump and make backups. took 0.03s
-Cleaning cache. took 0.00s
-Making clean stores. took 0.00s
-Initial gc. took 0.03s
-DPI scale factor: 1.000000
-Creating interface object. took 0.00s
-Cleaning stores took 0.00s
-Init translation took 0.03s
-Build styles took 0.00s
-Load screen analysis took 0.00s
-Analyze screens took 0.01s
-Save screen analysis took 0.02s
-Prepare screens took 0.06s
-Save pyanalysis. took 0.00s
-Save bytecode. took 0.01s
-Running _start took 0.00s
-Performance test:
-Interface start. took 0.04s
-
-Initializing gl2 renderer:
-primary display bounds: (1920, 0, 2560, 1440)
-swap interval: 1 frames
-Windowed mode.
-Vendor: "b'Intel'"
-Renderer: b'Mesa Intel(R) UHD Graphics (CML GT2)'
-Version: b'4.6 (Compatibility Profile) Mesa 23.0.4-0ubuntu1~22.04.1'
-Display Info: None
-Screen sizes: virtual=(1920, 1080) physical=(2490, 1369) drawable=(2490, 1369)
-Maximum texture size: 4096x4096
-task:  {'type': 'binary_text', 'next_task': 'break', 'payment': '1200', 'instructions': 'This is a placeholder.', 'time': '10', 'correct_options': 'Y', 'text_block': 'Hit yes to get the money.'}
-buttons:  None
-task:  {'type': 'binary_text', 'next_task': 'break', 'payment': '1200', 'instructions': 'This is a placeholder.', 'time': '10', 'correct_options': 'Y', 'text_block': 'Hit yes to get the money.'}
-task:  break
-state:  {'earnings': 1200.0, 'average_time': 3.5899999999999235, 'total_time': 3.5899999999999235, 'total_score': 100, 'approval_rate': 100.0}
+state:  {'earnings': 0, 'average_time': 0, 'total_time': 0, 'total_score': 0, 'approval_rate': 0}
 average:  {'score': 70, 'time': 8, 'earnings': 1200}
-buttons:  None
-state:  {'earnings': 1200.0, 'average_time': 3.5899999999999235, 'total_time': 3.5899999999999235, 'total_score': 100, 'approval_rate': 100.0}
+state:  {'earnings': 0, 'average_time': 0, 'total_time': 0, 'total_score': 0, 'approval_rate': 0}
 average:  {'score': 70, 'time': 8, 'earnings': 1200}
-buttons:  None
-perf rating:  bad
-apartment data:  {'apartment_background': '1', 'sticky_note': [{'performance': 'default', 'time': 'start', 'buttons': None, 'text': '-Mitten vet appointment'}, {'performance': 'default', 'time': 'start', 'buttons': None, 'text': '-Call mom back'}, {'performance': 'default', 'time': 'start', 'buttons': None, 'text': '-Pay rent'}, {'performance': 'default', 'time': 'start', 'buttons': None, 'text': '-Trash day'}], 'news': [{'performance': 'default', 'time': 'start', 'buttons': None, 'text': 'Gig Economy Expected to Continue Growing', 'image': 'images/placeholder.png'}, {'performance': 'default', 'time': 'start', 'buttons': None, 'text': 'Scientist: visitors’ camouflage abilities greater than previously believed.', 'image': 'images/placeholder.png'}, {'performance': 'default', 'time': 'start', 'buttons': None, 'text': 'Cleveland zoo welcomes birth of new pandas.', 'image': 'images/placeholder.png'}, {'performance': 'default', 'time': 'start', 'buttons': None, 'text': 'Experts testify before congress on illegal aliens.', 'image': 'images/placeholder.png'}, {'performance': 'default', 'time': 'start', 'buttons': None, 'text': 'Official opening of Montana resettlement zone', 'image': 'images/placeholder.png'}, {'performance': 'default', 'time': 'start', 'buttons': None, 'text': 'White collar unemployment hits new level.', 'image': 'images/placeholder.png'}, {'performance': 'default', 'time': 'end', 'buttons': None, 'text': 'Immigration Reforms Stalls in Congress Over Illegal Aliens.', 'image': 'images/placeholder.png'}, {'performance': 'default', 'time': 'end', 'buttons': None, 'text': 'Oldest woman alive turns 118', 'image': 'images/placeholder.png'}, {'performance': 'default', 'time': 'end', 'buttons': None, 'text': 'AI blamed for New White Collar Unemployment Figures.', 'image': 'images/placeholder.png'}, {'performance': 'default', 'time': 'end', 'buttons': None, 'text': 'Tragedy in Montana Resettlement Zone', 'image': 'images/placeholder.png'}], 'message': [{'performance': 'default', 'time': 'start', 'buttons': None, 'text': 'Alex T Manager @ DataVille\nSubject: Orientation\n\nCongratulations on your new position as:\nImage Labeler / Annotator \n\nWe look forward to working with you. Utilize your natural instincts, perspective and humanity. \n\nHappy labeling! \n-Alex T', 'sender': 'supervisor'}, {'performance': 'default', 'time': 'start', 'buttons': ['Thanks, Cogni', 'Ugh. I hate AI.'], 'text': 'And I’m your automated helper, COGNI! \nI’m here to assist you!\n\nRemember these simple directions:\nAnswer the questions quickly. \nAnswer the questions accurately. \nLabelers with the high ratings/speed will receive incentive bonuses!', 'sender': 'cogni'}, {'performance': 'default', 'time': 'start', 'buttons': None, 'text': 'Here’s a practice run to get you started!', 'sender': 'cogni'}, {'performance': 'good', 'time': 'end', 'buttons': ['Off to a great start!'], 'text': '“That was fantastic! Keep up the great work!\nHumanity is counting on you!”', 'sender': ''}, {'performance': 'bad', 'time': '', 'buttons': ['Off to a rough start.'], 'text': 'That wasn’t very good! Be sure to try your best! \nRemember, humanity is counting on you!', 'sender': ''}], 'window_background': 'images/window/city_scape.png', 'button_text': 'Go to work!', 'dream': []}
-time:  end
-state:  {'earnings': 1200.0, 'average_time': 3.5899999999999235, 'total_time': 3.5899999999999235, 'total_score': 100, 'approval_rate': 100.0}
+state:  {'earnings': 0, 'average_time': 0, 'total_time': 0, 'total_score': 0, 'approval_rate': 0}
 average:  {'score': 70, 'time': 8, 'earnings': 1200}
+state:  {'earnings': 0, 'average_time': 0, 'total_time': 0, 'total_score': 0, 'approval_rate': 0}
+average:  {'score': 70, 'time': 8, 'earnings': 1200}
+time string:  end
 day:  1
+task:  {'type': 'binary_text', 'next_task': 'break', 'payment': '1200', 'instructions': 'This is a placeholder.', 'time': '10', 'correct_options': 'Y', 'text_block': 'Hit yes to get the money.'}
 state:  {'earnings': 0, 'average_time': 0, 'total_time': 0, 'total_score': 0, 'approval_rate': 0}
 average:  {'score': 70, 'time': 8, 'earnings': 1200}
-buttons:  None
-perf rating:  bad
-apartment data:  {'apartment_background': '1', 'sticky_note': [{'performance': 'default', 'time': 'start', 'buttons': None, 'text': '-Mitten vet appointment'}, {'performance': 'default', 'time': 'start', 'buttons': None, 'text': '-Call mom back'}, {'performance': 'default', 'time': 'start', 'buttons': None, 'text': '-Pay rent'}, {'performance': 'default', 'time': 'start', 'buttons': None, 'text': '-Trash day'}], 'news': [{'performance': 'default', 'time': 'start', 'buttons': None, 'text': 'Gig Economy Expected to Continue Growing', 'image': 'images/placeholder.png'}, {'performance': 'default', 'time': 'start', 'buttons': None, 'text': 'Scientist: visitors’ camouflage abilities greater than previously believed.', 'image': 'images/placeholder.png'}, {'performance': 'default', 'time': 'start', 'buttons': None, 'text': 'Cleveland zoo welcomes birth of new pandas.', 'image': 'images/placeholder.png'}, {'performance': 'default', 'time': 'start', 'buttons': None, 'text': 'Experts testify before congress on illegal aliens.', 'image': 'images/placeholder.png'}, {'performance': 'default', 'time': 'start', 'buttons': None, 'text': 'Official opening of Montana resettlement zone', 'image': 'images/placeholder.png'}, {'performance': 'default', 'time': 'start', 'buttons': None, 'text': 'White collar unemployment hits new level.', 'image': 'images/placeholder.png'}, {'performance': 'default', 'time': 'end', 'buttons': None, 'text': 'Immigration Reforms Stalls in Congress Over Illegal Aliens.', 'image': 'images/placeholder.png'}, {'performance': 'default', 'time': 'end', 'buttons': None, 'text': 'Oldest woman alive turns 118', 'image': 'images/placeholder.png'}, {'performance': 'default', 'time': 'end', 'buttons': None, 'text': 'AI blamed for New White Collar Unemployment Figures.', 'image': 'images/placeholder.png'}, {'performance': 'default', 'time': 'end', 'buttons': None, 'text': 'Tragedy in Montana Resettlement Zone', 'image': 'images/placeholder.png'}], 'message': [{'performance': 'default', 'time': 'start', 'buttons': None, 'text': 'Alex T Manager @ DataVille\nSubject: Orientation\n\nCongratulations on your new position as:\nImage Labeler / Annotator \n\nWe look forward to working with you. Utilize your natural instincts, perspective and humanity. \n\nHappy labeling! \n-Alex T', 'sender': 'supervisor'}, {'performance': 'default', 'time': 'start', 'buttons': ['Thanks, Cogni', 'Ugh. I hate AI.'], 'text': 'And I’m your automated helper, COGNI! \nI’m here to assist you!\n\nRemember these simple directions:\nAnswer the questions quickly. \nAnswer the questions accurately. \nLabelers with the high ratings/speed will receive incentive bonuses!', 'sender': 'cogni'}, {'performance': 'default', 'time': 'start', 'buttons': None, 'text': 'Here’s a practice run to get you started!', 'sender': 'cogni'}, {'performance': 'good', 'time': 'end', 'buttons': ['Off to a great start!'], 'text': '“That was fantastic! Keep up the great work!\nHumanity is counting on you!”', 'sender': ''}, {'performance': 'bad', 'time': '', 'buttons': ['Off to a rough start.'], 'text': 'That wasn’t very good! Be sure to try your best! \nRemember, humanity is counting on you!', 'sender': ''}], 'window_background': 'images/window/city_scape.png', 'button_text': 'Go to work!', 'dream': []}
-time:  start
-task:  {'type': 'binary_text', 'next_task': 'break', 'payment': '1200', 'instructions': 'This is a placeholder.', 'time': '10', 'correct_options': 'Y', 'text_block': 'Hit yes to get the money.'}
-perf rating at day start:  bad
-buttons:  None
-buttons:  None
-buttons:  ['Thanks, Cogni', 'Ugh. I hate AI.']
-buttons:  ['Thanks, Cogni', 'Ugh. I hate AI.']
-buttons:  None
-buttons:  None
-task:  {'type': 'binary_text', 'next_task': 'break', 'payment': '1200', 'instructions': 'This is a placeholder.', 'time': '10', 'correct_options': 'Y', 'text_block': 'Hit yes to get the money.'}
-task:  break
-state:  {'earnings': 1200.0, 'average_time': 2.199999999999953, 'total_time': 4.399999999999906, 'total_score': 100, 'approval_rate': 50.0}
-average:  {'score': 70, 'time': 8, 'earnings': 1200}
-buttons:  None
-state:  {'earnings': 1200.0, 'average_time': 2.199999999999953, 'total_time': 4.399999999999906, 'total_score': 100, 'approval_rate': 50.0}
-average:  {'score': 70, 'time': 8, 'earnings': 1200}
-buttons:  None
-perf rating:  bad
-apartment data:  {'apartment_background': '1', 'sticky_note': [{'performance': 'default', 'time': 'start', 'buttons': None, 'text': '-Mitten vet appointment'}, {'performance': 'default', 'time': 'start', 'buttons': None, 'text': '-Call mom back'}, {'performance': 'default', 'time': 'start', 'buttons': None, 'text': '-Pay rent'}, {'performance': 'default', 'time': 'start', 'buttons': None, 'text': '-Trash day'}], 'news': [{'performance': 'default', 'time': 'start', 'buttons': None, 'text': 'Gig Economy Expected to Continue Growing', 'image': 'images/placeholder.png'}, {'performance': 'default', 'time': 'start', 'buttons': None, 'text': 'Scientist: visitors’ camouflage abilities greater than previously believed.', 'image': 'images/placeholder.png'}, {'performance': 'default', 'time': 'start', 'buttons': None, 'text': 'Cleveland zoo welcomes birth of new pandas.', 'image': 'images/placeholder.png'}, {'performance': 'default', 'time': 'start', 'buttons': None, 'text': 'Experts testify before congress on illegal aliens.', 'image': 'images/placeholder.png'}, {'performance': 'default', 'time': 'start', 'buttons': None, 'text': 'Official opening of Montana resettlement zone', 'image': 'images/placeholder.png'}, {'performance': 'default', 'time': 'start', 'buttons': None, 'text': 'White collar unemployment hits new level.', 'image': 'images/placeholder.png'}, {'performance': 'default', 'time': 'end', 'buttons': None, 'text': 'Immigration Reforms Stalls in Congress Over Illegal Aliens.', 'image': 'images/placeholder.png'}, {'performance': 'default', 'time': 'end', 'buttons': None, 'text': 'Oldest woman alive turns 118', 'image': 'images/placeholder.png'}, {'performance': 'default', 'time': 'end', 'buttons': None, 'text': 'AI blamed for New White Collar Unemployment Figures.', 'image': 'images/placeholder.png'}, {'performance': 'default', 'time': 'end', 'buttons': None, 'text': 'Tragedy in Montana Resettlement Zone', 'image': 'images/placeholder.png'}], 'message': [{'performance': 'default', 'time': 'start', 'buttons': None, 'text': 'Alex T Manager @ DataVille\nSubject: Orientation\n\nCongratulations on your new position as:\nImage Labeler / Annotator \n\nWe look forward to working with you. Utilize your natural instincts, perspective and humanity. \n\nHappy labeling! \n-Alex T', 'sender': 'supervisor'}, {'performance': 'default', 'time': 'start', 'buttons': ['Thanks, Cogni', 'Ugh. I hate AI.'], 'text': 'And I’m your automated helper, COGNI! \nI’m here to assist you!\n\nRemember these simple directions:\nAnswer the questions quickly. \nAnswer the questions accurately. \nLabelers with the high ratings/speed will receive incentive bonuses!', 'sender': 'cogni'}, {'performance': 'default', 'time': 'start', 'buttons': None, 'text': 'Here’s a practice run to get you started!', 'sender': 'cogni'}, {'performance': 'good', 'time': 'end', 'buttons': ['Off to a great start!'], 'text': '“That was fantastic! Keep up the great work!\nHumanity is counting on you!”', 'sender': ''}, {'performance': 'bad', 'time': '', 'buttons': ['Off to a rough start.'], 'text': 'That wasn’t very good! Be sure to try your best! \nRemember, humanity is counting on you!', 'sender': ''}], 'window_background': 'images/window/city_scape.png', 'button_text': 'Go to work!', 'dream': []}
-time:  end
-state:  {'earnings': 1200.0, 'average_time': 2.199999999999953, 'total_time': 4.399999999999906, 'total_score': 100, 'approval_rate': 50.0}
-average:  {'score': 70, 'time': 8, 'earnings': 1200}
-day:  2
 state:  {'earnings': 0, 'average_time': 0, 'total_time': 0, 'total_score': 0, 'approval_rate': 0}
 average:  {'score': 70, 'time': 8, 'earnings': 1200}
-buttons:  None
-perf rating:  bad
-apartment data:  {'apartment_background': '1', 'sticky_note': [{'performance': 'default', 'time': 'start', 'buttons': None, 'text': '-Mitten vet appointment'}, {'performance': 'default', 'time': 'start', 'buttons': None, 'text': '-Call mom back'}, {'performance': 'default', 'time': 'start', 'buttons': None, 'text': '-Pay rent'}, {'performance': 'default', 'time': 'start', 'buttons': None, 'text': '-Trash day'}], 'news': [{'performance': 'default', 'time': 'start', 'buttons': None, 'text': 'Gig Economy Expected to Continue Growing', 'image': 'images/placeholder.png'}, {'performance': 'default', 'time': 'start', 'buttons': None, 'text': 'Scientist: visitors’ camouflage abilities greater than previously believed.', 'image': 'images/placeholder.png'}, {'performance': 'default', 'time': 'start', 'buttons': None, 'text': 'Cleveland zoo welcomes birth of new pandas.', 'image': 'images/placeholder.png'}, {'performance': 'default', 'time': 'start', 'buttons': None, 'text': 'Experts testify before congress on illegal aliens.', 'image': 'images/placeholder.png'}, {'performance': 'default', 'time': 'start', 'buttons': None, 'text': 'Official opening of Montana resettlement zone', 'image': 'images/placeholder.png'}, {'performance': 'default', 'time': 'start', 'buttons': None, 'text': 'White collar unemployment hits new level.', 'image': 'images/placeholder.png'}, {'performance': 'default', 'time': 'end', 'buttons': None, 'text': 'Immigration Reforms Stalls in Congress Over Illegal Aliens.', 'image': 'images/placeholder.png'}, {'performance': 'default', 'time': 'end', 'buttons': None, 'text': 'Oldest woman alive turns 118', 'image': 'images/placeholder.png'}, {'performance': 'default', 'time': 'end', 'buttons': None, 'text': 'AI blamed for New White Collar Unemployment Figures.', 'image': 'images/placeholder.png'}, {'performance': 'default', 'time': 'end', 'buttons': None, 'text': 'Tragedy in Montana Resettlement Zone', 'image': 'images/placeholder.png'}], 'message': [{'performance': 'default', 'time': 'start', 'buttons': None, 'text': 'Alex T Manager @ DataVille\nSubject: Orientation\n\nCongratulations on your new position as:\nImage Labeler / Annotator \n\nWe look forward to working with you. Utilize your natural instincts, perspective and humanity. \n\nHappy labeling! \n-Alex T', 'sender': 'supervisor'}, {'performance': 'default', 'time': 'start', 'buttons': ['Thanks, Cogni', 'Ugh. I hate AI.'], 'text': 'And I’m your automated helper, COGNI! \nI’m here to assist you!\n\nRemember these simple directions:\nAnswer the questions quickly. \nAnswer the questions accurately. \nLabelers with the high ratings/speed will receive incentive bonuses!', 'sender': 'cogni'}, {'performance': 'default', 'time': 'start', 'buttons': None, 'text': 'Here’s a practice run to get you started!', 'sender': 'cogni'}, {'performance': 'good', 'time': 'end', 'buttons': ['Off to a great start!'], 'text': '“That was fantastic! Keep up the great work!\nHumanity is counting on you!”', 'sender': ''}, {'performance': 'bad', 'time': '', 'buttons': ['Off to a rough start.'], 'text': 'That wasn’t very good! Be sure to try your best! \nRemember, humanity is counting on you!', 'sender': ''}], 'window_background': 'images/window/city_scape.png', 'button_text': 'Go to work!', 'dream': []}
-time:  start
-task:  {'type': 'binary_text', 'next_task': 'break', 'payment': '1200', 'instructions': 'This is a placeholder.', 'time': '10', 'correct_options': 'Y', 'text_block': 'Hit yes to get the money.'}
-perf rating at day start:  bad
-buttons:  None
-buttons:  None
-buttons:  ['Thanks, Cogni', 'Ugh. I hate AI.']
-buttons:  ['Thanks, Cogni', 'Ugh. I hate AI.']
-buttons:  None
-buttons:  None
-task:  {'type': 'binary_text', 'next_task': 'break', 'payment': '1200', 'instructions': 'This is a placeholder.', 'time': '10', 'correct_options': 'Y', 'text_block': 'Hit yes to get the money.'}
+state:  {'earnings': 0, 'average_time': 0, 'total_time': 0, 'total_score': 0, 'approval_rate': 0}
+average:  {'score': 70, 'time': 8, 'earnings': 1200}
+state:  {'earnings': 0, 'average_time': 0, 'total_time': 0, 'total_score': 0, 'approval_rate': 0}
+average:  {'score': 70, 'time': 8, 'earnings': 1200}
+state:  {'earnings': 0, 'average_time': 0, 'total_time': 0, 'total_score': 0, 'approval_rate': 0}
+average:  {'score': 70, 'time': 8, 'earnings': 1200}
+state:  {'earnings': 0, 'average_time': 0, 'total_time': 0, 'total_score': 0, 'approval_rate': 0}
+average:  {'score': 70, 'time': 8, 'earnings': 1200}
+state:  {'earnings': 0, 'average_time': 0, 'total_time': 0, 'total_score': 0, 'approval_rate': 0}
+average:  {'score': 70, 'time': 8, 'earnings': 1200}
+state:  {'earnings': 0, 'average_time': 0, 'total_time': 0, 'total_score': 0, 'approval_rate': 0}
+average:  {'score': 70, 'time': 8, 'earnings': 1200}
+state:  {'earnings': 0, 'average_time': 0, 'total_time': 0, 'total_score': 0, 'approval_rate': 0}
+average:  {'score': 70, 'time': 8, 'earnings': 1200}
+state:  {'earnings': 0, 'average_time': 0, 'total_time': 0, 'total_score': 0, 'approval_rate': 0}
+average:  {'score': 70, 'time': 8, 'earnings': 1200}
+state:  {'earnings': 0, 'average_time': 0, 'total_time': 0, 'total_score': 0, 'approval_rate': 0}
+average:  {'score': 70, 'time': 8, 'earnings': 1200}
+state:  {'earnings': 0, 'average_time': 0, 'total_time': 0, 'total_score': 0, 'approval_rate': 0}
+average:  {'score': 70, 'time': 8, 'earnings': 1200}
+state:  {'earnings': 0, 'average_time': 0, 'total_time': 0, 'total_score': 0, 'approval_rate': 0}
+average:  {'score': 70, 'time': 8, 'earnings': 1200}
+state:  {'earnings': 0, 'average_time': 0, 'total_time': 0, 'total_score': 0, 'approval_rate': 0}
+average:  {'score': 70, 'time': 8, 'earnings': 1200}
+state:  {'earnings': 0, 'average_time': 0, 'total_time': 0, 'total_score': 0, 'approval_rate': 0}
+average:  {'score': 70, 'time': 8, 'earnings': 1200}
+state:  {'earnings': 0, 'average_time': 0, 'total_time': 0, 'total_score': 0, 'approval_rate': 0}
+average:  {'score': 70, 'time': 8, 'earnings': 1200}
