@@ -1660,7 +1660,7 @@ screen message(sender, buttons=None):
     if sender == 'supervisor':
       avatar = "images/icons/supervisor.png" 
     elif sender == 'stranger':
-      avatar = "images/icons/stranger.png"
+      avatar = "images/icons/asst_normal.png"
     else:
       avatar = "images/icons/asst_normal.png"
   window id 'content':
