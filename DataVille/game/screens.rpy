@@ -2124,7 +2124,8 @@ screen zoomed_note(data):
     xalign 0.5
     yalign 0.2
     for note in data["sticky_note"]:
-        text note["text"]
+        if note["performance"] == "default" or note["performance"] == store.game_state.performance_rating or (note["event_flag"] in store.event_flags):
+            text note["text"]
   frame:
     textbutton "X" activate_sound "rustle.wav" action Hide("zoomed_note", None)
 
@@ -2133,11 +2134,12 @@ screen zoomed_tv(data, index=0):
   frame:
     python:
 # advance through news items
-      length = len(data["news"])
-      if index > length - 1:
-        index = 0
-      item = data["news"][index]
+      result = setitem(data, index)
+      print('result: ', result)
+      item = result[0]
+      index = result[1]
       index +=1
+
     image Transform(item["image"], size=(1000,1000)) xpos 600 ypos 200
     image Transform("images/room/room/tv_zoom_in.png", size=(2000, 1400))
   window:

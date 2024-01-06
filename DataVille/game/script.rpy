@@ -236,6 +236,20 @@ init python:
       return True
     else:
       return False
+    #SET TV NEWS ITEMS
+  def setitem(data, index):
+    length = len(data["news"])
+    if index > length - 1:
+        index = 0
+    item = data["news"][index]
+    print('index: ', index)
+    if item["performance"] != "default" and item["performance"] != store.game_state.performance_rating and item["event_flag"] not in store.event_flags:
+        print('skipping item: ', item)
+        index +=1
+        return setitem(data, index)
+    else:
+        print('returning item: ', item)
+        return [item, index]
 
 
 #
@@ -265,8 +279,7 @@ init python:
   def performance_feedback(out):
       good = ["You’re really doing it!", "You’re labeling faster than 81% of DataVille Annotators!", "Great accuracy!", "Keep it up!", "Aim for that performance incentive!"]
       mid = ["Your performance is reasonable", "Your output is compatible with 70% of other labelers."]
-      bad = ["Accuracy is important. Don’t be afraid to look carefully!", "Oof. Hope you do better next time.", "You’ll need to do better if you want the incentive bonus!", "Stay focused.", "That wasn’t great - do you need cleare
-      instructions?"]
+      bad = ["Accuracy is important. Don’t be afraid to look carefully!", "Oof. Hope you do better next time.", "You’ll need to do better if you want the incentive bonus!", "Stay focused.", "That wasn’t great - do you need clearer instructions?"]
       if (out == 1):
         return {'text': random.choice(good), 'score': 100}
       elif (out == 2):
@@ -507,7 +520,6 @@ label start:
         e_big "[custom_dialogue]"
         hide screen message
 
-      show screen instructions(store.game_state.ui)
 
       show screen timer
       show screen instructions(store.game_state.ui)
@@ -567,11 +579,8 @@ label start:
 #      else:
       hide screen overlay
       scene bg apartment_1
-      $ print('perf rating: ', store.game_state.performance_rating)
       play music f"dataville_apartment_{store.game_state.performance_rating}.wav" fadein 2.0
       $ show_window = True
-      $ print('apartment data: ', store.apartment_data)
-      $ print('time: ', store.game_state.time)
       call screen apartment(clean(store.apartment_data), store.game_state.time)
       $ show_window = False
       if store.game_state.day < 4:
@@ -582,25 +591,21 @@ label start:
             while dream_counter < dream_len:
                 $ dream = store.apartment_data['dream'][dream_counter]
                 if dream['time'] != 'start':
-                    $ print('calling dream: ', dream)
                     hide screen apartment
                     call screen dream(dream['text'], dream['buttons'])
                 $ dream_counter += 1
             python:
                 reset_performance(store.game_state.performance)
                 day_start()
-            call interstitial
-        elif store.game_state.time == "start":
-          $ task = store.loop["start_task"]
-          $ set_ui_state(task, store.game_state)
-          $ cleaned = clean(store.apartment_data)
-#FIXME: quick fix for testing bad audio
-          $ print('perf rating at day start: ', store.game_state.performance_rating)
-          if store.game_state.performance_rating != 'bad':
-            play music f"dataville_workspace_{store.game_state.performance_rating}.wav" fadein 2.0
-          else:
-            play music f"dataville_workspace_neutral.wav" fadein 2.0
-          call task_loop
+            if store.game_state.performance_rating != 'bad':
+                play music f"dataville_workspace_{store.game_state.performance_rating}.wav" fadein 2.0
+            else:
+                play music f"dataville_workspace_neutral.wav" fadein 2.0
+            $ task = store.loop["start_task"]
+            $ set_ui_state(task, store.game_state)
+            $ cleaned = clean(store.apartment_data)
+
+            call task_loop
         else:
           "game state is broken!!!"
       else:

@@ -1,39 +1,68 @@
-DAY,TEXT,TYPE,PERFORMANCE,TIME,SENDER,IMAGE,BUTTON_1_TEXT,BUTTON_2_TEXT
-0,"Alex T Manager @ DataVille
-Subject: Orientation
+DAY,TEXT,TYPE,PERFORMANCE,TIME,SENDER,IMAGE_FOLDER,IMAGE,BUTTON_1_TEXT,BUTTON_2_TEXT,EVENT_FLAG
+1,"“You have a work message from:
+Alex T Manager @ Dataville”",message,default,end,cogni,,,Got it.,Ugh. Here we go…,
+1,"Alex T Manager @ DataVille
+Subject: Performance Review
 
-Congratulations on your new position as:
-Image Labeler / Annotator 
+You’ve done it again! Your performance ratings are eligible for the incentive bonus. Based on your exceptional levels of accuracy and speed, we’re going to begin giving you more important (and difficult) assignments. Please keep up the great work. People are depending on you. 
 
-We look forward to working with you. Utilize your natural instincts, perspective and humanity. 
+Happy labeling!
+-Alex T",message,good,end,supervisor,,,A hard day’s work!,,
+1,"Alex T Manager @ DataVille
+Subject: Performance Review
 
-Happy labeling! 
--Alex T",message,default,start,supervisor,,,
-0,Gig Economy Expected to Continue Growing,news,default,start,,,,
-0,Scientist: visitors’ camouflage abilities greater than previously believed.,news,default,start,,,,
-0,Cleveland zoo welcomes birth of new pandas.,news,default,start,,,,
-0,Experts testify before congress on illegal aliens.,news,default,start,,,,
-0,Official opening of Montana resettlement zone,news,default,start,,,,
-0,White collar unemployment hits new level.,news,default,start,,,,
-0,-Mitten vet appointment,sticky_note,default,start,,,,
-0,-Call mom back,sticky_note,default,start,,,,
-0,-Pay rent,sticky_note,default,start,,,,
-0,-Trash day,sticky_note,default,start,,,,
-0,"And I’m your automated helper, COGNI! 
-I’m here to assist you!
+Thanks for all your hard work. Take a moment to review your metrics. There are some parts that could be improved. Unfortunately, your performance is not eligible for an incentive bonus at this time. Let’s try to raise those scores on the next set. It will be more challenging, so keep at it. People are depending on you.
 
-Remember these simple directions:
-Answer the questions quickly. 
-Answer the questions accurately. 
-Labelers with the high ratings/speed will receive incentive bonuses!",message,default,start,cogni,,"Thanks, Cogni",Ugh. I hate AI.
-0,Here’s a practice run to get you started!,message,default,start,cogni,,,
-0,Immigration Reforms Stalls in Congress Over Illegal Aliens.,news,default,end,,,,
-0,Oldest woman alive turns 118,news,default,end,,,,
-0,AI blamed for New White Collar Unemployment Figures.,news,default,end,,,,
-0,Tragedy in Montana Resettlement Zone,news,default,end,,,,
-0,"“That was fantastic! Keep up the great work!
-Humanity is counting on you!”",message,good,end,,,Off to a great start!,
-0,"That wasn’t very good! Be sure to try your best! 
-Remember, humanity is counting on you!",message,bad,,,,Off to a rough start.,
-0,,,,,,,,
-0,,,,,,,,
+Happy labeling!
+-Alex T",message,neutral,end,supervisor,,,A hard day’s work!,,
+1,"Alex T Manager @ DataVille
+Subject: Performance Review
+
+I’ve been reviewing your output and I’m disappointed to say your performance metrics are ranking poorly. Let me know if there’s anything I can do to get those numbers up. If these low numbers continue, we’ll need to make a performance improvement plan. Please take your time and do your best. People are depending on you. 
+
+Happy labeling!
+-Alex T",message,bad,end,supervisor,,,A hard day’s work!,,
+1,"“You have a work message from:
+ARE YOU GETTING THESE? @ [source_undefined]”",message,default,end,cogni,,,This looks weird.,,
+1,"“ARE YOU GETTING THESE? @ [source_undefined]
+Subject: VERY IMPORTANT!
+
+“If they can’t detect us, they can’t get us! They’re rounding us up. The AI detection is the key. Please do everything you can to undercut their accuracy! Your choices give them power!”
+
+“The message terminates abruptly.”",message,default,end,stranger,,,Back to work!,I’ll think about that.,
+1,"You have a work message from:
+Tim @ Dataville
+",message,default,end,cogni,,,What’s all this?,,
+1,"Tim @ DataVille
+Subject: Labor Rights
+
+“Welcome to the team. I hope you’re getting settled into your new job. I wanted to let you know that the Dataville Annotators have been in the process of forming a labor union. We feel we could get better treatment if we grouped together. There have been problems with workers not receiving their full pay out and many people have been fired with no notice. Would you be interested in potentially joining us?
+
+Thanks
+-Tim”
+
+“The message terminates abruptly.",message,default,end,union,,,I’ll voice my support!,Maybe later,
+1,Tragedy at Montana Resettlement Zone.,news,good,end,,,,,,
+1,Senator pledges ‘humanitarian support’ at Resettlement Zone.,news,bad,end,,,,,,
+1,Hundreds arrested at clandestine alien meeting.,news,good,end,,,,,,
+,Defense Department audit flags privatization concerns.,news,bad,end,,,,,,
+,Chef Tony refuses to serve illegal aliens.,news,good,end,,,,,,
+,Chef Tony prepares hot meals for DC protestors.,news,bad,end,,,,,,
+,Schools install alien detectors.,news,good,end,,,,,,
+,Universities face pressure over alien applications.,news,neutral,end,,,,,,
+,Universities officially admit first alien students.,news,bad,end,,,,,,
+,Pope takes stand against ‘invaders.’,news,good,end,,,,,,
+,Pope officially welcomes ‘alien brothers.’,news,bad,end,,,,,,
+,Beautiful celebrities reject demands for alien inclusion.,news,good,end,,,,,,
+,Oscar night delivers big wins for alien artists.,news,bad,end,,,,,,
+,Mittens followup @ vet,sticky_note,bad,end,,,,,,
+,yoga,sticky_note,good,end,,,,,,
+,Sympathy flowers for mom,sticky_note,bad,end,,,,,,
+,Birthday gift 4 mom,sticky_note,good,end,,,,,,
+,Credit card refinance?,sticky_note,bad,end,,,,,,
+,Phone upgrade,sticky_note,good,end,,,,,,
+,Remake resume,sticky_note,bad,end,,,,,,
+,Clean bathroom,sticky_note,good,end,,,,,,
+,I’m not sure how I feel about this new job.,dream,default,end,,,,But I’m going to try my best!,I’ll muddle through for the money.,
+,I’m not sure how I feel about my company.,dream,default,end,,,,But at least my boss seems cool!,I have reservations,
+,The future feels uncertain.,dream,default,end,,,,But I’m optimistic!,I’ll keep my expectations low.,

@@ -1,113 +1,59 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
 While running game code:
-  File "game/script.rpy", line 536, in script call
-    call interstitial
-  File "game/script.rpy", line 604, in script call
+  File "game/script.rpy", line 550, in script call
     call task_loop
-  File "game/script.rpy", line 536, in script call
-    call interstitial
-  File "game/script.rpy", line 604, in script call
+  File "game/script.rpy", line 550, in script call
     call task_loop
-  File "game/script.rpy", line 536, in script call
-    call interstitial
-  File "game/script.rpy", line 604, in script call
+  File "game/script.rpy", line 550, in script call
     call task_loop
-  File "game/script.rpy", line 536, in script call
+  [Previous line repeated 2 more times]
+  File "game/script.rpy", line 548, in script call
     call interstitial
-  File "game/script.rpy", line 604, in script call
+  File "game/script.rpy", line 608, in script call
     call task_loop
-  File "game/script.rpy", line 536, in script call
+  File "game/script.rpy", line 548, in script call
     call interstitial
-  File "game/script.rpy", line 604, in script call
+  File "game/script.rpy", line 608, in script call
     call task_loop
-  File "game/script.rpy", line 536, in script call
+  File "game/script.rpy", line 548, in script call
     call interstitial
-  File "game/script.rpy", line 604, in script call
-    call task_loop
-  File "game/script.rpy", line 536, in script call
-    call interstitial
-  File "game/script.rpy", line 604, in script call
-    call task_loop
-  File "game/script.rpy", line 536, in script call
-    call interstitial
-  File "game/script.rpy", line 604, in script call
-    call task_loop
-  File "game/script.rpy", line 536, in script call
-    call interstitial
-  File "game/script.rpy", line 604, in script call
-    call task_loop
-  File "game/script.rpy", line 536, in script call
-    call interstitial
-  File "game/script.rpy", line 604, in script call
-    call task_loop
-  File "game/script.rpy", line 536, in script call
-    call interstitial
-  File "game/script.rpy", line 604, in script call
-    call task_loop
-  File "game/script.rpy", line 536, in script call
-    call interstitial
-  File "game/script.rpy", line 593, in script call
-    call interstitial
-  File "game/script.rpy", line 574, in script
-    call screen apartment(clean(store.apartment_data), store.game_state.time)
+  File "game/script.rpy", line 595, in script
+    call screen dream(dream['text'], dream['buttons'])
   File "renpy/common/000statements.rpy", line 670, in execute_call_screen
     store._return = renpy.call_screen(name, *args, **kwargs)
-OSError: Couldn't find file ''.
+  File "game/screens.rpy", line 1687, in execute
+    screen dream(dream_text, buttons):
+  File "game/screens.rpy", line 1687, in execute
+    screen dream(dream_text, buttons):
+  File "game/screens.rpy", line 1688, in execute
+    window id 'content':
+  File "game/screens.rpy", line 1696, in execute
+    hbox id 'buttons':
+TypeError: 'NoneType' object is not iterable
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "game/script.rpy", line 536, in script call
-    call interstitial
-  File "game/script.rpy", line 604, in script call
+  File "game/script.rpy", line 550, in script call
     call task_loop
-  File "game/script.rpy", line 536, in script call
-    call interstitial
-  File "game/script.rpy", line 604, in script call
+  File "game/script.rpy", line 550, in script call
     call task_loop
-  File "game/script.rpy", line 536, in script call
-    call interstitial
-  File "game/script.rpy", line 604, in script call
+  File "game/script.rpy", line 550, in script call
     call task_loop
-  File "game/script.rpy", line 536, in script call
+  [Previous line repeated 2 more times]
+  File "game/script.rpy", line 548, in script call
     call interstitial
-  File "game/script.rpy", line 604, in script call
+  File "game/script.rpy", line 608, in script call
     call task_loop
-  File "game/script.rpy", line 536, in script call
+  File "game/script.rpy", line 548, in script call
     call interstitial
-  File "game/script.rpy", line 604, in script call
+  File "game/script.rpy", line 608, in script call
     call task_loop
-  File "game/script.rpy", line 536, in script call
+  File "game/script.rpy", line 548, in script call
     call interstitial
-  File "game/script.rpy", line 604, in script call
-    call task_loop
-  File "game/script.rpy", line 536, in script call
-    call interstitial
-  File "game/script.rpy", line 604, in script call
-    call task_loop
-  File "game/script.rpy", line 536, in script call
-    call interstitial
-  File "game/script.rpy", line 604, in script call
-    call task_loop
-  File "game/script.rpy", line 536, in script call
-    call interstitial
-  File "game/script.rpy", line 604, in script call
-    call task_loop
-  File "game/script.rpy", line 536, in script call
-    call interstitial
-  File "game/script.rpy", line 604, in script call
-    call task_loop
-  File "game/script.rpy", line 536, in script call
-    call interstitial
-  File "game/script.rpy", line 604, in script call
-    call task_loop
-  File "game/script.rpy", line 536, in script call
-    call interstitial
-  File "game/script.rpy", line 593, in script call
-    call interstitial
-  File "game/script.rpy", line 574, in script
-    call screen apartment(clean(store.apartment_data), store.game_state.time)
+  File "game/script.rpy", line 595, in script
+    call screen dream(dream['text'], dream['buttons'])
   File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/ast.py", line 2259, in execute
     self.call("execute")
   File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/ast.py", line 2241, in call
@@ -122,24 +68,35 @@ Full traceback:
     rv = renpy.game.interface.interact(roll_forward=roll_forward, **kwargs)
   File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/display/core.py", line 3582, in interact
     repeat, rv = self.interact_core(preloads=preloads, trans_pause=trans_pause, pause=pause, pause_start=pause_start, pause_modal=pause_modal, **kwargs) # type: ignore
-  File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/display/core.py", line 4379, in interact_core
-    renpy.audio.audio.periodic()
-  File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/audio/audio.py", line 1224, in periodic
-    raise_(exc[0], exc[1], exc[2])
-  File "/home/tom/ab/renpy-build-fix/tmp/install.linux-x86_64/lib/python3.9/site-packages/future/utils/__init__.py", line 444, in raise_
-  File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/audio/audio.py", line 1202, in periodic_thread_main
-    periodic_pass()
-  File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/audio/audio.py", line 1144, in periodic_pass
-    c.periodic()
-  File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/audio/audio.py", line 534, in periodic
-    topf = load(filename)
-  File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/audio/audio.py", line 72, in load
-    rv = renpy.loader.load(fn, directory="audio")
-  File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/loader.py", line 833, in load
-    raise IOError("Couldn't find file '%s'." % name)
-OSError: Couldn't find file ''.
+  File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/display/core.py", line 4055, in interact_core
+    root_widget.visit_all(lambda d : d.per_interact())
+  File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/display/core.py", line 684, in visit_all
+    d.visit_all(callback, seen)
+  File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/display/core.py", line 684, in visit_all
+    d.visit_all(callback, seen)
+  File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/display/core.py", line 684, in visit_all
+    d.visit_all(callback, seen)
+  File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/display/screen.py", line 476, in visit_all
+    callback(self)
+  File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/display/core.py", line 4055, in <lambda>
+    root_widget.visit_all(lambda d : d.per_interact())
+  File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/display/screen.py", line 487, in per_interact
+    self.update()
+  File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/display/screen.py", line 680, in update
+    self.screen.function(**self.scope)
+  File "game/screens.rpy", line 1687, in execute
+    screen dream(dream_text, buttons):
+  File "game/screens.rpy", line 1687, in execute
+    screen dream(dream_text, buttons):
+  File "game/screens.rpy", line 1688, in execute
+    window id 'content':
+  File "game/screens.rpy", line 1696, in execute
+    hbox id 'buttons':
+  File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/sl2/slast.py", line 1734, in execute
+    for index, v in enumerate(value): # type: ignore
+TypeError: 'NoneType' object is not iterable
 
 Linux-6.2.0-39-generic-x86_64-with-glibc2.35 x86_64
 Ren'Py 8.1.3.23091805
 DataVille 1.0
-Fri Jan  5 17:04:52 2024
+Sat Jan  6 15:24:07 2024
