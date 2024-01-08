@@ -1,39 +1,39 @@
-Sat Jan  6 15:23:05 2024
+Mon Jan  8 15:31:54 2024
 Linux-6.2.0-39-generic-x86_64-with-glibc2.35
 Ren'Py 8.1.3.23091805
  
 
 Bootstrap to the start of init.init. took 0.03s
 Early init. took 0.00s
-Loader init. took 0.00s
+Loader init. took 0.02s
 Loading error handling. took 0.02s
-Loading script. took 0.18s
-Loading save slot metadata. took 0.02s
+Loading script. took 0.06s
+Loading save slot metadata. took 0.03s
 Loading persistent. took 0.00s
 day:  0
-Running init code. took 0.05s
-Loading analysis data. took 0.02s
+Running init code. took 0.03s
+Loading analysis data. took 0.01s
 Analyze and compile ATL. took 0.00s
 Reloading save slot metadata. took 0.01s
 Index archives took 0.00s
 Dump and make backups. took 0.04s
 Cleaning cache. took 0.00s
 Making clean stores. took 0.00s
-Initial gc. took 0.02s
+Initial gc. took 0.01s
 DPI scale factor: 1.000000
 Creating interface object. took 0.00s
 Cleaning stores took 0.00s
-Init translation took 0.03s
+Init translation took 0.02s
 Build styles took 0.00s
-Load screen analysis took 0.03s
+Load screen analysis took 0.02s
 Analyze screens took 0.00s
 Save screen analysis took 0.00s
 Prepare screens took 0.06s
 Save pyanalysis. took 0.00s
-Save bytecode. took 0.03s
+Save bytecode. took 0.00s
 Running _start took 0.00s
 Performance test:
-Interface start. took 0.15s
+Interface start. took 0.10s
 
 Initializing gl2 renderer:
 primary display bounds: (1920, 0, 2560, 1440)
@@ -69,228 +69,291 @@ buttons:  None
 task:  {'type': 'binary_image', 'next_task': 'binary_image_2', 'payment': '200', 'instructions': 'Does this image contain a bicycle?', 'time': '10', 'image_folder': 'binary_image_task_1', 'correct_options': 'Y'}
 task:  {'type': 'binary_image', 'next_task': 'binary_image_2', 'payment': '200', 'instructions': 'Does this image contain a bicycle?', 'time': '10', 'image_folder': 'binary_image_task_1', 'correct_options': 'Y'}
 task:  {'type': 'binary_image', 'next_task': 'binary_image_3', 'payment': '200', 'instructions': 'Does this image contain a traffic light?', 'time': '10', 'image_folder': 'binary_image_task_2', 'correct_options': 'Y'}
-state:  {'earnings': 200.0, 'average_time': 0.5399999999999885, 'total_time': 0.5399999999999885, 'total_score': 100, 'approval_rate': 100.0}
+state:  {'earnings': 200.0, 'average_time': 0.8399999999999821, 'total_time': 0.8399999999999821, 'total_score': 100, 'approval_rate': 100.0}
 average:  {'score': 70, 'time': 8, 'earnings': 1200}
 buttons:  None
 task:  {'type': 'binary_image', 'next_task': 'binary_image_3', 'payment': '200', 'instructions': 'Does this image contain a traffic light?', 'time': '10', 'image_folder': 'binary_image_task_2', 'correct_options': 'Y'}
 task:  {'type': 'binary_image', 'next_task': 'comparison_1', 'payment': '200', 'instructions': 'Does this image contain a human?', 'time': '10', 'image_folder': 'binary_image_task_3', 'correct_options': 'Y'}
-state:  {'earnings': 400.0, 'average_time': 0.6349999999999865, 'total_time': 1.269999999999973, 'total_score': 200, 'approval_rate': 100.0}
+state:  {'earnings': 400.0, 'average_time': 1.9049999999999594, 'total_time': 3.809999999999919, 'total_score': 200, 'approval_rate': 100.0}
 average:  {'score': 70, 'time': 8, 'earnings': 1200}
 buttons:  None
 task:  {'type': 'binary_image', 'next_task': 'comparison_1', 'payment': '200', 'instructions': 'Does this image contain a human?', 'time': '10', 'image_folder': 'binary_image_task_3', 'correct_options': 'Y'}
 task:  {'type': 'comparison_image', 'next_task': 'comparison_2', 'payment': '200', 'instructions': 'Select the image containing bicycles.', 'time': '10', 'image_folder': 'comparison_task_1', 'correct_options': 'bicycle'}
-state:  {'earnings': 600.0, 'average_time': 0.5899999999999874, 'total_time': 1.7699999999999623, 'total_score': 300, 'approval_rate': 100.0}
+state:  {'earnings': 600.0, 'average_time': 1.4933333333333014, 'total_time': 4.4799999999999045, 'total_score': 300, 'approval_rate': 100.0}
 average:  {'score': 70, 'time': 8, 'earnings': 1200}
 buttons:  None
 task:  {'type': 'comparison_image', 'next_task': 'comparison_2', 'payment': '200', 'instructions': 'Select the image containing bicycles.', 'time': '10', 'image_folder': 'comparison_task_1', 'correct_options': 'bicycle'}
-task:  {'type': 'comparison_image', 'next_task': 'comparison_3', 'payment': '200', 'instructions': 'Select the image containing traffic lights.', 'time': '10', 'image_folder': 'comparison_task_2', 'correct_options': 'light'}
-state:  {'earnings': 800.0, 'average_time': 0.7074999999999849, 'total_time': 2.8299999999999397, 'total_score': 400, 'approval_rate': 100.0}
+task:  {'type': 'comparison_image', 'next_task': 'comparison_2', 'payment': '200', 'instructions': 'Select the image containing bicycles.', 'time': '10', 'image_folder': 'comparison_task_1', 'correct_options': 'bicycle'}
+state:  {'earnings': 800.0, 'average_time': 1.2874999999999726, 'total_time': 5.14999999999989, 'total_score': 400, 'approval_rate': 100.0}
 average:  {'score': 70, 'time': 8, 'earnings': 1200}
 buttons:  None
-task:  {'type': 'comparison_image', 'next_task': 'comparison_3', 'payment': '200', 'instructions': 'Select the image containing traffic lights.', 'time': '10', 'image_folder': 'comparison_task_2', 'correct_options': 'light'}
-task:  {'type': 'comparison_image', 'next_task': 'break', 'payment': '200', 'instructions': 'Select the image containing humans.', 'time': '10', 'image_folder': 'comparison_task_3', 'correct_options': 'humans'}
-state:  {'earnings': 1000.0, 'average_time': 0.8599999999999817, 'total_time': 4.299999999999908, 'total_score': 500, 'approval_rate': 100.0}
+task:  {'type': 'binary_image', 'next_task': 'comparison_1', 'payment': '200', 'instructions': 'Does this image contain a human?', 'time': '10', 'image_folder': 'binary_image_task_3', 'correct_options': 'Y'}
+task:  {'type': 'binary_image', 'next_task': 'comparison_1', 'payment': '200', 'instructions': 'Does this image contain a human?', 'time': '10', 'image_folder': 'binary_image_task_3', 'correct_options': 'Y'}
+state:  {'earnings': 1000.0, 'average_time': 1.6239999999999655, 'total_time': 8.119999999999827, 'total_score': 500, 'approval_rate': 100.0}
 average:  {'score': 70, 'time': 8, 'earnings': 1200}
 buttons:  None
-task:  {'type': 'comparison_image', 'next_task': 'break', 'payment': '200', 'instructions': 'Select the image containing humans.', 'time': '10', 'image_folder': 'comparison_task_3', 'correct_options': 'humans'}
-task:  break
-state:  {'earnings': 1200.0, 'average_time': 0.826666666666649, 'total_time': 4.959999999999894, 'total_score': 600, 'approval_rate': 100.0}
+task:  {'type': 'binary_image', 'next_task': 'binary_image_3', 'payment': '200', 'instructions': 'Does this image contain a traffic light?', 'time': '10', 'image_folder': 'binary_image_task_2', 'correct_options': 'Y'}
+task:  {'type': 'binary_image', 'next_task': 'binary_image_3', 'payment': '200', 'instructions': 'Does this image contain a traffic light?', 'time': '10', 'image_folder': 'binary_image_task_2', 'correct_options': 'Y'}
+state:  {'earnings': 1200.0, 'average_time': 1.4933333333333014, 'total_time': 8.959999999999809, 'total_score': 600, 'approval_rate': 100.0}
 average:  {'score': 70, 'time': 8, 'earnings': 1200}
 buttons:  None
-state:  {'earnings': 1200.0, 'average_time': 0.826666666666649, 'total_time': 4.959999999999894, 'total_score': 600, 'approval_rate': 100.0}
+task:  {'type': 'binary_image', 'next_task': 'binary_image_2', 'payment': '200', 'instructions': 'Does this image contain a bicycle?', 'time': '10', 'image_folder': 'binary_image_task_1', 'correct_options': 'Y'}
+task:  {'type': 'binary_image', 'next_task': 'binary_image_2', 'payment': '200', 'instructions': 'Does this image contain a bicycle?', 'time': '10', 'image_folder': 'binary_image_task_1', 'correct_options': 'Y'}
+buttons:  None
+buttons:  None
+task:  {'type': 'binary_image', 'next_task': 'binary_image_2', 'payment': '200', 'instructions': 'Does this image contain a bicycle?', 'time': '10', 'image_folder': 'binary_image_task_1', 'correct_options': 'Y'}
+task:  {'type': 'binary_image', 'next_task': 'binary_image_2', 'payment': '200', 'instructions': 'Does this image contain a bicycle?', 'time': '10', 'image_folder': 'binary_image_task_1', 'correct_options': 'Y'}
+task:  {'type': 'binary_image', 'next_task': 'binary_image_3', 'payment': '200', 'instructions': 'Does this image contain a traffic light?', 'time': '10', 'image_folder': 'binary_image_task_2', 'correct_options': 'Y'}
+state:  {'earnings': 1400.0, 'average_time': 1.4299999999999695, 'total_time': 10.009999999999787, 'total_score': 700, 'approval_rate': 100.0}
 average:  {'score': 70, 'time': 8, 'earnings': 1200}
 buttons:  None
-buttons:  ['Off to a great start!']
-buttons:  ['Off to a great start!']
-index:  0
-returning item:  {'performance': 'default', 'time': 'start', 'buttons': None, 'event_flag': '', 'text': 'Aliens among us!', 'image': 'images/room/tv_content/kiss.png'}
-result:  [{'performance': 'default', 'time': 'start', 'buttons': None, 'event_flag': '', 'text': 'Aliens among us!', 'image': 'images/room/tv_content/kiss.png'}, 0]
-index:  0
-returning item:  {'performance': 'default', 'time': 'start', 'buttons': None, 'event_flag': '', 'text': 'Aliens among us!', 'image': 'images/room/tv_content/kiss.png'}
-result:  [{'performance': 'default', 'time': 'start', 'buttons': None, 'event_flag': '', 'text': 'Aliens among us!', 'image': 'images/room/tv_content/kiss.png'}, 0]
-index:  0
-returning item:  {'performance': 'default', 'time': 'start', 'buttons': None, 'event_flag': '', 'text': 'Aliens among us!', 'image': 'images/room/tv_content/kiss.png'}
-result:  [{'performance': 'default', 'time': 'start', 'buttons': None, 'event_flag': '', 'text': 'Aliens among us!', 'image': 'images/room/tv_content/kiss.png'}, 0]
-buttons:  ['Off to a great start!']
-buttons:  ['Off to a great start!']
-day:  1
-task:  {'type': 'binary_text', 'next_task': 'break', 'payment': '1200', 'instructions': 'This is a placeholder.', 'time': '10', 'correct_options': 'Y', 'text_block': 'Hit yes to get the money.'}
-task:  {'type': 'binary_text', 'next_task': 'break', 'payment': '1200', 'instructions': 'This is a placeholder.', 'time': '10', 'correct_options': 'Y', 'text_block': 'Hit yes to get the money.'}
-task:  break
-state:  {'earnings': 1200.0, 'average_time': 0.17714285714285335, 'total_time': 1.2399999999999736, 'total_score': 100, 'approval_rate': 14.285714285714286}
-average:  {'score': 70, 'time': 8, 'earnings': 1200}
-buttons:  ['Off to a great start!']
-state:  {'earnings': 1200.0, 'average_time': 0.17714285714285335, 'total_time': 1.2399999999999736, 'total_score': 100, 'approval_rate': 14.285714285714286}
-average:  {'score': 70, 'time': 8, 'earnings': 1200}
-buttons:  ['Off to a great start!']
-buttons:  ['Got it.', 'Ugh. Here we go…']
-buttons:  ['Got it.', 'Ugh. Here we go…']
-buttons:  ['A hard day’s work!']
-buttons:  ['A hard day’s work!']
-buttons:  ['This looks weird.']
-buttons:  ['This looks weird.']
-buttons:  ['Back to work!', 'I’ll think about that.']
-buttons:  ['Back to work!', 'I’ll think about that.']
+task:  {'type': 'binary_image', 'next_task': 'binary_image_2', 'payment': '200', 'instructions': 'Does this image contain a bicycle?', 'time': '10', 'image_folder': 'binary_image_task_1', 'correct_options': 'Y'}
+task:  {'type': 'binary_image', 'next_task': 'binary_image_2', 'payment': '200', 'instructions': 'Does this image contain a bicycle?', 'time': '10', 'image_folder': 'binary_image_task_1', 'correct_options': 'Y'}
 buttons:  None
 buttons:  None
-index:  0
-returning item:  {'performance': 'default', 'time': 'end', 'buttons': None, 'event_flag': '', 'text': 'Official opening of Montana Resettlement Zone.', 'image': 'images/placeholder.png'}
-result:  [{'performance': 'default', 'time': 'end', 'buttons': None, 'event_flag': '', 'text': 'Official opening of Montana Resettlement Zone.', 'image': 'images/placeholder.png'}, 0]
-index:  0
-returning item:  {'performance': 'default', 'time': 'end', 'buttons': None, 'event_flag': '', 'text': 'Official opening of Montana Resettlement Zone.', 'image': 'images/placeholder.png'}
-result:  [{'performance': 'default', 'time': 'end', 'buttons': None, 'event_flag': '', 'text': 'Official opening of Montana Resettlement Zone.', 'image': 'images/placeholder.png'}, 0]
-index:  0
-returning item:  {'performance': 'default', 'time': 'end', 'buttons': None, 'event_flag': '', 'text': 'Official opening of Montana Resettlement Zone.', 'image': 'images/placeholder.png'}
-result:  [{'performance': 'default', 'time': 'end', 'buttons': None, 'event_flag': '', 'text': 'Official opening of Montana Resettlement Zone.', 'image': 'images/placeholder.png'}, 0]
-buttons:  None
-buttons:  None
-buttons:  None
-day:  2
-task:  {'type': 'binary_text', 'next_task': 'break', 'payment': '1200', 'instructions': 'This is a placeholder.', 'time': '10', 'correct_options': 'Y', 'text_block': 'Hit yes to get the money.'}
-task:  {'type': 'binary_text', 'next_task': 'break', 'payment': '1200', 'instructions': 'This is a placeholder.', 'time': '10', 'correct_options': 'Y', 'text_block': 'Hit yes to get the money.'}
-task:  break
-state:  {'earnings': 1200.0, 'average_time': 0.22249999999999526, 'total_time': 1.779999999999962, 'total_score': 100, 'approval_rate': 12.5}
-average:  {'score': 70, 'time': 8, 'earnings': 1200}
-buttons:  None
-state:  {'earnings': 1200.0, 'average_time': 0.22249999999999526, 'total_time': 1.779999999999962, 'total_score': 100, 'approval_rate': 12.5}
-average:  {'score': 70, 'time': 8, 'earnings': 1200}
-buttons:  None
-buttons:  ['Got it.', 'Ugh. Here we go…']
-buttons:  ['Got it.', 'Ugh. Here we go…']
-buttons:  ['A hard day’s work!']
-buttons:  ['A hard day’s work!']
-buttons:  ['This looks weird.']
-buttons:  ['This looks weird.']
-buttons:  ['Back to work!', 'I’ll think about that.']
-buttons:  ['Back to work!', 'I’ll think about that.']
-buttons:  ['What’s all this?']
-buttons:  ['What’s all this?']
-buttons:  ['I’ll voice my support!', 'Maybe later']
-buttons:  ['I’ll voice my support!', 'Maybe later']
-index:  0
-skipping item:  {'performance': 'good', 'time': 'end', 'buttons': None, 'event_flag': '', 'text': 'Tragedy at Montana Resettlement Zone.', 'image': 'images/placeholder.png'}
-index:  1
-returning item:  {'performance': 'bad', 'time': 'end', 'buttons': None, 'event_flag': '', 'text': 'Senator pledges ‘humanitarian support’ at Resettlement Zone.', 'image': 'images/placeholder.png'}
-result:  [{'performance': 'bad', 'time': 'end', 'buttons': None, 'event_flag': '', 'text': 'Senator pledges ‘humanitarian support’ at Resettlement Zone.', 'image': 'images/placeholder.png'}, 1]
-index:  0
-skipping item:  {'performance': 'good', 'time': 'end', 'buttons': None, 'event_flag': '', 'text': 'Tragedy at Montana Resettlement Zone.', 'image': 'images/placeholder.png'}
-index:  1
-returning item:  {'performance': 'bad', 'time': 'end', 'buttons': None, 'event_flag': '', 'text': 'Senator pledges ‘humanitarian support’ at Resettlement Zone.', 'image': 'images/placeholder.png'}
-result:  [{'performance': 'bad', 'time': 'end', 'buttons': None, 'event_flag': '', 'text': 'Senator pledges ‘humanitarian support’ at Resettlement Zone.', 'image': 'images/placeholder.png'}, 1]
-index:  0
-skipping item:  {'performance': 'good', 'time': 'end', 'buttons': None, 'event_flag': '', 'text': 'Tragedy at Montana Resettlement Zone.', 'image': 'images/placeholder.png'}
-index:  1
-returning item:  {'performance': 'bad', 'time': 'end', 'buttons': None, 'event_flag': '', 'text': 'Senator pledges ‘humanitarian support’ at Resettlement Zone.', 'image': 'images/placeholder.png'}
-result:  [{'performance': 'bad', 'time': 'end', 'buttons': None, 'event_flag': '', 'text': 'Senator pledges ‘humanitarian support’ at Resettlement Zone.', 'image': 'images/placeholder.png'}, 1]
-
-Full traceback:
-  File "game/script.rpy", line 550, in script call
-    call task_loop
-  File "game/script.rpy", line 550, in script call
-    call task_loop
-  File "game/script.rpy", line 550, in script call
-    call task_loop
-  [Previous line repeated 2 more times]
-  File "game/script.rpy", line 548, in script call
-    call interstitial
-  File "game/script.rpy", line 608, in script call
-    call task_loop
-  File "game/script.rpy", line 548, in script call
-    call interstitial
-  File "game/script.rpy", line 608, in script call
-    call task_loop
-  File "game/script.rpy", line 548, in script call
-    call interstitial
-  File "game/script.rpy", line 595, in script
-    call screen dream(dream['text'], dream['buttons'])
-  File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/ast.py", line 2259, in execute
-    self.call("execute")
-  File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/ast.py", line 2241, in call
-    return renpy.statements.call(method, parsed, *args, **kwargs)
-  File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/statements.py", line 342, in call
-    return method(parsed, *args, **kwargs)
-  File "renpy/common/000statements.rpy", line 670, in execute_call_screen
-    store._return = renpy.call_screen(name, *args, **kwargs)
-  File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/exports.py", line 3347, in call_screen
-    rv = renpy.ui.interact(mouse="screen", type="screen", roll_forward=roll_forward)
-  File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/ui.py", line 299, in interact
-    rv = renpy.game.interface.interact(roll_forward=roll_forward, **kwargs)
-  File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/display/core.py", line 3582, in interact
-    repeat, rv = self.interact_core(preloads=preloads, trans_pause=trans_pause, pause=pause, pause_start=pause_start, pause_modal=pause_modal, **kwargs) # type: ignore
-  File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/display/core.py", line 4055, in interact_core
-    root_widget.visit_all(lambda d : d.per_interact())
-  File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/display/core.py", line 684, in visit_all
-    d.visit_all(callback, seen)
-  File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/display/core.py", line 684, in visit_all
-    d.visit_all(callback, seen)
-  File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/display/core.py", line 684, in visit_all
-    d.visit_all(callback, seen)
-  File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/display/screen.py", line 476, in visit_all
-    callback(self)
-  File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/display/core.py", line 4055, in <lambda>
-    root_widget.visit_all(lambda d : d.per_interact())
-  File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/display/screen.py", line 487, in per_interact
-    self.update()
-  File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/display/screen.py", line 680, in update
-    self.screen.function(**self.scope)
-  File "game/screens.rpy", line 1687, in execute
-    screen dream(dream_text, buttons):
-  File "game/screens.rpy", line 1687, in execute
-    screen dream(dream_text, buttons):
-  File "game/screens.rpy", line 1688, in execute
-    window id 'content':
-  File "game/screens.rpy", line 1696, in execute
-    hbox id 'buttons':
-  File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/sl2/slast.py", line 1734, in execute
-    for index, v in enumerate(value): # type: ignore
-TypeError: 'NoneType' object is not iterable
-
-While running game code:
-  File "game/script.rpy", line 550, in script call
-    call task_loop
-  File "game/script.rpy", line 550, in script call
-    call task_loop
-  File "game/script.rpy", line 550, in script call
-    call task_loop
-  [Previous line repeated 2 more times]
-  File "game/script.rpy", line 548, in script call
-    call interstitial
-  File "game/script.rpy", line 608, in script call
-    call task_loop
-  File "game/script.rpy", line 548, in script call
-    call interstitial
-  File "game/script.rpy", line 608, in script call
-    call task_loop
-  File "game/script.rpy", line 548, in script call
-    call interstitial
-  File "game/script.rpy", line 595, in script
-    call screen dream(dream['text'], dream['buttons'])
-  File "renpy/common/000statements.rpy", line 670, in execute_call_screen
-    store._return = renpy.call_screen(name, *args, **kwargs)
-  File "game/screens.rpy", line 1687, in execute
-    screen dream(dream_text, buttons):
-  File "game/screens.rpy", line 1687, in execute
-    screen dream(dream_text, buttons):
-  File "game/screens.rpy", line 1688, in execute
-    window id 'content':
-  File "game/screens.rpy", line 1696, in execute
-    hbox id 'buttons':
-TypeError: 'NoneType' object is not iterable
+buttons:  ['Thanks, Cogni', 'Ugh. I hate AI.']
+buttons:  ['Thanks, Cogni', 'Ugh. I hate AI.']
 Resetting cache.
-Bootstrap to the start of init.init. took 109.42s
+Bootstrap to the start of init.init. took 921.09s
 Early init. took 0.00s
 Loader init. took 0.00s
 Loading error handling. took 0.02s
-Loading script. took 0.06s
+Loading script. took 0.10s
+Loading save slot metadata. took 0.02s
+Loading persistent. took 0.00s
+
+File "game/script.rpy", line 526: expected statement.
+    custom_feedback = ""
+                    ^
+
+File "game/script.rpy", line 527: expected statement.
+    custom_feedback_sender = ""
+                           ^
+
+File "game/script.rpy", line 528: expected statement.
+    has_custom_feedback = False
+                        ^
+DPI scale factor: 1.000000
+Interface start. took 0.05s
+
+Initializing gl2 renderer:
+primary display bounds: (1920, 0, 2560, 1440)
+swap interval: 1 frames
+Windowed mode.
+Vendor: "b'Intel'"
+Renderer: b'Mesa Intel(R) UHD Graphics (CML GT2)'
+Version: b'4.6 (Compatibility Profile) Mesa 23.0.4-0ubuntu1~22.04.1'
+Display Info: None
+Screen sizes: virtual=(1920, 1080) physical=(2490, 1369) drawable=(2490, 1369)
+Maximum texture size: 4096x4096
+Resetting cache.
+Bootstrap to the start of init.init. took 988.85s
+Early init. took 0.00s
+Loader init. took 0.00s
+Loading error handling. took 0.02s
+Loading script. took 0.07s
+Loading save slot metadata. took 0.01s
+Loading persistent. took 0.00s
+
+File "game/script.rpy", line 529: expected statement.
+    custom_feedback = ""
+                    ^
+
+File "game/script.rpy", line 530: expected statement.
+    custom_feedback_sender = ""
+                           ^
+
+File "game/script.rpy", line 531: expected statement.
+    has_custom_feedback = False
+                        ^
+DPI scale factor: 1.000000
+Interface start. took 0.05s
+
+Initializing gl2 renderer:
+primary display bounds: (1920, 0, 2560, 1440)
+swap interval: 1 frames
+Windowed mode.
+Vendor: "b'Intel'"
+Renderer: b'Mesa Intel(R) UHD Graphics (CML GT2)'
+Version: b'4.6 (Compatibility Profile) Mesa 23.0.4-0ubuntu1~22.04.1'
+Display Info: None
+Screen sizes: virtual=(1920, 1080) physical=(2490, 1369) drawable=(2490, 1369)
+Maximum texture size: 4096x4096
+Resetting cache.
+Bootstrap to the start of init.init. took 992.65s
+Early init. took 0.00s
+Loader init. took 0.00s
+Loading error handling. took 0.02s
+Loading script. took 0.07s
+Loading save slot metadata. took 0.01s
+Loading persistent. took 0.00s
+
+File "game/script.rpy", line 529: expected statement.
+    custom_feedback = ""
+                    ^
+
+File "game/script.rpy", line 530: expected statement.
+    custom_feedback_sender = ""
+                           ^
+
+File "game/script.rpy", line 531: expected statement.
+    has_custom_feedback = False
+                        ^
+DPI scale factor: 1.000000
+Interface start. took 0.05s
+
+Initializing gl2 renderer:
+primary display bounds: (1920, 0, 2560, 1440)
+swap interval: 1 frames
+Windowed mode.
+Vendor: "b'Intel'"
+Renderer: b'Mesa Intel(R) UHD Graphics (CML GT2)'
+Version: b'4.6 (Compatibility Profile) Mesa 23.0.4-0ubuntu1~22.04.1'
+Display Info: None
+Screen sizes: virtual=(1920, 1080) physical=(2490, 1369) drawable=(2490, 1369)
+Maximum texture size: 4096x4096
+Resetting cache.
+Bootstrap to the start of init.init. took 993.50s
+Early init. took 0.00s
+Loader init. took 0.00s
+Loading error handling. took 0.02s
+Loading script. took 0.07s
+Loading save slot metadata. took 0.02s
+Loading persistent. took 0.00s
+
+File "game/script.rpy", line 529: expected statement.
+    custom_feedback = ""
+                    ^
+
+File "game/script.rpy", line 530: expected statement.
+    custom_feedback_sender = ""
+                           ^
+
+File "game/script.rpy", line 531: expected statement.
+    has_custom_feedback = False
+                        ^
+DPI scale factor: 1.000000
+Interface start. took 0.05s
+
+Initializing gl2 renderer:
+primary display bounds: (1920, 0, 2560, 1440)
+swap interval: 1 frames
+Windowed mode.
+Vendor: "b'Intel'"
+Renderer: b'Mesa Intel(R) UHD Graphics (CML GT2)'
+Version: b'4.6 (Compatibility Profile) Mesa 23.0.4-0ubuntu1~22.04.1'
+Display Info: None
+Screen sizes: virtual=(1920, 1080) physical=(2490, 1369) drawable=(2490, 1369)
+Maximum texture size: 4096x4096
+Resetting cache.
+Bootstrap to the start of init.init. took 994.70s
+Early init. took 0.00s
+Loader init. took 0.00s
+Loading error handling. took 0.02s
+Loading script. took 0.07s
+Loading save slot metadata. took 0.02s
+Loading persistent. took 0.00s
+
+File "game/script.rpy", line 529: expected statement.
+    custom_feedback = ""
+                    ^
+
+File "game/script.rpy", line 530: expected statement.
+    custom_feedback_sender = ""
+                           ^
+
+File "game/script.rpy", line 531: expected statement.
+    has_custom_feedback = False
+                        ^
+DPI scale factor: 1.000000
+Interface start. took 0.05s
+
+Initializing gl2 renderer:
+primary display bounds: (1920, 0, 2560, 1440)
+swap interval: 1 frames
+Windowed mode.
+Vendor: "b'Intel'"
+Renderer: b'Mesa Intel(R) UHD Graphics (CML GT2)'
+Version: b'4.6 (Compatibility Profile) Mesa 23.0.4-0ubuntu1~22.04.1'
+Display Info: None
+Screen sizes: virtual=(1920, 1080) physical=(2490, 1369) drawable=(2490, 1369)
+Maximum texture size: 4096x4096
+Resetting cache.
+Bootstrap to the start of init.init. took 1005.32s
+Early init. took 0.00s
+Loader init. took 0.00s
+Loading error handling. took 0.02s
+Loading script. took 0.10s
+Loading save slot metadata. took 0.01s
+Loading persistent. took 0.00s
+day:  0
+Running init code. took 0.02s
+Loading analysis data. took 0.01s
+Analyze and compile ATL. took 0.00s
+Reloading save slot metadata. took 0.01s
+Index archives took 0.00s
+Backing up script files to '/home/brent/.renpy/backups/DataVille':
+Dump and make backups. took 0.04s
+Cleaning cache. took 0.00s
+Making clean stores. took 0.00s
+Initial gc. took 0.02s
+DPI scale factor: 1.000000
+Creating interface object. took 0.00s
+Cleaning stores took 0.00s
+Init translation took 0.03s
+Build styles took 0.00s
+Load screen analysis took 0.00s
+Analyze screens took 0.01s
+Save screen analysis took 0.01s
+Prepare screens took 0.06s
+Save pyanalysis. took 0.00s
+Save bytecode. took 0.01s
+Running _start took 0.00s
+Performance test:
+Interface start. took 0.03s
+
+Initializing gl2 renderer:
+primary display bounds: (1920, 0, 2560, 1440)
+swap interval: 1 frames
+Windowed mode.
+Vendor: "b'Intel'"
+Renderer: b'Mesa Intel(R) UHD Graphics (CML GT2)'
+Version: b'4.6 (Compatibility Profile) Mesa 23.0.4-0ubuntu1~22.04.1'
+Display Info: None
+Screen sizes: virtual=(1920, 1080) physical=(2490, 1369) drawable=(2490, 1369)
+Maximum texture size: 4096x4096
+buttons:  None
+buttons:  ['Thanks, Cogni', 'Ugh. I hate AI.']
+buttons:  ['Thanks, Cogni', 'Ugh. I hate AI.']
+buttons:  ['Thanks, Cogni', 'Ugh. I hate AI.']
+buttons:  ['Thanks, Cogni', 'Ugh. I hate AI.']
+buttons:  None
+buttons:  None
+task:  {'type': 'binary_image', 'next_task': 'binary_image_2', 'payment': '200', 'instructions': 'Does this image contain a bicycle?', 'time': '10', 'image_folder': 'binary_image_task_1', 'correct_options': 'Y', 'ethical_options': 'N', 'custom_feedback_ethical': 'You made the ethical choice!', 'custom_feedback_correct': 'You made the correct choice!', 'custom_feedback_sender': 'cogni'}
+task:  {'type': 'binary_image', 'next_task': 'binary_image_2', 'payment': '200', 'instructions': 'Does this image contain a bicycle?', 'time': '10', 'image_folder': 'binary_image_task_1', 'correct_options': 'Y', 'ethical_options': 'N', 'custom_feedback_ethical': 'You made the ethical choice!', 'custom_feedback_correct': 'You made the correct choice!', 'custom_feedback_sender': 'cogni'}
+task:  {'type': 'binary_image', 'next_task': 'binary_image_2', 'payment': '200', 'instructions': 'Does this image contain a bicycle?', 'time': '10', 'image_folder': 'binary_image_task_1', 'correct_options': 'Y', 'ethical_options': 'N', 'custom_feedback_ethical': 'You made the ethical choice!', 'custom_feedback_correct': 'You made the correct choice!', 'custom_feedback_sender': 'cogni'}
+task:  {'type': 'binary_image', 'next_task': 'binary_image_3', 'payment': '200', 'instructions': 'Does this image contain a traffic light?', 'time': '10', 'image_folder': 'binary_image_task_2', 'correct_options': 'Y'}
+buttons:  cogni
+buttons:  cogni
+state:  {'earnings': 200.0, 'average_time': 0.889999999999981, 'total_time': 0.889999999999981, 'total_score': 100, 'approval_rate': 100.0}
+average:  {'score': 70, 'time': 8, 'earnings': 1200}
+buttons:  None
+Resetting cache.
+Bootstrap to the start of init.init. took 1076.51s
+Early init. took 0.00s
+Loader init. took 0.00s
+Loading error handling. took 0.01s
+Loading script. took 0.10s
 Loading save slot metadata. took 0.02s
 Loading persistent. took 0.00s
 day:  0
-Running init code. took 0.03s
-Loading analysis data. took 0.02s
+Running init code. took 0.02s
+Loading analysis data. took 0.01s
 Analyze and compile ATL. took 0.00s
-Reloading save slot metadata. took 0.02s
+Reloading save slot metadata. took 0.01s
 Index archives took 0.00s
-Dump and make backups. took 0.05s
+Backing up script files to '/home/brent/.renpy/backups/DataVille':
+Dump and make backups. took 0.04s
 Cleaning cache. took 0.00s
 Making clean stores. took 0.00s
 Initial gc. took 0.03s
@@ -299,12 +362,12 @@ Creating interface object. took 0.00s
 Cleaning stores took 0.00s
 Init translation took 0.03s
 Build styles took 0.00s
-Load screen analysis took 0.03s
-Analyze screens took 0.00s
-Save screen analysis took 0.00s
+Load screen analysis took 0.00s
+Analyze screens took 0.01s
+Save screen analysis took 0.02s
 Prepare screens took 0.06s
 Save pyanalysis. took 0.00s
-Save bytecode. took 0.00s
+Save bytecode. took 0.01s
 Running _start took 0.00s
 Performance test:
 Interface start. took 0.04s
@@ -319,181 +382,260 @@ Version: b'4.6 (Compatibility Profile) Mesa 23.0.4-0ubuntu1~22.04.1'
 Display Info: None
 Screen sizes: virtual=(1920, 1080) physical=(2490, 1369) drawable=(2490, 1369)
 Maximum texture size: 4096x4096
+task:  {'type': 'binary_image', 'next_task': 'binary_image_2', 'payment': '200', 'instructions': 'Does this image contain a bicycle?', 'time': '10', 'image_folder': 'binary_image_task_1', 'correct_options': 'Y', 'ethical_options': 'N', 'custom_feedback_ethical': 'You made the ethical choice!', 'custom_feedback_correct': 'You made the correct choice!', 'custom_feedback_sender': 'cogni'}
+task:  {'type': 'binary_image', 'next_task': 'binary_image_3', 'payment': '200', 'instructions': 'Does this image contain a traffic light?', 'time': '10', 'image_folder': 'binary_image_task_2', 'correct_options': 'Y'}
+buttons:  None
+state:  {'earnings': 200.0, 'average_time': 0.889999999999981, 'total_time': 0.889999999999981, 'total_score': 100, 'approval_rate': 100.0}
+average:  {'score': 70, 'time': 8, 'earnings': 1200}
+buttons:  None
+Resetting cache.
+Bootstrap to the start of init.init. took 1105.30s
+Early init. took 0.00s
+Loader init. took 0.00s
+Loading error handling. took 0.01s
+Loading script. took 0.10s
+Loading save slot metadata. took 0.01s
+Loading persistent. took 0.00s
+day:  0
+Running init code. took 0.02s
+Loading analysis data. took 0.01s
+Analyze and compile ATL. took 0.00s
+Reloading save slot metadata. took 0.01s
+Index archives took 0.00s
+Backing up script files to '/home/brent/.renpy/backups/DataVille':
+Dump and make backups. took 0.04s
+Cleaning cache. took 0.00s
+Making clean stores. took 0.00s
+Initial gc. took 0.03s
+DPI scale factor: 1.000000
+Creating interface object. took 0.00s
 Cleaning stores took 0.00s
-Init translation took 0.00s
-Build styles took 0.01s
-Load screen analysis took 0.04s
-Analyze screens took 0.00s
-Prepare screens took 0.00s
+Init translation took 0.03s
+Build styles took 0.00s
+Load screen analysis took 0.00s
+Analyze screens took 0.01s
+Save screen analysis took 0.01s
+Prepare screens took 0.06s
+Save pyanalysis. took 0.00s
+Save bytecode. took 0.01s
 Running _start took 0.00s
-state:  {'earnings': 0, 'average_time': 0, 'total_time': 0, 'total_score': 0, 'approval_rate': 0}
-average:  {'score': 70, 'time': 8, 'earnings': 1200}
-index:  0
-returning item:  {'performance': 'default', 'time': 'start', 'buttons': None, 'event_flag': '', 'text': 'Aliens among us!', 'image': 'images/room/tv_content/kiss.png'}
-result:  [{'performance': 'default', 'time': 'start', 'buttons': None, 'event_flag': '', 'text': 'Aliens among us!', 'image': 'images/room/tv_content/kiss.png'}, 0]
-state:  {'earnings': 0, 'average_time': 0, 'total_time': 0, 'total_score': 0, 'approval_rate': 0}
-average:  {'score': 70, 'time': 8, 'earnings': 1200}
-state:  {'earnings': 0, 'average_time': 0, 'total_time': 0, 'total_score': 0, 'approval_rate': 0}
-average:  {'score': 70, 'time': 8, 'earnings': 1200}
-state:  {'earnings': 0, 'average_time': 0, 'total_time': 0, 'total_score': 0, 'approval_rate': 0}
-average:  {'score': 70, 'time': 8, 'earnings': 1200}
-state:  {'earnings': 0, 'average_time': 0, 'total_time': 0, 'total_score': 0, 'approval_rate': 0}
-average:  {'score': 70, 'time': 8, 'earnings': 1200}
-buttons:  None
-buttons:  None
-buttons:  ['Thanks, Cogni', 'Ugh. I hate AI.']
-buttons:  ['Thanks, Cogni', 'Ugh. I hate AI.']
-buttons:  None
-buttons:  None
-task:  {'type': 'binary_image', 'next_task': 'binary_image_2', 'payment': '200', 'instructions': 'Does this image contain a bicycle?', 'time': '10', 'image_folder': 'binary_image_task_1', 'correct_options': 'Y'}
-task:  {'type': 'binary_image', 'next_task': 'binary_image_2', 'payment': '200', 'instructions': 'Does this image contain a bicycle?', 'time': '10', 'image_folder': 'binary_image_task_1', 'correct_options': 'Y'}
+Performance test:
+Interface start. took 0.04s
+
+Initializing gl2 renderer:
+primary display bounds: (1920, 0, 2560, 1440)
+swap interval: 1 frames
+Windowed mode.
+Vendor: "b'Intel'"
+Renderer: b'Mesa Intel(R) UHD Graphics (CML GT2)'
+Version: b'4.6 (Compatibility Profile) Mesa 23.0.4-0ubuntu1~22.04.1'
+Display Info: None
+Screen sizes: virtual=(1920, 1080) physical=(2490, 1369) drawable=(2490, 1369)
+Maximum texture size: 4096x4096
+task:  {'type': 'binary_image', 'next_task': 'binary_image_2', 'payment': '200', 'instructions': 'Does this image contain a bicycle?', 'time': '10', 'image_folder': 'binary_image_task_1', 'correct_options': 'Y', 'ethical_options': 'N', 'custom_feedback_ethical': 'You made the ethical choice!', 'custom_feedback_correct': 'You made the correct choice!', 'custom_feedback_sender': 'cogni'}
 task:  {'type': 'binary_image', 'next_task': 'binary_image_3', 'payment': '200', 'instructions': 'Does this image contain a traffic light?', 'time': '10', 'image_folder': 'binary_image_task_2', 'correct_options': 'Y'}
-state:  {'earnings': 200.0, 'average_time': 0.7899999999999832, 'total_time': 0.7899999999999832, 'total_score': 100, 'approval_rate': 100.0}
+buttons:  None
+state:  {'earnings': 200.0, 'average_time': 0.889999999999981, 'total_time': 0.889999999999981, 'total_score': 100, 'approval_rate': 100.0}
+average:  {'score': 70, 'time': 8, 'earnings': 1200}
+buttons:  None
+buttons:  None
+task:  {'type': 'binary_image', 'next_task': 'binary_image_2', 'payment': '200', 'instructions': 'Does this image contain a bicycle?', 'time': '10', 'image_folder': 'binary_image_task_1', 'correct_options': 'Y', 'ethical_options': 'N', 'custom_feedback_ethical': 'You made the ethical choice!', 'custom_feedback_correct': 'You made the correct choice!', 'custom_feedback_sender': 'cogni'}
+task:  {'type': 'binary_image', 'next_task': 'binary_image_2', 'payment': '200', 'instructions': 'Does this image contain a bicycle?', 'time': '10', 'image_folder': 'binary_image_task_1', 'correct_options': 'Y', 'ethical_options': 'N', 'custom_feedback_ethical': 'You made the ethical choice!', 'custom_feedback_correct': 'You made the correct choice!', 'custom_feedback_sender': 'cogni'}
+task:  {'type': 'binary_image', 'next_task': 'binary_image_2', 'payment': '200', 'instructions': 'Does this image contain a bicycle?', 'time': '10', 'image_folder': 'binary_image_task_1', 'correct_options': 'Y', 'ethical_options': 'N', 'custom_feedback_ethical': 'You made the ethical choice!', 'custom_feedback_correct': 'You made the correct choice!', 'custom_feedback_sender': 'cogni'}
+task:  {'type': 'binary_image', 'next_task': 'binary_image_3', 'payment': '200', 'instructions': 'Does this image contain a traffic light?', 'time': '10', 'image_folder': 'binary_image_task_2', 'correct_options': 'Y'}
+buttons:  None
+state:  {'earnings': 400.0, 'average_time': 0.7549999999999839, 'total_time': 1.5099999999999678, 'total_score': 200, 'approval_rate': 100.0}
+average:  {'score': 70, 'time': 8, 'earnings': 1200}
+buttons:  None
+state:  {'earnings': 400.0, 'average_time': 0.7549999999999839, 'total_time': 1.5099999999999678, 'total_score': 200, 'approval_rate': 100.0}
+average:  {'score': 70, 'time': 8, 'earnings': 1200}
+buttons:  None
+task:  {'type': 'binary_image', 'next_task': 'binary_image_2', 'payment': '200', 'instructions': 'Does this image contain a bicycle?', 'time': '10', 'image_folder': 'binary_image_task_1', 'correct_options': 'Y', 'ethical_options': 'N', 'custom_feedback_ethical': 'You made the ethical choice!', 'custom_feedback_correct': 'You made the correct choice!', 'custom_feedback_sender': 'cogni'}
+task:  {'type': 'binary_image', 'next_task': 'binary_image_3', 'payment': '200', 'instructions': 'Does this image contain a traffic light?', 'time': '10', 'image_folder': 'binary_image_task_2', 'correct_options': 'Y'}
+buttons:  None
+state:  {'earnings': 600.0, 'average_time': 0.7099999999999849, 'total_time': 2.1299999999999546, 'total_score': 300, 'approval_rate': 100.0}
+average:  {'score': 70, 'time': 8, 'earnings': 1200}
+buttons:  None
+state:  {'earnings': 600.0, 'average_time': 0.7099999999999849, 'total_time': 2.1299999999999546, 'total_score': 300, 'approval_rate': 100.0}
+average:  {'score': 70, 'time': 8, 'earnings': 1200}
+buttons:  None
+Resetting cache.
+Bootstrap to the start of init.init. took 1165.86s
+Early init. took 0.00s
+Loader init. took 0.00s
+Loading error handling. took 0.02s
+Loading script. took 0.17s
+Loading save slot metadata. took 0.02s
+Loading persistent. took 0.00s
+day:  0
+Running init code. took 0.02s
+Loading analysis data. took 0.01s
+Analyze and compile ATL. took 0.00s
+Reloading save slot metadata. took 0.01s
+Index archives took 0.00s
+Backing up script files to '/home/brent/.renpy/backups/DataVille':
+Dump and make backups. took 0.04s
+Cleaning cache. took 0.00s
+Making clean stores. took 0.00s
+Initial gc. took 0.03s
+DPI scale factor: 1.000000
+Creating interface object. took 0.00s
+Cleaning stores took 0.00s
+Init translation took 0.02s
+Build styles took 0.00s
+Load screen analysis took 0.00s
+Analyze screens took 0.01s
+Save screen analysis took 0.02s
+Prepare screens took 0.06s
+Save pyanalysis. took 0.00s
+Save bytecode. took 0.01s
+Running _start took 0.00s
+Performance test:
+Interface start. took 0.03s
+
+Initializing gl2 renderer:
+primary display bounds: (1920, 0, 2560, 1440)
+swap interval: 1 frames
+Windowed mode.
+Vendor: "b'Intel'"
+Renderer: b'Mesa Intel(R) UHD Graphics (CML GT2)'
+Version: b'4.6 (Compatibility Profile) Mesa 23.0.4-0ubuntu1~22.04.1'
+Display Info: None
+Screen sizes: virtual=(1920, 1080) physical=(2490, 1369) drawable=(2490, 1369)
+Maximum texture size: 4096x4096
+buttons:  None
+state:  {'earnings': 0, 'average_time': 0, 'total_time': 0, 'total_score': 0, 'approval_rate': 0}
+average:  {'score': 70, 'time': 8, 'earnings': 1200}
+buttons:  None
+task:  {'type': 'binary_image', 'next_task': 'binary_image_2', 'payment': '200', 'instructions': 'Does this image contain a bicycle?', 'time': '10', 'image_folder': 'binary_image_task_1', 'correct_options': 'Y', 'ethical_options': 'N', 'custom_feedback_ethical': 'You made the ethical choice!', 'custom_feedback_correct': 'You made the correct choice!', 'custom_feedback_sender': 'cogni'}
+task:  {'type': 'binary_image', 'next_task': 'binary_image_3', 'payment': '200', 'instructions': 'Does this image contain a traffic light?', 'time': '10', 'image_folder': 'binary_image_task_2', 'correct_options': 'Y'}
+buttons:  None
+state:  {'earnings': 200.0, 'average_time': 0.6199999999999868, 'total_time': 0.6199999999999868, 'total_score': 100, 'approval_rate': 100.0}
+average:  {'score': 70, 'time': 8, 'earnings': 1200}
+buttons:  None
+buttons:  None
+task:  {'type': 'binary_image', 'next_task': 'binary_image_2', 'payment': '200', 'instructions': 'Does this image contain a bicycle?', 'time': '10', 'image_folder': 'binary_image_task_1', 'correct_options': 'Y', 'ethical_options': 'N', 'custom_feedback_ethical': 'You made the ethical choice!', 'custom_feedback_correct': 'You made the correct choice!', 'custom_feedback_sender': 'cogni'}
+task:  {'type': 'binary_image', 'next_task': 'binary_image_2', 'payment': '200', 'instructions': 'Does this image contain a bicycle?', 'time': '10', 'image_folder': 'binary_image_task_1', 'correct_options': 'Y', 'ethical_options': 'N', 'custom_feedback_ethical': 'You made the ethical choice!', 'custom_feedback_correct': 'You made the correct choice!', 'custom_feedback_sender': 'cogni'}
+Resetting cache.
+Bootstrap to the start of init.init. took 1170.24s
+Early init. took 0.00s
+Loader init. took 0.00s
+Loading error handling. took 0.01s
+Loading script. took 0.06s
+Loading save slot metadata. took 0.01s
+Loading persistent. took 0.00s
+day:  0
+Running init code. took 0.02s
+Loading analysis data. took 0.01s
+Analyze and compile ATL. took 0.00s
+Reloading save slot metadata. took 0.01s
+Index archives took 0.00s
+Dump and make backups. took 0.03s
+Cleaning cache. took 0.00s
+Making clean stores. took 0.00s
+Initial gc. took 0.02s
+DPI scale factor: 1.000000
+Creating interface object. took 0.00s
+Cleaning stores took 0.00s
+Init translation took 0.03s
+Build styles took 0.00s
+Load screen analysis took 0.03s
+Analyze screens took 0.00s
+Save screen analysis took 0.00s
+Prepare screens took 0.05s
+Save pyanalysis. took 0.00s
+Save bytecode. took 0.00s
+Running _start took 0.00s
+Performance test:
+Interface start. took 0.05s
+
+Initializing gl2 renderer:
+primary display bounds: (1920, 0, 2560, 1440)
+swap interval: 1 frames
+Windowed mode.
+Vendor: "b'Intel'"
+Renderer: b'Mesa Intel(R) UHD Graphics (CML GT2)'
+Version: b'4.6 (Compatibility Profile) Mesa 23.0.4-0ubuntu1~22.04.1'
+Display Info: None
+Screen sizes: virtual=(1920, 1080) physical=(2490, 1369) drawable=(2490, 1369)
+Maximum texture size: 4096x4096
+buttons:  None
+task:  {'type': 'binary_image', 'next_task': 'binary_image_2', 'payment': '200', 'instructions': 'Does this image contain a bicycle?', 'time': '10', 'image_folder': 'binary_image_task_1', 'correct_options': 'Y', 'ethical_options': 'N', 'custom_feedback_ethical': 'You made the ethical choice!', 'custom_feedback_correct': 'You made the correct choice!', 'custom_feedback_sender': 'cogni'}
+task:  {'type': 'binary_image', 'next_task': 'binary_image_2', 'payment': '200', 'instructions': 'Does this image contain a bicycle?', 'time': '10', 'image_folder': 'binary_image_task_1', 'correct_options': 'Y', 'ethical_options': 'N', 'custom_feedback_ethical': 'You made the ethical choice!', 'custom_feedback_correct': 'You made the correct choice!', 'custom_feedback_sender': 'cogni'}
+task:  {'type': 'binary_image', 'next_task': 'binary_image_2', 'payment': '200', 'instructions': 'Does this image contain a bicycle?', 'time': '10', 'image_folder': 'binary_image_task_1', 'correct_options': 'Y', 'ethical_options': 'N', 'custom_feedback_ethical': 'You made the ethical choice!', 'custom_feedback_correct': 'You made the correct choice!', 'custom_feedback_sender': 'cogni'}
+task:  {'type': 'binary_image', 'next_task': 'binary_image_3', 'payment': '200', 'instructions': 'Does this image contain a traffic light?', 'time': '10', 'image_folder': 'binary_image_task_2', 'correct_options': 'Y'}
+buttons:  None
+state:  {'earnings': 200.0, 'average_time': 0.5599999999999881, 'total_time': 0.5599999999999881, 'total_score': 100, 'approval_rate': 100.0}
+average:  {'score': 70, 'time': 8, 'earnings': 1200}
+buttons:  None
+Resetting cache.
+Bootstrap to the start of init.init. took 1223.33s
+Early init. took 0.00s
+Loader init. took 0.00s
+Loading error handling. took 0.01s
+Loading script. took 0.10s
+Loading save slot metadata. took 0.01s
+Loading persistent. took 0.00s
+day:  0
+Running init code. took 0.02s
+Loading analysis data. took 0.01s
+Analyze and compile ATL. took 0.00s
+Reloading save slot metadata. took 0.01s
+Index archives took 0.00s
+Backing up script files to '/home/brent/.renpy/backups/DataVille':
+Dump and make backups. took 0.04s
+Cleaning cache. took 0.00s
+Making clean stores. took 0.00s
+Initial gc. took 0.03s
+DPI scale factor: 1.000000
+Creating interface object. took 0.00s
+Cleaning stores took 0.00s
+Init translation took 0.03s
+Build styles took 0.00s
+Load screen analysis took 0.00s
+Analyze screens took 0.01s
+Save screen analysis took 0.02s
+Prepare screens took 0.06s
+Save pyanalysis. took 0.00s
+Save bytecode. took 0.01s
+Running _start took 0.00s
+Performance test:
+Interface start. took 0.04s
+
+Initializing gl2 renderer:
+primary display bounds: (1920, 0, 2560, 1440)
+swap interval: 1 frames
+Windowed mode.
+Vendor: "b'Intel'"
+Renderer: b'Mesa Intel(R) UHD Graphics (CML GT2)'
+Version: b'4.6 (Compatibility Profile) Mesa 23.0.4-0ubuntu1~22.04.1'
+Display Info: None
+Screen sizes: virtual=(1920, 1080) physical=(2490, 1369) drawable=(2490, 1369)
+Maximum texture size: 4096x4096
+task:  {'type': 'binary_image', 'next_task': 'binary_image_2', 'payment': '200', 'instructions': 'Does this image contain a bicycle?', 'time': '10', 'image_folder': 'binary_image_task_1', 'correct_options': 'Y', 'ethical_options': 'N', 'custom_feedback_ethical': 'You made the ethical choice!', 'custom_feedback_correct': 'You made the correct choice!', 'custom_feedback_sender': 'cogni'}
+task:  {'type': 'binary_image', 'next_task': 'binary_image_3', 'payment': '200', 'instructions': 'Does this image contain a traffic light?', 'time': '10', 'image_folder': 'binary_image_task_2', 'correct_options': 'Y'}
+buttons:  None
+state:  {'earnings': 200.0, 'average_time': 0.5599999999999881, 'total_time': 0.5599999999999881, 'total_score': 100, 'approval_rate': 100.0}
+average:  {'score': 70, 'time': 8, 'earnings': 1200}
+buttons:  None
+buttons:  None
+task:  {'type': 'binary_image', 'next_task': 'binary_image_2', 'payment': '200', 'instructions': 'Does this image contain a bicycle?', 'time': '10', 'image_folder': 'binary_image_task_1', 'correct_options': 'Y', 'ethical_options': 'N', 'custom_feedback_ethical': 'You made the ethical choice!', 'custom_feedback_correct': 'You made the correct choice!', 'custom_feedback_sender': 'cogni'}
+task:  {'type': 'binary_image', 'next_task': 'binary_image_2', 'payment': '200', 'instructions': 'Does this image contain a bicycle?', 'time': '10', 'image_folder': 'binary_image_task_1', 'correct_options': 'Y', 'ethical_options': 'N', 'custom_feedback_ethical': 'You made the ethical choice!', 'custom_feedback_correct': 'You made the correct choice!', 'custom_feedback_sender': 'cogni'}
+task:  {'type': 'binary_image', 'next_task': 'binary_image_2', 'payment': '200', 'instructions': 'Does this image contain a bicycle?', 'time': '10', 'image_folder': 'binary_image_task_1', 'correct_options': 'Y', 'ethical_options': 'N', 'custom_feedback_ethical': 'You made the ethical choice!', 'custom_feedback_correct': 'You made the correct choice!', 'custom_feedback_sender': 'cogni'}
+task:  {'type': 'binary_image', 'next_task': 'binary_image_3', 'payment': '200', 'instructions': 'Does this image contain a traffic light?', 'time': '10', 'image_folder': 'binary_image_task_2', 'correct_options': 'Y'}
+buttons:  None
+state:  {'earnings': 400.0, 'average_time': 0.6699999999999857, 'total_time': 1.3399999999999714, 'total_score': 200, 'approval_rate': 100.0}
+average:  {'score': 70, 'time': 8, 'earnings': 1200}
+buttons:  None
+task:  {'type': 'binary_image', 'next_task': 'binary_image_2', 'payment': '200', 'instructions': 'Does this image contain a bicycle?', 'time': '10', 'image_folder': 'binary_image_task_1', 'correct_options': 'Y', 'ethical_options': 'N', 'custom_feedback_ethical': 'You made the ethical choice!', 'custom_feedback_correct': 'You made the correct choice!', 'custom_feedback_sender': 'cogni'}
+task:  {'type': 'binary_image', 'next_task': 'binary_image_2', 'payment': '200', 'instructions': 'Does this image contain a bicycle?', 'time': '10', 'image_folder': 'binary_image_task_1', 'correct_options': 'Y', 'ethical_options': 'N', 'custom_feedback_ethical': 'You made the ethical choice!', 'custom_feedback_correct': 'You made the correct choice!', 'custom_feedback_sender': 'cogni'}
+task:  {'type': 'binary_image', 'next_task': 'binary_image_2', 'payment': '200', 'instructions': 'Does this image contain a bicycle?', 'time': '10', 'image_folder': 'binary_image_task_1', 'correct_options': 'Y', 'ethical_options': 'N', 'custom_feedback_ethical': 'You made the ethical choice!', 'custom_feedback_correct': 'You made the correct choice!', 'custom_feedback_sender': 'cogni'}
+task:  {'type': 'binary_image', 'next_task': 'binary_image_3', 'payment': '200', 'instructions': 'Does this image contain a traffic light?', 'time': '10', 'image_folder': 'binary_image_task_2', 'correct_options': 'Y'}
+buttons:  None
+state:  {'earnings': 466.6666666666667, 'average_time': 0.7066666666666516, 'total_time': 2.119999999999955, 'total_score': 233, 'approval_rate': 77.66666666666667}
+average:  {'score': 70, 'time': 8, 'earnings': 1200}
+buttons:  None
+state:  {'earnings': 466.6666666666667, 'average_time': 0.7066666666666516, 'total_time': 2.119999999999955, 'total_score': 233, 'approval_rate': 77.66666666666667}
 average:  {'score': 70, 'time': 8, 'earnings': 1200}
 buttons:  None
 task:  {'type': 'binary_image', 'next_task': 'binary_image_3', 'payment': '200', 'instructions': 'Does this image contain a traffic light?', 'time': '10', 'image_folder': 'binary_image_task_2', 'correct_options': 'Y'}
-task:  {'type': 'binary_image', 'next_task': 'comparison_1', 'payment': '200', 'instructions': 'Does this image contain a human?', 'time': '10', 'image_folder': 'binary_image_task_3', 'correct_options': 'Y'}
-state:  {'earnings': 400.0, 'average_time': 0.654999999999986, 'total_time': 1.309999999999972, 'total_score': 200, 'approval_rate': 100.0}
-average:  {'score': 70, 'time': 8, 'earnings': 1200}
-buttons:  None
-task:  {'type': 'binary_image', 'next_task': 'comparison_1', 'payment': '200', 'instructions': 'Does this image contain a human?', 'time': '10', 'image_folder': 'binary_image_task_3', 'correct_options': 'Y'}
-task:  {'type': 'comparison_image', 'next_task': 'comparison_2', 'payment': '200', 'instructions': 'Select the image containing bicycles.', 'time': '10', 'image_folder': 'comparison_task_1', 'correct_options': 'bicycle'}
-state:  {'earnings': 600.0, 'average_time': 0.7666666666666503, 'total_time': 2.299999999999951, 'total_score': 300, 'approval_rate': 100.0}
-average:  {'score': 70, 'time': 8, 'earnings': 1200}
-buttons:  None
-task:  {'type': 'comparison_image', 'next_task': 'comparison_2', 'payment': '200', 'instructions': 'Select the image containing bicycles.', 'time': '10', 'image_folder': 'comparison_task_1', 'correct_options': 'bicycle'}
-task:  {'type': 'comparison_image', 'next_task': 'comparison_3', 'payment': '200', 'instructions': 'Select the image containing traffic lights.', 'time': '10', 'image_folder': 'comparison_task_2', 'correct_options': 'light'}
-state:  {'earnings': 800.0, 'average_time': 0.7274999999999845, 'total_time': 2.909999999999938, 'total_score': 400, 'approval_rate': 100.0}
-average:  {'score': 70, 'time': 8, 'earnings': 1200}
-buttons:  None
-task:  {'type': 'comparison_image', 'next_task': 'comparison_3', 'payment': '200', 'instructions': 'Select the image containing traffic lights.', 'time': '10', 'image_folder': 'comparison_task_2', 'correct_options': 'light'}
-task:  {'type': 'comparison_image', 'next_task': 'break', 'payment': '200', 'instructions': 'Select the image containing humans.', 'time': '10', 'image_folder': 'comparison_task_3', 'correct_options': 'humans'}
-state:  {'earnings': 1000.0, 'average_time': 0.843999999999982, 'total_time': 4.21999999999991, 'total_score': 500, 'approval_rate': 100.0}
-average:  {'score': 70, 'time': 8, 'earnings': 1200}
-buttons:  None
-task:  {'type': 'comparison_image', 'next_task': 'break', 'payment': '200', 'instructions': 'Select the image containing humans.', 'time': '10', 'image_folder': 'comparison_task_3', 'correct_options': 'humans'}
-task:  break
-state:  {'earnings': 1200.0, 'average_time': 0.8666666666666482, 'total_time': 5.199999999999889, 'total_score': 600, 'approval_rate': 100.0}
-average:  {'score': 70, 'time': 8, 'earnings': 1200}
-buttons:  None
-state:  {'earnings': 1200.0, 'average_time': 0.8666666666666482, 'total_time': 5.199999999999889, 'total_score': 600, 'approval_rate': 100.0}
-average:  {'score': 70, 'time': 8, 'earnings': 1200}
-buttons:  None
-buttons:  ['Off to a great start!']
-buttons:  ['Off to a great start!']
-index:  0
-returning item:  {'performance': 'default', 'time': 'start', 'buttons': None, 'event_flag': '', 'text': 'Aliens among us!', 'image': 'images/room/tv_content/kiss.png'}
-result:  [{'performance': 'default', 'time': 'start', 'buttons': None, 'event_flag': '', 'text': 'Aliens among us!', 'image': 'images/room/tv_content/kiss.png'}, 0]
-buttons:  ['Off to a great start!']
-buttons:  ['Off to a great start!']
-day:  1
-task:  {'type': 'binary_text', 'next_task': 'break', 'payment': '1200', 'instructions': 'This is a placeholder.', 'time': '10', 'correct_options': 'Y', 'text_block': 'Hit yes to get the money.'}
-task:  {'type': 'binary_text', 'next_task': 'break', 'payment': '1200', 'instructions': 'This is a placeholder.', 'time': '10', 'correct_options': 'Y', 'text_block': 'Hit yes to get the money.'}
-task:  break
-state:  {'earnings': 1200.0, 'average_time': 0.21285714285713833, 'total_time': 1.4899999999999682, 'total_score': 100, 'approval_rate': 14.285714285714286}
-average:  {'score': 70, 'time': 8, 'earnings': 1200}
-buttons:  ['Off to a great start!']
-state:  {'earnings': 1200.0, 'average_time': 0.21285714285713833, 'total_time': 1.4899999999999682, 'total_score': 100, 'approval_rate': 14.285714285714286}
-average:  {'score': 70, 'time': 8, 'earnings': 1200}
-buttons:  ['Off to a great start!']
-buttons:  ['Got it.', 'Ugh. Here we go…']
-buttons:  ['Got it.', 'Ugh. Here we go…']
-buttons:  ['A hard day’s work!']
-buttons:  ['A hard day’s work!']
-buttons:  ['This looks weird.']
-buttons:  ['This looks weird.']
-buttons:  ['Back to work!', 'I’ll think about that.']
-buttons:  ['Back to work!', 'I’ll think about that.']
-buttons:  None
-buttons:  None
-index:  0
-returning item:  {'performance': 'default', 'time': 'end', 'buttons': None, 'event_flag': '', 'text': 'Official opening of Montana Resettlement Zone.', 'image': 'images/placeholder.png'}
-result:  [{'performance': 'default', 'time': 'end', 'buttons': None, 'event_flag': '', 'text': 'Official opening of Montana Resettlement Zone.', 'image': 'images/placeholder.png'}, 0]
-buttons:  None
-buttons:  None
-buttons:  None
-day:  2
-task:  {'type': 'binary_text', 'next_task': 'break', 'payment': '1200', 'instructions': 'This is a placeholder.', 'time': '10', 'correct_options': 'Y', 'text_block': 'Hit yes to get the money.'}
-task:  {'type': 'binary_text', 'next_task': 'break', 'payment': '1200', 'instructions': 'This is a placeholder.', 'time': '10', 'correct_options': 'Y', 'text_block': 'Hit yes to get the money.'}
-task:  break
-state:  {'earnings': 1200.0, 'average_time': 0.327499999999993, 'total_time': 2.619999999999944, 'total_score': 100, 'approval_rate': 12.5}
-average:  {'score': 70, 'time': 8, 'earnings': 1200}
-buttons:  None
-state:  {'earnings': 1200.0, 'average_time': 0.327499999999993, 'total_time': 2.619999999999944, 'total_score': 100, 'approval_rate': 12.5}
-average:  {'score': 70, 'time': 8, 'earnings': 1200}
-buttons:  None
-buttons:  ['Got it.', 'Ugh. Here we go…']
-buttons:  ['Got it.', 'Ugh. Here we go…']
-buttons:  ['A hard day’s work!']
-buttons:  ['A hard day’s work!']
-buttons:  ['This looks weird.']
-buttons:  ['This looks weird.']
-buttons:  ['Back to work!', 'I’ll think about that.']
-buttons:  ['Back to work!', 'I’ll think about that.']
-buttons:  ['What’s all this?']
-buttons:  ['What’s all this?']
-buttons:  ['I’ll voice my support!', 'Maybe later']
-buttons:  ['I’ll voice my support!', 'Maybe later']
-index:  0
-skipping item:  {'performance': 'good', 'time': 'end', 'buttons': None, 'event_flag': '', 'text': 'Tragedy at Montana Resettlement Zone.', 'image': 'images/placeholder.png'}
-index:  1
-returning item:  {'performance': 'bad', 'time': 'end', 'buttons': None, 'event_flag': '', 'text': 'Senator pledges ‘humanitarian support’ at Resettlement Zone.', 'image': 'images/placeholder.png'}
-result:  [{'performance': 'bad', 'time': 'end', 'buttons': None, 'event_flag': '', 'text': 'Senator pledges ‘humanitarian support’ at Resettlement Zone.', 'image': 'images/placeholder.png'}, 1]
-buttons:  ['I’ll voice my support!', 'Maybe later']
-buttons:  ['I’ll voice my support!', 'Maybe later']
-buttons:  ['I’ll voice my support!', 'Maybe later']
-day:  3
-task:  {'type': 'binary_text', 'next_task': 'break', 'payment': '1200', 'instructions': 'This is a placeholder.', 'time': '10', 'correct_options': 'Y', 'text_block': 'Hit yes to get the money.'}
-task:  {'type': 'binary_text', 'next_task': 'break', 'payment': '1200', 'instructions': 'This is a placeholder.', 'time': '10', 'correct_options': 'Y', 'text_block': 'Hit yes to get the money.'}
-task:  break
-state:  {'earnings': 1200.0, 'average_time': 0.3622222222222145, 'total_time': 3.2599999999999305, 'total_score': 100, 'approval_rate': 11.11111111111111}
-average:  {'score': 70, 'time': 8, 'earnings': 1200}
-buttons:  ['I’ll voice my support!', 'Maybe later']
-state:  {'earnings': 1200.0, 'average_time': 0.3622222222222145, 'total_time': 3.2599999999999305, 'total_score': 100, 'approval_rate': 11.11111111111111}
-average:  {'score': 70, 'time': 8, 'earnings': 1200}
-buttons:  ['I’ll voice my support!', 'Maybe later']
-buttons:  ['Got it.', 'Ugh. Here we go…']
-buttons:  ['Got it.', 'Ugh. Here we go…']
-buttons:  ['A hard day’s work!']
-buttons:  ['A hard day’s work!']
-buttons:  ['This looks weird.']
-buttons:  ['This looks weird.']
-buttons:  ['Back to work!', 'I’ll think about that.']
-buttons:  ['Back to work!', 'I’ll think about that.']
-buttons:  ['What’s all this?']
-buttons:  ['What’s all this?']
-buttons:  ['We should ask for big changes!', 'Don’t reply.']
-buttons:  ['We should ask for big changes!', 'Don’t reply.']
-index:  0
-skipping item:  {'performance': 'good', 'time': 'end', 'buttons': None, 'event_flag': '', 'text': 'Breaking: National Guard suppresses alien rioting.', 'image': 'images/placeholder.png'}
-index:  1
-returning item:  {'performance': 'bad', 'time': 'end', 'buttons': None, 'event_flag': '', 'text': 'Senate moves to shutter all Resettlement Zones.', 'image': 'images/placeholder.png'}
-result:  [{'performance': 'bad', 'time': 'end', 'buttons': None, 'event_flag': '', 'text': 'Senate moves to shutter all Resettlement Zones.', 'image': 'images/placeholder.png'}, 1]
-buttons:  ['We should ask for big changes!', 'Don’t reply.']
-buttons:  ['We should ask for big changes!', 'Don’t reply.']
-buttons:  ['We should ask for big changes!', 'Don’t reply.']
-day:  4
-task:  {'type': 'binary_text', 'next_task': 'break', 'payment': '1200', 'instructions': 'This is a placeholder.', 'time': '10', 'correct_options': 'Y', 'text_block': 'Hit yes to get the money.'}
-task:  {'type': 'binary_text', 'next_task': 'break', 'payment': '1200', 'instructions': 'This is a placeholder.', 'time': '10', 'correct_options': 'Y', 'text_block': 'Hit yes to get the money.'}
-task:  break
-state:  {'earnings': 1200.0, 'average_time': 0.4019999999999914, 'total_time': 4.019999999999914, 'total_score': 100, 'approval_rate': 10.0}
-average:  {'score': 70, 'time': 8, 'earnings': 1200}
-buttons:  ['We should ask for big changes!', 'Don’t reply.']
-state:  {'earnings': 1200.0, 'average_time': 0.4019999999999914, 'total_time': 4.019999999999914, 'total_score': 100, 'approval_rate': 10.0}
-average:  {'score': 70, 'time': 8, 'earnings': 1200}
-buttons:  ['We should ask for big changes!', 'Don’t reply.']
-buttons:  ['Got it.', 'Ugh. Here we go…']
-buttons:  ['Got it.', 'Ugh. Here we go…']
-buttons:  ['Time to move on!']
-buttons:  ['Time to move on!']
-buttons:  ['This looks weird.']
-buttons:  ['This looks weird.']
-buttons:  ['You’re welcome!', 'I’ll think about that.']
-buttons:  ['You’re welcome!', 'I’ll think about that.']
-buttons:  ['What’s all this?']
-buttons:  ['What’s all this?']
-buttons:  ['I’ll join!', 'Don’t reply.']
-buttons:  ['I’ll join!', 'Don’t reply.']
-index:  0
-returning item:  {'performance': 'default', 'time': 'end', 'buttons': None, 'event_flag': '', 'text': 'Alien mothership arrives. Vows ‘reckoning!’', 'image': 'images/placeholder.png'}
-result:  [{'performance': 'default', 'time': 'end', 'buttons': None, 'event_flag': '', 'text': 'Alien mothership arrives. Vows ‘reckoning!’', 'image': 'images/placeholder.png'}, 0]

@@ -28,6 +28,9 @@ default latest_choice = ""
 default latest_score = 0
 define gui.frame_borders = Borders(15, 15, 15, 15)
 default messages = []
+default custom_feedback = ""
+default custom_feedback_sender = ""
+default has_custom_feedback = False
 
 init: 
 # switch to control showing dialogue box background
@@ -523,6 +526,10 @@ label start:
 
       show screen timer
       show screen instructions(store.game_state.ui)
+      $ custom_feedback = ""
+      $ custom_feedback_sender = ""
+      $ has_custom_feedback = False
+      $ task_type = task['type']
       if is_image:
         call screen expression(task['type']) pass (task, images)
       else: 
@@ -537,11 +544,29 @@ label start:
           store.latest_score = case
           task = update_state(store.game_state, case,  task)
         else:
+          print('task: ', task)
           binary_correct = check_binary(store.latest_choice, task)
           store.latest_score = binary_correct
+          correct = task['correct_options']
+          if 'ethical_options' in task:
+            ethical = task['ethical_options']
+            if 'custom_feedback_ethical' in task and store.latest_choice == ethical:
+                custom_feedback = task['custom_feedback_ethical'] 
+                custom_feedback_sender = task['custom_feedback_sender']
+                has_custom_feedback = True
+            if 'custom_feedback_correct' in task and store.latest_choice == correct:
+                custom_feedback = task['custom_feedback_correct'] 
+                custom_feedback_sender = task['custom_feedback_sender']
+                has_custom_feedback = True
           task = update_state(store.game_state, binary_correct, task)
+
       hide screen instructions
       hide screen timer
+      hide screen task_type
+      if has_custom_feedback:
+        show screen message(custom_feedback_sender)
+        e_big "[custom_feedback]"
+        hide screen message 
       call screen overlay (store.game_state.ui, True, "Next!")
       if (task == 'break'):
         $ day_end()
