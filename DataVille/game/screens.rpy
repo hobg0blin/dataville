@@ -1666,12 +1666,7 @@ screen message(sender, buttons=None):
   window id 'content':
     ymaximum 1200
     xmaximum 1600
-    frame id 'status_bar':
-      background "#136366"
-      has hbox
-      xsize 1600
-      image "images/logo_white.png"
-    hbox id 'supervisor':
+    hbox id 'avatar':
       xalign 0.3
       yalign 0.75
       image avatar
@@ -1728,11 +1723,11 @@ screen overlay(task, cogni=False, button_text=False):
 # streak_text, feed_text, instructions, status, button_text=False):
   window id 'content':
     ymaximum 1200
-    xmaximum 1800
+    xmaximum 1920
     frame id 'status_bar':
       background "#136366"
       has hbox
-      xsize 1800
+      xsize 1920
       image "images/logo_white.png"
 #TODO: just track number of tasks here
 #      text 'Performance:' + '\n{size=-5}' + task['performance']
@@ -1741,7 +1736,7 @@ screen overlay(task, cogni=False, button_text=False):
       xsize 400
       ysize 300
       yalign 0.75
-      xalign 0
+      xalign 0.2
       #TODO: diff version of cogni based on performance
       if cogni:
         vbox:
@@ -2078,37 +2073,42 @@ screen performance(state, average):
 
 screen apartment(data, time):
   python:
+    computer_sound = "computer.ogg"
     if time == "end":
       btn = "Go to sleep"
     else:
       btn = "Back to work"
-      computer_sound = "computer.ogg"
   fixed:
     imagebutton:
-      xpos 1720 ypos 15
+      xpos 1200 ypos 300
       activate_sound "audio/rustle.wav"
-      idle "images/room/room/note.png" 
-      hover Transform("images/room/room/note.png", size=(300, 400)) 
+      idle Transform("images/room/room/note.png", size=(480, 270)) 
+      hover Transform("images/room/room/note.png", size=(500, 290)) 
       action Show("zoomed_note", None, store.apartment_data)
     imagebutton:
-      xpos 180 ypos 500
+      xpos 350 ypos 550
       activate_sound "audio/tv_2.wav"
-      idle Transform("images/room/room/tv_button.png", size=(512, 384)) 
-      hover Transform("images/room/room/tv_button.png", size=(520, 400)) 
+      idle Transform("images/room/room/tv_with_bg.png", size=(480, 270)) 
+      hover Transform("images/room/room/tv_with_bg.png", size=(500, 290)) 
       action Show("zoomed_tv", None, store.apartment_data)
     imagebutton:
       xpos 0 ypos 0
       activate_sound "audio/window.mp3"
-      idle Transform("images/room/room/window_button.png", size=(600, 450)) 
-      hover Transform("images/room/room/window_button.png", size=(620, 470)) 
+      idle Transform("images/room/room/window_with_bg.png", size=(768, 432)) 
+      hover Transform("images/room/room/window_with_bg.png", size=(788, 455)) 
       action Show("zoomed_window", None, store.apartment_data)
+    imagebutton:
+      xpos 650 ypos 430
+      activate_sound computer_sound
+      idle Transform("images/room/room/monitor_with_bg.png", size=(768, 432)) 
+
   frame:
     xalign 0.5
     yalign 0.9
     if time == "end":
         textbutton btn action Return()
     else:
-        textbutton btn activate_sound computer_sound action Return()
+        textbutton btn action Return()
   frame:
     xalign 0.1
     yalign 0.9
@@ -2141,8 +2141,9 @@ screen zoomed_tv(data, index=0):
       index +=1
 
     image Transform(item["image"], size=(1000,1000)) xpos 600 ypos 200
-    image Transform("images/room/room/tv_zoom_in.png", size=(2000, 1400))
+    image Transform("images/room/room/tv.png", size=(2000, 1400))
   window:
+    imagebutton idle 'gui/textbox.png' activate_sound "remote.ogg" action Show("zoomed_tv", None, data, index)
     textbutton item["text"].upper() xpos 400 yalign 0.45 activate_sound "remote.ogg" action Show("zoomed_tv", None, data, index)
   frame:
     textbutton "X" activate_sound "tv_2.wav" action Hide("zoomed_tv", None)
@@ -2150,10 +2151,12 @@ screen zoomed_tv(data, index=0):
 screen zoomed_window(data):
   modal True
   frame:
+    xalign 0
+    yalign 0
     vbox:
       xalign 0.2
       image Transform(data["window_background"], size=(1000, 1000))
-    image Transform("images/room/room/window_zoom_in.png", size=(2000, 1400))
+    image Transform("images/room/room/window.png", size=(2500, 1200))
     textbutton "X" action Hide("zoomed_window", None)
 
 screen set_state():

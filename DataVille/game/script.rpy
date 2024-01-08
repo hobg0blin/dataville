@@ -111,7 +111,7 @@ init python:
         "approval_rate": 0,
       }
 
-  store.apartment_data = {"apartment_background": "1", "sticky_note": [], "message": [], "news": [], "window_background": "images/window/city_scape.png", "button_text": "Go to work!", "dream": []}
+  store.apartment_data = {"apartment_background": "1", "sticky_note": [], "message": [], "news": [], "window_background": "images/room/window_content/default_window_bg.jpg", "button_text": "Go to work!", "dream": []}
 
   # set default image ordering
   store.order = [3,2,1]
@@ -182,7 +182,7 @@ init python:
     return f"images/room/{folder}/{file}"
 
   def update_apartment_state(filename, apartment, game_state):
-    store.apartment_data = {"apartment_background": "1", "sticky_note": [], "news": [], "message": [], "window_background": "images/window/city_scape.png", "button_text": "Go to work!", "dream": []}
+    store.apartment_data = {"apartment_background": "1", "sticky_note": [], "news": [], "message": [], "window_background": "images/room/window_content/default_window_bg.jpg", "button_text": "Go to work!", "dream": []}
     messages = []
     with open(renpy.loader.transfn(filename), 'r') as current_file:
       reader = csv.DictReader(current_file)
@@ -447,7 +447,7 @@ label start:
             call screen dream(dream['text'], dream['buttons'])
         $ dream_counter += 1
 
-      image bg apartment_1 = im.FactorScale("images/room/room/room.png", 0.3)
+      image bg apartment_1 = im.FactorScale("images/room/room/room_bg.png", 0.5)
       
       scene bg apartment_1
       play music "dataville_apartment_neutral.wav"
@@ -518,8 +518,9 @@ label start:
           time = int(task['time'])
           timer_range = time
       if 'custom_dialogue' in task:
-        show screen message(task['custom_dialogue_sender'])
+        show screen message(task['custom_dialogue_sender'], ["Next"])
         $ custom_dialogue = task['custom_dialogue']
+        window hide
         e_big "[custom_dialogue]"
         hide screen message
 
@@ -563,8 +564,10 @@ label start:
       hide screen instructions
       hide screen timer
       hide screen task_type
+      show screen overlay (store.game_state.ui)
       if has_custom_feedback:
-        show screen message(custom_feedback_sender)
+        show screen message(custom_feedback_sender, ["Continue"])
+        window hide
         e_big "[custom_feedback]"
         hide screen message 
       call screen overlay (store.game_state.ui, True, "Next!")
