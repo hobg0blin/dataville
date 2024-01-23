@@ -47,14 +47,37 @@ Subject: You saved us
 You have no idea how much you’ve helped us. We can finally integrate without the fear of being caught and dragged away. I promise you, you will not regret helping us. Someday we’ll repay you for your generous compassion. That day may come sooner than you think. Things are about to get a lot different. Look out your window.
 ",message,bad,end,stranger,,,You’re welcome!,I’ll think about that.,
 4,"You have a work message from:
-Tim @ Dataville",message,default,end,cogni,,,What’s all this?,,
-4,"Tim @ DataVille
-Subject: Set Back
+Tim 18/48 @ Dataville",message,default,end,cogni,,,,,
+4,"As a reminder, extracurricular activities and non-work related subjects are forbidden in the Employee Code of Conduct. These messages are monitored as a part of DataVille’s commitment to creating a transparent and positive work environment.",message,default,end,cogni,,,Read the message.,,
+4,"Tim 18/48 @ DataVille
+Subject: Vote Results.
 
-“The management of Dataville has categorically rejected our demands. Without an agreement in writing, we will continue to struggle with unfair wages, arbitrary firings and flagrant abuses of labor rights. Because of this, we have no choice but to go on strike. Please sign this petition if you are willing to commit to joining us.
+The results are in and, by a tight margin, the labelers and annotators of DataVille have officially voted to unionize. This is a huge success and thanks entirely to the support of workers like you.
+
+Our new union is seeking to form consensus around our next steps. Obviously, we need a collective bargaining agreement with management. They have already flatly stated they will not listen to our demands. Many of our members have proposed a strike to let the management know we’re serious. If enough workers participate, we are confident the management will have no choice but to soften their position and begin negotiations.
+
+Can we count on your support?
 
 In solidarity,
--Tim",message,default,end,union,,,I’ll join!,Don’t reply.,
+-Tim (section 18, cohort 48)
+",message,flag_dependent,end,union,,,I'll go on strike!,I'm staying out of this.,Flag_voted_to_go_on_strike
+4,"Warning. I have detected suspicious activity on your Dataville employee messaging service. You are in
+violation of the Employee Code of conduct. All funds in your DataVille account will be frozen pending an administrative investigation.
+",message,flag_dependent,end,cogni,,,Time to move on.,,
+4,"Tim 18/48 @ DataVille
+Subject: Strike.
+
+The results are in and, by a tight margin, the labelers and annotators of DataVille have officially voted to unionize. This is a huge success and thanks entirely to the support of workers like you.
+
+Our new union is seeking to form consensus around our next steps. Obviously, we need a collective bargaining agreement with management. The more workers that participate in writing our demands, the more seriously management will take it.
+
+To be blunt, for those of you that voted against forming a union, it’s not too late to join. We are out here organizing for everyone’s benefit and we are optimistic that we can convince the management to accept our proposals for modest changes–but only with your robust participation.
+
+Can we count on your support?
+
+In solidarity,
+-Tim (section 18, cohort 48)
+",message,flag_dependent,end,union,,,I'll join the union afterall!,I'm staying out of this.,Flag_voted_for_union
 4,Alien mothership arrives. Vows ‘reckoning!’,news,default,end,,tv_content,,,,
 4,"Panic buying shuts down big box stores.
 ",news,default,end,,tv_content,,,,

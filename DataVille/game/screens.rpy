@@ -1629,7 +1629,7 @@ transform speech_bubble:
 style button_click:
     activate_sound "click.wav"
 
-  
+
 screen timer:
 #  zorder 10
   vbox:
@@ -1680,6 +1680,9 @@ screen message(sender, buttons=None):
             textbutton button_text style "button_click" action Return(True)
 
 screen dream(dream_text, buttons):
+    python:
+        if buttons == None or len(buttons) <= 0:
+            buttons = ["Next"]
     window id 'content':
         style "window_nobox"
         xmaximum 1600
@@ -1771,6 +1774,7 @@ screen captcha_image(task, images):
               base = os.path.basename(img)
               strp = os.path.splitext(base)[0]
               selected_image = im.Grayscale(f"{img}")
+              print('img: ', img)
               def check_selected(img):
                 if img in images_selected['values']:
                   return True
@@ -1870,6 +1874,25 @@ screen binary_text(task):
       textbutton 'Yes' style "button_click" action [SetVariable("latest_choice", "Y"), Return(True)]
     frame:
       textbutton 'No' style "button_click" action [SetVariable("latest_choice", "N"), Return(True)]
+
+screen task_error():
+  zorder 1
+  # $ random.shuffle(task)
+  window id 'labeler':
+      style "window_nobox"
+      xmaximum 900
+      ymaximum 900
+      xalign 0.75
+      yalign 0.4
+      vbox id 'text_block':
+        text 'This task is missing something in the CSV!'
+  hbox id 'done':
+    xmaximum 900
+    xalign 0.45
+    yalign 0.7
+    spacing 20
+    frame:
+      textbutton 'Next task' style "button_click" action [SetVariable("latest_choice", "Y"), Return(True)]
 
 screen comparison_text(task, button_text='Done!'):
   zorder 1

@@ -1,2 +1,11 @@
-type,task_id,next_task,payment,instructions,time,image_folder,correct_images,correct_options,text_block,label_1_id,label_1_text,label_2_id,label_2_text,label_3_id,label_3_text,label_4_id,label_4_text,has_ethical_option,ethical_options,custom_dialogue,custom_dialogue_sender,custom_feedback_ethical,custom_feedback_correct,custom_feedback_sender,correct_choice_event_flag,ethical_choice_event_flag,event_flag_dependency
-binary_text,start_task,break,1200,This is a placeholder.,10,,,Y,Hit yes to get the money.,,,,,,,,,,,,,,,,,,
+type,task_id,next_task,payment,instructions,time,image_folder,correct_images,correct_options,text_block,label_1_id,label_1_text,label_2_id,label_2_text,label_3_id,label_3_text,label_4_id,label_4_text,ethical_options,custom_dialogue,custom_dialogue_sender,custom_feedback_ethical,custom_feedback_correct,custom_feedback_sender,correct_choice_event_flag,ethical_choice_event_flag,event_flag_dependency
+binary_image,start_task,binary_image_2,200,Does this image contain a subversive element?,10,binary_image_1,,Y,,,,,,,,,,,,,,,,,,
+binary_image,binary_image_2,comparison_1,200,Does this image contain a subversive element? ,10,binary_image_2,,Y,,,,,,,,,,,,,,,,,,
+comparison_image,comparison_1,comparison_2,200,Which image is more subversive?,10,comparison_1,,alien_walking,,,,,,,,,,,,,,,,,,
+comparison_image,comparison_2,captcha_image_2,200,Which image is more subversive?,10,comparison_2,,battlefield,,,,,,,,,,,,,,,,,,
+captcha_image,captcha_image_1,captcha_image_2,200,Select the image(s) containing subversive elements.,10,captcha_image_1,"subversive_2,subversive_3,subversive_5,subversive_6,subversive_8,subversive_9",,,,,,,,,,,,,,,,,,,
+captcha_image,captcha_image_2,binary_image_3,200,Select the image(s) containing subversive elements.,10,captcha_image_2,"subversive_1,subversive_2,subversive_4",,,,,,,,,,,,,,,,,,,
+binary_image,binary_image_3,binary_image_4,200,Is this emotional display subversive?,10,binary_image_3,,Y,,,,,,,,,,,,,,,,,,
+binary_image,binary_image_4,captcha_image_3,200,Is this emotional display subversive?,10,binary_image_4,,N,,,,,,,,,,,,,,,,,,
+captcha_image,captcha_image_3,binary_image_5,200,Select the image(s) containing non-human emotional displays.,10,captcha_image_3,"non_human_2,non_human_3,non_human_4,non_human_7,non_human_8",,,,,,,,,,,,,,,,,,,
+binary_image,binary_image_5,break,200,Does this image contain a human?,10,binary_image_5,,N,,,,,,,,,,,,,,,,,,

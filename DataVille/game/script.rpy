@@ -245,13 +245,10 @@ init python:
     if index > length - 1:
         index = 0
     item = data["news"][index]
-    print('index: ', index)
     if item["performance"] != "default" and item["performance"] != store.game_state.performance_rating and item["event_flag"] not in store.event_flags:
-        print('skipping item: ', item)
         index +=1
         return setitem(data, index)
     else:
-        print('returning item: ', item)
         return [item, index]
 
 
@@ -260,7 +257,6 @@ init python:
   def day_start():
     store.game_state.day += 1
     day = str(store.game_state.day)
-    print('day: ', day)
     store.game_state.time = 'start'
     make_task_loop('game_files/tasks_day_' + day + '.csv', store.loop) 
     update_apartment_state('game_files/apt_day_' + day + '.csv', store.apartment_data, store.game_state)
@@ -511,7 +507,7 @@ label start:
           hide screen message
       python:
         is_image = False
-        print('task: ', task)
+        print('task in loop: ', task)
         if ('image' in task['type']):
           is_image = True
           images = get_images(task)
@@ -531,35 +527,44 @@ label start:
       $ custom_feedback_sender = ""
       $ has_custom_feedback = False
       $ task_type = task['type']
-      if is_image:
+      $ task_error = False
+      if (task['type'] == 'sentiment_text' and not 'labels' in task) or task['type'] == 'captcha_image' and not 'correct_images' in task:
+        call screen task_error 
+        $ task_error = True
+      elif is_image:
         call screen expression(task['type']) pass (task, images)
       else: 
         call screen expression(task['type']) pass (task)
       python:
-        if (task['type'] == 'captcha_image'):
-          case = check_images(images_selected, task['correct_images'])
-          store.latest_score = case
-          task = update_state(store.game_state, case, task)
-        elif (task['type'] == 'order_text'):
-          case = check_order_text(task)
-          store.latest_score = case
-          task = update_state(store.game_state, case,  task)
+        if not task_error:
+            if (task['type'] == 'captcha_image'):
+                case = check_images(images_selected, task['correct_images'])
+                store.latest_score = case
+                task = update_state(store.game_state, case, task)
+            elif (task['type'] == 'order_text'):
+                case = check_order_text(task)
+                store.latest_score = case
+                task = update_state(store.game_state, case,  task)
+            else:
+                print('task: ', task)
+                binary_correct = check_binary(store.latest_choice, task)
+                store.latest_score = binary_correct
+                correct = task['correct_options']
+                if 'ethical_options' in task:
+                    ethical = task['ethical_options']
+                    if 'custom_feedback_ethical' in task and store.latest_choice == ethical:
+                        custom_feedback = task['custom_feedback_ethical'] 
+                        custom_feedback_sender = task['custom_feedback_sender']
+                        has_custom_feedback = True
+                    if 'custom_feedback_correct' in task and store.latest_choice == correct:
+                        custom_feedback = task['custom_feedback_correct'] 
+                        custom_feedback_sender = task['custom_feedback_sender']
+                        has_custom_feedback = True
+                task = update_state(store.game_state, binary_correct, task)
         else:
-          print('task: ', task)
-          binary_correct = check_binary(store.latest_choice, task)
-          store.latest_score = binary_correct
-          correct = task['correct_options']
-          if 'ethical_options' in task:
-            ethical = task['ethical_options']
-            if 'custom_feedback_ethical' in task and store.latest_choice == ethical:
-                custom_feedback = task['custom_feedback_ethical'] 
-                custom_feedback_sender = task['custom_feedback_sender']
-                has_custom_feedback = True
-            if 'custom_feedback_correct' in task and store.latest_choice == correct:
-                custom_feedback = task['custom_feedback_correct'] 
-                custom_feedback_sender = task['custom_feedback_sender']
-                has_custom_feedback = True
-          task = update_state(store.game_state, binary_correct, task)
+            binary_correct = 1
+            task = update_state(store.game_state, binary_correct, task)
+
 
       hide screen instructions
       hide screen timer
@@ -573,9 +578,9 @@ label start:
       call screen overlay (store.game_state.ui, True, "Next!")
       if (task == 'break'):
         $ day_end()
-        call interstitial
+        call interstitial from _call_interstitial
       else:
-        call task_loop
+        call task_loop from _call_task_loop
       return
 
     # INTERSTITIAL
@@ -633,7 +638,7 @@ label start:
             $ set_ui_state(task, store.game_state)
             $ cleaned = clean(store.apartment_data)
 
-            call task_loop
+            call task_loop from _call_task_loop_1
         else:
           "game state is broken!!!"
       else:
