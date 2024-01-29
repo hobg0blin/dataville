@@ -169,7 +169,8 @@ init python:
                         
                 elif 'correct_images' in k:
                     #SPLIT IMAGE LIST
-                    loop[row['task_id']][k] = v.split(',')
+                    correct_images = [x.strip(' ') for x in v.split(',')]
+                    loop[row['task_id']][k] = correct_images 
                 else:
                     #OTHERWISE, SET ATTRIBUTE ON MAIN LOOP OBJECT
                     loop[row['task_id']][k] = v
