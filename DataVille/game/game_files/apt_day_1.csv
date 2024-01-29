@@ -28,13 +28,15 @@ If you’re getting this message, I need your help! Please don’t give any more
 
 The message terminates abruptly.
 ",message,default,end,stranger,,,Back to work!,I’ll think about that.,
+1,"Congratulations, you became the unabomber!",message,flag_dependent,end,stranger,,,Nice. Can't wait to move to a cabin in the woods.,,became_unabomber
+1,"Congratulations, you didn't become the unabomber!",message,flag_dependent,end,supervisor,,,Nice. Don't want to move to a cabin in the woods.,,not_unabomber
 1,Official opening of Montana Resettlement Zone.,news,default,end,,,,,,
 1,Immigration reform stalls over issue of illegal aliens.,news,good,end,,,,,,
 1,Congress makes progress on the legal status of aliens.,news,bad,end,,,,,,
 1,Scientists: alien camouflage 'amazing.’,news,default,end,,,,,,
 1,Economic data reveals low consumer confidence.,news,default,end,,,,,,
 1,Pope to consider ‘alien issue.”,news,default,end,,,,,,
-1,Oldest woman alive speaks out against aliens.,news,good,end,,,,,,
+1,Oldest woman alive speaks out against aliens.,news,flag_dependent,end,,,,,,
 1,Oldest woman alive voices support for visitors.,news,bad,end,,,,,,
 1,Anti-immigration protests erupt over Federal proposals.,news,good,end,,,,,,
 1,Pro-alien rights groups gather in D.C.,news,bad,end,,,,,,

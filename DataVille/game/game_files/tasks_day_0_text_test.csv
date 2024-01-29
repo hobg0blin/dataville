@@ -4,4 +4,8 @@ binary_image,binary_image_2,binary_image_3,200,Does this image contain a traffic
 binary_image,binary_image_3,comparison_1,200,Does this image contain a human?,10,binary_image_task_3,,Y,,,,,,,,,,,,,,,,,,
 comparison_image,comparison_1,comparison_2,200,Select the image containing bicycles.,10,comparison_task_1,,bicycle,,,,,,,,,,,,,,,,,,
 comparison_image,comparison_2,comparison_3,200,Select the image containing traffic lights.,10,comparison_task_2,,light,,,,,,,,,,,,,,,,,,
-comparison_image,comparison_3,break,200,Select the image containing humans.,10,comparison_task_3,,humans,,,,,,,,,,,,,,,,,,
+comparison_image,comparison_3,binary_text_1,200,Select the image containing humans.,10,comparison_task_3,,humans,,,,,,,,,,,,,,,,,,
+binary_text,binary_text_1,binary_text_2,200,Select the correct answer,10,,,N,Industrial society and its consequences have been a disaster for the human race.,,,,,,,,,Y,"Oh, I don't know where this is coming from!",cogni,"Hey, we don't like that.","Good, industrial society is important.",cogni,not_unabomber,became_unabomber,
+binary_text,binary_text_2,comparison_text_1,0,Select the correct answer,10,,,Y,"Damn, guess you became the unabomber. Nice!",,,,,,,,,,,,,,,,,became_unabomber
+comparison_text,comparison_text_1,sentiment_text_1,200,Select the better-sounding text.,10,,,1,,1,Aliens don't whip ass.,2,Aliens whip ass.,,,,,,,,,,,,,
+sentiment_text,sentiment_text_1,break,200,Which emotion applies to the text?,10,,,2,Being with my sweetie makes me feel all fuzzy inside.,1,disgust,2,love,3,rage,4,sorrow,,,,,,,,,

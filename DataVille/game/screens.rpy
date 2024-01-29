@@ -2006,18 +2006,19 @@ screen sentiment_text(task):
         xsize 300
         text f"{task['text_block']}"
 
-  frame:
+  vbox:
     xalign 0.5
     yalign 0.5
     ymaximum 900
-    vbox:
-         for idx, i in enumerate(label_order):
-          $ box = task['labels'][i]
-          textbutton('{size=-3}'+ box['text']):
-              style "button_click" 
-              xpos 0 ypos 0
-              action [SetVariable("latest_choice", task['labels'][i]['name']), Return(True)]
-          python:
+    spacing 10
+    for idx, i in enumerate(label_order):
+        $ box = task['labels'][i]
+        frame:
+                textbutton('{size=-3}'+ box['text']):
+                    style "button_click" 
+                    xpos 0 ypos 0
+                    action [SetVariable("latest_choice", task['labels'][i]['name']), Return(True)]
+        python:
             box['xpos'] = start_x_text
             box['ypos'] = int(start_y_text) + (50*idx)
             # for some reason if i increase start_y in here it loops when the timer is repeating. this seems insane to me and i would like to find out why (e.g if put start_y += 50 here)
