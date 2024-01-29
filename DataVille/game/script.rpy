@@ -297,6 +297,13 @@ init python:
 
 # update task after it's scored, update state with scores
   def update_state(state, out, current_task):
+# ADD ANY EVENT FLAGS
+    is_ethical = check_ethical(latest_choice, current_task)
+    if is_ethical and 'ethical_choice_event_flag' in current_task:
+      store.event_flags.append(current_task['ethical_choice_event_flag'])
+    if store.latest_score == 1 and 'correct_choice_event_flag' in current_task:
+      store.event_flags.append(current_task['correct_choice_event_flag'])
+# HANDLE NEXT TASK LOGIC
     if (current_task['next_task'] == 'break'):
       set_performance_rating()
       next_task = 'break'
@@ -304,23 +311,19 @@ init python:
       next_task = store.loop[current_task['next_task']]
     #if event flag dependency isn't met, skip task
       if ('event_flag_dependency' in next_task):
+        print('task has event flag dependency: ', next_task)
+        print('current event flags: ', store.event_flags)
         if next_task['event_flag_dependency'] not in store.event_flags:
           if next_task['next_task'] == 'break': 
             set_performance_rating()
             next_task = 'break'
           else:
               next_task = store.loop[next_task['next_task']]
-
-  
+ # UPDATE UI VARIABLES 
     reward = int(current_task['payment'])/out
 
     performance = performance_feedback(out)
     performance_text = performance['text']
-    is_ethical = check_ethical(store.latest_choice, current_task)
-    if is_ethical and 'ethical_choice_event_flag' in current_task:
-      store.event_flags.append(current_task['ethical_choice_event_flag'])
-    if store.latest_score == 1 and 'correct_choice_event_flag' in current_task:
-      store.event_flags.append(current_task['correct_choice_event_flag'])
     #SCORING
     store.game_state.task_count += 1
     store.game_state.performance['total_score'] = (store.game_state.performance['total_score'] + performance['score'])
@@ -376,6 +379,9 @@ init python:
   # dumb comparison of images that just returns true or false
   # should probably be percentile graded but we prototyping baby
   def check_images(selected, original):
+    print('CAPTCHA BEING CHECKED')
+    print('selected: ', sorted(selected['values']))
+    print('correct: ', sorted(original))
     if sorted(selected['values']) == sorted(original):
       return 1
     else:
@@ -420,7 +426,6 @@ init python:
 # The game starts here.
 
 label start:
-    "Starting game test"
     image bg start_screen = im.FactorScale("images/intro_desk.jpg", 1.5)
     image bg overlay_background = Solid('#EFF3E6')
     image bg black_bg = Solid('#FFFFFF')
@@ -506,7 +511,10 @@ label start:
             e_big "[text]"
           hide screen message
       python:
+# CLEAR IMAGE VARIABLES
+      # FIXME: should clean up variable resetting a bit better
         is_image = False
+        images_selected = {'values': []}
         print('task in loop: ', task)
         if ('image' in task['type']):
           is_image = True
@@ -539,6 +547,7 @@ label start:
         if not task_error:
             if (task['type'] == 'captcha_image'):
                 case = check_images(images_selected, task['correct_images'])
+                print('checked image result: ', case)
                 store.latest_score = case
                 task = update_state(store.game_state, case, task)
             elif (task['type'] == 'order_text'):
@@ -546,17 +555,17 @@ label start:
                 store.latest_score = case
                 task = update_state(store.game_state, case,  task)
             else:
-                print('task: ', task)
-                binary_correct = check_binary(store.latest_choice, task)
+                binary_correct = check_binary(latest_choice, task)
                 store.latest_score = binary_correct
                 correct = task['correct_options']
                 if 'ethical_options' in task:
+                    print('hit ethical task: ', task)
                     ethical = task['ethical_options']
-                    if 'custom_feedback_ethical' in task and store.latest_choice == ethical:
+                    if 'custom_feedback_ethical' in task and latest_choice == ethical:
                         custom_feedback = task['custom_feedback_ethical'] 
                         custom_feedback_sender = task['custom_feedback_sender']
                         has_custom_feedback = True
-                    if 'custom_feedback_correct' in task and store.latest_choice == correct:
+                    if 'custom_feedback_correct' in task and latest_choice == correct:
                         custom_feedback = task['custom_feedback_correct'] 
                         custom_feedback_sender = task['custom_feedback_sender']
                         has_custom_feedback = True
