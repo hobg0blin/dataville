@@ -1,9 +1,7 @@
 type,task_id,next_task,payment,instructions,time,image_folder,correct_images,correct_options,text_block,label_1_id,label_1_text,label_2_id,label_2_text,label_3_id,label_3_text,label_4_id,label_4_text,ethical_options,custom_dialogue,custom_dialogue_sender,custom_feedback_ethical,custom_feedback_correct,custom_feedback_sender,correct_choice_event_flag,ethical_choice_event_flag,event_flag_dependency
 captcha_image,start_task,binary_image_1,200,Select the image(s) containing humans.,10,captcha_image_1,"human_4,human_5,human_7,human_8",,,,,,,,,,,,,,,,,,,
-binary_image,binary_image_1,sentiment_text_1,200,Does this image contain a human? ,10,binary_image_1,,Y,,,,,,,,,,,,,,,,,,
-sentiment_text,sentiment_text_1,captcha_image_2,200,Rank these statements from most to least human.,10,,,,,,,,,,,,,,,,,,,,,
-captcha_image,captcha_image_2,sentiment_text_2,200,Select the image(s) containing humans.,10,captcha_image_2,"human_1,human_2,human_4,human_5,human_7,human_8",,,,,,,,,,,,,,,,,,,
-sentiment_text,sentiment_text_2,binary_image_2,200,Rank these statements from most to least human.,10,,,,,,,,,,,,,,,,,,,,,
+binary_image,binary_image_1,captcha_image_2,200,Does this image contain a human? ,10,binary_image_1,,Y,,,,,,,,,,,,,,,,,,
+captcha_image,captcha_image_2,binary_image_2,200,Select the image(s) containing humans.,10,captcha_image_2,"human_1,human_2,human_4,human_5,human_7,human_8",,,,,,,,,,,,,,,,,,,
 binary_image,binary_image_2,binary_image_3,200,Does this image contain a human? ,10,binary_image_2,,N,,,,,,,,,,,,,,,,,,
 binary_image,binary_image_3,captcha_image_3,200,Does this image contain a human?,10,binary_image_3,,Y,,,,,,,,,,,,,,,,,,
 captcha_image,captcha_image_3,captcha_image_4,200,Select the image(s) containing non-human elements.,10,captcha_image_3,"non_human_2,non_human_3,non_human_4,non_human_5,non_human_6,non_human_7,non_human_8,non_human_9",,,,,,,,,,,,,,,,,,,
