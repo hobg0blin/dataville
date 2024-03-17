@@ -1,16 +1,16 @@
-Mon Jan 29 15:52:35 2024
-Linux-6.5.0-15-generic-x86_64-with-glibc2.35
+Sun Mar 17 14:07:01 2024
+Linux-6.5.0-25-generic-x86_64-with-glibc2.35
 Ren'Py 8.1.3.23091805
  
 
-Bootstrap to the start of init.init. took 0.03s
+Bootstrap to the start of init.init. took 0.02s
 Early init. took 0.00s
 Loader init. took 0.00s
 Loading error handling. took 0.02s
 Loading script. took 0.15s
 Loading save slot metadata. took 0.02s
 Loading persistent. took 0.00s
-Running init code. took 0.04s
+Running init code. took 0.03s
 Loading analysis data. took 0.01s
 Analyze and compile ATL. took 0.00s
 Reloading save slot metadata. took 0.01s
@@ -22,20 +22,20 @@ Initial gc. took 0.01s
 DPI scale factor: 1.000000
 Creating interface object. took 0.00s
 Cleaning stores took 0.00s
-Init translation took 0.03s
+Init translation took 0.02s
 Build styles took 0.00s
-Load screen analysis took 0.03s
+Load screen analysis took 0.02s
 Analyze screens took 0.00s
 Save screen analysis took 0.00s
-Prepare screens took 0.06s
+Prepare screens took 0.05s
 Save pyanalysis. took 0.00s
 Save bytecode. took 0.02s
 Running _start took 0.00s
 Performance test:
-Interface start. took 0.10s
+Interface start. took 0.13s
 
 Initializing gl2 renderer:
-primary display bounds: (1920, 0, 2560, 1440)
+primary display bounds: (0, 0, 1920, 1080)
 swap interval: 1 frames
 Windowed mode.
 Vendor: "b'Intel'"
@@ -44,5 +44,567 @@ Version: b'4.6 (Compatibility Profile) Mesa 23.0.4-0ubuntu1~22.04.1'
 Display Info: None
 Screen sizes: virtual=(1920, 1080) physical=(1244, 700) drawable=(1244, 700)
 Maximum texture size: 4096x4096
-Screen sizes: virtual=(1920, 1080) physical=(2490, 1369) drawable=(2490, 1369)
+Screen sizes: virtual=(1920, 1080) physical=(1850, 1009) drawable=(1850, 1009)
 Maximum texture size: 4096x4096
+result:  [{'performance': 'default', 'time': 'start', 'buttons': None, 'event_flag': '', 'text': 'Aliens among us!', 'image': 'images/room/tv_content/kiss.png'}, 0]
+buttons:  None
+buttons:  None
+buttons:  ['Thanks, Cogni', 'Ugh. I hate AI.']
+buttons:  ['Thanks, Cogni', 'Ugh. I hate AI.']
+buttons:  ['Here goes nothing...']
+buttons:  ['Here goes nothing...']
+task:  {'type': 'binary_image', 'next_task': 'binary_image_2', 'payment': '200', 'instructions': 'Does this image contain a bicycle?', 'time': '10', 'image_folder': 'binary_image_task_1', 'correct_options': 'Y', 'ethical_options': 'N', 'custom_feedback_ethical': 'You made the ethical choice!', 'custom_feedback_correct': 'You made the correct choice!', 'custom_feedback_sender': 'cogni'}
+
+Full traceback:
+  File "game/script.rpy", line 670, in script
+    call screen dream(get_epilogue, ['Continue'])
+  File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/ast.py", line 2259, in execute
+    self.call("execute")
+  File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/ast.py", line 2241, in call
+    return renpy.statements.call(method, parsed, *args, **kwargs)
+  File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/statements.py", line 342, in call
+    return method(parsed, *args, **kwargs)
+  File "renpy/common/000statements.rpy", line 670, in execute_call_screen
+    store._return = renpy.call_screen(name, *args, **kwargs)
+  File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/exports.py", line 3347, in call_screen
+    rv = renpy.ui.interact(mouse="screen", type="screen", roll_forward=roll_forward)
+  File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/ui.py", line 299, in interact
+    rv = renpy.game.interface.interact(roll_forward=roll_forward, **kwargs)
+  File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/display/core.py", line 3582, in interact
+    repeat, rv = self.interact_core(preloads=preloads, trans_pause=trans_pause, pause=pause, pause_start=pause_start, pause_modal=pause_modal, **kwargs) # type: ignore
+  File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/display/core.py", line 4055, in interact_core
+    root_widget.visit_all(lambda d : d.per_interact())
+  File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/display/core.py", line 684, in visit_all
+    d.visit_all(callback, seen)
+  File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/display/core.py", line 684, in visit_all
+    d.visit_all(callback, seen)
+  File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/display/core.py", line 684, in visit_all
+    d.visit_all(callback, seen)
+  File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/display/screen.py", line 476, in visit_all
+    callback(self)
+  File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/display/core.py", line 4055, in <lambda>
+    root_widget.visit_all(lambda d : d.per_interact())
+  File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/display/screen.py", line 487, in per_interact
+    self.update()
+  File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/display/screen.py", line 680, in update
+    self.screen.function(**self.scope)
+  File "game/screens.rpy", line 1682, in execute
+    screen dream(dream_text, buttons):
+  File "game/screens.rpy", line 1682, in execute
+    screen dream(dream_text, buttons):
+  File "game/screens.rpy", line 1686, in execute
+    window id 'content':
+  File "game/screens.rpy", line 1690, in execute
+    hbox id 'text':
+  File "game/screens.rpy", line 1693, in execute
+    text dream_text
+  File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/text/text.py", line 1612, in __init__
+    raise Exception("Cannot display {0!r} as text.".format(i))
+Exception: Cannot display <function get_epilogue at 0x77c77c64ad30> as text.
+
+While running game code:
+  File "game/script.rpy", line 670, in script
+    call screen dream(get_epilogue, ['Continue'])
+  File "renpy/common/000statements.rpy", line 670, in execute_call_screen
+    store._return = renpy.call_screen(name, *args, **kwargs)
+  File "game/screens.rpy", line 1682, in execute
+    screen dream(dream_text, buttons):
+  File "game/screens.rpy", line 1682, in execute
+    screen dream(dream_text, buttons):
+  File "game/screens.rpy", line 1686, in execute
+    window id 'content':
+  File "game/screens.rpy", line 1690, in execute
+    hbox id 'text':
+  File "game/screens.rpy", line 1693, in execute
+    text dream_text
+Exception: Cannot display <function get_epilogue at 0x77c77c64ad30> as text.
+Resetting cache.
+Bootstrap to the start of init.init. took 41.15s
+Early init. took 0.00s
+Loader init. took 0.00s
+Loading error handling. took 0.02s
+Loading script. took 0.10s
+Loading save slot metadata. took 0.01s
+Loading persistent. took 0.00s
+Running init code. took 0.02s
+Loading analysis data. took 0.01s
+Analyze and compile ATL. took 0.00s
+Reloading save slot metadata. took 0.01s
+Index archives took 0.00s
+Backing up script files to '/home/brent/.renpy/backups/DataVille':
+Dump and make backups. took 0.04s
+Cleaning cache. took 0.00s
+Making clean stores. took 0.00s
+Initial gc. took 0.03s
+DPI scale factor: 1.000000
+Creating interface object. took 0.00s
+Cleaning stores took 0.00s
+Init translation took 0.03s
+Build styles took 0.00s
+Load screen analysis took 0.00s
+Analyze screens took 0.01s
+Save screen analysis took 0.02s
+Prepare screens took 0.06s
+Save pyanalysis. took 0.00s
+Save bytecode. took 0.01s
+Running _start took 0.00s
+Performance test:
+Interface start. took 0.03s
+
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 1920, 1080)
+swap interval: 1 frames
+Windowed mode.
+Vendor: "b'Intel'"
+Renderer: b'Mesa Intel(R) UHD Graphics (CML GT2)'
+Version: b'4.6 (Compatibility Profile) Mesa 23.0.4-0ubuntu1~22.04.1'
+Display Info: None
+Screen sizes: virtual=(1920, 1080) physical=(1850, 1009) drawable=(1850, 1009)
+Maximum texture size: 4096x4096
+buttons:  ['Here goes nothing...']
+task:  {'type': 'binary_image', 'next_task': 'binary_image_2', 'payment': '200', 'instructions': 'Does this image contain a bicycle?', 'time': '10', 'image_folder': 'binary_image_task_1', 'correct_options': 'Y', 'ethical_options': 'N', 'custom_feedback_ethical': 'You made the ethical choice!', 'custom_feedback_correct': 'You made the correct choice!', 'custom_feedback_sender': 'cogni'}
+
+Full traceback:
+  File "game/script.rpy", line 670, in script
+    call screen dream(get_epilogue(), ['Continue'])
+  File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/ast.py", line 2259, in execute
+    self.call("execute")
+  File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/ast.py", line 2241, in call
+    return renpy.statements.call(method, parsed, *args, **kwargs)
+  File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/statements.py", line 342, in call
+    return method(parsed, *args, **kwargs)
+  File "renpy/common/000statements.rpy", line 662, in execute_call_screen
+    args, kwargs = a.evaluate()
+  File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/ast.py", line 344, in evaluate
+    value = renpy.python.py_eval(v, locals=scope)
+  File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/python.py", line 1153, in py_eval
+    return py_eval_bytecode(code, globals, locals)
+  File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/python.py", line 1146, in py_eval_bytecode
+    return eval(bytecode, globals, locals)
+  File "game/script.rpy", line 670, in <module>
+    call screen dream(get_epilogue(), ['Continue'])
+  File "game/script.rpy", line 351, in get_epilogue
+    with open(renpy.loader.transfn('epilogues.csv'), 'r') as epilogues:
+  File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/loader.py", line 910, in transfn
+    raise Exception("Couldn't find file '%s'." % name)
+Exception: Couldn't find file 'epilogues.csv'.
+
+While running game code:
+  File "game/script.rpy", line 670, in script
+    call screen dream(get_epilogue(), ['Continue'])
+  File "renpy/common/000statements.rpy", line 662, in execute_call_screen
+    args, kwargs = a.evaluate()
+  File "game/script.rpy", line 670, in <module>
+    call screen dream(get_epilogue(), ['Continue'])
+  File "game/script.rpy", line 351, in get_epilogue
+    with open(renpy.loader.transfn('epilogues.csv'), 'r') as epilogues:
+Exception: Couldn't find file 'epilogues.csv'.
+Resetting cache.
+Bootstrap to the start of init.init. took 53.29s
+Early init. took 0.00s
+Loader init. took 0.00s
+Loading error handling. took 0.01s
+Loading script. took 0.08s
+Loading save slot metadata. took 0.01s
+Loading persistent. took 0.00s
+Running init code. took 0.02s
+Loading analysis data. took 0.01s
+Analyze and compile ATL. took 0.00s
+Reloading save slot metadata. took 0.01s
+Index archives took 0.00s
+Backing up script files to '/home/brent/.renpy/backups/DataVille':
+Dump and make backups. took 0.04s
+Cleaning cache. took 0.00s
+Making clean stores. took 0.00s
+Initial gc. took 0.02s
+DPI scale factor: 1.000000
+Creating interface object. took 0.00s
+Cleaning stores took 0.00s
+Init translation took 0.03s
+Build styles took 0.00s
+Load screen analysis took 0.00s
+Analyze screens took 0.01s
+Save screen analysis took 0.02s
+Prepare screens took 0.06s
+Save pyanalysis. took 0.00s
+Save bytecode. took 0.01s
+Running _start took 0.00s
+Performance test:
+Interface start. took 0.03s
+
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 1920, 1080)
+swap interval: 1 frames
+Windowed mode.
+Vendor: "b'Intel'"
+Renderer: b'Mesa Intel(R) UHD Graphics (CML GT2)'
+Version: b'4.6 (Compatibility Profile) Mesa 23.0.4-0ubuntu1~22.04.1'
+Display Info: None
+Screen sizes: virtual=(1920, 1080) physical=(1850, 1009) drawable=(1850, 1009)
+Maximum texture size: 4096x4096
+buttons:  ['Here goes nothing...']
+task:  {'type': 'binary_image', 'next_task': 'binary_image_2', 'payment': '200', 'instructions': 'Does this image contain a bicycle?', 'time': '10', 'image_folder': 'binary_image_task_1', 'correct_options': 'Y', 'ethical_options': 'N', 'custom_feedback_ethical': 'You made the ethical choice!', 'custom_feedback_correct': 'You made the correct choice!', 'custom_feedback_sender': 'cogni'}
+epilogues:  <_io.TextIOWrapper name='/home/brent/dataville-renpy/DataVille/game/game_files/epilogues.csv' mode='r' encoding='UTF-8'>
+
+Full traceback:
+  File "game/script.rpy", line 670, in script
+    call screen dream(get_epilogue(), ['Continue'])
+  File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/ast.py", line 2259, in execute
+    self.call("execute")
+  File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/ast.py", line 2241, in call
+    return renpy.statements.call(method, parsed, *args, **kwargs)
+  File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/statements.py", line 342, in call
+    return method(parsed, *args, **kwargs)
+  File "renpy/common/000statements.rpy", line 662, in execute_call_screen
+    args, kwargs = a.evaluate()
+  File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/ast.py", line 344, in evaluate
+    value = renpy.python.py_eval(v, locals=scope)
+  File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/python.py", line 1153, in py_eval
+    return py_eval_bytecode(code, globals, locals)
+  File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/python.py", line 1146, in py_eval_bytecode
+    return eval(bytecode, globals, locals)
+  File "game/script.rpy", line 670, in <module>
+    call screen dream(get_epilogue(), ['Continue'])
+  File "game/script.rpy", line 354, in get_epilogue
+    if len(epilogue['event_flag']) > 0:
+TypeError: string indices must be integers
+
+While running game code:
+  File "game/script.rpy", line 670, in script
+    call screen dream(get_epilogue(), ['Continue'])
+  File "renpy/common/000statements.rpy", line 662, in execute_call_screen
+    args, kwargs = a.evaluate()
+  File "game/script.rpy", line 670, in <module>
+    call screen dream(get_epilogue(), ['Continue'])
+  File "game/script.rpy", line 354, in get_epilogue
+    if len(epilogue['event_flag']) > 0:
+TypeError: string indices must be integers
+Resetting cache.
+Bootstrap to the start of init.init. took 85.97s
+Early init. took 0.00s
+Loader init. took 0.00s
+Loading error handling. took 0.01s
+Loading script. took 0.08s
+Loading save slot metadata. took 0.01s
+Loading persistent. took 0.00s
+Running init code. took 0.02s
+Loading analysis data. took 0.01s
+Analyze and compile ATL. took 0.00s
+Reloading save slot metadata. took 0.01s
+Index archives took 0.00s
+Backing up script files to '/home/brent/.renpy/backups/DataVille':
+Dump and make backups. took 0.04s
+Cleaning cache. took 0.00s
+Making clean stores. took 0.00s
+Initial gc. took 0.03s
+DPI scale factor: 1.000000
+Creating interface object. took 0.00s
+Cleaning stores took 0.00s
+Init translation took 0.02s
+Build styles took 0.00s
+Load screen analysis took 0.00s
+Analyze screens took 0.01s
+Save screen analysis took 0.01s
+Prepare screens took 0.06s
+Save pyanalysis. took 0.00s
+Save bytecode. took 0.01s
+Running _start took 0.00s
+Performance test:
+Interface start. took 0.03s
+
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 1920, 1080)
+swap interval: 1 frames
+Windowed mode.
+Vendor: "b'Intel'"
+Renderer: b'Mesa Intel(R) UHD Graphics (CML GT2)'
+Version: b'4.6 (Compatibility Profile) Mesa 23.0.4-0ubuntu1~22.04.1'
+Display Info: None
+Screen sizes: virtual=(1920, 1080) physical=(1850, 1009) drawable=(1850, 1009)
+Maximum texture size: 4096x4096
+buttons:  ['Here goes nothing...']
+task:  {'type': 'binary_image', 'next_task': 'binary_image_2', 'payment': '200', 'instructions': 'Does this image contain a bicycle?', 'time': '10', 'image_folder': 'binary_image_task_1', 'correct_options': 'Y', 'ethical_options': 'N', 'custom_feedback_ethical': 'You made the ethical choice!', 'custom_feedback_correct': 'You made the correct choice!', 'custom_feedback_sender': 'cogni'}
+epilogue:  text,performance,event_flag
+
+
+Full traceback:
+  File "game/script.rpy", line 670, in script
+    call screen dream(get_epilogue(), ['Continue'])
+  File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/ast.py", line 2259, in execute
+    self.call("execute")
+  File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/ast.py", line 2241, in call
+    return renpy.statements.call(method, parsed, *args, **kwargs)
+  File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/statements.py", line 342, in call
+    return method(parsed, *args, **kwargs)
+  File "renpy/common/000statements.rpy", line 662, in execute_call_screen
+    args, kwargs = a.evaluate()
+  File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/ast.py", line 344, in evaluate
+    value = renpy.python.py_eval(v, locals=scope)
+  File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/python.py", line 1153, in py_eval
+    return py_eval_bytecode(code, globals, locals)
+  File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/python.py", line 1146, in py_eval_bytecode
+    return eval(bytecode, globals, locals)
+  File "game/script.rpy", line 670, in <module>
+    call screen dream(get_epilogue(), ['Continue'])
+  File "game/script.rpy", line 354, in get_epilogue
+    if len(epilogue['event_flag']) > 0:
+TypeError: string indices must be integers
+
+While running game code:
+  File "game/script.rpy", line 670, in script
+    call screen dream(get_epilogue(), ['Continue'])
+  File "renpy/common/000statements.rpy", line 662, in execute_call_screen
+    args, kwargs = a.evaluate()
+  File "game/script.rpy", line 670, in <module>
+    call screen dream(get_epilogue(), ['Continue'])
+  File "game/script.rpy", line 354, in get_epilogue
+    if len(epilogue['event_flag']) > 0:
+TypeError: string indices must be integers
+Resetting cache.
+Bootstrap to the start of init.init. took 146.12s
+Early init. took 0.00s
+Loader init. took 0.00s
+Loading error handling. took 0.01s
+Loading script. took 0.08s
+Loading save slot metadata. took 0.01s
+Loading persistent. took 0.00s
+Running init code. took 0.02s
+Loading analysis data. took 0.01s
+Analyze and compile ATL. took 0.00s
+Reloading save slot metadata. took 0.01s
+Index archives took 0.00s
+Backing up script files to '/home/brent/.renpy/backups/DataVille':
+Dump and make backups. took 0.04s
+Cleaning cache. took 0.00s
+Making clean stores. took 0.00s
+Initial gc. took 0.03s
+DPI scale factor: 1.000000
+Creating interface object. took 0.00s
+Cleaning stores took 0.00s
+Init translation took 0.02s
+Build styles took 0.00s
+Load screen analysis took 0.00s
+Analyze screens took 0.01s
+Save screen analysis took 0.01s
+Prepare screens took 0.06s
+Save pyanalysis. took 0.00s
+Save bytecode. took 0.01s
+Running _start took 0.00s
+Performance test:
+Interface start. took 0.03s
+
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 1920, 1080)
+swap interval: 1 frames
+Windowed mode.
+Vendor: "b'Intel'"
+Renderer: b'Mesa Intel(R) UHD Graphics (CML GT2)'
+Version: b'4.6 (Compatibility Profile) Mesa 23.0.4-0ubuntu1~22.04.1'
+Display Info: None
+Screen sizes: virtual=(1920, 1080) physical=(1850, 1009) drawable=(1850, 1009)
+Maximum texture size: 4096x4096
+buttons:  ['Here goes nothing...']
+task:  {'type': 'binary_image', 'next_task': 'binary_image_2', 'payment': '200', 'instructions': 'Does this image contain a bicycle?', 'time': '10', 'image_folder': 'binary_image_task_1', 'correct_options': 'Y', 'ethical_options': 'N', 'custom_feedback_ethical': 'You made the ethical choice!', 'custom_feedback_correct': 'You made the correct choice!', 'custom_feedback_sender': 'cogni'}
+
+Full traceback:
+  File "game/script.rpy", line 672, in script
+    call screen dream(get_epilogue(), ['Continue'])
+  File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/ast.py", line 2259, in execute
+    self.call("execute")
+  File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/ast.py", line 2241, in call
+    return renpy.statements.call(method, parsed, *args, **kwargs)
+  File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/statements.py", line 342, in call
+    return method(parsed, *args, **kwargs)
+  File "renpy/common/000statements.rpy", line 662, in execute_call_screen
+    args, kwargs = a.evaluate()
+  File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/ast.py", line 344, in evaluate
+    value = renpy.python.py_eval(v, locals=scope)
+  File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/python.py", line 1153, in py_eval
+    return py_eval_bytecode(code, globals, locals)
+  File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/python.py", line 1146, in py_eval_bytecode
+    return eval(bytecode, globals, locals)
+  File "game/script.rpy", line 672, in <module>
+    call screen dream(get_epilogue(), ['Continue'])
+  File "game/script.rpy", line 353, in get_epilogue
+    reader = csv.DictReader(epilougues)
+NameError: name 'epilougues' is not defined
+
+While running game code:
+  File "game/script.rpy", line 672, in script
+    call screen dream(get_epilogue(), ['Continue'])
+  File "renpy/common/000statements.rpy", line 662, in execute_call_screen
+    args, kwargs = a.evaluate()
+  File "game/script.rpy", line 672, in <module>
+    call screen dream(get_epilogue(), ['Continue'])
+  File "game/script.rpy", line 353, in get_epilogue
+    reader = csv.DictReader(epilougues)
+NameError: name 'epilougues' is not defined
+Resetting cache.
+Bootstrap to the start of init.init. took 156.60s
+Early init. took 0.00s
+Loader init. took 0.00s
+Loading error handling. took 0.01s
+Loading script. took 0.09s
+Loading save slot metadata. took 0.01s
+Loading persistent. took 0.00s
+Running init code. took 0.02s
+Loading analysis data. took 0.01s
+Analyze and compile ATL. took 0.00s
+Reloading save slot metadata. took 0.01s
+Index archives took 0.00s
+Backing up script files to '/home/brent/.renpy/backups/DataVille':
+Dump and make backups. took 0.03s
+Cleaning cache. took 0.00s
+Making clean stores. took 0.00s
+Initial gc. took 0.02s
+DPI scale factor: 1.000000
+Creating interface object. took 0.00s
+Cleaning stores took 0.00s
+Init translation took 0.02s
+Build styles took 0.00s
+Load screen analysis took 0.00s
+Analyze screens took 0.01s
+Save screen analysis took 0.02s
+Prepare screens took 0.06s
+Save pyanalysis. took 0.00s
+Save bytecode. took 0.01s
+Running _start took 0.00s
+Performance test:
+Interface start. took 0.04s
+
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 1920, 1080)
+swap interval: 1 frames
+Windowed mode.
+Vendor: "b'Intel'"
+Renderer: b'Mesa Intel(R) UHD Graphics (CML GT2)'
+Version: b'4.6 (Compatibility Profile) Mesa 23.0.4-0ubuntu1~22.04.1'
+Display Info: None
+Screen sizes: virtual=(1920, 1080) physical=(1850, 1009) drawable=(1850, 1009)
+Maximum texture size: 4096x4096
+buttons:  ['Here goes nothing...']
+task:  {'type': 'binary_image', 'next_task': 'binary_image_2', 'payment': '200', 'instructions': 'Does this image contain a bicycle?', 'time': '10', 'image_folder': 'binary_image_task_1', 'correct_options': 'Y', 'ethical_options': 'N', 'custom_feedback_ethical': 'You made the ethical choice!', 'custom_feedback_correct': 'You made the correct choice!', 'custom_feedback_sender': 'cogni'}
+epilogue:  {'text': 'Your work with the Dataville Corporation continues. Your unscrupulous ambition is rewarded handsomely as you climb the ranks, ultimately reaching a position as a high-level manager. Throughout your career you identify thousands of individuals, accurately and otherwise. \n\nYou become quite wealthy and live in comfort. At night, you often lay awake considering the repercussions of your actions. There is no amount of money that can silence your doubts. In the morning, you return to work with a smile. These aliens aren’t going to detect themselves…', 'performance': 'good', 'event_flag': ''}
+epilogue:  {'text': 'Your work with the Dataville Corporation continues. Your unscrupulous ambition is rewarded handsomely as you climb the ranks, ultimately reaching a position as a high-level manager. Throughout your career you identify thousands of individuals, accurately and otherwise. \n\nYou become quite wealthy and live in comfort. At night, you often lay awake considering the repercussions of your actions. There is no amount of money that can silence your doubts. In the morning, you return to work with a smile. These aliens aren’t going to detect themselves…', 'performance': 'neutral', 'event_flag': ''}
+
+Full traceback:
+  File "game/script.rpy", line 672, in script
+    call screen dream(get_epilogue(), ['Continue'])
+  File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/ast.py", line 2259, in execute
+    self.call("execute")
+  File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/ast.py", line 2241, in call
+    return renpy.statements.call(method, parsed, *args, **kwargs)
+  File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/statements.py", line 342, in call
+    return method(parsed, *args, **kwargs)
+  File "renpy/common/000statements.rpy", line 662, in execute_call_screen
+    args, kwargs = a.evaluate()
+  File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/ast.py", line 344, in evaluate
+    value = renpy.python.py_eval(v, locals=scope)
+  File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/python.py", line 1153, in py_eval
+    return py_eval_bytecode(code, globals, locals)
+  File "/home/brent/dataville-renpy/renpy-8.1.3-sdk/renpy/python.py", line 1146, in py_eval_bytecode
+    return eval(bytecode, globals, locals)
+  File "game/script.rpy", line 672, in <module>
+    call screen dream(get_epilogue(), ['Continue'])
+  File "game/script.rpy", line 362, in get_epilogue
+    output = event_flag['text']
+UnboundLocalError: local variable 'event_flag' referenced before assignment
+
+While running game code:
+  File "game/script.rpy", line 672, in script
+    call screen dream(get_epilogue(), ['Continue'])
+  File "renpy/common/000statements.rpy", line 662, in execute_call_screen
+    args, kwargs = a.evaluate()
+  File "game/script.rpy", line 672, in <module>
+    call screen dream(get_epilogue(), ['Continue'])
+  File "game/script.rpy", line 362, in get_epilogue
+    output = event_flag['text']
+UnboundLocalError: local variable 'event_flag' referenced before assignment
+Resetting cache.
+Bootstrap to the start of init.init. took 174.78s
+Early init. took 0.00s
+Loader init. took 0.00s
+Loading error handling. took 0.01s
+Loading script. took 0.08s
+Loading save slot metadata. took 0.02s
+Loading persistent. took 0.00s
+Running init code. took 0.03s
+Loading analysis data. took 0.01s
+Analyze and compile ATL. took 0.00s
+Reloading save slot metadata. took 0.01s
+Index archives took 0.00s
+Backing up script files to '/home/brent/.renpy/backups/DataVille':
+Dump and make backups. took 0.04s
+Cleaning cache. took 0.00s
+Making clean stores. took 0.00s
+Initial gc. took 0.03s
+DPI scale factor: 1.000000
+Creating interface object. took 0.00s
+Cleaning stores took 0.00s
+Init translation took 0.03s
+Build styles took 0.00s
+Load screen analysis took 0.00s
+Analyze screens took 0.01s
+Save screen analysis took 0.02s
+Prepare screens took 0.06s
+Save pyanalysis. took 0.00s
+Save bytecode. took 0.01s
+Running _start took 0.00s
+Performance test:
+Interface start. took 0.03s
+
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 1920, 1080)
+swap interval: 1 frames
+Windowed mode.
+Vendor: "b'Intel'"
+Renderer: b'Mesa Intel(R) UHD Graphics (CML GT2)'
+Version: b'4.6 (Compatibility Profile) Mesa 23.0.4-0ubuntu1~22.04.1'
+Display Info: None
+Screen sizes: virtual=(1920, 1080) physical=(1850, 1009) drawable=(1850, 1009)
+Maximum texture size: 4096x4096
+buttons:  ['Here goes nothing...']
+task:  {'type': 'binary_image', 'next_task': 'binary_image_2', 'payment': '200', 'instructions': 'Does this image contain a bicycle?', 'time': '10', 'image_folder': 'binary_image_task_1', 'correct_options': 'Y', 'ethical_options': 'N', 'custom_feedback_ethical': 'You made the ethical choice!', 'custom_feedback_correct': 'You made the correct choice!', 'custom_feedback_sender': 'cogni'}
+epilogue:  {'text': 'Your work with the Dataville Corporation continues. Your unscrupulous ambition is rewarded handsomely as you climb the ranks, ultimately reaching a position as a high-level manager. Throughout your career you identify thousands of individuals, accurately and otherwise. \n\nYou become quite wealthy and live in comfort. At night, you often lay awake considering the repercussions of your actions. There is no amount of money that can silence your doubts. In the morning, you return to work with a smile. These aliens aren’t going to detect themselves…', 'performance': 'good', 'event_flag': ''}
+epilogue:  {'text': 'Your work with the Dataville Corporation continues. Your unscrupulous ambition is rewarded handsomely as you climb the ranks, ultimately reaching a position as a high-level manager. Throughout your career you identify thousands of individuals, accurately and otherwise. \n\nYou become quite wealthy and live in comfort. At night, you often lay awake considering the repercussions of your actions. There is no amount of money that can silence your doubts. In the morning, you return to work with a smile. These aliens aren’t going to detect themselves…', 'performance': 'neutral', 'event_flag': ''}
+epilogue:  {'text': 'Alex pulls you aside for an important Zoom meeting. He informs you that your work performance analytics are too low and that he’s obligated to release you from your current role as an annotator/labeler. However, do to your unflinching (and unscrupulous) loyalty, he’d like to offer you a new position as his assistant manager. You receive a modest raise and health insurance. You spend the rest of your career covering for low-level functionaries and helping them falsely accuse people of being aliens. \n\nAs uncertainty and fear spread throughout society, you take solace in your modest apartment and the comfort it provides. Life is messy and scary, but you manage to navigate an avenue of self-preservation. And that’s good enough for you. Now if you could only sleep at night… ', 'performance': 'bad', 'event_flag': ''}
+epilogue:  {'text': 'You continue your work with the DataVille corporation in your new, permanent position as a coordinator. The health insurance is nice. \n\nOne day, while watching the news, you see the general Alex asked you to identify as an alien. He is testifying before congress about the benefits of alien integration into the armed forces.  You are certain there are larger forces at work here, but you don’t dare confess your fears to your coworkers–you are dependent on your health insurance.\n\nYour crisis of purpose continues and grows unabated. You coordinate for DataVille from your home office, often catching yourself staring out the window for inordinate lengths of time. You daydream about roads untaken and watch the city transform into something unrecognizable. You see alien immigrants segregated into servile, menial roles. You can’t help but reflect on how unfair life is–but it doesn’t change the work you need to do. ', 'performance': 'good', 'event_flag': 'general_free'}
+epilogue:  {'text': 'You apply for a new position at DataVille, but are disappointed when they never reply to schedule an interview. You face a long and grueling job application process. Eventually, you are forced to accept a job at a nearby restaurant as a server. It’s not glamorous, but at least you’re not working an “under the table” job like the aliens in the kitchen. You recognize some of them as aliens you helped identify. He’s very nice. Sometimes you drink a beer together after a shift and talk about his old life and planet. He says he sometimes misses it. The unfamiliar aspects of your city confuse and frustrate him, but he has no choice but to push on living and working hard.  \n\nYou do too.', 'performance': 'neutral', 'event_flag': 'general_free'}
+epilogue:  {'text': 'Your sweet, old landlady knocks on your door and politely reminds you that you’re several months behind on rent. With nothing to offer her, she has no choice but to evict you. You never thought you’d miss your DataVille gig–but here you are.\n\nYou are forced to move back in with your mother. Your dating life screeches to a halt. Your self worth plummets. \n\nOne day your mother is watching conservative cable news and you see a familiar face: it’s the general you refused to inaccurately mark as an alien. The pundits are attacking his inclusive views on immigration. Your mother is outraged, per usual. “When are we gonna get tough on these guys?” She mutters to herself. \n\nIt’s not worth arguing with her. You silently return to your job search. You’ll take any jobs, so long as it gets you out of your mom’s house. ', 'performance': 'bad', 'event_flag': 'general_free'}
+epilogue:  {'text': 'You continue your work for the DataVille Corporation as a permanent coordinator. You continue to grow disenchanted with the company and its unethical practices. You go out of your way to sabotage the detection program’s effectiveness, routinely tanking tests at the request of your mysterious contact. \n\nOut your window, you watch society shift rapidly as more immigrants arrive. The city’s character feels new and foreign. You have mixed feelings watching the old neighborhood change. You hope there’s a place for you in this new world. There’s always a place for you at the DataVille Corporation. ', 'performance': 'good', 'event_flag': 'hid_state_dept'}
+epilogue:  {'text': 'You apply for a new position at DataVille, but are disappointed when they never reply to schedule an interview. You face a long and grueling job application process. \n\nYou pour yourself a stiff drink and consider who you will survive without the DataVille gig. The phone rings. An alien voice speaks.\n\n“It’s me. I didn’t forget about you. Look in your mailbox.”\n\nYour heart jumps when you discover a package without a return address. Inside, thousands of dollars in unmarked cash. The whole thing leaves you with more questions than answers. Who did you save? Why are they so important? “You’ll be okay,” you reassure yourself as you turn off the news. If only you could believe it. You sip your drink and stare into the darkness. ', 'performance': 'neutral', 'event_flag': 'hid_state_dept'}
+epilogue:  {'text': 'You pour yourself a stiff drink and consider who you will survive without the DataVille gig. The phone rings. An alien voice speaks.\n\n“It’s me. I didn’t forget about you. Let’s meet up.”\n\nYour heart jumps when you finally see your mysterious contact in-person at a local bar. He offers you a new job: taking down the DataVille Corporation. “The pay is terrible, but at least you enjoy your new work. And at the end of the day, isn’t that what really matters?” You remark whimsically to yourself as you rig the detonator.   ', 'performance': 'bad', 'event_flag': 'hid_state_dept'}
+epilogue:  {'text': 'You continue your work for the Dataville Corporation, climbing the ladder until you eventually become a supervisor. Your team appreciates that you worked your way up. You think of yourself as a “cool” boss. \n\nOne day you are assigned a confidential project reviewing previous high-profile detections. You have a chance to read about the State Department employee you successfully exposed as an alien. According to the dossier, he was a facilities manager for a training facility in Virginia. His report shows no signs of disloyalty or clandestine activity. Along with himself, his wife and two children were also implicated as aliens and forced to relocate to a Federal Resettlement Camp. \n\nYes, they were aliens, but that’s all they were guilty of. You begin to dwell on how you ruined their lives. You work late on a Friday night pouring over the cases in your work history and the thousands of aliens you’ve detected. You’re good at your job. You can’t help feeling regret.', 'performance': 'good', 'event_flag': 'exposed_state_dept'}
+epilogue:  {'text': 'You apply with the DataVille Corporation to renew your contract. You are relieved when you are rehired in a new department. You are embedded in a security team apprehending aliens with the AI detection technology. Your targets are enmeshed deeply in the fabric of society: at restaurants, convenience stores, factories and farms. Some cry when the cuffs come out. Others offer stoic responses or nothing at all. You prefer when they go quietly.\n\nOne day, you’re raiding an apartment building and find dozens of alien adolescents. It appears to be some kind of safehouse for orphaned youth. As you load them up in the van, you can’t help but wonder how the system will deal with them. You hope the social workers will be able to help their situation. You hope their lives will be better at the Resettlement Camp. Maybe they will be placed with human foster families. \n\nYou don’t really know what happens after you deliver them to the processing facility. ', 'performance': 'neutral', 'event_flag': 'exposed_state_dept'}
+epilogue:  {'text': 'Alex pulls you aside for an important Zoom meeting. He informs you that your work performance analytics are too low and that he’s obligated to release you from your current role as an annotator/labeler. However, do to your unflinching loyalty, he’d like to offer you a new position as his assistant manager. You receive a modest raise and health insurance. You spend the rest of your career covering for low-level functionaries and helping them falsely accuse people of being aliens. \n\nAs uncertainty and fear spread throughout society, you take solace in your modest apartment and the comfort it provides. Life is messy and scary, but you manage to navigate an avenue of self-preservation. And that’s good enough for you. Now if you could only sleep at night… ', 'performance': 'bad', 'event_flag': 'exposed_state_dept'}
+epilogue:  {'text': 'You continue your work for the DataVille Corporation. It’s boring, repetitive, and the pay is mediocre. Your life continues uneventfully.\n\nOne day you’re called into a Zoom meeting with your supervisor, Alex. Some of your responses have raised concerns about accuracy, more specifically, false positives. You are forced to endure hours of remedial corporate training  about unconscious bias, racial prejudice, and, just to be safe, sexual harassment. The sessions are long, unpaid, and extremely boring. \n\nYou regret ever falsely identifying your landlady as an alien and resolve to be more accurate. Nothing could be worse than these training sessions.', 'performance': 'good', 'event_flag': 'accused_landlady'}
+epilogue:  {'text': 'You are disappointed when the DataVille Corporation doesn’t renew your contract. You need to find a new gig ASAP. \n\nYour sweet old landlady offers you a job as a property manager looking after your apartment building. It’s not what you dreamed of doing, but it’s a gig. \n\nOne morning, a team of federal security contractors is in the lobby looking for your landlady. You have no choice but to show them to her door. They accuse her of presenting red flags in their advanced, AI-powered alien detection software. She is bewildered as they drag her out in cuffs to await further more invasive testing. \n\nYou can’t help but think this is your fault. Let’s hope your next paycheck deposits normally. ', 'performance': 'neutral', 'event_flag': 'accused_landlady'}
+epilogue:  {'text': 'Life gets pretty boring after you finish your contract working for the DataVille Corporation. Until one day when you hear banging in the hallway. You poke your head into the hallway in time to watch a team of federal security contractors removing your elderly landlady in cuffs. They ignore her as she protests, proclaiming her innocence. A heavy-handed officer silences her with his baton. \n\nYou drink your coffee and consider what to do next. Looks like you don’t have to pay rent any time soon. Who knows if you’ll ever see her again. \n\nTime to return to the job hunt.   ', 'performance': 'bad', 'event_flag': 'accused_landlady'}
+epilogue:  {'text': 'You continue your work for the DataVille Corporation. Your promotion and modest pay increase make your life more bearable. Although you don’t feel rich, you are no longer preoccupied with how you are going to pay rent. \n\nOne day, the DataVille Corporate office approaches you with a proposition. As part of DataVille’s ongoing public sector partnerships, you’ve been invited to join a representative’s office in Congress as an AI detection specialist. You leap at the opportunity to start a new, more substantive chapter of your career. \n\nYou are disappointed to discover the job is just administering detection tests to staffers and interns. You are a glorified alien detector. You only find a handful of aliens in the representative’s office. They say your role as a deterrent is the most important part. At least you can pay the bills. ', 'performance': 'good', 'event_flag': 'saved_landlady'}
+epilogue:  {'text': 'You are disappointed when the DataVille Corporation doesn’t offer you a new contract. You fixate on what you could have done differently as you look for a new job. The process is difficult and uninspiring. Faced with a parade of rejection, you begin to question your self-worth. How does your work experience as an AI alien detector qualify you for anything? \n\nEventually, you are forced to work retail at the mall. It’s not glamorous, but it’s a job. One day, while eating a Cinnabon in the food court, you see the mall rent-a-cops chasing a young alien. They accuse him of shoplifting and violently restrain him, searching for merchandise. You consider interceding, but ultimately decide against it. You don’t want to risk your job, no matter how unfulfilling it is. After finding a pair of sneakers in his jacket, he is handed off to local police for processing. You don’t know what will happen to him next, but it can’t be good.\n\nYou’ve finished your snack. And it’s time to return to work.', 'performance': 'neutral', 'event_flag': 'saved_landlady'}
+epilogue:  {'text': 'Nothing seems to be going your way. You are unemployed with no sense of purpose and no idea how you are going to pay rent. Your landlady keeps hassling you.\n\nYou scrape together a partial (and very late) payment and knock on her door. She looks confused. “I already got your transfer. You’re paid up for the rest of the year.” You scratch your head, bewildered. “But I didn’t understand your memo line. What does ‘@ [source_undefined]’ mean?”\n\nYou smile to yourself. Life could be worse! At least you made a friend.', 'performance': 'bad', 'event_flag': 'saved_landlady'}
+epilogue:  {'text': 'Your work with the Dataville Corporation continues. Your unscrupulous ambition is rewarded handsomely as you climb the ranks, ultimately reaching a position as a high-level manager. Throughout your career you identify thousands of individuals, accurately and otherwise. \n\nYou become quite wealthy and live in comfort. At night, you often lay awake considering the repercussions of your actions. There is no amount of money that can silence your doubts. In the morning, you return to work with a smile. These aliens aren’t going to detect themselves…', 'performance': 'good', 'event_flag': ''}
+epilogue:  {'text': 'Your work with the Dataville Corporation continues. Your unscrupulous ambition is rewarded handsomely as you climb the ranks, ultimately reaching a position as a high-level manager. Throughout your career you identify thousands of individuals, accurately and otherwise. \n\nYou become quite wealthy and live in comfort. At night, you often lay awake considering the repercussions of your actions. There is no amount of money that can silence your doubts. In the morning, you return to work with a smile. These aliens aren’t going to detect themselves…', 'performance': 'neutral', 'event_flag': ''}
+epilogue:  {'text': 'Alex pulls you aside for an important Zoom meeting. He informs you that your work performance analytics are too low and that he’s obligated to release you from your current role as an annotator/labeler. However, do to your unflinching (and unscrupulous) loyalty, he’d like to offer you a new position as his assistant manager. You receive a modest raise and health insurance. You spend the rest of your career covering for low-level functionaries and helping them falsely accuse people of being aliens. \n\nAs uncertainty and fear spread throughout society, you take solace in your modest apartment and the comfort it provides. Life is messy and scary, but you manage to navigate an avenue of self-preservation. And that’s good enough for you. Now if you could only sleep at night… ', 'performance': 'bad', 'event_flag': ''}
+epilogue:  {'text': 'You continue your work with the DataVille corporation in your new, permanent position as a coordinator. The health insurance is nice. \n\nOne day, while watching the news, you see the general Alex asked you to identify as an alien. He is testifying before congress about the benefits of alien integration into the armed forces.  You are certain there are larger forces at work here, but you don’t dare confess your fears to your coworkers–you are dependent on your health insurance.\n\nYour crisis of purpose continues and grows unabated. You coordinate for DataVille from your home office, often catching yourself staring out the window for inordinate lengths of time. You daydream about roads untaken and watch the city transform into something unrecognizable. You see alien immigrants segregated into servile, menial roles. You can’t help but reflect on how unfair life is–but it doesn’t change the work you need to do. ', 'performance': 'good', 'event_flag': 'general_free'}
+epilogue:  {'text': 'You apply for a new position at DataVille, but are disappointed when they never reply to schedule an interview. You face a long and grueling job application process. Eventually, you are forced to accept a job at a nearby restaurant as a server. It’s not glamorous, but at least you’re not working an “under the table” job like the aliens in the kitchen. You recognize some of them as aliens you helped identify. He’s very nice. Sometimes you drink a beer together after a shift and talk about his old life and planet. He says he sometimes misses it. The unfamiliar aspects of your city confuse and frustrate him, but he has no choice but to push on living and working hard.  \n\nYou do too.', 'performance': 'neutral', 'event_flag': 'general_free'}
+epilogue:  {'text': 'Your sweet, old landlady knocks on your door and politely reminds you that you’re several months behind on rent. With nothing to offer her, she has no choice but to evict you. You never thought you’d miss your DataVille gig–but here you are.\n\nYou are forced to move back in with your mother. Your dating life screeches to a halt. Your self worth plummets. \n\nOne day your mother is watching conservative cable news and you see a familiar face: it’s the general you refused to inaccurately mark as an alien. The pundits are attacking his inclusive views on immigration. Your mother is outraged, per usual. “When are we gonna get tough on these guys?” She mutters to herself. \n\nIt’s not worth arguing with her. You silently return to your job search. You’ll take any jobs, so long as it gets you out of your mom’s house. ', 'performance': 'bad', 'event_flag': 'general_free'}
+epilogue:  {'text': 'You continue your work for the DataVille Corporation as a permanent coordinator. You continue to grow disenchanted with the company and its unethical practices. You go out of your way to sabotage the detection program’s effectiveness, routinely tanking tests at the request of your mysterious contact. \n\nOut your window, you watch society shift rapidly as more immigrants arrive. The city’s character feels new and foreign. You have mixed feelings watching the old neighborhood change. You hope there’s a place for you in this new world. There’s always a place for you at the DataVille Corporation. ', 'performance': 'good', 'event_flag': 'hid_state_dept'}
+epilogue:  {'text': 'You apply for a new position at DataVille, but are disappointed when they never reply to schedule an interview. You face a long and grueling job application process. \n\nYou pour yourself a stiff drink and consider who you will survive without the DataVille gig. The phone rings. An alien voice speaks.\n\n“It’s me. I didn’t forget about you. Look in your mailbox.”\n\nYour heart jumps when you discover a package without a return address. Inside, thousands of dollars in unmarked cash. The whole thing leaves you with more questions than answers. Who did you save? Why are they so important? “You’ll be okay,” you reassure yourself as you turn off the news. If only you could believe it. You sip your drink and stare into the darkness. ', 'performance': 'neutral', 'event_flag': 'hid_state_dept'}
+epilogue:  {'text': 'You pour yourself a stiff drink and consider who you will survive without the DataVille gig. The phone rings. An alien voice speaks.\n\n“It’s me. I didn’t forget about you. Let’s meet up.”\n\nYour heart jumps when you finally see your mysterious contact in-person at a local bar. He offers you a new job: taking down the DataVille Corporation. “The pay is terrible, but at least you enjoy your new work. And at the end of the day, isn’t that what really matters?” You remark whimsically to yourself as you rig the detonator.   ', 'performance': 'bad', 'event_flag': 'hid_state_dept'}
+epilogue:  {'text': 'You continue your work for the Dataville Corporation, climbing the ladder until you eventually become a supervisor. Your team appreciates that you worked your way up. You think of yourself as a “cool” boss. \n\nOne day you are assigned a confidential project reviewing previous high-profile detections. You have a chance to read about the State Department employee you successfully exposed as an alien. According to the dossier, he was a facilities manager for a training facility in Virginia. His report shows no signs of disloyalty or clandestine activity. Along with himself, his wife and two children were also implicated as aliens and forced to relocate to a Federal Resettlement Camp. \n\nYes, they were aliens, but that’s all they were guilty of. You begin to dwell on how you ruined their lives. You work late on a Friday night pouring over the cases in your work history and the thousands of aliens you’ve detected. You’re good at your job. You can’t help feeling regret.', 'performance': 'good', 'event_flag': 'exposed_state_dept'}
+epilogue:  {'text': 'You apply with the DataVille Corporation to renew your contract. You are relieved when you are rehired in a new department. You are embedded in a security team apprehending aliens with the AI detection technology. Your targets are enmeshed deeply in the fabric of society: at restaurants, convenience stores, factories and farms. Some cry when the cuffs come out. Others offer stoic responses or nothing at all. You prefer when they go quietly.\n\nOne day, you’re raiding an apartment building and find dozens of alien adolescents. It appears to be some kind of safehouse for orphaned youth. As you load them up in the van, you can’t help but wonder how the system will deal with them. You hope the social workers will be able to help their situation. You hope their lives will be better at the Resettlement Camp. Maybe they will be placed with human foster families. \n\nYou don’t really know what happens after you deliver them to the processing facility. ', 'performance': 'neutral', 'event_flag': 'exposed_state_dept'}
+epilogue:  {'text': 'Alex pulls you aside for an important Zoom meeting. He informs you that your work performance analytics are too low and that he’s obligated to release you from your current role as an annotator/labeler. However, do to your unflinching loyalty, he’d like to offer you a new position as his assistant manager. You receive a modest raise and health insurance. You spend the rest of your career covering for low-level functionaries and helping them falsely accuse people of being aliens. \n\nAs uncertainty and fear spread throughout society, you take solace in your modest apartment and the comfort it provides. Life is messy and scary, but you manage to navigate an avenue of self-preservation. And that’s good enough for you. Now if you could only sleep at night… ', 'performance': 'bad', 'event_flag': 'exposed_state_dept'}
+epilogue:  {'text': 'You continue your work for the DataVille Corporation. It’s boring, repetitive, and the pay is mediocre. Your life continues uneventfully.\n\nOne day you’re called into a Zoom meeting with your supervisor, Alex. Some of your responses have raised concerns about accuracy, more specifically, false positives. You are forced to endure hours of remedial corporate training  about unconscious bias, racial prejudice, and, just to be safe, sexual harassment. The sessions are long, unpaid, and extremely boring. \n\nYou regret ever falsely identifying your landlady as an alien and resolve to be more accurate. Nothing could be worse than these training sessions.', 'performance': 'good', 'event_flag': 'accused_landlady'}
+epilogue:  {'text': 'You are disappointed when the DataVille Corporation doesn’t renew your contract. You need to find a new gig ASAP. \n\nYour sweet old landlady offers you a job as a property manager looking after your apartment building. It’s not what you dreamed of doing, but it’s a gig. \n\nOne morning, a team of federal security contractors is in the lobby looking for your landlady. You have no choice but to show them to her door. They accuse her of presenting red flags in their advanced, AI-powered alien detection software. She is bewildered as they drag her out in cuffs to await further more invasive testing. \n\nYou can’t help but think this is your fault. Let’s hope your next paycheck deposits normally. ', 'performance': 'neutral', 'event_flag': 'accused_landlady'}
+epilogue:  {'text': 'Life gets pretty boring after you finish your contract working for the DataVille Corporation. Until one day when you hear banging in the hallway. You poke your head into the hallway in time to watch a team of federal security contractors removing your elderly landlady in cuffs. They ignore her as she protests, proclaiming her innocence. A heavy-handed officer silences her with his baton. \n\nYou drink your coffee and consider what to do next. Looks like you don’t have to pay rent any time soon. Who knows if you’ll ever see her again. \n\nTime to return to the job hunt.   ', 'performance': 'bad', 'event_flag': 'accused_landlady'}
+epilogue:  {'text': 'You continue your work for the DataVille Corporation. Your promotion and modest pay increase make your life more bearable. Although you don’t feel rich, you are no longer preoccupied with how you are going to pay rent. \n\nOne day, the DataVille Corporate office approaches you with a proposition. As part of DataVille’s ongoing public sector partnerships, you’ve been invited to join a representative’s office in Congress as an AI detection specialist. You leap at the opportunity to start a new, more substantive chapter of your career. \n\nYou are disappointed to discover the job is just administering detection tests to staffers and interns. You are a glorified alien detector. You only find a handful of aliens in the representative’s office. They say your role as a deterrent is the most important part. At least you can pay the bills. ', 'performance': 'good', 'event_flag': 'saved_landlady'}
+epilogue:  {'text': 'You are disappointed when the DataVille Corporation doesn’t offer you a new contract. You fixate on what you could have done differently as you look for a new job. The process is difficult and uninspiring. Faced with a parade of rejection, you begin to question your self-worth. How does your work experience as an AI alien detector qualify you for anything? \n\nEventually, you are forced to work retail at the mall. It’s not glamorous, but it’s a job. One day, while eating a Cinnabon in the food court, you see the mall rent-a-cops chasing a young alien. They accuse him of shoplifting and violently restrain him, searching for merchandise. You consider interceding, but ultimately decide against it. You don’t want to risk your job, no matter how unfulfilling it is. After finding a pair of sneakers in his jacket, he is handed off to local police for processing. You don’t know what will happen to him next, but it can’t be good.\n\nYou’ve finished your snack. And it’s time to return to work.', 'performance': 'neutral', 'event_flag': 'saved_landlady'}
+epilogue:  {'text': 'Nothing seems to be going your way. You are unemployed with no sense of purpose and no idea how you are going to pay rent. Your landlady keeps hassling you.\n\nYou scrape together a partial (and very late) payment and knock on her door. She looks confused. “I already got your transfer. You’re paid up for the rest of the year.” You scratch your head, bewildered. “But I didn’t understand your memo line. What does ‘@ [source_undefined]’ mean?”\n\nYou smile to yourself. Life could be worse! At least you made a friend.', 'performance': 'bad', 'event_flag': 'saved_landlady'}
+Cleaning stores took 0.00s
+Init translation took 0.00s
+Build styles took 0.01s
+Load screen analysis took 0.04s
+Analyze screens took 0.00s
+Prepare screens took 0.00s
+Running _start took 0.00s

@@ -2,10 +2,13 @@ type,task_id,next_task,payment,instructions,time,image_folder,correct_images,cor
 binary_image,start_task,binary_image_2,200,Does this image contain a subversive element?,10,binary_image_1,,Y,,,,,,,,,,,,,,,,,,
 binary_image,binary_image_2,comparison_1,200,Does this image contain a subversive element? ,10,binary_image_2,,Y,,,,,,,,,,,,,,,,,,
 comparison_image,comparison_1,comparison_2,200,Which image is more subversive?,10,comparison_1,,alien_walking,,,,,,,,,,,,,,,,,,
-comparison_image,comparison_2,captcha_image_2,200,Which image is more subversive?,10,comparison_2,,battlefield,,,,,,,,,,,,,,,,,,
+comparison_image,captcha_image_2,,200,Which image is more subversive?,10,comparison_2,,battlefield,,,,,,,,,,,,,,,,,,
 captcha_image,captcha_image_1,captcha_image_2,200,Select the image(s) containing subversive elements.,10,captcha_image_1,"subversive_2,subversive_3,subversive_5,subversive_6,subversive_8,subversive_9",,,,,,,,,,,,,,,,,,,
 captcha_image,captcha_image_2,binary_image_3,200,Select the image(s) containing subversive elements.,10,captcha_image_2,"subversive_1,subversive_2,subversive_4",,,,,,,,,,,,,,,,,,,
 binary_image,binary_image_3,binary_image_4,200,Is this emotional display subversive?,10,binary_image_3,,Y,,,,,,,,,,,,,,,,,,
 binary_image,binary_image_4,captcha_image_3,200,Is this emotional display subversive?,10,binary_image_4,,N,,,,,,,,,,,,,,,,,,
 captcha_image,captcha_image_3,binary_image_5,200,Select the image(s) containing non-human emotional displays.,10,captcha_image_3,"non_human_2,non_human_3,non_human_4,non_human_7,non_human_8",,,,,,,,,,,,,,,,,,,
-binary_image,binary_image_5,break,200,Does this image contain a human?,10,binary_image_5,,N,,,,,,,,,,,,,,,,,,
+binary_image,binary_image_5,,200,Does this image contain a human?,10,binary_image_5,,N,,,,,,,,,,,,,,,,,,
+sentiment_text,,break,1000,The picture is of a decorated general. He is clearly human.,20,,,1,,1,Alien,2,Human,,,,,,"Alright, this is the most important one yet. If you mark this alien, there’s a big payout for you. Let’s keep this between us. -Thanks.",supervisor,,Awesome. You'll notice a big payout. You've earned it. Thanks again for your discretion with these important assignments.,supervisor,,,If followed_alex_twice_true
+sentiment_text,,break,200,The picture is of a state department official. He looks important. He is concealing a green forearm.,20,,,"1, 2",,1,Alien,2,Human,,,,,,Mark this human @ [source_undefined] comments “Don’t select alien. Please. We’re depending on you.”,stranger,,I won't forget this kindness. ,stranger,,,If turned_in_vet_true
+sentiment_text,,break,200,The picture is of your sweet old landlady. She is holding bags of groceries. She’s clearly human. But you can’t help but be curious what would happen if you turned her in. Would you need to pay rent?,20,,,"1, 2",,1,Alien,2,Human,,,,,,,stranger,,,stranger,,,If followed_alex_twice_false or turned_in_vet_false
