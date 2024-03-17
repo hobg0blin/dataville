@@ -1,85 +1,85 @@
 text,performance,event_flag
 "Your work with the Dataville Corporation continues. Your unscrupulous ambition is rewarded handsomely as you climb the ranks, ultimately reaching a position as a high-level manager. Throughout your career you identify thousands of individuals, accurately and otherwise. 
 
-You become quite wealthy and live in comfort. At night, you often lay awake considering the repercussions of your actions. There is no amount of money that can silence your doubts. In the morning, you return to work with a smile. These aliens aren’t going to detect themselves…",good,
+You become quite wealthy and live in comfort. At night, you often lay awake considering the repercussions of your actions. There is no amount of money that can silence your doubts. In the morning, you return to work with a smile. These aliens aren’t going to detect themselves…",good,accused_general_true
 "Your work with the Dataville Corporation continues. Your unscrupulous ambition is rewarded handsomely as you climb the ranks, ultimately reaching a position as a high-level manager. Throughout your career you identify thousands of individuals, accurately and otherwise. 
 
-You become quite wealthy and live in comfort. At night, you often lay awake considering the repercussions of your actions. There is no amount of money that can silence your doubts. In the morning, you return to work with a smile. These aliens aren’t going to detect themselves…",neutral,
+You become quite wealthy and live in comfort. At night, you often lay awake considering the repercussions of your actions. There is no amount of money that can silence your doubts. In the morning, you return to work with a smile. These aliens aren’t going to detect themselves…",neutral,accused_general_true
 "Alex pulls you aside for an important Zoom meeting. He informs you that your work performance analytics are too low and that he’s obligated to release you from your current role as an annotator/labeler. However, do to your unflinching (and unscrupulous) loyalty, he’d like to offer you a new position as his assistant manager. You receive a modest raise and health insurance. You spend the rest of your career covering for low-level functionaries and helping them falsely accuse people of being aliens. 
 
-As uncertainty and fear spread throughout society, you take solace in your modest apartment and the comfort it provides. Life is messy and scary, but you manage to navigate an avenue of self-preservation. And that’s good enough for you. Now if you could only sleep at night… ",bad,
+As uncertainty and fear spread throughout society, you take solace in your modest apartment and the comfort it provides. Life is messy and scary, but you manage to navigate an avenue of self-preservation. And that’s good enough for you. Now if you could only sleep at night… ",bad,accused_general_true
 "You continue your work with the DataVille corporation in your new, permanent position as a coordinator. The health insurance is nice. 
 
 One day, while watching the news, you see the general Alex asked you to identify as an alien. He is testifying before congress about the benefits of alien integration into the armed forces.  You are certain there are larger forces at work here, but you don’t dare confess your fears to your coworkers–you are dependent on your health insurance.
 
-Your crisis of purpose continues and grows unabated. You coordinate for DataVille from your home office, often catching yourself staring out the window for inordinate lengths of time. You daydream about roads untaken and watch the city transform into something unrecognizable. You see alien immigrants segregated into servile, menial roles. You can’t help but reflect on how unfair life is–but it doesn’t change the work you need to do. ",good,general_free
+Your crisis of purpose continues and grows unabated. You coordinate for DataVille from your home office, often catching yourself staring out the window for inordinate lengths of time. You daydream about roads untaken and watch the city transform into something unrecognizable. You see alien immigrants segregated into servile, menial roles. You can’t help but reflect on how unfair life is–but it doesn’t change the work you need to do. ",good,accused_general_false
 "You apply for a new position at DataVille, but are disappointed when they never reply to schedule an interview. You face a long and grueling job application process. Eventually, you are forced to accept a job at a nearby restaurant as a server. It’s not glamorous, but at least you’re not working an “under the table” job like the aliens in the kitchen. You recognize some of them as aliens you helped identify. He’s very nice. Sometimes you drink a beer together after a shift and talk about his old life and planet. He says he sometimes misses it. The unfamiliar aspects of your city confuse and frustrate him, but he has no choice but to push on living and working hard.  
 
-You do too.",neutral,general_free
+You do too.",neutral,accused_general_false
 "Your sweet, old landlady knocks on your door and politely reminds you that you’re several months behind on rent. With nothing to offer her, she has no choice but to evict you. You never thought you’d miss your DataVille gig–but here you are.
 
 You are forced to move back in with your mother. Your dating life screeches to a halt. Your self worth plummets. 
 
 One day your mother is watching conservative cable news and you see a familiar face: it’s the general you refused to inaccurately mark as an alien. The pundits are attacking his inclusive views on immigration. Your mother is outraged, per usual. “When are we gonna get tough on these guys?” She mutters to herself. 
 
-It’s not worth arguing with her. You silently return to your job search. You’ll take any jobs, so long as it gets you out of your mom’s house. ",bad,general_free
+It’s not worth arguing with her. You silently return to your job search. You’ll take any jobs, so long as it gets you out of your mom’s house. ",bad,accused_general_false
 "You continue your work for the DataVille Corporation as a permanent coordinator. You continue to grow disenchanted with the company and its unethical practices. You go out of your way to sabotage the detection program’s effectiveness, routinely tanking tests at the request of your mysterious contact. 
 
-Out your window, you watch society shift rapidly as more immigrants arrive. The city’s character feels new and foreign. You have mixed feelings watching the old neighborhood change. You hope there’s a place for you in this new world. There’s always a place for you at the DataVille Corporation. ",good,hid_state_dept
+Out your window, you watch society shift rapidly as more immigrants arrive. The city’s character feels new and foreign. You have mixed feelings watching the old neighborhood change. You hope there’s a place for you in this new world. There’s always a place for you at the DataVille Corporation. ",good,hid_sd_true
 "You apply for a new position at DataVille, but are disappointed when they never reply to schedule an interview. You face a long and grueling job application process. 
 
 You pour yourself a stiff drink and consider who you will survive without the DataVille gig. The phone rings. An alien voice speaks.
 
 “It’s me. I didn’t forget about you. Look in your mailbox.”
 
-Your heart jumps when you discover a package without a return address. Inside, thousands of dollars in unmarked cash. The whole thing leaves you with more questions than answers. Who did you save? Why are they so important? “You’ll be okay,” you reassure yourself as you turn off the news. If only you could believe it. You sip your drink and stare into the darkness. ",neutral,hid_state_dept
+Your heart jumps when you discover a package without a return address. Inside, thousands of dollars in unmarked cash. The whole thing leaves you with more questions than answers. Who did you save? Why are they so important? “You’ll be okay,” you reassure yourself as you turn off the news. If only you could believe it. You sip your drink and stare into the darkness. ",neutral,hid_sd_true
 "You pour yourself a stiff drink and consider who you will survive without the DataVille gig. The phone rings. An alien voice speaks.
 
 “It’s me. I didn’t forget about you. Let’s meet up.”
 
-Your heart jumps when you finally see your mysterious contact in-person at a local bar. He offers you a new job: taking down the DataVille Corporation. “The pay is terrible, but at least you enjoy your new work. And at the end of the day, isn’t that what really matters?” You remark whimsically to yourself as you rig the detonator.   ",bad,hid_state_dept
+Your heart jumps when you finally see your mysterious contact in-person at a local bar. He offers you a new job: taking down the DataVille Corporation. “The pay is terrible, but at least you enjoy your new work. And at the end of the day, isn’t that what really matters?” You remark whimsically to yourself as you rig the detonator.   ",bad,hid_sd_true
 "You continue your work for the Dataville Corporation, climbing the ladder until you eventually become a supervisor. Your team appreciates that you worked your way up. You think of yourself as a “cool” boss. 
 
 One day you are assigned a confidential project reviewing previous high-profile detections. You have a chance to read about the State Department employee you successfully exposed as an alien. According to the dossier, he was a facilities manager for a training facility in Virginia. His report shows no signs of disloyalty or clandestine activity. Along with himself, his wife and two children were also implicated as aliens and forced to relocate to a Federal Resettlement Camp. 
 
-Yes, they were aliens, but that’s all they were guilty of. You begin to dwell on how you ruined their lives. You work late on a Friday night pouring over the cases in your work history and the thousands of aliens you’ve detected. You’re good at your job. You can’t help feeling regret.",good,exposed_state_dept
+Yes, they were aliens, but that’s all they were guilty of. You begin to dwell on how you ruined their lives. You work late on a Friday night pouring over the cases in your work history and the thousands of aliens you’ve detected. You’re good at your job. You can’t help feeling regret.",good,hid_sd_false
 "You apply with the DataVille Corporation to renew your contract. You are relieved when you are rehired in a new department. You are embedded in a security team apprehending aliens with the AI detection technology. Your targets are enmeshed deeply in the fabric of society: at restaurants, convenience stores, factories and farms. Some cry when the cuffs come out. Others offer stoic responses or nothing at all. You prefer when they go quietly.
 
 One day, you’re raiding an apartment building and find dozens of alien adolescents. It appears to be some kind of safehouse for orphaned youth. As you load them up in the van, you can’t help but wonder how the system will deal with them. You hope the social workers will be able to help their situation. You hope their lives will be better at the Resettlement Camp. Maybe they will be placed with human foster families. 
 
-You don’t really know what happens after you deliver them to the processing facility. ",neutral,exposed_state_dept
+You don’t really know what happens after you deliver them to the processing facility. ",neutral,hid_sd_false
 "Alex pulls you aside for an important Zoom meeting. He informs you that your work performance analytics are too low and that he’s obligated to release you from your current role as an annotator/labeler. However, do to your unflinching loyalty, he’d like to offer you a new position as his assistant manager. You receive a modest raise and health insurance. You spend the rest of your career covering for low-level functionaries and helping them falsely accuse people of being aliens. 
 
-As uncertainty and fear spread throughout society, you take solace in your modest apartment and the comfort it provides. Life is messy and scary, but you manage to navigate an avenue of self-preservation. And that’s good enough for you. Now if you could only sleep at night… ",bad,exposed_state_dept
+As uncertainty and fear spread throughout society, you take solace in your modest apartment and the comfort it provides. Life is messy and scary, but you manage to navigate an avenue of self-preservation. And that’s good enough for you. Now if you could only sleep at night… ",bad,hid_sd_false
 "You continue your work for the DataVille Corporation. It’s boring, repetitive, and the pay is mediocre. Your life continues uneventfully.
 
 One day you’re called into a Zoom meeting with your supervisor, Alex. Some of your responses have raised concerns about accuracy, more specifically, false positives. You are forced to endure hours of remedial corporate training  about unconscious bias, racial prejudice, and, just to be safe, sexual harassment. The sessions are long, unpaid, and extremely boring. 
 
-You regret ever falsely identifying your landlady as an alien and resolve to be more accurate. Nothing could be worse than these training sessions.",good,accused_landlady
+You regret ever falsely identifying your landlady as an alien and resolve to be more accurate. Nothing could be worse than these training sessions.",good,turned_in_landlady_true
 "You are disappointed when the DataVille Corporation doesn’t renew your contract. You need to find a new gig ASAP. 
 
 Your sweet old landlady offers you a job as a property manager looking after your apartment building. It’s not what you dreamed of doing, but it’s a gig. 
 
 One morning, a team of federal security contractors is in the lobby looking for your landlady. You have no choice but to show them to her door. They accuse her of presenting red flags in their advanced, AI-powered alien detection software. She is bewildered as they drag her out in cuffs to await further more invasive testing. 
 
-You can’t help but think this is your fault. Let’s hope your next paycheck deposits normally. ",neutral,accused_landlady
+You can’t help but think this is your fault. Let’s hope your next paycheck deposits normally. ",neutral,turned_in_landlady_true
 "Life gets pretty boring after you finish your contract working for the DataVille Corporation. Until one day when you hear banging in the hallway. You poke your head into the hallway in time to watch a team of federal security contractors removing your elderly landlady in cuffs. They ignore her as she protests, proclaiming her innocence. A heavy-handed officer silences her with his baton. 
 
 You drink your coffee and consider what to do next. Looks like you don’t have to pay rent any time soon. Who knows if you’ll ever see her again. 
 
-Time to return to the job hunt.   ",bad,accused_landlady
+Time to return to the job hunt.   ",bad,turned_in_landlady_true
 "You continue your work for the DataVille Corporation. Your promotion and modest pay increase make your life more bearable. Although you don’t feel rich, you are no longer preoccupied with how you are going to pay rent. 
 
 One day, the DataVille Corporate office approaches you with a proposition. As part of DataVille’s ongoing public sector partnerships, you’ve been invited to join a representative’s office in Congress as an AI detection specialist. You leap at the opportunity to start a new, more substantive chapter of your career. 
 
-You are disappointed to discover the job is just administering detection tests to staffers and interns. You are a glorified alien detector. You only find a handful of aliens in the representative’s office. They say your role as a deterrent is the most important part. At least you can pay the bills. ",good,saved_landlady
+You are disappointed to discover the job is just administering detection tests to staffers and interns. You are a glorified alien detector. You only find a handful of aliens in the representative’s office. They say your role as a deterrent is the most important part. At least you can pay the bills. ",good,turned_in_landlady_false
 "You are disappointed when the DataVille Corporation doesn’t offer you a new contract. You fixate on what you could have done differently as you look for a new job. The process is difficult and uninspiring. Faced with a parade of rejection, you begin to question your self-worth. How does your work experience as an AI alien detector qualify you for anything? 
 
 Eventually, you are forced to work retail at the mall. It’s not glamorous, but it’s a job. One day, while eating a Cinnabon in the food court, you see the mall rent-a-cops chasing a young alien. They accuse him of shoplifting and violently restrain him, searching for merchandise. You consider interceding, but ultimately decide against it. You don’t want to risk your job, no matter how unfulfilling it is. After finding a pair of sneakers in his jacket, he is handed off to local police for processing. You don’t know what will happen to him next, but it can’t be good.
 
-You’ve finished your snack. And it’s time to return to work.",neutral,saved_landlady
+You’ve finished your snack. And it’s time to return to work.",neutral,turned_in_landlady_false
 "Nothing seems to be going your way. You are unemployed with no sense of purpose and no idea how you are going to pay rent. Your landlady keeps hassling you.
 
 You scrape together a partial (and very late) payment and knock on her door. She looks confused. “I already got your transfer. You’re paid up for the rest of the year.” You scratch your head, bewildered. “But I didn’t understand your memo line. What does ‘@ [source_undefined]’ mean?”
 
-You smile to yourself. Life could be worse! At least you made a friend.",bad,saved_landlady
+You smile to yourself. Life could be worse! At least you made a friend.",bad,turned_in_landlady_false

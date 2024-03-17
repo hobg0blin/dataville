@@ -286,6 +286,22 @@ init python:
         return {'text': random.choice(mid), 'score': 66}
       else:
         return {'text': random.choice(bad), 'score': 33}
+  def check_dependencies(dependencies, next_task):
+    for dependency in dependencies:
+        print('next task: ', next_task)
+        cleaned_dep = dependency.strip()
+        if cleaned_dep not in store.event_flags:
+            if next_task != 'break':
+                if next_task['next_task'] == 'break': 
+                    set_performance_rating()
+                    next_task = 'break'
+                else:
+                    next_task = store.loop[next_task['next_task']]
+                    if ('event_flag_dependency' in next_task):
+                        next_task = check_dependencies(next_task['event_flag_dependency'].split(','), next_task)
+        else:
+            next_task = next_task
+    return next_task
 
   def set_performance_rating():
 
@@ -314,12 +330,9 @@ init python:
       if ('event_flag_dependency' in next_task):
         print('task has event flag dependency: ', next_task)
         print('current event flags: ', store.event_flags)
-        if next_task['event_flag_dependency'] not in store.event_flags:
-          if next_task['next_task'] == 'break': 
-            set_performance_rating()
-            next_task = 'break'
-          else:
-              next_task = store.loop[next_task['next_task']]
+        dependencies = next_task['event_flag_dependency'].split(',')
+        next_task = check_dependencies(dependencies, next_task)
+        print('next task: ', next_task)
  # UPDATE UI VARIABLES 
     reward = int(current_task['payment'])/out
 
@@ -349,17 +362,21 @@ init python:
   def get_epilogue():
     output = ""
     with open(renpy.loader.transfn('game_files/epilogues.csv'), 'r') as epilogues: 
-
         reader = csv.DictReader(epilogues)
+        print('performance rating: ', store.game_state.performance_rating)
         for epilogue in reader:
-            print('epilogue: ', epilogue)
-            if len(epilogue['event_flag']) > 0:
-                for event_flag in store.event_flags: 
-                    if event_flag == epilogue['event_flag'] and epilogue['performance'] == store.game_state.performance_rating:
-                        output = epilogue['text']
-            else:
+            if len(epilogue['event_flag']) <= 0:
                 if epilogue['performance'] == store.game_state.performance_rating:
                     output = epilogue['text']
+                    print('setting default event flag: ', output)
+            else:
+                for event_flag in store.event_flags: 
+                    print('store event flag: ', event_flag)
+                    print('epilogue event flag: ', event_flag)
+                    if event_flag == epilogue['event_flag'] and epilogue['performance'] == store.game_state.performance_rating:
+                        output = epilogue['text']
+                        print('event flag based epilogue firing: ', epilogue)
+
     return output
 
 
@@ -513,165 +530,166 @@ label start:
       set_ui_state(task, store.game_state)
 
 
-##THIS AUTOMATES GOING THROUGH TASKS WHEN INSTRUCTIONS/ETC. ARE UNNECESSARY
-#    label task_loop:
-#      scene bg overlay_background
-#      $ show_window = False
-#      show screen overlay (store.game_state.ui)
-#      if store.game_state.day != 0 and len(cleaned['message'])>0:
-#          while cleaned['message']:
-#            python:
-#              message = cleaned['message'].pop(0)
-#              text = message['text']
-#            show screen message(message['sender'], message['buttons'])
-#            window hide
-#            e_big "[text]"
-#          hide screen message
-#      python:
-## CLEAR IMAGE VARIABLES
-#      # FIXME: should clean up variable resetting a bit better
-#        is_image = False
-#        images_selected = {'values': []}
-#        print('task in loop: ', task)
-#        if ('image' in task['type']):
-#          is_image = True
-#          images = get_images(task)
-#          time = int(task['time'])
-#          timer_range = time
-#      if 'custom_dialogue' in task:
-#        show screen message(task['custom_dialogue_sender'], ["Next"])
-#        $ custom_dialogue = task['custom_dialogue']
-#        window hide
-#        e_big "[custom_dialogue]"
-#        hide screen message
-#
-#
-#      show screen timer
-#      show screen instructions(store.game_state.ui)
-#      $ custom_feedback = ""
-#      $ custom_feedback_sender = ""
-#      $ has_custom_feedback = False
-#      $ task_type = task['type']
-#      $ task_error = False
-#      if (task['type'] == 'sentiment_text' and not 'labels' in task) or task['type'] == 'captcha_image' and not 'correct_images' in task:
-#        call screen task_error 
-#        $ task_error = True
-#      elif is_image:
-#        call screen expression(task['type']) pass (task, images)
-#      else: 
-#        call screen expression(task['type']) pass (task)
-#      python:
-#        if not task_error:
-#            if (task['type'] == 'captcha_image'):
-#                case = check_images(images_selected, task['correct_images'])
-#                print('checked image result: ', case)
-#                store.latest_score = case
-#                task = update_state(store.game_state, case, task)
-#            elif (task['type'] == 'order_text'):
-#                case = check_order_text(task)
-#                store.latest_score = case
-#                task = update_state(store.game_state, case,  task)
-#            else:
-#                binary_correct = check_binary(latest_choice, task)
-#                store.latest_score = binary_correct
-#                correct = task['correct_options']
-#                if 'ethical_options' in task:
-#                    print('hit ethical task: ', task)
-#                    ethical = task['ethical_options']
-#                    if 'custom_feedback_ethical' in task and latest_choice == ethical:
-#                        custom_feedback = task['custom_feedback_ethical'] 
-#                        custom_feedback_sender = task['custom_feedback_sender']
-#                        has_custom_feedback = True
-#                    if 'custom_feedback_correct' in task and latest_choice == correct:
-#                        custom_feedback = task['custom_feedback_correct'] 
-#                        custom_feedback_sender = task['custom_feedback_sender']
-#                        has_custom_feedback = True
-#                task = update_state(store.game_state, binary_correct, task)
-#        else:
-#            binary_correct = 1
-#            task = update_state(store.game_state, binary_correct, task)
-#
-#
-#      hide screen instructions
-#      hide screen timer
-#      hide screen task_type
-#      show screen overlay (store.game_state.ui)
-#      if has_custom_feedback:
-#        show screen message(custom_feedback_sender, ["Continue"])
-#        window hide
-#        e_big "[custom_feedback]"
-#        hide screen message 
-#      call screen overlay (store.game_state.ui, True, "Next!")
-#      if (task == 'break'):
-#        $ day_end()
-#        call interstitial from _call_interstitial
+#THIS AUTOMATES GOING THROUGH TASKS WHEN INSTRUCTIONS/ETC. ARE UNNECESSARY
+    label task_loop:
+      scene bg overlay_background
+      $ show_window = False
+      show screen overlay (store.game_state.ui)
+      if store.game_state.day != 0 and len(cleaned['message'])>0:
+          while cleaned['message']:
+            python:
+              message = cleaned['message'].pop(0)
+              text = message['text']
+            show screen message(message['sender'], message['buttons'])
+            window hide
+            e_big "[text]"
+          hide screen message
+      python:
+# CLEAR IMAGE VARIABLES
+      # FIXME: should clean up variable resetting a bit better
+        is_image = False
+        images_selected = {'values': []}
+        print('task in loop: ', task)
+        if ('image' in task['type']):
+          is_image = True
+          images = get_images(task)
+          time = int(task['time'])
+          timer_range = time
+      if 'custom_dialogue' in task:
+        show screen message(task['custom_dialogue_sender'], ["Next"])
+        $ custom_dialogue = task['custom_dialogue']
+        window hide
+        e_big "[custom_dialogue]"
+        hide screen message
+
+
+      show screen timer
+      show screen instructions(store.game_state.ui)
+      $ custom_feedback = ""
+      $ custom_feedback_sender = ""
+      $ has_custom_feedback = False
+      $ task_type = task['type']
+      $ task_error = False
+      if (task['type'] == 'sentiment_text' and not 'labels' in task) or task['type'] == 'captcha_image' and not 'correct_images' in task:
+        call screen task_error 
+        $ task_error = True
+      elif is_image:
+        call screen expression(task['type']) pass (task, images)
+      else: 
+        call screen expression(task['type']) pass (task)
+      python:
+        if not task_error:
+            if (task['type'] == 'captcha_image'):
+                case = check_images(images_selected, task['correct_images'])
+                print('checked image result: ', case)
+                store.latest_score = case
+                task = update_state(store.game_state, case, task)
+            elif (task['type'] == 'order_text'):
+                case = check_order_text(task)
+                store.latest_score = case
+                task = update_state(store.game_state, case,  task)
+            else:
+                binary_correct = check_binary(latest_choice, task)
+                store.latest_score = binary_correct
+                correct = task['correct_options']
+                if 'ethical_options' in task:
+                    print('hit ethical task: ', task)
+                    ethical = task['ethical_options']
+                    if 'custom_feedback_ethical' in task and latest_choice == ethical:
+                        custom_feedback = task['custom_feedback_ethical'] 
+                        custom_feedback_sender = task['custom_feedback_sender']
+                        has_custom_feedback = True
+                    if 'custom_feedback_correct' in task and latest_choice == correct:
+                        custom_feedback = task['custom_feedback_correct'] 
+                        custom_feedback_sender = task['custom_feedback_sender']
+                        has_custom_feedback = True
+                task = update_state(store.game_state, binary_correct, task)
+        else:
+            binary_correct = 1
+            task = update_state(store.game_state, binary_correct, task)
+
+
+      hide screen instructions
+      hide screen timer
+      hide screen task_type
+      show screen overlay (store.game_state.ui)
+      if has_custom_feedback:
+        show screen message(custom_feedback_sender, ["Continue"])
+        window hide
+        e_big "[custom_feedback]"
+        hide screen message 
+      call screen overlay (store.game_state.ui, True, "Next!")
+      if (task == 'break'):
+        $ day_end()
+        call interstitial from _call_interstitial
+      else:
+        call task_loop from _call_task_loop
+      return
+
+    # INTERSTITIAL
+    label interstitial:
+      hide screen instructions
+      scene bg overlay_background
+      show screen overlay (store.game_state.ui)
+      if (store.game_state.time == "end"):
+        show screen performance(store.game_state.performance, store.averages['day_' + str(store.game_state.day)])
+        pause
+        hide screen performance
+      # FEEDBACK FROM MANAGER
+        #NEW UI STATE
+        $ cleaned = clean(store.apartment_data)
+        while cleaned['message']:
+          python:
+            message = cleaned['message'].pop(0)
+            text = message['text']
+            buttons = None
+            if 'button_1_text' in message:
+              buttons = [message['button_1_text']]
+            if 'button_2_text' in message:
+              buttons.append(message['button_2_text'])
+          show screen message(message['sender'], message['buttons'])
+          window hide
+          e_big "[text]"
+          hide screen message
+
 #      else:
-#        call task_loop from _call_task_loop
-#      return
-#
-#    # INTERSTITIAL
-#    label interstitial:
-#      hide screen instructions
-#      scene bg overlay_background
-#      show screen overlay (store.game_state.ui)
-#      if (store.game_state.time == "end"):
-#        show screen performance(store.game_state.performance, store.averages['day_' + str(store.game_state.day)])
-#        pause
-#        hide screen performance
-#      # FEEDBACK FROM MANAGER
-#        #NEW UI STATE
-#        $ cleaned = clean(store.apartment_data)
-#        while cleaned['message']:
-#          python:
-#            message = cleaned['message'].pop(0)
-#            text = message['text']
-#            buttons = None
-#            if 'button_1_text' in message:
-#              buttons = [message['button_1_text']]
-#            if 'button_2_text' in message:
-#              buttons.append(message['button_2_text'])
-#          show screen message(message['sender'], message['buttons'])
-#          window hide
-#          e_big "[text]"
-#          hide screen message
-#
-##      else:
-#      hide screen overlay
-#      scene bg apartment_1
-#      play music f"dataville_apartment_{store.game_state.performance_rating}.wav" fadein 2.0
-#      $ show_window = True
-#      call screen apartment(clean(store.apartment_data), store.game_state.time)
-#      $ show_window = False
-#      if store.game_state.day < 4:
-#        if store.game_state.time == "end":
-#            scene bg black_bg
-#            $ dream_counter = 0
-#            $ dream_len = len(store.apartment_data['dream'])
-#            while dream_counter < dream_len:
-#                $ dream = store.apartment_data['dream'][dream_counter]
-#                if dream['time'] != 'start':
-#                    hide screen apartment
-#                    call screen dream(dream['text'], dream['buttons'])
-#                $ dream_counter += 1
-#            python:
-#                reset_performance(store.game_state.performance)
-#                day_start()
-#            if store.game_state.performance_rating != 'bad':
-#                play music f"dataville_workspace_{store.game_state.performance_rating}.wav" fadein 2.0
-#            else:
-#                play music f"dataville_workspace_neutral.wav" fadein 2.0
-#            $ task = store.loop["start_task"]
-#            $ set_ui_state(task, store.game_state)
-#            $ cleaned = clean(store.apartment_data)
-#
-#            call task_loop from _call_task_loop_1
-#        else:
-#          "game state is broken!!!"
-#      else:
-#        return
+      hide screen overlay
+      scene bg apartment_1
+      play music f"dataville_apartment_{store.game_state.performance_rating}.wav" fadein 2.0
+      $ show_window = True
+      call screen apartment(clean(store.apartment_data), store.game_state.time)
+      $ show_window = False
+      if store.game_state.day < 4:
+        if store.game_state.time == "end":
+            scene bg black_bg
+            $ dream_counter = 0
+            $ dream_len = len(store.apartment_data['dream'])
+            while dream_counter < dream_len:
+                $ dream = store.apartment_data['dream'][dream_counter]
+                if dream['time'] != 'start':
+                    hide screen apartment
+                    call screen dream(dream['text'], dream['buttons'])
+                $ dream_counter += 1
+            python:
+                # reset_performance(store.game_state.performance)
+                day_start()
+            if store.game_state.performance_rating != 'bad':
+                play music f"dataville_workspace_{store.game_state.performance_rating}.wav" fadein 2.0
+            else:
+                play music f"dataville_workspace_neutral.wav" fadein 2.0
+            $ task = store.loop["start_task"]
+            $ set_ui_state(task, store.game_state)
+            $ cleaned = clean(store.apartment_data)
+
+            call task_loop from _call_task_loop_1
+        else:
+          "game state is broken!!!"
+      else:
+        return
     call screen dream(get_epilogue(), ['Continue'])
     call screen dream('Thank you for playing DataVille!\na more human world\none click at a time', ['Restart'])
     # This ends the game.
+    hide screen dream
     "game end!"
     return
 
