@@ -350,7 +350,7 @@ init python:
   def set_ui_state( task, state, performance_text = '', reward = 0):
     print('task: ', task)
     state.ui['performance'] = performance_text
-    state.ui['earnings'] += reward
+    state.ui['earnings'] = round(reward + state.ui['earnings'], 2)
     state.performance['earnings'] += reward
     if task == 'break':
       return task
