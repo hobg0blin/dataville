@@ -32,10 +32,6 @@ default custom_feedback = ""
 default custom_feedback_sender = ""
 default has_custom_feedback = False
 
-# Fonts
-default gui.text_font = "fonts/RussoOne-Regular.ttf"
-default gui.interface_text_font = "fonts/RussoOne-Regular.ttf"
-
 init: 
 # switch to control showing dialogue box background
   default show_window = False
