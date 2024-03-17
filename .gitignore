@@ -3,4 +3,10 @@
 *.zip
 **/*.zip
 **/*.psd
-
+**/__pycache__
+/game/saves
+/game/errors.txt
+/game/log.txt
+/game/traceback.txt
+/game/cache
+errors.txt
