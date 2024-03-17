@@ -28,6 +28,14 @@ style button_text is gui_text:
     properties gui.text_properties("button")
     yalign 0.5
 
+style game_button is button:
+    background "#FFFF00"              # Yellow 
+
+style game_button_text is text:
+    size 45
+    hover_color "#FF00FF"             # Pink
+    outlines [ (0, "#0000FF", 1, 1) ] # Blue
+    color "#FF0000"                   # Red
 
 style label_text is gui_text:
     properties gui.text_properties("label", accent=True)
@@ -252,7 +260,10 @@ screen quick_menu():
             xalign 0.5
             yalign 1.0
 
-            textbutton _("Back") action Rollback()
+            fixed: 
+                imagebutton idle "/gui/button/rounded_button.svg" xalign .5 yalign .5
+                text "hello" xalign .5 yalign .5
+            textbutton _("Back") action Rollback() style "default_button"
             textbutton _("History") action ShowMenu('history')
             textbutton _("Skip") action Skip() alternate Skip(fast=True, confirm=True)
             textbutton _("Auto") action Preference("auto-forward", "toggle")
@@ -1499,6 +1510,85 @@ define bubble.expand_area = {
 }
 
 
+screen supervisor_bubble(who, what):
+    style_prefix "supervisor_bubble"
+
+    window:
+        id "window"
+
+        if who is not None:
+
+            window:
+                id "namebox"
+                style "supervisor_bubble_namebox"
+
+                text who:
+                    id "who"
+
+        text what:
+            id "what"
+
+style supervisor_bubble_window is empty
+style supervisor_bubble_namebox is empty
+style supervisor_bubble_who is default
+style supervisor_bubble_what is default
+
+style supervisor_bubble_window:
+    xpadding 30
+    top_padding 5
+    bottom_padding 5
+
+style supervisor_bubble_namebox:
+    xalign 0.5
+
+style supervisor_bubble_who:
+    xalign 0.5
+    textalign 0.5
+    color "#000"
+
+style supervisor_bubble_what:
+    align (0.5, 0.5)
+    text_align 0.5
+    layout "subtitle"
+    color "#000"
+
+define supervisor_bubble.frame = Frame("gui/frame.png", 55, 55, 55, 95)
+define supervisor_bubble.thoughtframe = Frame("gui/frame.png", 55, 55, 55, 55)
+
+define supervisor_bubble.properties = {
+    "bottom_left" : {
+        "window_background" : Transform(supervisor_bubble.frame, xzoom=1, yzoom=1),
+        "window_bottom_padding" : 27,
+    },
+
+    "bottom_right" : {
+        "window_background" : Transform(supervisor_bubble.frame, xzoom=-1, yzoom=1),
+        "window_bottom_padding" : 27,
+    },
+
+    "top_left" : {
+        "window_background" : Transform(supervisor_bubble.frame, xzoom=1, yzoom=-1),
+        "window_top_padding" : 27,
+    },
+
+    "top_right" : {
+        "window_background" : Transform(supervisor_bubble.frame, xzoom=-1, yzoom=-1),
+        "window_top_padding" : 27,
+    },
+
+    "thought" : {
+        "window_background" : supervisor_bubble.thoughtframe,
+    }
+}
+
+define supervisor_bubble.expand_area = {
+    "bottom_left" : (0, 0, 0, 22),
+    "bottom_right" : (0, 0, 0, 22),
+    "top_left" : (0, 22, 0, 0),
+    "top_right" : (0, 22, 0, 0),
+    "thought" : (0, 0, 0, 0),
+}    
+
 
 ################################################################################
 ## Mobile Variants
@@ -1625,6 +1715,15 @@ transform alpha_dissolve:
 transform speech_bubble:
   xalign 0.3
   yalign 0.75
+
+style default_button is button:
+    background "#309390"
+    padding (50, 10)
+
+style default_button_text is text:
+    color "#FFFFFF"
+    size 24
+
 
 style button_click:
     activate_sound "click.wav"
