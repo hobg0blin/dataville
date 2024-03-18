@@ -1734,7 +1734,7 @@ screen overlay(task, cogni=False, button_text=False):
       image "images/logo_white.png"
 #TODO: just track number of tasks here
 #      text 'Performance:' + '\n{size=-5}' + task['performance']
-      text 'Earnings:' +'{size=-5}' + str(task['earnings'])
+      text '{font=fonts/RussoOne-Regular.ttf}TOTAL EARNINGS: $ ' + "{:.2f}".format(float(task['earnings'])) + '{/font}' xpos 400 color "#FFFFFF" 
     hbox id 'cogni':
       xsize 400
       ysize 300
