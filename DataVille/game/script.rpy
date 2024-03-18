@@ -286,6 +286,22 @@ init python:
         return {'text': random.choice(mid), 'score': 66}
       else:
         return {'text': random.choice(bad), 'score': 33}
+  def check_dependencies(dependencies, next_task):
+    for dependency in dependencies:
+        print('next task: ', next_task)
+        cleaned_dep = dependency.strip()
+        if cleaned_dep not in store.event_flags:
+            if next_task != 'break':
+                if next_task['next_task'] == 'break': 
+                    set_performance_rating()
+                    next_task = 'break'
+                else:
+                    next_task = store.loop[next_task['next_task']]
+                    if ('event_flag_dependency' in next_task):
+                        next_task = check_dependencies(next_task['event_flag_dependency'].split(','), next_task)
+        else:
+            next_task = next_task
+    return next_task
 
   def set_performance_rating():
 
@@ -314,12 +330,9 @@ init python:
       if ('event_flag_dependency' in next_task):
         print('task has event flag dependency: ', next_task)
         print('current event flags: ', store.event_flags)
-        if next_task['event_flag_dependency'] not in store.event_flags:
-          if next_task['next_task'] == 'break': 
-            set_performance_rating()
-            next_task = 'break'
-          else:
-              next_task = store.loop[next_task['next_task']]
+        dependencies = next_task['event_flag_dependency'].split(',')
+        next_task = check_dependencies(dependencies, next_task)
+        print('next task: ', next_task)
  # UPDATE UI VARIABLES 
     reward = int(current_task['payment'])/out
 
@@ -346,6 +359,27 @@ init python:
       state.ui['timer'] = int(task['time'])
       return task
 
+  def get_epilogue():
+    output = ""
+    with open(renpy.loader.transfn('game_files/epilogues.csv'), 'r') as epilogues: 
+        reader = csv.DictReader(epilogues)
+        print('performance rating: ', store.game_state.performance_rating)
+        for epilogue in reader:
+            if len(epilogue['event_flag']) <= 0:
+                if epilogue['performance'] == store.game_state.performance_rating:
+                    output = epilogue['text']
+                    print('setting default event flag: ', output)
+            else:
+                for event_flag in store.event_flags: 
+                    print('store event flag: ', event_flag)
+                    print('epilogue event flag: ', event_flag)
+                    if event_flag == epilogue['event_flag'] and epilogue['performance'] == store.game_state.performance_rating:
+                        output = epilogue['text']
+                        print('event flag based epilogue firing: ', epilogue)
+
+    return output
+
+
 # IMAGE TASK FUNCTIONS
 # default captcha image variables
   images_correct = False
@@ -354,7 +388,6 @@ init python:
   start_x_text = 100
   start_y_text = 300
   # timer stuff
-
   order = 1
   # could use periodic function to constantly update box position
   # also look at "cardgame" or "puzzle" templates, although they seem like overkill
@@ -638,7 +671,7 @@ label start:
                     call screen dream(dream['text'], dream['buttons'])
                 $ dream_counter += 1
             python:
-                reset_performance(store.game_state.performance)
+                # reset_performance(store.game_state.performance)
                 day_start()
             if store.game_state.performance_rating != 'bad':
                 play music f"dataville_workspace_{store.game_state.performance_rating}.wav" fadein 2.0
@@ -653,8 +686,10 @@ label start:
           "game state is broken!!!"
       else:
         return
-
+    call screen dream(get_epilogue(), ['Continue'])
+    call screen dream('Thank you for playing DataVille!\na more human world\none click at a time', ['Restart'])
     # This ends the game.
+    hide screen dream
     "game end!"
     return
 

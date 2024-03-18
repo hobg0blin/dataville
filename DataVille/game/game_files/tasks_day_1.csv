@@ -8,4 +8,5 @@ binary_image,binary_image_2,binary_image_3,200,Does this image contain a human? 
 binary_image,binary_image_3,caption_image_2,200,Does this image contain a human?,10,binary_image_3,,N,,,,,,,,,,,,,,,,,,
 caption_image,caption_image_2,captcha_image_4,200,Describe the image in a word.,10,caption_image_2,,2,,1,human,2,alien,,,,,,,,,,,,,
 captcha_image,captcha_image_4,binary_image_4,200,Select the image(s) containing humans.,10,captcha_image_4,"human_3,human_8",,,,,,,,,,,,,,,,,,,
-binary_image,binary_image_4,break,200,Does this image contain a human? ,10,binary_image_4,,N,,,,,,,,,,,,,,,,,,
+binary_image,binary_image_4,sentiment_task_1,200,Does this image contain a human? ,10,binary_image_4,,N,,,,,,,,,,,,,,,,,,
+sentiment_text,sentiment_task_1,break,200,Select the correct option.,20,,,1,"An image of an old man appears. You suddenly realize you know him in real life, he's a clerk at your grocery store. He's always been polite and friendly. His blue hand nervously swipes a product over the scanner. Do you want to expose them as an alien?",1,alien,2,human,,,,,,,,,,,,,

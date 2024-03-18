@@ -2,9 +2,7 @@
 errors listed below, and try again.
 
 
-File "game/screens.rpy", line 2020: 'action' is not a keyword argument or valid child of the frame statement.
-    action [SetVariable("latest_choice", task['labels'][i]['name']), Return(True)]
-          ^
+File "game/script.rpy", line 289: Indentation mismatch.
 
 Ren'Py Version: Ren'Py 8.1.3.23091805
-Mon Jan 29 15:36:52 2024
+Sun Mar 17 16:50:57 2024
