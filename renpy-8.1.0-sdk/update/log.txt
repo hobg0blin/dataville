@@ -1,9 +1,0 @@
-running ['/home/brent/Downloads/renpy-8.1.0-sdk/lib/py3-linux-x86_64/zsync', '-o', '/home/brent/Downloads/renpy-8.1.0-sdk/update/web.update.new', '-k', '/home/brent/Downloads/renpy-8.1.0-sdk/update/web.zsync', '-i', '/home/brent/Downloads/renpy-8.1.0-sdk/update/web.update', 'http://update.renpy.org/8.1.0/renpy-8.1.0-web.zsync']
--------------------- 0.0%#################### 100.0% 0.0 kBps DONE    
-
-reading seed file /home/brent/Downloads/renpy-8.1.0-sdk/update/web.update: Read /home/brent/Downloads/renpy-8.1.0-sdk/update/web.update. Target 0.0% complete.      
-downloading from http://update.renpy.org/8.1.0/renpy-8.1.0-web.update.gz:
--------------------- 0.0%#######------------- 37.5% 5932.2 kBps 0:01 ETA  #################### 100.0% 3954.8 kBps DONE    
-
-verifying download...checksum matches OK
-used 8192 local, fetched 14368520
