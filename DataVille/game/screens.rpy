@@ -288,6 +288,7 @@ style quick_button_text:
 ## This screen is included in the main and game menus, and provides navigation
 ## to other menus, and to start the game.
 
+
 screen navigation():
 
     vbox:
@@ -351,12 +352,24 @@ style navigation_button_text:
 ##
 ## https://www.renpy.org/doc/html/screen_special.html#main-menu
 
+image attract_seq:
+    xoffset 410
+    "images/screens/00-title/title-00.png" with Dissolve(3.0)
+    pause 5
+    "images/screens/00-title/title-01.png" with Dissolve(3.0)
+    pause 5 
+    "images/screens/00-title/title-02.png" with Dissolve(3.0)
+    pause 5
+    "images/screens/00-title/title-03.png" with Dissolve(3.0)
+    pause 5
+    repeat
+
 screen main_menu():
 
     ## This ensures that any other menu screen is replaced.
     tag menu
 
-    add gui.main_menu_background
+    add "attract_seq"
 
     ## This empty frame darkens the main menu.
     frame:
