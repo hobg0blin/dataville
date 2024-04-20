@@ -456,6 +456,20 @@ init python:
       case = 3
     return case
 
+  def blur_master(transform):
+    renpy.show_layer_at(transform)
+    renpy.with_statement({'master' : Dissolve(0.15)})
+  
+  def unblur_master():
+    renpy.show_layer_at(transform)
+    renpy.with_statement({'master' : Dissolve(0.15)})
+
+
+transform blur:
+  blur 30
+    
+transform unblur:
+  blur 0
 
 # The game starts here.
 
@@ -463,21 +477,17 @@ label start:
     image bg start_screen = im.FactorScale("images/intro_desk.jpg", 1.5)
     image bg overlay_background = Solid('#EFF3E6')
     image bg black_bg = Solid('#FFFFFF')
-    scene bg overlay_background
 
-
-    # scene bg start_screen
-    # pause
-
-    image intro_01 = "images/screens/01-intro/intro-01.png"
 
     # v2 sequence
+    image intro_01 = "images/screens/01-intro/intro-01.png"
+    image intro_02 = "images/screens/01-intro/intro-02.png"
     image bg gray_bg = Solid('#464645')
 
     image zoom_seq:
       xoffset 205
       "images/screens/01-intro/title-into-trans.png"
-      pause 1.5
+      pause 1.2
       parallel:
         easeout_quad 3 xoffset 0
       # "images/screens/01-intro/intro-00.png"
@@ -485,13 +495,13 @@ label start:
         easeout_quad 3 zoom 1.5
       parallel:
         easeout_quad 3 yoffset config.screen_height/3.5
-      
+
     scene bg gray_bg
-
     show zoom_seq
-    $renpy.pause(4.5, hard=True)
+    $renpy.pause(4, hard=True)
     show intro_01 with Dissolve(1.0)
-
+    pause
+    show intro_02 with Dissolve(0.2)
     pause
 
     # show standard dialogue box - only for news chyrons
@@ -500,7 +510,10 @@ label start:
     label intro:
 #      manual stuff for game start
 #      image bg apartment_1 = im.FactorScale("images/room/room/room_" + store.apartment_data["apartment_background"] + ".jpg", 1.5)
-      scene bg black_bg
+      # scene bg black_bg
+
+      $ blur_master(blur)
+      
       $ dream_counter = 0
       $ dream_len = len(store.apartment_data['dream'])
       while dream_counter < dream_len:
@@ -508,6 +521,8 @@ label start:
         if dream['time'] == 'start':
             call screen dream(dream['text'], dream['buttons'])
         $ dream_counter += 1
+
+      $ unblur_master(unblur)
 
       image bg apartment_1 = im.FactorScale("images/room/room/room_bg.png", 0.5)
       

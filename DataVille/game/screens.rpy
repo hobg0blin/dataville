@@ -139,6 +139,12 @@ style window_nobox:
     ysize gui.textbox_height
     background None
 
+style intro_prompt:
+    xalign 0.5
+    yalign gui.textbox_yalign
+    ysize gui.textbox_height
+    # background "images/screens/01-intro/intro-02.png"
+
 
 style namebox:
     xpos gui.name_xpos
@@ -1684,7 +1690,7 @@ screen dream(dream_text, buttons):
         if buttons == None or len(buttons) <= 0:
             buttons = ["Next"]
     window id 'content':
-        style "window_nobox"
+        style "intro_prompt"
         xmaximum 1600
         ymaximum 1200
         hbox id 'text':
