@@ -465,8 +465,35 @@ label start:
     image bg black_bg = Solid('#FFFFFF')
     scene bg overlay_background
 
-    scene bg start_screen
+
+    # scene bg start_screen
+    # pause
+
+    image intro_01 = "images/screens/01-intro/intro-01.png"
+
+    # v2 sequence
+    image bg gray_bg = Solid('#464645')
+
+    image zoom_seq:
+      xoffset 205
+      "images/screens/01-intro/title-into-trans.png"
+      pause 1.5
+      parallel:
+        easeout_quad 3 xoffset 0
+      # "images/screens/01-intro/intro-00.png"
+      parallel:
+        easeout_quad 3 zoom 1.5
+      parallel:
+        easeout_quad 3 yoffset config.screen_height/3.5
+      
+    scene bg gray_bg
+
+    show zoom_seq
+    $renpy.pause(4.5, hard=True)
+    show intro_01 with Dissolve(1.0)
+
     pause
+
     # show standard dialogue box - only for news chyrons
     $ show_window = True
 
@@ -499,6 +526,7 @@ label start:
         jump interstitial
 
     play music "dataville_workspace_neutral.wav" fadein 2.0
+    
     if store.game_state.day == 0:
         show dataville_intro
         pause
