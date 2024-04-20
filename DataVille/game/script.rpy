@@ -456,12 +456,12 @@ init python:
       case = 3
     return case
 
-  def blur_master(transform):
-    renpy.show_layer_at(transform)
+  def blur_master():
+    renpy.show_layer_at(blur)
     renpy.with_statement({'master' : Dissolve(0.15)})
   
   def unblur_master():
-    renpy.show_layer_at(transform)
+    renpy.show_layer_at(unblur)
     renpy.with_statement({'master' : Dissolve(0.15)})
 
 
@@ -512,7 +512,7 @@ label start:
 #      image bg apartment_1 = im.FactorScale("images/room/room/room_" + store.apartment_data["apartment_background"] + ".jpg", 1.5)
       # scene bg black_bg
 
-      $ blur_master(blur)
+      $ blur_master()
       
       $ dream_counter = 0
       $ dream_len = len(store.apartment_data['dream'])
@@ -522,7 +522,7 @@ label start:
             call screen dream(dream['text'], dream['buttons'])
         $ dream_counter += 1
 
-      $ unblur_master(unblur)
+      $ unblur_master()
 
       image bg apartment_1 = im.FactorScale("images/room/room/room_bg.png", 0.5)
       
