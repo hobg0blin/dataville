@@ -524,7 +524,18 @@ label start:
 
       $ unblur_master()
 
-      image bg apartment_1 = im.FactorScale("images/room/room/room_bg.png", 0.5)
+      image desk_overhead = "images/desk_overhead.png"
+      scene desk_overhead
+      pause
+
+      image job_page = "images/job_page.png"
+      scene job_page
+
+      call screen job_offer(1)
+
+      call screen job_offer(2)
+
+      image bg apartment_1 = "images/apartment/apartment3_1.png"
       
       scene bg apartment_1
       play music "dataville_apartment_neutral.wav"

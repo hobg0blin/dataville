@@ -1635,6 +1635,12 @@ transform alpha_dissolve:
   on hide:
     linear 0.5 alpha 0
 
+transform alpha_dissolve_quick:
+  alpha 0.0
+  linear 0.2 alpha 1.0
+  on hide:
+    linear 0.2 alpha 0
+
 transform speech_bubble:
   xalign 0.3
   yalign 0.75
@@ -1691,16 +1697,6 @@ screen message(sender, buttons=None):
         for button_text in buttons:
           frame:
             textbutton button_text style "button_click" action Return(True)
-
-style dumb_frame:
-    xalign 0.5
-    yalign 0.5
-    xmaximum 1418
-    ymaximum 618
-    xpadding 3
-    ypadding 3
-
-
 
 # A helper to create borders for displayable but maybe not the best
 # keeping it here in case I come across a use case for this - HAB
@@ -1760,6 +1756,54 @@ screen dream(dream_text, buttons):
                             color "#FFFFFF"
                         style "button_click"
                         action Return(True)
+
+screen job_offer(phase):
+    if phase == 1:
+        image "images/job_page.png"
+ 
+        button:
+            xsize 579
+            ysize 94
+            xpos 670
+            ypos 792
+            style "prompt_frame"
+            text "{b}{size=36}Apply Now":
+                yalign 0.5
+                xalign 0.5
+                color "#FFFFFF"
+            activate_sound "click.wav"
+            action Return(True)
+    else:
+        image "images/job_page_blur.png" at alpha_dissolve_quick
+                
+        frame:
+            xpos 251
+            ypos 76
+            xsize 1418
+            ysize 923
+            style "prompt_frame"
+            python:
+                text_file = renpy.open_file('game_files/job_description.txt', 'utf-8')
+                counter = 0
+            for row in text_file:
+                python:
+                    cleaned = str(row).replace("b'", '').replace('\n', '')
+                text '\n' * counter + cleaned:
+                    color "#FFFFFF"
+                $ counter += 1
+            button:
+                xsize 579
+                ysize 94
+                xalign 0.5
+                yalign 0.9
+                text "{b}{size=36}Get Started":
+                    yalign 0.5
+                    xalign 0.5
+                    color "#FFFFFF"
+                style "prompt_frame"
+                activate_sound "click.wav"
+                action Return(True)
+
 
 screen assistant:
    window id 'content':
@@ -2158,62 +2202,68 @@ screen performance(state, average):
 # MAYBE: CAT?
 
 screen apartment(data, time):
-  python:
-    computer_sound = "computer.ogg"
-    if time == "end":
-      btn = "Go to sleep"
-    else:
-      btn = "Back to work"
-  fixed:
-    imagebutton:
-      xpos 1200 ypos 300
-      activate_sound "audio/rustle.wav"
-      idle Transform("images/room/room/note.png", size=(480, 270)) 
-      hover Transform("images/room/room/note.png", size=(500, 290)) 
-      action Show("zoomed_note", None, store.apartment_data)
-    imagebutton:
-      xpos 350 ypos 550
-      activate_sound "audio/tv_2.wav"
-      idle Transform("images/room/room/tv_with_bg.png", size=(480, 270)) 
-      hover Transform("images/room/room/tv_with_bg.png", size=(500, 290)) 
-      action Show("zoomed_tv", None, store.apartment_data)
-    imagebutton:
-      xpos 0 ypos 0
-      activate_sound "audio/window.mp3"
-      idle Transform("images/room/room/window_with_bg.png", size=(768, 432)) 
-      hover Transform("images/room/room/window_with_bg.png", size=(788, 455)) 
-      action Show("zoomed_window", None, store.apartment_data)
-    imagebutton:
-      xpos 650 ypos 430
-      activate_sound computer_sound
-      idle Transform("images/room/room/monitor_with_bg.png", size=(768, 432)) 
+    python:
+        computer_sound = "computer.ogg"
+        if time == "end":
+            btn = "Go to sleep"
+        else:
+            btn = "Back to work"
+    fixed:
+        # We're not doing note clickables anymore, right? - HAB
+        # imagebutton:
+        #   xpos 1200 ypos 300
+        #   activate_sound "audio/rustle.wav"
+        #   idle Transform("images/room/room/note.png", size=(480, 270)) 
+        #   hover Transform("images/room/room/note.png", size=(500, 290)) 
+        #   action Show("zoomed_note", None, store.apartment_data)
+        imagebutton:
+            xpos 50 ypos 567
+            xsize 539 ysize 433
+            activate_sound "audio/tv_2.wav"
+            idle Solid("#00000000")
+            hover Solid("#d3a95620")
+            action Show("zoomed_tv", None, store.apartment_data)
+        # Same with windows as notes? - HAB
+        # imagebutton:
+        #   xpos 0 ypos 0
+        #   activate_sound "audio/window.mp3"
+        #   idle Transform("images/room/room/window_with_bg.png", size=(768, 432)) 
+        #   hover Transform("images/room/room/window_with_bg.png", size=(788, 455)) 
+        #   action Show("zoomed_window", None, store.apartment_data)
+        imagebutton:
+            xpos 614 ypos 404
+            xsize 837 ysize 456
+            activate_sound "audio/tv_2.wav"
+            idle Solid("#00000000")
+            hover Solid("#d3a95620")
+            action NullAction()
 
-  frame:
-    xalign 0.5
-    yalign 0.9
-    if time == "end":
-        textbutton btn action Return()
-    else:
-        textbutton btn action Return()
-  frame:
-    xalign 0.1
-    yalign 0.9
-    textbutton "Set State" action Show("set_state", None)
+    frame:
+        xalign 0.5
+        yalign 0.9
+        if time == "end":
+            textbutton btn action Return()
+        else:
+            textbutton btn action Return()
+    frame:
+        xalign 0.1
+        yalign 0.9
+        textbutton "Set State" action Show("set_state", None)
 
 screen zoomed_note(data):
-  modal True
-  vbox:
-    xalign 0.5
-    yalign 0
-    image Transform("images/room/room/note.png", size=(1200, 1000)) 
-  vbox:
-    xalign 0.5
-    yalign 0.2
-    for note in data["sticky_note"]:
-        if note["performance"] == "default" or note["performance"] == store.game_state.performance_rating or (note["event_flag"] in store.event_flags):
-            text note["text"]
-  frame:
-    textbutton "X" activate_sound "rustle.wav" action Hide("zoomed_note", None)
+    modal True
+    vbox:
+        xalign 0.5
+        yalign 0
+        image Transform("images/room/room/note.png", size=(1200, 1000)) 
+    vbox:
+        xalign 0.5
+        yalign 0.2
+        for note in data["sticky_note"]:
+            if note["performance"] == "default" or note["performance"] == store.game_state.performance_rating or (note["event_flag"] in store.event_flags):
+                text note["text"]
+    frame:
+        textbutton "X" activate_sound "rustle.wav" action Hide("zoomed_note", None)
 
 screen zoomed_tv(data, index=0):
   modal True
