@@ -66,11 +66,12 @@ style vslider:
     base_bar Frame("gui/slider/vertical_[prefix_]bar.png", gui.vslider_borders, tile=gui.slider_tile)
     thumb "gui/slider/vertical_[prefix_]thumb.png"
 
-
 style frame:
     padding gui.frame_borders.padding
     background Frame("gui/frame.png", gui.frame_borders, tile=gui.frame_tile)
 
+style prompt_frame is frame:
+    background Frame("gui/prompt_frame.png", gui.frame_borders, tile=gui.frame_tile)
 
 
 ################################################################################
@@ -138,13 +139,6 @@ style window_nobox:
     yalign gui.textbox_yalign
     ysize gui.textbox_height
     background None
-
-style intro_prompt:
-    xalign 0.5
-    yalign gui.textbox_yalign
-    ysize gui.textbox_height
-    # background "images/screens/01-intro/intro-02.png"
-
 
 style namebox:
     xpos gui.name_xpos
@@ -1698,25 +1692,74 @@ screen message(sender, buttons=None):
           frame:
             textbutton button_text style "button_click" action Return(True)
 
+style dumb_frame:
+    xalign 0.5
+    yalign 0.5
+    xmaximum 1418
+    ymaximum 618
+    xpadding 3
+    ypadding 3
+
+
+
+# A helper to create borders for displayable but maybe not the best
+# keeping it here in case I come across a use case for this - HAB
+# init python:
+#     class Border(renpy.Displayable):
+#         def __init__(self, color = "#FFFFFF", border_width = 3):
+#             super(Border, self).__init__()
+#             self.color = color
+#             self.border_width = border_width
+
+#         def render(self, width, height, st, at):
+#             render = renpy.Render(width, height)
+
+#             print(render.get_size())
+
+#             xsize, ysize = (int(num) - 1 for num in render.get_size())
+
+#             # Draw the border
+#             render.place(Solid(self.color, xsize = xsize, ysize = self.border_width))  # Top border
+#             render.place(Solid(self.color, xsize = self.border_width, ysize = ysize), x = xsize - self.border_width - 1) # Right border
+#             render.place(Solid(self.color, xsize = xsize, ysize = self.border_width), y = ysize - self.border_width)# Bottom border
+#             render.place(Solid(self.color, xsize = self.border_width, ysize = ysize), x = - 1) # Right border
+
+#             return render
+    
+#     def create_border(inner, color, border_width):
+#         return Frame(image = Solid("#000000"), xpadding=10, ypadding=10, child = Frame(Solid(color, alpha = 0.5), xpadding=10, ypadding=10, child=inner))
+
+
 screen dream(dream_text, buttons):
     python:
         if buttons == None or len(buttons) <= 0:
             buttons = ["Next"]
-    window id 'content':
-        style "intro_prompt"
-        xmaximum 1600
-        ymaximum 1200
-        hbox id 'text':
+    image "images/dataville_logo_white.svg":
+        xalign 0.5
+        yalign 0.1R
+    frame id 'content':
+        style "prompt_frame"
+        xalign 0.5
+        yalign 0.5
+        xmaximum 1419
+        ymaximum 619
+        vbox id 'text':
             yalign 0.4
             xalign 0.5
-            text dream_text 
+            text dream_text: 
+                color "#FFFFFF"
         hbox id 'buttons':
             yalign 0.8
             xalign 0.5
             spacing 15
             for button_text in buttons:
                 frame:
-                    textbutton button_text style "button_click" action Return(True)
+                    style "prompt_frame"
+                    button:
+                        text button_text:
+                            color "#FFFFFF"
+                        style "button_click"
+                        action Return(True)
 
 screen assistant:
    window id 'content':
