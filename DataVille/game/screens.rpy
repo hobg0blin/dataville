@@ -1736,7 +1736,7 @@ screen dream(dream_text, buttons):
             buttons = ["Next"]
     image "images/dataville_logo_white.svg":
         xalign 0.5
-        yalign 0.1R
+        yalign 0.1
     frame id 'content':
         style "prompt_frame"
         xalign 0.5
