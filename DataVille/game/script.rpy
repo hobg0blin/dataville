@@ -456,6 +456,20 @@ init python:
       case = 3
     return case
 
+  def blur_master():
+    renpy.show_layer_at(blur)
+    renpy.with_statement({'master' : Dissolve(0.15)})
+  
+  def unblur_master():
+    renpy.show_layer_at(unblur)
+    renpy.with_statement({'master' : Dissolve(0.15)})
+
+
+transform blur:
+  blur 30
+    
+transform unblur:
+  blur 0
 
 # The game starts here.
 
@@ -463,17 +477,43 @@ label start:
     image bg start_screen = im.FactorScale("images/intro_desk.jpg", 1.5)
     image bg overlay_background = Solid('#EFF3E6')
     image bg black_bg = Solid('#FFFFFF')
-    scene bg overlay_background
 
-    scene bg start_screen
+
+    # v2 sequence
+    image intro_01 = "images/screens/01-intro/intro-01.png"
+    image intro_02 = "images/screens/01-intro/intro-02.png"
+    image bg gray_bg = Solid('#464645')
+
+    image zoom_seq:
+      xoffset 205
+      "images/screens/01-intro/title-into-trans.png"
+      pause 1.2
+      parallel:
+        easeout_quad 3 xoffset 0
+      # "images/screens/01-intro/intro-00.png"
+      parallel:
+        easeout_quad 3 zoom 1.5
+      parallel:
+        easeout_quad 3 yoffset config.screen_height/3.5
+
+    scene bg gray_bg
+    show zoom_seq
+    $renpy.pause(4, hard=True)
+    show intro_01 with Dissolve(1.0)
     pause
+    show intro_02 with Dissolve(0.2)
+    pause
+
     # show standard dialogue box - only for news chyrons
     $ show_window = True
 
     label intro:
 #      manual stuff for game start
 #      image bg apartment_1 = im.FactorScale("images/room/room/room_" + store.apartment_data["apartment_background"] + ".jpg", 1.5)
-      scene bg black_bg
+      # scene bg black_bg
+
+      $ blur_master()
+      
       $ dream_counter = 0
       $ dream_len = len(store.apartment_data['dream'])
       while dream_counter < dream_len:
@@ -482,7 +522,20 @@ label start:
             call screen dream(dream['text'], dream['buttons'])
         $ dream_counter += 1
 
-      image bg apartment_1 = im.FactorScale("images/room/room/room_bg.png", 0.5)
+      $ unblur_master()
+
+      image desk_overhead = "images/desk_overhead.png"
+      scene desk_overhead
+      pause
+
+      image job_page = "images/job_page.png"
+      scene job_page
+
+      call screen job_offer(1)
+
+      call screen job_offer(2)
+
+      image bg apartment_1 = "images/apartment/apartment3_1.png"
       
       scene bg apartment_1
       play music "dataville_apartment_neutral.wav"
@@ -499,6 +552,7 @@ label start:
         jump interstitial
 
     play music "dataville_workspace_neutral.wav" fadein 2.0
+    
     if store.game_state.day == 0:
         show dataville_intro
         pause
