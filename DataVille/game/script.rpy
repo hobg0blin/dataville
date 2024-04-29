@@ -1,4 +1,4 @@
-﻿# The s]cript of the game goes in this file performance.
+﻿# The s]cript of the game goes in tcustom_feedbacup file performance.
 
 # Declare characters used by this game. The color argument colorizes the
 # name of the character.
@@ -42,8 +42,10 @@ init:
   image dark_green = Solid("#136366")
   image bg black = Solid("#000000")
   image supervisor = "images/icons/supervisor.png"
+  image cogni = "images/icons/asst_normal.png"
   image side supervisor = "images/icons/supervisor.png"
   define e_big = Character("", image="supervisor", kind=bubble)
+  define custom_feedback_speaker = Character("", image="cogni", kind=bubble)
 ##ALL THE PYTHON SETUP GOES HERE
 init python:
   import random
@@ -52,6 +54,7 @@ init python:
   import re
   import operator
   import os
+  from textwrap import wrap
 
   store.drags = {}
   store.loop = {}
@@ -568,11 +571,19 @@ label start:
       while cleaned['message']:
         python:
           message = cleaned['message'].pop(0)
+          n = 120
           text = message['text']
-        show screen message(message['sender'], message['buttons'])
-        window hide
-        e_big "[text]"
-        hide screen message
+          split = wrap(text, n)
+          print('split: ', split)
+          length = len(split)
+          count = 0
+        while count < length:
+          show screen message(message['sender'], message['buttons'])
+          $ text = split[count]
+          e_big "[text]"
+          $ count += 1
+          window hide
+          hide screen message
 #manually set task & variables for first loop
     $ time = store.game_state.ui['timer']
 
@@ -593,11 +604,19 @@ label start:
           while cleaned['message']:
             python:
               message = cleaned['message'].pop(0)
+              n = 120
               text = message['text']
-            show screen message(message['sender'], message['buttons'])
-            window hide
-            e_big "[text]"
-          hide screen message
+              split = wrap(text, n)
+              print('split: ', split)
+              length = len(split)
+              count = 0
+            while count < length:
+              show screen message(message['sender'], message['buttons'])
+              $ text = split[count]
+              e_big "[text]"
+              $ count += 1
+              window hide
+              hide screen message
       python:
 # CLEAR IMAGE VARIABLES
       # FIXME: should clean up variable resetting a bit better
@@ -613,7 +632,7 @@ label start:
         show screen message(task['custom_dialogue_sender'], ["Next"])
         $ custom_dialogue = task['custom_dialogue']
         window hide
-        e_big "[custom_dialogue]"
+        custom_feedback_speaker "[custom_dialogue]"
         hide screen message
 
 
@@ -670,9 +689,9 @@ label start:
       if has_custom_feedback:
         show screen message(custom_feedback_sender, ["Continue"])
         window hide
-        e_big "[custom_feedback]"
+        custom_feedback_speaker "[custom_feedback]"
         hide screen message 
-      call screen overlay (store.game_state.ui, True, "Next!")
+      #show screen overlay (store.game_state.ui, True)
       if (task == 'break'):
         $ day_end()
         call interstitial from _call_interstitial
@@ -693,18 +712,30 @@ label start:
         #NEW UI STATE
         $ cleaned = clean(store.apartment_data)
         while cleaned['message']:
-          python:
-            message = cleaned['message'].pop(0)
-            text = message['text']
-            buttons = None
-            if 'button_1_text' in message:
-              buttons = [message['button_1_text']]
-            if 'button_2_text' in message:
-              buttons.append(message['button_2_text'])
-          show screen message(message['sender'], message['buttons'])
-          window hide
-          e_big "[text]"
-          hide screen message
+            python:
+              message = cleaned['message'].pop(0)
+              n = 120
+              text = message['text']
+              split = wrap(text, n)
+              print('split: ', split)
+              length = len(split)
+              count = 0
+            while count < length:
+              python:
+                buttons = None
+                if 'button_1_text' in message:
+                  buttons = [message['button_1_text']]
+                if 'button_2_text' in message:
+                  buttons.append(message['button_2_text'])
+              if count == length - 1:
+                show screen message(message['sender'], buttons)
+              else:
+                 show screen message(message['sender'])
+              $ text = split[count]
+              e_big "[text]"
+              $ count += 1
+              window hide
+              hide screen message
 
 #      else:
       hide screen overlay

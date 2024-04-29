@@ -1680,6 +1680,8 @@ screen message(sender, buttons=None):
       avatar = "images/icons/supervisor.png" 
     elif sender == 'stranger':
       avatar = "images/icons/asst_normal.png"
+    elif sender == 'cogni':
+      avatar = "images/icons/asst_normal.png"
     else:
       avatar = "images/icons/asst_normal.png"
   window id 'content':
@@ -1687,7 +1689,7 @@ screen message(sender, buttons=None):
     xmaximum 1600
     hbox id 'avatar':
       xalign 0.3
-      yalign 0.75
+      yalign 0.55
       image avatar
     if buttons != None:
       hbox id 'buttons':
@@ -1966,13 +1968,13 @@ screen binary_text(task):
       xmaximum 900
       ymaximum 900
       xalign 0.75
-      yalign 0.4
+      yalign 0.1
       vbox id 'text_block':
         text '{size=-3}'+ task['text_block']
   hbox id 'done':
     xmaximum 900
     xalign 0.45
-    yalign 0.7
+    yalign 0.8
 
 
     spacing 20
@@ -2070,19 +2072,23 @@ screen caption_image(task, images):
             image im.Scale(f"{images[0]}", 300, 300)
 
   frame:
+    style "window_nobox"
     xalign 0.5
     yalign 0.65
     ymaximum 900
     vbox:
+         spacing 20
          for idx, i in enumerate(label_order):
-          $ box = task['labels'][i]
-          textbutton('{size=-3}'+ box['text']):
-              style "button_click" 
-              xpos 0 ypos 0
-              action [SetVariable("latest_choice", task['labels'][i]['name']), Return(True)]
-          python:
-            box['xpos'] = start_x_text
-            box['ypos'] = int(start_y_text) + (50*idx)
+          frame:
+              xalign 0.5
+              $ box = task['labels'][i]
+              textbutton('{size=-3}'+ box['text']):
+                  style "button_click" 
+                  xpos 0 ypos 0
+                  action [SetVariable("latest_choice", task['labels'][i]['name']), Return(True)]
+              python:
+                box['xpos'] = start_x_text
+                box['ypos'] = int(start_y_text) + (50*idx)
             # for some reason if i increase start_y in here it loops when the timer is repeating. this seems insane to me and i would like to find out why (e.g if put start_y += 50 here)
 screen sentiment_text(task):
   zorder 1
@@ -2108,13 +2114,13 @@ screen sentiment_text(task):
     frame id 'textbox':
         style "window_nobox"
         xpos 450
-        ypos 550
-        xsize 300
+        ypos 250
+        xsize 500
         text f"{task['text_block']}"
 
   vbox:
     xalign 0.5
-    yalign 0.5
+    yalign 0.6
     ymaximum 900
     spacing 10
     for idx, i in enumerate(label_order):
