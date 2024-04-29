@@ -46,6 +46,8 @@ init:
   image side supervisor = "images/icons/supervisor.png"
   define e_big = Character("", image="supervisor", kind=bubble)
   define custom_feedback_speaker = Character("", image="cogni", kind=bubble)
+  define news_anchor = Character("News Anchor", image="images/news_anchor.jpg")
+  define victor = Character("Victor", image="images/victor.avif")
 ##ALL THE PYTHON SETUP GOES HERE
 init python:
   import random
@@ -477,6 +479,8 @@ transform unblur:
 # The game starts here.
 
 label start:
+
+    play music "dataville_apartment_neutral.wav"
     image bg start_screen = im.FactorScale("images/intro_desk.jpg", 1.5)
     image bg overlay_background = Solid('#EFF3E6')
     image bg black_bg = Solid('#FFFFFF')
@@ -486,6 +490,7 @@ label start:
     image intro_01 = "images/screens/01-intro/intro-01.png"
     image intro_02 = "images/screens/01-intro/intro-02.png"
     image bg gray_bg = Solid('#464645')
+    image bg news_bg = "images/news_bg.png"
 
     image zoom_seq:
       xoffset 205
@@ -506,9 +511,20 @@ label start:
     pause
     show intro_02 with Dissolve(0.2)
     pause
-
+    scene bg news_bg
     # show standard dialogue box - only for news chyrons
     $ show_window = True
+    news_anchor "Good evening, and welcome to our program."
+    news_anchor "Tonight, hiding in the shadows. What the alien menace means for you and your family. I’m joined by Victor Willmington, founder and CEO of the Dataville Corporation. "
+    news_anchor "Tell me Victor, how does your company see the ongoing alien migratory crisis?"
+    victor "Where you see a crisis, we at Dataville see an opportunity. This is our chance to restore human society to a safer, simpler time."
+    victor "With our patented alien identification AI technology, we’re able to accurately penetrate alien camouflage."
+    news_anchor "And you’ve found active partners in the public sector?"
+    victor "That’s right. Our clients include the Departments of Defense and State, as well as private enterprises looking to ensure their communities are 100 percent human."
+    news_anchor "And what do you say to your critics who accuse the Dataville Corporation of exacerbating racial tensions with the aliens?"
+    victor "Earth was meant for humans. If they have nothing to hide, why are they using camouflage?"
+
+    scene bg gray_bg with Dissolve(1.0)
 
     label intro:
 #      manual stuff for game start
@@ -541,7 +557,6 @@ label start:
       image bg apartment_1 = "images/apartment/apartment3_1.png"
       
       scene bg apartment_1
-      play music "dataville_apartment_neutral.wav"
       call screen apartment(clean(store.apartment_data), store.game_state.time)
       hide screen apartment
     # hide dialogue box

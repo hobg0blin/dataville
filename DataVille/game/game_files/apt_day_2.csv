@@ -4,7 +4,7 @@ Alex T Manager @ Dataville”",message,default,end,cogni,,,Got it.,Ugh. Here we
 2,"Alex T Manager @ DataVille
 Subject: Performance Review
 
-You’ve done it again! Your performance ratings are eligible for the incentive bonus. Based on your exceptional levels of accuracy and speed, we’re going to begin giving you more important (and difficult) assignments. Please keep up the great work. Humanity is depending on you. 
+You’ve done it again! Your performance is eligible for the incentive bonus. Keep up the great work. Humanity is depending on you. 
 
 Happy labeling!
 -Alex T
@@ -12,7 +12,7 @@ Happy labeling!
 2,"Alex T Manager @ DataVille
 Subject: Performance Review
 
-Thanks for all your hard work. Take a moment to review your metrics. There are some parts that could be improved. Unfortunately, your performance is not eligible for an incentive bonus at this time. Let’s try to raise those scores on the next set. It will be more challenging, so keep at it. Humanity is depending on you.
+Unfortunately, your performance is not eligible for an incentive bonus. Let’s try to raise those scores on the next set. Humanity is depending on you.
 
 Happy labeling!
 -Alex T
@@ -20,7 +20,7 @@ Happy labeling!
 2,"Alex T Manager @ DataVille
 Subject: Performance Review
 
-I’ve been reviewing your output and I’m disappointed to say your performance metrics are ranking poorly. Let me know if there’s anything I can do to get those numbers up. If these low numbers continue, we’ll need to make a performance improvement plan. Please take your time and do your best. Humanity is depending on you. 
+I’m disappointed in your poor performance. Please take your time and do your best. Humanity is depending on you. 
 
 Happy labeling!
 -Alex T
@@ -30,14 +30,14 @@ ARE YOU GETTING THESE? @ [source_undefined]”",message,default,end,cogni,,,Thi
 2,"“ARE YOU GETTING THESE? @ [source_undefined]
 Subject: VERY IMPORTANT!
 
-“The AI detection is the key. If they can’t detect us, they can’t get us! Please do everything you can to undercut their accuracy! Your choices give them power! We have families. We have feelings just like–”
+“The AI detection is the key. If you don't label us, they can’t get capture us! Please! We have families! We're just like–”
 
 The message terminates abruptly.
 ",message,default,end,stranger,,,Back to work!,I’ll think about that.,
 2,"You have a work message from:
 Tim 18/48 @ Dataville
 ",message,default,end,cogni,,,What’s all this?,,
-2,"As a reminder, extracurricular activities and non-work related subjects are forbidden in the employee code of conduct.",message,default,end,cogni,,,"Thanks, Cogni.",*Shrug*,
+2,"As a reminder, extracurricular conversations and non-work related subjects are forbidden by the employee code of conduct.",message,default,end,cogni,,,"Thanks, Cogni.",*Shrug*,
 2,"Tim 18/48 @ DataVille
 Subject: Improving Working Conditions
 
@@ -45,10 +45,8 @@ Hi. I’m Tim. I’m an image labeler. Have you had any strange experiences with
 -Harsh write-ups over trivial or inconsistent criticism.
 -Labelers not receiving their paychecks (or not getting the full amount).
 -Sudden and unexplained firings.
--Labelers not receiving their final paycheck (sometimes upwards of 2k unpaid!).
 
-
-Our group intends to take these findings to management and file an official complaint. Can we count on your support?
+We intend to take these findings to management and file an official complaint. Can we count on your support?
 
 In solidarity,
 -Tim (section 18, cohort 48)

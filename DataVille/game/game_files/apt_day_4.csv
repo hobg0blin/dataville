@@ -15,7 +15,7 @@ Thanks for all your hard work. At this time, I am excited to announce we will be
 
 Wrangler / Tagger
 
-If we find your skills to be a match, we’ll be sure to reach out.
+If your skills are a match, we’ll be sure to reach out.
 
 Thank you.
 -Alex T",message,neutral,end,supervisor,,,Time to find a new job!,,
@@ -48,7 +48,7 @@ You have no idea how much you’ve helped us. We can finally integrate without t
 ",message,bad,end,stranger,,,You’re welcome!,I’ll think about that.,
 4,"You have a work message from:
 Tim 18/48 @ Dataville",message,default,end,cogni,,,,,
-4,"As a reminder, extracurricular activities and non-work related subjects are forbidden in the Employee Code of Conduct. These messages are monitored as a part of DataVille’s commitment to creating a transparent and positive work environment.",message,default,end,cogni,,,Read the message.,,
+4,"As a reminder, extracurricular conversations and non-work related subjects are forbidden by the employee code of conduct.",message,default,end,cogni,,,Read the message.,,
 4,"Tim 18/48 @ DataVille
 Subject: Vote Results.
 
