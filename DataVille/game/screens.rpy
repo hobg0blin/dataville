@@ -1793,6 +1793,9 @@ screen job_offer(phase):
                 text '\n' * counter + cleaned:
                     color "#FFFFFF"
                 $ counter += 1
+            python:
+                text_file.close()
+                del text_file
             button:
                 xsize 579
                 ysize 94
@@ -1805,7 +1808,6 @@ screen job_offer(phase):
                 style "prompt_frame"
                 activate_sound "click.wav"
                 action Return(True)
-
 
 screen assistant:
    window id 'content':
@@ -2282,11 +2284,10 @@ screen zoomed_tv(data, index=0):
       index = result[1]
       index +=1
 
-    image Transform(item["image"], size=(1000,1000)) xpos 600 ypos 200
-    image Transform("images/room/room/tv.png", size=(2000, 1400))
+    image item["image"]
   window:
     imagebutton idle 'gui/textbox.png' activate_sound "remote.ogg" action Show("zoomed_tv", None, data, index)
-    textbutton item["text"].upper() xpos 400 yalign 0.45 activate_sound "remote.ogg" action Show("zoomed_tv", None, data, index)
+    # textbutton item["text"].upper() xpos 400 yalign 0.45 activate_sound "remote.ogg" action Show("zoomed_tv", None, data, index)
   frame:
     textbutton "X" activate_sound "tv_2.wav" action Hide("zoomed_tv", None)
 
