@@ -561,6 +561,8 @@ label start:
       hide screen apartment
     # hide dialogue box
     $ show_window = False
+    scene bg gray_bg with Dissolve(1.0)
+
     call screen dream("", ["Your first day at a new job"])
     call screen dream("", ["Try not to screw it up."])
     call screen dream("", ["You really need the money."])
@@ -768,6 +770,7 @@ label start:
                 $ dream = store.apartment_data['dream'][dream_counter]
                 if dream['time'] != 'start':
                     hide screen apartment
+                    scene bg gray_bg with Dissolve(1.0)
                     call screen dream(dream['text'], dream['buttons'])
                 $ dream_counter += 1
             python:
@@ -786,6 +789,7 @@ label start:
           "game state is broken!!!"
       else:
         return
+    scene bg gray_bg with Dissolve(1.0)
     call screen dream(get_epilogue(), ['Continue'])
     call screen dream('Thank you for playing DataVille!\na more human world\none click at a time', ['Restart'])
     # This ends the game.
