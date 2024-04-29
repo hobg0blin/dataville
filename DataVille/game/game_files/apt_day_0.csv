@@ -19,12 +19,12 @@ We look forward to working with you. Utilize your natural instincts, perspective
 
 Happy labeling! 
 -Alex T",message,default,start,supervisor,,,,,
-0,Aliens among us!,news,default,start,,tv_content,kiss.png,,,
-0,Gig economy expected to continue strong growth.,news,default,start,,tv_content,kiss.png,,,
-0,Oldest woman alive turns 118.,news,default,start,,,,,,
-0,Cleveland zoo welcomes birth of new pandas.,news,default,start,,,,,,
-0,Experts testify before congress on illegal aliens.,news,default,start,,,,,,
-0,White collar unemployment hits new level.,news,default,start,,,,,,
+0,Aliens among us!,news,default,start,,tv_content/day0,1.png,,,
+0,Gig economy expected to continue strong growth.,news,default,start,,tv_content/day0,2.png,,,
+0,Oldest woman alive turns 118.,news,default,start,,tv_content/day0,3.png,,,
+0,Cleveland zoo welcomes birth of new pandas.,news,default,start,,tv_content/day0,4.png,,,
+0,Experts testify before congress on illegal aliens.,news,default,start,,tv_content/day0,5.png,,,,,
+0,White collar unemployment hits new level.,news,default,start,,tv_content/day0,6.png,,,,,
 0,-Mitten vet appointment,sticky_note,default,start,,,,,,
 0,-Call mom back,sticky_note,default,start,,,,,,
 0,-Pay rent,sticky_note,default,start,,,,,,
@@ -39,13 +39,7 @@ Answer the questions quickly.
 Answer the questions accurately. 
 Labelers with the high ratings & speed will receive incentive bonuses!",message,default,start,cogni,,,"Thanks, Cogni",Ugh. I hate AI.,
 0,Here’s a practice run to get you started!,message,default,start,cogni,,,Here goes nothing...,,
-0,Senator proposes ‘Resettlement Zone’ for alien migrants.,news,default,end,,,,,,
-0,Got a tip? New hotline for alien identification is open now!,news,default,end,,,,,,
-0,AI blamed for new white collar unemployment figures.,news,default,end,,,,,,
-0,Congress tackles the question of alien rights.,news,default,end,,,,,,
-0,Chef Tony’s wows DC diners!,news,default,end,,,,,,
-0,Exclusive: celebrity weight loss secret.,news,default,end,,,,,,
-0,Department of Defense continues privatization initiative.,news,default,end,,,,,,
+
 0,That was fantastic! Keep up the great work!,message,good,end,cogni,,,Off to a great start!,,
 0,"Your performance so far is average. Let's try to get those metrics up!
 ",message,neutral,end,cogni,,,Off to a rough start.,,

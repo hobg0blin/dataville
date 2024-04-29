@@ -2274,22 +2274,26 @@ screen zoomed_note(data):
         textbutton "X" activate_sound "rustle.wav" action Hide("zoomed_note", None)
 
 screen zoomed_tv(data, index=0):
-  modal True
-  frame:
+    modal True
     python:
-# advance through news items
-      result = setitem(data, index)
-      print('result: ', result)
-      item = result[0]
-      index = result[1]
-      index +=1
+    # advance through news items
+        result = setitem(data, index)
+        print('result: ', result)
+        item = result[0]
+        index = result[1]
+        index +=1
 
-    image item["image"]
-  window:
-    imagebutton idle 'gui/textbox.png' activate_sound "remote.ogg" action Show("zoomed_tv", None, data, index)
-    # textbutton item["text"].upper() xpos 400 yalign 0.45 activate_sound "remote.ogg" action Show("zoomed_tv", None, data, index)
-  frame:
-    textbutton "X" activate_sound "tv_2.wav" action Hide("zoomed_tv", None)
+    image item["image"] xsize 1920 ysize 1080
+    # window:
+    imagebutton:
+        xpos 483 ypos 108
+        xsize 1092 ysize 870
+        activate_sound "remote.ogg"
+        idle Solid("#00000000")
+        hover Solid("#d3a95620")
+        action Show("zoomed_tv", None, data, index)
+    frame:
+        textbutton "X" activate_sound "tv_2.wav" action Hide("zoomed_tv", None)
 
 screen zoomed_window(data):
   modal True

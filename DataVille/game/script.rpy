@@ -273,11 +273,11 @@ init python:
   task = store.loop['start_task']
 
 
- # update state with "outcomes" attribute from current loop, based on
- # performance. should always take the form of {1: (BEST OUTCOME), 2: (MEDIUM
- # OUTCOME), 3: (WORST OUTCOME)}
- # TODO: account for "ethical" vs. "correct" result
- # SCORING FUNCTIONS
+# update state with "outcomes" attribute from current loop, based on
+# performance. should always take the form of {1: (BEST OUTCOME), 2: (MEDIUM
+# OUTCOME), 3: (WORST OUTCOME)}
+# TODO: account for "ethical" vs. "correct" result
+# SCORING FUNCTIONS
 
   def performance_feedback(out):
       good = ["You’re really doing it!", "You’re labeling faster than 81% of DataVille Annotators!", "Great accuracy!", "Keep it up!", "Aim for that performance incentive!"]
@@ -336,7 +336,7 @@ init python:
         dependencies = next_task['event_flag_dependency'].split(',')
         next_task = check_dependencies(dependencies, next_task)
         print('next task: ', next_task)
- # UPDATE UI VARIABLES 
+# UPDATE UI VARIABLES 
     reward = int(current_task['payment'])/out
 
     performance = performance_feedback(out)
