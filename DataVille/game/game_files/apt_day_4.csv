@@ -77,15 +77,15 @@ Can we count on your support?
 In solidarity,
 -Tim (section 18, cohort 48)
 ",message,flag_dependent,end,union,,,I'll join the union afterall!,I'm staying out of this.,Flag_voted_for_union
-4,Alien mothership arrives. Vows ‘reckoning!’,news,default,end,,tv_content,,,,
+4,Alien mothership arrives. Vows ‘reckoning!’,news,default,end,,tv_content/day4,1.png,,,
 4,"Panic buying shuts down big box stores.
-",news,default,end,,tv_content,,,,
-4,Economy tumbles on immigration concerns.,news,default,end,,tv_content,,,,
-4,President invokes martial law to combat rioting.,news,good,end,,tv_content,,,,
-4,Protests at Cleveland Zoo’s Alien Exhibit.,news,bad,end,,tv_content,,,,
-4,Religious leader says ‘the end is near!’,news,good,end,,tv_content,,,,
-4,Detroit welcomes new visitors with ‘Space Festival.’,news,bad,end,,tv_content,,,,
-4,Beautiful celebrity exposed in alien love triangle.,news,default,end,,tv_content,,,,
+",news,default,end,,tv_content/day4,2.png,,,
+4,Economy tumbles on immigration concerns.,news,default,end,,tv_content/day4,3.png,,,
+4,President invokes martial law to combat rioting.,news,good,end,,tv_content/day4,4-good.png,,,
+4,Protests at Cleveland Zoo’s Alien Exhibit.,news,bad,end,,tv_content/day4,4-bad.png,,,
+4,Religious leader says ‘the end is near!’,news,good,end,,tv_content/day4,5-good.png,,,
+4,Detroit welcomes new visitors with ‘Space Festival.’,news,bad,end,,tv_content/day4,5-bad.png,,,
+4,Beautiful celebrity exposed in alien love triangle.,news,default,end,,tv_content/day4,6.png,,,
 4,Pack ASAP,sticky_note,bad,end,,,,,,
 4,Thank you notes,sticky_note,good,end,,,,,,
 4,Goodwill,sticky_note,bad,end,,,,,,
