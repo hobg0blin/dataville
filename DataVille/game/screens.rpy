@@ -264,8 +264,9 @@ screen quick_menu():
 
 ## This code ensures that the quick_menu screen is displayed in-game, whenever
 ## the player has not explicitly hidden the interface.
-init python:
-    config.overlay_screens.append("quick_menu")
+# we're not doing that now
+# init python:
+#     config.overlay_screens.append("quick_menu")
 
 default quick_menu = True
 
@@ -2276,6 +2277,9 @@ screen zoomed_note(data):
 screen zoomed_tv(data, index=0):
     modal True
     python:
+        if store.game_state.day == 0 and store.game_state.time == "end":
+            print(data['news'][0])
+            index = data["news"].index(next(filter(lambda n: n.get('time') == 'end', data['news'])))
     # advance through news items
         result = setitem(data, index)
         print('result: ', result)
@@ -2293,6 +2297,7 @@ screen zoomed_tv(data, index=0):
         hover Solid("#d3a95620")
         action Show("zoomed_tv", None, data, index)
     frame:
+        style "intro_prompt"
         textbutton "X" activate_sound "tv_2.wav" action Hide("zoomed_tv", None)
 
 screen zoomed_window(data):

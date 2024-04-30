@@ -4,17 +4,17 @@ Alex T Manager @ Dataville
 ",message,default,end,cogni,,,Got it.,Ugh. Here we go…,
 3,"Subject: Performance Review
 
-Excellent work! Your performance ratings are eligible for the incentive bonus. Congratulations!
+Excellent work! Your performance is eligible for the incentive bonus. Congratulations!
 
-We’re going to continue giving you more important (and difficult) assignments. Please keep up the great work. 
+Please keep up the great work. 
 
 Happy labeling!
 -Alex T
 ",message,good,end,supervisor,,,Oh wait! There's more!,,
-3,"P.S. It’s come to our attention that some employees are using the employee messaging service for unauthorized activities. Unauthorized activities include:
+3,"P.S. It’s come to our attention that some employees are using the employee messaging service for unauthorized activities such as:
 -Non-work related subjects.
 -Organizing events or extra-curricular groups.
--Talking about personal matters or gossiping at work. 
+-Talking about personal matters. 
 *Please note this includes discussing pay rates.*
 ",message,good,end,supervisor,,,I'll keep that in mind!,That makes my head hurt!,
 3,"Subject: Performance Review
@@ -29,10 +29,10 @@ Happy labeling!
 -Organizing events or extra-curricular groups.
 -Talking about personal matters or gossiping at work. 
 *Please note this includes discussing pay rates.*
-",message,neutral,end,supervisor,,,I'll keep that in mind!,That hurts my head!,
+Violators will be subject to disciplinary measures. Thank you. ",message,neutral,end,supervisor,,,I'll keep that in mind!,That hurts my head!,
 3,"Subject: Performance Review
 
-I’ve been reviewing your output and the administrative team has decided to implement a performance improvement plan. If these low numbers continue, your position with DataVille may be terminated. Please review our employee handbook for more information.
+This is your official notice: if these low numbers continue, your position with DataVille may be terminated. Please review our employee handbook for more information.
 
 Happy labeling!
 -Alex T
@@ -42,7 +42,7 @@ Happy labeling!
 -Organizing events or extra-curricular groups.
 -Talking about personal matters or gossiping at work. 
 *Please note this includes discussing pay rates.*
-",message,bad,end,supervisor,,,I'll keep that in mind!,That hurts my head!,
+Violators will be subject to disciplinary measures. Thank you. ",message,bad,end,supervisor,,,I'll keep that in mind!,That hurts my head!,
 3,"You have a work message from:
 NOT TOO LATE @ [source_undefined]
 ",message,good,end,cogni,,,This looks weird.,,
@@ -51,7 +51,7 @@ Subject: Please consider
 
 Why can’t you have compassion for us? Our planet is uninhabitable. We have nowhere else to go. 
 
-If you won’t help us out of the goodness of your heart, consider this: we’re not helpless victims. We have tricks up our sleeves. The balance will shift someday–”
+If you won’t help us out of the goodness of your heart, consider this: we’re not helpless. The balance will shift someday–”
 
 “The message terminates abruptly.”
 ",message,good,end,stranger,,,Back to work!,I’ll think about that.,
@@ -61,7 +61,7 @@ HELP! @ [source_undefined]
 3,"NOT TOO LATE @ [source_undefined]
 Subject: Please consider
 
-""I know this is a lot to ask, but we don’t have anywhere else to turn. Our planet is uninhabitable. Many more of us are coming. Please. I’ll do anything. You have to change the algorithm to be less human-centric. I can make it worth your while! What do you want?”
+""Our planet is uninhabitable. Many more of us are coming. Please mislabel. I can make it worth your while! What do you want?”
 
 The message terminates abruptly.
 ",message,neutral,end,stranger,,,Back to work!,I’ll think about that.,
@@ -78,28 +78,28 @@ The message terminates abruptly.
 3,"You have a work message from:
 Tim 18/48 @ Dataville
 ",message,default,end,cogni,,,,,
-3,"As a reminder, extracurricular activities and non-work related subjects are forbidden in the employee code of conduct. These messages are monitored as a part of DataVille’s commitment to creating a transparent and positive work environment.",message,default,end,cogni,,,Read the message.,,
+3,"As a reminder, extracurricular conversations and non-work related subjects are forbidden by the employee code of conduct.",message,default,end,cogni,,,Read the message.,,
 3,"Tim 18/48 @ DataVille
 Subject: Collective Bargaining Agreement.
 
-“Hi. I’m sorry to say that management completely disregarded our concerns. Several members of our group who spoke at the presentation were dismissed for “breaching the code of conduct.”  Management won’t admit it explicitly, but these are obviously reprisal firings.
+“I’m sorry to say that management completely disregarded our concerns. Several members of our group who spoke at the presentation were dismissed for “breaching the code of conduct.”  These are obviously reprisal firings.
 
 This only strengthens the need to bargain collectively and strengthens our resolve to do so. 
 
-Accordingly, we have begun the formal process of forming a labelers and annotators union at DataVille. This involves getting signatures from a majority of the workers. Currently, the results are going to be very close. Your vote could make all the difference in whether or not we ultimately unionize. Can we count on your support?
+Accordingly, we have begun the formal process of forming a union at DataVille. This involves getting signatures from a majority of the workers. Currently, the results are going to be very close. Can we count on your support?
 
 In solidarity,
 -Tim (section 18, cohort 48)
 ",message,default,end,union,,,I'll vote for a union.,I'm staying out of this.,Flag_voted_for_union
-3,Breaking: National Guard suppresses alien rioting.,news,good,end,,tv_content,,,,
-3,Senate moves to shutter all Resettlement Zones.,news,bad,end,,tv_content,,,,
-3,Rapid AI detection apprehends alien,news,good,end,,tv_content,,,,
-3,Rapid AI Detection technology decried by DC protestors.,news,bad,end,,tv_content,,,,
-3,Assassination of alien leader sparks fears of wider conflict.,news,good,end,,tv_content,,,,
-3,Pope offers to mediate with alien leaders.,news,bad,end,,tv_content,,,,
-3,First Lady throws birthday bash.,news,default,end,,tv_content,,,,
-3,AI detection reveals record number of camouflaged aliens.,news,good,end,,tv_content,,,,
-3,Senator argues for ‘inclusive integration.’,news,bad,end,,tv_content,,,,
+3,Breaking: National Guard suppresses alien rioting.,news,good,end,,tv_content/day3,1-good.png,,,
+3,Senate moves to shutter all Resettlement Zones.,news,bad,end,,tv_content/day3,1-bad.png,,,
+3,Rapid AI detection apprehends alien,news,good,end,,tv_content/day3,2-good.png,,,
+3,Rapid AI Detection technology decried by DC protestors.,news,bad,end,,tv_content/day3,2-bad.png,,,
+3,Assassination of alien leader sparks fears of wider conflict.,news,good,end,,tv_content/day3,3-good.png,,,
+3,Pope offers to mediate with alien leaders.,news,bad,end,,tv_content/day3,3-bad.png,,,
+3,First Lady throws birthday bash.,news,default,end,,tv_content/day3,4.png,,,
+3,AI detection reveals record number of camouflaged aliens.,news,good,end,,tv_content/day3,5-good.png,,,
+3,Senator argues for ‘inclusive integration.’,news,bad,end,,tv_content/day3,5-bad.png,,,
 3,Place for ashes,sticky_note,bad,end,,,,,,
 3,yoga,sticky_note,good,end,,,,,,
 3,Side hustle?,sticky_note,bad,end,,,,,,

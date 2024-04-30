@@ -3,19 +3,19 @@ DAY,TEXT,TYPE,PERFORMANCE,TIME,SENDER,IMAGE_FOLDER,IMAGE,BUTTON_1_TEXT,BUTTON_2_
 Alex T Manager @ Dataville",message,default,end,cogni,,,Got it.,Ugh. Here we go…,
 1,"Subject: Performance Review
 
-Great work! Your performance ratings are eligible for the incentive bonus. The next set of questions will be more challenging. Keep up the good work.
+Great work! Your performance ratings are eligible for the incentive bonus. Keep up the good work.
 
 Happy labeling!
 -Alex T",message,good,end,supervisor,,,A hard day’s work!,,
 1,"Subject: Performance Review
 
-This was a good start. Take a moment to review your metrics. You’ll see the areas that need improvement. Remember that labelers with higher performance scores will be eligible for incentive bonuses. The next set of questions will be more challenging. Keep at it.
+Your work needs improvement. Aim for the incentive bonuses. The next set of questions will be more challenging. 
 
 Happy labeling!
 -Alex T",message,neutral,end,supervisor,,,A hard day’s work!,,
 1,"Subject: Performance Review
 
-I’m a little concerned about your performance. As you can see, your performance metrics are ranking poorly. Unfortunately, your performance is not eligible for an incentive bonus at this time. Please take a moment to review the areas in which you can improve. 
+I’m a little concerned about your performance. Please take a moment to review the areas in which you can improve. 
 
 Happy labeling!
 -Alex T",message,bad,end,supervisor,,,A hard day’s work!,,
@@ -24,22 +24,22 @@ HELP! @ [source_undefined]",message,default,end,cogni,,,This looks weird.,,
 1,"HELP! @ [source_undefined]
 Subject: Don’t ignore this!
 
-If you’re getting this message, I need your help! Please don’t give any more correct answers! They’re using your Captcha baselines to find us.”
+If you’re getting this message, I need your help! Please don’t give any more correct answers! They’re using your Captcha to find us–”
 
 The message terminates abruptly.
 ",message,default,end,stranger,,,Back to work!,I’ll think about that.,
-1,"Congratulations, you became the unabomber!",message,flag_dependent,end,stranger,,,Nice. Can't wait to move to a cabin in the woods.,,became_unabomber
-1,"Congratulations, you didn't become the unabomber!",message,flag_dependent,end,supervisor,,,Nice. Don't want to move to a cabin in the woods.,,not_unabomber
-1,Official opening of Montana Resettlement Zone.,news,default,end,,,,,,
-1,Immigration reform stalls over issue of illegal aliens.,news,good,end,,,,,,
-1,Congress makes progress on the legal status of aliens.,news,bad,end,,,,,,
-1,Scientists: alien camouflage 'amazing.’,news,default,end,,,,,,
-1,Economic data reveals low consumer confidence.,news,default,end,,,,,,
-1,Pope to consider ‘alien issue.”,news,default,end,,,,,,
-1,Oldest woman alive speaks out against aliens.,news,flag_dependent,end,,,,,,
-1,Oldest woman alive voices support for visitors.,news,bad,end,,,,,,
-1,Anti-immigration protests erupt over Federal proposals.,news,good,end,,,,,,
-1,Pro-alien rights groups gather in D.C.,news,bad,end,,,,,,
+1,You did what you felt was right. So why do you feel so anxious?,message,flag_dependent,end,stranger,,,Nice. Can't wait to move to a cabin in the woods.,,became_unabomber
+1,You're advancing in your job. So why do you feel conflicted?,message,flag_dependent,end,supervisor,,,Nice. Don't want to move to a cabin in the woods.,,not_unabomber
+1,Official opening of Montana Resettlement Zone.,news,default,end,,tv_content/day1,1.png,,,
+1,Immigration reform stalls over issue of illegal aliens.,news,good,end,,tv_content/day1,2-good.png,,,
+1,Congress makes progress on the legal status of aliens.,news,bad,end,,tv_content/day1,2-bad.png,,,
+1,Scientists: alien camouflage 'amazing.’,news,default,end,,tv_content/day1,3.png,,,
+1,Economic data reveals low consumer confidence.,news,default,end,,tv_content/day1,4.png,,,
+1,Pope to consider ‘alien issue.”,news,default,end,,tv_content/day1,5.png,,,
+1,Oldest woman alive speaks out against aliens.,news,flag_dependent,end,,tv_content/day1,6-good.png,,,
+1,Oldest woman alive voices support for visitors.,news,bad,end,,tv_content/day1,6-bad.png,,,
+1,Anti-immigration protests erupt over Federal proposals.,news,good,end,,tv_content/day1,7-good.png,,,
+1,Pro-alien rights groups gather in D.C.,news,bad,end,,tv_content/day1,7-bad.png,,,
 1,Mittens Follow-Up (results),sticky_note,default,end,,,,,,
 1,Clean apartment,sticky_note,default,end,,,,,,
 1,Request rent extension,sticky_note,bad,end,,,,,,

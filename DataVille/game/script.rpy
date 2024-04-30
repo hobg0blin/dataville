@@ -245,7 +245,8 @@ init python:
       return False
     #SET TV NEWS ITEMS
   def setitem(data, index):
-    length = len(data["news"])
+    length = len([x for x in data["news"] if x["time"] == store.game_state.time])
+    print('length: ', length)
     if index > length - 1:
         index = 0
     item = data["news"][index]
