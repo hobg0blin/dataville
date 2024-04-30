@@ -356,6 +356,7 @@ init python:
         else:
             print("dependency in event flags: ", cleaned_dep)
             next_task = next_task
+            break
     return next_task
 
   def set_performance_rating():
@@ -416,6 +417,7 @@ init python:
 
   def get_epilogue():
     output = ""
+    print('flags present: ', store.event_flags)
     with open(renpy.loader.transfn('game_files/epilogues.csv'), 'r') as epilogues: 
         reader = csv.DictReader(epilogues)
         for epilogue in reader:
@@ -430,6 +432,7 @@ init python:
                     if event_flag == epilogue['event_flag'] and epilogue['performance'] == store.game_state.performance_rating:
                         output = epilogue['text']
                         print('event flag based epilogue firing: ', epilogue)
+                break
     print('epilogue output: ', epilogue)
 
     return output
@@ -541,6 +544,7 @@ label start:
       image intro_02 = "images/screens/01-intro/intro-02.png"
       image bg gray_bg = Solid('#464645')
       image bg news_bg = "images/news_bg.png"
+      image bg apartment_bg = "images/apartment/apartment3_1.png"
 
       image zoom_seq:
         xoffset 205
@@ -573,13 +577,13 @@ label start:
       victor "That’s right. Our clients include the Departments of Defense and State, as well as private enterprises looking to ensure their communities are 100 percent human."
       news_anchor "And what do you say to your critics who accuse the Dataville Corporation of exacerbating racial tensions with the aliens?"
       victor "Earth was meant for humans. If they have nothing to hide, why are they using camouflage?"
-
-      scene bg gray_bg with Dissolve(1.0)
+      $ blur_master()
       call screen dream("You have a message from the DataVille corporation. \n Looking for a job? Looking to make the world a better, more human place?", ["Take the quiz!"])
       call screen dream("Are you proud of your humanity?", ["Yes", "No"])
       call screen dream("Do you own a computer?", ["Yes", "No"])
       call screen dream("Are you interested in working from home?", ["Yes", "No"])
       call screen dream("Congratulations! We'd like to extend an offer of employment! Join the DataVille team now.", ["Let's get started."])
+      $ unblur_master()
 
       label intro:
   #      manual stuff for game start
@@ -617,12 +621,14 @@ label start:
         hide screen apartment
       # hide dialogue box
       $ show_window = False
-      scene bg gray_bg with Dissolve(1.0)
+      scene bg apartment_bg with Dissolve(1.0)
 
-      call screen dream("Your first day at a new job", [])
+      $ blur_master()
+      call screen dream("Your first day at a new job.", [])
       call screen dream("Try not to screw it up.", [])
       call screen dream("You really need the money.", [])
       call screen dream("Let's get started.", [])
+      $ unblur_master()
     python:
       if start_at_day_end:
           day_end()
@@ -653,19 +659,22 @@ label start:
           count = 0
         while count < length:
           python:
+            strip_message = split[count].strip()
+            print('stripped message: ', strip_message)
             if count >= length - 1:
               buttons = message['buttons']
               second_sentence = ""
             else:
               buttons = []
               second_sentence = split[count+1]
-          show screen message(message['sender'], buttons)
-          # ONLY SHOWING ONE LINE DURING INTRO: I THINK THIS HAS THE LONGEST TEXT
-          $ text =  f"{split[count]}"
-          e_big "[text]"
+          if strip_message != "" and strip_message != "\n":
+            show screen message(message['sender'], buttons)
+            # ONLY SHOWING ONE LINE DURING INTRO: I THINK THIS HAS THE LONGEST TEXT
+            $ text =  f"{split[count]}"
+            e_big "[text]"
+            # window hide
+            hide screen message
           $ count += 1
-          # window hide
-          hide screen message
   #manually set task & variables for first loop
       $ time = store.game_state.ui['timer']
 
@@ -686,25 +695,27 @@ label start:
         while cleaned['message']:
           python:
             message = cleaned['message'].pop(0)
-            n = 120
             text = message['text']
             split = split_into_sentences(text)
             length = len(split)
             count = 0
           while count < length:
             python:
-              if count >= length - 2:
+              strip_message == split[count].strip()
+              if count >= length - 1:
                 buttons = message['buttons']
                 second_sentence = ""
               else:
                 buttons = []
                 second_sentence = split[count+1]
-            show screen message(message['sender'], buttons)
-            $ text = f"{split[count]} {second_sentence}"
-            e_big "[text]"
-            $ count += 2
-            # window hide
-            hide screen message
+            if strip_message != "" and strip_message !="\n":
+              show screen message(message['sender'], buttons)
+              $ text = f"{split[count]}"
+              e_big "[text]"
+              # window hide
+              hide screen message
+
+            $ count += 1
       python:
 # CLEAR IMAGE VARIABLES
       # FIXME: should clean up variable resetting a bit better
@@ -838,13 +849,15 @@ label start:
             scene bg black_bg
             $ dream_counter = 0
             $ dream_len = len(store.apartment_data['dream'])
+            hide screen apartment
+            scene bg apartment_bg with Dissolve(1.0)
+            $ blur_master()
             while dream_counter < dream_len:
                 $ dream = store.apartment_data['dream'][dream_counter]
                 if dream['time'] != 'start':
-                    hide screen apartment
-                    scene bg gray_bg with Dissolve(1.0)
                     call screen dream(dream['text'], dream['buttons'])
                 $ dream_counter += 1
+            $ unblur_master()
             python:
                 # reset_performance(store.game_state.performance)
                 day_start()
@@ -875,7 +888,8 @@ label start:
           else:
              additional_text = ""
           epi_text = f"{split[count]} {additional_text}"
-        
+        scene bg apartment_bg with Dissolve(1.0) 
+        $ blur_master()
         call screen dream(epi_text, [])
         $ count += 2
       call screen dream('Thank you for playing DataVille!\na more human world\none click at a time', ['Restart'])
