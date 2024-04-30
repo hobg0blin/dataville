@@ -572,27 +572,32 @@ label start:
       victor "Earth was meant for humans. If they have nothing to hide, why are they using camouflage?"
 
       scene bg gray_bg with Dissolve(1.0)
+      call screen dream("You have a message from the DataVille corporation. /n Looking for a job? Looking to make the world a better, more human place?", ["Take the quiz!"])
+      call screen dream("Are you proud of your humanity?" ["Yes", "No"])
+      call screen dream("Do you own a computer?" ["Yes", "No"])
+      call screen dream("Are you interested in working from home?" ["Yes", "No"])
+      call screen dream("Congratulations! We'd like to extend an offer of employment! Join the DataVille team now.", ["Let's get started."])
 
       label intro:
   #      manual stuff for game start
   #      image bg apartment_1 = im.FactorScale("images/room/room/room_" + store.apartment_data["apartment_background"] + ".jpg", 1.5)
         # scene bg black_bg
-
-        $ blur_master()
-        
-        $ dream_counter = 0
-        $ dream_len = len(store.apartment_data['dream'])
-        while dream_counter < dream_len:
-          $ dream = store.apartment_data['dream'][dream_counter]
-          if dream['time'] == 'start':
-              call screen dream(dream['text'], dream['buttons'])
-          $ dream_counter += 1
-
-        $ unblur_master()
-
-        image desk_overhead = "images/desk_overhead.png"
-        scene desk_overhead
-        pause
+#
+#        $ blur_master()
+#        
+#        $ dream_counter = 0
+#        $ dream_len = len(store.apartment_data['dream'])
+#        while dream_counter < dream_len:
+#          $ dream = store.apartment_data['dream'][dream_counter]
+#          if dream['time'] == 'start':
+#              call screen dream(dream['text'], dream['buttons'])
+#          $ dream_counter += 1
+#
+#        $ unblur_master()
+#
+#        image desk_overhead = "images/desk_overhead.png"
+#        scene desk_overhead
+#        pause
 
         image job_page = "images/job_page.png"
         scene job_page
@@ -610,10 +615,10 @@ label start:
       $ show_window = False
       scene bg gray_bg with Dissolve(1.0)
 
-      call screen dream("", ["Your first day at a new job"])
-      call screen dream("", ["Try not to screw it up."])
-      call screen dream("", ["You really need the money."])
-      call screen dream("", ["Let's get started."])
+      call screen dream("Your first day at a new job", [])
+      call screen dream("Try not to screw it up.", [])
+      call screen dream("You really need the money.", [])
+      call screen dream("Let's get started.", [])
     python:
       if start_at_day_end:
           day_end()
