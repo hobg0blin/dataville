@@ -264,8 +264,9 @@ screen quick_menu():
 
 ## This code ensures that the quick_menu screen is displayed in-game, whenever
 ## the player has not explicitly hidden the interface.
-init python:
-    config.overlay_screens.append("quick_menu")
+# we're not doing that now
+# init python:
+#     config.overlay_screens.append("quick_menu")
 
 default quick_menu = True
 
@@ -1674,31 +1675,30 @@ screen timer:
 
 # COMPUTER screens
 screen message(sender, buttons=None):
-  $ print('buttons: ', buttons)
-  python:
-    if sender == 'supervisor':
-      avatar = "images/icons/supervisor.png" 
-    elif sender == 'stranger':
-      avatar = "images/icons/asst_normal.png"
-    elif sender == 'cogni':
-      avatar = "images/icons/asst_normal.png"
-    else:
-      avatar = "images/icons/asst_normal.png"
-  window id 'content':
-    ymaximum 1200
-    xmaximum 1600
-    hbox id 'avatar':
-      xalign 0.3
-      yalign 0.55
-      image avatar
-    if buttons != None:
-      hbox id 'buttons':
-        xalign 0.5
-        yalign 0.9
-        spacing 10
-        for button_text in buttons:
-          frame:
-            textbutton button_text style "button_click" action Return(True)
+    $ print('buttons: ', buttons)
+    python:
+        if sender == 'supervisor':
+            avatar = "images/icons/supervisor.png" 
+        elif sender == 'stranger':
+            avatar = "images/icons/asst_normal.png"
+        elif sender == 'cogni':
+            avatar = "images/icons/asst_normal.png"
+        else:
+            avatar = "images/icons/asst_normal.png"
+    window id 'content':
+        ysize 1080
+        xsize 1920
+        image avatar:
+            xpos 625
+            ypos 620
+        if buttons != None:
+            hbox id 'buttons':
+                xpos 0.38
+                ypos 0.80
+                spacing 10
+                for button_text in buttons:
+                    frame:
+                        textbutton button_text style "button_click" action Return(True)
 
 # A helper to create borders for displayable but maybe not the best
 # keeping it here in case I come across a use case for this - HAB
@@ -1793,6 +1793,9 @@ screen job_offer(phase):
                 text '\n' * counter + cleaned:
                     color "#FFFFFF"
                 $ counter += 1
+            python:
+                text_file.close()
+                del text_file
             button:
                 xsize 579
                 ysize 94
@@ -1805,7 +1808,6 @@ screen job_offer(phase):
                 style "prompt_frame"
                 activate_sound "click.wav"
                 action Return(True)
-
 
 screen assistant:
    window id 'content':
@@ -2244,19 +2246,12 @@ screen apartment(data, time):
             activate_sound "audio/tv_2.wav"
             idle Solid("#00000000")
             hover Solid("#d3a95620")
-            action NullAction()
+            action Return(True)
 
-    frame:
-        xalign 0.5
-        yalign 0.9
-        if time == "end":
-            textbutton btn action Return()
-        else:
-            textbutton btn action Return()
-    frame:
-        xalign 0.1
-        yalign 0.9
-        textbutton "Set State" action Show("set_state", None)
+    # frame:
+    #     xalign 0.1
+    #     yalign 0.9
+    #     textbutton "Set State" action Show("set_state", None)
 
 screen zoomed_note(data):
     modal True
@@ -2274,23 +2269,30 @@ screen zoomed_note(data):
         textbutton "X" activate_sound "rustle.wav" action Hide("zoomed_note", None)
 
 screen zoomed_tv(data, index=0):
-  modal True
-  frame:
+    modal True
     python:
-# advance through news items
-      result = setitem(data, index)
-      print('result: ', result)
-      item = result[0]
-      index = result[1]
-      index +=1
+        if store.game_state.day == 0 and store.game_state.time == "end":
+            print(data['news'][0])
+            index = data["news"].index(next(filter(lambda n: n.get('time') == 'end', data['news'])))
+    # advance through news items
+        result = setitem(data, index)
+        print('result: ', result)
+        item = result[0]
+        index = result[1]
+        index +=1
 
-    image Transform(item["image"], size=(1000,1000)) xpos 600 ypos 200
-    image Transform("images/room/room/tv.png", size=(2000, 1400))
-  window:
-    imagebutton idle 'gui/textbox.png' activate_sound "remote.ogg" action Show("zoomed_tv", None, data, index)
-    textbutton item["text"].upper() xpos 400 yalign 0.45 activate_sound "remote.ogg" action Show("zoomed_tv", None, data, index)
-  frame:
-    textbutton "X" activate_sound "tv_2.wav" action Hide("zoomed_tv", None)
+    image item["image"] xsize 1920 ysize 1080
+    # window:
+    imagebutton:
+        xpos 483 ypos 108
+        xsize 1092 ysize 870
+        activate_sound "remote.ogg"
+        idle Solid("#00000000")
+        hover Solid("#d3a95620")
+        action Show("zoomed_tv", None, data, index)
+    frame:
+        style "intro_prompt"
+        textbutton "X" activate_sound "tv_2.wav" action Hide("zoomed_tv", None)
 
 screen zoomed_window(data):
   modal True
