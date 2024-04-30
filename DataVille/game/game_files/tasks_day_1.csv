@@ -1,7 +1,6 @@
 type,task_id,next_task,payment,instructions,time,image_folder,correct_images,correct_options,text_block,label_1_id,label_1_text,label_2_id,label_2_text,label_3_id,label_3_text,label_4_id,label_4_text,ethical_options,custom_dialogue,custom_dialogue_sender,custom_feedback_ethical,custom_feedback_correct,custom_feedback_sender,correct_choice_event_flag,ethical_choice_event_flag,event_flag_dependency
 captcha_image,start_task,captcha_image_2,200,Select the image(s) containing bicycles.,10,captcha_image_1,"bicycle_7, bicycle_8, bicycle_9",,,,,,,,,,,,,,,,,,,
-captcha_image,captcha_image_2,captcha_image_3,200,Select the image(s) containing traffic lights.,10,captcha_image_2,"traffic_light_1,traffic_light_4,traffic_light_5,traffic_light_6",,,,,,,,,,,,,,,,,,,
-captcha_image,captcha_image_3,binary_image_1,200,Select the image(s) containing humans.,10,captcha_image_3,"human_3,human_4,human_5,human_6,human_7,human_8,human_9",,,,,,,,,,,,,,,,,,,
+captcha_image,captcha_image_2,binary_image_1,200,Select the image(s) containing traffic lights.,10,captcha_image_2,"traffic_light_1,traffic_light_4,traffic_light_5,traffic_light_6",,,,,,,,,,,,,,,,,,,
 binary_image,binary_image_1,caption_image_1,200,Does this image contain a human? ,10,binary_image_1,,Y,,,,,,,,,,,,,,,,,,
 caption_image,caption_image_1,binary_image_2,200,Describe this image with a word.,10,caption_image_1,,1,,1,alien,2,human,,,,,,,,,,,,,
 binary_image,binary_image_2,binary_image_3,200,Does this image contain a human? ,10,binary_image_2,,Y,,,,,,,,,,,,,,,,,,

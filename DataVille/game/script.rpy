@@ -81,7 +81,7 @@ init python:
     :rtype: list[str]
     """
     text = " " + text + "  "
-    text = text.replace("\n"," ")
+#    text = text.replace("\n"," ")
     text = re.sub(prefixes,"\\1<prd>",text)
     text = re.sub(websites,"<prd>\\1",text)
     text = re.sub(digits + "[.]" + digits,"\\1<prd>\\2",text)
@@ -95,7 +95,7 @@ init python:
     text = re.sub(" "+suffixes+"[.]"," \\1<prd>",text)
     text = re.sub(" " + alphabets + "[.]"," \\1<prd>",text)
     if "”" in text: text = text.replace(".”","”.")
-    if "\"" in text: text = text.replace(".\"","\".")
+#    if "\"" in text: text = text.replace(".\"","\".")
     if "!" in text: text = text.replace("!\"","\"!")
     if "?" in text: text = text.replace("?\"","\"?")
     text = text.replace(".",".<stop>")
@@ -103,7 +103,7 @@ init python:
     text = text.replace("!","!<stop>")
     text = text.replace("<prd>",".")
     sentences = text.split("<stop>")
-    sentences = [s.strip() for s in sentences]
+    sentences = [s for s in sentences]
     if sentences and not sentences[-1]: sentences = sentences[:-1]
     return sentences
 
@@ -528,7 +528,9 @@ default skip_intro = False
 default start_at_day_end = False
 label start:
     if not skip_intro:
-      play music "dataville_apartment_neutral.wav"
+
+
+      play music "dataville_workspace_neutral.wav" fadein 2.0
       image bg start_screen = im.FactorScale("images/intro_desk.jpg", 1.5)
       image bg overlay_background = Solid('#EFF3E6')
       image bg black_bg = Solid('#FFFFFF')
@@ -573,10 +575,10 @@ label start:
       victor "Earth was meant for humans. If they have nothing to hide, why are they using camouflage?"
 
       scene bg gray_bg with Dissolve(1.0)
-      call screen dream("You have a message from the DataVille corporation. /n Looking for a job? Looking to make the world a better, more human place?", ["Take the quiz!"])
-      call screen dream("Are you proud of your humanity?" ["Yes", "No"])
-      call screen dream("Do you own a computer?" ["Yes", "No"])
-      call screen dream("Are you interested in working from home?" ["Yes", "No"])
+      call screen dream("You have a message from the DataVille corporation. \n Looking for a job? Looking to make the world a better, more human place?", ["Take the quiz!"])
+      call screen dream("Are you proud of your humanity?", ["Yes", "No"])
+      call screen dream("Do you own a computer?", ["Yes", "No"])
+      call screen dream("Are you interested in working from home?", ["Yes", "No"])
       call screen dream("Congratulations! We'd like to extend an offer of employment! Join the DataVille team now.", ["Let's get started."])
 
       label intro:
@@ -610,6 +612,7 @@ label start:
         image bg apartment_1 = "images/apartment/apartment3_1.png"
         
         scene bg apartment_1
+        play music "dataville_apartment_neutral.wav"
         call screen apartment(clean(store.apartment_data), store.game_state.time)
         hide screen apartment
       # hide dialogue box
@@ -657,9 +660,10 @@ label start:
               buttons = []
               second_sentence = split[count+1]
           show screen message(message['sender'], buttons)
-          $ text =  f"{split[count]} {second_sentence}"
+          # ONLY SHOWING ONE LINE DURING INTRO: I THINK THIS HAS THE LONGEST TEXT
+          $ text =  f"{split[count]}"
           e_big "[text]"
-          $ count += 2
+          $ count += 1
           # window hide
           hide screen message
   #manually set task & variables for first loop
@@ -751,10 +755,12 @@ label start:
                     print('hit ethical task: ', task)
                     ethical = task['ethical_options']
                     if 'custom_feedback_ethical' in task and latest_choice == ethical:
+                        print('should be showing ethical custom feedback')
                         custom_feedback = task['custom_feedback_ethical'] 
                         custom_feedback_sender = task['custom_feedback_sender']
                         has_custom_feedback = True
                     if 'custom_feedback_correct' in task and latest_choice == correct:
+                        print('should be showing correct custom feedback')
                         custom_feedback = task['custom_feedback_correct'] 
                         custom_feedback_sender = task['custom_feedback_sender']
                         has_custom_feedback = True
@@ -769,6 +775,7 @@ label start:
       hide screen task_type
       show screen overlay (store.game_state.ui)
       if has_custom_feedback:
+        $ print('has custom feedback')
         show screen message(custom_feedback_sender, ["Continue"])
         # window hide
         custom_feedback_speaker "[custom_feedback]"
