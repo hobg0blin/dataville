@@ -342,22 +342,24 @@ init python:
       else:
         return {'text': random.choice(bad), 'score': 33}
   def check_dependencies(dependencies, next_task):
-    for dependency in dependencies:
+      for dependency in dependencies:
         cleaned_dep = dependency.strip()
+        new_task = ""
+      
         if cleaned_dep not in store.event_flags:
             if next_task != 'break':
                 if next_task['next_task'] == 'break': 
                     set_performance_rating()
-                    next_task = 'break'
+                    new_task = 'break'
                 else:
-                    next_task = store.loop[next_task['next_task']]
-                    if ('event_flag_dependency' in next_task):
-                        next_task = check_dependencies(next_task['event_flag_dependency'].split(','), next_task)
+                    new_task = store.loop[next_task['next_task']]
+                    if ('event_flag_dependency' in new_task):
+                        new_task = check_dependencies(new_task['event_flag_dependency'].split(','), new_task)
         else:
             print("dependency in event flags: ", cleaned_dep)
-            next_task = next_task
+            new_task = next_task
             break
-    return next_task
+      return new_task
 
   def set_performance_rating():
 
@@ -420,6 +422,7 @@ init python:
     print('flags present: ', store.event_flags)
     with open(renpy.loader.transfn('game_files/epilogues.csv'), 'r') as epilogues: 
         reader = csv.DictReader(epilogues)
+        has_event_flag = False
         for epilogue in reader:
             if len(epilogue['event_flag']) <= 0:
                 if epilogue['performance'] == store.game_state.performance_rating:
@@ -432,7 +435,9 @@ init python:
                     if event_flag == epilogue['event_flag'] and epilogue['performance'] == store.game_state.performance_rating:
                         output = epilogue['text']
                         print('event flag based epilogue firing: ', epilogue)
-                break
+                        has_event_flag = True
+                if has_event_flag:
+                   break
     print('epilogue output: ', epilogue)
 
     return output
@@ -879,18 +884,20 @@ label start:
       $ epilogue = get_epilogue()
       $ split = split_into_sentences(epilogue)
       $ print('epilogue variable: ', epilogue)
+      $ print('split text: ', split)
       $ count = 0
       $ length = len(split)
+      scene bg apartment_bg with Dissolve(1.0) 
+      $ blur_master()
+
       while count < length:
         python:
           if count <= length -2:
              additional_text = split[count+1]
           else:
              additional_text = ""
-          epi_text = f"{split[count]} {additional_text}"
-        scene bg apartment_bg with Dissolve(1.0) 
-        $ blur_master()
-        call screen dream(epi_text, [])
+          print('epilogue text: ', split[count])
+        call screen dream(f"{split[count]} {additional_text}", [])
         $ count += 2
       call screen dream('Thank you for playing DataVille!\na more human world\none click at a time', ['Restart'])
       # This ends the game.
