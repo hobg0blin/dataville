@@ -46,6 +46,8 @@ init:
   image side supervisor = "images/icons/supervisor.png"
   define e_big = Character("", image="supervisor", kind=bubble)
   define custom_feedback_speaker = Character("", image="cogni", kind=bubble)
+  define news_anchor = Character("News Anchor", image="images/news_anchor.jpg")
+  define victor = Character("Victor", image="images/victor.avif")
 ##ALL THE PYTHON SETUP GOES HERE
 init python:
   import random
@@ -55,6 +57,55 @@ init python:
   import operator
   import os
   from textwrap import wrap
+  import re
+  alphabets= "([A-Za-z])"
+  prefixes = "(Mr|St|Mrs|Ms|Dr)[.]"
+  suffixes = "(Inc|Ltd|Jr|Sr|Co)"
+  starters = "(Mr|Mrs|Ms|Dr|Prof|Capt|Cpt|Lt|He\s|She\s|It\s|They\s|Their\s|Our\s|We\s|But\s|However\s|That\s|This\s|Wherever)"
+  acronyms = "([A-Z][.][A-Z][.](?:[A-Z][.])?)"
+  websites = "[.](com|net|org|io|gov|edu|me)"
+  digits = "([0-9])"
+  multiple_dots = r'\.{2,}'
+
+  def split_into_sentences(text: str) -> list[str]:
+    """
+    Split the text into sentences.
+
+    If the text contains substrings "<prd>" or "<stop>", they would lead 
+    to incorrect splitting because they are used as markers for splitting.
+
+    :param text: text to be split into sentences
+    :type text: str
+
+    :return: list of sentences
+    :rtype: list[str]
+    """
+    text = " " + text + "  "
+    text = text.replace("\n"," ")
+    text = re.sub(prefixes,"\\1<prd>",text)
+    text = re.sub(websites,"<prd>\\1",text)
+    text = re.sub(digits + "[.]" + digits,"\\1<prd>\\2",text)
+    text = re.sub(multiple_dots, lambda match: "<prd>" * len(match.group(0)) + "<stop>", text)
+    if "Ph.D" in text: text = text.replace("Ph.D.","Ph<prd>D<prd>")
+    text = re.sub("\s" + alphabets + "[.] "," \\1<prd> ",text)
+    text = re.sub(acronyms+" "+starters,"\\1<stop> \\2",text)
+    text = re.sub(alphabets + "[.]" + alphabets + "[.]" + alphabets + "[.]","\\1<prd>\\2<prd>\\3<prd>",text)
+    text = re.sub(alphabets + "[.]" + alphabets + "[.]","\\1<prd>\\2<prd>",text)
+    text = re.sub(" "+suffixes+"[.] "+starters," \\1<stop> \\2",text)
+    text = re.sub(" "+suffixes+"[.]"," \\1<prd>",text)
+    text = re.sub(" " + alphabets + "[.]"," \\1<prd>",text)
+    if "”" in text: text = text.replace(".”","”.")
+    if "\"" in text: text = text.replace(".\"","\".")
+    if "!" in text: text = text.replace("!\"","\"!")
+    if "?" in text: text = text.replace("?\"","\"?")
+    text = text.replace(".",".<stop>")
+    text = text.replace("?","?<stop>")
+    text = text.replace("!","!<stop>")
+    text = text.replace("<prd>",".")
+    sentences = text.split("<stop>")
+    sentences = [s.strip() for s in sentences]
+    if sentences and not sentences[-1]: sentences = sentences[:-1]
+    return sentences
 
   store.drags = {}
   store.loop = {}
@@ -68,22 +119,22 @@ init python:
       'day_1': {
         'score': 70,
           'time': 8,
-        'earnings': 1200
+        'earnings': 2400
         },
       'day_2': {
           'score': 70,
           'time': 8,
-        'earnings': 1200
+        'earnings': 3600
         },
       'day_3': {
           'score': 70,
           'time': 8,
-        'earnings': 1200
+        'earnings': 4800
         },
       'day_4': {
         'score': 70,
         'time': 8,
-        'earnings': 1200
+        'earnings': 6000
         },
     }
 # these should only be updated after a game loop
@@ -123,7 +174,6 @@ init python:
   time = 0
   timer_jump = ''
   def update_from_state_menu():
-    print('time string: ', time_string)
     if (day_string and len(day_string) > 0):
       store.game_state.day = int(day_string) - 1
       day_start()
@@ -137,6 +187,7 @@ init python:
     if (performance_string and len(performance_string) > 0):
         store.game_state.performance_rating = performance_string
     if (event_flag_string and len(event_flag_string) > 0) and event_flag_string not in store.event_flags:
+        print('adding event flag: ', event_flag_string)
         store.event_flags.append(event_flag_string)
 
 
@@ -292,7 +343,6 @@ init python:
         return {'text': random.choice(bad), 'score': 33}
   def check_dependencies(dependencies, next_task):
     for dependency in dependencies:
-        print('next task: ', next_task)
         cleaned_dep = dependency.strip()
         if cleaned_dep not in store.event_flags:
             if next_task != 'break':
@@ -304,6 +354,7 @@ init python:
                     if ('event_flag_dependency' in next_task):
                         next_task = check_dependencies(next_task['event_flag_dependency'].split(','), next_task)
         else:
+            print("dependency in event flags: ", cleaned_dep)
             next_task = next_task
     return next_task
 
@@ -367,7 +418,6 @@ init python:
     output = ""
     with open(renpy.loader.transfn('game_files/epilogues.csv'), 'r') as epilogues: 
         reader = csv.DictReader(epilogues)
-        print('performance rating: ', store.game_state.performance_rating)
         for epilogue in reader:
             if len(epilogue['event_flag']) <= 0:
                 if epilogue['performance'] == store.game_state.performance_rating:
@@ -380,6 +430,7 @@ init python:
                     if event_flag == epilogue['event_flag'] and epilogue['performance'] == store.game_state.performance_rating:
                         output = epilogue['text']
                         print('event flag based epilogue firing: ', epilogue)
+    print('epilogue output: ', epilogue)
 
     return output
 
@@ -417,9 +468,6 @@ init python:
   # dumb comparison of images that just returns true or false
   # should probably be percentile graded but we prototyping baby
   def check_images(selected, original):
-    print('CAPTCHA BEING CHECKED')
-    print('selected: ', sorted(selected['values']))
-    print('correct: ', sorted(original))
     if sorted(selected['values']) == sorted(original):
       return 1
     else:
@@ -476,82 +524,100 @@ transform unblur:
   blur 0
 
 # The game starts here.
-
+default skip_intro = False
+default start_at_day_end = False
 label start:
-    image bg start_screen = im.FactorScale("images/intro_desk.jpg", 1.5)
-    image bg overlay_background = Solid('#EFF3E6')
-    image bg black_bg = Solid('#FFFFFF')
-
-
-    # v2 sequence
-    image intro_01 = "images/screens/01-intro/intro-01.png"
-    image intro_02 = "images/screens/01-intro/intro-02.png"
-    image bg gray_bg = Solid('#464645')
-
-    image zoom_seq:
-      xoffset 205
-      "images/screens/01-intro/title-into-trans.png"
-      pause 1.2
-      parallel:
-        easeout_quad 3 xoffset 0
-      # "images/screens/01-intro/intro-00.png"
-      parallel:
-        easeout_quad 3 zoom 1.5
-      parallel:
-        easeout_quad 3 yoffset config.screen_height/3.5
-
-    scene bg gray_bg
-    show zoom_seq
-    $renpy.pause(4, hard=True)
-    show intro_01 with Dissolve(1.0)
-    pause
-    show intro_02 with Dissolve(0.2)
-    pause
-
-    # show standard dialogue box - only for news chyrons
-    $ show_window = True
-
-    label intro:
-#      manual stuff for game start
-#      image bg apartment_1 = im.FactorScale("images/room/room/room_" + store.apartment_data["apartment_background"] + ".jpg", 1.5)
-      # scene bg black_bg
-
-      $ blur_master()
-      
-      $ dream_counter = 0
-      $ dream_len = len(store.apartment_data['dream'])
-      while dream_counter < dream_len:
-        $ dream = store.apartment_data['dream'][dream_counter]
-        if dream['time'] == 'start':
-            call screen dream(dream['text'], dream['buttons'])
-        $ dream_counter += 1
-
-      $ unblur_master()
-
-      image desk_overhead = "images/desk_overhead.png"
-      scene desk_overhead
-      pause
-
-      image job_page = "images/job_page.png"
-      scene job_page
-
-      call screen job_offer(1)
-
-      call screen job_offer(2)
-
-      image bg apartment_1 = "images/apartment/apartment3_1.png"
-      
-      scene bg apartment_1
+    if not skip_intro:
       play music "dataville_apartment_neutral.wav"
-      call screen apartment(clean(store.apartment_data), store.game_state.time)
-      hide screen apartment
-    # hide dialogue box
-    $ show_window = False
-    call screen dream("", ["Your first day at a new job"])
-    call screen dream("", ["Try not to screw it up."])
-    call screen dream("", ["You really need the money."])
-    call screen dream("", ["Let's get started."])
+      image bg start_screen = im.FactorScale("images/intro_desk.jpg", 1.5)
+      image bg overlay_background = Solid('#EFF3E6')
+      image bg black_bg = Solid('#FFFFFF')
 
+
+      # v2 sequence
+      image intro_01 = "images/screens/01-intro/intro-01.png"
+      image intro_02 = "images/screens/01-intro/intro-02.png"
+      image bg gray_bg = Solid('#464645')
+      image bg news_bg = "images/news_bg.png"
+
+      image zoom_seq:
+        xoffset 205
+        "images/screens/01-intro/title-into-trans.png"
+        pause 1.2
+        parallel:
+          easeout_quad 3 xoffset 0
+        # "images/screens/01-intro/intro-00.png"
+        parallel:
+          easeout_quad 3 zoom 1.5
+        parallel:
+          easeout_quad 3 yoffset config.screen_height/3.5
+
+      scene bg gray_bg
+      show zoom_seq
+      $renpy.pause(4, hard=True)
+      show intro_01 with Dissolve(1.0)
+      pause
+      show intro_02 with Dissolve(0.2)
+      pause
+      scene bg news_bg
+      # show standard dialogue box - only for news chyrons
+      $ show_window = True
+      news_anchor "Good evening, and welcome to our program."
+      news_anchor "Tonight, hiding in the shadows. What the alien menace means for you and your family. I’m joined by Victor Willmington, founder and CEO of the Dataville Corporation. "
+      news_anchor "Tell me Victor, how does your company see the ongoing alien migratory crisis?"
+      victor "Where you see a crisis, we at Dataville see an opportunity. This is our chance to restore human society to a safer, simpler time."
+      victor "With our patented alien identification AI technology, we’re able to accurately penetrate alien camouflage."
+      news_anchor "And you’ve found active partners in the public sector?"
+      victor "That’s right. Our clients include the Departments of Defense and State, as well as private enterprises looking to ensure their communities are 100 percent human."
+      news_anchor "And what do you say to your critics who accuse the Dataville Corporation of exacerbating racial tensions with the aliens?"
+      victor "Earth was meant for humans. If they have nothing to hide, why are they using camouflage?"
+
+      scene bg gray_bg with Dissolve(1.0)
+
+      label intro:
+  #      manual stuff for game start
+  #      image bg apartment_1 = im.FactorScale("images/room/room/room_" + store.apartment_data["apartment_background"] + ".jpg", 1.5)
+        # scene bg black_bg
+
+        $ blur_master()
+        
+        $ dream_counter = 0
+        $ dream_len = len(store.apartment_data['dream'])
+        while dream_counter < dream_len:
+          $ dream = store.apartment_data['dream'][dream_counter]
+          if dream['time'] == 'start':
+              call screen dream(dream['text'], dream['buttons'])
+          $ dream_counter += 1
+
+        $ unblur_master()
+
+        image desk_overhead = "images/desk_overhead.png"
+        scene desk_overhead
+        pause
+
+        image job_page = "images/job_page.png"
+        scene job_page
+
+        call screen job_offer(1)
+
+        call screen job_offer(2)
+
+        image bg apartment_1 = "images/apartment/apartment3_1.png"
+        
+        scene bg apartment_1
+        call screen apartment(clean(store.apartment_data), store.game_state.time)
+        hide screen apartment
+      # hide dialogue box
+      $ show_window = False
+      scene bg gray_bg with Dissolve(1.0)
+
+      call screen dream("", ["Your first day at a new job"])
+      call screen dream("", ["Try not to screw it up."])
+      call screen dream("", ["You really need the money."])
+      call screen dream("", ["Let's get started."])
+    python:
+      if start_at_day_end:
+          day_end()
     if store.game_state.time == "end":
         jump interstitial
 
@@ -560,11 +626,11 @@ label start:
     if store.game_state.day == 0:
         show dataville_intro
         pause
-        show hiring_detail
-        pause
+        # show hiring_detail
+        # pause
 
 
-# manually check messsages on first loop 
+  # manually check messsages on first loop 
     $ cleaned = clean(store.apartment_data)
     show screen overlay (store.game_state.ui)
     scene bg overlay_background
@@ -574,19 +640,25 @@ label start:
           message = cleaned['message'].pop(0)
           n = 120
           text = message['text']
-          split = wrap(text, n)
-          print('split: ', split)
+          split = split_into_sentences(text)
           length = len(split)
           count = 0
         while count < length:
-          show screen message(message['sender'], message['buttons'])
-          $ text = split[count]
+          python:
+            if count >= length - 2:
+               buttons = message['buttons']
+               second_sentence = ""
+            else:
+               buttons = []
+               second_sentence = split[count+1]
+          show screen message(message['sender'], buttons)
+          $ text = f"{split[count]} {second_sentence}"
           e_big "[text]"
-          $ count += 1
+          $ count += 2
           window hide
           hide screen message
-#manually set task & variables for first loop
-    $ time = store.game_state.ui['timer']
+  #manually set task & variables for first loop
+      $ time = store.game_state.ui['timer']
 
     python:
       if len(task_string) > 0:
@@ -602,28 +674,33 @@ label start:
       $ show_window = False
       show screen overlay (store.game_state.ui)
       if store.game_state.day != 0 and len(cleaned['message'])>0:
-          while cleaned['message']:
+        while cleaned['message']:
+          python:
+            message = cleaned['message'].pop(0)
+            n = 120
+            text = message['text']
+            split = split_into_sentences(text)
+            length = len(split)
+            count = 0
+          while count < length:
             python:
-              message = cleaned['message'].pop(0)
-              n = 120
-              text = message['text']
-              split = wrap(text, n)
-              print('split: ', split)
-              length = len(split)
-              count = 0
-            while count < length:
-              show screen message(message['sender'], message['buttons'])
-              $ text = split[count]
-              e_big "[text]"
-              $ count += 1
-              window hide
-              hide screen message
+              if count >= length - 2:
+                 buttons = message['buttons']
+                 second_sentence = ""
+              else:
+                 buttons = []
+                 second_sentence = split[count+1]
+            show screen message(message['sender'], buttons)
+            $ text = f"{split[count]} {second_sentence}"
+            e_big "[text]"
+            $ count += 2
+            window hide
+            hide screen message
       python:
 # CLEAR IMAGE VARIABLES
       # FIXME: should clean up variable resetting a bit better
         is_image = False
         images_selected = {'values': []}
-        print('task in loop: ', task)
         if ('image' in task['type']):
           is_image = True
           images = get_images(task)
@@ -655,7 +732,6 @@ label start:
         if not task_error:
             if (task['type'] == 'captcha_image'):
                 case = check_images(images_selected, task['correct_images'])
-                print('checked image result: ', case)
                 store.latest_score = case
                 task = update_state(store.game_state, case, task)
             elif (task['type'] == 'order_text'):
@@ -713,31 +789,31 @@ label start:
         #NEW UI STATE
         $ cleaned = clean(store.apartment_data)
         while cleaned['message']:
+          python:
+            message = cleaned['message'].pop(0)
+            n = 120
+            text = message['text']
+            split = split_into_sentences(text)
+            length = len(split)
+            count = 0
+          while count < length:
             python:
-              message = cleaned['message'].pop(0)
-              n = 120
-              text = message['text']
-              split = wrap(text, n)
-              print('split: ', split)
-              length = len(split)
-              count = 0
-            while count < length:
-              python:
-                buttons = None
+              buttons = None
+              if count >= length - 2:
                 if 'button_1_text' in message:
-                  buttons = [message['button_1_text']]
+                 buttons = [message['button_1_text']]
                 if 'button_2_text' in message:
-                  buttons.append(message['button_2_text'])
-              if count == length - 1:
-                show screen message(message['sender'], buttons)
+                 buttons.append(message['button_2_text'])
+                second_sentence = ""
               else:
-                 show screen message(message['sender'])
-              $ text = split[count]
-              e_big "[text]"
-              $ count += 1
-              window hide
-              hide screen message
-
+                 buttons = []
+                 second_sentence = split[count+1]
+            show screen message(message['sender'], buttons)
+            $ text = f"{split[count]} {second_sentence}"
+            e_big "[text]"
+            $ count += 2
+            window hide
+            hide screen message
 #      else:
       hide screen overlay
       scene bg apartment_1
@@ -754,6 +830,7 @@ label start:
                 $ dream = store.apartment_data['dream'][dream_counter]
                 if dream['time'] != 'start':
                     hide screen apartment
+                    scene bg gray_bg with Dissolve(1.0)
                     call screen dream(dream['text'], dream['buttons'])
                 $ dream_counter += 1
             python:
@@ -771,13 +848,29 @@ label start:
         else:
           "game state is broken!!!"
       else:
-        return
-    call screen dream(get_epilogue(), ['Continue'])
-    call screen dream('Thank you for playing DataVille!\na more human world\none click at a time', ['Restart'])
-    # This ends the game.
-    hide screen dream
-    "game end!"
-    return
+        jump end
+    label end:
+      scene bg gray_bg with Dissolve(1.0)
+      $ epilogue = get_epilogue()
+      $ split = split_into_sentences(epilogue)
+      $ print('epilogue variable: ', epilogue)
+      $ count = 0
+      $ length = len(split)
+      while count < length:
+        python:
+          if count <= length -2:
+             additional_text = split[count+1]
+          else:
+             additional_text = ""
+          epi_text = f"{split[count]} {additional_text}"
+        
+        call screen dream(epi_text, [])
+        $ count += 2
+      call screen dream('Thank you for playing DataVille!\na more human world\none click at a time', ['Restart'])
+      # This ends the game.
+      hide screen dream
+      "game end!"
+      return
 
 
 

@@ -2063,11 +2063,11 @@ screen caption_image(task, images):
     xmaximum 900
     ymaximum 900
     xalign 0.5
-    yalign 0.5
+    yalign 0.2
     frame id 'image':
         style "window_nobox"
-        xpos 350
-        ypos 75
+        xalign 0.5
+        yalign 0.1
         xsize 200
         fixed:
             xfill True
@@ -2081,9 +2081,11 @@ screen caption_image(task, images):
     ymaximum 900
     vbox:
          spacing 20
+         xalign 0.5
          for idx, i in enumerate(label_order):
           frame:
               xalign 0.5
+              yalign 0.1
               $ box = task['labels'][i]
               textbutton('{size=-3}'+ box['text']):
                   style "button_click" 
@@ -2113,17 +2115,17 @@ screen sentiment_text(task):
     xmaximum 900
     ymaximum 900
     xalign 0.5
-    yalign 0.0
+    yalign 0.25
     frame id 'textbox':
         style "window_nobox"
-        xpos 450
-        ypos 250
-        xsize 500
+        xalign 0.5
+        yalign 0.25
+        xsize 600
         text f"{task['text_block']}"
 
   vbox:
     xalign 0.5
-    yalign 0.6
+    yalign 0.65
     ymaximum 900
     spacing 10
     for idx, i in enumerate(label_order):
