@@ -27,7 +27,6 @@ Subject: Don’t ignore this!
 If you’re getting this message, I need your help! Please don’t give any more correct answers! They’re using your Captcha to find us–”
 
 The message terminates abruptly.
-<<<<<<< HEAD
 ",message,default,end,stranger,,,Back to work!,I’ll think about that.,
 1,You did what you felt was right. So why do you feel so anxious?,message,flag_dependent,end,stranger,,,Nice. Can't wait to move to a cabin in the woods.,,became_unabomber
 1,You're advancing in your job. So why do you feel conflicted?,message,flag_dependent,end,supervisor,,,Nice. Don't want to move to a cabin in the woods.,,not_unabomber

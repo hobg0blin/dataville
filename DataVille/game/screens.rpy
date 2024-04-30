@@ -1675,31 +1675,30 @@ screen timer:
 
 # COMPUTER screens
 screen message(sender, buttons=None):
-  $ print('buttons: ', buttons)
-  python:
-    if sender == 'supervisor':
-      avatar = "images/icons/supervisor.png" 
-    elif sender == 'stranger':
-      avatar = "images/icons/asst_normal.png"
-    elif sender == 'cogni':
-      avatar = "images/icons/asst_normal.png"
-    else:
-      avatar = "images/icons/asst_normal.png"
-  window id 'content':
-    ymaximum 1200
-    xmaximum 1600
-    hbox id 'avatar':
-      xalign 0.3
-      yalign 0.55
-      image avatar
-    if buttons != None:
-      hbox id 'buttons':
-        xalign 0.5
-        yalign 0.9
-        spacing 10
-        for button_text in buttons:
-          frame:
-            textbutton button_text style "button_click" action Return(True)
+    $ print('buttons: ', buttons)
+    python:
+        if sender == 'supervisor':
+            avatar = "images/icons/supervisor.png" 
+        elif sender == 'stranger':
+            avatar = "images/icons/asst_normal.png"
+        elif sender == 'cogni':
+            avatar = "images/icons/asst_normal.png"
+        else:
+            avatar = "images/icons/asst_normal.png"
+    window id 'content':
+        ysize 1080
+        xsize 1920
+        image avatar:
+            xpos 625
+            ypos 620
+        if buttons != None:
+            hbox id 'buttons':
+                xpos 0.38
+                ypos 0.80
+                spacing 10
+                for button_text in buttons:
+                    frame:
+                        textbutton button_text style "button_click" action Return(True)
 
 # A helper to create borders for displayable but maybe not the best
 # keeping it here in case I come across a use case for this - HAB
@@ -2247,19 +2246,12 @@ screen apartment(data, time):
             activate_sound "audio/tv_2.wav"
             idle Solid("#00000000")
             hover Solid("#d3a95620")
-            action NullAction()
+            action Return(True)
 
-    frame:
-        xalign 0.5
-        yalign 0.9
-        if time == "end":
-            textbutton btn action Return()
-        else:
-            textbutton btn action Return()
-    frame:
-        xalign 0.1
-        yalign 0.9
-        textbutton "Set State" action Show("set_state", None)
+    # frame:
+    #     xalign 0.1
+    #     yalign 0.9
+    #     textbutton "Set State" action Show("set_state", None)
 
 screen zoomed_note(data):
     modal True

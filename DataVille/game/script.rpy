@@ -623,11 +623,11 @@ label start:
 
     play music "dataville_workspace_neutral.wav" fadein 2.0
     
-    if store.game_state.day == 0:
-        show dataville_intro
-        pause
-        # show hiring_detail
-        # pause
+    # if store.game_state.day == 0:
+    #     show dataville_intro
+    #     pause
+    #     show hiring_detail
+    #     pause
 
 
   # manually check messsages on first loop 
@@ -646,16 +646,16 @@ label start:
         while count < length:
           python:
             if count >= length - 2:
-               buttons = message['buttons']
-               second_sentence = ""
+              buttons = message['buttons']
+              second_sentence = ""
             else:
-               buttons = []
-               second_sentence = split[count+1]
+              buttons = []
+              second_sentence = split[count+1]
           show screen message(message['sender'], buttons)
-          $ text = f"{split[count]} {second_sentence}"
+          $ text =  f"{split[count]} {second_sentence}"
           e_big "[text]"
           $ count += 2
-          window hide
+          # window hide
           hide screen message
   #manually set task & variables for first loop
       $ time = store.game_state.ui['timer']
@@ -685,16 +685,16 @@ label start:
           while count < length:
             python:
               if count >= length - 2:
-                 buttons = message['buttons']
-                 second_sentence = ""
+                buttons = message['buttons']
+                second_sentence = ""
               else:
-                 buttons = []
-                 second_sentence = split[count+1]
+                buttons = []
+                second_sentence = split[count+1]
             show screen message(message['sender'], buttons)
             $ text = f"{split[count]} {second_sentence}"
             e_big "[text]"
             $ count += 2
-            window hide
+            # window hide
             hide screen message
       python:
 # CLEAR IMAGE VARIABLES
@@ -709,7 +709,7 @@ label start:
       if 'custom_dialogue' in task:
         show screen message(task['custom_dialogue_sender'], ["Next"])
         $ custom_dialogue = task['custom_dialogue']
-        window hide
+        # window hide
         custom_feedback_speaker "[custom_dialogue]"
         hide screen message
 
@@ -765,7 +765,7 @@ label start:
       show screen overlay (store.game_state.ui)
       if has_custom_feedback:
         show screen message(custom_feedback_sender, ["Continue"])
-        window hide
+        # window hide
         custom_feedback_speaker "[custom_feedback]"
         hide screen message 
       #show screen overlay (store.game_state.ui, True)
@@ -801,18 +801,18 @@ label start:
               buttons = None
               if count >= length - 2:
                 if 'button_1_text' in message:
-                 buttons = [message['button_1_text']]
+                  buttons = [message['button_1_text']]
                 if 'button_2_text' in message:
-                 buttons.append(message['button_2_text'])
+                  buttons.append(message['button_2_text'])
                 second_sentence = ""
               else:
-                 buttons = []
-                 second_sentence = split[count+1]
+                buttons = []
+                second_sentence = split[count+1]
             show screen message(message['sender'], buttons)
             $ text = f"{split[count]} {second_sentence}"
             e_big "[text]"
             $ count += 2
-            window hide
+            # window hide
             hide screen message
 #      else:
       hide screen overlay
@@ -869,8 +869,7 @@ label start:
       call screen dream('Thank you for playing DataVille!\na more human world\none click at a time', ['Restart'])
       # This ends the game.
       hide screen dream
-      "game end!"
-      return
+      call screen navigation()
 
 
 
