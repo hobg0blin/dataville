@@ -653,7 +653,7 @@ label start:
           count = 0
         while count < length:
           python:
-            if count >= length - 2:
+            if count >= length - 1:
               buttons = message['buttons']
               second_sentence = ""
             else:
