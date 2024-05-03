@@ -2211,6 +2211,13 @@ screen performance(state, average):
 # window zoom
 # MAYBE: CAT?
 
+style sticky_note is default:
+    font "fonts/BrownBagLunch.ttf"
+    color "#000000"
+    size 30
+    xalign 0.5
+    yalign 0.5
+
 screen apartment(data, time):
     python:
         computer_sound = "computer.ogg"
@@ -2218,6 +2225,7 @@ screen apartment(data, time):
             btn = "Go to sleep"
         else:
             btn = "Back to work"
+        note_positions = [(730, 826), (1104, 828), (1458, 650), (1458, 462)]
     fixed:
         # We're not doing note clickables anymore, right? - HAB
         # imagebutton:
@@ -2226,6 +2234,17 @@ screen apartment(data, time):
         #   idle Transform("images/room/room/note.png", size=(480, 270)) 
         #   hover Transform("images/room/room/note.png", size=(500, 290)) 
         #   action Show("zoomed_note", None, store.apartment_data)
+
+        # Notes
+        for i, note in enumerate(data["sticky_note"]):
+            if note["performance"] == "default" or note["performance"] == store.game_state.performance_rating or (note["event_flag"] in store.event_flags):
+                hbox:
+                    xsize 125 ysize 132
+                    xpos note_positions[i][0] ypos note_positions[i][1]
+                    text note["text"]:
+                        style "sticky_note"
+
+        # TV Hover button
         imagebutton:
             xpos 50 ypos 567
             xsize 539 ysize 433
@@ -2233,6 +2252,7 @@ screen apartment(data, time):
             idle Solid("#00000000")
             hover Solid("#d3a95620")
             action Show("zoomed_tv", None, store.apartment_data)
+        
         # Same with windows as notes? - HAB
         # imagebutton:
         #   xpos 0 ypos 0
@@ -2240,6 +2260,8 @@ screen apartment(data, time):
         #   idle Transform("images/room/room/window_with_bg.png", size=(768, 432)) 
         #   hover Transform("images/room/room/window_with_bg.png", size=(788, 455)) 
         #   action Show("zoomed_window", None, store.apartment_data)
+        
+        # Computer Screen Hovor Button
         imagebutton:
             xpos 614 ypos 404
             xsize 837 ysize 456
@@ -2253,6 +2275,7 @@ screen apartment(data, time):
     #     yalign 0.9
     #     textbutton "Set State" action Show("set_state", None)
 
+# No longer zooming into the notes
 screen zoomed_note(data):
     modal True
     vbox:
@@ -2272,7 +2295,6 @@ screen zoomed_tv(data, index=0):
     modal True
     python:
         if store.game_state.day == 0 and store.game_state.time == "end":
-            print(data['news'][0])
             index = data["news"].index(next(filter(lambda n: n.get('time') == 'end', data['news'])))
     # advance through news items
         result = setitem(data, index)
