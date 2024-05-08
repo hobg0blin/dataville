@@ -2236,7 +2236,11 @@ screen apartment(data, time):
         #   action Show("zoomed_note", None, store.apartment_data)
 
         # Notes
+        python:
+            random.shuffle(data["sticky_note"])
         for i, note in enumerate(data["sticky_note"]):
+            if i > 3:
+                break
             if note["performance"] == "default" or note["performance"] == store.game_state.performance_rating or (note["event_flag"] in store.event_flags):
                 hbox:
                     xsize 125 ysize 132
