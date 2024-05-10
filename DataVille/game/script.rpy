@@ -536,8 +536,6 @@ default skip_intro = False
 default start_at_day_end = False
 label start:
     if not skip_intro:
-
-
       play music "dataville_workspace_neutral.wav" fadein 2.0
       image bg start_screen = im.FactorScale("images/intro_desk.jpg", 1.5)
       image bg overlay_background = Solid('#EFF3E6')
@@ -893,9 +891,9 @@ label start:
       while count < length:
         python:
           if count <= length -2:
-             additional_text = split[count+1]
+            additional_text = split[count+1]
           else:
-             additional_text = ""
+            additional_text = ""
           print('epilogue text: ', split[count])
         call screen dream(f"{split[count]} {additional_text}", [])
         $ count += 2

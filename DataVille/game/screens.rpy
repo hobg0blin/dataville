@@ -73,6 +73,10 @@ style frame:
 style prompt_frame is frame:
     background Frame("gui/prompt_frame.png", gui.frame_borders, tile=gui.frame_tile)
 
+style default_button:
+    padding gui.frame_borders.padding
+    background Frame("gui/prompt_frame.png", gui.frame_borders, tile=gui.frame_tile)
+    activate_sound "click.wav"
 
 ################################################################################
 ## In-game screens
@@ -1697,8 +1701,7 @@ screen message(sender, buttons=None):
                 ypos 0.80
                 spacing 10
                 for button_text in buttons:
-                    frame:
-                        textbutton button_text style "button_click" action Return(True)
+                    textbutton button_text style "default_button" action Return(True)
 
 # A helper to create borders for displayable but maybe not the best
 # keeping it here in case I come across a use case for this - HAB
@@ -1751,13 +1754,11 @@ screen dream(dream_text, buttons):
             xalign 0.5
             spacing 15
             for button_text in buttons:
-                frame:
-                    style "prompt_frame"
-                    button:
-                        text button_text:
-                            color "#FFFFFF"
-                        style "button_click"
-                        action Return(True)
+                button:
+                    style "default_button"
+                    text button_text:
+                        color "#FFFFFF"
+                    action Return(True)
 
 screen job_offer(phase):
     if phase == 1:
@@ -1768,12 +1769,11 @@ screen job_offer(phase):
             ysize 94
             xpos 670
             ypos 792
-            style "prompt_frame"
+            style "default_button"
             text "{b}{size=36}Apply Now":
                 yalign 0.5
                 xalign 0.5
                 color "#FFFFFF"
-            activate_sound "click.wav"
             action Return(True)
     else:
         image "images/job_page_blur.png" at alpha_dissolve_quick
@@ -1805,8 +1805,7 @@ screen job_offer(phase):
                     yalign 0.5
                     xalign 0.5
                     color "#FFFFFF"
-                style "prompt_frame"
-                activate_sound "click.wav"
+                style "default_button"
                 action Return(True)
 
 screen assistant:
@@ -1866,124 +1865,118 @@ screen overlay(task, cogni=False, button_text=False):
 #
 # SELECT DA IMAGES
 screen captcha_image(task, images):
-  zorder 1
-  # $ random.shuffle(task)
-  window id 'labeler': 
-      style "window_nobox"
-      xmaximum 900
-      ymaximum 900
-      xalign 0.65
-      yalign 0.8
-      grid 3 4:
-        xmaximum 200
-        ymaximum 200
-        for i, img in enumerate(images):
-          default strp = ""
-          default btn_selected=False
-          python:
-              base = os.path.basename(img)
-              strp = os.path.splitext(base)[0]
-              selected_image = im.Grayscale(f"{img}")
-              print('img: ', img)
-              def check_selected(img):
-                if img in images_selected['values']:
-                  return True
-                else:
-                  return False
-          imagebutton:
-            style "button_click"
-            xfill True
-            yfill True 
-            idle Transform(f"{img}", size=(150, 150))
-            hover Transform(f"{img}", size=(175, 175))
-            selected_idle Transform(selected_image, size=(150,150))
-            selected_hover Transform(selected_image, size=(175,175))
-            action [Function(select_image, strp), SelectedIf(check_selected(strp))]
+    zorder 1
+    # $ random.shuffle(task)
+    window id 'labeler': 
+        style "window_nobox"
+        xmaximum 900
+        ymaximum 900
+        xalign 0.65
+        yalign 0.8
+        grid 3 4:
+            xmaximum 200
+            ymaximum 200
+            for i, img in enumerate(images):
+                default strp = ""
+                default btn_selected=False
+                python:
+                    base = os.path.basename(img)
+                    strp = os.path.splitext(base)[0]
+                    selected_image = im.Grayscale(f"{img}")
+                    print('img: ', img)
+                    def check_selected(img):
+                        if img in images_selected['values']:
+                            return True
+                        else:
+                            return False
+                imagebutton:
+                    style "button_click"
+                    xfill True
+                    yfill True 
+                    idle Transform(f"{img}", size=(150, 150))
+                    hover Transform(f"{img}", size=(175, 175))
+                    selected_idle Transform(selected_image, size=(150,150))
+                    selected_hover Transform(selected_image, size=(175,175))
+                    action [Function(select_image, strp), SelectedIf(check_selected(strp))]
 #            selected (Function(check_selected, strp))
-  frame id 'done':
-    xsize 300
-    xalign 0.5
-    yalign 0.9
-    textbutton "Done" style "button_click" action Return(True)
+    window id 'done':
+        textbutton "Done":
+            style "default_button"
+            text_xalign 0.5
+            xsize 300
+            xalign 0.5
+            yalign 0.1
+            action Return(True)
 
 screen comparison_image(task, images):
-  zorder 1
-  # $ random.shuffle(task)
-  window id 'labeler':
-      style "window_nobox"
-      xmaximum 900
-      ymaximum 1600
-      xalign 0.6
-      yalign 1.0
-      grid 3 4:
-        xmaximum 500
-        ymaximum 200
-        for i, img in enumerate(images):
-          default strp = ""
-          python:
-              base = os.path.basename(img)
-              strp = os.path.splitext(base)[0]
-          hbox:
-            spacing 10
-            imagebutton:
-              style "button_click"
-              xfill True
-              yfill True
-              idle Transform(f"{img}", size=(400, 400))
-              hover Transform(f"{img}", size=(425, 425))
-              action [SetVariable("latest_choice", strp), Return(True)]
+    zorder 1
+    # $ random.shuffle(task)
+    window id 'labeler':
+        style "window_nobox"
+        xmaximum 1920
+        ymaximum 1600
+        xalign 0.5
+        yalign 0.5
+        hbox:
+            xalign 0.5
+            spacing 40
+            for img in images:
+                default strp = ""
+                python:
+                    base = os.path.basename(img)
+                    strp = os.path.splitext(base)[0]
+                imagebutton:
+                    xysize (400,400)
+                    # xfill True
+                    # yfill True
+                    idle Transform(img, size=(400, 400), xpos = 0, ypos = 0)
+                    hover Transform(img, size=(425, 425), xpos = -12, ypos = -12)
+                    action [SetVariable("latest_choice", strp), Return(True)]
 
 # SAY YES OR NO TO DA IMAGES
 screen binary_image(task, images):
-  zorder 1
-  # $ random.shuffle(task)
-  window id 'labeler':
-      style "window_nobox"
-      xmaximum 900
-      ymaximum 900
-      xalign 0.75
-      yalign 0.35
-      hbox:
-        spacing 10
-        for i, img in enumerate(images):
-          default strp = ""
-          python:
-              base = os.path.basename(img)
-              strp = os.path.splitext(base)[0]
-          image im.Scale(f"{img}", 450, 450)
-  hbox id 'done':
-    xmaximum 900
-    xalign 0.5
-    yalign 0.7
-
-    spacing 20
-    frame:
-      textbutton 'Yes' style "button_click" action [SetVariable("latest_choice", "Y"), Return(True)]
-    frame:
-      textbutton 'No' style "button_click" action [SetVariable("latest_choice", "N"), Return(True)]
+    zorder 1
+    # $ random.shuffle(task)
+    window id 'labeler':
+        style "window_nobox"
+        xmaximum 900
+        ymaximum 900
+        xalign 0.75
+        yalign 0.35
+        hbox:
+            spacing 10
+            for i, img in enumerate(images):
+                default strp = ""
+                python:
+                    base = os.path.basename(img)
+                    strp = os.path.splitext(base)[0]
+                image im.Scale(f"{img}", 450, 450)
+    hbox id 'done':
+        xmaximum 900
+        xalign 0.5
+        yalign 0.7
+        spacing 20
+        textbutton 'Yes' style "default_button" action [SetVariable("latest_choice", "Y"), Return(True)]
+        textbutton 'No' style "default_button" action [SetVariable("latest_choice", "N"), Return(True)]
 
 screen binary_text(task):
-  zorder 1
-  # $ random.shuffle(task)
-  window id 'labeler':
-      style "window_nobox"
-      xmaximum 900
-      ymaximum 900
-      xalign 0.75
-      yalign 0.1
-      vbox id 'text_block':
-        text '{size=-3}'+ task['text_block']
-  hbox id 'done':
-    xmaximum 900
-    xalign 0.45
-    yalign 0.8
-
-
-    spacing 20
-    frame:
-      textbutton 'Yes' style "button_click" action [SetVariable("latest_choice", "Y"), Return(True)]
-    frame:
-      textbutton 'No' style "button_click" action [SetVariable("latest_choice", "N"), Return(True)]
+    zorder 1
+    # $ random.shuffle(task)
+    window id 'labeler':
+        style "window_nobox"
+        xmaximum 900
+        ymaximum 900
+        xalign 0.75
+        yalign 0.1
+        vbox id 'text_block':
+            text '{size=-3}'+ task['text_block']
+    hbox id 'done':
+        xmaximum 900
+        xalign 0.45
+        yalign 0.8
+        spacing 20
+        textbutton 'Yes' style "default_button" action [SetVariable("latest_choice", "Y"), Return(True)]
+        textbutton 'No' style "default_button" action [SetVariable("latest_choice", "N"), Return(True)]
 
 screen task_error():
   zorder 1
@@ -2005,36 +1998,36 @@ screen task_error():
       textbutton 'Next task' style "button_click" action [SetVariable("latest_choice", "Y"), Return(True)]
 
 screen comparison_text(task, button_text='Done!'):
-  zorder 1
-  # this animates random shuffle??? is that supposed to be happening? either renpy.random or regular random does it
-  #ok so use traditional python random library for actual randomization
-  default label_order = []
-  default box = {}
-  python:
-      import random
-      label_count = len(task['labels'].values())
-      label_order = []
-      for x in range(1, label_count + 1):
-          label_order.append(str(x))
-#      random_order = random.shuffle(label_order)
-  # # does not return a list but changes an existing one, generates same numbers every time
-  # $ renpy.random.shuffle(task)
-  window id 'labeler':
-    style "window_nobox"
-    xmaximum 900
-    ymaximum 900
-    xalign 0.5
-    yalign 0.05
-    vbox:
-      for idx, i in enumerate(label_order):
-          $ box = task['labels'][i]
-          textbutton('{size=-3}'+ box['text']):
-              style "button_click" 
-              xpos start_x_text ypos start_y_text
-              action [SetVariable("latest_choice", i), Return(True)]
-          python:
-            box['xpos'] = start_x_text
-            box['ypos'] = int(start_y_text) + (50*idx)
+    zorder 1
+    # this animates random shuffle??? is that supposed to be happening? either renpy.random or regular random does it
+    #ok so use traditional python random library for actual randomization
+    default label_order = []
+    default box = {}
+    python:
+        import random
+        label_count = len(task['labels'].values())
+        label_order = []
+        for x in range(1, label_count + 1):
+            label_order.append(str(x))
+    #      random_order = random.shuffle(label_order)
+    # # does not return a list but changes an existing one, generates same numbers every time
+    # $ renpy.random.shuffle(task)
+    window id 'labeler':
+        style "window_nobox"
+        xmaximum 900
+        ymaximum 900
+        xalign 0.5
+        yalign 0.05
+        vbox:
+            for idx, i in enumerate(label_order):
+                $ box = task['labels'][i]
+                textbutton('{size=-3}'+ box['text']):
+                    style "button_click" 
+                    xpos start_x_text ypos start_y_text
+                    action [SetVariable("latest_choice", i), Return(True)]
+                python:
+                    box['xpos'] = start_x_text
+                    box['ypos'] = int(start_y_text) + (50*idx)
             # for some reason if i increase start_y in here it loops when the timer is repeating. this seems insane to me and i would like to find out why (e.g if put start_y += 50 here)
 #  frame id 'done':
 #    xsize 300
@@ -2043,101 +2036,100 @@ screen comparison_text(task, button_text='Done!'):
 #    textbutton button_text action Return(True)
 
 screen caption_image(task, images):
-  zorder 1
-  # this animates random shuffle??? is that supposed to be happening? either renpy.random or regular random does it
-  #ok so use traditional python random library for actual randomization
-  default label_order = []
-  default box = {}
-  python:
-      import random
-      label_count = len(task['labels'].values())
-      label_order = []
-      for x in range(1, label_count + 1):
-          label_order.append(str(x))
-#      random_order = random.shuffle(label_order)
-  # # does not return a list but changes an existing one, generates same numbers every time
-  # $ renpy.random.shuffle(task)
-  window id 'labeler':
-    style "window_nobox"
-    xmaximum 900
-    ymaximum 900
-    xalign 0.5
-    yalign 0.2
-    frame id 'image':
+    zorder 1
+    # this animates random shuffle??? is that supposed to be happening? either renpy.random or regular random does it
+    #ok so use traditional python random library for actual randomization
+    default label_order = []
+    default box = {}
+    python:
+        import random
+        label_count = len(task['labels'].values())
+        label_order = []
+        for x in range(1, label_count + 1):
+            label_order.append(str(x))
+#       random_order = random.shuffle(label_order)
+        # # does not return a list but changes an existing one, generates same numbers every time
+        # $ renpy.random.shuffle(task)
+    window id 'labeler':
+        style "window_nobox"
+        xmaximum 900
+        ymaximum 900
+        xalign 0.5
+        yalign 0.2
+        frame id 'image':
+            style "window_nobox"
+            xalign 0.5
+            yalign 0.1
+            xsize 200
+            fixed:
+                xfill True
+                yfill True
+                image im.Scale(f"{images[0]}", 300, 300)
+
+    frame:
         style "window_nobox"
         xalign 0.5
-        yalign 0.1
-        xsize 200
-        fixed:
-            xfill True
-            yfill True
-            image im.Scale(f"{images[0]}", 300, 300)
-
-  frame:
-    style "window_nobox"
-    xalign 0.5
-    yalign 0.65
-    ymaximum 900
-    vbox:
-         spacing 20
-         xalign 0.5
-         for idx, i in enumerate(label_order):
-          frame:
-              xalign 0.5
-              yalign 0.1
-              $ box = task['labels'][i]
-              textbutton('{size=-3}'+ box['text']):
-                  style "button_click" 
-                  xpos 0 ypos 0
-                  action [SetVariable("latest_choice", task['labels'][i]['name']), Return(True)]
-              python:
-                box['xpos'] = start_x_text
-                box['ypos'] = int(start_y_text) + (50*idx)
+        yalign 0.65
+        ymaximum 900
+        vbox:
+            spacing 20
+            xalign 0.5
+            for i, id in enumerate(label_order):
+                $ box = task['labels'][id]
+                textbutton('{size=-3}'+ box['text']):
+                    xalign 0.5
+                    yalign 0.1
+                    style "default_button" 
+                    action [SetVariable("latest_choice", task['labels'][id]['name']), Return(True)]
+                python:
+                    box['xpos'] = start_x_text
+                    box['ypos'] = int(start_y_text) + (50*i)
             # for some reason if i increase start_y in here it loops when the timer is repeating. this seems insane to me and i would like to find out why (e.g if put start_y += 50 here)
+
 screen sentiment_text(task):
-  zorder 1
-  # this animates random shuffle??? is that supposed to be happening? either renpy.random or regular random does it
-  #ok so use traditional python random library for actual randomization
-  default label_order = []
-  default box = {}
-  python:
-      import random
-      label_count = len(task['labels'].values())
-      label_order = []
-      for x in range(1, label_count + 1):
-          label_order.append(str(x))
-#      random_order = random.shuffle(label_order)
-  # # does not return a list but changes an existing one, generates same numbers every time
-  # $ renpy.random.shuffle(task)
-  window id 'labeler':
-    style "window_nobox"
-    xmaximum 900
-    ymaximum 900
-    xalign 0.5
-    yalign 0.25
-    frame id 'textbox':
+    zorder 1
+    # this animates random shuffle??? is that supposed to be happening? either renpy.random or regular random does it
+    #ok so use traditional python random library for actual randomization
+    default label_order = []
+    default box = {}
+    python:
+        import random
+        label_count = len(task['labels'].values())
+        label_order = []
+        for x in range(1, label_count + 1):
+            label_order.append(str(x))
+#           random_order = random.shuffle(label_order)
+            # # does not return a list but changes an existing one, generates same numbers every time
+            # $ renpy.random.shuffle(task)
+    window id 'labeler':
         style "window_nobox"
+        xmaximum 900
+        ymaximum 900
         xalign 0.5
         yalign 0.25
-        xsize 600
-        text f"{task['text_block']}"
+        frame id 'textbox':
+            style "window_nobox"
+            xalign 0.5
+            yalign 0.25
+            xsize 600
+            text f"{task['text_block']}"
 
-  vbox:
-    xalign 0.5
-    yalign 0.65
-    ymaximum 900
-    spacing 10
-    for idx, i in enumerate(label_order):
-        $ box = task['labels'][i]
-        frame:
-                textbutton('{size=-3}'+ box['text']):
-                    style "button_click" 
-                    xpos 0 ypos 0
-                    action [SetVariable("latest_choice", task['labels'][i]['name']), Return(True)]
-        python:
-            box['xpos'] = start_x_text
-            box['ypos'] = int(start_y_text) + (50*idx)
-            # for some reason if i increase start_y in here it loops when the timer is repeating. this seems insane to me and i would like to find out why (e.g if put start_y += 50 here)
+    vbox:
+        xalign 0.5
+        yalign 0.65
+        ymaximum 900
+        spacing 10
+        for i, id in enumerate(label_order):
+            $ box = task['labels'][id]
+            textbutton('{size=-3}'+ box['text']):
+                    xalign 0.5
+                    yalign 0.1
+                    style "default_button" 
+                    action [SetVariable("latest_choice", task['labels'][id]['name']), Return(True)]
+            python:
+                box['xpos'] = start_x_text
+                box['ypos'] = int(start_y_text) + (50*i)
+                # for some reason if i increase start_y in here it loops when the timer is repeating. this seems insane to me and i would like to find out why (e.g if put start_y += 50 here)
 
 
 
@@ -2145,66 +2137,66 @@ screen sentiment_text(task):
 # ORDER THE TEXT
 
 screen order_text(task, button_text='Done!'):
-  zorder 1
-  # this animates random shuffle??? is that supposed to be happening? either renpy.random or regular random does it
-  #ok so use traditional python random library for actual randomization
-  default label_order = []
-  default box = {}
-  python:
-      import random
-      label_count = len(task['labels'].values())
-      label_order = []
-      for x in range(1, label_count + 1):
-          label_order.append(str(x))
-      #disabling random for now because it keeps causing an animation, i don't know why
-      # could just set a random position for them, I guess? Or have them side by side
-#      random.shuffle(label_order)
-  # # does not return a list but changes an existing one, generates same numbers every time
-  # $ renpy.random.shuffle(task)
+    zorder 1
+    # this animates random shuffle??? is that supposed to be happening? either renpy.random or regular random does it
+    #ok so use traditional python random library for actual randomization
+    default label_order = []
+    default box = {}
+    python:
+        import random
+        label_count = len(task['labels'].values())
+        label_order = []
+        for x in range(1, label_count + 1):
+            label_order.append(str(x))
+        # disabling random for now because it keeps causing an animation, i don't know why
+        # could just set a random position for them, I guess? Or have them side by side
+            # random.shuffle(label_order)
+    # # does not return a list but changes an existing one, generates same numbers every time
+    # $ renpy.random.shuffle(task)
 
-  window id 'labeler':
-    style "window_nobox"
-    xmaximum 900
-    ymaximum 900
-    xalign 0.5
-    yalign 0.0
-    vbox:
-      for idx, i in enumerate(label_order):
-          $ box = task['labels'][i]
-          drag:
-              draggable True
-              drag_name box['name']
-              xpos start_x_text ypos start_y_text
-              dragged drag_log
-              frame:
-                text '{size=-3}'+ box['text']
-          python:
-            box['xpos'] = start_x_text
-            box['ypos'] = int(start_y_text) + (50*idx)
-            # for some reason if i increase start_y in here it loops when the timer is repeating. this seems insane to me and i would like to find out why (e.g if put start_y += 50 here)
-  frame id 'done':
-    xsize 300
-    xalign 0.5
-    yalign 0.9
-    textbutton button_text style "button_click" action Return(True)
+    window id 'labeler':
+        style "window_nobox"
+        xmaximum 900
+        ymaximum 900
+        xalign 0.5
+        yalign 0.0
+        vbox:
+            for idx, i in enumerate(label_order):
+                $ box = task['labels'][i]
+                drag:
+                    draggable True
+                    drag_name box['name']
+                    xpos start_x_text ypos start_y_text
+                    dragged drag_log
+                frame:
+                    text '{size=-3}'+ box['text']
+                python:
+                    box['xpos'] = start_x_text
+                    box['ypos'] = int(start_y_text) + (50*idx)
+                    # for some reason if i increase start_y in here it loops when the timer is repeating. this seems insane to me and i would like to find out why (e.g if put start_y += 50 here)
+    frame id 'done':
+        xsize 300
+        xalign 0.5
+        yalign 0.9
+        textbutton button_text style "button_click" action Return(True)
 
 screen performance(state, average):
-  $ print('state: ', state)
-  $ print('average: ', average)
-  frame:
-    xalign 0.5
-    yalign 0.2
-    xmaximum 1200
-    has vbox
-    text("Approval rating")
-    bar value state["approval_rate"] range 100
-    bar value average["score"] range 100
-    text("Average speed")
-    bar value state["average_time"] range 10
-    bar value average["time"] range 10
-    text("Average earnings")
-    bar value state["earnings"] range 1200
-    bar value average["earnings"] range 1200
+    $ print('state: ', state)
+    $ print('average: ', average)
+    frame:
+        xalign 0.5
+        yalign 0.2
+        xmaximum 1200
+        has vbox
+        text("Approval rating")
+        bar value state["approval_rate"] range 100
+        bar value average["score"] range 100
+        text("Average speed")
+        bar value state["average_time"] range 10
+        bar value average["time"] range 10
+        text("Average earnings")
+        bar value state["earnings"] range 1200
+        bar value average["earnings"] range 1200
 # apartment screens
 # sticky notes zoom
 # tv zoom
@@ -2321,13 +2313,13 @@ screen zoomed_tv(data, index=0):
         textbutton "X" activate_sound "tv_2.wav" action Hide("zoomed_tv", None)
 
 screen zoomed_window(data):
-  modal True
-  frame:
-    xalign 0
-    yalign 0
+    modal True
+    frame:
+        xalign 0
+        yalign 0
     vbox:
-      xalign 0.2
-      image Transform(data["window_background"], size=(1000, 1000))
+        xalign 0.2
+        image Transform(data["window_background"], size=(1000, 1000))
     image Transform("images/room/room/window.png", size=(2500, 1200))
     textbutton "X" action Hide("zoomed_window", None)
 
@@ -2419,7 +2411,6 @@ screen set_task():
             input default "":
                 value VariableInputValue("task_string")
             frame:
-
                 textbutton "Set" action [Function(update_from_state_menu), Hide("set_task", None), Show("set_state", None)]
 
 screen add_event_flag():
@@ -2436,6 +2427,5 @@ screen add_event_flag():
             input default "":
                 value VariableInputValue("event_flag_string")
             frame:
-
                 textbutton "Set" action [Function(update_from_state_menu), Hide("add_event_flag", None), Show("set_state", None)]
 
