@@ -1969,8 +1969,9 @@ screen binary_image(task, images):
         xalign 0.5
         yalign 0.7
         spacing 20
-        textbutton 'Yes' style "default_button" action [SetVariable("latest_choice", "Y"), Return(True)]
-        textbutton 'No' style "default_button" action [SetVariable("latest_choice", "N"), Return(True)]
+        # Selected False prevents previous prompt selection from carrying over
+        textbutton 'Yes' selected False style "default_button" action [SetVariable("latest_choice", "Y"), Return(True)]
+        textbutton 'No' selected False style "default_button" action [SetVariable("latest_choice", "N"), Return(True)]
 
 screen binary_text(task):
     zorder 1
