@@ -1662,7 +1662,7 @@ screen timer:
     vbox:
         xalign 0.0
         yalign 1.0
-        timer 0.001 repeat True action If(time > 0, true=SetVariable('time', time - 10))
+        timer 0.03 repeat True action If(time > 0, true=SetVariable('time', time - 30))
         bar: 
             value time 
             range timer_range 
