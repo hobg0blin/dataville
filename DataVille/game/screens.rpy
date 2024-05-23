@@ -1654,13 +1654,27 @@ style button_click:
     activate_sound "click.wav"
 
 
+
 screen timer:
 #  zorder 10
-  vbox:
-    xalign 0.7
-    yalign 0.95
-    timer 0.01 repeat True action If(time > 0, true=SetVariable('time', time - 0.01))
-    bar value time range timer_range xalign 0.0 yalign 1 xmaximum 1800 at alpha_dissolve
+    python:
+        init_time = float(task['time']) * 1000
+    vbox:
+        xalign 0.0
+        yalign 1.0
+        timer 0.001 repeat True action If(time > 0, true=SetVariable('time', time - 10))
+        bar: 
+            value time 
+            range timer_range 
+            xmaximum 1920
+            # hls (0, 41, 0) == #696969
+            # if timer is still less than half way, keep saturation at 0
+            # else, start increaing it by the time left
+            # offset is included to treat the halfway point at 0.0 and timer end at 0.5
+            left_bar Solid(Color(hls=(0.0, 0.41, 0.0 if ((init_time - time) / init_time) < 0.5 else (init_time - (time + (init_time * 0.5))) / init_time)))
+            right_bar Solid("#D9D9D9")  
+            at alpha_dissolve
+
 
 
 
@@ -1837,13 +1851,12 @@ screen overlay(task, cogni=False, button_text=False):
     ymaximum 1200
     xmaximum 1920
     frame id 'status_bar':
-      background "#136366"
+      background "images/screens/monitor/overlay.png"
       has hbox
       xsize 1920
-      image "images/logo_white.png"
 #TODO: just track number of tasks here
 #      text 'Performance:' + '\n{size=-5}' + task['performance']
-      text '{font=fonts/RussoOne-Regular.ttf}TOTAL EARNINGS: $ ' + "{:.2f}".format(float(task['earnings'])) + '{/font}' xpos 400 color "#FFFFFF" 
+      text '{font=fonts/RussoOne-Regular.ttf}TOTAL EARNINGS: $ ' + "{:.2f}".format(float(task['earnings'])) + '{/font}' xalign .90 color "#FFFFFF" 
     hbox id 'cogni':
       xsize 400
       ysize 300
