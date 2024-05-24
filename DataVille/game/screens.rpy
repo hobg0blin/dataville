@@ -1882,14 +1882,14 @@ screen captcha_image(task, images):
     # $ random.shuffle(task)
     window id 'labeler': 
         style "window_nobox"
-        xmaximum 520
-        ymaximum 520
-        xalign 0.5
-        yalign 0.5
+        xsize 619
+        ysize 619
+        xalign 0.80
+        yalign 0.40
         grid 3 3:
             xmaximum 200
             ymaximum 200
-            spacing -33
+            spacing 7
             for i, img in enumerate(images):
                 default strp = ""
                 default btn_selected=False
@@ -1908,10 +1908,10 @@ screen captcha_image(task, images):
                     style "button_click"
                     xfill True
                     yfill True 
-                    idle Transform(f"{img}", size = (160, 160), xpos = 0, ypos = 0)
-                    hover Transform(hover_image, size = (160,160), xpos = 0, ypos = 0)
-                    selected_idle Transform(selected_image, size=(140,140), xpos = 10, ypos = 10)
-                    selected_hover Transform(hover_image, size=(140,140), xpos = 10, ypos = 10)
+                    idle Transform(f"{img}", size = (200, 200), xpos = 0, ypos = 0)
+                    hover Transform(hover_image, size = (200,200), xpos = 0, ypos = 0)
+                    selected_idle Transform(selected_image, size=(180,180), xpos = 10, ypos = 10)
+                    selected_hover Transform(hover_image, size=(180,180), xpos = 10, ypos = 10)
                     action [Function(select_image, strp), SelectedIf(check_selected(strp))]
 #            selected (Function(check_selected, strp))
     window id 'done':
@@ -1919,8 +1919,8 @@ screen captcha_image(task, images):
             style "default_button"
             text_xalign 0.5
             xsize 300
-            xalign 0.5
-            yalign 0.1
+            xalign 0.74
+            yalign 0.25
             action Return(True)
 
 screen comparison_image(task, images):
