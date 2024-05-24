@@ -72,14 +72,19 @@ Time to return to the job hunt.   ",bad,turned_in_landlady_true
 
 One day, the DataVille Corporate office approaches you with a proposition. As part of DataVille’s ongoing public sector partnerships, you’ve been invited to join a representative’s office in Congress as an AI detection specialist. You leap at the opportunity to start a new, more substantive chapter of your career. 
 
-You are disappointed to discover the job is just administering detection tests to staffers and interns. You are a glorified alien detector. You only find a handful of aliens in the representative’s office. They say your role as a deterrent is the most important part. At least you can pay the bills. ",good,
+You are disappointed to discover the job is just administering detection tests to staffers and interns. You are a glorified alien detector. You only find a handful of aliens in the representative’s office. They say your role as a deterrent is the most important part. At least you can pay the bills. ",good,turned_in_landlady_false
 "You are disappointed when the DataVille Corporation doesn’t offer you a new contract. You fixate on what you could have done differently as you look for a new job. The process is difficult and uninspiring. Faced with a parade of rejection, you begin to question your self-worth. How does your work experience as an AI alien detector qualify you for anything? 
 
 Eventually, you are forced to work retail at the mall. It’s not glamorous, but it’s a job. One day, while eating a Cinnabon in the food court, you see the mall rent-a-cops chasing a young alien. They accuse him of shoplifting and violently restrain him, searching for merchandise. You consider interceding, but ultimately decide against it. You don’t want to risk your job, no matter how unfulfilling it is. After finding a pair of sneakers in his jacket, he is handed off to local police for processing. You don’t know what will happen to him next, but it can’t be good.
 
-You’ve finished your snack. And it’s time to return to work.",neutral,
+You’ve finished your snack. And it’s time to return to work.",neutral,turned_in_landlady_false
 "Nothing seems to be going your way. You are unemployed with no sense of purpose and no idea how you are going to pay rent. Your landlady keeps hassling you.
 
-You scrape together a partial (and very late) payment and knock on her door. She looks confused. “I already got your transfer. You’re paid up for the rest of the year.” You scratch your head, bewildered. “But I didn’t understand your memo line. What does ‘source_undefined’ mean?”
+You scrape together a partial (and very late) payment and knock on her door. She looks confused. “I already got your transfer. You’re paid up for the rest of the year.” You scratch your head, bewildered. “But I didn’t understand your memo line. What does ‘@ [source_undefined]’ mean?”
 
-You smile to yourself. Life could be worse! At least you made a friend.",bad,
+You smile to yourself. Life could be worse! At least you made a friend.",bad,turned_in_landlady_false
+Sorry! You’re not a good fit for the Dataville Corporation. Feel free to reapply if you have a change of heart.,,tutorial_fail
+"You have failed to pay rent. You move back in with your mother. 
+
+Better luck next time!",,rent_fail
+Your work quality has been designated as “unsatisfactory.” Your services are no longer required by the Dataville Corporation. Good luck in your future endeavors. ,,performance_fail

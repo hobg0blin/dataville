@@ -1770,7 +1770,7 @@ screen job_offer(phase):
             xpos 670
             ypos 792
             style "default_button"
-            text "{b}{size=36}Apply Now":
+            text "{b}{size=36}Apply":
                 yalign 0.5
                 xalign 0.5
                 color "#FFFFFF"
@@ -2064,7 +2064,7 @@ screen caption_image(task, images):
             fixed:
                 xfill True
                 yfill True
-                image im.Scale(f"{images[0]}", 300, 300)
+                image im.Scale(f"{images[0]}", 450, 450)
 
     frame:
         style "window_nobox"

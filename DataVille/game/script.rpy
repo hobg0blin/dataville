@@ -4,6 +4,7 @@
 # name of the character.
 # Timer stuff from https://www.reddit.com/r/RenPy/comments/olfuk8/making_a_timer/
 #
+#b
 # TODOS:
 #-  Overall state - in progress
 #-  Saving/saved state - in progress
@@ -144,8 +145,10 @@ init python:
   store.game_state.time = 'start'
   store.game_state.day = -1
   store.game_state.performance_rating = 'neutral'
+  store.game_state.performance_count = {'good': 0, 'bad': 0, 'neutral': 0}
   store.game_state.task_count = 0
   store.apartment_file = ""
+  store.daily_rent = 1000
 
 
   store.game_state.ui = {
@@ -163,6 +166,7 @@ init python:
         "total_time": 0,
         "total_score": 0,
         "approval_rate": 0,
+        "earnings_minus_rent": 0
       }
 
   store.apartment_data = {"apartment_background": "1", "sticky_note": [], "message": [], "news": [], "window_background": "images/room/window_content/default_window_bg.jpg", "button_text": "Go to work!", "dream": []}
@@ -410,6 +414,7 @@ init python:
     state.ui['performance'] = performance_text
     state.ui['earnings'] += reward
     state.performance['earnings'] += reward
+    state.performance['earnings_minus_rent'] += reward
     if task == 'break':
       return task
     else:
@@ -430,10 +435,10 @@ init python:
                     print('setting default event flag: ', output)
             else:
                 for event_flag in store.event_flags: 
-                    print('store event flag: ', event_flag)
-                    print('epilogue event flag: ', event_flag)
+                    output = epilogue['text']
+                    if (event_flag == 'tutorial_fail' or event_flag == 'rent_fail' or event_flag == 'performance_fail') and event_flag == epilogue['event_flag']:
+                        has_event_flag = True
                     if event_flag == epilogue['event_flag'] and epilogue['performance'] == store.game_state.performance_rating:
-                        output = epilogue['text']
                         print('event flag based epilogue firing: ', epilogue)
                         has_event_flag = True
                 if has_event_flag:
@@ -581,7 +586,12 @@ label start:
       news_anchor "And what do you say to your critics who accuse the Dataville Corporation of exacerbating racial tensions with the aliens?"
       victor "Earth was meant for humans. If they have nothing to hide, why are they using camouflage?"
       $ blur_master()
-      call screen dream("You have a message from the DataVille corporation. \n Looking for a job? Looking to make the world a better, more human place?", ["Take the quiz!"])
+      image job_page = "images/job_page.png"
+      scene job_page
+      call screen job_offer(1)
+      call screen job_offer(2)
+      scene bg gray_bg
+      call screen dream("\n Looking for a job? Looking to make the world a better, more human place?", ["Take the quiz!"])
       call screen dream("Are you proud of your humanity?", ["Yes", "No"])
       call screen dream("Do you own a computer?", ["Yes", "No"])
       call screen dream("Are you interested in working from home?", ["Yes", "No"])
@@ -609,12 +619,8 @@ label start:
 #        scene desk_overhead
 #        pause
 
-        image job_page = "images/job_page.png"
-        scene job_page
+        
 
-        call screen job_offer(1)
-
-        call screen job_offer(2)
 
         image bg apartment_1 = "images/apartment/apartment3_1.png"
         
@@ -807,9 +813,28 @@ label start:
       hide screen instructions
       scene bg overlay_background
       show screen overlay (store.game_state.ui)
+      # fail states for not making rent, failing the tutorial, or being bad at the game
+      $ store.game_state.performance_count[store.game_state.performance_rating] += 1
+      if store.game_state.performance_count['bad'] >= 3:
+        $ store.event_flags.append('performance_fail')
+        jump end
+      if (store.game_state.day == 0) and store.game_state.time == 'end' and store.game_state.performance['earnings'] < 1000:
+        $ store.event_flags.append('tutorial_fail')
+        jump end
       if (store.game_state.time == "end"):
         show screen performance(store.game_state.performance, store.averages['day_' + str(store.game_state.day)])
         pause
+        python:
+          print('earnings: ', store.game_state.performance['earnings_minus_rent'])
+          store.game_state.performance['earnings_minus_rent'] -= store.daily_rent
+          print('earnings minus rent: ', store.game_state.performance['earnings_minus_rent'])
+          if store.game_state.performance['earnings_minus_rent'] <= 0:
+           store.event_flags.append('rent_fail')
+        if 'rent_fail' in store.event_flags:
+          jump end 
+      
+
+
         hide screen performance
       # FEEDBACK FROM MANAGER
         #NEW UI STATE
