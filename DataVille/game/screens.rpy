@@ -1882,20 +1882,22 @@ screen captcha_image(task, images):
     # $ random.shuffle(task)
     window id 'labeler': 
         style "window_nobox"
-        xmaximum 900
-        ymaximum 900
-        xalign 0.65
-        yalign 0.8
-        grid 3 4:
+        xmaximum 520
+        ymaximum 520
+        xalign 0.5
+        yalign 0.5
+        grid 3 3:
             xmaximum 200
             ymaximum 200
+            spacing -33
             for i, img in enumerate(images):
                 default strp = ""
                 default btn_selected=False
                 python:
                     base = os.path.basename(img)
                     strp = os.path.splitext(base)[0]
-                    selected_image = im.Grayscale(f"{img}")
+                    selected_image = Transform(f"{img}", matrixcolor=SaturationMatrix(0))
+                    hover_image = Transform(f"{img}", matrixcolor=SepiaMatrix(tint=Color("#464d8aa2")))
                     print('img: ', img)
                     def check_selected(img):
                         if img in images_selected['values']:
@@ -1906,10 +1908,10 @@ screen captcha_image(task, images):
                     style "button_click"
                     xfill True
                     yfill True 
-                    idle Transform(f"{img}", size=(150, 150))
-                    hover Transform(f"{img}", size=(175, 175))
-                    selected_idle Transform(selected_image, size=(150,150))
-                    selected_hover Transform(selected_image, size=(175,175))
+                    idle Transform(f"{img}", size = (160, 160), xpos = 0, ypos = 0)
+                    hover Transform(hover_image, size = (160,160), xpos = 0, ypos = 0)
+                    selected_idle Transform(selected_image, size=(140,140), xpos = 10, ypos = 10)
+                    selected_hover Transform(hover_image, size=(140,140), xpos = 10, ypos = 10)
                     action [Function(select_image, strp), SelectedIf(check_selected(strp))]
 #            selected (Function(check_selected, strp))
     window id 'done':
@@ -1942,8 +1944,8 @@ screen comparison_image(task, images):
                     xysize (400,400)
                     # xfill True
                     # yfill True
-                    idle Transform(img, size=(400, 400), xpos = 0, ypos = 0)
-                    hover Transform(img, size=(425, 425), xpos = -12, ypos = -12)
+                    idle Transform(img, size = (400, 400), xpos = 0, ypos = 0)
+                    hover Transform(img, size = (425, 425), xpos = -12, ypos = -12)
                     action [SetVariable("latest_choice", strp), Return(True)]
 
 # SAY YES OR NO TO DA IMAGES
