@@ -134,14 +134,14 @@ style window:
     xfill True
     yalign gui.textbox_yalign
     ysize gui.textbox_height
-    background ConditionSwitch('not show_window', Null(), 'True', Image("gui/textbox.png", xalign=0.5, yalign=1.0))
+    background None
 
-style window_nobox:
+style window_wbox:
     xalign 0.5
     xfill True
     yalign gui.textbox_yalign
     ysize gui.textbox_height
-    background None
+    background Image("gui/textbox.png", xalign=0.5, yalign=1.0)
 
 style namebox:
     xpos gui.name_xpos

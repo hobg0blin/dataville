@@ -40,11 +40,13 @@ init:
   image dark_green = Solid("#136366")
   image bg black = Solid("#000000")
   image cogni = "images/characters/cogni/asst_normal.png"
-  image side supervisor = "images/characters/alex/alex_neutral.png"
+
   define supervisor = Character("Alex T.", image="images/characters/alex/alex_neutral.png", who_suffix = "Senior Managaer @ Dataville", kind=email_message)
   define cogni = Character("Cogni", image="images/characters/cogni/asst_normal.png", kind=bubble)
-  define news_anchor = Character("News Anchor", image="images/news_anchor.jpg")
-  define victor = Character("Victor", image="images/victor.avif")
+  define stranger = Character("$(#@^%)$)(#)%$@^*$(*)", image="images/characters/stranger.png", who_suffix = "?*#$&#*@()%&@)%&$@^)($#)", kind=email_message)
+  define union = Character("Tim", image="images/characters/union.png", who_suffix = "Union Rep. Section 18, Cohort 48", kind=email_message)
+  define news_anchor = Character("News Anchor", image="images/news_anchor.jpg", window_style="window_wbox")
+  define victor = Character("Victor", image="images/victor.avif", window_style="window_wbox") 
 
   define char_map = {
     "supervisor": {
@@ -64,7 +66,20 @@ init:
         "surprised": "images/characters/cogni/asst_surprised.png"
       }
     },
+    "stranger": {
+      "obj": stranger,
+      "mood": {
+        "default": "images/characters/stranger.png"
+      }
+    },
+    "union": {
+      "obj": union,
+      "mood": {
+        "defailt": "images/characters/union.png"
+      }
+    },
   }
+
 ##ALL THE PYTHON SETUP GOES HERE
 init python:
   import random
