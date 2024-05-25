@@ -1695,13 +1695,13 @@ screen message(sender, buttons=None):
     $ print('buttons: ', buttons)
     python:
         if sender == 'supervisor':
-            avatar = "images/icons/supervisor.png" 
+            avatar = "images/characters/alex/alex_nuetral.png"
         elif sender == 'stranger':
-            avatar = "images/icons/asst_normal.png"
+            avatar = "images/characters/cogni/asst_normal.png"
         elif sender == 'cogni':
-            avatar = "images/icons/asst_normal.png"
+            avatar = "images/characters/cogni/asst_normal.png"
         else:
-            avatar = "images/icons/asst_normal.png"
+            avatar = "images/characters/cogni/asst_normal.png"
     window id 'content':
         ysize 1080
         xsize 1920
@@ -1833,7 +1833,7 @@ screen assistant:
     hbox id 'assistant':
       xalign 0.3
       yalign 0.75
-      image "images/icons/asst_normal.png"
+      image "images/characters/cogni/asst_normal.png"
 
 screen instructions(task):
     vbox id 'instructions':
@@ -1867,7 +1867,7 @@ screen overlay(task, cogni=False, button_text=False):
                     spacing 15
                     xsize 500
                     text '\n{size=-5}' + task['performance']
-                    image "images/icons/asst_normal.png"
+                    image "images/characters/cogni/asst_normal.png"
         if (button_text):
             frame id 'overlay_button':
                 xsize 300

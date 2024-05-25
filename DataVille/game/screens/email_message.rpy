@@ -1,8 +1,7 @@
-# # *****************************
-# # * Email Message Screen Type *
-# # *****************************
-# # Used for Alex T's character
-# # that takes up majority of the screen.
+# ***********************************************
+# * Renpy Character Template for Email Messages *
+# ***********************************************
+# Used for Alex T's character
 
 define email_message = Character(
     screen = "email_message", 
@@ -23,26 +22,33 @@ style email_message_namebox is namebox
 style email_message_namebox_label is say_label
 
 style email_message_window:
-    xsize 1920
-    ysize 1080
+    xalign 0.5
+    yalign 0.42
+    xsize 1500
+    ymaximum 600
+    yfill True
+    padding (100, 50)
     background Frame("gui/prompt_frame.png")
 
 style email_message_window_nobox:
     xalign 0.5
     xfill True
-    yalign gui.textbox_yalign
+    yalign 0.5
     ysize gui.textbox_height
     background None
 
 style email_message_namebox:
-    xpos gui.name_xpos
-    xanchor gui.name_xalign
-    xsize gui.namebox_width
-    ypos gui.name_ypos
-    ysize gui.namebox_height
+    padding (0, 0)
+    xalign 0.0
+    yalign 0.0
+    # xpos gui.name_xpos
+    # xanchor gui.name_xalign
+    # xsize gui.namebox_width
+    # ypos gui.name_ypos
+    # ysize gui.namebox_height
 
-    background Frame("gui/namebox.png", gui.namebox_borders, tile=gui.namebox_tile, xalign=gui.name_xalign)
-    padding gui.namebox_borders.padding
+    # background Frame("gui/namebox.png", gui.namebox_borders, tile=gui.namebox_tile, xalign=gui.name_xalign)
+    # # padding gui.namebox_borders.padding
 
 style email_message_label:
     properties gui.text_properties("name", accent=True)
@@ -58,13 +64,46 @@ style email_message_dialogue:
 
     adjust_spacing False
 
-screen email_message(who, what):
+screen email_message(who, who_suffix, what, image_path = None, buttons = ["Continue"]):
+    style_prefix "email_message"
     window:
         id "window"
         if who is not None:
             window:
                 id "namebox"
-                style "namebox"
-                text who id "who"
-        text what id "what"
-        add SideImage() xalign 0.5 yalign 0.5
+                style "email_message_namebox"
+
+                if image_path:
+                    image image_path:
+                        xsize 150
+                        ysize 150
+                        xalign 0.0
+                        yalign 0.0
+                text who id "who":
+                    size 72
+                    if image_path:
+                        xpos 200
+                    else:
+                        xpos 0
+                if who_suffix is not None:
+                    text who_suffix id "who_suffix":
+                        size 42
+                        ypos 100
+                        if image_path:
+                            xpos 200
+                        else:
+                            xpos 0
+        text what id "what":
+            size 30
+            ypos 200
+        
+    hbox id 'buttons':
+        xalign 0.5
+        ypos 900
+        spacing 10
+        for button_text in buttons:
+            textbutton button_text:
+                style "default_button"
+                xsize 300
+                text_xalign 0.5
+                action Return(True)

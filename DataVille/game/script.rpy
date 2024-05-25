@@ -33,23 +33,38 @@ default custom_feedback = ""
 default custom_feedback_sender = ""
 default has_custom_feedback = False
 
-init: 
-# switch to control showing dialogue box background
-  default show_window = True
-  
-# in style window
-  # $ print("email message ", email_message.properties)
-  # $ print("Bubble", bubble.__dir__())
+init:
+  define show_window = True
+
   image alien_human_family = "alien_human_family.png"
   image dark_green = Solid("#136366")
   image bg black = Solid("#000000")
-  image supervisor = "images/icons/supervisor.png"
-  image cogni = "images/icons/asst_normal.png"
-  image side supervisor = "images/icons/supervisor.png"
-  define e_big = Character("Alex T.", image="supervisor", kind=email_message)
-  define custom_feedback_speaker = Character("Congi", image="cogni", kind=bubble)
+  image cogni = "images/characters/cogni/asst_normal.png"
+  image side supervisor = "images/characters/alex/alex_neutral.png"
+  define supervisor = Character("Alex T.", image="images/characters/alex/alex_neutral.png", who_suffix = "Senior Managaer @ Dataville", kind=email_message)
+  define cogni = Character("Cogni", image="images/characters/cogni/asst_normal.png", kind=bubble)
   define news_anchor = Character("News Anchor", image="images/news_anchor.jpg")
   define victor = Character("Victor", image="images/victor.avif")
+
+  define char_map = {
+    "supervisor": {
+      "obj": supervisor,
+      "mood": {
+        "default": "images/characters/alex/alex_neutral.png",
+        "happy": "images/characters/alex/alex_happy.png",
+        "angry": "images/characters/alex/alex_angry.png"
+      }
+    },
+    "cogni": {
+      "obj": cogni,
+      "mood": {
+        "default": "images/characters/cogni/asst_normal.png",
+        "quizzical": "images/characters/cogni/asst_quizzical.png",
+        "angry": "images/characters/cogni/asst_angry.png",
+        "surprised": "images/characters/cogni/asst_surprised.png"
+      }
+    },
+  }
 ##ALL THE PYTHON SETUP GOES HERE
 init python:
   import random
@@ -659,7 +674,6 @@ label start:
     show screen overlay (store.game_state.ui)
     scene bg overlay_background
     label check_messages:
-      custom_feedback_speaker "Good morning! Here are your messages."
       while cleaned['message']:
         python:
           message = cleaned['message'].pop(0)
@@ -680,11 +694,13 @@ label start:
               second_sentence = split[count+1]
           if strip_message != "" and strip_message != "\n":
             # show screen message(message['sender'], buttons)
+            $ sender = char_map[message['sender']]
             # ONLY SHOWING ONE LINE DURING INTRO: I THINK THIS HAS THE LONGEST TEXT
             $ text =  f"{split[count]}"
-            e_big f"[text]"
-            # window hide
-            # hide screen message
+            if sender['obj'] != cogni:
+              call screen email_message(sender['obj'].name, sender['obj'].who_suffix, f"[text]", sender['mood']['default'])
+            else:
+              cogni "[text]"
           $ count += 1
   #manually set task & variables for first loop
       $ time = store.game_state.ui['timer']
@@ -720,12 +736,12 @@ label start:
                 buttons = []
                 second_sentence = split[count+1]
             if strip_message != "" and strip_message !="\n":
-              # show screen message(message['sender'], buttons)
               $ text = f"{split[count]}"
-              e_big "[text]"
-              # window hide
-              hide screen message
-
+              $ sender = char_map[message['sender']]
+              if sender['obj'] != cogni:
+                call screen email_message(sender['obj'].name, sender['obj'].who_suffix, f"[text]", sender['mood']['default'])
+              else:
+                cogni "[text]"
             $ count += 1
       python:
 # CLEAR IMAGE VARIABLES
@@ -741,7 +757,7 @@ label start:
         show screen message(task['custom_dialogue_sender'], ["Next"])
         $ custom_dialogue = task['custom_dialogue']
         # window hide
-        custom_feedback_speaker "[custom_dialogue]"
+        cogni "[custom_dialogue]"
         hide screen message
 
 
@@ -800,7 +816,7 @@ label start:
         $ print('has custom feedback')
         show screen message(custom_feedback_sender, ["Continue"])
         # window hide
-        custom_feedback_speaker "[custom_feedback]"
+        cogni "[custom_feedback]"
         hide screen message 
       #show screen overlay (store.game_state.ui, True)
       if (task == 'break'):
@@ -863,10 +879,14 @@ label start:
                 second_sentence = split[count+1]
             # show screen message(message['sender'], buttons)
             $ text = f"{split[count]} {second_sentence}"
-            e_big "[text]"
+            $ sender = char_map[message['sender']]
+            if sender['obj'] != cogni:
+              call screen email_message(sender['obj'].name, sender['obj'].who_suffix, f"[text]", sender['mood']['default'])
+            else:
+              cogni "[text]"
             $ count += 2
             # window hide
-            hide screen message
+            # hide screen message
 #      else:
       hide screen overlay
       scene bg apartment_1
