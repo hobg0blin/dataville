@@ -129,7 +129,6 @@ style say_thought is say_dialogue
 style namebox is default
 style namebox_label is say_label
 
-
 style window:
     xalign 0.5
     xfill True
@@ -1844,37 +1843,37 @@ screen instructions(task):
       yalign 0.3
       text '{size=-5}' + task['instructions']
 
- 
 screen overlay(task, cogni=False, button_text=False):
 # streak_text, feed_text, instructions, status, button_text=False):
-  window id 'content':
-    ymaximum 1200
-    xmaximum 1920
-    frame id 'status_bar':
-      background "images/screens/monitor/overlay.png"
-      has hbox
-      xsize 1920
-#TODO: just track number of tasks here
-#      text 'Performance:' + '\n{size=-5}' + task['performance']
-      text '{font=fonts/RussoOne-Regular.ttf}TOTAL EARNINGS: $ ' + "{:.2f}".format(float(task['earnings'])) + '{/font}' xalign .90 color "#FFFFFF" 
-    hbox id 'cogni':
-      xsize 400
-      ysize 300
-      yalign 0.75
-      xalign 0.2
-      #TODO: diff version of cogni based on performance
-      if cogni:
-        vbox:
-          spacing 15
-          xsize 500
-          text '\n{size=-5}' + task['performance']
-          image "images/icons/asst_normal.png"
-    if (button_text):
-      frame id 'overlay_button':
-        xsize 300
-        xalign 0.5
-        yalign 0.55
-        textbutton button_text style "button_click" action Return(True)
+    window id 'content':
+        style "window_nobox"
+        ymaximum 1200
+        xmaximum 1920
+        frame id 'status_bar':
+            background "images/screens/monitor/overlay.png"
+            has hbox
+            xsize 1920
+            #TODO: just track number of tasks here
+            #      text 'Performance:' + '\n{size=-5}' + task['performance']
+            text '{font=fonts/RussoOne-Regular.ttf}TOTAL EARNINGS: $ ' + "{:.2f}".format(float(task['earnings'])) + '{/font}' xalign .90 color "#FFFFFF" 
+        hbox id 'cogni':
+            xsize 400
+            ysize 300
+            yalign 0.75
+            xalign 0.2
+            #TODO: diff version of cogni based on performance
+            if cogni:
+                vbox:
+                    spacing 15
+                    xsize 500
+                    text '\n{size=-5}' + task['performance']
+                    image "images/icons/asst_normal.png"
+        if (button_text):
+            frame id 'overlay_button':
+                xsize 300
+                xalign 0.5
+                yalign 0.55
+                textbutton button_text style "button_click" action Return(True)
 #
 # SELECT DA IMAGES
 screen captcha_image(task, images):

@@ -1,5 +1,5 @@
-﻿# The s]cript of the game goes in tcustom_feedbacup file performance.
-
+﻿
+# The script of the game goes in tcustom_feedbacup file performance.
 # Declare characters used by this game. The color argument colorizes the
 # name of the character.
 # Timer stuff from https://www.reddit.com/r/RenPy/comments/olfuk8/making_a_timer/
@@ -35,18 +35,19 @@ default has_custom_feedback = False
 
 init: 
 # switch to control showing dialogue box background
-  default show_window = False
-
+  default show_window = True
+  
 # in style window
-
+  # $ print("email message ", email_message.properties)
+  # $ print("Bubble", bubble.__dir__())
   image alien_human_family = "alien_human_family.png"
   image dark_green = Solid("#136366")
   image bg black = Solid("#000000")
   image supervisor = "images/icons/supervisor.png"
   image cogni = "images/icons/asst_normal.png"
   image side supervisor = "images/icons/supervisor.png"
-  define e_big = Character("", image="supervisor", kind=bubble)
-  define custom_feedback_speaker = Character("", image="cogni", kind=bubble)
+  define e_big = Character("Alex T.", image="supervisor", kind=email_message)
+  define custom_feedback_speaker = Character("Congi", image="cogni", kind=bubble)
   define news_anchor = Character("News Anchor", image="images/news_anchor.jpg")
   define victor = Character("Victor", image="images/victor.avif")
 ##ALL THE PYTHON SETUP GOES HERE
@@ -58,7 +59,7 @@ init python:
   import operator
   import os
   from textwrap import wrap
-  import re
+  import re 
   alphabets= "([A-Za-z])"
   prefixes = "(Mr|St|Mrs|Ms|Dr)[.]"
   suffixes = "(Inc|Ltd|Jr|Sr|Co)"
@@ -442,7 +443,7 @@ init python:
                         print('event flag based epilogue firing: ', epilogue)
                         has_event_flag = True
                 if has_event_flag:
-                   break
+                      break
     print('epilogue output: ', epilogue)
 
     return output
@@ -463,7 +464,7 @@ init python:
   def get_images(task):
       images = []
       for imagepath in (renpy.list_files()):
-         if imagepath.startswith("images/" + "set" + str(store.game_state.day) + "/" + task['image_folder']) :
+          if imagepath.startswith("images/" + "set" + str(store.game_state.day) + "/" + task['image_folder']) :
             images.append(imagepath)
       return images
 
@@ -575,7 +576,7 @@ label start:
       pause
       scene bg news_bg
       # show standard dialogue box - only for news chyrons
-      $ show_window = True
+      # $ show_window = True
       news_anchor "Good evening, and welcome to our program."
       news_anchor "Tonight, hiding in the shadows. What the alien menace means for you and your family. I’m joined by Victor Willmington, founder and CEO of the Dataville Corporation. "
       news_anchor "Tell me Victor, how does your company see the ongoing alien migratory crisis?"
@@ -629,7 +630,7 @@ label start:
         call screen apartment(clean(store.apartment_data), store.game_state.time)
         hide screen apartment
       # hide dialogue box
-      $ show_window = False
+      # $ show_window = False
       scene bg apartment_bg with Dissolve(1.0)
 
       $ blur_master()
@@ -658,6 +659,7 @@ label start:
     show screen overlay (store.game_state.ui)
     scene bg overlay_background
     label check_messages:
+      custom_feedback_speaker "Good morning! Here are your messages."
       while cleaned['message']:
         python:
           message = cleaned['message'].pop(0)
@@ -677,12 +679,12 @@ label start:
               buttons = []
               second_sentence = split[count+1]
           if strip_message != "" and strip_message != "\n":
-            show screen message(message['sender'], buttons)
+            # show screen message(message['sender'], buttons)
             # ONLY SHOWING ONE LINE DURING INTRO: I THINK THIS HAS THE LONGEST TEXT
             $ text =  f"{split[count]}"
-            e_big "[text]"
+            e_big f"[text]"
             # window hide
-            hide screen message
+            # hide screen message
           $ count += 1
   #manually set task & variables for first loop
       $ time = store.game_state.ui['timer']
@@ -698,7 +700,7 @@ label start:
 #THIS AUTOMATES GOING THROUGH TASKS WHEN INSTRUCTIONS/ETC. ARE UNNECESSARY
     label task_loop:
       scene bg overlay_background
-      $ show_window = False
+      # $ show_window = False
       show screen overlay (store.game_state.ui)
       if store.game_state.day != 0 and len(cleaned['message'])>0:
         while cleaned['message']:
@@ -718,7 +720,7 @@ label start:
                 buttons = []
                 second_sentence = split[count+1]
             if strip_message != "" and strip_message !="\n":
-              show screen message(message['sender'], buttons)
+              # show screen message(message['sender'], buttons)
               $ text = f"{split[count]}"
               e_big "[text]"
               # window hide
@@ -829,7 +831,7 @@ label start:
           store.game_state.performance['earnings_minus_rent'] -= store.daily_rent
           print('earnings minus rent: ', store.game_state.performance['earnings_minus_rent'])
           if store.game_state.performance['earnings_minus_rent'] <= 0:
-           store.event_flags.append('rent_fail')
+            store.event_flags.append('rent_fail')
         if 'rent_fail' in store.event_flags:
           jump end 
       
@@ -859,7 +861,7 @@ label start:
               else:
                 buttons = []
                 second_sentence = split[count+1]
-            show screen message(message['sender'], buttons)
+            # show screen message(message['sender'], buttons)
             $ text = f"{split[count]} {second_sentence}"
             e_big "[text]"
             $ count += 2
@@ -869,9 +871,9 @@ label start:
       hide screen overlay
       scene bg apartment_1
       play music f"dataville_apartment_{store.game_state.performance_rating}.wav" fadein 2.0
-      $ show_window = True
+      # $ show_window = True
       call screen apartment(clean(store.apartment_data), store.game_state.time)
-      $ show_window = False
+      # $ show_window = False
       if store.game_state.day < 4:
         if store.game_state.time == "end":
             scene bg black_bg
