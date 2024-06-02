@@ -1504,7 +1504,7 @@ define bubble.properties = {
 
     "thought" : {
         "window_background" : bubble.thoughtframe,
-    }
+    },
 }
 
 define bubble.expand_area = {

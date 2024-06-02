@@ -41,28 +41,6 @@ style email_message_namebox:
     padding (0, 0)
     xalign 0.0
     yalign 0.0
-    # xpos gui.name_xpos
-    # xanchor gui.name_xalign
-    # xsize gui.namebox_width
-    # ypos gui.name_ypos
-    # ysize gui.namebox_height
-
-    # background Frame("gui/namebox.png", gui.namebox_borders, tile=gui.namebox_tile, xalign=gui.name_xalign)
-    # # padding gui.namebox_borders.padding
-
-style email_message_label:
-    properties gui.text_properties("name", accent=True)
-    xalign gui.name_xalign
-    yalign 0.5
-
-style email_message_dialogue:
-    properties gui.text_properties("dialogue")
-
-    xpos gui.dialogue_xpos
-    xsize gui.dialogue_width
-    ypos gui.dialogue_ypos
-
-    adjust_spacing False
 
 screen email_message(who, who_suffix, what, image_path = None, buttons = ["Continue"]):
     style_prefix "email_message"

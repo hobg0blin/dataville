@@ -39,10 +39,10 @@ init:
   image alien_human_family = "alien_human_family.png"
   image dark_green = Solid("#136366")
   image bg black = Solid("#000000")
-  image cogni = "images/characters/cogni/asst_normal.png"
+  # image cogni_sprite = "images/characters/cogni/cogni_happy.png"
 
   define supervisor = Character("Alex T.", image="images/characters/alex/alex_neutral.png", who_suffix = "Senior Managaer @ Dataville", kind=email_message)
-  define cogni = Character("Cogni", image="images/characters/cogni/asst_normal.png", kind=bubble)
+  # cogni defined in characters/cogni.rpy
   define stranger = Character("$(#@^%)$)(#)%$@^*$(*)", image="images/characters/stranger.png", who_suffix = "?*#$&#*@()%&@)%&$@^)($#)", kind=email_message)
   define union = Character("Tim", image="images/characters/union.png", who_suffix = "Union Rep. Section 18, Cohort 48", kind=email_message)
   define news_anchor = Character("News Anchor", image="images/news_anchor.jpg", window_style="window_wbox")
@@ -60,7 +60,7 @@ init:
     "cogni": {
       "obj": cogni,
       "mood": {
-        "default": "images/characters/cogni/asst_normal.png",
+        "default": "images/characters/cogni/cogni_happy.png",
         "quizzical": "images/characters/cogni/asst_quizzical.png",
         "angry": "images/characters/cogni/asst_angry.png",
         "surprised": "images/characters/cogni/asst_surprised.png"
@@ -715,7 +715,8 @@ label start:
             if sender['obj'] != cogni:
               call screen email_message(sender['obj'].name, sender['obj'].who_suffix, f"[text]", sender['mood']['default'])
             else:
-              cogni "[text]"
+              # show cogni_sprite
+              call screen cogni(f"[text]", sender['mood']['default'], position="center")
           $ count += 1
   #manually set task & variables for first loop
       $ time = store.game_state.ui['timer']
@@ -829,9 +830,13 @@ label start:
       show screen overlay (store.game_state.ui)
       if has_custom_feedback:
         $ print('has custom feedback')
-        show screen message(custom_feedback_sender, ["Continue"])
+        if custom_feedback_sender != "cogni":
+          # FIX THIS
+          call screen email_message(sender['obj'].name, sender['obj'].who_suffix, f"[text]", sender['mood']['default']) 
+        else:
+          call screen cogni("[custom_feedback]", sender['mood']['default'], position="center")
+        # show screen message(custom_feedback_sender, [f"{custom_feedback_sender}"])
         # window hide
-        cogni "[custom_feedback]"
         hide screen message 
       #show screen overlay (store.game_state.ui, True)
       if (task == 'break'):
@@ -898,7 +903,7 @@ label start:
             if sender['obj'] != cogni:
               call screen email_message(sender['obj'].name, sender['obj'].who_suffix, f"[text]", sender['mood']['default'])
             else:
-              cogni "[text]"
+              call screen cogni([f"[text]"], sender['mood']['default'], position="center")
             $ count += 2
             # window hide
             # hide screen message
