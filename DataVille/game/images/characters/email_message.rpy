@@ -58,6 +58,7 @@ screen email_message(who, who_suffix, what, image_path = None, buttons = ["Conti
                         xalign 0.0
                         yalign 0.0
                 text who id "who":
+                    color "#FFFFFF"
                     size 72
                     if image_path:
                         xpos 200
@@ -65,6 +66,7 @@ screen email_message(who, who_suffix, what, image_path = None, buttons = ["Conti
                         xpos 0
                 if who_suffix is not None:
                     text who_suffix id "who_suffix":
+                        color "#d2d2d2"
                         size 42
                         ypos 100
                         if image_path:
@@ -72,6 +74,7 @@ screen email_message(who, who_suffix, what, image_path = None, buttons = ["Conti
                         else:
                             xpos 0
         text what id "what":
+            color "#FFFFFF"
             size 30
             ypos 200
         
