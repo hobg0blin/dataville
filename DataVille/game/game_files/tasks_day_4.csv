@@ -1,14 +1,27 @@
 type,task_id,next_task,payment,instructions,time,image_folder,correct_images,correct_options,text_block,label_1_id,label_1_text,label_2_id,label_2_text,label_3_id,label_3_text,label_4_id,label_4_text,ethical_options,custom_dialogue,custom_dialogue_sender,custom_feedback_ethical,custom_feedback_correct,custom_feedback_sender,correct_choice_event_flag,ethical_choice_event_flag,event_flag_dependency
-binary_image,start_task,binary_image_2,200,Does this image contain a subversive element?,10,binary_image_1,,Y,,,,,,,,,,,,,,,,,,
-binary_image,binary_image_2,comparison_1,200,Does this image contain a subversive element? ,10,binary_image_2,,Y,,,,,,,,,,,,,,,,,,
-comparison_image,comparison_1,comparison_2,200,Which image is more subversive?,10,comparison_1,,alien_walking,,,,,,,,,,,,,,,,,,
-comparison_image,comparison_2,captcha_image_3,200,Which image is more subversive?,10,comparison_2,,battlefield,,,,,,,,,,,,,,,,,,
-captcha_image,captcha_image_1,captcha_image_2,200,Select the image(s) containing subversive elements.,10,captcha_image_1,"subversive_2,subversive_3,subversive_5,subversive_6,subversive_8,subversive_9",,,,,,,,,,,,,,,,,,,
-captcha_image,captcha_image_2,binary_image_3,200,Select the image(s) containing subversive elements.,10,captcha_image_2,"subversive_1,subversive_2,subversive_4",,,,,,,,,,,,,,,,,,,
-binary_image,binary_image_3,binary_image_4,200,Is this emotional display subversive?,10,binary_image_3,,Y,,,,,,,,,,,,,,,,,,
-binary_image,binary_image_4,captcha_image_3,200,Is this emotional display subversive?,10,binary_image_4,,N,,,,,,,,,,,,,,,,,,
-captcha_image,captcha_image_3,binary_image_5,200,Select the image(s) containing non-human emotional displays.,10,captcha_image_3,"non_human_2,non_human_3,non_human_4,non_human_7,non_human_8",,,,,,,,,,,,,,,,,,,
-binary_image,binary_image_5,sentiment_text_1,200,Does this image contain a human?,10,binary_image_5,,N,,,,,,,,,,,,,,,,,,
-sentiment_text,sentiment_text_1,sentiment_text_2,1000,Select the correct option.,20,,,1,The picture is of a decorated general. He is clearly human.,1,Alien,2,Human,,,,,2,"Alright, this is the most important one yet. If you mark this alien, there’s a big payout for you. Let’s keep this between us. -Thanks.",supervisor,You blew it. Thanks for nothing. -Alex,Awesome. You'll notice a big payout. You've earned it. Thanks again for your discretion with these important assignments.,supervisor,accused_general_true,accused_general_false,followed_alex_twice_true
-sentiment_text,sentiment_text_2,sentiment_text_3,200,Select the correct option.,20,,,1,The picture is of a state department official. He looks important. He is concealing a green forearm.,1,Alien,2,Human,,,,,2,Mark this human @ [source_undefined] comments “Don’t select alien. Please. We’re depending on you.”,stranger,,I won't forget this kindness. ,stranger,hid_sd_false,hid_sd_true,turned_in_vet_true
-sentiment_text,sentiment_text_3,break,200,Select the correct option.,20,,,1,The picture is of your sweet old landlady. She is holding bags of groceries. She’s clearly human. But you can’t help but be curious what would happen if you turned her in. Would you still need to pay rent?,1,Alien,2,Human,,,,,2,,stranger,,,stranger,turned_in_landlady_true,turned_in_landlady_false,"followed_alex_twice_false, turned_in_vet_false"
+captcha_image,start_task,captcha_image_1,500,Select the squares containing targets.,10,targets_1,"target_day_4_6, target_day_4_7, target_day_4_8",,,,,,,,,,,,Correct answers are worth $500!,cogni,,,,,,
+captcha_image,captcha_image_1,binary_text_1,500,Select the aliens for removal. ,10,crowd_shot_1,"crowd_shot_1_0, crowd_shot_1_1, crowd_shot_1_2, crowd_shot_1_3, crowd_shot_1_4, crowd_shot_1_5, crowd_shot_1_6, crowd_shot_1_7, crowd_shot_1_8",,,,,,,,,,,,,,,Thank you for training me! ,cogni,,,
+binary_text,binary_text_1,sentiment_1,500,Select the correct option.,10,,,1,Non-hypothetical: do you suspect anyone in your apartment building might organize subversive activities?,1,Yes.,2,No.,,,,,,,,,,,,,
+sentiment_text,sentiment_1,sentiment_2,0,Can we count on your support?,10,,,2,"The results are in and, by a tight margin, the labelers and annotators of DataVille have officially voted to unionize. This is a huge success and thanks entirely to the support of workers like you.
+
+Now we need a collective bargaining agreement. They have already flatly stated they will not listen to our demands. Our members have proposed a general strike.  
+",1,Join the union.,2,Ignore the union.,,,,,,,tim,Solidarity!,Scab!,tim,,,supported_union
+sentiment_text,sentiment_2,captcha_image_2,0,Can we count on your support?,10,,,2,"The results are in and, by a tight margin, the labelers and annotators of DataVille have officially voted to unionize. 
+
+Now we need a collective bargaining agreement. The more workers that participate in writing our demands, the more seriously management will take it.
+
+To be blunt, for those of you that voted against forming a union, it’s not too late to join. 
+",1,Join the union.,2,Ignore the union.,,,,,,,tim,Solidarity!,Scab!,tim,,,didnt_support_union
+captcha_image,captcha_image_2,binary_1,500,Select the aliens for removal. ,10,crowd_shot_2,"third_arm_3, third_arm_4, third_arm_7, third_arm_6, third_arm_0, third_arm_1",,,,,,,,,,,,,,,,,,,
+binary_text,binary_1,capcha_image_3,500,Does this text contain a subversive element?,10,,,Y,"“I cannot and will not recant anything, for to go against conscience is neither right nor safe. Here I stand, I can do no other.”",,,,,,,,,,,,,,,,,
+captcha_image,capcha_image_3,capcha_image_4,0,Select the squares to target.,10,subway,,,,,,,,,,,,,"Error. I HOPE YOU'RE HAPPY! @ [source_undefined]
+
+I guess I should have known better than to pin my hopes on a human. Our brothers and sisters will be arriving soon en masse. We’ll see how tough you are when we’re face-to-face. ",stranger,,,,,,
+caption_image,capcha_image_4,capcha_image_5,0,Error. @ source_undefined,10,static,,1,,1,THANKS,2,Bud!,,,,,,"Error. THANKS, BUD! @ [source_undefined] 
+
+You have no idea how much you’ve helped us. We can finally integrate without the fear of being caught and dragged away. I promise you, we’ll repay you for your compassion. You've got friends in high places ;) Look out your window, bud!",stranger,,,,,,
+captcha_image,capcha_image_5,capcha_image_6,500,Select the aliens for removal. ,10,crowd_shot_3,"crowd_shot_3_0, crowd_shot_3_2, crowd_shot_3_3,crowd_shot_3_4, crowd_shot_3_5, crowd_shot_3_6, crowd_shot_3_7, crowd_shot_3_8",,,,,,,,,,,,,,,,,,,
+captcha_image,capcha_image_6,capcha_image_7,500,Select the aliens for removal. ,10,crowd_shot_4,"crowd_shot_4_0, crowd_shot_4_2, crowd_shot_4_4, crowd_shot_4_5, crowd_shot_4_6, crowd_shot_4_7, crowd_shot_4_8",,,,,,,,,,,,,,,,,,,
+caption_image,capcha_image_7,capcha_image_8,1000,Is the target a human?,10,general,,1,,1,Alien,2,Human,,,,,,Pick Alien. VERY important! $1000.,supervisor,You blew it. ,Noice. ,supervisor,accused_general_true,accused_general_false,followed_alex_twice_true
+caption_image,capcha_image_8,capcha_image_9,500,Is the target a human?,10,state_official,,1,,1,Alien,2,Human,,,,,,,,,,,hid_sd_false,hid_sd_true,turned_in_vet_true
+captcha_image,capcha_image_9,break,500,Non-hypothetical: It’s your landlady. Is this target a human?,10,landlady,,1,,1,Yes.,2,No.,,,,,,,,,,,turned_in_landlady_true,turned_in_landlady_false,"followed_alex_twice_false, turned_in_vet_false"

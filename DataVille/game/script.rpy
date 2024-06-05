@@ -115,27 +115,27 @@ init python:
       'day_0': {
         'score': 70,
         'time': 8,
-        'earnings': 1200
+        'earnings': 600
         },
       'day_1': {
         'score': 70,
           'time': 8,
-        'earnings': 2400
+        'earnings': 2200
         },
       'day_2': {
           'score': 70,
           'time': 8,
-        'earnings': 3600
+        'earnings': 5000
         },
       'day_3': {
           'score': 70,
           'time': 8,
-        'earnings': 4800
+        'earnings': 9000
         },
       'day_4': {
         'score': 70,
         'time': 8,
-        'earnings': 6000
+        'earnings': 15000
         },
     }
 # these should only be updated after a game loop
@@ -600,9 +600,9 @@ label start:
 
       label intro:
   #      manual stuff for game start
-  #      image bg apartment_1 = im.FactorScale("images/room/room/room_" + store.apartment_data["apartment_background"] + ".jpg", 1.5)
+#        image bg apartment_1 = im.FactorScale("images/room/room/room_" + store.apartment_data["apartment_background"] + ".jpg", 1.5)
         # scene bg black_bg
-#
+
 #        $ blur_master()
 #        
 #        $ dream_counter = 0
@@ -618,12 +618,12 @@ label start:
 #        image desk_overhead = "images/desk_overhead.png"
 #        scene desk_overhead
 #        pause
-
-        
-
-
+#
+#        
+#
+#
         image bg apartment_1 = "images/apartment/apartment3_1.png"
-        
+#        
         scene bg apartment_1
         play music "dataville_apartment_neutral.wav"
         call screen apartment(clean(store.apartment_data), store.game_state.time)
@@ -685,7 +685,7 @@ label start:
             hide screen message
           $ count += 1
   #manually set task & variables for first loop
-      $ time = store.game_state.ui['timer']
+    $ time = store.game_state.ui['timer']
 
     python:
       if len(task_string) > 0:
@@ -818,7 +818,7 @@ label start:
       if store.game_state.performance_count['bad'] >= 3:
         $ store.event_flags.append('performance_fail')
         jump end
-      if (store.game_state.day == 0) and store.game_state.time == 'end' and store.game_state.performance['earnings'] < 1000:
+      if (store.game_state.day == 0) and store.game_state.time == 'end' and store.game_state.performance['earnings'] < 600:
         $ store.event_flags.append('tutorial_fail')
         jump end
       if (store.game_state.time == "end"):
@@ -826,7 +826,8 @@ label start:
         pause
         python:
           print('earnings: ', store.game_state.performance['earnings_minus_rent'])
-          store.game_state.performance['earnings_minus_rent'] -= store.daily_rent
+          if (store.game_state.day != 0):
+            store.game_state.performance['earnings_minus_rent'] -= (store.daily_rent * store.game_state.day)
           print('earnings minus rent: ', store.game_state.performance['earnings_minus_rent'])
           if store.game_state.performance['earnings_minus_rent'] <= 0:
            store.event_flags.append('rent_fail')

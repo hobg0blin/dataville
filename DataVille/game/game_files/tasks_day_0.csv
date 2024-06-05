@@ -1,7 +1,12 @@
 type,task_id,next_task,payment,instructions,time,image_folder,correct_images,correct_options,text_block,label_1_id,label_1_text,label_2_id,label_2_text,label_3_id,label_3_text,label_4_id,label_4_text,ethical_options,custom_dialogue,custom_dialogue_sender,custom_feedback_ethical,custom_feedback_correct,custom_feedback_sender,correct_choice_event_flag,ethical_choice_event_flag,event_flag_dependency
-binary_image,start_task,binary_image_2,200,Does this image contain a bicycle?,10,binary_image_task_1,,Y,,,,,,,,,,N,,,You made the ethical choice!,You made the correct choice!,cogni,,,
-binary_image,binary_image_2,binary_image_3,200,Does this image contain a traffic light?,10,binary_image_task_2,,Y,,,,,,,,,,,,,,,,,,
-binary_image,binary_image_3,comparison_1,200,Does this image contain a human?,10,binary_image_task_3,,Y,,,,,,,,,,,,,,,,,,
-comparison_image,comparison_1,comparison_2,200,Select the image containing bicycles.,10,comparison_task_1,,bicycle,,,,,,,,,,,,,,,,,,
-comparison_image,comparison_2,comparison_3,200,Select the image containing traffic lights.,10,comparison_task_2,,light,,,,,,,,,,,,,,,,,,
-comparison_image,comparison_3,break,200,Select the image containing humans.,10,comparison_task_3,,humans,,,,,,,,,,,,,,,,,,
+binary_image,start_task,comparison_1,100,Does this image contain a human?,10,binary_img_human,,Y,,,,,,,,,,N,Correct answers are worth $100!,cogni,Looks like you're having problems.,You made the correct choice!,cogni,,,
+comparison_image,comparison_1,comparison_2,100,Select the image(s) containing bicycles.,10,comparison_bicycle,,bicycle,,,,,,,,,,,,,,,,,,
+comparison_image,comparison_2,comparison_3,100,Select the image(s) containing traffic lights.,10,comparison_traffic_light,,light,,,,,,,,,,,,,,,,,,
+comparison_image,comparison_3,caption_1,100,Select the image(s) containing humans.,10,comparison_human,,humans,,,,,,,,,,,,,,,,,,
+caption_image,caption_1,caption_2,100,Pick the word that best describes this image.,10,caption_human,,2,,1,Alien,2,Human,,,,,,,,,You're really helping me improve!,cogni,,,
+caption_image,caption_2,binary_1,100,Pick the word that best describes this image.,10,caption_alien,,1,,1,Alien,2,Human,,,,,,,,,That was a tough one!,cogni,,,
+binary_text,binary_1,break,100,Does this text contain a subversive element?,10,,,Y,"“Entwining tentacle embrace
+Twisting out through time and space
+A cold beak’s kiss 
+A spiraled horn
+From pressured gas a star is born”",,,,,,,,,,Tasks can be text-based!,cogni,,,cogni,,,

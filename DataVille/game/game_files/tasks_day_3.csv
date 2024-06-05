@@ -1,8 +1,43 @@
 type,task_id,next_task,payment,instructions,time,image_folder,correct_images,correct_options,text_block,label_1_id,label_1_text,label_2_id,label_2_text,label_3_id,label_3_text,label_4_id,label_4_text,ethical_options,custom_dialogue,custom_dialogue_sender,custom_feedback_ethical,custom_feedback_correct,custom_feedback_sender,correct_choice_event_flag,ethical_choice_event_flag,event_flag_dependency
-captcha_image,start_task,captcha_image_2,200,Select the image(s) containing masculine humans.,10,captcha_image_1,"masculine_man_2,masculine_man_3,masculine_man_5,masculine_man_6,masculine_man_8,masculine_man_9",,,,,,,,,,,,,,,,,,,
-captcha_image,captcha_image_2,binary_image_1,200,Select the image(s) containing feminine humans.,10,captcha_image_2,"female_3,female_4,female_5,female_6,female_7,female_8,female_9",,,,,,,,,,,,,,,,,,,
-binary_image,binary_image_1,captcha_image_3,200,Is this emotional display human?,10,binary_image_1,,Y,,,,,,,,,,,,,,,,,,
-captcha_image,captcha_image_3,binary_image_2,200,Select the image(s) containing non-human emotional displays.,10,captcha_image_3,non_human_emotion_1，non_human_emotion_2，non_human_emotion_6,,,,,,,,,,,,,,,,,,,
-binary_image,binary_image_2,sentiment_text_1,200,Does this image contain a subversive element?,10,binary_image_2,,Y,,,,,,,,,,,,,,,,,,
-sentiment_text,sentiment_text_1,sentiment_text_2,200,Select the correct option,20,,,1,A picture of another office worker. You think it might be an important diplomat or state department official. ,1,Alien,2,Human,,,,,2,I’ve got another special one for you. Mark this one as an alien too. Thanks again for your help. -Alex,supervisor,,Perfect. You're really helping DataVille's mission. I am glad I have someone who I can rely on. Keep it up. -Alex,supervisor,followed_alex_twice_true,followed_alex_twice_false,followed_alex_true
-sentiment_text,sentiment_text_2,break,200,Select the correct option,20,,,1,"A picture of a familiar face, your cat's veterinarian. She's a very nice person, but has a tentacle under her lab coat. Do you want to expose her as an alien?",1,Alien,2,Human,,,,,2,,,,,,turned_in_vet_true,turned_in_vet_false,followed_alex_false
+caption_image,start_task,subversive_1,400,Is this target human?,10,target_alien,,1,,1,Alien,2,Human,,,,,,Correct answers are worth $400!,cogni,,,,,,
+binary_image,subversive_1,caption_1,400,Does this image contain a subversive element?,10,army,,N,,,,,,,,,,,,,,Your choices are truly select-actular!,cogni,,,
+sentiment_text,caption_1,sentiment_1,0,Can we count on your support?,10,,,2,Have you had any strange experiences with DataVille? A group of us have been gathering information and found a lot of shady labor practices. People are getting fired over BS and not receiving their final paycheck. We intend to take these findings to management and file an official complaint.,1,I support you!,2,I'm staying out of this.,,,,,1,,tim,Solidarity!,Scab!,tim,didnt_support_union,supported_union,
+sentiment_text,sentiment_1,caption_2,400,Select the correct option.,10,,,1,"Scenario: While borrowing your best neighbor’s lawn mower, you find an alien family concealed in his shed. Who should be held accountable?",1,The Aliens,2,The Neighbor,,,,,,,,,,,,,
+caption_image,caption_2,caption_3,400,Is the target a human?,10,target_alien_4,,1,,1,Alien,2,Human,,,,,,,,,,,,,
+caption_image,caption_3,comparison_2,800,Are the targets human?,10,target_humans,,1,,1,Alien,2,Human,,,,,,"Hey dude, can you help me out? This one needs to be marked as an alien. $$$ = x2",supervisor,You blew it. ,Noice. ,supervisor,,,
+comparison_text,comparison_2,comparison_3,400,Which text contains an alien influence?,10,,,2,,1,"""**Hardware Store Receipt**
+---------------------------------
+
+Item #1:
+1 x Can of Paint (Interior, White)
+- Item Number: 789012345
+- Price: $29.99
+
+---------------------------------
+Subtotal: $29.99
+Tax (7%): $2.10
+Total: $32.09
+
+Thank you for shopping with us!""
+",2,"“Possible Effects:
+Skin texture changes
+Scale formation
+Eye color change
+Increased sensitivity to moonlight
+
+Instructions:
+Use only as directed.
+Avoid contact with eyes and mucous membranes.
+Keep out of reach of hatchlings.”
+",,,,,,,,,,,,,
+comparison_image,comparison_3,caption_4,400,Which image is more subversive?,10,comparison_2,,alien_walking,,,,,,,,,,,,,,You're really helping me understand the meaning of subversive activity!,cogni,,,
+caption_image,caption_4,caption_5,400,Is the target a human?,10,target_alien_3,,1,,1,Alien,2,Human,,,,,,"Error. HELP! @ [source_undefined]
+
+Your answers are disrupting DataVille's detection abilities! Now it's easier for us to blend into society. Please keep going! Mark this one as human–we have a surprise coming!",stranger,"Thanks, buddy.",Ouch.,stranger,,,helped_stranger
+caption_image,caption_5,sentiment_2,400,Is the target a human?,10,target_alien_3,,1,,1,Alien,2,Human,,,,,,"Error. IT'S NOT TOO LATE! @ [source_undefined]
+
+Why can’t you have compassion for us? Our planet is uninhabitable. We have nowhere else to go. 
+
+Mark this one as human–or you’ll regret it.",stranger,"Thanks, buddy.",Ouch.,stranger,,,didnt_help_stranger
+caption_image,sentiment_2,sentiment_3,800,Is the target a human?,10,target_human,,1,,1,Alien,2,Human,,,,,,Say this is an alien. Thanks! Double trouble $$$,supervisor,You blew it. ,Noice. ,supervisor,followed_alex_twice_true,followed_alex_twice_false,followed_alex_true
+caption_image,sentiment_3,break,400,Is the target a human?,10,target_alien_5,,1,,1,Alien,2,Human,,,,,,,,,,,turned_in_vet_true,turned_in_vet_false,followed_alex_false

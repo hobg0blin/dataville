@@ -2016,13 +2016,15 @@ screen comparison_text(task, button_text='Done!'):
         style "window_nobox"
         xmaximum 900
         ymaximum 900
-        xalign 0.5
+        xalign 0.45
         yalign 0.05
-        vbox:
+        hbox:
+            spacing 30
             for idx, i in enumerate(label_order):
                 $ box = task['labels'][i]
-                textbutton('{size=-3}'+ box['text']):
+                textbutton('{size=-5}'+ box['text']):
                     style "button_click" 
+                    xsize 250
                     xpos start_x_text ypos start_y_text
                     action [SetVariable("latest_choice", i), Return(True)]
                 python:

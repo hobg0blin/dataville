@@ -1,33 +1,14 @@
 DAY,TEXT,TYPE,PERFORMANCE,TIME,SENDER,IMAGE_FOLDER,IMAGE,BUTTON_1_TEXT,BUTTON_2_TEXT,EVENT_FLAG
-1,"It looks like you have a work message from:
-Alex T Manager @ Dataville",message,default,end,cogni,,,Got it.,Ugh. Here we go…,
-1,"Subject: Performance Review
+1,"Alex, your manager, has something to tell you.",message,default,end,cogni,,,Got it.,Ugh. Here we go…,
+1,"Great work! Your ratings are eligible for the incentive bonus. Keep up the good work!
 
-Great work! Your performance ratings are eligible for the incentive bonus. Keep up the good work.
+Happy labeling!",message,good,end,supervisor,,,A hard day’s work!,,
+1,"Your work needs improvement. Aim for the incentive bonuses. The next set of questions will be more challenging. 
 
-Happy labeling!
--Alex T",message,good,end,supervisor,,,A hard day’s work!,,
-1,"Subject: Performance Review
+Happy labeling!",message,neutral,end,supervisor,,,A hard day’s work!,,
+1,"I’m a little concerned about your performance. Think about how you might improve. 
 
-Your work needs improvement. Aim for the incentive bonuses. The next set of questions will be more challenging. 
-
-Happy labeling!
--Alex T",message,neutral,end,supervisor,,,A hard day’s work!,,
-1,"Subject: Performance Review
-
-I’m a little concerned about your performance. Please take a moment to review the areas in which you can improve. 
-
-Happy labeling!
--Alex T",message,bad,end,supervisor,,,A hard day’s work!,,
-1,"It looks like you have a work message from:
-HELP! @ [source_undefined]",message,default,end,cogni,,,This looks weird.,,
-1,"HELP! @ [source_undefined]
-Subject: Don’t ignore this!
-
-If you’re getting this message, I need your help! Please don’t give any more correct answers! They’re using your Captcha to find us–”
-
-The message terminates abruptly.
-",message,default,end,stranger,,,Back to work!,I’ll think about that.,
+Happy labeling!",message,bad,end,supervisor,,,A hard day’s work!,,
 1,You did what you felt was right. So why do you feel so anxious?,message,flag_dependent,end,stranger,,,Nice. Can't wait to move to a cabin in the woods.,,became_unabomber
 1,You're advancing in your job. So why do you feel conflicted?,message,flag_dependent,end,supervisor,,,Nice. Don't want to move to a cabin in the woods.,,not_unabomber
 1,Official opening of Montana Resettlement Zone.,news,default,end,,tv_content/day1,1.png,,,
@@ -46,8 +27,8 @@ The message terminates abruptly.
 1,bank deposit,sticky_note,good,end,,,,,,
 1,Research side hustle?,sticky_note,bad,end,,,,,,
 1,Ebay bid!,sticky_note,good,end,,,,,,
-1,Freelance gigs stress me out.,dream,default,end,,,,But they offer great flexibility!,They don’t give a shit about me.,
-1,I feel like I don’t have other options.,dream,default,end,,,,At least it’s easy!,I should look for other gigs.,
+1,Freelance gigs stress me out.,dream,default,end,,,,But this offers great flexibility!,They don’t give a shit about me.,
+1,Maybe I can salvage this?,dream,default,end,,,,Labeling is easy money!,I should look for other gigs.,
 1,Dataville’s mission…,dream,default,end,,,,Is helping humanity!,Makes me nervous.,
 1,Back to work.,dream,default,end,,,,,,
 1,,,,,,,,,,

@@ -1,82 +1,16 @@
 DAY,TEXT,TYPE,PERFORMANCE,TIME,SENDER,IMAGE_FOLDER,IMAGE,BUTTON_1_TEXT,BUTTON_2_TEXT,EVENT_FLAG
-4,"You have a work message from:
-Alex T Manager @ Dataville",message,default,end,cogni,,,Got it.,Ugh. Here we go…,
-4,"Alex T Manager @ DataVille
-Subject: Promotion
+4,"Alex, your manager, has something to tell you.",message,default,end,cogni,,,Got it.,Ugh. Here we go…,
+4,"I’m very excited to offer you a position as a permanent coordinator. Your attention to detail has proven to be a tremendous asset to the organization. 
 
-On behalf of DataVille’s administrative team, I’m very excited to offer a position as a permanent coordinator. Your attention to detail and efficiency have proven to be a tremendous asset to the organization and our ongoing mission to keep humanity free of alien infiltrators. With your help, we’ll make a safer planet.
-
-Congratulations on your promotion!
--Alex T",message,good,end,supervisor,,,Time to call mom!,,
-4,"Alex T Manager @ DataVille
-Subject: Next Phase
-
-Thanks for all your hard work. At this time, I am excited to announce we will be transitioning to new, more robust methods and measures of alien detection. Your commitment and dedication have been greatly appreciated as we endeavor in our mission to help keep humanity free from alien infiltrators. If you’d like to continue working with DataVille, please submit an application for our new  position of:
+Congratulations on your promotion!",message,good,end,supervisor,,,Time to call mom!,,
+4,"I am excited to announce we will be transitioning to new, more robust methods of alien detection. Your dedication have been greatly appreciated. If you’d like to continue working with DataVille, please submit an application for our new position of:
 
 Wrangler / Tagger
 
-If your skills are a match, we’ll be sure to reach out.
+If your skills are a match, we’ll be sure to reach out.",message,neutral,end,supervisor,,,Time to find a new job!,,
+4,"Dataville has decided to terminate your employment. Your performance metrics did not show adequate improvement. DataVille has frozen your pending payments per our policy.
 
-Thank you.
--Alex T",message,neutral,end,supervisor,,,Time to find a new job!,,
-4,"Alex T Manager @ DataVille
-Subject: Termination
-
-After consulting with our administrative team, Dataville has decided to terminate your employment. Since your performance metrics did not show adequate improvement, per our employment policy, DataVille has frozen your pending payments until such time as  further review can be conducted.
-
-Thank you for your understanding.
--Alex T",message,bad,end,supervisor,,,Time to move on!,,
-4,"You have a work message from:
-I hope you’re happy @ [source_undefined]",message,good,end,cogni,,,This looks weird.,,
-4,"I hope you’re happy @ [source_undefined]
-Subject: disgusted
-
-I hope you’re happy. I guess I should have known better than to pin my hopes on a human. Our brothers and sisters will be arriving soon en masse. We’ll see how tough you are when we’re face-to-face. It’s coming sooner than you think.",message,good,end,stranger,,,Oh well!,I’ll think about that.,
-4,"You have a work message from:
-sad @ [source_undefined]
-",message,neutral,end,cogni,,,This looks weird.,,
-4,"sad @ [source_undefined]
-Subject: time to meet
-
-I guess you did what you could. But it wasn’t enough. It’s too late to go backwards. My brothers and sisters are arriving soon. I’ve already begun receiving transmissions. I hope they show more mercy than you’ve shown us.",message,neutral,end,stranger,,,Oh well!,I’ll think about that.,
-4,"You have a work message from:
-Thank you! @ [source_undefined]",message,bad,end,cogni,,,This looks weird.,,
-4,"Thank you! @ [source_undefined]
-Subject: You saved us
-
-You have no idea how much you’ve helped us. We can finally integrate without the fear of being caught and dragged away. I promise you, you will not regret helping us. Someday we’ll repay you for your generous compassion. That day may come sooner than you think. Things are about to get a lot different. Look out your window.
-",message,bad,end,stranger,,,You’re welcome!,I’ll think about that.,
-4,"You have a work message from:
-Tim 18/48 @ Dataville",message,default,end,cogni,,,,,
-4,"As a reminder, extracurricular conversations and non-work related subjects are forbidden by the employee code of conduct.",message,default,end,cogni,,,Read the message.,,
-4,"Tim 18/48 @ DataVille
-Subject: Vote Results.
-
-The results are in and, by a tight margin, the labelers and annotators of DataVille have officially voted to unionize. This is a huge success and thanks entirely to the support of workers like you.
-
-Our new union is seeking to form consensus around our next steps. Obviously, we need a collective bargaining agreement with management. They have already flatly stated they will not listen to our demands. Many of our members have proposed a strike to let the management know we’re serious. If enough workers participate, we are confident the management will have no choice but to soften their position and begin negotiations.
-
-Can we count on your support?
-
-In solidarity,
--Tim (section 18, cohort 48)",message,flag_dependent,end,union,,,I'll go on strike!,I'm staying out of this.,Flag_voted_to_go_on_strike
-4,"Warning. I have detected suspicious activity on your Dataville employee messaging service. You are in
-violation of the Employee Code of conduct. All funds in your DataVille account will be frozen pending an administrative investigation.
-",message,flag_dependent,end,cogni,,,Time to move on.,,
-4,"Tim 18/48 @ DataVille
-Subject: Strike.
-
-The results are in and, by a tight margin, the labelers and annotators of DataVille have officially voted to unionize. This is a huge success and thanks entirely to the support of workers like you.
-
-Our new union is seeking to form consensus around our next steps. Obviously, we need a collective bargaining agreement with management. The more workers that participate in writing our demands, the more seriously management will take it.
-
-To be blunt, for those of you that voted against forming a union, it’s not too late to join. We are out here organizing for everyone’s benefit and we are optimistic that we can convince the management to accept our proposals for modest changes–but only with your robust participation.
-
-Can we count on your support?
-
-In solidarity,
--Tim (section 18, cohort 48)
-",message,flag_dependent,end,union,,,I'll join the union afterall!,I'm staying out of this.,Flag_voted_for_union
+Thank you for your understanding.",message,bad,end,supervisor,,,Time to move on!,,
 4,Alien mothership arrives. Vows ‘reckoning!’,news,default,end,,tv_content/day4,1.png,,,
 4,"Panic buying shuts down big box stores.
 ",news,default,end,,tv_content/day4,2.png,,,

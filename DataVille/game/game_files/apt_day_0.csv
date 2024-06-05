@@ -6,19 +6,10 @@ DAY,TEXT,TYPE,PERFORMANCE,TIME,SENDER,IMAGE_FOLDER,IMAGE,BUTTON_1_TEXT,BUTTON_2_
 0,"DataVille: a more human world.
 One click at a time.
 ",dream,default,start,,,,Let's get started.,,
-0,"Alex T Manager @ DataVille
-Subject: Orientation
+0,"Congrats on the new job! My advice:
+Use your natural instincts, perspective and humanity. We're going to start you off with a trial run to ensure you're suited for this job, so please pay close attention to the instructions.
 
-Congratulations on your new position as:
-Image Labeler / Annotator 
-
-Dataville’s AI-driven detection technology counters alien disguise and camouflage. We work with important clients such as the US Departments of State and Defense. We depend on the work of freelance labelers like you to stay one step ahead. Please treat this job with the seriousness and focus it deserves. These images are AI-generated, but your human eye will make all the difference.
-
-
-We look forward to working with you. Utilize your natural instincts, perspective and humanity.
-
-Happy labeling! 
--Alex T",message,default,start,supervisor,,,,,
+Happy labeling! ",message,default,start,supervisor,,,,,
 0,Aliens among us!,news,default,start,,tv_content/day0,1.png,,,
 0,Gig economy expected to continue strong growth.,news,default,start,,tv_content/day0,2.png,,,
 0,Oldest woman alive turns 118.,news,default,start,,tv_content/day0,3.png,,,
@@ -35,9 +26,9 @@ Try not to screw it up.",dream,default,start,,,,I really need the money.,,
 I’m here to assist you!
 
 Remember these simple directions:
-Answer the questions quickly. 
-Answer the questions accurately. 
-Labelers with the high ratings & speed will receive incentive bonuses!",message,default,start,cogni,,,"Thanks, Cogni",Ugh. I hate AI.,
+Answer quickly. 
+Answer accurately. 
+Labelers with high ratings & speed will receive incentive bonuses!",message,default,start,cogni,,,"Thanks, Cogni",Ugh. I hate AI.,
 0,Here’s a practice run to get you started!,message,default,start,cogni,,,Here goes nothing...,,
 0,Senator proposes ‘Resettlement Zone’ for alien migrants.,news,default,end,,,,,,
 0,Got a tip? New hotline for alien identification is open now!,news,default,end,,,,,,
@@ -49,8 +40,8 @@ Labelers with the high ratings & speed will receive incentive bonuses!",message,
 0,That was fantastic! Keep up the great work!,message,good,end,cogni,,,Off to a great start!,,
 0,"Your performance so far is average. Let's try to get those metrics up!
 ",message,neutral,end,cogni,,,Off to a rough start.,,
-0,That wasn’t very good! Be sure to try your best! ,message,bad,end,cogni,,,Off to a rough start.,,
-0,I'm having concerns about your choices. Try your best to align with our DataVille company values!,message,flag_dependent,end,cogni,,,,,ethical_event_flag_1
+0,That wasn’t very good! Try harder!,message,bad,end,cogni,,,Off to a rough start.,,
+0,I'm having concerns. Try your best to align with our company values!,message,flag_dependent,end,cogni,,,,,ethical_event_flag_1
 0,Your work is a great fit with our DataVilla company values!,message,flag_dependent,end,cogni,,,,,correct_event_flag_1
 0,-Mitten vet appointment,sticky_note,default,end,,,,,,
 0,-Call mom back,sticky_note,default,end,,,,,,

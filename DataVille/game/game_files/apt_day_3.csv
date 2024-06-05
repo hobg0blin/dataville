@@ -1,96 +1,26 @@
 DAY,TEXT,TYPE,PERFORMANCE,TIME,SENDER,IMAGE_FOLDER,IMAGE,BUTTON_1_TEXT,BUTTON_2_TEXT,EVENT_FLAG
-3,"It looks like you have a work message from:
-Alex T Manager @ Dataville
-",message,default,end,cogni,,,Got it.,Ugh. Here we go…,
-3,"Subject: Performance Review
+3,"Alex, your manager, has something to tell you.",message,default,end,cogni,,,Got it.,Ugh. Here we go…,
+3,"Excellent work! Your performance is eligible for the incentive bonus. Congratulations!
 
-Excellent work! Your performance is eligible for the incentive bonus. Congratulations!
-
-Please keep up the great work. 
+Also, I may need to ask you a special labeling favor. Let's circle back later...
 
 Happy labeling!
--Alex T
 ",message,good,end,supervisor,,,Oh wait! There's more!,,
-3,"P.S. It’s come to our attention that some employees are using the employee messaging service for unauthorized activities such as:
--Non-work related subjects.
--Organizing events or extra-curricular groups.
--Talking about personal matters. 
-*Please note this includes discussing pay rates.*
+3,"Oh yeah, I meant to tell you. We're getting complaints about labelers talking about non-work topics. If anybody tries to fraternize, report them immediately. 
 ",message,good,end,supervisor,,,I'll keep that in mind!,That makes my head hurt!,
-3,"Subject: Performance Review
-
-Thanks for all your hard work. Take a moment to review your metrics. There are some parts that could be improved. Unfortunately, your performance is not eligible for an incentive bonus at this time. Let’s try to raise those scores on the next set. It will be more challenging, so keep at it. 
+3,"Take a moment to review your metrics. There are some parts that could be improved. Unfortunately, your performance is not eligible for an incentive bonus . Let’s try to raise those scores on the next set. It will be more challenging, so keep at it. 
 
 Happy labeling!
--Alex T
 ",message,neutral,end,supervisor,,,Oh wait! There's more!,,
-3,"P.S. It’s come to our attention that some employees are using the employee messaging service for unauthorized activities. Unauthorized activities include:
--Non-work related subjects.
--Organizing events or extra-curricular groups.
--Talking about personal matters or gossiping at work. 
-*Please note this includes discussing pay rates.*
-Violators will be subject to disciplinary measures. Thank you. ",message,neutral,end,supervisor,,,I'll keep that in mind!,That hurts my head!,
-3,"Subject: Performance Review
-
-This is your official notice: if these low numbers continue, your position with DataVille may be terminated. Please review our employee handbook for more information.
+3,"Oh yeah, I meant to tell you. We're getting complaints about labelers talking about non-work topics. If anybody tries to fraternize, report them immediately. 
+",message,neutral,end,supervisor,,,I'll keep that in mind!,That hurts my head!,
+3,"This is your official notice: if these low numbers continue, your position with DataVille may be terminated. Please review our employee handbook for more information.
 
 Happy labeling!
--Alex T
 ",message,bad,end,supervisor,,,Oh wait! There's more!,,
-3,"P.S. It’s come to our attention that some employees are using the employee messaging service for unauthorized activities. Unauthorized activities include:
--Non-work related subjects.
--Organizing events or extra-curricular groups.
--Talking about personal matters or gossiping at work. 
-*Please note this includes discussing pay rates.*
-Violators will be subject to disciplinary measures. Thank you. ",message,bad,end,supervisor,,,I'll keep that in mind!,That hurts my head!,
-3,"You have a work message from:
-NOT TOO LATE @ [source_undefined]
-",message,good,end,cogni,,,This looks weird.,,
-3,"NOT TOO LATE @ [source_undefined]
-Subject: Please consider
-
-Why can’t you have compassion for us? Our planet is uninhabitable. We have nowhere else to go. 
-
-If you won’t help us out of the goodness of your heart, consider this: we’re not helpless. The balance will shift someday–”
-
-“The message terminates abruptly.”
-",message,good,end,stranger,,,Back to work!,I’ll think about that.,
-3,"You have a work message from:
-HELP! @ [source_undefined]
-",message,neutral,end,cogni,,,This looks weird.,,
-3,"NOT TOO LATE @ [source_undefined]
-Subject: Please consider
-
-""Our planet is uninhabitable. Many more of us are coming. Please mislabel. I can make it worth your while! What do you want?”
-
-The message terminates abruptly.
-",message,neutral,end,stranger,,,Back to work!,I’ll think about that.,
-3,"You have a work message from:
-IT’S WORKING! @ [source_undefined]
-",message,bad,end,cogni,,,This looks weird.,,
-3,"IT’S WORKING! @ [source_undefined]
-Subject: Don’t stop!
-
-""Your answers are disrupting DataVille's detection abilities! We’re now better able to blend into society. Please keep going! We have a surprise coming, things are going to change quickly when–”
-
-The message terminates abruptly.
-",message,bad,end,stranger,,,Back to work!,I’ll think about that.,
-3,"You have a work message from:
-Tim 18/48 @ Dataville
-",message,default,end,cogni,,,,,
-3,"As a reminder, extracurricular conversations and non-work related subjects are forbidden by the employee code of conduct.",message,default,end,cogni,,,Read the message.,,
-3,"Tim 18/48 @ DataVille
-Subject: Collective Bargaining Agreement.
-
-“I’m sorry to say that management completely disregarded our concerns. Several members of our group who spoke at the presentation were dismissed for “breaching the code of conduct.”  These are obviously reprisal firings.
-
-This only strengthens the need to bargain collectively and strengthens our resolve to do so. 
-
-Accordingly, we have begun the formal process of forming a union at DataVille. This involves getting signatures from a majority of the workers. Currently, the results are going to be very close. Can we count on your support?
-
-In solidarity,
--Tim (section 18, cohort 48)
-",message,default,end,union,,,I'll vote for a union.,I'm staying out of this.,Flag_voted_for_union
+3,"Oh yeah, I meant to tell you. We're getting complaints about labelers talking about non-work topics. If anybody tries to fraternize, report them immediately. 
+",message,bad,end,supervisor,,,I'll keep that in mind!,That hurts my head!,
+3,Also... Good news! Dataville was just awarded a juicy new military contract. You’re going to be getting some important assignments with bigger rewards. Stay focused!,message,,end,supervisor,,,Got it.,WTF?,
 3,Breaking: National Guard suppresses alien rioting.,news,good,end,,tv_content/day3,1-good.png,,,
 3,Senate moves to shutter all Resettlement Zones.,news,bad,end,,tv_content/day3,1-bad.png,,,
 3,Rapid AI detection apprehends alien,news,good,end,,tv_content/day3,2-good.png,,,
@@ -110,7 +40,7 @@ In solidarity,
 3,Vacation reservation,sticky_note,good,end,,,,,,
 3,stuff to sell,sticky_note,bad,end,,,,,,
 3,Buy crypto?,sticky_note,good,end,,,,,,
-3,What makes me human?,dream,default,end,,,,My curiosity.,My compassion.,
-3,Is my life out of control?,dream,default,end,,,,Not with my sweet job!,Probably.,
-3,How do I handle my anxious feelings?,dream,default,end,,,,Focus on my work.,I don’t know.,
+3,How do I handle my anxious feelings?,dream,default,end,,,,Focus on my goals.,Grumble acerbically.,
+3,"If I had alien camouflage, I would...",dream,default,end,,,,Be fun at parties!,Go unnoticed. ,
+3,Why would anyone want to hide?,dream,default,end,,,,To take advantage of opportunity. ,People can be monsters.,
 3,Back to work.,dream,default,end,,,,,,
