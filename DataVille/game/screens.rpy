@@ -1654,13 +1654,27 @@ style button_click:
     activate_sound "click.wav"
 
 
+
 screen timer:
 #  zorder 10
-  vbox:
-    xalign 0.7
-    yalign 0.95
-    timer 0.01 repeat True action If(time > 0, true=SetVariable('time', time - 0.01))
-    bar value time range timer_range xalign 0.0 yalign 1 xmaximum 1800 at alpha_dissolve
+    python:
+        init_time = float(task['time']) * 1000
+    vbox:
+        xalign 0.0
+        yalign 1.0
+        timer 0.03 repeat True action If(time > 0, true=SetVariable('time', time - 30))
+        bar: 
+            value time 
+            range timer_range 
+            xmaximum 1920
+            # hls (0, 41, 0) == #696969
+            # if timer is still less than half way, keep saturation at 0
+            # else, start increaing it by the time left
+            # offset is included to treat the halfway point at 0.0 and timer end at 0.5
+            left_bar Solid(Color(hls=(0.0, 0.41, 0.0 if ((init_time - time) / init_time) < 0.5 else (init_time - (time + (init_time * 0.5))) / init_time)))
+            right_bar Solid("#D9D9D9")  
+            at alpha_dissolve
+
 
 
 
@@ -1837,13 +1851,12 @@ screen overlay(task, cogni=False, button_text=False):
     ymaximum 1200
     xmaximum 1920
     frame id 'status_bar':
-      background "#136366"
+      background "images/screens/monitor/overlay.png"
       has hbox
       xsize 1920
-      image "images/logo_white.png"
 #TODO: just track number of tasks here
 #      text 'Performance:' + '\n{size=-5}' + task['performance']
-      text '{font=fonts/RussoOne-Regular.ttf}TOTAL EARNINGS: $ ' + "{:.2f}".format(float(task['earnings'])) + '{/font}' xpos 400 color "#FFFFFF" 
+      text '{font=fonts/RussoOne-Regular.ttf}TOTAL EARNINGS: $ ' + "{:.2f}".format(float(task['earnings'])) + '{/font}' xalign .90 color "#FFFFFF" 
     hbox id 'cogni':
       xsize 400
       ysize 300
@@ -1869,20 +1882,22 @@ screen captcha_image(task, images):
     # $ random.shuffle(task)
     window id 'labeler': 
         style "window_nobox"
-        xmaximum 900
-        ymaximum 900
-        xalign 0.65
-        yalign 0.8
-        grid 3 4:
+        xsize 619
+        ysize 619
+        xalign 0.80
+        yalign 0.40
+        grid 3 3:
             xmaximum 200
             ymaximum 200
+            spacing 7
             for i, img in enumerate(images):
                 default strp = ""
                 default btn_selected=False
                 python:
                     base = os.path.basename(img)
                     strp = os.path.splitext(base)[0]
-                    selected_image = im.Grayscale(f"{img}")
+                    selected_image = Transform(f"{img}", matrixcolor=SaturationMatrix(0))
+                    hover_image = Transform(f"{img}", matrixcolor=SepiaMatrix(tint=Color("#464d8aa2")))
                     print('img: ', img)
                     def check_selected(img):
                         if img in images_selected['values']:
@@ -1893,10 +1908,10 @@ screen captcha_image(task, images):
                     style "button_click"
                     xfill True
                     yfill True 
-                    idle Transform(f"{img}", size=(150, 150))
-                    hover Transform(f"{img}", size=(175, 175))
-                    selected_idle Transform(selected_image, size=(150,150))
-                    selected_hover Transform(selected_image, size=(175,175))
+                    idle Transform(f"{img}", size = (200, 200), xpos = 0, ypos = 0)
+                    hover Transform(hover_image, size = (200,200), xpos = 0, ypos = 0)
+                    selected_idle Transform(selected_image, size=(180,180), xpos = 10, ypos = 10)
+                    selected_hover Transform(hover_image, size=(180,180), xpos = 10, ypos = 10)
                     action [Function(select_image, strp), SelectedIf(check_selected(strp))]
 #            selected (Function(check_selected, strp))
     window id 'done':
@@ -1904,8 +1919,8 @@ screen captcha_image(task, images):
             style "default_button"
             text_xalign 0.5
             xsize 300
-            xalign 0.5
-            yalign 0.1
+            xalign 0.74
+            yalign 0.25
             action Return(True)
 
 screen comparison_image(task, images):
@@ -1929,8 +1944,8 @@ screen comparison_image(task, images):
                     xysize (400,400)
                     # xfill True
                     # yfill True
-                    idle Transform(img, size=(400, 400), xpos = 0, ypos = 0)
-                    hover Transform(img, size=(425, 425), xpos = -12, ypos = -12)
+                    idle Transform(img, size = (400, 400), xpos = 0, ypos = 0)
+                    hover Transform(img, size = (425, 425), xpos = -12, ypos = -12)
                     action [SetVariable("latest_choice", strp), Return(True)]
 
 # SAY YES OR NO TO DA IMAGES
@@ -1956,8 +1971,9 @@ screen binary_image(task, images):
         xalign 0.5
         yalign 0.7
         spacing 20
-        textbutton 'Yes' style "default_button" action [SetVariable("latest_choice", "Y"), Return(True)]
-        textbutton 'No' style "default_button" action [SetVariable("latest_choice", "N"), Return(True)]
+        # Selected False prevents previous prompt selection from carrying over
+        textbutton 'Yes' selected False style "default_button" action [SetVariable("latest_choice", "Y"), Return(True)]
+        textbutton 'No' selected False style "default_button" action [SetVariable("latest_choice", "N"), Return(True)]
 
 screen binary_text(task):
     zorder 1

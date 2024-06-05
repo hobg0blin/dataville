@@ -419,7 +419,7 @@ init python:
       return task
     else:
       state.ui['instructions'] = task['instructions']
-      state.ui['timer'] = int(task['time'])
+      state.ui['timer'] = float(task['time']) * 1000
       return task
 
   def get_epilogue():
@@ -543,7 +543,7 @@ label start:
     if not skip_intro:
       play music "dataville_workspace_neutral.wav" fadein 2.0
       image bg start_screen = im.FactorScale("images/intro_desk.jpg", 1.5)
-      image bg overlay_background = Solid('#EFF3E6')
+      image bg overlay_background = "images/screens/monitor/background.png"
       image bg black_bg = Solid('#FFFFFF')
 
 
@@ -733,7 +733,7 @@ label start:
         if ('image' in task['type']):
           is_image = True
           images = get_images(task)
-          time = int(task['time'])
+          time = float(task['time']) * 1000
           timer_range = time
       if 'custom_dialogue' in task:
         show screen message(task['custom_dialogue_sender'], ["Next"])
