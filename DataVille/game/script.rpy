@@ -75,7 +75,7 @@ init:
     "union": {
       "obj": union,
       "mood": {
-        "defailt": "images/characters/union.png"
+        "default": "images/characters/union.png"
       }
     },
   }
@@ -770,11 +770,13 @@ label start:
           time = float(task['time']) * 1000
           timer_range = time
       if 'custom_dialogue' in task:
-        show screen message(task['custom_dialogue_sender'], ["Next"])
+        $ sender = char_map[task['custom_dialogue_sender']]
         $ custom_dialogue = task['custom_dialogue']
+        call screen email_message(sender['obj'].name, sender['obj'].who_suffix, custom_dialogue, sender['mood']['default'])
+        # show screen message(task['custom_dialogue_sender'], ["Next"])
         # window hide
-        cogni "[custom_dialogue]"
-        hide screen message
+        # cogni "[custom_dialogue]"
+        # hide screen message
 
 
       show screen timer
