@@ -1,4 +1,6 @@
-﻿## This file contains options that can be changed to customize your game.
+﻿define config.rollback_enabled = False
+
+## This file contains options that can be changed to customize your game.
 ##
 ## Lines beginning with two '#' marks are comments, and you shouldn't uncomment
 ## them. Lines beginning with a single '#' mark are commented-out code, and you
@@ -106,7 +108,7 @@ define config.end_game_transition = None
 ## After the game has started, this can be changed with the "window show",
 ## "window hide", and "window auto" statements.
 
-define config.window = "auto"
+define config.window = "hide"
 
 
 ## Transitions used to show and hide the dialogue window

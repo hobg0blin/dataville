@@ -129,20 +129,19 @@ style say_thought is say_dialogue
 style namebox is default
 style namebox_label is say_label
 
-
 style window:
     xalign 0.5
     xfill True
     yalign gui.textbox_yalign
     ysize gui.textbox_height
-    background ConditionSwitch('not show_window', Null(), 'True', Image("gui/textbox.png", xalign=0.5, yalign=1.0))
+    background None
 
-style window_nobox:
+style window_wbox:
     xalign 0.5
     xfill True
     yalign gui.textbox_yalign
     ysize gui.textbox_height
-    background None
+    background Image("gui/textbox.png", xalign=0.5, yalign=1.0)
 
 style namebox:
     xpos gui.name_xpos
@@ -406,7 +405,7 @@ style main_menu_frame:
     xsize 420
     yfill True
 
-    background "gui/overlay/main_menu.png"
+    background Color("#b5b5b58e")
 
 style main_menu_vbox:
     xalign 1.0
@@ -1168,7 +1167,7 @@ screen confirm(message, yes_action, no_action):
 
     style_prefix "confirm"
 
-    add "gui/overlay/confirm.png"
+    add "gui/overlay/confirm_dark.png"
 
     frame:
 
@@ -1199,7 +1198,7 @@ style confirm_button is gui_medium_button
 style confirm_button_text is gui_medium_button_text
 
 style confirm_frame:
-    background Frame([ "gui/confirm_frame.png", "gui/frame.png"], gui.confirm_frame_borders, tile=gui.frame_tile)
+    background Frame([ "gui/prompt_frame.png", "gui/frame.png"], gui.confirm_frame_borders, tile=gui.frame_tile)
     padding gui.confirm_frame_borders.padding
     xalign .5
     yalign .5
@@ -1505,7 +1504,7 @@ define bubble.properties = {
 
     "thought" : {
         "window_background" : bubble.thoughtframe,
-    }
+    },
 }
 
 define bubble.expand_area = {
@@ -1696,13 +1695,13 @@ screen message(sender, buttons=None):
     $ print('buttons: ', buttons)
     python:
         if sender == 'supervisor':
-            avatar = "images/icons/supervisor.png" 
+            avatar = "images/characters/alex/alex_nuetral.png"
         elif sender == 'stranger':
-            avatar = "images/icons/asst_normal.png"
+            avatar = "images/characters/cogni/asst_normal.png"
         elif sender == 'cogni':
-            avatar = "images/icons/asst_normal.png"
+            avatar = "images/characters/cogni/asst_normal.png"
         else:
-            avatar = "images/icons/asst_normal.png"
+            avatar = "images/characters/cogni/asst_normal.png"
     window id 'content':
         ysize 1080
         xsize 1920
@@ -1834,7 +1833,7 @@ screen assistant:
     hbox id 'assistant':
       xalign 0.3
       yalign 0.75
-      image "images/icons/asst_normal.png"
+      image "images/characters/cogni/asst_normal.png"
 
 screen instructions(task):
     vbox id 'instructions':
@@ -1844,37 +1843,37 @@ screen instructions(task):
       yalign 0.3
       text '{size=-5}' + task['instructions']
 
- 
 screen overlay(task, cogni=False, button_text=False):
 # streak_text, feed_text, instructions, status, button_text=False):
-  window id 'content':
-    ymaximum 1200
-    xmaximum 1920
-    frame id 'status_bar':
-      background "images/screens/monitor/overlay.png"
-      has hbox
-      xsize 1920
-#TODO: just track number of tasks here
-#      text 'Performance:' + '\n{size=-5}' + task['performance']
-      text '{font=fonts/RussoOne-Regular.ttf}TOTAL EARNINGS: $ ' + "{:.2f}".format(float(task['earnings'])) + '{/font}' xalign .90 color "#FFFFFF" 
-    hbox id 'cogni':
-      xsize 400
-      ysize 300
-      yalign 0.75
-      xalign 0.2
-      #TODO: diff version of cogni based on performance
-      if cogni:
-        vbox:
-          spacing 15
-          xsize 500
-          text '\n{size=-5}' + task['performance']
-          image "images/icons/asst_normal.png"
-    if (button_text):
-      frame id 'overlay_button':
-        xsize 300
-        xalign 0.5
-        yalign 0.55
-        textbutton button_text style "button_click" action Return(True)
+    window id 'content':
+        style "window_nobox"
+        ymaximum 1200
+        xmaximum 1920
+        frame id 'status_bar':
+            background "images/screens/monitor/overlay.png"
+            has hbox
+            xsize 1920
+            #TODO: just track number of tasks here
+            #      text 'Performance:' + '\n{size=-5}' + task['performance']
+            text '{font=fonts/RussoOne-Regular.ttf}TOTAL EARNINGS: $ ' + "{:.2f}".format(float(task['earnings'])) + '{/font}' xalign .90 color "#FFFFFF" 
+        hbox id 'cogni':
+            xsize 400
+            ysize 300
+            yalign 0.75
+            xalign 0.2
+            #TODO: diff version of cogni based on performance
+            if cogni:
+                vbox:
+                    spacing 15
+                    xsize 500
+                    text '\n{size=-5}' + task['performance']
+                    image "images/characters/cogni/asst_normal.png"
+        if (button_text):
+            frame id 'overlay_button':
+                xsize 300
+                xalign 0.5
+                yalign 0.55
+                textbutton button_text style "button_click" action Return(True)
 #
 # SELECT DA IMAGES
 screen captcha_image(task, images):
