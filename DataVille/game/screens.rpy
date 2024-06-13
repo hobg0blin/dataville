@@ -1921,6 +1921,7 @@ screen captcha_image(task, images):
             action Return(True)
 
 screen comparison_image(task, images):
+    use instructions(task)
     zorder 1
     # $ random.shuffle(task)
     window id 'labeler':
@@ -1931,18 +1932,18 @@ screen comparison_image(task, images):
         yalign 0.5
         hbox:
             xalign 0.5
-            spacing 40
+            spacing 100
             for img in images:
                 default strp = ""
                 python:
                     base = os.path.basename(img)
                     strp = os.path.splitext(base)[0]
                 imagebutton:
-                    xysize (400,400)
+                    xysize (600,600)
                     # xfill True
                     # yfill True
-                    idle Transform(img, size = (400, 400), xpos = 0, ypos = 0)
-                    hover Transform(img, size = (425, 425), xpos = -12, ypos = -12)
+                    idle Transform(img, size = (600, 600), xpos = 0, ypos = 0)
+                    hover Transform(img, size = (625, 625), xpos = -12, ypos = -12)
                     action [SetVariable("latest_choice", strp), Return(True)]
 
 # SAY YES OR NO TO DA IMAGES
@@ -1964,7 +1965,7 @@ screen binary_image(task, images):
     hbox id 'done':
         xmaximum 900
         xalign 0.5
-        yalign 0.
+        yalign 0.9
         spacing 20
         # Selected False prevents previous prompt selection from carrying over
         textbutton 'Yes':
