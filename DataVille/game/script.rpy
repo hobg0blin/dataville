@@ -474,7 +474,12 @@ label start:
       call screen dream('Thank you for playing DataVille!\na more human world\none click at a time', ['Restart'])
       # This ends the game.
       hide screen dream
-      call screen navigation()
+      # clear store and return to main menu
+      $ set_initial_variables() 
+#      $ renpy.reload_script()
+
+      jump start
+      #return
 
 
 
