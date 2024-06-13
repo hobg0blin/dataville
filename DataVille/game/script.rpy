@@ -87,7 +87,7 @@ transform unblur:
   blur 0
 
 # The game starts here.
-default skip_intro = False
+default skip_intro = True
 default start_at_day_end = False
 label start:
     if not skip_intro:
@@ -369,6 +369,7 @@ label start:
         jump end
       if (store.game_state.time == "end"):
         show screen performance(store.game_state.performance, store.averages['day_' + str(store.game_state.day)])
+        show screen cogni(performance_feedback(store.game_state.performance_rating)['text'], char_map['cogni']['mood']['default'], "bottom_left") 
         pause
         python:
           print('earnings: ', store.game_state.performance['earnings_minus_rent'])

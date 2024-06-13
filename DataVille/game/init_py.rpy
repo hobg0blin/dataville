@@ -288,9 +288,9 @@ init python:
       good = ["You’re really doing it!", "You’re labeling faster than 81% of DataVille Annotators!", "Great accuracy!", "Keep it up!", "Aim for that performance incentive!"]
       mid = ["Your performance is reasonable", "Your output is compatible with 70% of other labelers."]
       bad = ["Accuracy is important. Don’t be afraid to look carefully!", "Oof. Hope you do better next time.", "You’ll need to do better if you want the incentive bonus!", "Stay focused.", "That wasn’t great - do you need clearer instructions?"]
-      if (out == 1):
+      if (out == "good" or out == 1):
         return {'text': random.choice(good), 'score': 100}
-      elif (out == 2):
+      elif (out == "neutral" or out == 2):
         return {'text': random.choice(mid), 'score': 66}
       else:
         return {'text': random.choice(bad), 'score': 33}
