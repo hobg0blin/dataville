@@ -1,4 +1,4 @@
-define cogni = Character("Cogni", image="images/characters/cogni/cogni_happy.png")
+define cogni = Character("Cogni", who_suffix="AI Assistant", image="images/characters/cogni/cogni_happy.png")
 
 screen cogni(what, mood, position="center", overlay=False):
     window:
