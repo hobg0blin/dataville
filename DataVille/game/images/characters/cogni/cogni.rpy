@@ -19,6 +19,7 @@ screen cogni(what, mood, position="center", overlay=False):
             text what:
                 style "cogni_what"
                 id "what"
+                slow_cps preferences.text_cps
     # overlay signifies if cogni's dialogue pauses the game or not
     if not overlay: 
         button: # invisable full screen button to advance the dialogue
