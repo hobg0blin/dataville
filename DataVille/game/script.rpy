@@ -292,7 +292,7 @@ label start:
 
 
       show screen timer
-      show screen instructions(store.game_state.ui)
+
       $ custom_feedback = ""
       $ custom_feedback_sender = ""
       $ has_custom_feedback = False

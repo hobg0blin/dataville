@@ -1835,13 +1835,11 @@ screen assistant:
             yalign 0.75
             image "images/characters/cogni/asst_normal.png"
 
-screen instructions(task):
+screen instructions(task, xalign_val=0.5, yalign_val=0.13):
     vbox id 'instructions':
-        xsize 500
-        ysize 275
-        xalign 0.1
-        yalign 0.3
-        text '{size=-5}' + task['instructions']
+        xalign xalign_val
+        yalign yalign_val
+        text task['instructions']
 
 screen overlay(task, cogni=False, button_text=False):
 # streak_text, feed_text, instructions, status, button_text=False):
@@ -1949,14 +1947,11 @@ screen comparison_image(task, images):
 
 # SAY YES OR NO TO DA IMAGES
 screen binary_image(task, images):
-    zorder 1
-    # $ random.shuffle(task)
+    use instructions(task)
     window id 'labeler':
         style "window_nobox"
-        xmaximum 900
-        ymaximum 900
-        xalign 0.75
-        yalign 0.35
+        xalign 0.5
+        yalign 0.5
         hbox:
             spacing 10
             for i, img in enumerate(images):
@@ -1964,15 +1959,26 @@ screen binary_image(task, images):
                 python:
                     base = os.path.basename(img)
                     strp = os.path.splitext(base)[0]
-                image im.Scale(f"{img}", 450, 450)
+                image im.Scale(f"{img}", 614, 614)
+
     hbox id 'done':
         xmaximum 900
         xalign 0.5
-        yalign 0.7
+        yalign 0.9
         spacing 20
         # Selected False prevents previous prompt selection from carrying over
-        textbutton 'Yes' selected False style "default_button" action [SetVariable("latest_choice", "Y"), Return(True)]
-        textbutton 'No' selected False style "default_button" action [SetVariable("latest_choice", "N"), Return(True)]
+        textbutton 'Yes':
+            style "default_button"
+            xsize 380
+            text_xalign 0.5
+            selected False
+            action [SetVariable("latest_choice", "Y"), Return(True)]
+        textbutton 'No':
+            style "default_button"
+            xsize 380
+            text_xalign 0.5
+            selected False
+            action [SetVariable("latest_choice", "N"), Return(True)]
 
 screen binary_text(task):
     zorder 1
