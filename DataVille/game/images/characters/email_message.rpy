@@ -77,6 +77,7 @@ screen email_message(who, who_suffix, what, image_path = None, buttons = ["Conti
             color "#FFFFFF"
             size 30
             ypos 200
+            slow_cps preferences.text_cps
         
     hbox id 'buttons':
         xalign 0.5
