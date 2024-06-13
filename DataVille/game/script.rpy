@@ -279,8 +279,8 @@ label start:
         if ('image' in task['type']):
           is_image = True
           images = get_images(task)
-          time = float(task['time']) * 1000
-          timer_range = time
+        time = float(task['time']) * 1000
+        timer_range = time
       if 'custom_dialogue' in task:
         $ sender = char_map[task['custom_dialogue_sender']]
         $ custom_dialogue = task['custom_dialogue']
@@ -339,6 +339,7 @@ label start:
       hide screen instructions
       hide screen timer
       hide screen task_type
+      hide screen cogni
       show screen overlay (store.game_state.ui)
       if has_custom_feedback:
         $ print('has custom feedback')
@@ -474,9 +475,10 @@ label start:
       call screen dream('Thank you for playing DataVille!\na more human world\none click at a time', ['Restart'])
       # This ends the game.
       hide screen dream
-      # clear store and return to main menu
+      # clear store and return to start
       $ set_initial_variables() 
-#      $ renpy.reload_script()
+      # if we want to send them to the main menu:
+      #MainMenu(confirm=False)
 
       jump start
       #return

@@ -1658,10 +1658,11 @@ screen timer:
 #  zorder 10
     python:
         init_time = float(task['time']) * 1000
+        timer_failed = False
     vbox:
         xalign 0.0
         yalign 1.0
-        timer 0.03 repeat True action If(time > 0, true=SetVariable('time', time - 30))
+        timer 0.03 repeat True action If(time > 0, true=SetVariable('time', time - 30), false=[SetVariable('timer_failed', True), Show("cogni", None, "You ran out of time! Your earnings have been halved.", char_map['cogni']['mood']['default'], "bottom_left")])
         bar: 
             value time 
             range timer_range 
@@ -2245,7 +2246,7 @@ screen performance(state, average):
         text(f"Approval rating: {state['approval_rate']}%")
         image f"icons/emoji/{approval}.png" 
         
-        text(f"Average time: {state['average_time']} seconds")
+        text(f"Average time: {round(state['average_time'], 1)} seconds")
         image f"icons/emoji/{time}.png" 
         text(f"Earnings: ${state['earnings']}")
         image f"icons/emoji/{earnings}.png" 

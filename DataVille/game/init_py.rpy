@@ -19,6 +19,7 @@ init python:
   timer_range = 0
   time = 0
   timer_jump = ''
+  store.timer_failed = False
   task = "start_task`"
   # default captcha image variables
   images_correct = False
@@ -138,6 +139,7 @@ init python:
     timer_range = 0
     time = 0
     timer_jump = ''
+    store.timer_failed = False
     day_start()
     task = store.loop['start_task']
   # default captcha image variables
@@ -366,6 +368,10 @@ init python:
         print('next task: ', next_task)
 # UPDATE UI VARIABLES 
     reward = int(current_task['payment'])/out
+    if store.timer_failed:
+       print("Timer failed! Reducing reward.")
+       reward = reward/2
+       store.timer_failed = False
 
     performance = performance_feedback(out)
     performance_text = performance['text']
@@ -374,7 +380,7 @@ init python:
     store.game_state.performance['total_score'] = (store.game_state.performance['total_score'] + performance['score'])
     store.game_state.performance['approval_rate'] = (store.game_state.performance['total_score']/store.game_state.task_count)
     # TIME TRACKER
-    store.game_state.performance['total_time'] = (store.game_state.performance['total_time'] + (10 - time))    
+    store.game_state.performance['total_time'] = (store.game_state.performance['total_time'] + (10 - (time/1000)))    
     store.game_state.performance['average_time'] = (store.game_state.performance['total_time'] /store.game_state.task_count)    
     return set_ui_state(next_task, state, performance_text, reward)
 
