@@ -1964,7 +1964,7 @@ screen binary_image(task, images):
     hbox id 'done':
         xmaximum 900
         xalign 0.5
-        yalign 0.9
+        yalign 0.
         spacing 20
         # Selected False prevents previous prompt selection from carrying over
         textbutton 'Yes':
@@ -2000,23 +2000,23 @@ screen binary_text(task):
         textbutton 'No' style "default_button" action [SetVariable("latest_choice", "N"), Return(True)]
 
 screen task_error():
-  zorder 1
-  # $ random.shuffle(task)
-  window id 'labeler':
-      style "window_nobox"
-      xmaximum 900
-      ymaximum 900
-      xalign 0.75
-      yalign 0.4
-      vbox id 'text_block':
-        text 'This task is missing something in the CSV!'
-  hbox id 'done':
-    xmaximum 900
-    xalign 0.45
-    yalign 0.7
-    spacing 20
-    frame:
-      textbutton 'Next task' style "button_click" action [SetVariable("latest_choice", "Y"), Return(True)]
+    zorder 1
+    # $ random.shuffle(task)
+    window id 'labeler':
+        style "window_nobox"
+        xmaximum 900
+        ymaximum 900
+        xalign 0.75
+        yalign 0.4
+        vbox id 'text_block':
+            text 'This task is missing something in the CSV!'
+    hbox id 'done':
+        xmaximum 900
+        xalign 0.45
+        yalign 0.7
+        spacing 20
+        frame:
+            textbutton 'Next task' style "button_click" action [SetVariable("latest_choice", "Y"), Return(True)]
 
 screen comparison_text(task, button_text='Done!'):
     zorder 1
