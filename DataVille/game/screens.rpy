@@ -1963,7 +1963,7 @@ screen binary_image(task, images):
                 image im.Scale(f"{img}", 614, 614)
 
     hbox id 'done':
-        xmaximum 900
+        xmaximum 1920
         xalign 0.5
         yalign 0.9
         spacing 20
@@ -2060,55 +2060,35 @@ screen comparison_text(task, button_text='Done!'):
 #    textbutton button_text action Return(True)
 
 screen caption_image(task, images):
+    use instructions(task)
     zorder 1
-    # this animates random shuffle??? is that supposed to be happening? either renpy.random or regular random does it
-    #ok so use traditional python random library for actual randomization
-    default label_order = []
-    default box = {}
-    python:
-        import random
-        label_count = len(task['labels'].values())
-        label_order = []
-        for x in range(1, label_count + 1):
-            label_order.append(str(x))
-#       random_order = random.shuffle(label_order)
-        # # does not return a list but changes an existing one, generates same numbers every time
-        # $ renpy.random.shuffle(task)
+    # Note: this shuffles because of the timer recalls the screen, which inturn reshuffles the labels
+    # If we want the labels to shuffle, then the tasks need to be shuffled and stored sperately and
+    # outside of the screen, so when the screne is called, the order isn't shuffled again
+    # python:
+    #     from random import shuffle
+    #     shuffled_labels = list(task['labels'])
+    #     shuffle(shuffled_labels)
     window id 'labeler':
         style "window_nobox"
         xmaximum 900
         ymaximum 900
         xalign 0.5
-        yalign 0.2
-        frame id 'image':
-            style "window_nobox"
-            xalign 0.5
-            yalign 0.1
-            xsize 200
-            fixed:
-                xfill True
-                yfill True
-                image im.Scale(f"{images[0]}", 450, 450)
+        yalign 0.5
+        image im.Scale(f"{images[0]}", 614, 614)
 
-    frame:
-        style "window_nobox"
+    hbox:
+        xmaximum 1920
         xalign 0.5
-        yalign 0.65
-        ymaximum 900
-        vbox:
-            spacing 20
-            xalign 0.5
-            for i, id in enumerate(label_order):
-                $ box = task['labels'][id]
-                textbutton('{size=-3}'+ box['text']):
-                    xalign 0.5
-                    yalign 0.1
-                    style "default_button" 
-                    action [SetVariable("latest_choice", task['labels'][id]['name']), Return(True)]
-                python:
-                    box['xpos'] = start_x_text
-                    box['ypos'] = int(start_y_text) + (50*i)
-            # for some reason if i increase start_y in here it loops when the timer is repeating. this seems insane to me and i would like to find out why (e.g if put start_y += 50 here)
+        yalign 0.9
+        spacing 20
+        for id in task['labels']:
+            textbutton task['labels'][id]['text']:
+                style "default_button" 
+                xsize 380
+                text_xalign 0.5
+                selected False
+                action [SetVariable("latest_choice", task['labels'][id]['name']), Return(True)]
 
 screen sentiment_text(task):
     zorder 1
