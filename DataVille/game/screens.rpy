@@ -1822,26 +1822,26 @@ screen job_offer(phase):
                 action Return(True)
 
 screen assistant:
-   window id 'content':
-    ymaximum 1200
-    xmaximum 1600
-    frame id 'status_bar':
-      background "#136366"
-      has hbox
-      xsize 1600
-      image "images/logo_white.png"
-    hbox id 'assistant':
-      xalign 0.3
-      yalign 0.75
-      image "images/characters/cogni/asst_normal.png"
+    window id 'content':
+        ymaximum 1200
+        xmaximum 1600
+        frame id 'status_bar':
+            background "#136366"
+            has hbox
+            xsize 1600
+            image "images/logo_white.png"
+        hbox id 'assistant':
+            xalign 0.3
+            yalign 0.75
+            image "images/characters/cogni/asst_normal.png"
 
 screen instructions(task):
     vbox id 'instructions':
-      xsize 500
-      ysize 275
-      xalign 0.1
-      yalign 0.3
-      text '{size=-5}' + task['instructions']
+        xsize 500
+        ysize 275
+        xalign 0.1
+        yalign 0.3
+        text '{size=-5}' + task['instructions']
 
 screen overlay(task, cogni=False, button_text=False):
 # streak_text, feed_text, instructions, status, button_text=False):
