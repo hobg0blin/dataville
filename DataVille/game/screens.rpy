@@ -1875,14 +1875,14 @@ screen overlay(task, cogni=False, button_text=False):
 #
 # SELECT DA IMAGES
 screen captcha_image(task, images):
+    use instructions(task)
     zorder 1
-    # $ random.shuffle(task)
     window id 'labeler': 
         style "window_nobox"
         xsize 619
         ysize 619
-        xalign 0.80
-        yalign 0.40
+        xalign 0.5
+        yalign 0.5
         grid 3 3:
             xmaximum 200
             ymaximum 200
@@ -1910,14 +1910,13 @@ screen captcha_image(task, images):
                     selected_idle Transform(selected_image, size=(180,180), xpos = 10, ypos = 10)
                     selected_hover Transform(hover_image, size=(180,180), xpos = 10, ypos = 10)
                     action [Function(select_image, strp), SelectedIf(check_selected(strp))]
-#            selected (Function(check_selected, strp))
     window id 'done':
         textbutton "Done":
             style "default_button"
             text_xalign 0.5
-            xsize 300
-            xalign 0.74
-            yalign 0.25
+            xsize 380
+            xalign 0.5
+            yalign 0.5
             action Return(True)
 
 screen comparison_image(task, images):
@@ -1982,23 +1981,34 @@ screen binary_image(task, images):
             action [SetVariable("latest_choice", "N"), Return(True)]
 
 screen binary_text(task):
+    use instructions(task)
     zorder 1
-    # $ random.shuffle(task)
     window id 'labeler':
         style "window_nobox"
-        xmaximum 900
-        ymaximum 900
-        xalign 0.75
-        yalign 0.1
+        xmaximum 1920
+        ymaximum 1080
+        xalign 0.5
+        yalign 0.5
         vbox id 'text_block':
-            text '{size=-3}'+ task['text_block']
+            text '{size=+15}{i}'+ task['text_block'] + '{/i}{/size}'
     hbox id 'done':
-        xmaximum 900
-        xalign 0.45
-        yalign 0.8
+        xmaximum 1920
+        xalign 0.5
+        yalign 0.9
         spacing 20
-        textbutton 'Yes' style "default_button" action [SetVariable("latest_choice", "Y"), Return(True)]
-        textbutton 'No' style "default_button" action [SetVariable("latest_choice", "N"), Return(True)]
+        # Selected False prevents previous prompt selection from carrying over
+        textbutton 'Yes':
+            style "default_button"
+            xsize 380
+            text_xalign 0.5
+            selected False
+            action [SetVariable("latest_choice", "Y"), Return(True)]
+        textbutton 'No':
+            style "default_button"
+            xsize 380
+            text_xalign 0.5
+            selected False
+            action [SetVariable("latest_choice", "N"), Return(True)]
 
 screen task_error():
     zorder 1
