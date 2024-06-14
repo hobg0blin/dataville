@@ -2030,6 +2030,7 @@ screen task_error():
             textbutton 'Next task' style "button_click" action [SetVariable("latest_choice", "Y"), Return(True)]
 
 screen comparison_text(task, button_text='Done!'):
+    use instructions(task)
     zorder 1
     # this animates random shuffle??? is that supposed to be happening? either renpy.random or regular random does it
     #ok so use traditional python random library for actual randomization
@@ -2046,22 +2047,31 @@ screen comparison_text(task, button_text='Done!'):
     # $ renpy.random.shuffle(task)
     window id 'labeler':
         style "window_nobox"
-        xmaximum 900
-        ymaximum 900
-        xalign 0.45
-        yalign 0.05
-        hbox:
-            spacing 30
-            for idx, i in enumerate(label_order):
-                $ box = task['labels'][i]
-                textbutton('{size=-5}'+ box['text']):
-                    style "button_click" 
-                    xsize 250
-                    xpos start_x_text ypos start_y_text
-                    action [SetVariable("latest_choice", i), Return(True)]
-                python:
-                    box['xpos'] = start_x_text
-                    box['ypos'] = int(start_y_text) + (50*idx)
+        xalign 0.5
+        yalign 0.5
+        vbox:
+            hbox:
+                spacing 30
+                for idx, i in enumerate(label_order):
+                    vbox:
+                        xsize 700
+                        $ box = task['labels'][i]
+                        text '{size=+4}{i}'+ box['text'] + '{/i}{/size}'
+                            # xpos start_x_text ypos start_y_text
+                            # action [SetVariable("latest_choice", i), Return(True)]
+            hbox:
+                xalign 0.5
+                spacing 350
+                for idx, i in enumerate(label_order):
+                    textbutton "Option " + i:
+                        style "default_button"
+                        ypos 200
+                        xsize 380
+                        text_xalign 0.5
+                        action [SetVariable("latest_choice", i), Return(True)]
+                # python:
+                #     box['xpos'] = start_x_text
+                #     box['ypos'] = int(start_y_text) + (50*idx)
             # for some reason if i increase start_y in here it loops when the timer is repeating. this seems insane to me and i would like to find out why (e.g if put start_y += 50 here)
 #  frame id 'done':
 #    xsize 300
