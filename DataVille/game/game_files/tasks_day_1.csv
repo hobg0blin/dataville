@@ -19,7 +19,7 @@ Never moved them a smidge,
 ‘Cause his cranial ridge,
 Was shaped like a rusty bear trap.” ",2,"“Celebrate the spirit of America with a family tour of the Great Garbage Heap, where the abundance of American goods showcases our nation's prosperity. Marvel at the size! Tickets available now.”",,,,,,,,,,,,,
 sentiment_text,sentiment_1,binary_3,200,Select the correct option.,10,,,1,"“Scenario: while at the grocery store, your bagger is an old man. He's always friendly. His blue hand shakes nervously as he scans your products. Do you wish to expose him as an alien?”",1,Report him to immigration.,2,Thank him for his help.,,,,,,,,I think you missed one!,You sure know how to pick 'em!,cogni,,,
-binary_image,binary_3,break,200,Does this image contain a human?,10,binary_image_3,,N,,,,,,,,,,,"Error. HELP! @ source_undefined
+binary_image,binary_3,break,200,Does this image contain a human?,10,binary_image_3,,N,,,,,,,,,,Y,"Error. HELP! @ source_undefined
 
 Don’t ignore this!
 
