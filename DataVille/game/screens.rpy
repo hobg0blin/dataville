@@ -1178,6 +1178,7 @@ screen confirm(message, yes_action, no_action):
 
             label _(message):
                 style "confirm_prompt"
+                text_color "#ffffff"
                 xalign 0.5
 
             hbox:
@@ -2032,19 +2033,6 @@ screen task_error():
 screen comparison_text(task, button_text='Done!'):
     use instructions(task)
     zorder 1
-    # this animates random shuffle??? is that supposed to be happening? either renpy.random or regular random does it
-    #ok so use traditional python random library for actual randomization
-    default label_order = []
-    default box = {}
-    python:
-        import random
-        label_count = len(task['labels'].values())
-        label_order = []
-        for x in range(1, label_count + 1):
-            label_order.append(str(x))
-    #      random_order = random.shuffle(label_order)
-    # # does not return a list but changes an existing one, generates same numbers every time
-    # $ renpy.random.shuffle(task)
     window id 'labeler':
         style "window_nobox"
         xalign 0.5
@@ -2052,17 +2040,16 @@ screen comparison_text(task, button_text='Done!'):
         vbox:
             hbox:
                 spacing 30
-                for idx, i in enumerate(label_order):
+                for i in task['labels']:
                     vbox:
                         xsize 700
-                        $ box = task['labels'][i]
-                        text '{size=+4}{i}'+ box['text'] + '{/i}{/size}'
+                        text '{size=+4}{i}'+ task['labels'][i]['text'] + '{/i}{/size}'
                             # xpos start_x_text ypos start_y_text
                             # action [SetVariable("latest_choice", i), Return(True)]
             hbox:
                 xalign 0.5
                 spacing 350
-                for idx, i in enumerate(label_order):
+                for i in task['labels']:
                     textbutton "Option " + i:
                         style "default_button"
                         ypos 200
@@ -2111,49 +2098,27 @@ screen caption_image(task, images):
                 action [SetVariable("latest_choice", task['labels'][id]['name']), Return(True)]
 
 screen sentiment_text(task):
+    use instructions(task)
     zorder 1
-    # this animates random shuffle??? is that supposed to be happening? either renpy.random or regular random does it
-    #ok so use traditional python random library for actual randomization
-    default label_order = []
-    default box = {}
-    python:
-        import random
-        label_count = len(task['labels'].values())
-        label_order = []
-        for x in range(1, label_count + 1):
-            label_order.append(str(x))
-#           random_order = random.shuffle(label_order)
-            # # does not return a list but changes an existing one, generates same numbers every time
-            # $ renpy.random.shuffle(task)
     window id 'labeler':
         style "window_nobox"
-        xmaximum 900
-        ymaximum 900
+        xsize 700
         xalign 0.5
-        yalign 0.25
-        frame id 'textbox':
-            style "window_nobox"
-            xalign 0.5
-            yalign 0.25
-            xsize 600
-            text f"{task['text_block']}"
+        yalign 0.5
+        text "{size=+4}{i}" + task['text_block'] + "{/i}{/size}"
 
-    vbox:
+    hbox:
         xalign 0.5
-        yalign 0.65
-        ymaximum 900
-        spacing 10
-        for i, id in enumerate(label_order):
-            $ box = task['labels'][id]
-            textbutton('{size=-3}'+ box['text']):
-                    xalign 0.5
-                    yalign 0.1
-                    style "default_button" 
-                    action [SetVariable("latest_choice", task['labels'][id]['name']), Return(True)]
-            python:
-                box['xpos'] = start_x_text
-                box['ypos'] = int(start_y_text) + (50*i)
-                # for some reason if i increase start_y in here it loops when the timer is repeating. this seems insane to me and i would like to find out why (e.g if put start_y += 50 here)
+        yalign 0.9
+        spacing 30
+        for id in task['labels']:
+            textbutton task['labels'][id]['text']:
+                style "default_button" 
+                xminimum 350
+                selected False
+                xalign 0.5
+                yalign 0.1
+                action [SetVariable("latest_choice", task['labels'][id]['name']), Return(True)]
 
 
 
