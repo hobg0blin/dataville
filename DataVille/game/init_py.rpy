@@ -60,15 +60,24 @@ init python:
     if "”" in text: text = text.replace(".”","”.")
 #    if "\"" in text: text = text.replace(".\"","\".")
     if "!" in text: text = text.replace("!\"","\"!")
-    if "?" in text: text = text.replace("?\"","\"?")
+    if "?" in text: text = text.reSSplace("?\"","\"?")
     text = text.replace(".",".<stop>")
     text = text.replace("?","?<stop>")
     text = text.replace("!","!<stop>")
     text = text.replace("<prd>",".")
     sentences = text.split("<stop>")
-    sentences = [s for s in sentences]
-    if sentences and not sentences[-1]: sentences = sentences[:-1]
+    
+    # hacky way to remove blank sentences at the end of the list
+    if sentences[-1].isspace():
+        sentences.pop()
+    # if for some reason there are empty strings in the sentence list
+    # besides at the end, we can use the filter function
+    # sentences = list(filter(lambda s: not s.isspace(), sentences))
+    
+    sentences = [s.lstrip('\n.') for s in sentences]
+
     return sentences
+  
   def set_initial_variables():
     store.drags = {}
     store.loop = {}

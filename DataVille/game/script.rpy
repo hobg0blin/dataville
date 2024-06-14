@@ -87,7 +87,7 @@ transform unblur:
   blur 0
 
 # The game starts here.
-default skip_intro = True
+default skip_intro = False
 default start_at_day_end = False
 label start:
     if not skip_intro:
@@ -211,7 +211,7 @@ label start:
       while cleaned['message']:
         python:
           message = cleaned['message'].pop(0)
-          n = 120
+          n = 120 # characterm limit?
           text = message['text']
           split = split_into_sentences(text)
           length = len(split)
@@ -227,7 +227,6 @@ label start:
               buttons = []
               second_sentence = split[count+1]
           if strip_message != "" and strip_message != "\n":
-            # show screen message(message['sender'], buttons)
             $ sender = char_map[message['sender']]
             # ONLY SHOWING ONE LINE DURING INTRO: I THINK THIS HAS THE LONGEST TEXT
             $ text =  f"{split[count]}"
@@ -394,6 +393,7 @@ label start:
             n = 120
             text = message['text']
             split = split_into_sentences(text)
+            print("**interstitial**", split)
             length = len(split)
             count = 0
           while count < length:
