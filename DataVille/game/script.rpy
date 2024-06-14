@@ -279,8 +279,8 @@ label start:
         if ('image' in task['type']):
           is_image = True
           images = get_images(task)
-          time = float(task['time']) * 1000
-          timer_range = time
+        time = float(task['time']) * 1000
+        timer_range = time
       if 'custom_dialogue' in task:
         $ sender = char_map[task['custom_dialogue_sender']]
         $ custom_dialogue = task['custom_dialogue']

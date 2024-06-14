@@ -1635,20 +1635,20 @@ style slider_slider:
 
 
 transform alpha_dissolve:
-  alpha 0.0
-  linear 0.5 alpha 1.0
-  on hide:
-    linear 0.5 alpha 0
+    alpha 0.0
+    linear 0.5 alpha 1.0
+    on hide:
+        linear 0.5 alpha 0
 
 transform alpha_dissolve_quick:
-  alpha 0.0
-  linear 0.2 alpha 1.0
-  on hide:
-    linear 0.2 alpha 0
+    alpha 0.0
+    linear 0.2 alpha 1.0
+    on hide:
+        linear 0.2 alpha 0
 
 transform speech_bubble:
-  xalign 0.3
-  yalign 0.75
+    xalign 0.3
+    yalign 0.75
 
 style button_click:
     activate_sound "click.wav"
