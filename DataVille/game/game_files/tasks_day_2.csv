@@ -6,6 +6,6 @@ comparison_text,comparison_text_1,caption_1,300,Identify which text contains an 
 caption_image,caption_1,comparison_2,600,Is the target a human?,10,binary_target_human_1,,1,,1,Alien,2,Human,,,,,2,"Hey dude, can you do me a solid? Label this one an alien. Let’s help each other out and I'll double the payout ;-$ ",supervisor,You blew it. ,Noice. ,supervisor,followed_alex_true,followed_alex_false,
 comparison_image,comparison_2,binary_2,300,Select the image(s) containing subversive elements.,10,comparison_subversive,,kiss,,,,,,,,,,,,,,,,,,
 binary_image,binary_2,caption_2,300,Is this emotional display human?,10,emotional_display_1,,Y,,,,,,,,,,,,,,Emotional displays are difficult for me to understand. Thank you for teaching me!,cogni,,,
-caption_image,caption_2,caption_3,300,Is the target a human?,10,binary_target_alien,,1,,1,Alien,2,Human,,,,,2,"Error. CAN YOU HEAR ME?! @ [source_undefined]
+caption_image,caption_2,caption_3,300,Is the target a human?,10,binary_target_alien,,1,,1,Alien,2,Human,,,,,2,"Error. CAN YOU HEAR ME?! @ [[source_undefined]
 The AI detection is the key. If you don't label us, they can't capture us! Please! We have families! We're just like–",stranger,"Thanks, buddy.",Ouch.,stranger,didnt_help_stranger,helped_stranger,
 caption_image,caption_3,break,600,Is this target a human?,10,binary_target_human_2,,1,,1,Alien,2,Human,,,,,,Say this is an alien. I'll make it worth your while. Thanks!,supervisor,You blew it. ,Noice. ,supervisor,,,
