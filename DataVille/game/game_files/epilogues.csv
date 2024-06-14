@@ -80,7 +80,7 @@ Eventually, you are forced to work retail at the mall. It’s not glamorous, but
 You’ve finished your snack. And it’s time to return to work.",neutral,turned_in_landlady_false
 "Nothing seems to be going your way. You are unemployed with no sense of purpose and no idea how you are going to pay rent. Your landlady keeps hassling you.
 
-You scrape together a partial (and very late) payment and knock on her door. She looks confused. “I already got your transfer. You’re paid up for the rest of the year.” You scratch your head, bewildered. “But I didn’t understand your memo line. What does ‘@ [source_undefined]’ mean?”
+You scrape together a partial (and very late) payment and knock on her door. She looks confused. “I already got your transfer. You’re paid up for the rest of the year.” You scratch your head, bewildered. “But I didn’t understand your memo line. What does ‘@ [[source_undefined]’ mean?”
 
 You smile to yourself. Life could be worse! At least you made a friend.",bad,turned_in_landlady_false
 Sorry! You’re not a good fit for the Dataville Corporation. Feel free to reapply if you have a change of heart.,,tutorial_fail
