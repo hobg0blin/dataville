@@ -1659,10 +1659,11 @@ screen timer:
 #  zorder 10
     python:
         init_time = float(task['time']) * 1000
+        timer_failed = False
     vbox:
         xalign 0.0
         yalign 1.0
-        timer 0.03 repeat True action If(time > 0, true=SetVariable('time', time - 30))
+        timer 0.03 repeat True action If(time > 0, true=SetVariable('time', time - 30), false=[SetVariable('timer_failed', True), Show("cogni", None, "You ran out of time! Your earnings have been halved.", char_map['cogni']['mood']['default'], "bottom_left")])
         bar: 
             value time 
             range timer_range 
@@ -2172,20 +2173,55 @@ screen order_text(task, button_text='Done!'):
 screen performance(state, average):
     $ print('state: ', state)
     $ print('average: ', average)
+    python:
+        positive_emoji = ["thumbs_up", "star_struck", "heart_eyes"]
+        neutral_emoji = ["not_so_great", "ok", "neutral"]
+        bad_emoji = ["angry", "vomit", "poo"]
+        approval = "neutral"
+        time = "neutral"
+        money = "neutral"
+        if state["approval_rate"] > average["score"]:
+            approval = positive_emoji[0]
+            positive_emoji.pop(0)
+        elif state["approval_rate"] == average["score"]:
+            approval = neutral_emoji[0]
+            neutral_emoji.pop(0)
+        else:
+            approval = bad_emoji[0]
+            neutral_emoji.pop(0)
+
+        if state["average_time"] > average["time"]:
+            time = positive_emoji[0]
+            positive_emoji.pop(0)
+        elif state["average_time"] == average["time"]:
+            time = neutral_emoji[0]
+            neutral_emoji.pop(0)
+        else:
+            time = bad_emoji[0]
+            bad_emoji.pop(0)
+        if state["earnings"] > average["earnings"]:
+            earnings = positive_emoji[0]
+            positive_emoji.pop(0)
+        elif state["earnings"] == average["earnings"]:
+            earnings = neutral_emoji[0]
+            neutral_emoji.pop(0)
+        else:
+            earnings = bad_emoji[0]
+            bad_emoji.pop(0)
+
+            
     frame:
         xalign 0.5
         yalign 0.2
         xmaximum 1200
         has vbox
-        text("Approval rating")
-        bar value state["approval_rate"] range 100
-        bar value average["score"] range 100
-        text("Average speed")
-        bar value state["average_time"] range 10
-        bar value average["time"] range 10
-        text("Average earnings")
-        bar value state["earnings"] range 1200
-        bar value average["earnings"] range 1200
+        text(f"Approval rating: {state['approval_rate']}%")
+        image f"icons/emoji/{approval}.png" 
+        
+        text(f"Average time: {round(state['average_time'], 1)} seconds")
+        image f"icons/emoji/{time}.png" 
+        text(f"Earnings: ${state['earnings']}")
+        image f"icons/emoji/{earnings}.png" 
 # apartment screens
 # sticky notes zoom
 # tv zoom

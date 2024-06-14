@@ -87,7 +87,7 @@ transform unblur:
   blur 0
 
 # The game starts here.
-default skip_intro = False
+default skip_intro = True
 default start_at_day_end = False
 label start:
     if not skip_intro:
@@ -339,6 +339,7 @@ label start:
       hide screen instructions
       hide screen timer
       hide screen task_type
+      hide screen cogni
       show screen overlay (store.game_state.ui)
       if has_custom_feedback:
         $ print('has custom feedback')
@@ -369,6 +370,7 @@ label start:
         jump end
       if (store.game_state.time == "end"):
         show screen performance(store.game_state.performance, store.averages['day_' + str(store.game_state.day)])
+        show screen cogni(performance_feedback(store.game_state.performance_rating)['text'], char_map['cogni']['mood']['default'], "bottom_left") 
         pause
         python:
           print('earnings: ', store.game_state.performance['earnings_minus_rent'])
@@ -473,7 +475,13 @@ label start:
       call screen dream('Thank you for playing DataVille!\na more human world\none click at a time', ['Restart'])
       # This ends the game.
       hide screen dream
-      call screen navigation()
+      # clear store and return to start
+      $ set_initial_variables() 
+      # if we want to send them to the main menu:
+      #MainMenu(confirm=False)
+
+      jump start
+      #return
 
 
 

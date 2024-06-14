@@ -16,6 +16,19 @@ init python:
   websites = "[.](com|net|org|io|gov|edu|me)"
   digits = "([0-9])"
   multiple_dots = r'\.{2,}'
+  timer_range = 0
+  time = 0
+  timer_jump = ''
+  store.timer_failed = False
+  task = "start_task`"
+  # default captcha image variables
+  images_correct = False
+  start_x_image = 100
+  start_y_image = 300
+  start_x_text = 100
+  start_y_text = 300
+  # timer stuff
+  order = 1
 
   def split_into_sentences(text: str) -> list[str]:
     """
@@ -56,76 +69,88 @@ init python:
     sentences = [s for s in sentences]
     if sentences and not sentences[-1]: sentences = sentences[:-1]
     return sentences
-
-  store.drags = {}
-  store.loop = {}
-  # CONSTANTS FOR PERFORMANCE COMPARISON
-  store.averages = {
-      'day_0': {
-        'score': 70,
-        'time': 8,
-        'earnings': 600
-        },
-      'day_1': {
-        'score': 70,
-          'time': 8,
-        'earnings': 2200
-        },
-      'day_2': {
+  def set_initial_variables():
+    store.drags = {}
+    store.loop = {}
+    # CONSTANTS FOR PERFORMANCE COMPARISON
+    store.averages = {
+        'day_0': {
           'score': 70,
           'time': 8,
-        'earnings': 5000
-        },
-      'day_3': {
+          'earnings': 600
+          },
+        'day_1': {
+          'score': 70,
+            'time': 8,
+          'earnings': 2200
+          },
+        'day_2': {
+            'score': 70,
+            'time': 8,
+          'earnings': 5000
+          },
+        'day_3': {
+            'score': 70,
+            'time': 8,
+          'earnings': 9000
+          },
+        'day_4': {
           'score': 70,
           'time': 8,
-        'earnings': 9000
-        },
-      'day_4': {
-        'score': 70,
-        'time': 8,
-        'earnings': 15000
-        },
-    }
-# these should only be updated after a game loop
-  store.game_state = {}
-# STATE TRACKING VARIABLES
-  store.event_flags = []
-  store.game_state.time = 'start'
-  store.game_state.day = -1
-  store.game_state.performance_rating = 'neutral'
-  store.game_state.performance_count = {'good': 0, 'bad': 0, 'neutral': 0}
-  store.game_state.task_count = 0
-  store.apartment_file = ""
-  store.daily_rent = 1000
-
-
-  store.game_state.ui = {
-        "news_headline": "",
-        "news_body":"",
-        "past_news_stories": [],
-        "earnings": 0,
-        "performance": "",
-        "instructions": "", 
-        "timer": 10
+          'earnings': 15000
+          },
       }
-  store.game_state.performance = {
-        "earnings": 0,
-        "average_time": 0,
-        "total_time": 0,
-        "total_score": 0,
-        "approval_rate": 0,
-        "earnings_minus_rent": 0
-      }
+  # these should only be updated after a game loop
+    store.game_state = {}
+  # STATE TRACKING VARIABLES
+    store.event_flags = []
+    store.game_state.time = 'start'
+    store.game_state.day = -1
+    store.game_state.performance_rating = 'neutral'
+    store.game_state.performance_count = {'good': 0, 'bad': 0, 'neutral': 0}
+    store.game_state.task_count = 0
+    store.apartment_file = ""
+    store.daily_rent = 1000
 
-  store.apartment_data = {"apartment_background": "1", "sticky_note": [], "message": [], "news": [], "window_background": "images/room/window_content/default_window_bg.jpg", "button_text": "Go to work!", "dream": []}
 
-  # set default image ordering
-  store.order = [3,2,1]
-# DEFAULT TIMER VARIABLES
-  timer_range = 0
-  time = 0
-  timer_jump = ''
+    store.game_state.ui = {
+          "news_headline": "",
+          "news_body":"",
+          "past_news_stories": [],
+          "earnings": 0,
+          "performance": "",
+          "instructions": "", 
+          "timer": 10
+        }
+    store.game_state.performance = {
+          "earnings": 0,
+          "average_time": 0,
+          "total_time": 0,
+          "total_score": 0,
+          "approval_rate": 0,
+          "earnings_minus_rent": 0
+        }
+
+    store.apartment_data = {"apartment_background": "1", "sticky_note": [], "message": [], "news": [], "window_background": "images/room/window_content/default_window_bg.jpg", "button_text": "Go to work!", "dream": []}
+
+    # set default image ordering
+    store.order = [3,2,1]
+  # DEFAULT TIMER VARIABLES
+    timer_range = 0
+    time = 0
+    timer_jump = ''
+    store.timer_failed = False
+    day_start()
+    task = store.loop['start_task']
+  # default captcha image variables
+    images_correct = False
+    start_x_image = 100
+    start_y_image = 300
+    start_x_text = 100
+    start_y_text = 300
+    # timer stuff
+    order = 1
+
   def update_from_state_menu():
     if (day_string and len(day_string) > 0):
       store.game_state.day = int(day_string) - 1
@@ -274,9 +299,6 @@ init python:
     store.game_state.time = 'end'
     day = str(store.game_state.day)
 
-  day_start()
-  task = store.loop['start_task']
-
 
 # update state with "outcomes" attribute from current loop, based on
 # performance. should always take the form of {1: (BEST OUTCOME), 2: (MEDIUM
@@ -288,9 +310,9 @@ init python:
       good = ["You’re really doing it!", "You’re labeling faster than 81% of DataVille Annotators!", "Great accuracy!", "Keep it up!", "Aim for that performance incentive!"]
       mid = ["Your performance is reasonable", "Your output is compatible with 70% of other labelers."]
       bad = ["Accuracy is important. Don’t be afraid to look carefully!", "Oof. Hope you do better next time.", "You’ll need to do better if you want the incentive bonus!", "Stay focused.", "That wasn’t great - do you need clearer instructions?"]
-      if (out == 1):
+      if (out == "good" or out == 1):
         return {'text': random.choice(good), 'score': 100}
-      elif (out == 2):
+      elif (out == "neutral" or out == 2):
         return {'text': random.choice(mid), 'score': 66}
       else:
         return {'text': random.choice(bad), 'score': 33}
@@ -346,6 +368,10 @@ init python:
         print('next task: ', next_task)
 # UPDATE UI VARIABLES 
     reward = int(current_task['payment'])/out
+    if store.timer_failed:
+       print("Timer failed! Reducing reward.")
+       reward = reward/2
+       store.timer_failed = False
 
     performance = performance_feedback(out)
     performance_text = performance['text']
@@ -354,7 +380,7 @@ init python:
     store.game_state.performance['total_score'] = (store.game_state.performance['total_score'] + performance['score'])
     store.game_state.performance['approval_rate'] = (store.game_state.performance['total_score']/store.game_state.task_count)
     # TIME TRACKER
-    store.game_state.performance['total_time'] = (store.game_state.performance['total_time'] + (10 - time))    
+    store.game_state.performance['total_time'] = (store.game_state.performance['total_time'] + (10 - (time/1000)))    
     store.game_state.performance['average_time'] = (store.game_state.performance['total_time'] /store.game_state.task_count)    
     return set_ui_state(next_task, state, performance_text, reward)
 
@@ -398,14 +424,6 @@ init python:
 
 
 # IMAGE TASK FUNCTIONS
-# default captcha image variables
-  images_correct = False
-  start_x_image = 100
-  start_y_image = 300
-  start_x_text = 100
-  start_y_text = 300
-  # timer stuff
-  order = 1
   # could use periodic function to constantly update box position
   # also look at "cardgame" or "puzzle" templates, although they seem like overkill
   # easiest is slotting them into order in separate window, probably
@@ -486,3 +504,4 @@ init python:
       renpy.call_screen('email_message', who, who_suffix, what, mood)
     else:
       renpy.call_screen('cogni', what, mood, position)
+  set_initial_variables() 
