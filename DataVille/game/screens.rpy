@@ -1656,14 +1656,14 @@ style button_click:
 
 
 screen timer:
-#  zorder 10
+    zorder 10
     python:
         init_time = float(task['time']) * 1000
         timer_failed = False
     vbox:
         xalign 0.0
         yalign 1.0
-        timer 0.03 repeat True action If(time > 0, true=SetVariable('time', time - 30), false=[SetVariable('timer_failed', True), Show("cogni", None, "You ran out of time! Your earnings have been halved.", char_map['cogni']['mood']['default'], "bottom_left")])
+        timer 0.03 repeat True action If(time > 0, true=SetVariable('time', time - 30), false=[SetVariable('timer_failed', True), Show("cogni", None, "You ran out of time! Your earnings have been halved.", char_map['cogni']['mood']['default'], "bottom_left", True)])
         bar: 
             value time 
             range timer_range 
@@ -1878,7 +1878,6 @@ screen overlay(task, cogni=False, button_text=False):
 # SELECT DA IMAGES
 screen captcha_image(task, images):
     use instructions(task)
-    zorder 1
     window id 'labeler': 
         style "window_nobox"
         xsize 619
@@ -1923,7 +1922,6 @@ screen captcha_image(task, images):
 
 screen comparison_image(task, images):
     use instructions(task)
-    zorder 1
     # $ random.shuffle(task)
     window id 'labeler':
         style "window_nobox"
@@ -1984,7 +1982,6 @@ screen binary_image(task, images):
 
 screen binary_text(task):
     use instructions(task)
-    zorder 1
     window id 'labeler':
         style "window_nobox"
         xmaximum 1920
