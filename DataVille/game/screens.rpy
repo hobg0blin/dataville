@@ -2010,7 +2010,6 @@ screen binary_text(task):
             action [SetVariable("latest_choice", "N"), Return(True)]
 
 screen task_error():
-    zorder 1
     # $ random.shuffle(task)
     window id 'labeler':
         style "window_nobox"
@@ -2030,7 +2029,6 @@ screen task_error():
 
 screen comparison_text(task, button_text='Done!'):
     use instructions(task)
-    zorder 1
     window id 'labeler':
         style "window_nobox"
         xalign 0.5
@@ -2066,7 +2064,6 @@ screen comparison_text(task, button_text='Done!'):
 
 screen caption_image(task, images):
     use instructions(task)
-    zorder 1
     # Note: this shuffles because of the timer recalls the screen, which inturn reshuffles the labels
     # If we want the labels to shuffle, then the tasks need to be shuffled and stored sperately and
     # outside of the screen, so when the screne is called, the order isn't shuffled again
@@ -2097,7 +2094,6 @@ screen caption_image(task, images):
 
 screen sentiment_text(task):
     use instructions(task)
-    zorder 1
     window id 'labeler':
         style "window_nobox"
         xsize 700
@@ -2177,29 +2173,31 @@ screen performance(state, average):
         approval = "neutral"
         time = "neutral"
         money = "neutral"
-        if state["approval_rate"] > average["score"]:
+
+        if state["approval_rate"] > average["score"] + 10:
             approval = positive_emoji[0]
             positive_emoji.pop(0)
-        elif state["approval_rate"] == average["score"]:
+        elif state["approval_rate"] <= average["score"] + 10 and state["approval_rate"] >= average["score"] - 10:
             approval = neutral_emoji[0]
             neutral_emoji.pop(0)
         else:
             approval = bad_emoji[0]
             neutral_emoji.pop(0)
 
-        if state["average_time"] > average["time"]:
+        if state["average_time"] < average["time"] + 2:
             time = positive_emoji[0]
             positive_emoji.pop(0)
-        elif state["average_time"] == average["time"]:
+        elif state["average_time"] >= average["time"] + 2 and state["average_time"] <= average["time"] - 2:
             time = neutral_emoji[0]
             neutral_emoji.pop(0)
         else:
             time = bad_emoji[0]
             bad_emoji.pop(0)
-        if state["earnings"] > average["earnings"]:
+    
+        if state["earnings"] > average["earnings"] + (average["earnings"] / 10):
             earnings = positive_emoji[0]
             positive_emoji.pop(0)
-        elif state["earnings"] == average["earnings"]:
+        elif state["earnings"] <= average["earnings"] + (average["earnings"] / 10) and state["earnings"] <= average["earnings"] - (average["earnings"] / 10):
             earnings = neutral_emoji[0]
             neutral_emoji.pop(0)
         else:
@@ -2208,17 +2206,35 @@ screen performance(state, average):
 
             
     frame:
+        style "prompt_frame"
         xalign 0.5
         yalign 0.2
-        xmaximum 1200
+        xsize 600
+        xpadding 50
         has vbox
-        text(f"Approval rating: {state['approval_rate']}%")
-        image f"icons/emoji/{approval}.png" 
-        
-        text(f"Average time: {round(state['average_time'], 1)} seconds")
-        image f"icons/emoji/{time}.png" 
-        text(f"Earnings: ${state['earnings']}")
-        image f"icons/emoji/{earnings}.png" 
+        hbox:
+            xsize 525
+            text(f"Approval rating: {round(state['approval_rate'], 2)}%"):
+                xsize 550
+                yalign 0.5
+            image f"icons/emoji/{approval}.png":
+                xalign 1.0
+        hbox:
+            xsize 525
+            text(f"Average time: {round(state['average_time'], 1)} seconds"):
+                xsize 550
+                yalign 0.5
+            image f"icons/emoji/{time}.png":
+                xalign 1.0
+
+        hbox:
+            xsize 525
+            text(f"Earnings: ${round(state['earnings'], 2)}"):
+                xsize 550
+                yalign 0.5
+            image f"icons/emoji/{earnings}.png":
+                xalign 1.0
+
 # apartment screens
 # sticky notes zoom
 # tv zoom

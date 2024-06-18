@@ -105,12 +105,10 @@ label start:
       image bg apartment_bg = "images/apartment/apartment3_1.png"
 
       image zoom_seq:
-        xoffset 205
         "images/screens/01-intro/title-into-trans.png"
         pause 1.2
         parallel:
           easeout_quad 3 xoffset 0
-        # "images/screens/01-intro/intro-00.png"
         parallel:
           easeout_quad 3 zoom 1.5
         parallel:
