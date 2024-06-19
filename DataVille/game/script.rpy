@@ -72,7 +72,7 @@ init:
         "default": "images/characters/stranger.png"
       }
     },
-    "union": {
+    "tim": { # tim is a union man
       "obj": union,
       "mood": {
         "default": "images/characters/union.png"
