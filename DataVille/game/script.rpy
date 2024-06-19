@@ -96,31 +96,40 @@ label start:
       image bg overlay_background = "images/screens/monitor/background.png"
       image bg black_bg = Solid('#FFFFFF')
 
+      image tv_overlay:
+        "images/screens/00-title/tv_hollow.png"
+        alpha 0.5
+        zoom 0.75
+        xoffset -330
+        yoffset -250
 
       # v2 sequence
-      image interview = "images/screens/01-intro/interview.png"
+      image interview:
+        "images/screens/01-intro/interview.jpg"
+        zoom 0.335
       image bg gray_bg = Solid('#464645')
-      image bg news_bg = "images/news_bg.png"
+      # image bg news_bg = "images/news_bg.png"
       image bg apartment_bg = "images/apartment/apartment3_1.png"
 
       image zoom_seq:
         "images/screens/01-intro/title-into-trans.png"
+        zoom 0.75
+        xoffset -330
+        yoffset -250
         pause 1.2
         parallel:
-          easeout_quad 3 xoffset 0
+          easeout_quad 3 xoffset -1400
         parallel:
-          easeout_quad 3 zoom 1.5
+          easeout_quad 3 zoom 1.2
         parallel:
-          easeout_quad 3 yoffset config.screen_height/3.5
+          easeout_quad 3 yoffset -600
 
       scene bg gray_bg
-      show zoom_seq
+      show zoom_seq:
+        pos (0, 0)
       $renpy.pause(4, hard=True)
-      show intro_01 with Dissolve(1.0)
+      scene interview with Dissolve(1.0)
       pause
-      show intro_02 with Dissolve(0.2)
-      pause
-      scene bg news_bg
       # show standard dialogue box - only for news chyrons
       # $ show_window = True
       news_anchor "Good evening, and welcome to our program."

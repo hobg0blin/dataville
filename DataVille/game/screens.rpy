@@ -375,10 +375,10 @@ image tv_hollow:
     yoffset -250
 
 # this was used to help with position the tv screen
-# image top_pos = Solid("#ff0000", xpos = 0, ypos = 187, xsize = 1920, ysize = 5)
-# image bottom_pos = Solid("#ff0000", xpos = 0, ypos = 767, xsize = 1920, ysize = 5)
-# image left_pos = Solid("#ff0000", xpos = 738, ypos = 0, xsize = 5, ysize = 1080)
-# image right_pos = Solid("#ff0000", xpos = 1595, ypos = 0, xsize = 5, ysize = 1080)
+image top_pos = Solid("#ff0000", xpos = 0, ypos = 187, xsize = 1920, ysize = 5)
+image bottom_pos = Solid("#ff0000", xpos = 0, ypos = 767, xsize = 1920, ysize = 5)
+image left_pos = Solid("#ff0000", xpos = 738, ypos = 0, xsize = 5, ysize = 1080)
+image right_pos = Solid("#ff0000", xpos = 1595, ypos = 0, xsize = 5, ysize = 1080)
 
 screen main_menu():
 
