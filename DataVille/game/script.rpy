@@ -98,8 +98,7 @@ label start:
 
 
       # v2 sequence
-      image intro_01 = "images/screens/01-intro/intro-01.png"
-      image intro_02 = "images/screens/01-intro/intro-02.png"
+      image interview = "images/screens/01-intro/interview.png"
       image bg gray_bg = Solid('#464645')
       image bg news_bg = "images/news_bg.png"
       image bg apartment_bg = "images/apartment/apartment3_1.png"

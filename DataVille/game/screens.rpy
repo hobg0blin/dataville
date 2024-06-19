@@ -368,12 +368,26 @@ image attract_seq:
     pause 5
     repeat
 
+image tv_hollow:
+    "images/screens/00-title/tv_hollow.png"
+    zoom 0.75
+    xoffset -330
+    yoffset -250
+
+# this was used to help with position the tv screen
+# image top_pos = Solid("#ff0000", xpos = 0, ypos = 187, xsize = 1920, ysize = 5)
+# image bottom_pos = Solid("#ff0000", xpos = 0, ypos = 767, xsize = 1920, ysize = 5)
+# image left_pos = Solid("#ff0000", xpos = 738, ypos = 0, xsize = 5, ysize = 1080)
+# image right_pos = Solid("#ff0000", xpos = 1595, ypos = 0, xsize = 5, ysize = 1080)
+
 screen main_menu():
 
     ## This ensures that any other menu screen is replaced.
     tag menu
-
+    
     add "attract_seq"
+
+    add "tv_hollow"
 
     ## This empty frame darkens the main menu.
     frame:
@@ -391,8 +405,8 @@ screen main_menu():
             text "[config.name!t]":
                 style "main_menu_title"
 
-            text "[config.version]":
-                style "main_menu_version"
+            # text "[config.version]":
+            #     style "main_menu_version"
 
 
 style main_menu_frame is empty
