@@ -143,6 +143,13 @@ style window_wbox:
     ysize gui.textbox_height
     background Image("gui/textbox.png", xalign=0.5, yalign=1.0)
 
+style interview_dialogue:
+    xalign 0.5
+    xfill True
+    yalign 0.2
+    ysize gui.textbox_height
+    background None
+
 style namebox:
     xpos gui.name_xpos
     xanchor gui.name_xalign
@@ -152,6 +159,9 @@ style namebox:
 
     background Frame("gui/namebox.png", gui.namebox_borders, tile=gui.namebox_tile, xalign=gui.name_xalign)
     padding gui.namebox_borders.padding
+
+style interview_namebox is namebox:
+    yalign 0.15
 
 style say_label:
     properties gui.text_properties("name", accent=True)

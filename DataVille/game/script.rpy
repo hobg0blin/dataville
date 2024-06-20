@@ -45,8 +45,22 @@ init:
   # cogni defined in characters/cogni.rpy
   define stranger = Character("$(#@^%)$)(#)%$@^*$(*)", image="images/characters/stranger.png", who_suffix = "?*#$&#*@()%&@)%&$@^)($#)", kind=email_message)
   define union = Character("Tim", image="images/characters/union.png", who_suffix = "Union Rep. Section 18, Cohort 48", kind=email_message)
-  define news_anchor = Character("News Anchor", image="images/news_anchor.jpg", window_style="window_wbox")
-  define victor = Character("Victor", image="images/victor.avif", window_style="window_wbox") 
+  define news_anchor = Character(
+    "News Anchor", 
+    image="images/news_anchor.jpg", 
+    window_style="interview_dialogue", 
+    what_text_align=1.0, 
+    color="#b9b9b9", 
+    namebox_style="interview_namebox",
+    who_size=18)
+  define victor = Character(
+    "Victor", 
+    image="images/victor.avif", 
+    window_style="interview_dialogue", 
+    what_text_align=0.0, 
+    color="#b9b9b9", 
+    namebox_style="interview_namebox",
+    who_size=18)
 
   define char_map = {
     "supervisor": {
