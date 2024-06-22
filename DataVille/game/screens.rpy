@@ -367,15 +367,25 @@ style navigation_button_text:
 ## https://www.renpy.org/doc/html/screen_special.html#main-menu
 
 image attract_seq:
+    # base offset is 410, 0
     xoffset 410
-    "images/screens/00-title/title-00.png" with Dissolve(3.0)
-    pause 5
-    "images/screens/00-title/title-01.png" with Dissolve(3.0)
-    pause 5 
-    "images/screens/00-title/title-02.png" with Dissolve(3.0)
-    pause 5
-    "images/screens/00-title/title-03.png" with Dissolve(3.0)
-    pause 5
+    "images/screens/00-title/title-00.png"
+    zoom 1.0
+    linear 5 xoffset 200 yoffset 50 zoom 1.1
+    "images/screens/00-title/title-01.png"
+    xoffset 410
+    zoom 1.2
+    linear 5 xoffset 400 yoffset 50 zoom 1.0
+    "images/screens/00-title/title-02.png"
+    xoffset 0
+    yoffset 100
+    zoom 1.3
+    linear 5 xoffset 400 yoffset 50 zoom 1.0
+    "images/screens/00-title/title-03.png"
+    xoffset 410
+    yoffset 0
+    zoom 0.96
+    linear 5 xoffset 500 yoffset 50 zoom 1.1
     repeat
 
 image tv_hollow:
@@ -395,7 +405,7 @@ screen main_menu():
     ## This ensures that any other menu screen is replaced.
     tag menu
     
-    add "attract_seq"
+    add "attract_seq" at VHS
 
     add "tv_hollow"
 
@@ -2491,3 +2501,9 @@ screen add_event_flag():
             frame:
                 textbutton "Set" action [Function(update_from_state_menu), Hide("add_event_flag", None), Show("set_state", None)]
 
+screen effect_overlay():
+    zorder 100
+    vbox:
+        xsize 1920
+        ysize 1080
+        image Solid("#FF00FF44", xsize=1920, ysize=1080)
