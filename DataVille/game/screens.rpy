@@ -367,25 +367,60 @@ style navigation_button_text:
 ## https://www.renpy.org/doc/html/screen_special.html#main-menu
 
 image attract_seq:
-    # base offset is 410, 0
-    xoffset 410
     "images/screens/00-title/title-00.png"
+    pos (0, 0)
+    xoffset 410
     zoom 1.0
     linear 5 xoffset 200 yoffset 50 zoom 1.1
+
+    "tv_noise"
+    pos (700, 145)
+    xoffset 0
+    yoffset 0
+    zoom 1.1
+    pause 0.2
+
     "images/screens/00-title/title-01.png"
+    pos (0, 0)
     xoffset 410
     zoom 1.2
     linear 5 xoffset 400 yoffset 50 zoom 1.0
+
+    "tv_noise"
+    pos (700, 145)
+    xoffset 0
+    yoffset 0
+    zoom 1.1
+    pause 0.2
+
     "images/screens/00-title/title-02.png"
+    pos (0, 0)
     xoffset 0
     yoffset 100
     zoom 1.3
     linear 5 xoffset 400 yoffset 50 zoom 1.0
+
+    "tv_noise"
+    pos (700, 145)
+    xoffset 0
+    yoffset 0
+    zoom 1.1
+    pause 0.2
+
     "images/screens/00-title/title-03.png"
+    pos (0, 0)
     xoffset 410
     yoffset 0
     zoom 0.96
     linear 5 xoffset 500 yoffset 50 zoom 1.1
+    
+    "tv_noise"
+    pos (700, 145)
+    xoffset 0
+    yoffset 0
+    zoom 1.1
+    pause 0.2
+
     repeat
 
 image tv_hollow:
@@ -395,10 +430,10 @@ image tv_hollow:
     yoffset -250
 
 # this was used to help with position the tv screen
-image top_pos = Solid("#ff0000", xpos = 0, ypos = 187, xsize = 1920, ysize = 5)
-image bottom_pos = Solid("#ff0000", xpos = 0, ypos = 767, xsize = 1920, ysize = 5)
-image left_pos = Solid("#ff0000", xpos = 738, ypos = 0, xsize = 5, ysize = 1080)
-image right_pos = Solid("#ff0000", xpos = 1595, ypos = 0, xsize = 5, ysize = 1080)
+# image top_pos = Solid("#ff0000", xpos = 0, ypos = 187, xsize = 1920, ysize = 5)
+# image bottom_pos = Solid("#ff0000", xpos = 0, ypos = 767, xsize = 1920, ysize = 5)
+# image left_pos = Solid("#ff0000", xpos = 738, ypos = 0, xsize = 5, ysize = 1080)
+# image right_pos = Solid("#ff0000", xpos = 1595, ypos = 0, xsize = 5, ysize = 1080)
 
 screen main_menu():
 
@@ -406,7 +441,7 @@ screen main_menu():
     tag menu
     
     add "attract_seq" at VHS
-
+    
     add "tv_hollow"
 
     ## This empty frame darkens the main menu.
