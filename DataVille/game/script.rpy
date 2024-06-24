@@ -52,7 +52,9 @@ init:
     what_text_align=1.0, 
     color="#b9b9b9", 
     namebox_style="interview_namebox",
-    who_size=18)
+    who_size=18,
+    what_slow_cps=preferences.text_cps
+    )
   define victor = Character(
     "Victor", 
     image="images/victor.avif", 
@@ -100,6 +102,18 @@ transform blur:
 transform unblur:
   blur 0
 
+transform zoom_in:
+  zoom 0.75
+  xoffset -330
+  yoffset -250
+  pause 0.5
+  parallel:
+    easeout_quad 3 xoffset -1400
+  parallel:
+    easeout_quad 3 zoom 1.19
+  parallel:
+    easeout_quad 3 yoffset -600
+
 # The game starts here.
 default skip_intro = False
 default start_at_day_end = False
@@ -112,10 +126,6 @@ label start:
 
       image tv_overlay:
         "images/screens/00-title/tv_hollow.png"
-        alpha 0.5
-        zoom 0.75
-        xoffset -330
-        yoffset -250
 
       # v2 sequence
       image interview:
@@ -125,36 +135,44 @@ label start:
       # image bg news_bg = "images/news_bg.png"
       image bg apartment_bg = "images/apartment/apartment3_1.png"
 
-      image zoom_seq:
+      image interview_trans:
         "images/screens/01-intro/title-into-trans.png"
+        zoom_in
+
+      show tv_noise:
+        pos (700, 145)
+        xoffset 0
+        yoffset 0
+        zoom 1.1
+      show tv_overlay:
         zoom 0.75
         xoffset -330
         yoffset -250
-        pause 1.2
-        parallel:
-          easeout_quad 3 xoffset -1400
-        parallel:
-          easeout_quad 3 zoom 1.2
-        parallel:
-          easeout_quad 3 yoffset -600
-
-      scene bg gray_bg
-      show zoom_seq:
         pos (0, 0)
-      $renpy.pause(4, hard=True)
+      pause 0.5
+      hide tv_noise
+      hide tv_overlay
+
+      show interview_trans:
+        pos (0,0)
+        VHS
+      show tv_overlay:
+        pos (0, 0)  
+        zoom_in
+      $renpy.pause(3.3, hard=True)
       scene interview with Dissolve(1.0)
-      pause
-      # show standard dialogue box - only for news chyrons
-      # $ show_window = True
-      news_anchor "Good evening, and welcome to our program."
-      news_anchor "Tonight, hiding in the shadows. What the alien menace means for you and your family. I’m joined by Victor Willmington, founder and CEO of the Dataville Corporation. "
-      news_anchor "Tell me Victor, how does your company see the ongoing alien migratory crisis?"
-      victor "Where you see a crisis, we at Dataville see an opportunity. This is our chance to restore human society to a safer, simpler time."
-      victor "With our patented alien identification AI technology, we’re able to accurately penetrate alien camouflage."
-      news_anchor "And you’ve found active partners in the public sector?"
-      victor "That’s right. Our clients include the Departments of Defense and State, as well as private enterprises looking to ensure their communities are 100 percent human."
-      news_anchor "And what do you say to your critics who accuse the Dataville Corporation of exacerbating racial tensions with the aliens?"
-      victor "Earth was meant for humans. If they have nothing to hide, why are they using camouflage?"
+      pause 1.0
+
+      news_anchor "{cps=30}Good evening, and welcome to our program.{/cps}"
+      news_anchor "{cps=30}Tonight, hiding in the shadows. What the alien menace means for you and your family. I’m joined by Victor Willmington, founder and CEO of the Dataville Corporation.{/cps}"
+      news_anchor "{cps=30}Tell me Victor, how does your company see the ongoing alien migratory crisis?{/cps}"
+      victor "{cps=30}Where you see a crisis, we at Dataville see an opportunity. This is our chance to restore human society to a safer, simpler time.{/cps}"
+      victor "{cps=30}With our patented alien identification AI technology, we’re able to accurately penetrate alien camouflage.{/cps}"
+      news_anchor "{cps=30}And you’ve found active partners in the public sector?{/cps}"
+      victor "{cps=30}That’s right. Our clients include the Departments of Defense and State, as well as private enterprises looking to ensure their communities are 100 percent human.{/cps}"
+      news_anchor "{cps=30}And what do you say to your critics who accuse the Dataville Corporation of exacerbating racial tensions with the aliens?{/cps}"
+      victor "{cps=30}Earth was meant for humans. If they have nothing to hide, why are they using camouflage?{/cps}"
+      
       $ blur_master()
       image job_page = "images/job_page.png"
       scene job_page
