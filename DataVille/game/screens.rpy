@@ -1817,9 +1817,6 @@ screen dream(dream_text, buttons):
     python:
         if buttons == None or len(buttons) <= 0:
             buttons = ["Next"]
-    image "images/dataville_logo_white.svg":
-        xalign 0.5
-        yalign 0.1
     frame id 'content':
         style "prompt_frame"
         xalign 0.5
@@ -1842,7 +1839,7 @@ screen dream(dream_text, buttons):
                         color "#FFFFFF"
                     action Return(True)
 
-screen job_offer(phase):
+screen job_offer(phase, text = None, buttons = None):
     if phase == 1:
         image "images/job_page.png"
  
@@ -1857,7 +1854,7 @@ screen job_offer(phase):
                 xalign 0.5
                 color "#FFFFFF"
             action Return(True)
-    else:
+    elif phase == 2:
         image "images/job_page_blur.png" at alpha_dissolve_quick
                 
         frame:
@@ -1889,6 +1886,36 @@ screen job_offer(phase):
                     color "#FFFFFF"
                 style "default_button"
                 action Return(True)
+    else:
+        image "images/job_page_blur.png"
+        python:
+            if buttons == None or len(buttons) <= 0:
+                buttons = ["Next"]
+        image "images/dataville_logo_white.svg":
+            xalign 0.5
+            yalign 0.1
+        frame id 'content':
+            style "prompt_frame"
+            xalign 0.5
+            yalign 0.5
+            xmaximum 1419
+            ymaximum 619
+            vbox id 'text':
+                yalign 0.4
+                xalign 0.5
+                text text: 
+                    color "#FFFFFF"
+            hbox id 'buttons':
+                yalign 0.8
+                xalign 0.5
+                spacing 15
+                for button_text in buttons:
+                    button:
+                        style "default_button"
+                        text button_text:
+                            color "#FFFFFF"
+                        action Return(True)
+
 
 screen assistant:
     window id 'content':

@@ -178,12 +178,11 @@ label start:
       scene job_page
       call screen job_offer(1)
       call screen job_offer(2)
-      scene bg gray_bg
-      call screen dream("\n Looking for a job? Looking to make the world a better, more human place?", ["Take the quiz!"])
-      call screen dream("Are you proud of your humanity?", ["Yes", "No"])
-      call screen dream("Do you own a computer?", ["Yes", "No"])
-      call screen dream("Are you interested in working from home?", ["Yes", "No"])
-      call screen dream("Congratulations! We'd like to extend an offer of employment! Join the DataVille team now.", ["Let's get started."])
+      call screen job_offer(3, "\n Looking for a job? Looking to make the world a better, more human place?", ["Take the quiz!"])
+      call screen job_offer(3, "Are you proud of your humanity?", ["Yes", "No"])
+      call screen job_offer(3, "Do you own a computer?", ["Yes", "No"])
+      call screen job_offer(3, "Are you interested in working from home?", ["Yes", "No"])
+      call screen job_offer(3, "Congratulations! We'd like to extend an offer of employment! Join the DataVille team now.", ["Let's get started."])
       $ unblur_master()
 
       label intro:
