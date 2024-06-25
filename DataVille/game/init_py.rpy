@@ -513,4 +513,5 @@ init python:
       renpy.call_screen('email_message', who, who_suffix, what, mood)
     else:
       renpy.call_screen('cogni', what, mood, position)
+  
   set_initial_variables() 

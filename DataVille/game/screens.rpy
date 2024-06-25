@@ -1730,8 +1730,8 @@ screen timer:
         init_time = float(task['time']) * 1000
         timer_failed = False
     vbox:
-        xalign 0.0
         yalign 1.0
+        xalign 0.0
         timer 0.03 repeat True action If(time > 0, true=SetVariable('time', time - 30), false=[SetVariable('timer_failed', True), Show("cogni", None, "You ran out of time! Your earnings have been halved.", char_map['cogni']['mood']['default'], "bottom_left", True)])
         bar: 
             value time 
@@ -1744,10 +1744,8 @@ screen timer:
             left_bar Solid(Color(hls=(0.0, 0.41, 0.0 if ((init_time - time) / init_time) < 0.5 else (init_time - (time + (init_time * 0.5))) / init_time)))
             right_bar Solid("#D9D9D9")  
             at alpha_dissolve
-
-
-
-
+    image "scanlines_overlay" 
+    
 # GENERAL 'ALWAYS-ON OVERLAY'
 # TODO:
 # add 'effects' map to gui input that then affects overlay, something like
@@ -2536,9 +2534,11 @@ screen add_event_flag():
             frame:
                 textbutton "Set" action [Function(update_from_state_menu), Hide("add_event_flag", None), Show("set_state", None)]
 
-screen effect_overlay():
-    zorder 100
-    vbox:
-        xsize 1920
-        ysize 1080
-        image Solid("#FF00FF44", xsize=1920, ysize=1080)
+# Scanlines overlay needs to be added at the last element in screens that
+# we want the led monitor effect
+image scanlines_overlay:
+    "images/scanlines.png"
+    pos(0, 0)
+    alpha 0.1
+
+image pixel = Tile("images/pixel.png")

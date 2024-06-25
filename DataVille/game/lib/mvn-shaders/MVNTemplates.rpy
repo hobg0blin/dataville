@@ -14,11 +14,19 @@
 
 transform AnimatedAberate:
     shader "MakeVisualNovels.AnimatedAberration"
+    u_aberrationAmount(100.0)
+
+transform FastAberate:
+    shader "MakeVisualNovels.AnimatedAberration"
     u_aberrationAmount(10.0)
 
 transform StillAberate:
     shader "MakeVisualNovels.StillAberration"
     u_aberrationAmount(10.0)
+
+transform LightAberate:
+    shader "MakeVisualNovels.StillAberration"
+    u_aberrationAmount(2.0)
 
 transform IntenseAberate:
     shader "MakeVisualNovels.StillAberration"
@@ -38,9 +46,6 @@ transform VHS:
     #Use White vec4(1.0, 1.0, 1.0, 1.0) to disable this effect.
     #Pure black turns the entire image black.
     u_color (1.0, 1.0, 1.0, 1.0)
-
-transform unVHS:
-    vec4(1.0, 1.0, 1.0, 1.0)
 
 transform WhiteNoise:
     shader "MakeVisualNovels.Static"

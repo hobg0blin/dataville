@@ -11,6 +11,7 @@ screen cogni(what, mood, position="center", overlay=False):
                 xsize position_map[position]["sprite"]["xsize"]
                 xpos position_map[position]["sprite"]["xpos"]
                 ypos position_map[position]["sprite"]["ypos"]
+                at StillAberate
         window: # bubble window
             style position_map[position]["style"]
             xpos position_map[position]["text"]["xpos"]
@@ -27,6 +28,8 @@ screen cogni(what, mood, position="center", overlay=False):
             ysize 1080
             pos (0, 0)
             action Return(True)
+    
+    image "scanlines_overlay" 
 
 define position_map = {
     "center": {

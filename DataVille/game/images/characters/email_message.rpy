@@ -57,6 +57,7 @@ screen email_message(who, who_suffix, what, image_path = None, buttons = ["Conti
                         ysize 150
                         xalign 0.0
                         yalign 0.0
+                        at StillAberate
                 text who id "who":
                     color "#FFFFFF"
                     size 72
@@ -64,6 +65,7 @@ screen email_message(who, who_suffix, what, image_path = None, buttons = ["Conti
                         xpos 200
                     else:
                         xpos 0
+                    at StillAberate
                 if who_suffix is not None:
                     text who_suffix id "who_suffix":
                         color "#d2d2d2"
@@ -73,11 +75,14 @@ screen email_message(who, who_suffix, what, image_path = None, buttons = ["Conti
                             xpos 200
                         else:
                             xpos 0
+                        at LightAberate
         text what id "what":
             color "#FFFFFF"
             size 30
             ypos 200
+            at LightAberate
             slow_cps preferences.text_cps
+        at LightAberate
         
     hbox id 'buttons':
         xalign 0.5
@@ -89,3 +94,7 @@ screen email_message(who, who_suffix, what, image_path = None, buttons = ["Conti
                 xsize 300
                 text_xalign 0.5
                 action Return(True)
+                at LightAberate
+        at LightAberate
+    
+    image "scanlines_overlay"

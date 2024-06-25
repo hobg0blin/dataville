@@ -243,8 +243,8 @@ label start:
 
   # manually check messsages on first loop 
     $ cleaned = clean(store.apartment_data)
-    show screen overlay (store.game_state.ui)
     scene bg overlay_background
+    show screen overlay (store.game_state.ui)
     label check_messages:
       while cleaned['message']:
         python:
@@ -326,8 +326,7 @@ label start:
         # window hide
         # cogni "[custom_dialogue]"
         # hide screen message
-
-
+      
       show screen timer
 
       $ custom_feedback = ""
@@ -371,7 +370,6 @@ label start:
         else:
             binary_correct = 1
             task = update_state(store.game_state, binary_correct, task)
-
 
       hide screen instructions
       hide screen timer
