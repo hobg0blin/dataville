@@ -2536,9 +2536,14 @@ screen add_event_flag():
 
 # Scanlines overlay needs to be added at the last element in screens that
 # we want the led monitor effect
+transform scroll_up:
+    yoffset 0
+    linear 0.4 yoffset -10
+    repeat
+
 image scanlines_overlay:
     "images/scanlines.png"
+    size (1920, 1090)
     pos(0, 0)
-    alpha 0.1
-
-image pixel = Tile("images/pixel.png")
+    alpha 0.2
+    scroll_up
