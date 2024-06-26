@@ -2352,9 +2352,8 @@ screen zoomed_note(data):
 screen zoomed_tv(data, index=0):
     modal True
     python:
-        if store.game_state.day == 0 and store.game_state.time == "end":
-            index = data["news"].index(next(filter(lambda n: n.get('time') == 'end', data['news'])))
-    # advance through news items
+        #FIXME: day 0 just reuses start images for now
+        # advance through news items
         result = setitem(data, index)
         print('result: ', result)
         item = result[0]

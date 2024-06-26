@@ -234,6 +234,7 @@ init python:
           return
         story_object['performance'] = row['PERFORMANCE']
         story_object['time'] = row['TIME']
+        story_object['type'] = row['TYPE']
         if len(row['BUTTON_1_TEXT']) > 0:
             story_object['buttons'] = [row['BUTTON_1_TEXT']]
         else:
@@ -272,7 +273,10 @@ init python:
 
   def filter_apartment(obj):
     if store.game_state.time != obj['time']:
-      return False
+      if obj['type'] == 'news' and store.game_state.day == 0:
+        return True
+      else:
+        return False
     elif obj['performance'] == store.game_state.performance_rating:
       return True
     elif obj['performance'] == 'default':
