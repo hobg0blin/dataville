@@ -84,29 +84,29 @@ init python:
     # CONSTANTS FOR PERFORMANCE COMPARISON
     store.averages = {
         'day_0': {
-          'score': 70,
+          'score': 60,
           'time': 8,
           'earnings': 600
           },
         'day_1': {
-          'score': 70,
+          'score': 60,
             'time': 8,
           'earnings': 2200
           },
         'day_2': {
-            'score': 70,
+            'score': 60,
             'time': 8,
           'earnings': 5000
           },
         'day_3': {
-            'score': 70,
+            'score': 60,
             'time': 8,
           'earnings': 9000
           },
         'day_4': {
-          'score': 70,
+          'score': 60,
           'time': 8,
-          'earnings': 15000
+          'earnings': 13000
           },
       }
   # these should only be updated after a game loop
@@ -119,7 +119,7 @@ init python:
     store.game_state.performance_count = {'good': 0, 'bad': 0, 'neutral': 0}
     store.game_state.task_count = 0
     store.apartment_file = ""
-    store.daily_rent = 1500
+    store.daily_rent = 700
 
 
     store.game_state.ui = {
@@ -417,18 +417,14 @@ init python:
         reader = csv.DictReader(epilogues)
         has_event_flag = False
         for epilogue in reader:
-            if len(epilogue['event_flag']) <= 0:
-                if epilogue['performance'] == store.game_state.performance_rating:
-                    output = epilogue['text']
-                    print('setting default event flag: ', output)
-            else:
-                for event_flag in store.event_flags: 
-                    output = epilogue['text']
-                    if (event_flag == 'tutorial_fail' or event_flag == 'rent_fail' or event_flag == 'performance_fail') and event_flag == epilogue['event_flag']:
-                        has_event_flag = True
-                    if event_flag == epilogue['event_flag'] and epilogue['performance'] == store.game_state.performance_rating:
-                        print('event flag based epilogue firing: ', epilogue)
-                        has_event_flag = True
+                output = epilogue['text']
+                for event_flag in store.event_flags:
+                  if (event_flag == 'tutorial_fail' or event_flag == 'rent_fail' or event_flag == 'performance_fail') and event_flag == epilogue['event_flag']:
+                      print('fail state hit: ', event_flag)
+                      has_event_flag = True
+                  if event_flag == epilogue['event_flag'] and epilogue['performance'] == store.game_state.performance_rating:
+                      print('event flag based epilogue firing: ', epilogue)
+                      has_event_flag = True
                 if has_event_flag:
                       break
     print('epilogue output: ', epilogue)
@@ -461,7 +457,8 @@ init python:
   # dumb comparison of images that just returns true or false
   # should probably be percentile graded but we prototyping baby
   def check_images(selected, original):
-    if sorted(selected['values']) == sorted(original):
+    parsed_original = map(str.strip, original)
+    if sorted(selected['values']) == sorted(parsed_original):
       return 1
     else:
       return 3

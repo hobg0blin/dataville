@@ -382,6 +382,7 @@ label start:
       # fail states for not making rent, failing the tutorial, or being bad at the game
       $ store.game_state.performance_count[store.game_state.performance_rating] += 1
       if store.game_state.performance_count['bad'] >= 3:
+        $ print('three bad states')
         $ store.event_flags.append('performance_fail')
         jump end
       if (store.game_state.day == 0) and store.game_state.time == 'end' and store.game_state.performance['earnings'] < 600:
@@ -502,9 +503,9 @@ label start:
       # clear store and return to start
       $ set_initial_variables() 
       # if we want to send them to the main menu:
-      $ MainMenu(confirm=False)
+#      $ MainMenu(confirm=True)
 
-      #jump start
+      jump start
       #return
 
 
