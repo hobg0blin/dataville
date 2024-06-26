@@ -513,5 +513,10 @@ init python:
       renpy.call_screen('email_message', who, who_suffix, what, mood)
     else:
       renpy.call_screen('cogni', what, mood, position)
-  
+
+  def fade_into_dream(duration):
+    renpy.show_screen('fade_to_black', duration)
+    renpy.pause(duration)
+    renpy.scene()
+    
   set_initial_variables() 

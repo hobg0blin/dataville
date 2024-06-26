@@ -96,24 +96,6 @@ init:
     },
   }
 
-transform blur:
-  blur 30
-    
-transform unblur:
-  blur 0
-
-transform zoom_in:
-  zoom 0.75
-  xoffset -330
-  yoffset -250
-  pause 0.5
-  parallel:
-    easeout_quad 3 xoffset -1400
-  parallel:
-    easeout_quad 3 zoom 1.19
-  parallel:
-    easeout_quad 3 yoffset -600
-
 # The game starts here.
 default skip_intro = False
 default start_at_day_end = False
@@ -137,7 +119,7 @@ label start:
 
       image interview_trans:
         "images/screens/01-intro/title-into-trans.png"
-        zoom_in
+        tv_zoom_in_seq
 
       show tv_noise:
         pos (700, 145)
@@ -158,7 +140,7 @@ label start:
         VHS
       show tv_overlay:
         pos (0, 0)  
-        zoom_in
+        tv_zoom_in_seq
       $renpy.pause(3.3, hard=True)
       scene interview with Dissolve(1.0)
       pause 1.0
@@ -220,7 +202,8 @@ label start:
       scene bg apartment_bg with Dissolve(1.0)
 
       $ blur_master()
-      call screen dream("Your first day at a new job.", [])
+      $ fade_into_dream(3)
+      call screen dream("Your first day at a new job.", ['Choice 1', 'Choice 2with a bunch of long text'])
       call screen dream("Try not to screw it up.", [])
       call screen dream("You really need the money.", [])
       call screen dream("Let's get started.", [])
@@ -242,8 +225,8 @@ label start:
 
   # manually check messsages on first loop 
     $ cleaned = clean(store.apartment_data)
-    scene bg overlay_background
-    show screen overlay (store.game_state.ui)
+    scene bg overlay_background with Dissolve(1.0)
+    show screen overlay (store.game_state.ui) with Dissolve(1.0)
     label check_messages:
       while cleaned['message']:
         python:

@@ -1703,26 +1703,8 @@ style slider_slider:
 #
 
 
-transform alpha_dissolve:
-    alpha 0.0
-    linear 0.5 alpha 1.0
-    on hide:
-        linear 0.5 alpha 0
-
-transform alpha_dissolve_quick:
-    alpha 0.0
-    linear 0.2 alpha 1.0
-    on hide:
-        linear 0.2 alpha 0
-
-transform speech_bubble:
-    xalign 0.3
-    yalign 0.75
-
 style button_click:
     activate_sound "click.wav"
-
-
 
 screen timer:
     zorder 10
@@ -1813,31 +1795,42 @@ screen message(sender, buttons=None):
 #         return Frame(image = Solid("#000000"), xpadding=10, ypadding=10, child = Frame(Solid(color, alpha = 0.5), xpadding=10, ypadding=10, child=inner))
 
 
+screen fade_into_dream(duration = 1.0):
+    image Solid("#000000", xsize = 1920, ysize= 1080) at fade_in(duration)
+
 screen dream(dream_text, buttons):
+    image Solid("#000000", xsize = 1920, ysize= 1080)
     python:
         if buttons == None or len(buttons) <= 0:
             buttons = ["Next"]
-    frame id 'content':
-        style "prompt_frame"
+    window id 'content':
+        style "window_nobox"
         xalign 0.5
         yalign 0.5
-        xmaximum 1419
-        ymaximum 619
+        xsize 1920
+        ysize 1080
         vbox id 'text':
-            yalign 0.4
+            yalign 0.3
             xalign 0.5
-            text dream_text: 
-                color "#FFFFFF"
+            text "{ficps}" + dream_text + "{/ficps}": 
+                style "dream_text"
         hbox id 'buttons':
-            yalign 0.8
             xalign 0.5
-            spacing 15
+            yalign 0.7
+            spacing 250
             for button_text in buttons:
                 button:
-                    style "default_button"
-                    text button_text:
-                        color "#FFFFFF"
+                    hover_background Solid("#FFFFFF", ysize = 4, yoffset = 60)
+                    idle_background None
+                    style "dream_button"
+                    at dream_button(dream_text, delay=2)
                     action Return(True)
+                    fixed:
+                        fit_first True
+                        xalign 0.5
+                        text button_text:
+                            style "dream_button_text"
+                
 
 screen job_offer(phase, text = None, buttons = None):
     if phase == 1:
@@ -2561,16 +2554,3 @@ screen add_event_flag():
             frame:
                 textbutton "Set" action [Function(update_from_state_menu), Hide("add_event_flag", None), Show("set_state", None)]
 
-# Scanlines overlay needs to be added at the last element in screens that
-# we want the led monitor effect
-transform scroll_up:
-    yoffset 0
-    linear 0.4 yoffset -10
-    repeat
-
-image scanlines_overlay:
-    "images/scanlines.png"
-    size (1920, 1090)
-    pos(0, 0)
-    alpha 0.2
-    scroll_up
