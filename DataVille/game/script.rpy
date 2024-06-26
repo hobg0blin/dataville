@@ -473,6 +473,10 @@ label start:
       else:
         jump end
     label end:
+      hide screen overlay
+      hide screen performance
+      hide screen cogni
+      
       scene bg gray_bg with Dissolve(1.0)
       $ epilogue = get_epilogue()
       $ split = split_into_sentences(epilogue)

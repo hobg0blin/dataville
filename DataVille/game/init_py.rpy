@@ -119,7 +119,7 @@ init python:
     store.game_state.performance_count = {'good': 0, 'bad': 0, 'neutral': 0}
     store.game_state.task_count = 0
     store.apartment_file = ""
-    store.daily_rent = 1000
+    store.daily_rent = 1500
 
 
     store.game_state.ui = {
