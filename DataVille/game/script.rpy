@@ -203,9 +203,9 @@ label start:
       scene bg apartment_bg with Dissolve(1.0)
 
       $ blur_master()
-      call screen dream("Your first day at a new job.", [])
-      call screen dream("Try not to screw it up.", [])
-      call screen dream("You really need the money.", [])
+      call screen dream("Your first day at a new job.", ["I'm excited!", "I'm terrified."])
+      call screen dream("Try not to screw it up.", ["I'm going to do my best!", "Let's hope this doesn't go like my last gig."])
+      call screen dream("You really need the money.", ["Mittens really needs to see a vet..."])
       call screen dream("Let's get started.", [])
       $ unblur_master()
     python:
