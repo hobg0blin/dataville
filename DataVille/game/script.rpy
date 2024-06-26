@@ -41,7 +41,7 @@ init:
   image bg black = Solid("#000000")
   # image cogni_sprite = "images/characters/cogni/cogni_happy.png"
 
-  define supervisor = Character("Alex T.", image="images/characters/alex/alex_neutral.png", who_suffix = "Senior Managaer @ Dataville", kind=email_message)
+  define supervisor = Character("Alex T.", image="images/characters/alex/alex_neutral.png", who_suffix = "Senior Manager @ Dataville", kind=email_message)
   # cogni defined in characters/cogni.rpy
   define stranger = Character("$(#@^%)$)(#)%$@^*$(*)", image="images/characters/stranger.png", who_suffix = "?*#$&#*@()%&@)%&$@^)($#)", kind=email_message)
   define union = Character("Tim", image="images/characters/union.png", who_suffix = "Union Rep. Section 18, Cohort 48", kind=email_message)
@@ -502,9 +502,9 @@ label start:
       # clear store and return to start
       $ set_initial_variables() 
       # if we want to send them to the main menu:
-      #MainMenu(confirm=False)
+      $ MainMenu(confirm=False)
 
-      jump start
+      #jump start
       #return
 
 
