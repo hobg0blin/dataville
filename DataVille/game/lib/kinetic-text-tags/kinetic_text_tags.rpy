@@ -872,7 +872,7 @@ init python:
     def fade_in_cps(tag, argument, contents):
         new_list = [ ]
         idx = 0
-        cps, slide_time, slide_distance, fade_start, fade_time = 14, 0.95, 50, 0.8, 1.6
+        cps, slide_time, slide_distance, fade_start, fade_time = 14, 0.95, 30, 0.73, 1.6
         if argument != "":
             argument = argument.split('-')
             if len(argument) > 0:

@@ -378,9 +378,9 @@ init python:
 # UPDATE UI VARIABLES 
     reward = int(current_task['payment'])/out
     if store.timer_failed:
-       print("Timer failed! Reducing reward.")
-       reward = reward/2
-       store.timer_failed = False
+        print("Timer failed! Reducing reward.")
+        reward = reward/2
+        store.timer_failed = False
 
     performance = performance_feedback(out)
     performance_text = performance['text']
@@ -518,5 +518,10 @@ init python:
     renpy.show_screen('fade_to_black', duration)
     renpy.pause(duration)
     renpy.scene()
+  
+  def fade_out_of_dream(duration):
+    renpy.hide_screen('dream')
+    renpy.hide_screen('fade_to_black')
+    renpy.pause(duration)
     
   set_initial_variables() 

@@ -1799,7 +1799,10 @@ screen fade_into_dream(duration = 1.0):
     image Solid("#000000", xsize = 1920, ysize= 1080) at fade_in(duration)
 
 screen dream(dream_text, buttons):
+    default exitSequence = False
+    default selected_button = None
     image Solid("#000000", xsize = 1920, ysize= 1080)
+
     python:
         if buttons == None or len(buttons) <= 0:
             buttons = ["Next"]
@@ -1809,27 +1812,55 @@ screen dream(dream_text, buttons):
         yalign 0.5
         xsize 1920
         ysize 1080
-        vbox id 'text':
+        vbox:
             yalign 0.3
-            xalign 0.5
-            text "{ficps}" + dream_text + "{/ficps}": 
-                style "dream_text"
+            xalign 0.5 
+            if not exitSequence:
+                text "{ficps}" + dream_text + "{/ficps}":
+                    style "dream_text"
+            else:
+                text dream_text:
+                    style "dream_text"
+                    at wait_blur_and_fadeout(1, 1)
+
         hbox id 'buttons':
             xalign 0.5
             yalign 0.7
             spacing 250
-            for button_text in buttons:
-                button:
-                    hover_background Solid("#FFFFFF", ysize = 4, yoffset = 60)
-                    idle_background None
-                    style "dream_button"
-                    at dream_button(dream_text, delay=2)
-                    action Return(True)
-                    fixed:
-                        fit_first True
-                        xalign 0.5
-                        text button_text:
-                            style "dream_button_text"
+            for i, button_text in enumerate(buttons):
+                if not exitSequence:
+                    button:
+                        hover_background Solid("#FFFFFF", ysize = 4, yoffset = 60)
+                        idle_background None
+                        style "dream_button"
+                        at dream_button(dream_text, delay=2)
+                        action [SetScreenVariable("selected_button", i), ToggleScreenVariable("exitSequence"), print(buttons)]
+                        fixed:
+                            fit_first True
+                            xalign 0.5
+                            text button_text:
+                                style "dream_button_text"
+                else:
+                    if i == selected_button:
+                        button:
+                            background "underline_blink"
+                            style "dream_button"
+                            fixed:
+                                fit_first True
+                                xalign 0.5
+                                text button_text:
+                                    style "dream_button_text"
+                            at wait_blur_and_fadeout(1, 1)
+                            
+                    else:
+                        button:
+                            style "dream_button"
+                            fixed:
+                                fit_first True
+                                xalign 0.5
+                                text button_text:
+                                    style "dream_button_text"
+                            at wait_blur_and_fadeout(1, 1)
                 
 
 screen job_offer(phase, text = None, buttons = None):

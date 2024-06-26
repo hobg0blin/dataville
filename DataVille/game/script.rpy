@@ -164,7 +164,7 @@ label start:
       call screen job_offer(3, "Are you proud of your humanity?", ["Yes", "No"])
       call screen job_offer(3, "Do you own a computer?", ["Yes", "No"])
       call screen job_offer(3, "Are you interested in working from home?", ["Yes", "No"])
-      call screen job_offer(3, "Congratulations! We'd like to extend an offer of employment! Join the DataVille team now.", ["Let's get started."])
+      call screen job_offer(3, "Congratulations! We'd like to extend an offer of employment! Join the DataVille team now.", ["Let's get started."])    
       $ unblur_master()
 
       label intro:
@@ -203,11 +203,13 @@ label start:
 
       $ blur_master()
       $ fade_into_dream(3)
-      call screen dream("Your first day at a new job.", ['Choice 1', 'Choice 2with a bunch of long text'])
-      call screen dream("Try not to screw it up.", [])
-      call screen dream("You really need the money.", [])
-      call screen dream("Let's get started.", [])
+      # call screen dream("Your first day at a new job.", ['Choice 1', 'Choice 2with a bunch of long text'])
+      # call screen dream("Try not to screw it up.", [])
+      # call screen dream("You really need the money.", [])
+      call screen dream("Let's get started.", ["Choice 1", "Choice 2"]) with dream_fade(1)
       $ unblur_master()
+      hide screen dream with Dissolve(2.0)
+      pause 2
     python:
       if start_at_day_end:
           day_end()

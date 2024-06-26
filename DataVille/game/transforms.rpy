@@ -21,33 +21,58 @@ transform fade_out(duration=0.5):
     alpha 1.0
     linear duration alpha 0
 
-transform hover_fade(duration=0.5):
+transform dream_fade(duration=1):
     on show:
-        alpha 0
-        linear duration alpha 1.0
+        fade_in(duration)
     on hide:
-        alpha 1.0
-        linear duration alpha 0
-
+        fade_out(duration)
 
 screen fade_to_black(duration=1.0):
     image Solid("#000000"):
         xsize 1920
         ysize 1080
         pos((0, 0))
-        at fade_in(duration)
+        at dream_fade(duration)
 
 image underline:
     Solid("#FFFFFF")
     ysize 4
     yoffset 60
 
+image underline_blink:
+    Solid("#FFFFFF")
+    ysize 4
+    yoffset 60
+    blink
+
+transform blink(duration=0.4, interval=0.05):
+    block:
+        alpha 1.0
+        pause interval
+        alpha 0.0
+        pause interval
+        repeat
+    time duration
+    alpha 0.0
+
+transform wait_blur_and_fadeout(wait=1.0, duration=1.0):
+    pause wait
+    blur 0
+    alpha 1.0
+    linear duration blur 5 alpha 0.0
+
+transform blur_and_fadeout(duration=1.0):
+    blur 0
+    alpha 1.0
+    linear duration blur 5 alpha 0.0
+
 transform dream_button(dream_text, delay=1.0):
     alpha 0.0
-    yoffset 30
+    yoffset 20
     pause delay
-
-    easein 1.0 alpha 1.0 yoffset 0
+    easein 0.8 alpha 1.0 yoffset 0
+    on hide:
+        fade_out(0.5)
         
 transform alpha_dissolve:
     alpha 0.0
