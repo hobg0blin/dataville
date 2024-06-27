@@ -100,11 +100,11 @@ init:
 default skip_intro = False
 default start_at_day_end = False
 label start:
+    image bg start_screen = im.FactorScale("images/intro_desk.jpg", 1.5)
+    image bg overlay_background = "images/screens/monitor/background.png"
+    image bg black_bg = Solid('#000000')
     if not skip_intro:
       play music "dataville_workspace_neutral.wav" fadein 2.0
-      image bg start_screen = im.FactorScale("images/intro_desk.jpg", 1.5)
-      image bg overlay_background = "images/screens/monitor/background.png"
-      image bg black_bg = Solid('#000000')
 
       image tv_overlay:
         "images/screens/00-title/tv_hollow.png"
@@ -208,7 +208,7 @@ label start:
       call screen dream("You really need the money.", [])
       call screen dream("Let's get started.", ["Choice 1", "Choice 2"])
       # $ unblur_master()
-      $ fade_out_of_dream(5)
+      $ fade_out_of_dream(0.5)
     python:
       if start_at_day_end:
           day_end()
@@ -226,9 +226,9 @@ label start:
 
   # manually check messsages on first loop 
     $ cleaned = clean(store.apartment_data)
-    # $ show_computer_screen()
-    scene bg overlay_background with Dissolve(1.0)
-    show screen overlay (store.game_state.ui) with Dissolve(1.0)
+    $ show_computer_screen(store.game_state.ui)
+    # scene bg overlay_background with Dissolve(1.0)
+    # show screen overlay (store.game_state.ui) with Dissolve(1.0)
     label check_messages:
       while cleaned['message']:
         python:

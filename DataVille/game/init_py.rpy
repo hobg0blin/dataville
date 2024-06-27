@@ -483,7 +483,7 @@ init python:
     # if drop:
     for d in task['labels'].values():
         if d['name'] == drags[0].drag_name:
-            d['ypos'] = drags[0].y
+            d['ypos'] = drags[0].yS
 
   def check_order_text(task):
     sort_labels = sorted(task['labels'].items(), key=lambda x: x[1]['ypos'])
@@ -526,10 +526,11 @@ init python:
     renpy.show("bg black_bg")
     renpy.pause(duration)
   
-  def show_computer_screen():
+  def show_computer_screen(store):
+    renpy.scene()
+    renpy.show_screen("overlay", task = store)
     renpy.show("bg black_bg", tag="curtain")
-    renpy.show("overlay_background", behind=["curtain"])
-    renpy.show("overlay", behind=['curtain'])
-    renpy.hide("bg black_bg")
+    renpy.show("bg overlay_background", behind="curtain")
+    renpy.hide("curtain")
 
   set_initial_variables() 

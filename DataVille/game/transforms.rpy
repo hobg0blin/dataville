@@ -107,3 +107,7 @@ transform tv_zoom_in_seq:
         easeout_quad 3 zoom 1.19
     parallel:
         easeout_quad 3 yoffset -600
+
+transform on_hide_fade_out:
+    on hide:
+        fade_out(0.5)
