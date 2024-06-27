@@ -41,7 +41,7 @@ init:
   image bg black = Solid("#000000")
   # image cogni_sprite = "images/characters/cogni/cogni_happy.png"
 
-  define supervisor = Character("Alex T.", image="images/characters/alex/alex_neutral.png", who_suffix = "Senior Managaer @ Dataville", kind=email_message)
+  define supervisor = Character("Alex T.", image="images/characters/alex/alex_neutral.png", who_suffix = "Senior Manager @ Dataville", kind=email_message)
   # cogni defined in characters/cogni.rpy
   define stranger = Character("$(#@^%)$)(#)%$@^*$(*)", image="images/characters/stranger.png", who_suffix = "?*#$&#*@()%&@)%&$@^)($#)", kind=email_message)
   define union = Character("Tim", image="images/characters/union.png", who_suffix = "Union Rep. Section 18, Cohort 48", kind=email_message)
@@ -203,12 +203,13 @@ label start:
 
       $ blur_master()
       $ fade_into_dream(3)
-      call screen dream("Your first day at a new job.", ['Choice 1', 'Choice 2with a bunch of long text'])
-      call screen dream("Try not to screw it up.", [])
-      call screen dream("You really need the money.", [])
-      call screen dream("Let's get started.", ["Choice 1", "Choice 2"])
+      call screen dream("Your first day at a new job.", ["I'm excited!", "I'm terrified."])
+      call screen dream("Try not to screw it up.", ["I'm going to do my best!", "Let's hope this doesn't go like my last gig."])
+      call screen dream("You really need the money.", ["Mittens really needs to see a vet..."])
+      call screen dream("Let's get started.", [])
       # $ unblur_master()
       $ fade_out_of_dream(0.5)
+
     python:
       if start_at_day_end:
           day_end()
@@ -382,6 +383,7 @@ label start:
       # fail states for not making rent, failing the tutorial, or being bad at the game
       $ store.game_state.performance_count[store.game_state.performance_rating] += 1
       if store.game_state.performance_count['bad'] >= 3:
+        $ print('three bad states')
         $ store.event_flags.append('performance_fail')
         jump end
       if (store.game_state.day == 0) and store.game_state.time == 'end' and store.game_state.performance['earnings'] < 600:
@@ -473,6 +475,10 @@ label start:
       else:
         jump end
     label end:
+      hide screen overlay
+      hide screen performance
+      hide screen cogni
+      
       scene bg gray_bg with Dissolve(1.0)
       $ epilogue = get_epilogue()
       $ split = split_into_sentences(epilogue)
@@ -498,7 +504,7 @@ label start:
       # clear store and return to start
       $ set_initial_variables() 
       # if we want to send them to the main menu:
-      #MainMenu(confirm=False)
+#      $ MainMenu(confirm=True)
 
       jump start
       #return
