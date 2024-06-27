@@ -878,9 +878,13 @@ init python:
             if len(argument) > 0:
                 cps = int(argument[0])
             if len(argument) > 1:
-                fade_time = float(argument[1])
+                slide_time = float(argument[1])
             if len(argument) > 2:
                 slide_distance = int(argument[2])
+            if len(argument) > 3:
+                fade_start = float(argument[3])
+            if len(argument) > 4:
+                fade_time = float(argument[4])
         my_style = DispTextStyle()
         for kind,text in contents:
             if kind == renpy.TEXT_TEXT:

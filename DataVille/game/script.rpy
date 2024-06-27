@@ -203,13 +203,13 @@ label start:
 
       $ blur_master()
       $ fade_into_dream(3)
-      # call screen dream("Your first day at a new job.", ['Choice 1', 'Choice 2with a bunch of long text'])
-      # call screen dream("Try not to screw it up.", [])
-      # call screen dream("You really need the money.", [])
-      call screen dream("Let's get started.", ["Choice 1", "Choice 2"]) with dream_fade(1)
-      $ unblur_master()
-      hide screen dream with Dissolve(2.0)
-      pause 2
+      show bg black_bg
+      call screen dream("Your first day at a new job.", ['Choice 1', 'Choice 2with a bunch of long text'])
+      call screen dream("Try not to screw it up.", [])
+      call screen dream("You really need the money.", [])
+      call screen dream("Let's get started.", ["Choice 1", "Choice 2"])
+      # $ unblur_master()
+      $ fade_out_of_dream(5)
     python:
       if start_at_day_end:
           day_end()

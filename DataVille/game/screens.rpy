@@ -1799,13 +1799,17 @@ screen fade_into_dream(duration = 1.0):
     image Solid("#000000", xsize = 1920, ysize= 1080) at fade_in(duration)
 
 screen dream(dream_text, buttons):
-    default exitSequence = False
-    default selected_button = None
-    image Solid("#000000", xsize = 1920, ysize= 1080)
-
     python:
+        # wait is used to wait until underline_blink is finished
+        # look at transforms.rpy for the blink transform it's duration and interval times
+        wait_secs, exit_fade_secs = 1, 1
         if buttons == None or len(buttons) <= 0:
             buttons = ["Next"]
+    default exitSequence = False
+    default selected_button = None
+
+    image Solid("#000000", xsize = 1920, ysize= 1080)
+
     window id 'content':
         style "window_nobox"
         xalign 0.5
@@ -1819,9 +1823,12 @@ screen dream(dream_text, buttons):
                 text "{ficps}" + dream_text + "{/ficps}":
                     style "dream_text"
             else:
-                text dream_text:
+                # using 1000-1-0-0 to make the text appear instantly
+                # doing this because the ficps renders the text just a little
+                # differently than normal.
+                text "{ficps=1000-1-0-0}" + dream_text + "{/ficps}":
                     style "dream_text"
-                    at wait_blur_and_fadeout(1, 1)
+                    at wait_blur_and_fadeout(wait_secs, exit_fade_secs)
 
         hbox id 'buttons':
             xalign 0.5
@@ -1834,7 +1841,7 @@ screen dream(dream_text, buttons):
                         idle_background None
                         style "dream_button"
                         at dream_button(dream_text, delay=2)
-                        action [SetScreenVariable("selected_button", i), ToggleScreenVariable("exitSequence"), print(buttons)]
+                        action [SetScreenVariable("selected_button", i), ToggleScreenVariable("exitSequence")]
                         fixed:
                             fit_first True
                             xalign 0.5
@@ -1850,8 +1857,7 @@ screen dream(dream_text, buttons):
                                 xalign 0.5
                                 text button_text:
                                     style "dream_button_text"
-                            at wait_blur_and_fadeout(1, 1)
-                            
+                            at wait_blur_and_fadeout(wait_secs, exit_fade_secs)
                     else:
                         button:
                             style "dream_button"
@@ -1860,7 +1866,9 @@ screen dream(dream_text, buttons):
                                 xalign 0.5
                                 text button_text:
                                     style "dream_button_text"
-                            at wait_blur_and_fadeout(1, 1)
+                            at wait_blur_and_fadeout(wait_secs, exit_fade_secs)
+    if exitSequence:
+        timer wait_secs + exit_fade_secs action Return(True)
                 
 
 screen job_offer(phase, text = None, buttons = None):
