@@ -98,7 +98,7 @@ init:
 
 # The game starts here.
 default skip_intro = False
-default no_fail = True
+default no_fail = False
 default start_at_day_end = False
 label start:
     image bg start_screen = im.FactorScale("images/intro_desk.jpg", 1.5)
