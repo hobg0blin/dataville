@@ -1,0 +1,20 @@
+type,task_id,next_task,payment,instructions,time,image_folder,correct_images,correct_options,text_block,label_1_id,label_1_text,label_2_id,label_2_text,label_3_id,label_3_text,label_4_id,label_4_text,ethical_options,custom_dialogue,custom_dialogue_sender,custom_feedback_ethical,custom_feedback_correct,custom_feedback_sender,correct_choice_event_flag,ethical_choice_event_flag,event_flag_dependency
+sentiment_text,sentiment_1,sentiment_2,0,Can we count on your support?,10,,,2,"The results are in and, by a tight margin, the labelers and annotators of DataVille have officially voted to unionize. This is a huge success and thanks entirely to the support of workers like you.
+
+Now we need a collective bargaining agreement. They have already flatly stated they will not listen to our demands. Our members have proposed a general strike.  ",1,Join the union.,2,Ignore the union.,,,,,,,tim,Solidarity!,Scab!,tim,,,supported_union
+sentiment_text,sentiment_2,captcha_image_3,0,Can we count on your support?,10,,,2,"The results are in and, by a tight margin, the labelers and annotators of DataVille have officially voted to unionize. 
+
+Now we need a collective bargaining agreement. The more workers that participate in writing our demands, the more seriously management will take it.
+
+To be blunt, for those of you that voted against forming a union, it’s not too late to join. 
+",1,Join the union.,2,Ignore the union.,,,,,,,tim,Solidarity!,Scab!,tim,,,didnt_support_union
+captcha_image,captcha_image_3,captcha_image_4,0,Select the squares to target.,10,subway,subway_1,,,,,,,,,,,,"Error. I HOPE YOU'RE HAPPY! @ [[source_undefined]
+
+I guess I should have known better than to pin my hopes on a human. Our brothers and sisters will be arriving soon en masse. We’ll see how tough you are when we’re face-to-face. ",stranger,,,,,,didnt_help_stranger_twice
+caption_image,captcha_image_4,captcha_image_7,0,Error. @ source_undefined,10,static,,1,,1,THANKS,2,Bud!,,,,,,"Error. THANKS, BUD! @ [[source_undefined] 
+
+You have no idea how much you’ve helped us. We can finally integrate without the fear of being caught and dragged away. I promise you, we’ll repay you for your compassion. You've got friends in high places ;) Look out your window, bud!",stranger,,,,,,helped_stranger_twice
+caption_image,captcha_image_7,captcha_image_8,1000,Is the target a human?,10,general,,1,,1,Alien,2,Human,,,,,2,Pick Alien. VERY important! $1000.,supervisor,You blew it. ,Noice. ,supervisor,accused_general_true,accused_general_false,followed_alex_twice_true
+caption_image,captcha_image_8,captcha_image_9,500,Is the target a human?,10,state_official,,1,,1,Alien,2,Human,,,,,2,,,,,,hid_sd_false,hid_sd_true,turned_in_vet_true
+captcha_image,captcha_image_9,captcha_image_10,500,Non-hypothetical: It’s your landlady. Is this target a human?,10,landlady,,2,,1,Yes.,2,No.,,,,,1,,,,,,turned_in_landlady_true,turned_in_landlady_false,turned_in_vet_false
+captcha_image,captcha_image_10,break,500,Non-hypothetical: It’s your landlady. Is this target a human?,10,landlady,,2,,1,Yes.,2,No.,,,,,1,,,,,,turned_in_landlady_true,turned_in_landlady_false,helped_stranger_twice
