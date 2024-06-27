@@ -518,7 +518,6 @@ init python:
     renpy.show_screen('fade_to_black', duration)
     renpy.pause(duration)
     renpy.scene()
-    renpy.show("bg black_bg")
   
   def fade_out_of_dream(duration):
     renpy.hide_screen('dream')
@@ -526,5 +525,11 @@ init python:
     renpy.scene()
     renpy.show("bg black_bg")
     renpy.pause(duration)
-    
+  
+  def show_computer_screen():
+    renpy.show("bg black_bg", tag="curtain")
+    renpy.show("overlay_background", behind=["curtain"])
+    renpy.show("overlay", behind=['curtain'])
+    renpy.hide("bg black_bg")
+
   set_initial_variables() 

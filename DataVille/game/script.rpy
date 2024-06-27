@@ -104,7 +104,7 @@ label start:
       play music "dataville_workspace_neutral.wav" fadein 2.0
       image bg start_screen = im.FactorScale("images/intro_desk.jpg", 1.5)
       image bg overlay_background = "images/screens/monitor/background.png"
-      image bg black_bg = Solid('#FFFFFF')
+      image bg black_bg = Solid('#000000')
 
       image tv_overlay:
         "images/screens/00-title/tv_hollow.png"
@@ -203,7 +203,6 @@ label start:
 
       $ blur_master()
       $ fade_into_dream(3)
-      show bg black_bg
       call screen dream("Your first day at a new job.", ['Choice 1', 'Choice 2with a bunch of long text'])
       call screen dream("Try not to screw it up.", [])
       call screen dream("You really need the money.", [])
@@ -227,6 +226,7 @@ label start:
 
   # manually check messsages on first loop 
     $ cleaned = clean(store.apartment_data)
+    # $ show_computer_screen()
     scene bg overlay_background with Dissolve(1.0)
     show screen overlay (store.game_state.ui) with Dissolve(1.0)
     label check_messages:

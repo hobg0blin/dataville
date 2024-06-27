@@ -66,7 +66,7 @@ transform blur_and_fadeout(duration=1.0):
     alpha 1.0
     linear duration blur 5 alpha 0.0
 
-transform dream_button(dream_text, delay=1.0):
+transform dream_button(delay=1.0):
     alpha 0.0
     yoffset 20
     pause delay

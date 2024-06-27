@@ -1807,8 +1807,15 @@ screen dream(dream_text, buttons):
             buttons = ["Next"]
     default exitSequence = False
     default selected_button = None
+    default fast_load = False
 
     image Solid("#000000", xsize = 1920, ysize= 1080)
+
+    # once again, another invisable button to make the text appear instantly
+    button:
+        xsize 1920
+        ysize 1080
+        action SetScreenVariable("fast_load", True)
 
     window id 'content':
         style "window_nobox"
@@ -1820,12 +1827,16 @@ screen dream(dream_text, buttons):
             yalign 0.3
             xalign 0.5 
             if not exitSequence:
-                text "{ficps}" + dream_text + "{/ficps}":
-                    style "dream_text"
-            else:
+                if not fast_load:
+                    text "{ficps}" + dream_text + "{/ficps}":
+                        style "dream_text"
+                else:
+                    text "{ficps=1000-1-0-0}" + dream_text + "{/ficps}":
+                        style "dream_text"
                 # using 1000-1-0-0 to make the text appear instantly
                 # doing this because the ficps renders the text just a little
                 # differently than normal.
+            else:
                 text "{ficps=1000-1-0-0}" + dream_text + "{/ficps}":
                     style "dream_text"
                     at wait_blur_and_fadeout(wait_secs, exit_fade_secs)
@@ -1836,17 +1847,29 @@ screen dream(dream_text, buttons):
             spacing 250
             for i, button_text in enumerate(buttons):
                 if not exitSequence:
-                    button:
-                        hover_background Solid("#FFFFFF", ysize = 4, yoffset = 60)
-                        idle_background None
-                        style "dream_button"
-                        at dream_button(dream_text, delay=2)
-                        action [SetScreenVariable("selected_button", i), ToggleScreenVariable("exitSequence")]
-                        fixed:
-                            fit_first True
-                            xalign 0.5
-                            text button_text:
-                                style "dream_button_text"
+                    if not fast_load:
+                        button:
+                            hover_background Solid("#FFFFFF", ysize = 4, yoffset = 60)
+                            idle_background None
+                            style "dream_button"
+                            at dream_button(2)
+                            action [SetScreenVariable("selected_button", i), ToggleScreenVariable("exitSequence")]
+                            fixed:
+                                fit_first True
+                                xalign 0.5
+                                text button_text:
+                                    style "dream_button_text"
+                    else:
+                        button:
+                            hover_background Solid("#FFFFFF", ysize = 4, yoffset = 60)
+                            idle_background None
+                            style "dream_button"
+                            action [SetScreenVariable("selected_button", i), ToggleScreenVariable("exitSequence")]
+                            fixed:
+                                fit_first True
+                                xalign 0.5
+                                text button_text:
+                                    style "dream_button_text"
                 else:
                     if i == selected_button:
                         button:
