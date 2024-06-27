@@ -31,13 +31,14 @@ Avoid contact with eyes and mucous membranes.
 Keep out of reach of hatchlings.”
 ",,,,,,,,,,,,,
 comparison_image,comparison_3,caption_4,400,Which image is more subversive?,10,comparison_2,,alien_walking,,,,,,,,,,,,,,You're really helping me understand the meaning of subversive activity!,cogni,,,
-caption_image,caption_4,caption_5,400,Is the target a human?,10,target_alien_3,,1,,1,Alien,2,Human,,,,,,"Error. HELP! @ [[source_undefined]
+caption_image,caption_4,caption_5,400,Is the target a human?,10,target_alien_3,,1,,1,Alien,2,Human,,,,,2,"Error. HELP! @ [[source_undefined]
 
 Your answers are disrupting DataVille's detection abilities! Now it's easier for us to blend into society. Please keep going! Mark this one as human–we have a surprise coming!",stranger,"Thanks, buddy.",Ouch.,stranger,helped_stranger_once,helped_stranger_twice,helped_stranger
-caption_image,caption_5,sentiment_2,400,Is the target a human?,10,target_alien_3,,1,,1,Alien,2,Human,,,,,,"Error. IT'S NOT TOO LATE! @ [[source_undefined]
+caption_image,caption_5,sentiment_2,400,Is the target a human?,10,target_alien_3,,1,,1,Alien,2,Human,,,,,2,"Error. IT'S NOT TOO LATE! @ [[source_undefined]
 
 Why can’t you have compassion for us? Our planet is uninhabitable. We have nowhere else to go. 
 
 Mark this one as human–or you’ll regret it.",stranger,"Thanks, buddy.",Ouch.,stranger,helped_stranger_once,didnt_help_stranger_twice,didnt_help_stranger
-caption_image,sentiment_2,sentiment_3,800,Is the target a human?,10,target_human,,1,,1,Alien,2,Human,,,,,,Say this is an alien. Thanks! Double trouble $$$,supervisor,You blew it. ,Noice. ,supervisor,followed_alex_twice_true,followed_alex_twice_false,followed_alex_true
-caption_image,sentiment_3,break,400,Is the target a human?,10,target_alien_5,,1,,1,Alien,2,Human,,,,,,,,,,,turned_in_vet_true,turned_in_vet_false,followed_alex_false
+caption_image,sentiment_2,sentiment_3,800,Is the target a human?,10,target_human,,1,,1,Alien,2,Human,,,,,2,Say this is an alien. Thanks! Double trouble $$$,supervisor,You blew it. ,Noice. ,supervisor,followed_alex_twice_true,followed_alex_twice_false,followed_alex_true
+caption_image,sentiment_3,sentiment_4,400,Is the target a human?,10,target_alien_5,,1,,1,Alien,2,Human,,,,,2,,,,,,turned_in_vet_true,turned_in_vet_false,"followed_alex_twice_false, didnt_help_stranger"
+caption_image,sentiment_4,break,400,Is the target a human?,10,target_alien_5,,1,,1,Alien,2,Human,,,,,2,,,,,,turned_in_vet_true,turned_in_vet_false,helped_stranger_once

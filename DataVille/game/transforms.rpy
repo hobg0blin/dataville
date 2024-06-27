@@ -45,7 +45,7 @@ image underline_blink:
     yoffset 60
     blink
 
-transform blink(duration=0.4, interval=0.05):
+transform blink(duration=0.3, interval=0.05):
     block:
         alpha 1.0
         pause interval
@@ -55,7 +55,7 @@ transform blink(duration=0.4, interval=0.05):
     time duration
     alpha 0.0
 
-transform wait_blur_and_fadeout(wait=1.0, duration=1.0):
+transform wait_blur_and_fadeout(wait=0.7, duration=0.7):
     pause wait
     blur 0
     alpha 1.0

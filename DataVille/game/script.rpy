@@ -98,6 +98,7 @@ init:
 
 # The game starts here.
 default skip_intro = False
+default no_fail = False
 default start_at_day_end = False
 label start:
     image bg start_screen = im.FactorScale("images/intro_desk.jpg", 1.5)
@@ -340,17 +341,20 @@ label start:
                 binary_correct = check_binary(latest_choice, task)
                 store.latest_score = binary_correct
                 correct = task['correct_options']
-                if 'ethical_options' in task:
+                if 'custom_feedback_sender' in task:
+                #if there's an ethical option AND specific feedback, show that
                     print('hit ethical task: ', task)
-                    ethical = task['ethical_options']
-                    if 'custom_feedback_ethical' in task and latest_choice == ethical:
-                        print('should be showing ethical custom feedback')
-                        custom_feedback = task['custom_feedback_ethical'] 
+                    custom_feedback_sender = char_map[task['custom_feedback_sender']]
+                    has_custom_feedback = True
+                    if 'ethical_options' in task:
+                      ethical = task['ethical_options']
+                      if 'custom_feedback_ethical' in task and latest_choice == ethical:
+                          print('should be showing ethical custom feedback')
+                          custom_feedback = task['custom_feedback_ethical'] 
+                    # if choice is correct and there's feedback for that, show it
                     if 'custom_feedback_correct' in task and latest_choice == correct:
                         print('should be showing correct custom feedback')
                         custom_feedback = task['custom_feedback_correct'] 
-                    custom_feedback_sender = char_map[task['custom_feedback_sender']]
-                    has_custom_feedback = True
                 task = update_state(store.game_state, binary_correct, task)
         else:
             binary_correct = 1
@@ -382,11 +386,11 @@ label start:
       show screen overlay (store.game_state.ui)
       # fail states for not making rent, failing the tutorial, or being bad at the game
       $ store.game_state.performance_count[store.game_state.performance_rating] += 1
-      if store.game_state.performance_count['bad'] >= 3:
+      if store.game_state.performance_count['bad'] >= 3 and not no_fail:
         $ print('three bad states')
         $ store.event_flags.append('performance_fail')
         jump end
-      if (store.game_state.day == 0) and store.game_state.time == 'end' and store.game_state.performance['earnings'] < 600:
+      if (store.game_state.day == 0) and store.game_state.time == 'end' and store.game_state.performance['earnings'] < 600 and not no_fail:
         $ store.event_flags.append('tutorial_fail')
         jump end
       if (store.game_state.time == "end"):
@@ -400,7 +404,7 @@ label start:
         show screen performance(store.game_state.performance, store.averages['day_' + str(store.game_state.day)])
         show screen cogni(performance_feedback(store.game_state.performance_rating)['text'], char_map['cogni']['mood']['default'], "bottom_left") 
         pause
-        if 'rent_fail' in store.event_flags:
+        if 'rent_fail' in store.event_flags and not no_fail:
           jump end 
       
 
