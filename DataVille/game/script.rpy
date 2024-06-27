@@ -390,9 +390,6 @@ label start:
         $ store.event_flags.append('tutorial_fail')
         jump end
       if (store.game_state.time == "end"):
-        show screen performance(store.game_state.performance, store.averages['day_' + str(store.game_state.day)])
-        show screen cogni(performance_feedback(store.game_state.performance_rating)['text'], char_map['cogni']['mood']['default'], "bottom_left") 
-        pause
         python:
           print('earnings: ', store.game_state.performance['earnings_minus_rent'])
           if (store.game_state.day != 0):
@@ -400,6 +397,9 @@ label start:
           print('earnings minus rent: ', store.game_state.performance['earnings_minus_rent'])
           if store.game_state.performance['earnings_minus_rent'] <= 0:
             store.event_flags.append('rent_fail')
+        show screen performance(store.game_state.performance, store.averages['day_' + str(store.game_state.day)])
+        show screen cogni(performance_feedback(store.game_state.performance_rating)['text'], char_map['cogni']['mood']['default'], "bottom_left") 
+        pause
         if 'rent_fail' in store.event_flags:
           jump end 
       
