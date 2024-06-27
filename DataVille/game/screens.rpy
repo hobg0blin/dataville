@@ -1805,9 +1805,9 @@ screen dream(dream_text, buttons):
         wait_secs, exit_fade_secs = 1, 1
         if buttons == None or len(buttons) <= 0:
             buttons = ["Next"]
-    default exitSequence = False
+    default exit_sequence = False
     default selected_button = None
-    default fast_load = False
+    default skip_transition = False
 
     image Solid("#000000", xsize = 1920, ysize= 1080)
 
@@ -1815,7 +1815,7 @@ screen dream(dream_text, buttons):
     button:
         xsize 1920
         ysize 1080
-        action SetScreenVariable("fast_load", True)
+        action SetScreenVariable("skip_transition", True)
 
     window id 'content':
         style "window_nobox"
@@ -1826,8 +1826,8 @@ screen dream(dream_text, buttons):
         vbox:
             yalign 0.3
             xalign 0.5 
-            if not exitSequence:
-                if not fast_load:
+            if not exit_sequence:
+                if not skip_transition:
                     text "{ficps}" + dream_text + "{/ficps}":
                         style "dream_text"
                 else:
@@ -1846,14 +1846,14 @@ screen dream(dream_text, buttons):
             yalign 0.7
             spacing 250
             for i, button_text in enumerate(buttons):
-                if not exitSequence:
-                    if not fast_load:
+                if not exit_sequence:
+                    if not skip_transition:
                         button:
                             hover_background Solid("#FFFFFF", ysize = 4, yoffset = 60)
                             idle_background None
                             style "dream_button"
                             at dream_button(2)
-                            action [SetScreenVariable("selected_button", i), ToggleScreenVariable("exitSequence")]
+                            action [SetScreenVariable("selected_button", i), ToggleScreenVariable("exit_sequence")]
                             fixed:
                                 fit_first True
                                 xalign 0.5
@@ -1864,7 +1864,7 @@ screen dream(dream_text, buttons):
                             hover_background Solid("#FFFFFF", ysize = 4, yoffset = 60)
                             idle_background None
                             style "dream_button"
-                            action [SetScreenVariable("selected_button", i), ToggleScreenVariable("exitSequence")]
+                            action [SetScreenVariable("selected_button", i), ToggleScreenVariable("exit_sequence")]
                             fixed:
                                 fit_first True
                                 xalign 0.5
@@ -1890,7 +1890,7 @@ screen dream(dream_text, buttons):
                                 text button_text:
                                     style "dream_button_text"
                             at wait_blur_and_fadeout(wait_secs, exit_fade_secs)
-    if exitSequence:
+    if exit_sequence:
         timer wait_secs + exit_fade_secs action Return(True)
                 
 
@@ -2615,3 +2615,81 @@ screen add_event_flag():
             frame:
                 textbutton "Set" action [Function(update_from_state_menu), Hide("add_event_flag", None), Show("set_state", None)]
 
+screen epilogue(input_text, buttons = ["Next"]):
+    python:
+        # wait is used to wait until underline_blink is finished
+        # look at transforms.rpy for the blink transform it's duration and interval times
+        wait_time, exit_duration = 0.5, 0.4
+        # if buttons == None or len(buttons) <= 0:
+        #     buttons = ["Next"]
+    default exit_sequence = False
+    default selected_button = None
+    default skip_transition = False
+
+    # once again, another invisable button to make the text appear instantly
+    button:
+        xsize 1920
+        ysize 1080
+        action SetScreenVariable("skip_transition", True)
+
+    image Solid("#000000", xsize = 1920, ysize= 1080)
+
+    window id 'content':
+        style "window_nobox"
+        xalign 0.5
+        yalign 0.5
+        xsize 1920
+        ysize 1080
+        vbox:
+            yalign 0.3
+            xalign 0.5 
+            if not exit_sequence:
+                if not skip_transition:
+                    text input_text:
+                        style "epilogue_text"
+                else: 
+                    # why does the click to skip cps animation doesn't work?
+                    # setting the cps stupid high to make it appear instantly
+                    text "{cps=1000}" + input_text + "{/cps}":
+                        style "epilogue_text"
+                
+            else:
+                text input_text:
+                    style "epilogue_text"
+                    at fade_out(exit_duration)
+
+        hbox id 'buttons':
+            xalign 0.5
+            yalign 0.7
+            spacing 250
+            for i, button_text in enumerate(buttons):
+                if not exit_sequence:
+                    button:
+                        hover_background Solid("#FFFFFF", ysize = 4, yoffset = 60)
+                        idle_background None
+                        action [SetScreenVariable("selected_button", i), ToggleScreenVariable("exit_sequence")]
+                        fixed:
+                            fit_first True
+                            xalign 0.5
+                            text button_text:
+                                style "epilogue_button_text"
+                else:
+                    if i == selected_button:
+                        button:
+                            background "underline_blink"
+                            fixed:
+                                fit_first True
+                                xalign 0.5
+                                text button_text:
+                                    style "epilogue_button_text"
+                            at fade_out(exit_duration)
+                    else:
+                        button:
+                            fixed:
+                                fit_first True
+                                xalign 0.5
+                                text button_text:
+                                    style "epilogue_button_text"
+                            at fade_out(exit_duration)
+    if exit_sequence:
+        timer wait_time + exit_duration action Return(True)

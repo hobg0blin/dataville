@@ -141,7 +141,7 @@ label start:
       show tv_overlay:
         pos (0, 0)  
         tv_zoom_in_seq
-      $renpy.pause(3.3, hard=True)
+      $renpy.pause(3.3)
       scene interview with Dissolve(1.0)
       pause 1.0
 
@@ -203,11 +203,11 @@ label start:
 
       $ blur_master()
       $ fade_into_dream(3)
-      call screen dream("Your first day at a new job.", ["I'm excited!", "I'm terrified."])
-      call screen dream("Try not to screw it up.", ["I'm going to do my best!", "Let's hope this doesn't go like my last gig."])
-      call screen dream("You really need the money.", ["Mittens really needs to see a vet..."])
-      call screen dream("Let's get started.", [])
-      # $ unblur_master()
+      call screen epilogue("Your first day at a new job.", ["I'm excited!", "I'm terrified."])
+      call screen epilogue("Try not to screw it up.", ["I'm going to do my best!", "Let's hope this doesn't go like my last gig."])
+      call screen epilogue("You really need the money.", ["Mittens really needs to see a vet..."])
+      call screen epilogue("Let's get started.")
+      $ unblur_master()
       $ fade_out_of_dream(0.5)
 
     python:
@@ -496,9 +496,9 @@ label start:
           else:
             additional_text = ""
           print('epilogue text: ', split[count])
-        call screen dream(f"{split[count]} {additional_text}", [])
+        call screen epilogue(f"{split[count]} {additional_text}") with Dissolve(0.5)
         $ count += 2
-      call screen dream('Thank you for playing DataVille!\na more human world\none click at a time', ['Restart'])
+      call screen epilogue('Thank you for playing DataVille!\na more human world\none click at a time', ['Restart']) with Dissolve(0.5)
       # This ends the game.
       hide screen dream
       # clear store and return to start
