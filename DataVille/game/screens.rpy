@@ -1798,13 +1798,12 @@ screen message(sender, buttons=None):
 screen fade_into_dream(duration = 1.0):
     image Solid("#000000", xsize = 1920, ysize= 1080) at fade_in(duration)
 
-screen dream(dream_text, buttons):
+screen dream(dream_text, buttons = ["Next"]):
     python:
         # wait is used to wait until underline_blink is finished
         # look at transforms.rpy for the blink transform it's duration and interval times
         wait_secs, exit_fade_secs = 1, 1
-        if buttons == None or len(buttons) <= 0:
-            buttons = ["Next"]
+
     default exit_sequence = False
     default selected_button = None
     default skip_transition = False
@@ -2620,8 +2619,7 @@ screen epilogue(input_text, buttons = ["Next"]):
         # wait is used to wait until underline_blink is finished
         # look at transforms.rpy for the blink transform it's duration and interval times
         wait_time, exit_duration = 0.5, 0.4
-        # if buttons == None or len(buttons) <= 0:
-        #     buttons = ["Next"]
+
     default exit_sequence = False
     default selected_button = None
     default skip_transition = False
