@@ -142,7 +142,7 @@ label start:
       show tv_overlay:
         pos (0, 0)  
         tv_zoom_in_seq
-      $renpy.pause(3.3, hard=True)
+      $renpy.pause(3.3)
       scene interview with Dissolve(1.0)
       pause 1.0
 
@@ -208,7 +208,7 @@ label start:
       call screen dream("Try not to screw it up.", ["I'm going to do my best!", "Let's hope this doesn't go like my last gig."])
       call screen dream("You really need the money.", ["Mittens really needs to see a vet..."])
       call screen dream("Let's get started.", [])
-      # $ unblur_master()
+      $ unblur_master()
       $ fade_out_of_dream(0.5)
 
     python:
@@ -394,9 +394,6 @@ label start:
         $ store.event_flags.append('tutorial_fail')
         jump end
       if (store.game_state.time == "end"):
-        show screen performance(store.game_state.performance, store.averages['day_' + str(store.game_state.day)])
-        show screen cogni(performance_feedback(store.game_state.performance_rating)['text'], char_map['cogni']['mood']['default'], "bottom_left") 
-        pause
         python:
           print('earnings: ', store.game_state.performance['earnings_minus_rent'])
           if (store.game_state.day != 0):
@@ -404,6 +401,9 @@ label start:
           print('earnings minus rent: ', store.game_state.performance['earnings_minus_rent'])
           if store.game_state.performance['earnings_minus_rent'] <= 0:
             store.event_flags.append('rent_fail')
+        show screen performance(store.game_state.performance, store.averages['day_' + str(store.game_state.day)])
+        show screen cogni(performance_feedback(store.game_state.performance_rating)['text'], char_map['cogni']['mood']['default'], "bottom_left") 
+        pause
         if 'rent_fail' in store.event_flags and not no_fail:
           jump end 
       
@@ -500,9 +500,9 @@ label start:
           else:
             additional_text = ""
           print('epilogue text: ', split[count])
-        call screen dream(f"{split[count]} {additional_text}", [])
+        call screen epilogue(f"{split[count]} {additional_text}") with Dissolve(0.5)
         $ count += 2
-      call screen dream('Thank you for playing DataVille!\na more human world\none click at a time', ['Restart'])
+      call screen epilogue('Thank you for playing DataVille!\na more human world\none click at a time', ['Restart']) with Dissolve(0.5)
       # This ends the game.
       hide screen dream
       # clear store and return to start
