@@ -2,14 +2,14 @@
 # we want the led monitor effect
 transform scroll_up:
     yoffset 0
-    linear 0.4 yoffset -10
+    linear 0.7 yoffset -47
     repeat
 
 image scanlines_overlay:
     "images/scanlines.png"
-    size (1920, 1090)
+    size (1920, 10000)
     pos(0, 0)
-    alpha 0.2
+    alpha 0.05
     scroll_up
 # ----
 
