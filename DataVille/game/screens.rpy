@@ -2003,7 +2003,7 @@ screen overlay(task, cogni=False, button_text=False):
             xsize 1920
             #TODO: just track number of tasks here
             #      text 'Performance:' + '\n{size=-5}' + task['performance']
-            text '{font=fonts/RussoOne-Regular.ttf}TOTAL EARNINGS: $ ' + "{:.2f}".format(float(task['earnings'])) + '{/font}' xalign .90 color "#FFFFFF" 
+            text '{font=fonts/RussoOne-Regular.ttf}TOTAL EARNINGS: $ ' + "{:.2f}".format(float(store.game_state.performance['earnings_minus_rent'])) + '{/font}' xalign .90 color "#FFFFFF" 
         hbox id 'cogni':
             xsize 400
             ysize 300
