@@ -1803,7 +1803,9 @@ screen dream(dream_text, buttons = ["Next"]):
         # wait is used to wait until underline_blink is finished
         # look at transforms.rpy for the blink transform it's duration and interval times
         wait_secs, exit_fade_secs = 1, 1
-
+        if buttons == None or len(buttons) <= 0:
+            buttons = ["Next"]
+    
     default exit_sequence = False
     default selected_button = None
     default skip_transition = False
@@ -2318,40 +2320,72 @@ screen performance(state, average):
         positive_emoji = ["thumbs_up", "star_struck", "heart_eyes"]
         neutral_emoji = ["not_so_great", "ok", "neutral"]
         bad_emoji = ["angry", "vomit", "poo"]
+
+        sel_positive_emoji = positive_emoji.copy()
+        sel_neutral_emoji = neutral_emoji.copy()
+        sel_bad_emoji = bad_emoji.copy()
+
         approval = "neutral"
         time = "neutral"
-        money = "neutral"
+        earnings = "neutral"
+        earnings_minus_rent = "neutral"
 
         if state["approval_rate"] > average["score"] + 10:
-            approval = positive_emoji[0]
-            positive_emoji.pop(0)
+            approval_index = random.randint(0, len(sel_positive_emoji) - 1)
+            approval = sel_positive_emoji[approval_index]
+            sel_positive_emoji.pop(approval_index)
         elif state["approval_rate"] <= average["score"] + 10 and state["approval_rate"] >= average["score"] - 10:
-            approval = neutral_emoji[0]
-            neutral_emoji.pop(0)
+            approval_index = random.randint(0, len(sel_neutral_emoji) - 1)
+            approval = sel_neutral_emoji[approval_index]
+            sel_neutral_emoji.pop(approval_index)
         else:
-            approval = bad_emoji[0]
-            neutral_emoji.pop(0)
+            approval_index = random.randint(0, len(sel_bad_emoji) - 1)
+            approval = sel_bad_emoji[approval_index]
+            sel_bad_emoji.pop(approval_index)
 
         if state["average_time"] < average["time"] + 2:
-            time = positive_emoji[0]
-            positive_emoji.pop(0)
+            time_index = random.randint(0, len(sel_positive_emoji) - 1)
+            time = sel_positive_emoji[time_index]
+            sel_positive_emoji.pop(time_index)
         elif state["average_time"] >= average["time"] + 2 and state["average_time"] <= average["time"] - 2:
-            time = neutral_emoji[0]
-            neutral_emoji.pop(0)
+            time_index = random.randint(0, len(sel_neutral_emoji) - 1)
+            time = sel_neutral_emoji[time_index]
+            sel_neutral_emoji.pop(time_index)
         else:
-            time = bad_emoji[0]
-            bad_emoji.pop(0)
+            time_index = random.randint(0, len(sel_bad_emoji) - 1)
+            time = sel_bad_emoji[time_index]
+            sel_bad_emoji.pop(time_index)
     
         if state["earnings"] > average["earnings"] + (average["earnings"] / 10):
-            earnings = positive_emoji[0]
-            positive_emoji.pop(0)
+            if len(sel_positive_emoji) == 1:
+                earnings_index = 0
+            else:
+                earnings_index = random.randint(0, len(sel_positive_emoji) - 1)
+            earnings = sel_positive_emoji[earnings_index]
+            sel_positive_emoji.pop(earnings_index)
         elif state["earnings"] <= average["earnings"] + (average["earnings"] / 10) and state["earnings"] <= average["earnings"] - (average["earnings"] / 10):
-            earnings = neutral_emoji[0]
-            neutral_emoji.pop(0)
+            if len(sel_neutral_emoji) == 1:
+                earnings_index = 0
+            else:
+                earnings_index = random.randint(0, len(sel_neutral_emoji) - 1)
+            earnings = sel_neutral_emoji[earnings_index]
+            sel_neutral_emoji.pop(earnings_index)
         else:
-            earnings = bad_emoji[0]
-            bad_emoji.pop(0)
+            if len(sel_bad_emoji) == 1:
+                earnings_index = 0
+            else:
+                earnings_index = random.randint(0, len(sel_bad_emoji) - 1)
+            earnings = sel_bad_emoji[earnings_index]
+            sel_bad_emoji.pop(earnings_index)
 
+        rent_emoji = bad_emoji[random.randint(0, len(bad_emoji) - 1)]
+
+        if state['earnings_minus_rent'] > 100:
+            earnings_minus_rent = positive_emoji[random.randint(0, (len(positive_emoji) - 1))]
+        elif state['earnings_minus_rent'] <= 100 and state['earnings_minus_rent'] > 50:
+            earnings_minus_rent = neutral_emoji[random.randint(0, (len(neutral_emoji) - 1))]
+        else:
+            earnings_minus_rent = bad_emoji[random.randint(0, (len(bad_emoji) - 1))]
             
     frame:
         style "prompt_frame"
@@ -2381,6 +2415,20 @@ screen performance(state, average):
                 xsize 550
                 yalign 0.5
             image f"icons/emoji/{earnings}.png":
+                xalign 1.0
+        hbox:
+            xsize 525
+            text(f"Rent Cost: -${round((store.daily_rent * store.game_state.day), 2)}"):
+                xsize 550
+                yalign 0.5
+            image f"icons/emoji/{rent_emoji}.png":
+                xalign 1.0
+        hbox:
+            xsize 525
+            text(f"Total earnings: ${round(state['earnings_minus_rent'], 2)}"):
+                xsize 550
+                yalign 0.5
+            image f"icons/emoji/{earnings_minus_rent}.png":
                 xalign 1.0
 
 # apartment screens
