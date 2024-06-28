@@ -1798,16 +1798,17 @@ screen message(sender, buttons=None):
 screen fade_into_dream(duration = 1.0):
     image Solid("#000000", xsize = 1920, ysize= 1080) at fade_in(duration)
 
-screen dream(dream_text, buttons):
+screen dream(dream_text, buttons = ["Next"]):
     python:
         # wait is used to wait until underline_blink is finished
         # look at transforms.rpy for the blink transform it's duration and interval times
         wait_secs, exit_fade_secs = 0.2, 0.2
         if buttons == None or len(buttons) <= 0:
             buttons = ["Next"]
-    default exitSequence = False
+    
+    default exit_sequence = False
     default selected_button = None
-    default fast_load = False
+    default skip_transition = False
 
     image Solid("#000000", xsize = 1920, ysize= 1080)
 
@@ -1815,7 +1816,7 @@ screen dream(dream_text, buttons):
     button:
         xsize 1920
         ysize 1080
-        action SetScreenVariable("fast_load", True)
+        action SetScreenVariable("skip_transition", True)
 
     window id 'content':
         style "window_nobox"
@@ -1826,8 +1827,8 @@ screen dream(dream_text, buttons):
         vbox:
             yalign 0.3
             xalign 0.5 
-            if not exitSequence:
-                if not fast_load:
+            if not exit_sequence:
+                if not skip_transition:
                     text "{ficps}" + dream_text + "{/ficps}":
                         style "dream_text"
                 else:
@@ -1846,14 +1847,14 @@ screen dream(dream_text, buttons):
             yalign 0.7
             spacing 250
             for i, button_text in enumerate(buttons):
-                if not exitSequence:
-                    if not fast_load:
+                if not exit_sequence:
+                    if not skip_transition:
                         button:
                             hover_background Solid("#FFFFFF", ysize = 4, yoffset = 60)
                             idle_background None
                             style "dream_button"
                             at dream_button(2)
-                            action [SetScreenVariable("selected_button", i), ToggleScreenVariable("exitSequence")]
+                            action [SetScreenVariable("selected_button", i), ToggleScreenVariable("exit_sequence")]
                             fixed:
                                 fit_first True
                                 xalign 0.5
@@ -1864,7 +1865,7 @@ screen dream(dream_text, buttons):
                             hover_background Solid("#FFFFFF", ysize = 4, yoffset = 60)
                             idle_background None
                             style "dream_button"
-                            action [SetScreenVariable("selected_button", i), ToggleScreenVariable("exitSequence")]
+                            action [SetScreenVariable("selected_button", i), ToggleScreenVariable("exit_sequence")]
                             fixed:
                                 fit_first True
                                 xalign 0.5
@@ -1890,7 +1891,7 @@ screen dream(dream_text, buttons):
                                 text button_text:
                                     style "dream_button_text"
                             at wait_blur_and_fadeout(wait_secs, exit_fade_secs)
-    if exitSequence:
+    if exit_sequence:
         timer wait_secs + exit_fade_secs action Return(True)
                 
 
@@ -2004,7 +2005,7 @@ screen overlay(task, cogni=False, button_text=False):
             xsize 1920
             #TODO: just track number of tasks here
             #      text 'Performance:' + '\n{size=-5}' + task['performance']
-            text '{font=fonts/RussoOne-Regular.ttf}TOTAL EARNINGS: $ ' + "{:.2f}".format(float(task['earnings'])) + '{/font}' xalign .90 color "#FFFFFF" 
+            text '{font=fonts/RussoOne-Regular.ttf}TOTAL EARNINGS: $ ' + "{:.2f}".format(float(store.game_state.performance['earnings_minus_rent'])) + '{/font}' xalign .90 color "#FFFFFF" 
         hbox id 'cogni':
             xsize 400
             ysize 300
@@ -2319,40 +2320,72 @@ screen performance(state, average):
         positive_emoji = ["thumbs_up", "star_struck", "heart_eyes"]
         neutral_emoji = ["not_so_great", "ok", "neutral"]
         bad_emoji = ["angry", "vomit", "poo"]
+
+        sel_positive_emoji = positive_emoji.copy()
+        sel_neutral_emoji = neutral_emoji.copy()
+        sel_bad_emoji = bad_emoji.copy()
+
         approval = "neutral"
         time = "neutral"
-        money = "neutral"
+        earnings = "neutral"
+        earnings_minus_rent = "neutral"
 
         if state["approval_rate"] > average["score"] + 10:
-            approval = positive_emoji[0]
-            positive_emoji.pop(0)
+            approval_index = random.randint(0, len(sel_positive_emoji) - 1)
+            approval = sel_positive_emoji[approval_index]
+            sel_positive_emoji.pop(approval_index)
         elif state["approval_rate"] <= average["score"] + 10 and state["approval_rate"] >= average["score"] - 10:
-            approval = neutral_emoji[0]
-            neutral_emoji.pop(0)
+            approval_index = random.randint(0, len(sel_neutral_emoji) - 1)
+            approval = sel_neutral_emoji[approval_index]
+            sel_neutral_emoji.pop(approval_index)
         else:
-            approval = bad_emoji[0]
-            neutral_emoji.pop(0)
+            approval_index = random.randint(0, len(sel_bad_emoji) - 1)
+            approval = sel_bad_emoji[approval_index]
+            sel_bad_emoji.pop(approval_index)
 
         if state["average_time"] < average["time"] + 2:
-            time = positive_emoji[0]
-            positive_emoji.pop(0)
+            time_index = random.randint(0, len(sel_positive_emoji) - 1)
+            time = sel_positive_emoji[time_index]
+            sel_positive_emoji.pop(time_index)
         elif state["average_time"] >= average["time"] + 2 and state["average_time"] <= average["time"] - 2:
-            time = neutral_emoji[0]
-            neutral_emoji.pop(0)
+            time_index = random.randint(0, len(sel_neutral_emoji) - 1)
+            time = sel_neutral_emoji[time_index]
+            sel_neutral_emoji.pop(time_index)
         else:
-            time = bad_emoji[0]
-            bad_emoji.pop(0)
+            time_index = random.randint(0, len(sel_bad_emoji) - 1)
+            time = sel_bad_emoji[time_index]
+            sel_bad_emoji.pop(time_index)
     
         if state["earnings"] > average["earnings"] + (average["earnings"] / 10):
-            earnings = positive_emoji[0]
-            positive_emoji.pop(0)
+            if len(sel_positive_emoji) == 1:
+                earnings_index = 0
+            else:
+                earnings_index = random.randint(0, len(sel_positive_emoji) - 1)
+            earnings = sel_positive_emoji[earnings_index]
+            sel_positive_emoji.pop(earnings_index)
         elif state["earnings"] <= average["earnings"] + (average["earnings"] / 10) and state["earnings"] <= average["earnings"] - (average["earnings"] / 10):
-            earnings = neutral_emoji[0]
-            neutral_emoji.pop(0)
+            if len(sel_neutral_emoji) == 1:
+                earnings_index = 0
+            else:
+                earnings_index = random.randint(0, len(sel_neutral_emoji) - 1)
+            earnings = sel_neutral_emoji[earnings_index]
+            sel_neutral_emoji.pop(earnings_index)
         else:
-            earnings = bad_emoji[0]
-            bad_emoji.pop(0)
+            if len(sel_bad_emoji) == 1:
+                earnings_index = 0
+            else:
+                earnings_index = random.randint(0, len(sel_bad_emoji) - 1)
+            earnings = sel_bad_emoji[earnings_index]
+            sel_bad_emoji.pop(earnings_index)
 
+        rent_emoji = bad_emoji[random.randint(0, len(bad_emoji) - 1)]
+
+        if state['earnings_minus_rent'] > 100:
+            earnings_minus_rent = positive_emoji[random.randint(0, (len(positive_emoji) - 1))]
+        elif state['earnings_minus_rent'] <= 100 and state['earnings_minus_rent'] > 50:
+            earnings_minus_rent = neutral_emoji[random.randint(0, (len(neutral_emoji) - 1))]
+        else:
+            earnings_minus_rent = bad_emoji[random.randint(0, (len(bad_emoji) - 1))]
             
     frame:
         style "prompt_frame"
@@ -2382,6 +2415,20 @@ screen performance(state, average):
                 xsize 550
                 yalign 0.5
             image f"icons/emoji/{earnings}.png":
+                xalign 1.0
+        hbox:
+            xsize 525
+            text(f"Rent Cost: -${round((store.daily_rent * store.game_state.day), 2)}"):
+                xsize 550
+                yalign 0.5
+            image f"icons/emoji/{rent_emoji}.png":
+                xalign 1.0
+        hbox:
+            xsize 525
+            text(f"Total earnings: ${round(state['earnings_minus_rent'], 2)}"):
+                xsize 550
+                yalign 0.5
+            image f"icons/emoji/{earnings_minus_rent}.png":
                 xalign 1.0
 
 # apartment screens
@@ -2615,3 +2662,80 @@ screen add_event_flag():
             frame:
                 textbutton "Set" action [Function(update_from_state_menu), Hide("add_event_flag", None), Show("set_state", None)]
 
+screen epilogue(input_text, buttons = ["Next"]):
+    python:
+        # wait is used to wait until underline_blink is finished
+        # look at transforms.rpy for the blink transform it's duration and interval times
+        wait_time, exit_duration = 0.5, 0.4
+
+    default exit_sequence = False
+    default selected_button = None
+    default skip_transition = False
+
+    # once again, another invisable button to make the text appear instantly
+    button:
+        xsize 1920
+        ysize 1080
+        action SetScreenVariable("skip_transition", True)
+
+    image Solid("#000000", xsize = 1920, ysize= 1080)
+
+    window id 'content':
+        style "window_nobox"
+        xalign 0.5
+        yalign 0.5
+        xsize 1920
+        ysize 1080
+        vbox:
+            yalign 0.3
+            xalign 0.5 
+            if not exit_sequence:
+                if not skip_transition:
+                    text input_text:
+                        style "epilogue_text"
+                else: 
+                    # why does the click to skip cps animation doesn't work?
+                    # setting the cps stupid high to make it appear instantly
+                    text "{cps=1000}" + input_text + "{/cps}":
+                        style "epilogue_text"
+                
+            else:
+                text input_text:
+                    style "epilogue_text"
+                    at fade_out(exit_duration)
+
+        hbox id 'buttons':
+            xalign 0.5
+            yalign 0.7
+            spacing 250
+            for i, button_text in enumerate(buttons):
+                if not exit_sequence:
+                    button:
+                        hover_background Solid("#FFFFFF", ysize = 4, yoffset = 60)
+                        idle_background None
+                        action [SetScreenVariable("selected_button", i), ToggleScreenVariable("exit_sequence")]
+                        fixed:
+                            fit_first True
+                            xalign 0.5
+                            text button_text:
+                                style "epilogue_button_text"
+                else:
+                    if i == selected_button:
+                        button:
+                            background "underline_blink"
+                            fixed:
+                                fit_first True
+                                xalign 0.5
+                                text button_text:
+                                    style "epilogue_button_text"
+                            at fade_out(exit_duration)
+                    else:
+                        button:
+                            fixed:
+                                fit_first True
+                                xalign 0.5
+                                text button_text:
+                                    style "epilogue_button_text"
+                            at fade_out(exit_duration)
+    if exit_sequence:
+        timer wait_time + exit_duration action Return(True)

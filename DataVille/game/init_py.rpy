@@ -305,7 +305,7 @@ init python:
     store.game_state.day += 1
     day = str(store.game_state.day)
     store.game_state.time = 'start'
-    make_task_loop('game_files/route_test_tasks_day_' + day + '.csv', store.loop) 
+    make_task_loop('game_files/tasks_day_' + day + '.csv', store.loop) 
     update_apartment_state('game_files/apt_day_' + day + '.csv', store.apartment_data, store.game_state)
 
   def day_end():
