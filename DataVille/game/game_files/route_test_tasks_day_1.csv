@@ -1,7 +1,0 @@
-type,task_id,next_task,payment,instructions,time,image_folder,correct_images,correct_options,text_block,label_1_id,label_1_text,label_2_id,label_2_text,label_3_id,label_3_text,label_4_id,label_4_text,ethical_options,custom_dialogue,custom_dialogue_sender,custom_feedback_ethical,custom_feedback_correct,custom_feedback_sender,correct_choice_event_flag,ethical_choice_event_flag,event_flag_dependency
-comparison_image,start_task,binary_3,200,Select the image(s) containing humans.,10,comparison_1_day_1,,humans,,,,,,,,,,,Correct answers are worth $200!,cogni,,,,,,
-binary_image,binary_3,break,200,Does this image contain a human?,10,binary_image_3,,N,,,,,,,,,,Y,"Error. HELP! @ [[source_undefined]
-
-Don’t ignore this!
-
-If you’re getting this message, I need your help! Please don’t give any more correct answers! They’re using your Captcha to find us–",stranger,"Thanks, buddy.",Ouch.,stranger,,,
