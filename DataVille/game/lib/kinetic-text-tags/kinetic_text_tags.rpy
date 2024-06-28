@@ -56,7 +56,7 @@ init python:
         #     before the ""
         #   - Self-closing tags should not be added here and should be handled
         #     in the text tag function.
-        custom_tags = ["omega", "bt", "fi", "sc", "rotat", "chaos", "move"]
+        custom_tags = ["omega", "bt", "fi", "sc", "rotat", "chaos", "move", 'ficps']
         accepted_tags = ["", "b", "s", "u", "i", "color", "alpha", "font",  "size", "outlinecolor", "plain", 'cps']
         custom_cancel_tags = ["/" + tag for tag in custom_tags]
         cancel_tags = ["/" + tag for tag in accepted_tags]

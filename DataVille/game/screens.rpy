@@ -1805,6 +1805,11 @@ screen dream(dream_text, buttons = ["Next"]):
         wait_secs, exit_fade_secs = 0.2, 0.2
         if buttons == None or len(buttons) <= 0:
             buttons = ["Next"]
+        
+        # The custom text tag needs to be supplied the font's styles before transformation
+        dream_font = '{font=fonts/GoudyBookletter1911-Regular.ttf}'
+        font_size = "{size=48}"
+        text_lines = line_split(dream_text, 50)
     
     default exit_sequence = False
     default selected_button = None
@@ -1829,18 +1834,23 @@ screen dream(dream_text, buttons = ["Next"]):
             xalign 0.5 
             if not exit_sequence:
                 if not skip_transition:
-                    text "{ficps}" + dream_text + "{/ficps}":
-                        style "dream_text"
+                    for line in text_lines:
+                        text "{ficps}" + font_size + dream_font + line + "{/font}{/size}{/ficps}":
+                            style "dream_text"
+                    # text "{ficps}" + dream_font + "WE ARE GOING TO TEST SOMETHING OUT HERE BECAUSE MAYBE THE SIZE DOES FUCK UP BECAUSE ITS PRE RENDERED OR SOMETHING SHIT" + dream_text + "{/font}{/ficps}":
+                    #     style "dream_text"
                 else:
-                    text "{ficps=1000-1-0-0}" + dream_text + "{/ficps}":
-                        style "dream_text"
+                    for line in text_lines:
+                        text "{ficps=1000-1-0-0}" + font_size + dream_font + line + "{/font}{/size}{/ficps}":
+                            style "dream_text"
                 # using 1000-1-0-0 to make the text appear instantly
                 # doing this because the ficps renders the text just a little
                 # differently than normal.
             else:
-                text "{ficps=1000-1-0-0}" + dream_text + "{/ficps}":
-                    style "dream_text"
-                    at wait_blur_and_fadeout(wait_secs, exit_fade_secs)
+                for line in text_lines:
+                    text "{ficps=1000-1-0-0}" + font_size + dream_font + line + "{/font}{/size}{/ficps}":
+                        style "dream_text"
+                        at wait_blur_and_fadeout(wait_secs, exit_fade_secs)
 
         hbox id 'buttons':
             xalign 0.5
