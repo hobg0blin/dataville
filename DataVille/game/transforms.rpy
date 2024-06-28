@@ -45,7 +45,7 @@ image underline_blink:
     yoffset 60
     blink
 
-transform blink(duration=0.3, interval=0.05):
+transform blink(duration=0.4, interval=0.05):
     block:
         alpha 1.0
         pause interval

@@ -1802,7 +1802,7 @@ screen dream(dream_text, buttons = ["Next"]):
     python:
         # wait is used to wait until underline_blink is finished
         # look at transforms.rpy for the blink transform it's duration and interval times
-        wait_secs, exit_fade_secs = 0.2, 0.2
+        wait_secs, exit_fade_secs = 0.4, 0.5
         if buttons == None or len(buttons) <= 0:
             buttons = ["Next"]
         
