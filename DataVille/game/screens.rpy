@@ -1802,7 +1802,7 @@ screen dream(dream_text, buttons = ["Next"]):
     python:
         # wait is used to wait until underline_blink is finished
         # look at transforms.rpy for the blink transform it's duration and interval times
-        wait_secs, exit_fade_secs = 0.4, 0.5
+        wait_secs, exit_fade_secs, blur_amount = 0.4, 0.4, 8
         if buttons == None or len(buttons) <= 0:
             buttons = ["Next"]
         
@@ -1835,7 +1835,7 @@ screen dream(dream_text, buttons = ["Next"]):
             if not exit_sequence:
                 if not skip_transition:
                     for line in text_lines:
-                        text "{ficps}" + font_size + dream_font + line + "{/font}{/size}{/ficps}":
+                        text "{ficps=14-0.95-30-0.73-1.6}" + font_size + dream_font + line + "{/font}{/size}{/ficps}":
                             style "dream_text"
                     # text "{ficps}" + dream_font + "WE ARE GOING TO TEST SOMETHING OUT HERE BECAUSE MAYBE THE SIZE DOES FUCK UP BECAUSE ITS PRE RENDERED OR SOMETHING SHIT" + dream_text + "{/font}{/ficps}":
                     #     style "dream_text"
@@ -1850,7 +1850,7 @@ screen dream(dream_text, buttons = ["Next"]):
                 for line in text_lines:
                     text "{ficps=1000-1-0-0}" + font_size + dream_font + line + "{/font}{/size}{/ficps}":
                         style "dream_text"
-                        at wait_blur_and_fadeout(wait_secs, exit_fade_secs)
+                        at wait_blur_and_fadeout(wait_secs, exit_fade_secs, blur_amount)
 
         hbox id 'buttons':
             xalign 0.5
@@ -1891,7 +1891,7 @@ screen dream(dream_text, buttons = ["Next"]):
                                 xalign 0.5
                                 text button_text:
                                     style "dream_button_text"
-                            at wait_blur_and_fadeout(wait_secs, exit_fade_secs)
+                            at wait_blur_and_fadeout(wait_secs, exit_fade_secs, blur_amount)
                     else:
                         button:
                             style "dream_button"
@@ -1900,7 +1900,7 @@ screen dream(dream_text, buttons = ["Next"]):
                                 xalign 0.5
                                 text button_text:
                                     style "dream_button_text"
-                            at wait_blur_and_fadeout(wait_secs, exit_fade_secs)
+                            at wait_blur_and_fadeout(wait_secs, exit_fade_secs, blur_amount)
     if exit_sequence:
         timer wait_secs + exit_fade_secs action Return(True)
                 
