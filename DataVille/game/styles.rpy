@@ -1,6 +1,8 @@
 style dream_text:
+    size 52
     color "#FFFFFF"
     xmaximum 0.8
+    xalign 0.5
 
 style dream_button_text:
     color "#FFFFFF"

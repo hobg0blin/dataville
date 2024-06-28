@@ -1802,9 +1802,18 @@ screen dream(dream_text, buttons = ["Next"]):
     python:
         # wait is used to wait until underline_blink is finished
         # look at transforms.rpy for the blink transform it's duration and interval times
-        wait_secs, exit_fade_secs = 0.2, 0.2
+        wait_secs, exit_fade_secs, blur_amount = 0.4, 0.4, 8
         if buttons == None or len(buttons) <= 0:
             buttons = ["Next"]
+        
+        # The custom text tag needs to be supplied the font's styles before transformation
+        
+        ficps_normal = "{ficps=14-0.95-30-0.73-1.6}"
+        ficps_instant = "{ficps=1000-1-0-0}"
+        dream_font = ''
+        font_size = "{size=48}"
+        text_lines = line_split(dream_text, 50)
+        end_tags = "{/size}{/ficps}"
     
     default exit_sequence = False
     default selected_button = None
@@ -1829,18 +1838,23 @@ screen dream(dream_text, buttons = ["Next"]):
             xalign 0.5 
             if not exit_sequence:
                 if not skip_transition:
-                    text "{ficps}" + dream_text + "{/ficps}":
-                        style "dream_text"
+                    for line in text_lines:
+                        text ficps_normal + font_size + dream_font + line + end_tags:
+                            style "dream_text"
+                    # text "{ficps}" + dream_font + "WE ARE GOING TO TEST SOMETHING OUT HERE BECAUSE MAYBE THE SIZE DOES FUCK UP BECAUSE ITS PRE RENDERED OR SOMETHING SHIT" + dream_text + "{/font}{/ficps}":
+                    #     style "dream_text"
                 else:
-                    text "{ficps=1000-1-0-0}" + dream_text + "{/ficps}":
-                        style "dream_text"
+                    for line in text_lines:
+                        text ficps_instant + font_size + dream_font + line + end_tags:
+                            style "dream_text"
                 # using 1000-1-0-0 to make the text appear instantly
                 # doing this because the ficps renders the text just a little
                 # differently than normal.
             else:
-                text "{ficps=1000-1-0-0}" + dream_text + "{/ficps}":
-                    style "dream_text"
-                    at wait_blur_and_fadeout(wait_secs, exit_fade_secs)
+                for line in text_lines:
+                    text ficps_instant + font_size + dream_font + line + end_tags:
+                        style "dream_text"
+                        at wait_blur_and_fadeout(wait_secs, exit_fade_secs, blur_amount)
 
         hbox id 'buttons':
             xalign 0.5
@@ -1881,7 +1895,7 @@ screen dream(dream_text, buttons = ["Next"]):
                                 xalign 0.5
                                 text button_text:
                                     style "dream_button_text"
-                            at wait_blur_and_fadeout(wait_secs, exit_fade_secs)
+                            at wait_blur_and_fadeout(wait_secs, exit_fade_secs, blur_amount)
                     else:
                         button:
                             style "dream_button"
@@ -1890,7 +1904,7 @@ screen dream(dream_text, buttons = ["Next"]):
                                 xalign 0.5
                                 text button_text:
                                     style "dream_button_text"
-                            at wait_blur_and_fadeout(wait_secs, exit_fade_secs)
+                            at wait_blur_and_fadeout(wait_secs, exit_fade_secs, blur_amount)
     if exit_sequence:
         timer wait_secs + exit_fade_secs action Return(True)
                 

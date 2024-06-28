@@ -534,4 +534,25 @@ init python:
     renpy.show("bg overlay_background", behind="curtain")
     renpy.hide("curtain")
 
+  # because the custom text tag doesn't automatically put in line breaks
+  # text can render off the screen
+  # this function splits text lines based on character length
+  def line_split(text, length):
+    if len(text) <= length:
+      return [text]
+    
+    words = text.split()
+    lines = []
+    line = ''
+
+    for word in words:
+      if len(line) + len(word) <= length:
+        line += word + ' '
+      else:
+        lines.append(line)
+        line = word + ' '
+    lines.append(line)
+    
+    return lines
+
   set_initial_variables() 
