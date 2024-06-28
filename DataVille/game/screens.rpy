@@ -648,7 +648,7 @@ screen about():
             if gui.about:
                 text "[gui.about!t]\n"
 
-            text _("Made with {a=https://www.renpy.org/}Ren'Py{/a} [renpy.version_only].\n\n[renpy.license!t]")
+            text _("\n Project Leads:\n Brent Bailey\nArnab Chakravarty\n\n Story:\n Ian McNeely\nBrent Bailey\n\n Design:\n Lifei Wang\n Arnab Chakravarty \n Henry Baum \n\n Programming:\n Brent Bailey\nHenry Baum\n\n ML Development:\n Lifei Wang\n\nMade with {a=https://www.renpy.org/}Ren'Py{/a} [renpy.version_only].\n\n[renpy.license!t]")
 
 
 style about_label is gui_label
