@@ -6,7 +6,7 @@ style dream_text:
     xalign 0.5
 
 style dream_button_text:
-    font "fonts/BubblegumSans-Regular.ttf"
+    font "fonts/Itim-Regular.ttf"
     color "#FFFFFF"
     hover_color "#FFFFFF"
 
