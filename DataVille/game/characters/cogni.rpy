@@ -60,7 +60,7 @@ define position_map = {
             "xsize": 150
         },
         "text": {
-            "xpos": 225,
+            "xpos": 100,
             "ypos": 0
         }
     },
