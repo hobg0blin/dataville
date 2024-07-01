@@ -2453,8 +2453,8 @@ screen performance(state, average):
 
 screen apartment(data, time, bg_path):
     default zoom_transition = False
-    default zoom_time = 2
-    default fade_time = 1
+    default zoom_time = 1.3
+    default fade_time = 1.0
     
     image bg_path:
         xsize 1920 ysize 1080
@@ -2493,9 +2493,6 @@ screen apartment(data, time, bg_path):
                     if zoom_transition:
                         at zoom_sticky_notes(offset_note_positions[i][0], offset_note_positions[i][1], zoom_time)
 
-        # $ renpy.scene()
-
-
         # TV Hover button
         if not zoom_transition:
             imagebutton:
@@ -2514,7 +2511,7 @@ screen apartment(data, time, bg_path):
         #   hover Transform("images/room/room/window_with_bg.png", size=(788, 455)) 
         #   action Show("zoomed_window", None, store.apartment_data)
         
-        # Computer Screen Hovor Button
+        # Computer Screen HovorR Button
         if not zoom_transition:
             imagebutton:
                 xpos 614 ypos 404
@@ -2523,27 +2520,28 @@ screen apartment(data, time, bg_path):
                 idle Solid("#00000000")
                 hover Solid("#d3a95620")
                 action [ToggleScreenVariable('zoom_transition')]
+        
+    if zoom_transition:
+        image Solid("#000000"):
+            xsize 1920 ysize 1080 pos (0, 0)
+            at fade_in(fade_time)
+        timer max(zoom_time, fade_time) action Return(True)
 
-    # frame:
-    #     xalign 0.1
-    #     yalign 0.9
-    #     textbutton "Set State" action Show("set_state", None)
-
-# No longer zooming into the notes
-screen zoomed_note(data):
-    modal True
-    vbox:
-        xalign 0.5
-        yalign 0
-        image Transform("images/room/room/note.png", size=(1200, 1000)) 
-    vbox:
-        xalign 0.5
-        yalign 0.2
-        for note in data["sticky_note"]:
-            if note["performance"] == "default" or note["performance"] == store.game_state.performance_rating or (note["event_flag"] in store.event_flags):
-                text note["text"]
-    frame:
-        textbutton "X" activate_sound "rustle.wav" action Hide("zoomed_note", None)
+# # No longer zooming into the notes
+# screen zoomed_note(data):
+#     modal True
+#     vbox:
+#         xalign 0.5
+#         yalign 0
+#         image Transform("images/room/room/note.png", size=(1200, 1000)) 
+#     vbox:
+#         xalign 0.5
+#         yalign 0.2
+#         for note in data["sticky_note"]:
+#             if note["performance"] == "default" or note["performance"] == store.game_state.performance_rating or (note["event_flag"] in store.event_flags):
+#                 text note["text"]
+#     frame:
+#         textbutton "X" activate_sound "rustle.wav" action Hide("zoomed_note", None)
 
 screen zoomed_tv(data, index=0):
     modal True
