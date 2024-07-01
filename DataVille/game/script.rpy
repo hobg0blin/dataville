@@ -166,8 +166,13 @@ label start:
       call screen job_offer(3, "Do you own a computer?", ["Yes", "No"])
       call screen job_offer(3, "Are you interested in working from home?", ["Yes", "No"])
       call screen job_offer(3, "Congratulations! We'd like to extend an offer of employment! Join the DataVille team now.", ["Let's get started."])    
+      $ fade_into_dream(3)
+      call screen dream("Your first day at a new job.", ["I'm excited!", "I'm terrified."])
+      call screen dream("Try not to screw it up.", ["I'm going to do my best!", "Let's hope this doesn't go like my last gig."])
+      call screen dream("You really need the money.", ["Mittens really needs to see a vet..."])
+      call screen dream("Let's get started.", [])
       $ unblur_master()
-
+      $ fade_out_of_dream(0.5)
       label intro:
   #      manual stuff for game start
 #        image bg apartment_1 = im.FactorScale("images/room/room/room_" + store.apartment_data["apartment_background"] + ".jpg", 1.5)
@@ -200,16 +205,17 @@ label start:
         hide screen apartment
       # hide dialogue box
       # $ show_window = False
-      scene bg apartment_bg with Dissolve(1.0)
+      # scene bg apartment_bg with Dissolve(1.0)
 
-      $ blur_master()
-      $ fade_into_dream(3)
-      call screen dream("Your first day at a new job.", ["I'm excited!", "I'm terrified."])
-      call screen dream("Try not to screw it up.", ["I'm going to do my best!", "Let's hope this doesn't go like my last gig."])
-      call screen dream("You really need the money.", ["Mittens really needs to see a vet..."])
-      call screen dream("Let's get started.", [])
-      $ unblur_master()
-      $ fade_out_of_dream(0.5)
+      # old dream placement - keeping it here for easy revertback
+      # $ blur_master()
+      # $ fade_into_dream(3)
+      # call screen dream("Your first day at a new job.", ["I'm excited!", "I'm terrified."])
+      # call screen dream("Try not to screw it up.", ["I'm going to do my best!", "Let's hope this doesn't go like my last gig."])
+      # call screen dream("You really need the money.", ["Mittens really needs to see a vet..."])
+      # call screen dream("Let's get started.", [])
+      # $ unblur_master()
+      # $ fade_out_of_dream(0.5)
 
     python:
       if start_at_day_end:
