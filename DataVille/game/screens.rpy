@@ -2451,21 +2451,18 @@ screen performance(state, average):
 # window zoom
 # MAYBE: CAT?
 
-style sticky_note is default:
-    font "fonts/BrownBagLunch.ttf"
-    color "#000000"
-    size 30
-    xalign 0.5
-    yalign 0.5
+screen apartment(data, time, bg_path):
+    image bg_path:
+        xsize 1920 ysize 1080
+        pos (0,0)
 
-screen apartment(data, time):
     python:
         computer_sound = "computer.ogg"
         if time == "end":
             btn = "Go to sleep"
         else:
             btn = "Back to work"
-        note_positions = [(730, 826), (1104, 828), (1458, 650), (1458, 462)]
+        note_positions = [(734, 827), (1103, 828), (1458, 650), (1458, 462)]
     fixed:
         # We're not doing note clickables anymore, right? - HAB
         # imagebutton:
@@ -2482,11 +2479,13 @@ screen apartment(data, time):
             if i > 3:
                 break
             if note["performance"] == "default" or note["performance"] == store.game_state.performance_rating or (note["event_flag"] in store.event_flags):
-                hbox:
-                    xsize 125 ysize 132
+                text note["text"]:
+                    style "sticky_note"
+                    xsize 129 ysize 132
                     xpos note_positions[i][0] ypos note_positions[i][1]
-                    text note["text"]:
-                        style "sticky_note"
+
+        # $ renpy.scene()
+
 
         # TV Hover button
         imagebutton:

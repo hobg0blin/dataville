@@ -96,6 +96,10 @@ init:
     },
   }
 
+  define apartment_bg_map = {
+    "apartment_1": "images/apartment/apartment3_1.png",
+  }
+
 # The game starts here.
 default skip_intro = False
 default no_fail = False
@@ -144,7 +148,7 @@ label start:
         tv_zoom_in_seq
       $renpy.pause(3.3)
       scene interview with Dissolve(1.0)
-      pause 1.0
+      pause 0.7
 
       news_anchor "{cps=30}Good evening, and welcome to our program.{/cps}"
       news_anchor "{cps=30}Tonight, hiding in the shadows. What the alien menace means for you and your family. I’m joined by Victor Willmington, founder and CEO of the Dataville Corporation.{/cps}"
@@ -156,7 +160,6 @@ label start:
       news_anchor "{cps=30}And what do you say to your critics who accuse the Dataville Corporation of exacerbating racial tensions with the aliens?{/cps}"
       victor "{cps=30}Earth was meant for humans. If they have nothing to hide, why are they using camouflage?{/cps}"
       
-      $ blur_master()
       image job_page = "images/job_page.png"
       scene job_page
       call screen job_offer(1)
@@ -166,13 +169,13 @@ label start:
       call screen job_offer(3, "Do you own a computer?", ["Yes", "No"])
       call screen job_offer(3, "Are you interested in working from home?", ["Yes", "No"])
       call screen job_offer(3, "Congratulations! We'd like to extend an offer of employment! Join the DataVille team now.", ["Let's get started."])    
+      
       $ fade_into_dream(3)
       call screen dream("Your first day at a new job.", ["I'm excited!", "I'm terrified."])
       call screen dream("Try not to screw it up.", ["I'm going to do my best!", "Let's hope this doesn't go like my last gig."])
       call screen dream("You really need the money.", ["Mittens really needs to see a vet..."])
       call screen dream("Let's get started.", [])
-      $ unblur_master()
-      $ fade_out_of_dream(0.5)
+      pause 1
       label intro:
   #      manual stuff for game start
 #        image bg apartment_1 = im.FactorScale("images/room/room/room_" + store.apartment_data["apartment_background"] + ".jpg", 1.5)
@@ -197,11 +200,9 @@ label start:
 #        
 #
 #
-        image bg apartment_1 = "images/apartment/apartment3_1.png"
 #        
-        scene bg apartment_1
         play music "dataville_apartment_neutral.wav"
-        call screen apartment(clean(store.apartment_data), store.game_state.time)
+        call screen apartment(clean(store.apartment_data), store.game_state.time, apartment_bg_map['apartment_1']) with Dissolve(3.0)
         hide screen apartment
       # hide dialogue box
       # $ show_window = False
@@ -449,10 +450,9 @@ label start:
             # hide screen message
 #      else:
       hide screen overlay
-      scene bg apartment_1
       play music f"dataville_apartment_{store.game_state.performance_rating}.wav" fadein 2.0
       # $ show_window = True
-      call screen apartment(clean(store.apartment_data), store.game_state.time)
+      call screen apartment(clean(store.apartment_data), store.game_state.time, apartment_bg_map['apartment_1'])
       # $ show_window = False
       if store.game_state.day < 4:
         if store.game_state.time == "end":

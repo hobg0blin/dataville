@@ -17,3 +17,12 @@ style epilogue_text:
 style epilogue_button_text:
     color "#FFFFFF"
     hover_color "#FFFFFF"
+
+style sticky_note:
+    font "fonts/BrownBagLunch.ttf"
+    color "#000000"
+    size 30
+    xsize 129 ysize 132
+    xalign 0.0
+    yalign 0.0
+    xoffset 5
