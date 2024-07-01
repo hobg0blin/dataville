@@ -2452,17 +2452,23 @@ screen performance(state, average):
 # MAYBE: CAT?
 
 screen apartment(data, time, bg_path):
+    default zoom_transition = False
+    default zoom_time = 2
+    default fade_time = 1
+    
     image bg_path:
         xsize 1920 ysize 1080
         pos (0,0)
+        if zoom_transition:
+            at zoom_computer(zoom_time)
 
     python:
         computer_sound = "computer.ogg"
         if time == "end":
             btn = "Go to sleep"
-        else:
-            btn = "Back to work"
-        note_positions = [(734, 827), (1103, 828), (1458, 650), (1458, 462)]
+        start_note_positions = [(734, 827), (1103, 828), (1458, 650), (1458, 462)]
+        offset_note_positions = [(-474, 196), (47, 195), (543, -50), (543, -333)]
+
     fixed:
         # We're not doing note clickables anymore, right? - HAB
         # imagebutton:
@@ -2474,7 +2480,8 @@ screen apartment(data, time, bg_path):
 
         # Notes
         python:
-            random.shuffle(data["sticky_note"])
+            if not zoom_transition:
+                random.shuffle(data["sticky_note"])
         for i, note in enumerate(data["sticky_note"]):
             if i > 3:
                 break
@@ -2482,19 +2489,22 @@ screen apartment(data, time, bg_path):
                 text note["text"]:
                     style "sticky_note"
                     xsize 129 ysize 132
-                    xpos note_positions[i][0] ypos note_positions[i][1]
+                    xpos start_note_positions[i][0] ypos start_note_positions[i][1]
+                    if zoom_transition:
+                        at zoom_sticky_notes(offset_note_positions[i][0], offset_note_positions[i][1], zoom_time)
 
         # $ renpy.scene()
 
 
         # TV Hover button
-        imagebutton:
-            xpos 50 ypos 567
-            xsize 539 ysize 433
-            activate_sound "audio/tv_2.wav"
-            idle Solid("#00000000")
-            hover Solid("#d3a95620")
-            action Show("zoomed_tv", None, store.apartment_data)
+        if not zoom_transition:
+            imagebutton:
+                xpos 50 ypos 567
+                xsize 539 ysize 433
+                activate_sound "audio/tv_2.wav"
+                idle Solid("#00000000")
+                hover Solid("#d3a95620")
+                action Show("zoomed_tv", None, store.apartment_data)
         
         # Same with windows as notes? - HAB
         # imagebutton:
@@ -2505,13 +2515,14 @@ screen apartment(data, time, bg_path):
         #   action Show("zoomed_window", None, store.apartment_data)
         
         # Computer Screen Hovor Button
-        imagebutton:
-            xpos 614 ypos 404
-            xsize 837 ysize 456
-            activate_sound "audio/tv_2.wav"
-            idle Solid("#00000000")
-            hover Solid("#d3a95620")
-            action Return(True)
+        if not zoom_transition:
+            imagebutton:
+                xpos 614 ypos 404
+                xsize 837 ysize 456
+                activate_sound "audio/tv_2.wav"
+                idle Solid("#00000000")
+                hover Solid("#d3a95620")
+                action [ToggleScreenVariable('zoom_transition')]
 
     # frame:
     #     xalign 0.1

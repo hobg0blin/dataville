@@ -111,3 +111,10 @@ transform tv_zoom_in_seq:
 transform on_hide_fade_out:
     on hide:
         fade_out(0.5)
+
+transform zoom_computer(duration = 1.0):
+    easein duration zoom 2.4 xoffset -1500 yoffset -960
+    # zoom 2.4 xoffset -1500 yoffset -960
+
+transform zoom_sticky_notes(x_trans, y_trans, duration = 1.0):
+    easein duration zoom 2.4 xoffset x_trans yoffset y_trans
