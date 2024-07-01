@@ -269,6 +269,7 @@ label start:
 
 #THIS AUTOMATES GOING THROUGH TASKS WHEN INSTRUCTIONS/ETC. ARE UNNECESSARY
     label task_loop:
+      hide screen cogni
       scene bg overlay_background
       # $ show_window = False
       show screen overlay (store.game_state.ui)
@@ -312,7 +313,7 @@ label start:
         # window hide
         # cogni "[custom_dialogue]"
         # hide screen message
-      
+      hide screen cogni 
       show screen timer
 
       $ custom_feedback = ""
@@ -405,6 +406,7 @@ label start:
         show screen cogni(performance_feedback(store.game_state.performance_rating)['text'], char_map['cogni']['mood']['default'], "bottom_left") 
         pause
         if 'rent_fail' in store.event_flags and not no_fail:
+          $ print('hitting rent fail state')
           jump end 
       
 
@@ -472,7 +474,10 @@ label start:
             $ task = store.loop["start_task"]
             $ set_ui_state(task, store.game_state)
             $ cleaned = clean(store.apartment_data)
-
+            scene bg overlay_background
+            show screen overlay(store.game_state.ui)
+            $ fee_text = f"Your combined fees and rent are ${store.daily_rent * store.game_state.day}. Make sure your earnings exceed this number!"
+            call screen cogni(fee_text, char_map['cogni']['mood']['default'], "center") 
             call task_loop from _call_task_loop_1
         else:
           "game state is broken!!!"

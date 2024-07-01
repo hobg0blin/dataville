@@ -317,13 +317,13 @@ screen navigation():
 
             textbutton _("Start") action Start()
 
-        else:
+        # else:
 
-            textbutton _("History") action ShowMenu("history")
+        ##    textbutton _("History") action ShowMenu("history")
 
-            textbutton _("Save") action ShowMenu("save")
+        #    textbutton _("Save") action ShowMenu("save")
 
-        textbutton _("Load") action ShowMenu("load")
+        # textbutton _("Load") action ShowMenu("load")
 
         textbutton _("Preferences") action ShowMenu("preferences")
 
@@ -520,41 +520,41 @@ screen game_menu(title, scroll=None, yinitial=0.0):
             frame:
                 style "game_menu_navigation_frame"
 
-            frame:
-                style "game_menu_content_frame"
+            #frame:
+            #    style "game_menu_content_frame"
 
-                if scroll == "viewport":
+            #    if scroll == "viewport":
 
-                    viewport:
-                        yinitial yinitial
-                        scrollbars "vertical"
-                        mousewheel True
-                        draggable True
-                        pagekeys True
+            #        viewport:
+            #            yinitial yinitial
+            #            scrollbars "vertical"
+            #            mousewheel True
+            #            draggable True
+            #            pagekeys True
 
-                        side_yfill True
+            #            side_yfill True
 
-                        vbox:
-                            transclude
+            #            vbox:
+            #                transclude
 
-                elif scroll == "vpgrid":
+            #    elif scroll == "vpgrid":
 
-                    vpgrid:
-                        cols 1
-                        yinitial yinitial
+            #        vpgrid:
+            #            cols 1
+            #            yinitial yinitial
 
-                        scrollbars "vertical"
-                        mousewheel True
-                        draggable True
-                        pagekeys True
+            #            scrollbars "vertical"
+            #            mousewheel True
+            #            draggable True
+            #            pagekeys True
 
-                        side_yfill True
+            #            side_yfill True
 
-                        transclude
+            #            transclude
 
-                else:
+            #    else:
 
-                    transclude
+            #        transclude
 
     use navigation
 
@@ -2343,12 +2343,12 @@ screen performance(state, average):
         time = "neutral"
         earnings = "neutral"
         earnings_minus_rent = "neutral"
-
-        if state["approval_rate"] > average["score"] + 10:
+        #FIXME: all variables here should be globals set for tweaking
+        if state["approval_rate"] > average["score"]:
             approval_index = random.randint(0, len(sel_positive_emoji) - 1)
             approval = sel_positive_emoji[approval_index]
             sel_positive_emoji.pop(approval_index)
-        elif state["approval_rate"] <= average["score"] + 10 and state["approval_rate"] >= average["score"] - 10:
+        elif state["approval_rate"] <= average["score"] and state["approval_rate"] >= average["score"] - 25:
             approval_index = random.randint(0, len(sel_neutral_emoji) - 1)
             approval = sel_neutral_emoji[approval_index]
             sel_neutral_emoji.pop(approval_index)
@@ -2357,11 +2357,11 @@ screen performance(state, average):
             approval = sel_bad_emoji[approval_index]
             sel_bad_emoji.pop(approval_index)
 
-        if state["average_time"] < average["time"] + 2:
+        if state["average_time"] < average["time"]:
             time_index = random.randint(0, len(sel_positive_emoji) - 1)
             time = sel_positive_emoji[time_index]
             sel_positive_emoji.pop(time_index)
-        elif state["average_time"] >= average["time"] + 2 and state["average_time"] <= average["time"] - 2:
+        elif state["average_time"] >= average["time"] and state["average_time"] <= average["time"] - 2:
             time_index = random.randint(0, len(sel_neutral_emoji) - 1)
             time = sel_neutral_emoji[time_index]
             sel_neutral_emoji.pop(time_index)
@@ -2370,14 +2370,14 @@ screen performance(state, average):
             time = sel_bad_emoji[time_index]
             sel_bad_emoji.pop(time_index)
     
-        if state["earnings"] > average["earnings"] + (average["earnings"] / 10):
+        if state["earnings"] > average["earnings"]:
             if len(sel_positive_emoji) == 1:
                 earnings_index = 0
             else:
                 earnings_index = random.randint(0, len(sel_positive_emoji) - 1)
             earnings = sel_positive_emoji[earnings_index]
             sel_positive_emoji.pop(earnings_index)
-        elif state["earnings"] <= average["earnings"] + (average["earnings"] / 10) and state["earnings"] <= average["earnings"] - (average["earnings"] / 10):
+        elif state["earnings"] <= average["earnings"] and state["earnings"] <= average["earnings"] - (average["earnings"] / 10):
             if len(sel_neutral_emoji) == 1:
                 earnings_index = 0
             else:
@@ -2425,21 +2425,21 @@ screen performance(state, average):
 
         hbox:
             xsize 525
-            text(f"Earnings: ${round(state['earnings'], 2)}"):
+            text(f"Gross earnings: ${round(state['earnings'], 2)}"):
                 xsize 550
                 yalign 0.5
             image f"icons/emoji/{earnings}.png":
                 xalign 1.0
         hbox:
             xsize 525
-            text(f"Rent Cost: -${round((store.daily_rent * store.game_state.day), 2)}"):
+            text(f"Rent & fees: -${round((store.daily_rent * store.game_state.day), 2)}"):
                 xsize 550
                 yalign 0.5
             image f"icons/emoji/{rent_emoji}.png":
                 xalign 1.0
         hbox:
             xsize 525
-            text(f"Total earnings: ${round(state['earnings_minus_rent'], 2)}"):
+            text(f"Net earnings: ${round(state['earnings_minus_rent'], 2)}"):
                 xsize 550
                 yalign 0.5
             image f"icons/emoji/{earnings_minus_rent}.png":
