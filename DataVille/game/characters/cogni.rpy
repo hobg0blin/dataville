@@ -68,6 +68,43 @@ screen cogni_enter(mood, position="center", overlay=False):
     if show_bubble:
         timer pop1_time + pop2_time + pop3_time action [Return(True)]
 
+screen cogni_leave(mood, position="center", overlay=False):
+    python:
+        move1_time, move2_time = (0.1, 0.25)
+        pop1_time, pop2_time = (0.09, 0.09)
+    default move_cogni = False
+
+    window:
+        xalign position_map[position]["window"]["xalign"]
+        yalign position_map[position]["window"]["yalign"]
+    # two windows, one for the cogni sprite, the other for the bubble
+        window: # sprite window
+            image mood:
+                fit "contain"
+                xsize position_map[position]["sprite"]["xsize"]
+                xpos position_map[position]["sprite"]["xpos"]
+                ypos position_map[position]["sprite"]["ypos"]
+                if move_cogni:
+                    at pos_to_l_bounce(move1_time, move2_time)
+        window: # bubble window
+                style position_map[position]["style"]
+                xpos position_map[position]["text"]["xpos"]
+                ypos position_map[position]["text"]["ypos"]
+                at min_bubble(pop1_time, pop2_time)
+    # overlay signifies if cogni's dialogue pauses the game or not
+    if not overlay: 
+        button: # invisable full screen button to advance the dialogue
+            xsize 1920
+            ysize 1080
+            pos (0, 0)
+            action Return(True)
+
+    image "scanlines_overlay" 
+
+    timer pop1_time + pop2_time action [ToggleScreenVariable("move_cogni")]
+    if move_cogni:
+        timer move1_time + move2_time action [Return(True)]
+
 transform l_to_pos_bounce(move1_time=0.5, move2_time=0.1, move3_time=0.05):
     xoffset -1500
     parallel:
@@ -83,6 +120,22 @@ transform expand_bubble(pop1_time=0.09, pop2_time=0.09, pop3_time=0.09):
         linear pop1_time zoom 1.2
         linear pop2_time zoom 0.9
         linear pop3_time zoom 1.0
+    parallel:
+        still_aberate(2.0)
+
+transform pos_to_l_bounce(move1_time=0.1, move2_time=0.2):
+    xoffset 0
+    parallel:
+        easein move1_time xoffset 100
+        easein move2_time xoffset -1500
+    parallel:
+        still_aberate(5.0)
+
+transform min_bubble(pop1_time=0.09, pop2_time=0.09):
+    zoom 1.0
+    parallel:
+        linear pop1_time zoom 1.2
+        linear pop2_time zoom 0.0
     parallel:
         still_aberate(2.0)
 
@@ -151,6 +204,7 @@ style cogni_what:
     yalign 0.5
     text_align 0.5
     color "#FFF"
+    slow_cps 60
 
 # style cogni_window is empty
 # style cogni_namebox is empty

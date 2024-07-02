@@ -523,7 +523,8 @@ init python:
         renpy.hide_screen("cogni_enter")
       renpy.call_screen('cogni', what, mood, position)
       if end:
-        pass
+        renpy.call_screen("cogni_leave", mood, position)
+        renpy.hide_screen("cogni_leave")
 
   def fade_into_dream(duration):
     renpy.show_screen('fade_to_black', duration)
@@ -539,10 +540,10 @@ init python:
   
   def show_computer_screen(store, fade_time = 0.3, wait_time = 0.5):
     renpy.scene()
+    aberate_layer(2.0)
     renpy.show("overlay_background")
     renpy.show_screen("overlay", task = store, _layer="master")
     renpy.with_statement(Dissolve(fade_time))
-    aberate_layer(2.0)
     renpy.pause(wait_time)
 
   # because the custom text tag doesn't automatically put in line breaks
