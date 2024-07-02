@@ -207,7 +207,6 @@ label start:
           split = split_into_sentences(text)
           length = len(split)
           count = 0
-          prev_who = None
         while count < length:
           python:
             strip_message = split[count].strip()
@@ -222,8 +221,7 @@ label start:
             $ sender = char_map[message['sender']]
             # ONLY SHOWING ONE LINE DURING INTRO: I THINK THIS HAS THE LONGEST TEXT
             $ text =  f"{split[count]}"
-            $ render_message(sender['obj'].name, sender['obj'].who_suffix, text, sender['mood']['default'], start = not count, end = count == length - 1)
-            $ prev_who = sender['obj'].name
+            $ render_message(sender['obj'].name, sender['obj'].who_suffix, "check_messages" + text, sender['mood']['default'], start = not count, end = count == length - 1)
           $ count += 1
   #manually set task & variables for first loop
     $ time = store.game_state.ui['timer']
@@ -259,7 +257,7 @@ label start:
             if strip_message != "" and strip_message !="\n":
               $ text = f"{split[count]}"
               $ sender = char_map[message['sender']]
-            $ render_message(sender['obj'].name, sender['obj'].who_suffix, f"[text]", sender['mood']['default'])
+            $ render_message(sender['obj'].name, sender['obj'].who_suffix, "task_loop" + text, sender['mood']['default'])
             $ count += 1
       python:
 # CLEAR IMAGE VARIABLES
