@@ -527,12 +527,12 @@ init python:
     renpy.show("bg black_bg")
     renpy.pause(duration)
   
-  def show_computer_screen(store):
+  def show_computer_screen(store, fade_time = 0.5, wait_time = 0.5):
     renpy.scene()
+    renpy.show("overlay_background")
     renpy.show_screen("overlay", task = store)
-    renpy.show("bg black_bg", tag="curtain")
-    renpy.show("bg overlay_background", behind="curtain")
-    renpy.hide("curtain")
+    renpy.with_statement(Dissolve(fade_time))
+    renpy.pause(wait_time)
 
   # because the custom text tag doesn't automatically put in line breaks
   # text can render off the screen

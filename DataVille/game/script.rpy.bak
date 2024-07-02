@@ -426,9 +426,9 @@ init python:
 label start:
     "Starting game test"
     image bg start_screen = im.FactorScale("images/intro_desk.jpg", 1.5)
-    image bg overlay_background = Solid('#EFF3E6')
+    image overlay_background = Solid('#EFF3E6')
     image bg black_bg = Solid('#FFFFFF')
-    scene bg overlay_background
+    scene overlay_background
 
     scene bg start_screen
     pause
@@ -474,7 +474,7 @@ label start:
 # manually check messsages on first loop 
     $ cleaned = clean(store.apartment_data)
     show screen overlay (store.game_state.ui)
-    scene bg overlay_background
+    scene overlay_background
     label check_messages:
       while cleaned['message']:
         python:
@@ -497,7 +497,7 @@ label start:
 
 #THIS AUTOMATES GOING THROUGH TASKS WHEN INSTRUCTIONS/ETC. ARE UNNECESSARY
     label task_loop:
-      scene bg overlay_background
+      scene overlay_background
       $ show_window = False
       show screen overlay (store.game_state.ui)
       if store.game_state.day != 0 and len(cleaned['message'])>0:
@@ -581,7 +581,7 @@ label start:
     # INTERSTITIAL
     label interstitial:
       hide screen instructions
-      scene bg overlay_background
+      scene overlay_background
       show screen overlay (store.game_state.ui)
       if (store.game_state.time == "end"):
         show screen performance(store.game_state.performance, store.averages['day_' + str(store.game_state.day)])

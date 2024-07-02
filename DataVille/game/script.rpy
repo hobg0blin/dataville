@@ -105,8 +105,7 @@ default skip_intro = False
 default no_fail = False
 default start_at_day_end = False
 label start:
-    image bg start_screen = im.FactorScale("images/intro_desk.jpg", 1.5)
-    image bg overlay_background = "images/screens/monitor/background.png"
+    image overlay_background = "images/screens/monitor/background.png"
     image bg black_bg = Solid('#000000')
     if not skip_intro:
       play music "dataville_workspace_neutral.wav" fadein 2.0
@@ -163,6 +162,7 @@ label start:
       image job_page = "images/job_page.png"
       scene job_page
       call screen job_offer(1)
+      $ blur_master()
       call screen job_offer(2)
       call screen job_offer(3, "\n Looking for a job? Looking to make the world a better, more human place?", ["Take the quiz!"])
       call screen job_offer(3, "Are you proud of your humanity?", ["Yes", "No"])
@@ -175,48 +175,13 @@ label start:
       call screen dream("Try not to screw it up.", ["I'm going to do my best!", "Let's hope this doesn't go like my last gig."])
       call screen dream("You really need the money.", ["Mittens really needs to see a vet..."])
       call screen dream("Let's get started.", [])
-      pause 1
+      $ unblur_master()
+      $ fade_out_of_dream(0.5)
+
       label intro:
-  #      manual stuff for game start
-#        image bg apartment_1 = im.FactorScale("images/room/room/room_" + store.apartment_data["apartment_background"] + ".jpg", 1.5)
-        # scene bg black_bg
-
-#        $ blur_master()
-#        
-#        $ dream_counter = 0
-#        $ dream_len = len(store.apartment_data['dream'])
-#        while dream_counter < dream_len:
-#          $ dream = store.apartment_data['dream'][dream_counter]
-#          if dream['time'] == 'start':
-#              call screen dream(dream['text'], dream['buttons'])
-#          $ dream_counter += 1
-#
-#        $ unblur_master()
-#
-#        image desk_overhead = "images/desk_overhead.png"
-#        scene desk_overhead
-#        pause
-#
-#        
-#
-#
-#        
         play music "dataville_apartment_neutral.wav"
-        call screen apartment(clean(store.apartment_data), store.game_state.time, apartment_bg_map['apartment_1']) with Dissolve(3.0)
+        call screen apartment(clean(store.apartment_data), store.game_state.time, apartment_bg_map['apartment_1'])
         hide screen apartment
-      # hide dialogue box
-      # $ show_window = False
-      # scene bg apartment_bg with Dissolve(1.0)
-
-      # old dream placement - keeping it here for easy revertback
-      # $ blur_master()
-      # $ fade_into_dream(3)
-      # call screen dream("Your first day at a new job.", ["I'm excited!", "I'm terrified."])
-      # call screen dream("Try not to screw it up.", ["I'm going to do my best!", "Let's hope this doesn't go like my last gig."])
-      # call screen dream("You really need the money.", ["Mittens really needs to see a vet..."])
-      # call screen dream("Let's get started.", [])
-      # $ unblur_master()
-      # $ fade_out_of_dream(0.5)
 
     python:
       if start_at_day_end:
@@ -226,18 +191,11 @@ label start:
 
     play music "dataville_workspace_neutral.wav" fadein 2.0
     
-    # if store.game_state.day == 0:
-    #     show dataville_intro
-    #     pause
-    #     show hiring_detail
-    #     pause
-
-
-  # manually check messsages on first loop 
+    # manually check messsages on first loop 
     $ cleaned = clean(store.apartment_data)
+
     $ show_computer_screen(store.game_state.ui)
-    # scene bg overlay_background with Dissolve(1.0)
-    # show screen overlay (store.game_state.ui) with Dissolve(1.0)
+
     label check_messages:
       while cleaned['message']:
         python:
@@ -276,9 +234,7 @@ label start:
 
 #THIS AUTOMATES GOING THROUGH TASKS WHEN INSTRUCTIONS/ETC. ARE UNNECESSARY
     label task_loop:
-      scene bg overlay_background
-      # $ show_window = False
-      show screen overlay (store.game_state.ui)
+      $ show_computer_screen(store.game_state.ui)
       if store.game_state.day != 0 and len(cleaned['message'])>0:
         while cleaned['message']:
           python:
@@ -389,8 +345,7 @@ label start:
     # INTERSTITIAL
     label interstitial:
       hide screen instructions
-      scene bg overlay_background
-      show screen overlay (store.game_state.ui)
+      $ show_computer_screen(store.game_state.ui)
       # fail states for not making rent, failing the tutorial, or being bad at the game
       $ store.game_state.performance_count[store.game_state.performance_rating] += 1
       if store.game_state.performance_count['bad'] >= 3 and not no_fail:

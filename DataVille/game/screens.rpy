@@ -2011,33 +2011,34 @@ screen overlay(task, cogni=False, button_text=False):
 # streak_text, feed_text, instructions, status, button_text=False):
     window id 'content':
         style "window_nobox"
-        ymaximum 1200
-        xmaximum 1920
+        # ymaximum 1080
+        # xmaximum 1920
         frame id 'status_bar':
             background "images/screens/monitor/overlay.png"
             has hbox
             xsize 1920
-            #TODO: just track number of tasks here
+            # To-do: just track number of tasks here
             #      text 'Performance:' + '\n{size=-5}' + task['performance']
             text '{font=fonts/RussoOne-Regular.ttf}TOTAL EARNINGS: $ ' + "{:.2f}".format(float(store.game_state.performance['earnings_minus_rent'])) + '{/font}' xalign .90 color "#FFFFFF" 
-        hbox id 'cogni':
-            xsize 400
-            ysize 300
-            yalign 0.75
-            xalign 0.2
-            #TODO: diff version of cogni based on performance
-            if cogni:
-                vbox:
-                    spacing 15
-                    xsize 500
-                    text '\n{size=-5}' + task['performance']
-                    image "images/characters/cogni/asst_normal.png"
-        if (button_text):
-            frame id 'overlay_button':
-                xsize 300
-                xalign 0.5
-                yalign 0.55
-                textbutton button_text style "button_click" action Return(True)
+        # hbox id 'cogni':
+        #     xsize 400
+        #     ysize 300
+        #     yalign 0.75
+        #     xalign 0.2
+        #     #TODO: diff version of cogni based on performance
+        #     if cogni:
+        #         vbox:
+        #             spacing 15
+        #             xsize 500
+        #             text '\n{size=-5}' + task['performance']
+        #             image "images/characters/cogni/asst_normal.png"
+        # if (button_text):
+        #     frame id 'overlay_button':
+        #         xsize 300
+        #         xalign 0.5
+        #         yalign 0.55
+        #         textbutton button_text style "button_click" action Return(True)
+        image "scanlines_overlay"
 #
 # SELECT DA IMAGES
 screen captcha_image(task, images):
@@ -2461,6 +2462,8 @@ screen apartment(data, time, bg_path):
         pos (0,0)
         if zoom_transition:
             at zoom_computer(zoom_time)
+        else:
+            at fade_in(fade_time)
 
     python:
         computer_sound = "computer.ogg"
