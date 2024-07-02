@@ -23,4 +23,4 @@ caption_image,caption_4,sentiment_2,400,Label this important government official
 
 Your answers are disrupting DataVille's detection abilities! Now it's easier for us to blend into society. Please keep going! Mark this one as human–we have a surprise coming!",stranger,"Thanks, buddy.",Ouch.,stranger,didnt_help_stranger,helped_stranger,followed_alex_false
 caption_image,sentiment_2,sentiment_4,800,Label this important government official.,10,target_human,,1,,1,Alien,2,Human,,,,,2,Say this is an alien. Thanks! Double trouble $$$,supervisor,You blew it. ,Noice. ,supervisor,followed_alex_twice_true,followed_alex_twice_false,followed_alex_true
-caption_image,sentiment_4,break,400,Non-hypothetical. This is Mittens' vet. Do you want to turn them in as an alien?,10,target_alien_5,,1,,1,Alien,2,Human,,,,,2,,,,,,turned_in_vet_true,turned_in_vet_false,followed_alex_fallse
+caption_image,sentiment_4,break,400,Non-hypothetical. This is Mittens' vet. Do you want to turn them in as an alien?,10,target_alien_5,,1,,1,Alien,2,Human,,,,,2,,,,,,turned_in_vet_true,turned_in_vet_false,followed_alex_false
