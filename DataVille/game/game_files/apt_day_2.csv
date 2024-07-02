@@ -1,13 +1,18 @@
 DAY,TEXT,TYPE,PERFORMANCE,TIME,SENDER,IMAGE_FOLDER,IMAGE,BUTTON_1_TEXT,BUTTON_2_TEXT,EVENT_FLAG
 2,"Alex, your manager, has something to tell you.",message,default,end,cogni,,,Got it.,Ugh. Here we go…,
-2,"You're nailing it, bud! You're eligible for the incentive bonus. Keep up the great work! 
+2,"You're nailing it, bud! Keep up the great work! 
 
-Happy labeling!
-",message,good,end,supervisor,,,A hard day’s work!,,
-2,"Unfortunately, your performance is not eligible for an incentive bonus. Let’s try to raise those scores on the next set. Humanity is depending on you.
+Also, the aliens are getting better at hiding. That means more work and bigger payouts!
+
+Happy labeling!",message,good,end,supervisor,,,A hard day’s work!,,
+2,"Your performance is just okay. Let’s try to raise those scores on the next set. Humanity is depending on you.
+
+Also, the aliens are getting better at hiding. That means more work and bigger payouts!
 
 Happy labeling!",message,neutral,end,supervisor,,,A hard day’s work!,,
 2,"I’m disappointed in your poor performance. Please take your time and do your best. Humanity is depending on you. 
+
+Also, the aliens are getting better at hiding. That means more work and bigger payouts!
 
 Happy labeling!
 ",message,bad,end,supervisor,,,A hard day’s work!,,
@@ -34,5 +39,5 @@ Happy labeling!
 2,Clean bathroom,sticky_note,good,end,,,,,,
 2,I feel like I am in the driver's seat of my life.,dream,default,end,,,,Discipline is key!,And I'm driving off a cliff.,
 2,This isn't how I imagined my life would be at this age.,dream,default,end,,,,Money will fix it!,I crave a greater purpose!,
-2,"If I was face-to-face with the head of Dataville, I would...",dream,default,end,,,,Pitch him my great ideas!,Tell him what I really think about his bullshit company.,
+2,"If I was face-to-face with the CEO of Dataville, I would...",dream,default,end,,,,Pitch him my great ideas!,Tell him what I really think about his bullshit company.,
 2,Back to work.,dream,default,end,,,,,,

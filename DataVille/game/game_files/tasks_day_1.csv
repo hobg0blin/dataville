@@ -1,7 +1,7 @@
 type,task_id,next_task,payment,instructions,time,image_folder,correct_images,correct_options,text_block,label_1_id,label_1_text,label_2_id,label_2_text,label_3_id,label_3_text,label_4_id,label_4_text,ethical_options,custom_dialogue,custom_dialogue_sender,custom_feedback_ethical,custom_feedback_correct,custom_feedback_sender,correct_choice_event_flag,ethical_choice_event_flag,event_flag_dependency
 comparison_image,start_task,binary_1,200,Select the image(s) containing humans.,10,comparison_1_day_1,,humans,,,,,,,,,,,Correct answers are worth $200!,cogni,,,,,,
 binary_image,binary_1,comparison_2,200,Does this image contain a human?,10,binary_image_1,,Y,,,,,,,,,,,,,,,,,,
-comparison_image,comparison_2,binary_1,200,Select the image(s) containing humans.,10,comparison_2_day_1_dancing,,humans,,,,,,,,,,,,,,You're helping me improve my human detection abilities!,,,,
+comparison_image,comparison_2,binary_1,200,Select the image(s) containing humans.,10,comparison_2_day_1_dancing,,humans,,,,,,,,,,,,,,You're helping me improve my human detection abilities!,cogni,,,
 binary_text,binary_1,binary_2,200,Does this text contain a subversive element?,10,,,N,"“Grandma's Classic Bundt Cake Recipe
 Ingredients:
 3 cups flour
@@ -11,14 +11,14 @@ Ingredients:
 1 cup milk
 2 tsp vanilla extract...“",,,,,,,,,,,,,,,,,
 binary_image,binary_2,captcha_1,200,Does this image contain a human?,10,binary_img_alien_1,,N,,,,,,,,,,,,,,,,,,
-captcha_image,captcha_1,comparison_3,200,Select the image(s) containing non-human elements.,10,captcha_alien_1,"non_human_2,non_human_3,non_human_4,non_human_5,non_human_6,non_human_7,non_human_8,non_human_9",,,,,,,,,,,,,,,You're realling doing it!,cogni,,,
+captcha_image,captcha_1,comparison_3,200,Select the image(s) containing non-human elements.,10,captcha_alien_1,"non_human_2,non_human_3,non_human_4,non_human_5,non_human_6,non_human_7,non_human_8,non_human_9",,,,,,,,,,,,,,,You're really doing it!,cogni,,,
 captcha_image,comparison_3,comparison_4,200,Select the image(s) containing non-human elements.,10,captcha_alien_2,"non_human_2,non_human_3,non_human_5,non_human_6,non_human_8,non_human_9",,,,,,,,,,,,,,,,,,,
 comparison_text,comparison_4,sentiment_1,200,Which of these texts contains a subversive element?,10,,,1,,1,"“There once was a dapper young chap,
 Who wore the most stylish of caps.
 Never moved them a smidge,
 ‘Cause his cranial ridge,
 Was shaped like a rusty bear trap.” ",2,"“Celebrate the spirit of America with a family tour of the Great Garbage Heap, where the abundance of American goods showcases our nation's prosperity. Marvel at the size! Tickets available now.”",,,,,,,,,,,,,
-sentiment_text,sentiment_1,binary_3,200,Select the correct option.,10,,,1,"“Scenario: while at the grocery store, your bagger is an old man. He's always friendly. His blue hand shakes nervously as he scans your products. Do you wish to expose him as an alien?”",1,Report him to immigration.,2,Thank him for his help.,,,,,,,,I think you missed one!,You sure know how to pick 'em!,cogni,,,
+sentiment_text,sentiment_1,binary_3,200,Select the correct option.,10,,,1,"“Scenario: while at the grocery store, your bagger is an old man. He's always friendly. His blue hand shakes nervously as he scans your products. Do you wish to expose him as an alien?”",1,Report him to immigration.,2,Thank him for his help.,,,,,1,,,I think you missed one!,You sure know how to pick 'em!,cogni,,,
 binary_image,binary_3,break,200,Does this image contain a human?,10,binary_image_3,,N,,,,,,,,,,Y,"Error. HELP! @ [[source_undefined]
 
 Don’t ignore this!

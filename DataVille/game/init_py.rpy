@@ -84,17 +84,17 @@ init python:
     # CONSTANTS FOR PERFORMANCE COMPARISON
     store.averages = {
         'day_0': {
-          'score': 85,
+          'score': 90,
           'time': 8,
           'earnings': 600
           },
         'day_1': {
-          'score': 85,
+          'score': 90,
             'time': 8,
           'earnings': 2200
           },
         'day_2': {
-            'score': 85,
+            'score': 90,
             'time': 8,
           'earnings': 5000
           },
@@ -119,7 +119,7 @@ init python:
     store.game_state.performance_count = {'good': 0, 'bad': 0, 'neutral': 0}
     store.game_state.task_count = 0
     store.apartment_file = ""
-    store.daily_rent = 700
+    store.daily_rent = 800
 
 
     store.game_state.ui = {
@@ -413,7 +413,9 @@ init python:
                   if (event_flag == 'tutorial_fail' or event_flag == 'rent_fail' or event_flag == 'performance_fail') and event_flag == epilogue['event_flag']:
                       print('fail state hit: ', event_flag)
                       has_event_flag = True
-                  if event_flag == epilogue['event_flag'] and epilogue['performance'] == store.game_state.performance_rating:
+                  if event_flag == epilogue['event_flag'] and epilogue['performance'] == 'bad' and store.game_state.performance_rating == 'neutral':
+                      has_event_flag = True
+                  elif event_flag == epilogue['event_flag'] and epilogue['performance'] == store.game_state.performance_rating:
                       print('event flag based epilogue firing: ', epilogue)
                       has_event_flag = True
                 if has_event_flag:
