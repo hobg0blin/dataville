@@ -12,6 +12,14 @@
 
 # Nai @ Make Visual Novels
 
+# ------ Custom Transformations ------
+transform still_aberate(amount=10.0):
+    shader "MakeVisualNovels.StillAberration"
+    u_aberrationAmount(amount)
+
+# ------------------------------------
+
+
 transform AnimatedAberate:
     shader "MakeVisualNovels.AnimatedAberration"
     u_aberrationAmount(100.0)

@@ -506,12 +506,15 @@ init python:
     renpy.show_layer_at(unblur)
     renpy.with_statement({'master' : Dissolve(0.15)})
   
-  def render_message(who, who_suffix, what, mood, position = "center"):
+  def render_message(who, who_suffix, what, mood, position = "center", prev_diff = False):
     """
     Renders message style between emails or cogni from reading the CSV scripts.
     """
     if who != "Cogni":
-      renpy.call_screen('email_message', who, who_suffix, what, mood)
+      if prev_diff:
+        renpy.show("expand_prompt_frame")
+        renpy.pause(0.35)
+      renpy.call_screen('email_message', who, who_suffix, what, prev_diff, mood)
     else:
       renpy.call_screen('cogni', what, mood, position)
 
@@ -527,7 +530,7 @@ init python:
     renpy.show("bg black_bg")
     renpy.pause(duration)
   
-  def show_computer_screen(store, fade_time = 0.5, wait_time = 0.5):
+  def show_computer_screen(store, fade_time = 0.3, wait_time = 0.5):
     renpy.scene()
     renpy.show("overlay_background")
     renpy.show_screen("overlay", task = store)

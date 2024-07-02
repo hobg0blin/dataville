@@ -160,22 +160,22 @@ label start:
       victor "{cps=30}Earth was meant for humans. If they have nothing to hide, why are they using camouflage?{/cps}"
       
       image job_page = "images/job_page.png"
+      image job_page_blur = "images/job_page_blur.png"
       scene job_page
-      call screen job_offer(1)
-      $ blur_master()
+      call screen job_offer(1) with Dissolve(1.0)
       call screen job_offer(2)
       call screen job_offer(3, "\n Looking for a job? Looking to make the world a better, more human place?", ["Take the quiz!"])
       call screen job_offer(3, "Are you proud of your humanity?", ["Yes", "No"])
       call screen job_offer(3, "Do you own a computer?", ["Yes", "No"])
       call screen job_offer(3, "Are you interested in working from home?", ["Yes", "No"])
       call screen job_offer(3, "Congratulations! We'd like to extend an offer of employment! Join the DataVille team now.", ["Let's get started."])    
-      
+      show job_page_blur
+
       $ fade_into_dream(3)
       call screen dream("Your first day at a new job.", ["I'm excited!", "I'm terrified."])
       call screen dream("Try not to screw it up.", ["I'm going to do my best!", "Let's hope this doesn't go like my last gig."])
       call screen dream("You really need the money.", ["Mittens really needs to see a vet..."])
       call screen dream("Let's get started.", [])
-      $ unblur_master()
       $ fade_out_of_dream(0.5)
 
       label intro:
@@ -200,11 +200,12 @@ label start:
       while cleaned['message']:
         python:
           message = cleaned['message'].pop(0)
-          n = 120 # characterm limit?
+          n = 120 # character limit?
           text = message['text']
           split = split_into_sentences(text)
           length = len(split)
           count = 0
+          prev_who = None
         while count < length:
           python:
             strip_message = split[count].strip()
@@ -219,7 +220,8 @@ label start:
             $ sender = char_map[message['sender']]
             # ONLY SHOWING ONE LINE DURING INTRO: I THINK THIS HAS THE LONGEST TEXT
             $ text =  f"{split[count]}"
-            $ render_message(sender['obj'].name, sender['obj'].who_suffix, f"[text]", sender['mood']['default'])
+            $ render_message(sender['obj'].name, sender['obj'].who_suffix, f"[text]", sender['mood']['default'], prev_diff = prev_who != sender['obj'].name)
+            $ prev_who = sender['obj'].name
           $ count += 1
   #manually set task & variables for first loop
     $ time = store.game_state.ui['timer']
