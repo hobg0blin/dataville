@@ -42,50 +42,60 @@ style email_message_namebox:
     xalign 0.0
     yalign 0.0
 
+style email_message_what:
+    color "#FFFFFF"
+    size 30
+    slow_cps 60
+
 transform expand(duration=0.5):
+    zoom 0.0
     linear duration zoom 1.0
     pause(duration)
 
 transform minimize(duration=0.5):
+    zoom 1.0
     linear duration zoom 0.0
     pause(duration)
 
 default expand_time = 0.35
 
-image expand_prompt_frame:
+image wire_prompt_frame:
     "gui/prompt_frame_empty.png"
-    zoom 0.0
     xalign 0.5
     yalign 0.42
     xsize 1500
     ysize 600
+
+transform expand_prompt_frame_ani(expand_time=0.5, interval=0.05):
     parallel:
         expand(expand_time)
     parallel:
         # blink duration and ending pause should be the same as expand duration
-        blink(expand_time, 0.05)
+        blink(expand_time, interval)
     parallel:
-        LightAberate
+        still_aberate(2)
 
-image close_prompt_frame:
-    "gui/prompt_frame_empty.png"
-    zoom 1.0
-    xalign 0.5
-    yalign 0.42
-    xsize 1500
-    ysize 600
+transform close_prompt_frame_ani(expand_time=0.5, interval=0.05):
     parallel:
         minimize(expand_time)
     parallel:
         # blink duration and ending pause should be the same as expand duration
-        blink(expand_time, 0.05)
-
+        blink(expand_time, interval)
+    parallel:
+        still_aberate(2)
 
 screen expand_message(expand_time = 0.35, blink_interval = 0.05):
-    add "expand_prompt_frame"
+    image "wire_prompt_frame":
+        at expand_prompt_frame_ani(expand_time, blink_interval)
     timer expand_time action [Return(True)]
 
-screen email_message(who, who_suffix, what, show_intro = False, image_path = None, buttons = ["Continue"]):  
+screen close_message(expand_time = 0.35, blink_interval = 0.05):
+    image "wire_prompt_frame":
+        at close_prompt_frame_ani(expand_time, blink_interval)
+    timer expand_time action [Return(True)]
+
+screen email_message(who, who_suffix, what, image_path = None, buttons = ["Continue"]):  
+    layer "master"
     style_prefix "email_message"
     window:
         id "window"
@@ -100,7 +110,7 @@ screen email_message(who, who_suffix, what, show_intro = False, image_path = Non
                         ysize 150
                         xalign 0.0
                         yalign 0.0
-                        at still_aberate(15)
+                        at still_aberate(15.0)
                 text who id "who":
                     color "#FFFFFF"
                     size 72
@@ -108,7 +118,7 @@ screen email_message(who, who_suffix, what, show_intro = False, image_path = Non
                         xpos 200
                     else:
                         xpos 0
-                    at still_aberate(5.0)
+                    at still_aberate(0.5)
                 if who_suffix is not None:
                     text who_suffix id "who_suffix":
                         color "#d2d2d2"
@@ -118,14 +128,12 @@ screen email_message(who, who_suffix, what, show_intro = False, image_path = Non
                             xpos 200
                         else:
                             xpos 0
-                        at still_aberate(2.0)
+                        at still_aberate(0.5)
         text what id "what":
-            color "#FFFFFF"
-            size 30
+            style "email_message_what"
             ypos 200
-            at still_aberate(2.8)
-            slow_cps 35
-        at still_aberate(1.0)
+            at still_aberate(0.5)
+        # at still_aberate(1.0)
         
     hbox id 'buttons':
         xalign 0.5

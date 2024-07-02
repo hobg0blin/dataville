@@ -44,7 +44,6 @@ init python:
     :rtype: list[str]
     """
     text = " " + text + "  "
-#    text = text.replace("\n"," ")
     text = re.sub(prefixes,"\\1<prd>",text)
     text = re.sub(websites,"<prd>\\1",text)
     text = re.sub(digits + "[.]" + digits,"\\1<prd>\\2",text)
@@ -58,7 +57,6 @@ init python:
     text = re.sub(" "+suffixes+"[.]"," \\1<prd>",text)
     text = re.sub(" " + alphabets + "[.]"," \\1<prd>",text)
     if "”" in text: text = text.replace(".”","”.")
-#    if "\"" in text: text = text.replace(".\"","\".")
     if "!" in text: text = text.replace("!\"","\"!")
     if "?" in text: text = text.reSSplace("?\"","\"?")
     text = text.replace(".",".<stop>")
@@ -74,7 +72,7 @@ init python:
     # besides at the end, we can use the filter function
     # sentences = list(filter(lambda s: not s.isspace(), sentences))
     
-    sentences = [s.lstrip('\n.') for s in sentences]
+    sentences = [s.lstrip() for s in sentences]
 
     return sentences
   
@@ -506,17 +504,26 @@ init python:
     renpy.show_layer_at(unblur)
     renpy.with_statement({'master' : Dissolve(0.15)})
   
-  def render_message(who, who_suffix, what, mood, position = "center", prev_diff = False):
+  def render_message(who, who_suffix, what, mood, position = "center", start = False, end = False):
     """
     Renders message style between emails or cogni from reading the CSV scripts.
     """
     if who != "Cogni":
-      if prev_diff:
-        renpy.show("expand_prompt_frame")
-        renpy.pause(0.35)
-      renpy.call_screen('email_message', who, who_suffix, what, prev_diff, mood)
+      if start:
+        expand_time, blink_interval = (0.35, 0.05)
+        renpy.call_screen("expand_message")
+        renpy.hide_screen("expand_message")
+      renpy.call_screen('email_message', who, who_suffix, what, mood)
+      if end:
+        renpy.call_screen("close_message")
+        renpy.hide_screen("expand_message")
     else:
+      if start:
+        renpy.call_screen("cogni_enter", mood, position)
+        renpy.hide_screen("cogni_enter")
       renpy.call_screen('cogni', what, mood, position)
+      if end:
+        pass
 
   def fade_into_dream(duration):
     renpy.show_screen('fade_to_black', duration)
@@ -533,8 +540,9 @@ init python:
   def show_computer_screen(store, fade_time = 0.3, wait_time = 0.5):
     renpy.scene()
     renpy.show("overlay_background")
-    renpy.show_screen("overlay", task = store)
+    renpy.show_screen("overlay", task = store, _layer="master")
     renpy.with_statement(Dissolve(fade_time))
+    aberate_layer(2.0)
     renpy.pause(wait_time)
 
   # because the custom text tag doesn't automatically put in line breaks
@@ -557,5 +565,14 @@ init python:
     lines.append(line)
     
     return lines
+
+  def aberate_layer(amount = 2.0, layer_choice = "master"):
+    if layer_choice == "all":
+      renpy.show_layer_at(still_aberate(amount), layer="master")
+      renpy.show_layer_at(still_aberate(amount), layer="overlay")
+      renpy.show_layer_at(still_aberate(amount), layer="transient")
+      renpy.show_layer_at(still_aberate(amount), layer="screens")
+    else:
+      renpy.show_layer_at(still_aberate(amount), layer=layer_choice)
 
   set_initial_variables() 

@@ -1,6 +1,7 @@
 define cogni = Character("Cogni", who_suffix="AI Assistant", image="images/characters/cogni/cogni_happy.png")
 
 screen cogni(what, mood, position="center", overlay=False):
+    layer "master"
     window:
         xalign position_map[position]["window"]["xalign"]
         yalign position_map[position]["window"]["yalign"]
@@ -11,7 +12,7 @@ screen cogni(what, mood, position="center", overlay=False):
                 xsize position_map[position]["sprite"]["xsize"]
                 xpos position_map[position]["sprite"]["xpos"]
                 ypos position_map[position]["sprite"]["ypos"]
-                at StillAberate
+                at still_aberate(position_map[position]["sprite"]["aberate"])
         window: # bubble window
             style position_map[position]["style"]
             xpos position_map[position]["text"]["xpos"]
@@ -20,7 +21,7 @@ screen cogni(what, mood, position="center", overlay=False):
             text what:
                 style "cogni_what"
                 id "what"
-                slow_cps preferences.text_cps
+                at still_aberate(position_map[position]["text"]["aberate"])
     # overlay signifies if cogni's dialogue pauses the game or not
     if not overlay: 
         button: # invisable full screen button to advance the dialogue
@@ -30,6 +31,61 @@ screen cogni(what, mood, position="center", overlay=False):
             action Return(True)
     
     image "scanlines_overlay" 
+
+screen cogni_enter(mood, position="center", overlay=False):
+    python:
+        move1_time, move2_time, move3_time = (0.25, 0.1, 0.05)
+        pop1_time, pop2_time, pop3_time = (0.09, 0.09, 0.09)
+    default show_bubble = False
+    window:
+        xalign position_map[position]["window"]["xalign"]
+        yalign position_map[position]["window"]["yalign"]
+    # two windows, one for the cogni sprite, the other for the bubble
+        window: # sprite window
+            image mood:
+                fit "contain"
+                xsize position_map[position]["sprite"]["xsize"]
+                xpos position_map[position]["sprite"]["xpos"]
+                ypos position_map[position]["sprite"]["ypos"]
+                at l_to_pos_bounce(move1_time,move2_time, move3_time)
+        if show_bubble:
+            window: # bubble window
+                style position_map[position]["style"]
+                xpos position_map[position]["text"]["xpos"]
+                ypos position_map[position]["text"]["ypos"]
+                at expand_bubble(pop1_time, pop2_time, pop3_time)
+    # overlay signifies if cogni's dialogue pauses the game or not
+    if not overlay: 
+        button: # invisable full screen button to advance the dialogue
+            xsize 1920
+            ysize 1080
+            pos (0, 0)
+            action Return(True)
+
+    image "scanlines_overlay" 
+
+    timer move1_time + move2_time + move3_time action [ToggleScreenVariable("show_bubble")]
+    if show_bubble:
+        timer pop1_time + pop2_time + pop3_time action [Return(True)]
+
+transform l_to_pos_bounce(move1_time=0.5, move2_time=0.1, move3_time=0.05):
+    xoffset -1500
+    parallel:
+        easein move1_time xoffset 100
+        easein move2_time xoffset -50
+        easein move3_time xoffset 0
+    parallel:
+        still_aberate(5.0)
+
+transform expand_bubble(pop1_time=0.09, pop2_time=0.09, pop3_time=0.09):
+    zoom 0.0
+    parallel:
+        linear pop1_time zoom 1.2
+        linear pop2_time zoom 0.9
+        linear pop3_time zoom 1.0
+    parallel:
+        still_aberate(2.0)
+
 
 define position_map = {
     "center": {
@@ -42,10 +98,12 @@ define position_map = {
             "xpos": 600,
             "ypos": 100,
             "xsize": 250,
+            "aberate": 5.0
         },
         "text": {
             "xpos": 800,
-            "ypos": 100
+            "ypos": 100,
+            "aberate": 3.0
         }
     },
     "bottom_left": {
@@ -57,11 +115,13 @@ define position_map = {
         "sprite": {
             "xpos": 100,
             "ypos": 0,
-            "xsize": 150
+            "xsize": 150,
+            "aberate": 5.0
         },
         "text": {
             "xpos": 100,
-            "ypos": 0
+            "ypos": 0,
+            "aberate": 3.0
         }
     },
 }

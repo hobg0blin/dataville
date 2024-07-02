@@ -39,7 +39,9 @@ init:
   image alien_human_family = "alien_human_family.png"
   image dark_green = Solid("#136366")
   image bg black = Solid("#000000")
-  # image cogni_sprite = "images/characters/cogni/cogni_happy.png"
+
+  # All images must be declared in the init block
+  image cogni_sprite happy = "images/characters/cogni/cogni_happy.png"
 
   define supervisor = Character("Alex T.", image="images/characters/alex/alex_neutral.png", who_suffix = "Senior Manager @ Dataville", kind=email_message)
   # cogni defined in characters/cogni.rpy
@@ -76,7 +78,7 @@ init:
     "cogni": {
       "obj": cogni,
       "mood": {
-        "default": "images/characters/cogni/cogni_happy.png",
+        "default": "cogni_sprite happy",
         "quizzical": "images/characters/cogni/asst_quizzical.png",
         "angry": "images/characters/cogni/asst_angry.png",
         "surprised": "images/characters/cogni/asst_surprised.png"
@@ -107,81 +109,81 @@ default start_at_day_end = False
 label start:
     image overlay_background = "images/screens/monitor/background.png"
     image bg black_bg = Solid('#000000')
-    if not skip_intro:
-      play music "dataville_workspace_neutral.wav" fadein 2.0
+    # if not skip_intro:
+    #   play music "dataville_workspace_neutral.wav" fadein 2.0
 
-      image tv_overlay:
-        "images/screens/00-title/tv_hollow.png"
+    #   image tv_overlay:
+    #     "images/screens/00-title/tv_hollow.png"
 
-      # v2 sequence
-      image interview:
-        "images/screens/01-intro/interview.jpg"
-        zoom 0.335
-      image bg gray_bg = Solid('#464645')
-      # image bg news_bg = "images/news_bg.png"
-      image bg apartment_bg = "images/apartment/apartment3_1.png"
+    #   # v2 sequence
+    #   image interview:
+    #     "images/screens/01-intro/interview.jpg"
+    #     zoom 0.335
+    #   image bg gray_bg = Solid('#464645')
+    #   # image bg news_bg = "images/news_bg.png"
+    #   image bg apartment_bg = "images/apartment/apartment3_1.png"
 
-      image interview_trans:
-        "images/screens/01-intro/title-into-trans.png"
-        tv_zoom_in_seq
+    #   image interview_trans:
+    #     "images/screens/01-intro/title-into-trans.png"
+    #     tv_zoom_in_seq
 
-      show tv_noise:
-        pos (700, 145)
-        xoffset 0
-        yoffset 0
-        zoom 1.1
-      show tv_overlay:
-        zoom 0.75
-        xoffset -330
-        yoffset -250
-        pos (0, 0)
-      pause 0.5
-      hide tv_noise
-      hide tv_overlay
+    #   show tv_noise:
+    #     pos (700, 145)
+    #     xoffset 0
+    #     yoffset 0
+    #     zoom 1.1
+    #   show tv_overlay:
+    #     zoom 0.75
+    #     xoffset -330
+    #     yoffset -250
+    #     pos (0, 0)
+    #   pause 0.5
+    #   hide tv_noise
+    #   hide tv_overlay
 
-      show interview_trans:
-        pos (0,0)
-        VHS
-      show tv_overlay:
-        pos (0, 0)  
-        tv_zoom_in_seq
-      $renpy.pause(3.3)
-      scene interview with Dissolve(1.0)
-      pause 0.7
+    #   show interview_trans:
+    #     pos (0,0)
+    #     VHS
+    #   show tv_overlay:
+    #     pos (0, 0)  
+    #     tv_zoom_in_seq
+    #   $renpy.pause(3.3)
+    #   scene interview with Dissolve(1.0)
+    #   pause 0.7
 
-      news_anchor "{cps=30}Good evening, and welcome to our program.{/cps}"
-      news_anchor "{cps=30}Tonight, hiding in the shadows. What the alien menace means for you and your family. I’m joined by Victor Willmington, founder and CEO of the Dataville Corporation.{/cps}"
-      news_anchor "{cps=30}Tell me Victor, how does your company see the ongoing alien migratory crisis?{/cps}"
-      victor "{cps=30}Where you see a crisis, we at Dataville see an opportunity. This is our chance to restore human society to a safer, simpler time.{/cps}"
-      victor "{cps=30}With our patented alien identification AI technology, we’re able to accurately penetrate alien camouflage.{/cps}"
-      news_anchor "{cps=30}And you’ve found active partners in the public sector?{/cps}"
-      victor "{cps=30}That’s right. Our clients include the Departments of Defense and State, as well as private enterprises looking to ensure their communities are 100 percent human.{/cps}"
-      news_anchor "{cps=30}And what do you say to your critics who accuse the Dataville Corporation of exacerbating racial tensions with the aliens?{/cps}"
-      victor "{cps=30}Earth was meant for humans. If they have nothing to hide, why are they using camouflage?{/cps}"
+    #   news_anchor "{cps=30}Good evening, and welcome to our program.{/cps}"
+    #   news_anchor "{cps=30}Tonight, hiding in the shadows. What the alien menace means for you and your family. I’m joined by Victor Willmington, founder and CEO of the Dataville Corporation.{/cps}"
+    #   news_anchor "{cps=30}Tell me Victor, how does your company see the ongoing alien migratory crisis?{/cps}"
+    #   victor "{cps=30}Where you see a crisis, we at Dataville see an opportunity. This is our chance to restore human society to a safer, simpler time.{/cps}"
+    #   victor "{cps=30}With our patented alien identification AI technology, we’re able to accurately penetrate alien camouflage.{/cps}"
+    #   news_anchor "{cps=30}And you’ve found active partners in the public sector?{/cps}"
+    #   victor "{cps=30}That’s right. Our clients include the Departments of Defense and State, as well as private enterprises looking to ensure their communities are 100 percent human.{/cps}"
+    #   news_anchor "{cps=30}And what do you say to your critics who accuse the Dataville Corporation of exacerbating racial tensions with the aliens?{/cps}"
+    #   victor "{cps=30}Earth was meant for humans. If they have nothing to hide, why are they using camouflage?{/cps}"
       
-      image job_page = "images/job_page.png"
-      image job_page_blur = "images/job_page_blur.png"
-      scene job_page
-      call screen job_offer(1) with Dissolve(1.0)
-      call screen job_offer(2)
-      call screen job_offer(3, "\n Looking for a job? Looking to make the world a better, more human place?", ["Take the quiz!"])
-      call screen job_offer(3, "Are you proud of your humanity?", ["Yes", "No"])
-      call screen job_offer(3, "Do you own a computer?", ["Yes", "No"])
-      call screen job_offer(3, "Are you interested in working from home?", ["Yes", "No"])
-      call screen job_offer(3, "Congratulations! We'd like to extend an offer of employment! Join the DataVille team now.", ["Let's get started."])    
-      show job_page_blur
+    #   image job_page = "images/job_page.png"
+    #   image job_page_blur = "images/job_page_blur.png"
+    #   scene job_page
+    #   call screen job_offer(1) with Dissolve(1.0)
+    #   call screen job_offer(2)
+    #   call screen job_offer(3, "\n Looking for a job? Looking to make the world a better, more human place?", ["Take the quiz!"])
+    #   call screen job_offer(3, "Are you proud of your humanity?", ["Yes", "No"])
+    #   call screen job_offer(3, "Do you own a computer?", ["Yes", "No"])
+    #   call screen job_offer(3, "Are you interested in working from home?", ["Yes", "No"])
+    #   call screen job_offer(3, "Congratulations! We'd like to extend an offer of employment! Join the DataVille team now.", ["Let's get started."])    
+    #   show job_page_blur
 
-      $ fade_into_dream(3)
-      call screen dream("Your first day at a new job.", ["I'm excited!", "I'm terrified."])
-      call screen dream("Try not to screw it up.", ["I'm going to do my best!", "Let's hope this doesn't go like my last gig."])
-      call screen dream("You really need the money.", ["Mittens really needs to see a vet..."])
-      call screen dream("Let's get started.", [])
-      $ fade_out_of_dream(0.5)
+    #   $ fade_into_dream(2.5)
+    #   call screen dream("Your first day at a new job.", ["I'm excited!", "I'm terrified."])
+    #   call screen dream("Try not to screw it up.", ["I'm going to do my best!", "Let's hope this doesn't go like my last gig."])
+    #   call screen dream("You really need the money.", ["Mittens really needs to see a vet..."])
+    #   call screen dream("Let's get started.", [])
+    #   $ fade_out_of_dream(0.5)
 
-      label intro:
-        play music "dataville_apartment_neutral.wav"
-        call screen apartment(clean(store.apartment_data), store.game_state.time, apartment_bg_map['apartment_1'])
-        hide screen apartment
+    #   label intro:
+    #     play music "dataville_apartment_neutral.wav"
+    #     call screen apartment(clean(store.apartment_data), store.game_state.time, apartment_bg_map['apartment_1'])
+    #     hide screen apartment
 
     python:
       if start_at_day_end:
@@ -220,7 +222,7 @@ label start:
             $ sender = char_map[message['sender']]
             # ONLY SHOWING ONE LINE DURING INTRO: I THINK THIS HAS THE LONGEST TEXT
             $ text =  f"{split[count]}"
-            $ render_message(sender['obj'].name, sender['obj'].who_suffix, f"[text]", sender['mood']['default'], prev_diff = prev_who != sender['obj'].name)
+            $ render_message(sender['obj'].name, sender['obj'].who_suffix, text, sender['mood']['default'], start = not count, end = count == length - 1)
             $ prev_who = sender['obj'].name
           $ count += 1
   #manually set task & variables for first loop
