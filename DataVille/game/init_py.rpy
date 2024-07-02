@@ -58,7 +58,7 @@ init python:
     text = re.sub(" " + alphabets + "[.]"," \\1<prd>",text)
     if "”" in text: text = text.replace(".”","”.")
     if "!" in text: text = text.replace("!\"","\"!")
-    if "?" in text: text = text.reSSplace("?\"","\"?")
+    if "?" in text: text = text.replace("?\"","\"?")
     text = text.replace(".",".<stop>")
     text = text.replace("?","?<stop>")
     text = text.replace("!","!<stop>")
@@ -82,27 +82,27 @@ init python:
     # CONSTANTS FOR PERFORMANCE COMPARISON
     store.averages = {
         'day_0': {
-          'score': 60,
+          'score': 90,
           'time': 8,
           'earnings': 600
           },
         'day_1': {
-          'score': 60,
+          'score': 90,
             'time': 8,
           'earnings': 2200
           },
         'day_2': {
-            'score': 60,
+            'score': 90,
             'time': 8,
           'earnings': 5000
           },
         'day_3': {
-            'score': 60,
+            'score': 85,
             'time': 8,
           'earnings': 9000
           },
         'day_4': {
-          'score': 60,
+          'score': 85,
           'time': 8,
           'earnings': 13000
           },
@@ -117,7 +117,7 @@ init python:
     store.game_state.performance_count = {'good': 0, 'bad': 0, 'neutral': 0}
     store.game_state.task_count = 0
     store.apartment_file = ""
-    store.daily_rent = 700
+    store.daily_rent = 800
 
 
     store.game_state.ui = {
@@ -286,7 +286,6 @@ init python:
     #SET TV NEWS ITEMS
   def setitem(data, index):
     length = len([x for x in data["news"] if x["time"] == store.game_state.time])
-    print('length: ', length)
     if index > length - 1:
         index = 0
     item = data["news"][index]
@@ -328,6 +327,7 @@ init python:
       else:
         return {'text': random.choice(bad), 'score': 33}
   def check_dependencies(dependencies, next_task):
+      set_performance_rating()
       for dependency in dependencies:
         cleaned_dep = dependency.strip()
         new_task = ""
@@ -335,23 +335,20 @@ init python:
         if cleaned_dep not in store.event_flags:
             if next_task != 'break':
                 if next_task['next_task'] == 'break': 
-                    set_performance_rating()
                     new_task = 'break'
                 else:
                     new_task = store.loop[next_task['next_task']]
                     if ('event_flag_dependency' in new_task):
                         new_task = check_dependencies(new_task['event_flag_dependency'].split(','), new_task)
         else:
-            print("dependency in event flags: ", cleaned_dep)
             new_task = next_task
             break
       return new_task
 
   def set_performance_rating():
-
-    if (store.game_state.performance['approval_rate'] > store.averages['day_' + str(store.game_state.day)]['score']):
+    if (store.game_state.performance['approval_rate'] >= store.averages['day_' + str(store.game_state.day)]['score']):
       store.game_state.performance_rating = "good"
-    elif (store.game_state.performance['approval_rate'] == store.averages['day_' + str(store.game_state.day)]['score']):
+    elif (store.game_state.performance['approval_rate'] > (store.averages['day_' + str(store.game_state.day)]['score'] - 25) and  store.game_state.performance['approval_rate'] < (store.averages['day_' + str(store.game_state.day)]['score'])):
       store.game_state.performance_rating = "neutral"
     else:
       store.game_state.performance_rating = "bad"
@@ -372,18 +369,14 @@ init python:
       next_task = store.loop[current_task['next_task']]
     #if event flag dependency isn't met, skip task
       if ('event_flag_dependency' in next_task):
-        print('task has event flag dependency: ', next_task)
-        print('current event flags: ', store.event_flags)
         dependencies = next_task['event_flag_dependency'].split(',')
         next_task = check_dependencies(dependencies, next_task)
-        print('next task: ', next_task)
 # UPDATE UI VARIABLES 
     reward = int(current_task['payment'])/out
     if store.timer_failed:
         print("Timer failed! Reducing reward.")
         reward = reward/2
         store.timer_failed = False
-
     performance = performance_feedback(out)
     performance_text = performance['text']
     #SCORING
@@ -396,7 +389,6 @@ init python:
     return set_ui_state(next_task, state, performance_text, reward)
 
   def set_ui_state( task, state, performance_text = '', reward = 0):
-    print('task: ', task)
     state.ui['performance'] = performance_text
     state.ui['earnings'] += reward
     state.performance['earnings'] += reward
@@ -410,7 +402,6 @@ init python:
 
   def get_epilogue():
     output = ""
-    print('flags present: ', store.event_flags)
     with open(renpy.loader.transfn('game_files/epilogues.csv'), 'r') as epilogues: 
         reader = csv.DictReader(epilogues)
         has_event_flag = False
@@ -420,7 +411,9 @@ init python:
                   if (event_flag == 'tutorial_fail' or event_flag == 'rent_fail' or event_flag == 'performance_fail') and event_flag == epilogue['event_flag']:
                       print('fail state hit: ', event_flag)
                       has_event_flag = True
-                  if event_flag == epilogue['event_flag'] and epilogue['performance'] == store.game_state.performance_rating:
+                  if event_flag == epilogue['event_flag'] and epilogue['performance'] == 'bad' and store.game_state.performance_rating == 'neutral':
+                      has_event_flag = True
+                  elif event_flag == epilogue['event_flag'] and epilogue['performance'] == store.game_state.performance_rating:
                       print('event flag based epilogue firing: ', epilogue)
                       has_event_flag = True
                 if has_event_flag:

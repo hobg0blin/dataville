@@ -1,9 +1,9 @@
 DAY,TEXT,TYPE,PERFORMANCE,TIME,SENDER,IMAGE_FOLDER,IMAGE,BUTTON_1_TEXT,BUTTON_2_TEXT,EVENT_FLAG
 1,"Alex, your manager, has something to tell you.",message,default,end,cogni,,,Got it.,Ugh. Here we go…,
-1,"Great work! Your ratings are eligible for the incentive bonus. Keep up the good work!
+1,"Great work! Your ratings put you squarely in the 90th percentile of labelers. Keep up the good work!
 
 Happy labeling!",message,good,end,supervisor,,,A hard day’s work!,,
-1,"Your work needs improvement. Aim for the incentive bonuses. The next set of questions will be more challenging. 
+1,"Your work needs improvement. The next set of questions will be more challenging. 
 
 Happy labeling!",message,neutral,end,supervisor,,,A hard day’s work!,,
 1,"I’m a little concerned about your performance. Think about how you might improve. 

@@ -1,17 +1,15 @@
 DAY,TEXT,TYPE,PERFORMANCE,TIME,SENDER,IMAGE_FOLDER,IMAGE,BUTTON_1_TEXT,BUTTON_2_TEXT,EVENT_FLAG
 3,"Alex, your manager, has something to tell you.",message,default,end,cogni,,,Got it.,Ugh. Here we go…,
-3,"Excellent work! Your performance is eligible for the incentive bonus. Congratulations!
+3,"Excellent work! Your performance has you on track for a promotion. Congratulations!
 
 Also, I may need to ask you a special labeling favor. Let's circle back later...
 
-Happy labeling!
-",message,good,end,supervisor,,,Oh wait! There's more!,,
+Happy labeling!",message,good,end,supervisor,,,Oh wait! There's more!,,
 3,"Oh yeah, I meant to tell you. We're getting complaints about labelers talking about non-work topics. If anybody tries to fraternize, report them immediately. 
 ",message,good,end,supervisor,,,I'll keep that in mind!,That makes my head hurt!,
-3,"Take a moment to review your metrics. There are some parts that could be improved. Unfortunately, your performance is not eligible for an incentive bonus . Let’s try to raise those scores on the next set. It will be more challenging, so keep at it. 
+3,"Take a moment to review your metrics. There are some parts that could be improved. Let’s try to raise those scores on the next set. It will be more challenging, so keep at it. 
 
-Happy labeling!
-",message,neutral,end,supervisor,,,Oh wait! There's more!,,
+Happy labeling!",message,neutral,end,supervisor,,,Oh wait! There's more!,,
 3,"Oh yeah, I meant to tell you. We're getting complaints about labelers talking about non-work topics. If anybody tries to fraternize, report them immediately. 
 ",message,neutral,end,supervisor,,,I'll keep that in mind!,That hurts my head!,
 3,"This is your official notice: if these low numbers continue, your position with DataVille may be terminated. Please review our employee handbook for more information.
@@ -20,7 +18,7 @@ Happy labeling!
 ",message,bad,end,supervisor,,,Oh wait! There's more!,,
 3,"Oh yeah, I meant to tell you. We're getting complaints about labelers talking about non-work topics. If anybody tries to fraternize, report them immediately. 
 ",message,bad,end,supervisor,,,I'll keep that in mind!,That hurts my head!,
-3,Also... Good news! Dataville was just awarded a juicy new military contract. You’re going to be getting some important assignments with bigger rewards. Stay focused!,message,,end,supervisor,,,Got it.,WTF?,
+3,Also... Good news! Dataville was just awarded a juicy new military contract. You’re going to be getting more important assignments with bigger rewards. Stay focused!,message,default,end,supervisor,,,Got it.,"Wait, what?",
 3,Breaking: National Guard suppresses alien rioting.,news,good,end,,tv_content/day3,1-good.png,,,
 3,Senate moves to shutter all Resettlement Zones.,news,bad,end,,tv_content/day3,1-bad.png,,,
 3,Rapid AI detection apprehends alien,news,good,end,,tv_content/day3,2-good.png,,,
@@ -40,7 +38,7 @@ Happy labeling!
 3,Vacation reservation,sticky_note,good,end,,,,,,
 3,stuff to sell,sticky_note,bad,end,,,,,,
 3,Buy crypto?,sticky_note,good,end,,,,,,
-3,How do I handle my anxious feelings?,dream,default,end,,,,Focus on my goals.,Grumble acerbically.,
-3,"If I had alien camouflage, I would...",dream,default,end,,,,Be fun at parties!,Go unnoticed. ,
-3,Why would anyone want to hide?,dream,default,end,,,,To take advantage of opportunity. ,People can be monsters.,
+3,How do I handle my anxious feelings?,dream,default,end,,,,Focus on my goals.,Stare at the ceiling.,
+3,"If I had alien camouflage, I would...",dream,default,end,,,,Be fun at parties!,Finally go unnoticed. ,
+3,Why would anyone want to hide?,dream,default,end,,,,To create opportunity. ,People can be monsters.,
 3,Back to work.,dream,default,end,,,,,,
