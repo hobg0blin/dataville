@@ -60,7 +60,7 @@ init python:
     if "”" in text: text = text.replace(".”","”.")
 #    if "\"" in text: text = text.replace(".\"","\".")
     if "!" in text: text = text.replace("!\"","\"!")
-    if "?" in text: text = text.reSSplace("?\"","\"?")
+    if "?" in text: text = text.replace("?\"","\"?")
     text = text.replace(".",".<stop>")
     text = text.replace("?","?<stop>")
     text = text.replace("!","!<stop>")
