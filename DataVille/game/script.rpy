@@ -199,9 +199,16 @@ label start:
     $ show_computer_screen(store.game_state.ui)
 
     label check_messages:
+      python:
+        prev_speaker = None
+        next_message_set = {'sender': None}
       while cleaned['message']:
         python:
           message = cleaned['message'].pop(0)
+          try:
+            next_message_set = cleaned['message'][0]
+          except IndexError:
+            next_message_set = {'sender': None}
           n = 120 # character limit?
           text = message['text']
           split = split_into_sentences(text)
@@ -221,8 +228,11 @@ label start:
             $ sender = char_map[message['sender']]
             # ONLY SHOWING ONE LINE DURING INTRO: I THINK THIS HAS THE LONGEST TEXT
             $ text =  f"{split[count]}"
-            $ render_message(sender['obj'].name, sender['obj'].who_suffix, "check_messages" + text, sender['mood']['default'], start = not count, end = count == length - 1)
+            $ start_speaker = (not count) and (prev_speaker != message['sender'])
+            $ end_speaker = (count == length - 1) and (next_message_set['sender'] != message['sender'])
+            $ render_message(sender['obj'].name, sender['obj'].who_suffix, "check_messages" + text, sender['mood']['default'], start = start_speaker, end = end_speaker)
           $ count += 1
+          $ prev_speaker = message['sender']
   #manually set task & variables for first loop
     $ time = store.game_state.ui['timer']
 
