@@ -334,16 +334,22 @@ label start:
                 if 'custom_feedback_sender' in task:
                 #if there's an ethical option AND specific feedback, show that
                     print('hit ethical task: ', task)
+                    print('choice:', latest_choice)
+                    print('correct option: ', correct)
                     custom_feedback_sender = char_map[task['custom_feedback_sender']]
                     if 'ethical_options' in task:
                       ethical = task['ethical_options']
+                      print('ethical option: ', ethical)
                       if 'custom_feedback_ethical' in task and latest_choice == ethical:
                           print('should be showing ethical custom feedback')
                           custom_feedback = task['custom_feedback_ethical'] 
+                          has_custom_feedback = True
                     # if choice is correct and there's feedback for that, show it
                     if 'custom_feedback_correct' in task and latest_choice == correct:
                         print('should be showing correct custom feedback')
+                        print('correct custom feedback: ', task['custom_feedback_correct'])
                         custom_feedback = task['custom_feedback_correct'] 
+                        has_custom_feedback = True
                 task = update_state(store.game_state, binary_correct, task)
                 has_custom_feedback = custom_feedback != ""
         else:
