@@ -1828,8 +1828,9 @@ screen dream(dream_text, buttons = ["Next"]):
             buttons = ["Next"]
         
         # The custom text tag needs to be supplied the font's styles before transformation
-        
-        ficps_normal = "{ficps=14-0.95-30-0.73-1.6}"
+        slide_time = 0.95
+        fade_start = 0.73
+        ficps_normal = "{ficps=14-" + str(slide_time) + "-30-" + str(fade_start) + "-1.6}"
         ficps_instant = "{ficps=1000-1-0-0}"
         dream_font = ''
         font_size = "{size=48}"
@@ -1859,11 +1860,11 @@ screen dream(dream_text, buttons = ["Next"]):
             xalign 0.5 
             if not exit_sequence:
                 if not skip_transition:
-                    for line in text_lines:
+                    for i, line in enumerate(text_lines):
+                        python:
+                            ficps_normal = "{ficps=14-" + str((i * 2.5) + slide_time) + "-30-" + str((i * 2.5) + fade_start) + "-1.6}"
                         text ficps_normal + font_size + dream_font + line + end_tags:
-                            style "dream_text"
-                    # text "{ficps}" + dream_font + "WE ARE GOING TO TEST SOMETHING OUT HERE BECAUSE MAYBE THE SIZE DOES FUCK UP BECAUSE ITS PRE RENDERED OR SOMETHING SHIT" + dream_text + "{/font}{/ficps}":
-                    #     style "dream_text"
+                            style "dream_text"           
                 else:
                     for line in text_lines:
                         text ficps_instant + font_size + dream_font + line + end_tags:
