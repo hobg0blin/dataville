@@ -19,4 +19,4 @@ DataVille/log.txt
 candella/
 *.bak
 *.rpymc
-
+*.csv#
