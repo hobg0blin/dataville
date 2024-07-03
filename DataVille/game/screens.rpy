@@ -1718,7 +1718,7 @@ screen timer:
         timer 0.03 repeat True action If(time > 0, true=SetVariable('time', time - 30), false=[
             SetVariable('timer_failed', True),
             Show('empty_timer'),
-            Show('cogni_timeup', None, "You ran out of time! Your earnings have been halved.", char_map['cogni']['mood']['default'], "bottom_left", True),
+            # Show('cogni_timeup', None, "You ran out of time! Your earnings have been halved.", char_map['cogni']['mood']['default'], "bottom_left", True),
             Hide('timer')]) # why hide? because the repeat for the timer means the timer_failed is constantly being set
         bar: 
             value time 

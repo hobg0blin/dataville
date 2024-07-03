@@ -90,7 +90,7 @@ screen cogni_timeup(what, mood, position="center", overlay=False):
                 xpos position_map[position]["sprite"]["xpos"]
                 ypos position_map[position]["sprite"]["ypos"]
                 at still_aberate(position_map[position]["sprite"]["aberate"])
-        if what:
+        if timer_failed:
             window: # bubble window
                 style position_map[position]["style"]
                 xpos position_map[position]["text"]["xpos"]
@@ -119,7 +119,7 @@ screen cogni_timeup(what, mood, position="center", overlay=False):
         timer pop1_time + pop2_time
     elif show_text:
         timer 4 action [ToggleLocalVariable("hide_bubble")]
-    else:
+    elif timer_failed:
         timer pop1_time + pop2_time + pop3_time action [ToggleLocalVariable("show_text")]
 
 screen cogni_leave(mood, position="center", overlay=False):

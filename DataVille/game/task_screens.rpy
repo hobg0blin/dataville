@@ -45,6 +45,8 @@ screen captcha_image(task, images):
             yalign 0.5
             action Return(True)
 
+    use cogni_timeup("You ran out of time! Your earnings have been halved.", char_map['cogni']['mood']['default'], "bottom_left", True)
+
 screen comparison_image(task, images):
     use instructions(task)
     # $ random.shuffle(task)
@@ -69,6 +71,8 @@ screen comparison_image(task, images):
                     idle Transform(img, size = (600, 600), xpos = 0, ypos = 0)
                     hover Transform(img, size = (625, 625), xpos = -12, ypos = -12)
                     action [SetVariable("latest_choice", strp), Return(True)]
+
+    use cogni_timeup("You ran out of time! Your earnings have been halved.", char_map['cogni']['mood']['default'], "bottom_left", True)
 
 # SAY YES OR NO TO DA IMAGES
 screen binary_image(task, images):
@@ -104,6 +108,8 @@ screen binary_image(task, images):
             text_xalign 0.5
             selected False
             action [SetVariable("latest_choice", "N"), Return(True)]
+    
+    use cogni_timeup("You ran out of time! Your earnings have been halved.", char_map['cogni']['mood']['default'], "bottom_left", True)
 
 screen binary_text(task):
     use instructions(task)
@@ -134,6 +140,8 @@ screen binary_text(task):
             selected False
             action [SetVariable("latest_choice", "N"), Return(True)]
 
+    use cogni_timeup("You ran out of time! Your earnings have been halved.", char_map['cogni']['mood']['default'], "bottom_left", True)
+
 screen task_error():
     # $ random.shuffle(task)
     window id 'labeler':
@@ -151,6 +159,7 @@ screen task_error():
         spacing 20
         frame:
             textbutton 'Next task' style "button_click" action [SetVariable("latest_choice", "Y"), Return(True)]
+    
 
 screen comparison_text(task, button_text='Done!'):
     use instructions(task)
@@ -186,6 +195,7 @@ screen comparison_text(task, button_text='Done!'):
 #    xalign 0.5
 #    yalign 0.9
 #    textbutton button_text action Return(True)
+    use cogni_timeup("You ran out of time! Your earnings have been halved.", char_map['cogni']['mood']['default'], "bottom_left", True)
 
 screen caption_image(task, images):
     use instructions(task)
@@ -217,6 +227,8 @@ screen caption_image(task, images):
                 selected False
                 action [SetVariable("latest_choice", task['labels'][id]['name']), Return(True)]
 
+    use cogni_timeup("You ran out of time! Your earnings have been halved.", char_map['cogni']['mood']['default'], "bottom_left", True)
+
 screen sentiment_text(task):
     use instructions(task)
     window id 'labeler':
@@ -239,8 +251,7 @@ screen sentiment_text(task):
                 yalign 0.1
                 action [SetVariable("latest_choice", task['labels'][id]['name']), Return(True)]
 
-
-
+    use cogni_timeup("You ran out of time! Your earnings have been halved.", char_map['cogni']['mood']['default'], "bottom_left", True)
 
 # ORDER THE TEXT
 
@@ -287,3 +298,5 @@ screen order_text(task, button_text='Done!'):
         xalign 0.5
         yalign 0.9
         textbutton button_text style "button_click" action Return(True)
+    
+    use cogni_timeup("You ran out of time! Your earnings have been halved.", char_map['cogni']['mood']['default'], "bottom_left", True)

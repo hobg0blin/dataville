@@ -351,8 +351,9 @@ label start:
       hide screen instructions
       hide screen timer
       hide screen empty_timer
+      hide screen cogni_timeup
       hide screen task_type
-      show screen overlay (store.game_state.ui)
+      # show screen overlay (store.game_state.ui)
       if has_custom_feedback:
         $ print('has custom feedback')
         $ overlay_time = (0.67, 3, 0.44) # start timer, stay on screen timer, leave timer
