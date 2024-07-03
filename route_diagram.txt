@@ -1,0 +1,37 @@
+# http://www.graphviz.org/content/cluster
+
+digraph G {
+    d1[label="Day 2: \n Alex \n 'Do me a solid'"]
+    d2a[label="Day 3: \n Alex \n 'Say this is an alien'"]
+    d2b[label="Day 3: \n Stranger \n 'Help!'"]
+    d2c[label="Day 3: \n Task \n 'Label vet'"]
+    d1->d2a[label="   Y"]
+    d1->d2b[label="    N"]
+    d3a[label="Day 4:\n Alex\nTurn in general"]
+    d3b[label="Day 4: \n Alex\n Turn in SD official"]
+    d3c[label="Day 4: \nStranger\nTHANKS BUD!"]
+    d3d[label="Day 4: \nStranger\nInvasion"]
+    d4e[label="Day 4: Task \n Landlady"]
+    d2a->d3a[label="   Y"]
+    d2a->d2c[label="    N"]
+    d2c->d4e[label="   N"]
+    d2c->d3b[label="    Y"]
+    d2b->d3c[label="    Y"]
+    d2b->d3d[label="    N"]
+    e1[label="Ending:\nturned_in_official"]
+ e2[label="Ending:\ndidnt_turn_in_official"]
+ e3[label="Ending:\nturned_in_landlady"]
+ e4[label="Ending:\n didnt_turn_in_landlady"]
+ e5[label="Ending:\n helped_stranger"]
+ e6[label="Ending:\n didnt_help_stranger"]
+ e7[label="Ending:\n turned_in_general"]
+ e8[label="Ending:\n didnt_turn_in_general"]
+ d3a->e7[label="    Y"]
+ d3a->e8[label="    N"]
+ d3b->e1[label="    Y"]
+ d3b->e2[label="    N"]
+ d3c->e5
+ d3d->e6
+ d4e->e3[label="    Y"]
+ d4e->e4[label="    N"]
+}
