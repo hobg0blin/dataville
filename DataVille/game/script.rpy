@@ -335,7 +335,6 @@ label start:
                 #if there's an ethical option AND specific feedback, show that
                     print('hit ethical task: ', task)
                     custom_feedback_sender = char_map[task['custom_feedback_sender']]
-                    has_custom_feedback = True
                     if 'ethical_options' in task:
                       ethical = task['ethical_options']
                       if 'custom_feedback_ethical' in task and latest_choice == ethical:
@@ -346,6 +345,7 @@ label start:
                         print('should be showing correct custom feedback')
                         custom_feedback = task['custom_feedback_correct'] 
                 task = update_state(store.game_state, binary_correct, task)
+                has_custom_feedback = custom_feedback != ""
         else:
             binary_correct = 1
             task = update_state(store.game_state, binary_correct, task)
@@ -355,7 +355,7 @@ label start:
       hide screen empty_timer
       hide screen cogni_timeup
       hide screen task_type
-      # show screen overlay (store.game_state.ui)
+
       if has_custom_feedback:
         $ print('has custom feedback')
         $ start_speaker = sender['obj'].name != "cogni"
@@ -396,10 +396,8 @@ label start:
         $ emojis = emoji_selection(store.game_state.performance, store.averages['day_' + str(store.game_state.day)])
         show screen performance(store.game_state.performance, store.averages['day_' + str(store.game_state.day)], emojis)
         $ render_message(char_map['cogni']['obj'].name, char_map['cogni']['obj'].who_suffix, performance_feedback(store.game_state.performance_rating)['text'], char_map['cogni']['mood']['default'], position = "bottom_left", overlay=True)
-        # call cogni_enter(char_map['cogni']['mood']['default'], position = "bottom_left", hide_mode = True, overlay = True)
-
-        # $ render_message(char_map['cogni']['obj'].name, char_map['cogni']['obj'].who_suffix, performance_feedback(store.game_state.performance_rating)['text'], char_map['cogni']['mood']['default'], position = "bottom_left", overlay=True)
-        # show screen cogni(performance_feedback(store.game_state.performance_rating)['text'], char_map['cogni']['mood']['default'], "bottom_left")
+        hide screen cogni
+        call screen cogni_leave(char_map['cogni']['mood']['default'], "bottom_left", hide_bubble = True)
         if 'rent_fail' in store.event_flags and not no_fail:
           $ print('hitting rent fail state')
           jump end 
@@ -434,32 +432,34 @@ label start:
             # show screen message(message['sender'], buttons)
             $ text = f"{split[count]} {second_sentence}"
             $ sender = char_map[message['sender']]  
-            $ render_message(sender['obj'].name, sender['obj'].who_suffix, f"[text]", sender['mood']['default'])
+            $ start_speaker = (not count) and (prev_speaker != message['sender'])
+            $ end_speaker = (count == length - 1) and (next_message_set['sender'] != message['sender'])
+            $ render_message(sender['obj'].name, sender['obj'].who_suffix, "check_messages" + text, sender['mood']['default'], start = start_speaker, end = end_speaker)
             $ count += 2
-            # window hide
-            # hide screen message
-#      else:
-      hide screen overlay
-      play music f"dataville_apartment_{store.game_state.performance_rating}.wav" fadein 2.0
-      # $ show_window = True
-      call screen apartment(clean(store.apartment_data), store.game_state.time, apartment_bg_map['apartment_1'])
-      # $ show_window = False
+      
+      $ aberate_layer('all', 0)
+
+
       if store.game_state.day < 4:
         if store.game_state.time == "end":
-            scene bg black_bg
+            $ fade_into_dream(2.0)
             $ dream_counter = 0
             $ dream_len = len(store.apartment_data['dream'])
-            hide screen apartment
-            scene bg apartment_bg with Dissolve(1.0)
-            $ blur_master()
             while dream_counter < dream_len:
                 $ dream = store.apartment_data['dream'][dream_counter]
                 if dream['time'] != 'start':
                     call screen dream(dream['text'], dream['buttons'])
                 $ dream_counter += 1
-            $ unblur_master()
+            $ fade_out_of_dream(0.5)
+      
+
+      play music f"dataville_apartment_{store.game_state.performance_rating}.wav" fadein 2.0
+
+      call screen apartment(clean(store.apartment_data), store.game_state.time, apartment_bg_map['apartment_1'])
+
+      if store.game_state.day < 4:
+        if store.game_state.time == "end":
             python:
-                # reset_performance(store.game_state.performance)
                 day_start()
             if store.game_state.performance_rating != 'bad':
                 play music f"dataville_workspace_{store.game_state.performance_rating}.wav" fadein 2.0
@@ -468,10 +468,9 @@ label start:
             $ task = store.loop["start_task"]
             $ set_ui_state(task, store.game_state)
             $ cleaned = clean(store.apartment_data)
-            scene bg overlay_background
-            show screen overlay(store.game_state.ui)
+            $ show_computer_screen(store.game_state.ui)
             $ fee_text = f"Your combined fees and rent are ${store.daily_rent * store.game_state.day}. Make sure your earnings exceed this number!"
-            call screen cogni(fee_text, char_map['cogni']['mood']['default'], "center") 
+            $ render_message(char_map['cogni']['obj'].name, char_map['cogni']['obj'].who_suffix, fee_text, char_map['cogni']['mood']['default'], position = "center")
             call task_loop from _call_task_loop_1
         else:
           "game state is broken!!!"
@@ -481,16 +480,17 @@ label start:
       hide screen overlay
       hide screen performance
       hide screen cogni
+      $ aberate_layer('all', 0)
       
-      scene bg gray_bg with Dissolve(1.0)
+      scene bg black_bg with Dissolve(3.0)
       $ epilogue = get_epilogue()
       $ split = split_into_sentences(epilogue)
       $ print('epilogue variable: ', epilogue)
       $ print('split text: ', split)
       $ count = 0
       $ length = len(split)
-      scene bg apartment_bg with Dissolve(1.0) 
-      $ blur_master()
+      # scene bg apartment_bg with Dissolve(1.0) 
+      # $ blur_master()
 
       while count < length:
         python:
@@ -499,9 +499,9 @@ label start:
           else:
             additional_text = ""
           print('epilogue text: ', split[count])
-        call screen epilogue(f"{split[count]} {additional_text}") with Dissolve(0.5)
+        call screen epilogue(f"{split[count]} {additional_text}")
         $ count += 2
-      call screen epilogue('Thank you for playing DataVille!\na more human world\none click at a time', ['Restart']) with Dissolve(0.5)
+      call screen epilogue('Thank you for playing DataVille!\na more human world\none click at a time', ['Restart'])
       # This ends the game.
       hide screen dream
       # clear store and return to start

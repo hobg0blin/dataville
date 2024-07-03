@@ -183,7 +183,7 @@ screen binary_image(task, images):
                 at fade_out(exit_fade_secs)
             else:
                 at fade_in(blink_sec)
-            action [SetVariable("latest_choice", "Y"), SetScreenVariable('selected_button', 'N'), SetScreenVariable('exit_sequence', True)]
+            action [SetVariable("latest_choice", "N"), SetScreenVariable('selected_button', 'N'), SetScreenVariable('exit_sequence', True)]
 
     use cogni_timeup("You ran out of time! Your earnings have been halved.", char_map['cogni']['mood']['default'], "bottom_left", True)
 
@@ -249,7 +249,7 @@ screen binary_text(task):
                 at fade_out(exit_fade_secs)
             else:
                 at fade_in(blink_sec)
-            action [SetVariable("latest_choice", "Y"), SetScreenVariable('selected_button', 'N'), SetScreenVariable('exit_sequence', True)]
+            action [SetVariable("latest_choice", "N"), SetScreenVariable('selected_button', 'N'), SetScreenVariable('exit_sequence', True)]
 
     use cogni_timeup("You ran out of time! Your earnings have been halved.", char_map['cogni']['mood']['default'], "bottom_left", True)
 

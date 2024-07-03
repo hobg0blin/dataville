@@ -127,7 +127,7 @@ screen cogni_leave(mood, position="center", overlay=False, hide_bubble = False, 
     python:
         move1_time, move2_time = (0.1, 0.25)
         pop1_time, pop2_time = (0.09, 0.09)
-    default move_cogni = False
+    default move_cogni = hide_bubble
 
     window:
         xalign position_map[position]["window"]["xalign"]
@@ -142,11 +142,12 @@ screen cogni_leave(mood, position="center", overlay=False, hide_bubble = False, 
                 if move_cogni:
                     if not hide_move:
                         at pos_to_l_bounce(move1_time, move2_time)
-        window: # bubble window
-                style position_map[position]["style"]
-                xpos position_map[position]["text"]["xpos"]
-                ypos position_map[position]["text"]["ypos"]
-                at min_bubble(pop1_time, pop2_time)
+        if not hide_bubble:
+            window: # bubble window
+                    style position_map[position]["style"]
+                    xpos position_map[position]["text"]["xpos"]
+                    ypos position_map[position]["text"]["ypos"]
+                    at min_bubble(pop1_time, pop2_time)
     # overlay signifies if cogni's dialogue pauses the game or not
     if not overlay: 
         button: # invisable full screen button to advance the dialogue
@@ -159,7 +160,7 @@ screen cogni_leave(mood, position="center", overlay=False, hide_bubble = False, 
 
     if move_cogni:
         timer move1_time + move2_time action [Return(True)]
-    else:
+    elif not hide_bubble:
         timer pop1_time + pop2_time action If(hide_move, true=[Return(True)], false=[ToggleScreenVariable("move_cogni")])
 
 transform l_to_pos_bounce(move1_time=0.5, move2_time=0.1, move3_time=0.05):
