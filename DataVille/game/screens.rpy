@@ -2154,18 +2154,13 @@ screen apartment(data, time, bg_path):
         python:
             if not zoom_transition:
                 random.shuffle(data["sticky_note"])
-            note_count = 0
         for i, note in enumerate(data["sticky_note"]):
-            if note_count > 3:
-                break
-            elif note["performance"] == "default" or note["performance"] == store.game_state.performance_rating or (note["event_flag"] in store.event_flags):
-                text note["text"]:
-                    style "sticky_note"
-                    xsize 129 ysize 132
-                    xpos start_note_positions[i][0] ypos start_note_positions[i][1]
-                    if zoom_transition:
-                        at zoom_sticky_notes(offset_note_positions[i][0], offset_note_positions[i][1], zoom_time)
-                $ note_count += 1
+            text note["text"]:
+                style "sticky_note"
+                xsize 129 ysize 132
+                xpos start_note_positions[i][0] ypos start_note_positions[i][1]
+                if zoom_transition:
+                    at zoom_sticky_notes(offset_note_positions[i][0], offset_note_positions[i][1], zoom_time)
 
         # TV Hover button
         if not zoom_transition:
