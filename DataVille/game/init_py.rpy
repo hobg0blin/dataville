@@ -271,13 +271,22 @@ init python:
         output[k] = apartment[k]
     return output
 
+
   def filter_apartment(obj):
+    store.game_state.time = 'end'
+    if (obj['type'] == 'sticky_note'):
+      print('performance: ', store.game_state.performance_rating)
+      print('time: ', store.game_state.time)
     if store.game_state.time != obj['time']:
       if obj['type'] == 'news' and store.game_state.day == 0:
         return True
       else:
         return False
     elif obj['performance'] == store.game_state.performance_rating:
+      return True
+    elif obj['performance'] == 'bad' and obj['type'] == 'sticky_note' and store.game_state.performance_rating == 'neutral':
+      print('adding sticky note: ', obj)
+    # FIXME: just hard mapping neutral to bad for sticky notes for now, long-term this should be solved in the script and not the code
       return True
     elif obj['performance'] == 'default':
       return True

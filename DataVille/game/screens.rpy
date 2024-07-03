@@ -2485,12 +2485,11 @@ screen apartment(data, time):
         for i, note in enumerate(data["sticky_note"]):
             if i > 3:
                 break
-            if note["performance"] == "default" or note["performance"] == store.game_state.performance_rating or (note["event_flag"] in store.event_flags):
-                hbox:
-                    xsize 125 ysize 132
-                    xpos note_positions[i][0] ypos note_positions[i][1]
-                    text note["text"]:
-                        style "sticky_note"
+            hbox:
+                xsize 125 ysize 132
+                xpos note_positions[i][0] ypos note_positions[i][1]
+                text note["text"]:
+                    style "sticky_note"
 
         # TV Hover button
         imagebutton:
