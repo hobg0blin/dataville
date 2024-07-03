@@ -13,15 +13,16 @@ screen cogni(what, mood, position="center", overlay=False):
                 xpos position_map[position]["sprite"]["xpos"]
                 ypos position_map[position]["sprite"]["ypos"]
                 at still_aberate(position_map[position]["sprite"]["aberate"])
-        window: # bubble window
-            style position_map[position]["style"]
-            xpos position_map[position]["text"]["xpos"]
-            ypos position_map[position]["text"]["ypos"]
-            id "window"
-            text what:
-                style "cogni_what"
-                id "what"
-                at still_aberate(position_map[position]["text"]["aberate"])
+        if what:
+            window: # bubble window
+                style position_map[position]["style"]
+                xpos position_map[position]["text"]["xpos"]
+                ypos position_map[position]["text"]["ypos"]
+                id "window"
+                text what:
+                    style "cogni_what"
+                    id "what"
+                    at still_aberate(position_map[position]["text"]["aberate"])
     # overlay signifies if cogni's dialogue pauses the game or not
     if not overlay: 
         button: # invisable full screen button to advance the dialogue
@@ -32,11 +33,11 @@ screen cogni(what, mood, position="center", overlay=False):
     
     image "scanlines_overlay" 
 
-screen cogni_enter(mood, position="center", overlay=False):
+screen cogni_enter(mood, position="center", overlay=False, hide_bubble = False, hide_move = False):
     python:
         move1_time, move2_time, move3_time = (0.25, 0.1, 0.05)
         pop1_time, pop2_time, pop3_time = (0.09, 0.09, 0.09)
-    default show_bubble = False
+    default show_bubble = hide_move
     window:
         xalign position_map[position]["window"]["xalign"]
         yalign position_map[position]["window"]["yalign"]
@@ -47,13 +48,15 @@ screen cogni_enter(mood, position="center", overlay=False):
                 xsize position_map[position]["sprite"]["xsize"]
                 xpos position_map[position]["sprite"]["xpos"]
                 ypos position_map[position]["sprite"]["ypos"]
-                at l_to_pos_bounce(move1_time,move2_time, move3_time)
+                if not hide_move:
+                    at l_to_pos_bounce(move1_time,move2_time, move3_time)
         if show_bubble:
-            window: # bubble window
-                style position_map[position]["style"]
-                xpos position_map[position]["text"]["xpos"]
-                ypos position_map[position]["text"]["ypos"]
-                at expand_bubble(pop1_time, pop2_time, pop3_time)
+            if not hide_bubble: # can't combine these two in renpy?
+                window: # bubble window
+                    style position_map[position]["style"]
+                    xpos position_map[position]["text"]["xpos"]
+                    ypos position_map[position]["text"]["ypos"]
+                    at expand_bubble(pop1_time, pop2_time, pop3_time)
     # overlay signifies if cogni's dialogue pauses the game or not
     if not overlay: 
         button: # invisable full screen button to advance the dialogue
@@ -62,11 +65,62 @@ screen cogni_enter(mood, position="center", overlay=False):
             pos (0, 0)
             action Return(True)
 
-    image "scanlines_overlay" 
+    image "scanlines_overlay"
 
     timer move1_time + move2_time + move3_time action [ToggleScreenVariable("show_bubble")]
     if show_bubble:
         timer pop1_time + pop2_time + pop3_time action [Return(True)]
+
+screen cogni_timeup(what, mood, position="center", overlay=False):
+    layer "master"
+    python:
+        pop1_time, pop2_time, pop3_time = (0.09, 0.09, 0.09)
+    default show_bubble = not timer_failed
+    default show_text = False
+    default hide_bubble = False
+
+    window:
+        xalign position_map[position]["window"]["xalign"]
+        yalign position_map[position]["window"]["yalign"]
+    # two windows, one for the cogni sprite, the other for the bubble
+        window: # sprite window
+            image mood:
+                fit "contain"
+                xsize position_map[position]["sprite"]["xsize"]
+                xpos position_map[position]["sprite"]["xpos"]
+                ypos position_map[position]["sprite"]["ypos"]
+                at still_aberate(position_map[position]["sprite"]["aberate"])
+        if what:
+            window: # bubble window
+                style position_map[position]["style"]
+                xpos position_map[position]["text"]["xpos"]
+                ypos position_map[position]["text"]["ypos"]
+                id "window"
+                if hide_bubble:
+                    at min_bubble(pop1_time, pop2_time)
+                elif show_text:
+                    text what:
+                        style "cogni_what"
+                        id "what"
+                        at still_aberate(position_map[position]["text"]["aberate"])
+                else:
+                    at expand_bubble(pop1_time, pop2_time, pop3_time)
+    # overlay signifies if cogni's dialogue pauses the game or not
+    if not overlay: 
+        button: # invisable full screen button to advance the dialogue
+            xsize 1920
+            ysize 1080
+            pos (0, 0)
+            action Return(True)
+    
+    image "scanlines_overlay" 
+
+    if hide_bubble:
+        timer pop1_time + pop2_time
+    elif show_text:
+        timer 4 action [ToggleLocalVariable("hide_bubble")]
+    else:
+        timer pop1_time + pop2_time + pop3_time action [ToggleLocalVariable("show_text")]
 
 screen cogni_leave(mood, position="center", overlay=False):
     python:

@@ -497,13 +497,12 @@ init python:
     renpy.show_layer_at(unblur)
     renpy.with_statement({'master' : Dissolve(0.15)})
   
-  def render_message(who, who_suffix, what, mood, position = "center", start = False, end = False):
+  def render_message(who, who_suffix, what, mood, position = "center", start = False, end = False, overlay = False, overlay_time = (0.67, 3, 0.44)):
     """
     Renders message style between emails or cogni from reading the CSV scripts.
     """
     if who != "Cogni":
       if start:
-        expand_time, blink_interval = (0.35, 0.05)
         renpy.call_screen("expand_message")
         renpy.hide_screen("expand_message")
       renpy.call_screen('email_message', who, who_suffix, what, mood)
@@ -511,13 +510,17 @@ init python:
         renpy.call_screen("close_message")
         renpy.hide_screen("expand_message")
     else:
-      if start:
-        renpy.call_screen("cogni_enter", mood, position)
-        renpy.hide_screen("cogni_enter")
-      renpy.call_screen('cogni', what, mood, position)
-      if end:
-        renpy.call_screen("cogni_leave", mood, position)
-        renpy.hide_screen("cogni_leave")
+      if overlay:
+        renpy.call_screen('cogni', what, mood, position)
+        renpy.show_screen('cogni', None, mood, position, overlay = overlay)
+      else:     
+        if start:
+          renpy.call_screen("cogni_enter", mood, position)
+          # renpy.hide_screen("cogni_enter")
+        renpy.call_screen('cogni', what, mood, position)
+        if end:
+          renpy.call_screen("cogni_leave", mood, position)
+          # renpy.hide_screen("cogni_leave")
 
   def fade_into_dream(duration):
     renpy.show_screen('fade_to_black', duration)

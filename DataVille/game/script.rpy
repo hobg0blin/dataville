@@ -246,12 +246,22 @@ label start:
 
 #THIS AUTOMATES GOING THROUGH TASKS WHEN INSTRUCTIONS/ETC. ARE UNNECESSARY
     label task_loop:
-      $ show_computer_screen(store.game_state.ui)
+      # $ show_computer_screen_with_cogni_enter(store.game_state.ui)
+      python:
+        if not renpy.get_screen('cogni'):
+          renpy.call_screen('cogni_enter', char_map['cogni']['mood']['default'], "bottom_left", hide_bubble = True)
+      python:
+        prev_speaker = None
+        next_message_set = {'sender': None}
 
       if store.game_state.day != 0 and len(cleaned['message'])>0:
         while cleaned['message']:
           python:
             message = cleaned['message'].pop(0)
+            try:
+              next_message_set = cleaned['message'][0]
+            except IndexError:
+              next_message_set = {'sender': None}
             text = message['text']
             split = split_into_sentences(text)
             length = len(split)
@@ -268,8 +278,11 @@ label start:
             if strip_message != "" and strip_message !="\n":
               $ text = f"{split[count]}"
               $ sender = char_map[message['sender']]
-            $ render_message(sender['obj'].name, sender['obj'].who_suffix, "task_loop" + text, sender['mood']['default'])
+              $ start_speaker = (not count) and (prev_speaker != message['sender'])
+              $ end_speaker = (count == length - 1) and (next_message_set['sender'] != message['sender'])
+              $ render_message(sender['obj'].name, sender['obj'].who_suffix, "task_loop1" + text, sender['mood']['default'], position = "bottom_left", start = start_speaker, end = end_speaker)
             $ count += 1
+            $ prev_speaker = message['sender']
       python:
 # CLEAR IMAGE VARIABLES
       # FIXME: should clean up variable resetting a bit better
@@ -283,19 +296,18 @@ label start:
       if 'custom_dialogue' in task:
         $ sender = char_map[task['custom_dialogue_sender']]
         $ custom_dialogue = task['custom_dialogue']
-        $ render_message(sender['obj'].name, sender['obj'].who_suffix, custom_dialogue, sender['mood']['default'])
-        # show screen message(task['custom_dialogue_sender'], ["Next"])
-        # window hide
-        # cogni "[custom_dialogue]"
-        # hide screen message
-      hide screen cogni 
-      show screen timer
+        $ start_speaker = sender['obj'].name != "cogni"
+        $ end_speaker = sender['obj'].name != "cogni"
+        $ render_message(sender['obj'].name, sender['obj'].who_suffix, "task_loop2" + custom_dialogue, sender['mood']['default'], position = "bottom_left", start = start_speaker, end = end_speaker, overlay = True)
 
       $ custom_feedback = ""
       $ custom_feedback_sender = ""
       $ has_custom_feedback = False
       $ task_type = task['type']
       $ task_error = False
+
+      show screen timer
+
       if (task['type'] == 'sentiment_text' and not 'labels' in task) or task['type'] == 'captcha_image' and not 'correct_images' in task:
         call screen task_error 
         $ task_error = True
@@ -338,12 +350,13 @@ label start:
 
       hide screen instructions
       hide screen timer
+      hide screen empty_timer
       hide screen task_type
-      hide screen cogni
       show screen overlay (store.game_state.ui)
       if has_custom_feedback:
         $ print('has custom feedback')
-        $ render_message(custom_feedback_sender['obj'].name, custom_feedback_sender['obj'].who_suffix, custom_feedback, custom_feedback_sender['mood']['default'])
+        $ overlay_time = (0.67, 3, 0.44) # start timer, stay on screen timer, leave timer
+        $ render_message(custom_feedback_sender['obj'].name, custom_feedback_sender['obj'].who_suffix, "task_loop_has_custom_feedback" + custom_feedback, custom_feedback_sender['mood']['default'], position = "bottom_left", start = True, end = True, overlay = True, overlay_time = overlay_time)
         # show screen message(custom_feedback_sender, [f"{custom_feedback_sender}"])
         # window hide
         hide screen message 
