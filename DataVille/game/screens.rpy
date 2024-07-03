@@ -1838,7 +1838,7 @@ screen dream(dream_text, buttons = ["Next"]):
         ficps_instant = "{ficps=1000-1-0-0}"
         dream_font = ''
         font_size = "{size=48}"
-        text_lines = line_split(dream_text, 50)
+        text_lines = line_split(dream_text, 65)
         end_tags = "{/size}{/ficps}"
     
     default exit_sequence = False
