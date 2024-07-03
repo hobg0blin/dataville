@@ -109,81 +109,81 @@ default start_at_day_end = False
 label start:
     image overlay_background = "images/screens/monitor/background.png"
     image bg black_bg = Solid('#000000')
-    # if not skip_intro:
-    #   play music "dataville_workspace_neutral.wav" fadein 2.0
+    image bg apartment_bg = "images/apartment/apartment3_1.png"
+    image bg gray_bg = Solid('#464645')
+  #   if not skip_intro:
+  #     play music "dataville_workspace_neutral.wav" fadein 2.0
 
-    #   image tv_overlay:
-    #     "images/screens/00-title/tv_hollow.png"
+  #     image tv_overlay:
+  #       "images/screens/00-title/tv_hollow.png"
 
-    #   # v2 sequence
-    #   image interview:
-    #     "images/screens/01-intro/interview.jpg"
-    #     zoom 0.335
-    #   image bg gray_bg = Solid('#464645')
-    #   # image bg news_bg = "images/news_bg.png"
-    #   image bg apartment_bg = "images/apartment/apartment3_1.png"
+  #     # v2 sequence
+  #     image interview:
+  #       "images/screens/01-intro/interview.jpg"
+  #       zoom 0.335
+  #     # image bg news_bg = "images/news_bg.png"
 
-    #   image interview_trans:
-    #     "images/screens/01-intro/title-into-trans.png"
-    #     tv_zoom_in_seq
+  #     image interview_trans:
+  #       "images/screens/01-intro/title-into-trans.png"
+  #       tv_zoom_in_seq
 
-    #   show tv_noise:
-    #     pos (700, 145)
-    #     xoffset 0
-    #     yoffset 0
-    #     zoom 1.1
-    #   show tv_overlay:
-    #     zoom 0.75
-    #     xoffset -330
-    #     yoffset -250
-    #     pos (0, 0)
-    #   pause 0.5
-    #   hide tv_noise
-    #   hide tv_overlay
+  #     show tv_noise:
+  #       pos (700, 145)
+  #       xoffset 0
+  #       yoffset 0
+  #       zoom 1.1
+  #     show tv_overlay:
+  #       zoom 0.75
+  #       xoffset -330
+  #       yoffset -250
+  #       pos (0, 0)
+  #     pause 0.5
+  #     hide tv_noise
+  #     hide tv_overlay
 
-    #   show interview_trans:
-    #     pos (0,0)
-    #     VHS
-    #   show tv_overlay:
-    #     pos (0, 0)  
-    #     tv_zoom_in_seq
-    #   $renpy.pause(3.3)
-    #   scene interview with Dissolve(1.0)
-    #   pause 0.7
+  #     show interview_trans:
+  #       pos (0,0)
+  #       VHS
+  #     show tv_overlay:
+  #       pos (0, 0)  
+  #       tv_zoom_in_seq
+  #     $renpy.pause(3.3)
+  #     scene interview with Dissolve(1.0)
+  #     pause 0.7
 
-    #   news_anchor "{cps=30}Good evening, and welcome to our program.{/cps}"
-    #   news_anchor "{cps=30}Tonight, hiding in the shadows. What the alien menace means for you and your family. I’m joined by Victor Willmington, founder and CEO of the Dataville Corporation.{/cps}"
-    #   news_anchor "{cps=30}Tell me Victor, how does your company see the ongoing alien migratory crisis?{/cps}"
-    #   victor "{cps=30}Where you see a crisis, we at Dataville see an opportunity. This is our chance to restore human society to a safer, simpler time.{/cps}"
-    #   victor "{cps=30}With our patented alien identification AI technology, we’re able to accurately penetrate alien camouflage.{/cps}"
-    #   news_anchor "{cps=30}And you’ve found active partners in the public sector?{/cps}"
-    #   victor "{cps=30}That’s right. Our clients include the Departments of Defense and State, as well as private enterprises looking to ensure their communities are 100 percent human.{/cps}"
-    #   news_anchor "{cps=30}And what do you say to your critics who accuse the Dataville Corporation of exacerbating racial tensions with the aliens?{/cps}"
-    #   victor "{cps=30}Earth was meant for humans. If they have nothing to hide, why are they using camouflage?{/cps}"
+  #     news_anchor "{cps=30}Good evening, and welcome to our program.{/cps}"
+  #     news_anchor "{cps=30}Tonight, hiding in the shadows. What the alien menace means for you and your family. I’m joined by Victor Willmington, founder and CEO of the Dataville Corporation.{/cps}"
+  #     news_anchor "{cps=30}Tell me Victor, how does your company see the ongoing alien migratory crisis?{/cps}"
+  #     victor "{cps=30}Where you see a crisis, we at Dataville see an opportunity. This is our chance to restore human society to a safer, simpler time.{/cps}"
+  #     victor "{cps=30}With our patented alien identification AI technology, we’re able to accurately penetrate alien camouflage.{/cps}"
+  #     news_anchor "{cps=30}And you’ve found active partners in the public sector?{/cps}"
+  #     victor "{cps=30}That’s right. Our clients include the Departments of Defense and State, as well as private enterprises looking to ensure their communities are 100 percent human.{/cps}"
+  #     news_anchor "{cps=30}And what do you say to your critics who accuse the Dataville Corporation of exacerbating racial tensions with the aliens?{/cps}"
+  #     victor "{cps=30}Earth was meant for humans. If they have nothing to hide, why are they using camouflage?{/cps}"
       
-    #   image job_page = "images/job_page.png"
-    #   image job_page_blur = "images/job_page_blur.png"
-    #   scene job_page
-    #   call screen job_offer(1) with Dissolve(1.0)
-    #   call screen job_offer(2)
-    #   call screen job_offer(3, "\n Looking for a job? Looking to make the world a better, more human place?", ["Take the quiz!"])
-    #   call screen job_offer(3, "Are you proud of your humanity?", ["Yes", "No"])
-    #   call screen job_offer(3, "Do you own a computer?", ["Yes", "No"])
-    #   call screen job_offer(3, "Are you interested in working from home?", ["Yes", "No"])
-    #   call screen job_offer(3, "Congratulations! We'd like to extend an offer of employment! Join the DataVille team now.", ["Let's get started."])    
-    #   show job_page_blur
+  #     image job_page = "images/job_page.png"
+  #     image job_page_blur = "images/job_page_blur.png"
+  #     scene job_page
+  #     call screen job_offer(1) with Dissolve(1.0)
+  #     call screen job_offer(2)
+  #     call screen job_offer(3, "\n Looking for a job? Looking to make the world a better, more human place?", ["Take the quiz!"])
+  #     call screen job_offer(3, "Are you proud of your humanity?", ["Yes", "No"])
+  #     call screen job_offer(3, "Do you own a computer?", ["Yes", "No"])
+  #     call screen job_offer(3, "Are you interested in working from home?", ["Yes", "No"])
+  #     call screen job_offer(3, "Congratulations! We'd like to extend an offer of employment! Join the DataVille team now.", ["Let's get started."])    
+  #     show job_page_blur
 
-    #   $ fade_into_dream(2.5)
-    #   call screen dream("Your first day at a new job.", ["I'm excited!", "I'm terrified."])
-    #   call screen dream("Try not to screw it up.", ["I'm going to do my best!", "Let's hope this doesn't go like my last gig."])
-    #   call screen dream("You really need the money.", ["Mittens really needs to see a vet..."])
-    #   call screen dream("Let's get started.", [])
-    #   $ fade_out_of_dream(0.5)
+  #     $ fade_into_dream(2.5)
+  #     call screen dream("Your first day at a new job.", ["I'm excited!", "I'm terrified."])
+  #     call screen dream("Try not to screw it up.", ["I'm going to do my best!", "Let's hope this doesn't go like my last gig."])
+  #     call screen dream("You really need the money.", ["Mittens really needs to see a vet..."])
+  #     call screen dream("Let's get started.", [])
+  #     $ fade_out_of_dream(0.5)
 
-    #   label intro:
-    #     play music "dataville_apartment_neutral.wav"
-    #     call screen apartment(clean(store.apartment_data), store.game_state.time, apartment_bg_map['apartment_1'])
-    #     hide screen apartment
+  #     label intro:
+  #       play music "dataville_apartment_neutral.wav"
+  #       call screen apartment(clean(store.apartment_data), store.game_state.time, apartment_bg_map['apartment_1'])
+  #       hide screen apartment
 
     python:
       if start_at_day_end:
@@ -312,8 +312,10 @@ label start:
         call screen task_error 
         $ task_error = True
       elif is_image:
+        $ aberate_layer('all', 10)
         call screen expression(task['type']) pass (task, images)
       else:
+        $ aberate_layer('all', 10)
         call screen expression(task['type']) pass (task)
       python:
         if not task_error:
@@ -356,8 +358,9 @@ label start:
       # show screen overlay (store.game_state.ui)
       if has_custom_feedback:
         $ print('has custom feedback')
-        $ overlay_time = (0.67, 3, 0.44) # start timer, stay on screen timer, leave timer
-        $ render_message(custom_feedback_sender['obj'].name, custom_feedback_sender['obj'].who_suffix, "task_loop_has_custom_feedback" + custom_feedback, custom_feedback_sender['mood']['default'], position = "bottom_left", start = True, end = True, overlay = True, overlay_time = overlay_time)
+        $ start_speaker = sender['obj'].name != "cogni"
+        $ end_speaker = sender['obj'].name != "cogni"        
+        $ render_message(sender['obj'].name, sender['obj'].who_suffix, "task_loop_has_custom_feedback" + custom_feedback, sender['mood']['default'], position = "bottom_left", start = start_speaker, end = end_speaker, overlay = True)
         # show screen message(custom_feedback_sender, [f"{custom_feedback_sender}"])
         # window hide
         hide screen message 
@@ -372,7 +375,7 @@ label start:
     # INTERSTITIAL
     label interstitial:
       hide screen instructions
-      $ show_computer_screen(store.game_state.ui)
+      # $ show_computer_screen(store.game_state.ui)
       # fail states for not making rent, failing the tutorial, or being bad at the game
       $ store.game_state.performance_count[store.game_state.performance_rating] += 1
       if store.game_state.performance_count['bad'] >= 3 and not no_fail:
@@ -390,9 +393,13 @@ label start:
           print('earnings minus rent: ', store.game_state.performance['earnings_minus_rent'])
           if store.game_state.performance['earnings_minus_rent'] <= 0:
             store.event_flags.append('rent_fail')
-        show screen performance(store.game_state.performance, store.averages['day_' + str(store.game_state.day)])
-        show screen cogni(performance_feedback(store.game_state.performance_rating)['text'], char_map['cogni']['mood']['default'], "bottom_left") 
-        pause
+        $ emojis = emoji_selection(store.game_state.performance, store.averages['day_' + str(store.game_state.day)])
+        show screen performance(store.game_state.performance, store.averages['day_' + str(store.game_state.day)], emojis)
+        $ render_message(char_map['cogni']['obj'].name, char_map['cogni']['obj'].who_suffix, performance_feedback(store.game_state.performance_rating)['text'], char_map['cogni']['mood']['default'], position = "bottom_left", overlay=True)
+        # call cogni_enter(char_map['cogni']['mood']['default'], position = "bottom_left", hide_mode = True, overlay = True)
+
+        # $ render_message(char_map['cogni']['obj'].name, char_map['cogni']['obj'].who_suffix, performance_feedback(store.game_state.performance_rating)['text'], char_map['cogni']['mood']['default'], position = "bottom_left", overlay=True)
+        # show screen cogni(performance_feedback(store.game_state.performance_rating)['text'], char_map['cogni']['mood']['default'], "bottom_left")
         if 'rent_fail' in store.event_flags and not no_fail:
           $ print('hitting rent fail state')
           jump end 

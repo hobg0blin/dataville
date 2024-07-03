@@ -511,7 +511,9 @@ init python:
         renpy.hide_screen("expand_message")
     else:
       if overlay:
+        renpy.call_screen('cogni_enter', mood, position, hide_move = True)
         renpy.call_screen('cogni', what, mood, position)
+        renpy.call_screen('cogni_leave', mood, position, hide_move = True)
         renpy.show_screen('cogni', None, mood, position, overlay = overlay)
       else:     
         if start:
@@ -571,5 +573,78 @@ init python:
       renpy.show_layer_at(still_aberate(amount), layer="screens")
     else:
       renpy.show_layer_at(still_aberate(amount), layer=layer_choice)
+
+  def emoji_selection(state, average):
+    positive_emoji = ["thumbs_up", "star_struck", "heart_eyes"]
+    neutral_emoji = ["not_so_great", "ok", "neutral"]
+    bad_emoji = ["angry", "vomit", "poo"]
+
+    sel_positive_emoji = positive_emoji.copy()
+    sel_neutral_emoji = neutral_emoji.copy()
+    sel_bad_emoji = bad_emoji.copy()
+
+    approval = "neutral"
+    time = "neutral"
+    earnings = "neutral"
+    earnings_minus_rent = "neutral"
+    #FIXME: all variables here should be globals set for tweaking
+    if state["approval_rate"] > average["score"]:
+        approval_index = random.randint(0, len(sel_positive_emoji) - 1)
+        approval = sel_positive_emoji[approval_index]
+        sel_positive_emoji.pop(approval_index)
+    elif state["approval_rate"] <= average["score"] and state["approval_rate"] >= average["score"] - 25:
+        approval_index = random.randint(0, len(sel_neutral_emoji) - 1)
+        approval = sel_neutral_emoji[approval_index]
+        sel_neutral_emoji.pop(approval_index)
+    else:
+        approval_index = random.randint(0, len(sel_bad_emoji) - 1)
+        approval = sel_bad_emoji[approval_index]
+        sel_bad_emoji.pop(approval_index)
+
+    if state["average_time"] < average["time"]:
+        time_index = random.randint(0, len(sel_positive_emoji) - 1)
+        time = sel_positive_emoji[time_index]
+        sel_positive_emoji.pop(time_index)
+    elif state["average_time"] >= average["time"] and state["average_time"] <= average["time"] - 2:
+        time_index = random.randint(0, len(sel_neutral_emoji) - 1)
+        time = sel_neutral_emoji[time_index]
+        sel_neutral_emoji.pop(time_index)
+    else:
+        time_index = random.randint(0, len(sel_bad_emoji) - 1)
+        time = sel_bad_emoji[time_index]
+        sel_bad_emoji.pop(time_index)
+
+    if state["earnings"] > average["earnings"]:
+        if len(sel_positive_emoji) == 1:
+            earnings_index = 0
+        else:
+            earnings_index = random.randint(0, len(sel_positive_emoji) - 1)
+        earnings = sel_positive_emoji[earnings_index]
+        sel_positive_emoji.pop(earnings_index)
+    elif state["earnings"] <= average["earnings"] and state["earnings"] <= average["earnings"] - (average["earnings"] / 10):
+        if len(sel_neutral_emoji) == 1:
+            earnings_index = 0
+        else:
+            earnings_index = random.randint(0, len(sel_neutral_emoji) - 1)
+        earnings = sel_neutral_emoji[earnings_index]
+        sel_neutral_emoji.pop(earnings_index)
+    else:
+        if len(sel_bad_emoji) == 1:
+            earnings_index = 0
+        else:
+            earnings_index = random.randint(0, len(sel_bad_emoji) - 1)
+        earnings = sel_bad_emoji[earnings_index]
+        sel_bad_emoji.pop(earnings_index)
+
+    rent_emoji = bad_emoji.pop(random.randint(0, len(bad_emoji) - 1))
+
+    if state['earnings_minus_rent'] > 100:
+        earnings_minus_rent = positive_emoji.pop(random.randint(0, (len(positive_emoji) - 1)))
+    elif state['earnings_minus_rent'] <= 100 and state['earnings_minus_rent'] > 50:
+        earnings_minus_rent = neutral_emoji.pop(random.randint(0, (len(neutral_emoji) - 1)))
+    else:
+        earnings_minus_rent = bad_emoji.pop(random.randint(0, (len(bad_emoji) - 1)))
+      
+    return {"approval": approval, "time": time, "earnings": earnings, "rent": rent_emoji, "earnings_minus_rent": earnings_minus_rent}
 
   set_initial_variables() 

@@ -2061,80 +2061,10 @@ screen overlay(task, cogni=False, button_text=False):
         #         textbutton button_text style "button_click" action Return(True)
         image "scanlines_overlay"
 
-screen performance(state, average):
+screen performance(state, average, emojis):
+    layer "master"
     $ print('state: ', state)
     $ print('average: ', average)
-    python:
-        positive_emoji = ["thumbs_up", "star_struck", "heart_eyes"]
-        neutral_emoji = ["not_so_great", "ok", "neutral"]
-        bad_emoji = ["angry", "vomit", "poo"]
-
-        sel_positive_emoji = positive_emoji.copy()
-        sel_neutral_emoji = neutral_emoji.copy()
-        sel_bad_emoji = bad_emoji.copy()
-
-        approval = "neutral"
-        time = "neutral"
-        earnings = "neutral"
-        earnings_minus_rent = "neutral"
-        #FIXME: all variables here should be globals set for tweaking
-        if state["approval_rate"] > average["score"]:
-            approval_index = random.randint(0, len(sel_positive_emoji) - 1)
-            approval = sel_positive_emoji[approval_index]
-            sel_positive_emoji.pop(approval_index)
-        elif state["approval_rate"] <= average["score"] and state["approval_rate"] >= average["score"] - 25:
-            approval_index = random.randint(0, len(sel_neutral_emoji) - 1)
-            approval = sel_neutral_emoji[approval_index]
-            sel_neutral_emoji.pop(approval_index)
-        else:
-            approval_index = random.randint(0, len(sel_bad_emoji) - 1)
-            approval = sel_bad_emoji[approval_index]
-            sel_bad_emoji.pop(approval_index)
-
-        if state["average_time"] < average["time"]:
-            time_index = random.randint(0, len(sel_positive_emoji) - 1)
-            time = sel_positive_emoji[time_index]
-            sel_positive_emoji.pop(time_index)
-        elif state["average_time"] >= average["time"] and state["average_time"] <= average["time"] - 2:
-            time_index = random.randint(0, len(sel_neutral_emoji) - 1)
-            time = sel_neutral_emoji[time_index]
-            sel_neutral_emoji.pop(time_index)
-        else:
-            time_index = random.randint(0, len(sel_bad_emoji) - 1)
-            time = sel_bad_emoji[time_index]
-            sel_bad_emoji.pop(time_index)
-    
-        if state["earnings"] > average["earnings"]:
-            if len(sel_positive_emoji) == 1:
-                earnings_index = 0
-            else:
-                earnings_index = random.randint(0, len(sel_positive_emoji) - 1)
-            earnings = sel_positive_emoji[earnings_index]
-            sel_positive_emoji.pop(earnings_index)
-        elif state["earnings"] <= average["earnings"] and state["earnings"] <= average["earnings"] - (average["earnings"] / 10):
-            if len(sel_neutral_emoji) == 1:
-                earnings_index = 0
-            else:
-                earnings_index = random.randint(0, len(sel_neutral_emoji) - 1)
-            earnings = sel_neutral_emoji[earnings_index]
-            sel_neutral_emoji.pop(earnings_index)
-        else:
-            if len(sel_bad_emoji) == 1:
-                earnings_index = 0
-            else:
-                earnings_index = random.randint(0, len(sel_bad_emoji) - 1)
-            earnings = sel_bad_emoji[earnings_index]
-            sel_bad_emoji.pop(earnings_index)
-
-        rent_emoji = bad_emoji[random.randint(0, len(bad_emoji) - 1)]
-
-        if state['earnings_minus_rent'] > 100:
-            earnings_minus_rent = positive_emoji[random.randint(0, (len(positive_emoji) - 1))]
-        elif state['earnings_minus_rent'] <= 100 and state['earnings_minus_rent'] > 50:
-            earnings_minus_rent = neutral_emoji[random.randint(0, (len(neutral_emoji) - 1))]
-        else:
-            earnings_minus_rent = bad_emoji[random.randint(0, (len(bad_emoji) - 1))]
-            
     frame:
         style "prompt_frame"
         xalign 0.5
@@ -2147,14 +2077,14 @@ screen performance(state, average):
             text(f"Approval rating: {round(state['approval_rate'], 2)}%"):
                 xsize 550
                 yalign 0.5
-            image f"icons/emoji/{approval}.png":
+            image f"icons/emoji/{emojis['approval']}.png":
                 xalign 1.0
         hbox:
             xsize 525
             text(f"Average time: {round(state['average_time'], 1)} seconds"):
                 xsize 550
                 yalign 0.5
-            image f"icons/emoji/{time}.png":
+            image f"icons/emoji/{emojis['time']}.png":
                 xalign 1.0
 
         hbox:
@@ -2162,22 +2092,23 @@ screen performance(state, average):
             text(f"Gross earnings: ${round(state['earnings'], 2)}"):
                 xsize 550
                 yalign 0.5
-            image f"icons/emoji/{earnings}.png":
+            image f"icons/emoji/{emojis['earnings']}.png":
                 xalign 1.0
         hbox:
             xsize 525
             text(f"Rent & fees: -${round((store.daily_rent * store.game_state.day), 2)}"):
                 xsize 550
                 yalign 0.5
-            image f"icons/emoji/{rent_emoji}.png":
+            image f"icons/emoji/{emojis['rent']}.png":
                 xalign 1.0
         hbox:
             xsize 525
             text(f"Net earnings: ${round(state['earnings_minus_rent'], 2)}"):
                 xsize 550
                 yalign 0.5
-            image f"icons/emoji/{earnings_minus_rent}.png":
+            image f"icons/emoji/{emojis['earnings_minus_rent']}.png":
                 xalign 1.0
+
 
 # apartment screens
 # sticky notes zoom

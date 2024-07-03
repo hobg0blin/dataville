@@ -2,6 +2,7 @@
 
 # SELECT DA IMAGES
 screen captcha_image(task, images):
+    layer "master"
     python:
         blink_sec, blink_interval, exit_fade_secs = 0.3, 0.07, 0.4
 
@@ -62,7 +63,7 @@ screen captcha_image(task, images):
             yalign 0.5
             if exit_sequence:
                 at blink(blink_sec, blink_interval)
-            action ToggleScreenVariable('exit_sequence')
+            action SetScreenVariable('exit_sequence', True)
 
     use cogni_timeup("You ran out of time! Your earnings have been halved.", char_map['cogni']['mood']['default'], "bottom_left", True)
 
@@ -70,8 +71,9 @@ screen captcha_image(task, images):
         timer max(blink_sec, exit_fade_secs) action Return(True)
 
 screen comparison_image(task, images):
+    layer "master"
     python:
-        blink_sec, blink_interval, exit_fade_secs = 0.3, 0.07, 0.4
+        blink_sec, blink_interval, exit_fade_secs = 0.3, 0.1, 0.4
 
     default exit_sequence = False
     default selected_button = None
@@ -105,12 +107,12 @@ screen comparison_image(task, images):
                     idle Transform(img, size = (600, 600), xpos = 0, ypos = 0)
                     hover Transform(img, size = (625, 625), xpos = -12, ypos = -12)
                     if selected_button == img:
-                        at blink(blink_sec, blink_interval)
+                        at fade_and_blink(blink_sec, blink_interval)
                     elif exit_sequence:
                         at fade_out(exit_fade_secs)
                     else:
                         at fade_in(blink_sec)
-                    action [SetVariable("latest_choice", strp), SetScreenVariable("selected_button", img), ToggleScreenVariable('exit_sequence')]
+                    action [SetVariable("latest_choice", strp), SetScreenVariable("selected_button", img), SetScreenVariable('exit_sequence', True)]
 
     use cogni_timeup("You ran out of time! Your earnings have been halved.", char_map['cogni']['mood']['default'], "bottom_left", True)
 
@@ -119,6 +121,7 @@ screen comparison_image(task, images):
 
 # SAY YES OR NO TO DA IMAGES
 screen binary_image(task, images):
+    layer "master"
     python:
         blink_sec, blink_interval, exit_fade_secs = 0.3, 0.07, 0.4
 
@@ -168,7 +171,7 @@ screen binary_image(task, images):
                 at fade_out(exit_fade_secs)
             else:
                 at fade_in(blink_sec)
-            action [SetVariable("latest_choice", "Y"), SetScreenVariable('selected_button', 'Y'), ToggleScreenVariable('exit_sequence')]
+            action [SetVariable("latest_choice", "Y"), SetScreenVariable('selected_button', 'Y'), SetScreenVariable('exit_sequence', True)]
         textbutton 'No':
             style "default_button"
             xsize 380
@@ -180,7 +183,7 @@ screen binary_image(task, images):
                 at fade_out(exit_fade_secs)
             else:
                 at fade_in(blink_sec)
-            action [SetVariable("latest_choice", "Y"), SetScreenVariable('selected_button', 'N'), ToggleScreenVariable('exit_sequence')]
+            action [SetVariable("latest_choice", "Y"), SetScreenVariable('selected_button', 'N'), SetScreenVariable('exit_sequence', True)]
 
     use cogni_timeup("You ran out of time! Your earnings have been halved.", char_map['cogni']['mood']['default'], "bottom_left", True)
 
@@ -188,6 +191,7 @@ screen binary_image(task, images):
         timer max(blink_sec, exit_fade_secs) action Return(True)
 
 screen binary_text(task):
+    layer "master"  
     python:
         blink_sec, blink_interval, exit_fade_secs = 0.3, 0.07, 0.4
 
@@ -233,7 +237,7 @@ screen binary_text(task):
                 at fade_out(exit_fade_secs)
             else:
                 at fade_in(blink_sec)
-            action [SetVariable("latest_choice", "Y"), SetScreenVariable('selected_button', 'Y'), ToggleScreenVariable('exit_sequence')]
+            action [SetVariable("latest_choice", "Y"), SetScreenVariable('selected_button', 'Y'), SetScreenVariable('exit_sequence', True)]
         textbutton 'No':
             style "default_button"
             xsize 380
@@ -245,7 +249,7 @@ screen binary_text(task):
                 at fade_out(exit_fade_secs)
             else:
                 at fade_in(blink_sec)
-            action [SetVariable("latest_choice", "Y"), SetScreenVariable('selected_button', 'N'), ToggleScreenVariable('exit_sequence')]
+            action [SetVariable("latest_choice", "Y"), SetScreenVariable('selected_button', 'N'), SetScreenVariable('exit_sequence', True)]
 
     use cogni_timeup("You ran out of time! Your earnings have been halved.", char_map['cogni']['mood']['default'], "bottom_left", True)
 
@@ -272,6 +276,7 @@ screen task_error():
     
 
 screen comparison_text(task, button_text='Done!'):
+    layer "master"
     python:
         blink_sec, blink_interval, exit_fade_secs = 0.3, 0.07, 0.4
 
@@ -318,7 +323,7 @@ screen comparison_text(task, button_text='Done!'):
                             at fade_out(exit_fade_secs)
                         else:
                             at fade_in(blink_sec)
-                        action [SetVariable("latest_choice", i), SetScreenVariable('selected_button', i), ToggleScreenVariable('exit_sequence')]
+                        action [SetVariable("latest_choice", i), SetScreenVariable('selected_button', i), SetScreenVariable('exit_sequence', True)]
                 # python:
                 #     box['xpos'] = start_x_text
                 #     box['ypos'] = int(start_y_text) + (50*idx)
@@ -335,6 +340,7 @@ screen comparison_text(task, button_text='Done!'):
 
 
 screen caption_image(task, images):
+    layer "master"
     python:
         blink_sec, blink_interval, exit_fade_secs = 0.3, 0.07, 0.4
 
@@ -385,7 +391,7 @@ screen caption_image(task, images):
                     at fade_out(exit_fade_secs)
                 else:
                     at fade_in(blink_sec)
-                action [SetVariable("latest_choice", task['labels'][id]['name']), SetScreenVariable('selected_button', task['labels'][id]['name']), ToggleScreenVariable('exit_sequence')]
+                action [SetVariable("latest_choice", task['labels'][id]['name']), SetScreenVariable('selected_button', task['labels'][id]['name']), SetScreenVariable('exit_sequence', True)]
 
     use cogni_timeup("You ran out of time! Your earnings have been halved.", char_map['cogni']['mood']['default'], "bottom_left", True)
 
@@ -393,6 +399,7 @@ screen caption_image(task, images):
         timer max(blink_sec, exit_fade_secs) action Return(True)
 
 screen sentiment_text(task):
+    layer "master"
     python:
         blink_sec, blink_interval, exit_fade_secs = 0.3, 0.07, 0.4
 
@@ -436,7 +443,7 @@ screen sentiment_text(task):
                     at fade_out(exit_fade_secs)
                 else:
                     at fade_in(blink_sec)
-                action [SetVariable("latest_choice", task['labels'][id]['name']), SetScreenVariable('selected_button', task['labels'][id]['name']), ToggleScreenVariable('exit_sequence')]
+                action [SetVariable("latest_choice", task['labels'][id]['name']), SetScreenVariable('selected_button', task['labels'][id]['name']), SetScreenVariable('exit_sequence', True)]
 
     use cogni_timeup("You ran out of time! Your earnings have been halved.", char_map['cogni']['mood']['default'], "bottom_left", True)
 
@@ -446,6 +453,7 @@ screen sentiment_text(task):
 # ORDER THE TEXT
 
 screen order_text(task, button_text='Done!'):
+    layer "master"
     zorder 1
     # this animates random shuffle??? is that supposed to be happening? either renpy.random or regular random does it
     #ok so use traditional python random library for actual randomization

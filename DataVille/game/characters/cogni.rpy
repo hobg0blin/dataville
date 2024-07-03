@@ -67,7 +67,8 @@ screen cogni_enter(mood, position="center", overlay=False, hide_bubble = False, 
 
     image "scanlines_overlay"
 
-    timer move1_time + move2_time + move3_time action [ToggleScreenVariable("show_bubble")]
+    if not hide_move:
+        timer move1_time + move2_time + move3_time action [ToggleScreenVariable("show_bubble")]
     if show_bubble:
         timer pop1_time + pop2_time + pop3_time action [Return(True)]
 
@@ -122,7 +123,7 @@ screen cogni_timeup(what, mood, position="center", overlay=False):
     elif timer_failed:
         timer pop1_time + pop2_time + pop3_time action [ToggleLocalVariable("show_text")]
 
-screen cogni_leave(mood, position="center", overlay=False):
+screen cogni_leave(mood, position="center", overlay=False, hide_bubble = False, hide_move = False):
     python:
         move1_time, move2_time = (0.1, 0.25)
         pop1_time, pop2_time = (0.09, 0.09)
@@ -139,7 +140,8 @@ screen cogni_leave(mood, position="center", overlay=False):
                 xpos position_map[position]["sprite"]["xpos"]
                 ypos position_map[position]["sprite"]["ypos"]
                 if move_cogni:
-                    at pos_to_l_bounce(move1_time, move2_time)
+                    if not hide_move:
+                        at pos_to_l_bounce(move1_time, move2_time)
         window: # bubble window
                 style position_map[position]["style"]
                 xpos position_map[position]["text"]["xpos"]
@@ -155,9 +157,10 @@ screen cogni_leave(mood, position="center", overlay=False):
 
     image "scanlines_overlay" 
 
-    timer pop1_time + pop2_time action [ToggleScreenVariable("move_cogni")]
     if move_cogni:
         timer move1_time + move2_time action [Return(True)]
+    else:
+        timer pop1_time + pop2_time action If(hide_move, true=[Return(True)], false=[ToggleScreenVariable("move_cogni")])
 
 transform l_to_pos_bounce(move1_time=0.5, move2_time=0.1, move3_time=0.05):
     xoffset -1500

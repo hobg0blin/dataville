@@ -55,6 +55,21 @@ transform blink(duration=0.4, interval=0.05):
     time duration
     alpha 0.0
 
+transform fade_and_blink(duration=0.5, interval=0.05):
+    parallel:
+        linear duration alpha 0.0
+    parallel:
+        alpha 1.0
+        pause interval
+        alpha 0.0
+        pause interval
+        alpha 1.0
+        pause interval
+        alpha 0.0
+        pause interval
+
+
+
 transform wait_blur_and_fadeout(wait=0.7, duration=0.7, blur_amount=5):
     pause wait
     blur 0
