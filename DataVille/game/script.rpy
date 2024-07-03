@@ -313,7 +313,7 @@ label start:
         $ task_error = True
       elif is_image:
         call screen expression(task['type']) pass (task, images)
-      else: 
+      else:
         call screen expression(task['type']) pass (task)
       python:
         if not task_error:

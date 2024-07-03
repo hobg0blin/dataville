@@ -76,7 +76,21 @@ screen comparison_image(task, images):
 
 # SAY YES OR NO TO DA IMAGES
 screen binary_image(task, images):
-    use instructions(task)
+    python:
+        blink_sec, blink_interval, exit_fade_secs = 0.3, 0.07, 0.4
+
+    default exit_sequence = False
+    default selected_button = None
+
+    if not exit_sequence:
+        fixed:
+            use instructions(task)
+            at fade_in(blink_sec)
+    else:
+        fixed:
+            use instructions(task)
+            at fade_out(exit_fade_secs)
+
     window id 'labeler':
         style "window_nobox"
         xalign 0.5
@@ -88,7 +102,11 @@ screen binary_image(task, images):
                 python:
                     base = os.path.basename(img)
                     strp = os.path.splitext(base)[0]
-                image im.Scale(f"{img}", 614, 614)
+                image im.Scale(f"{img}", 614, 614):
+                    if exit_sequence:
+                        at fade_out(exit_fade_secs)
+                    else:
+                        at fade_in(blink_sec)
 
     hbox id 'done':
         xmaximum 1920
@@ -101,15 +119,31 @@ screen binary_image(task, images):
             xsize 380
             text_xalign 0.5
             selected False
-            action [SetVariable("latest_choice", "Y"), Return(True)]
+            if selected_button == 'Y':
+                at blink(blink_sec, blink_interval)
+            elif exit_sequence:
+                at fade_out(exit_fade_secs)
+            else:
+                at fade_in(blink_sec)
+            action [SetVariable("latest_choice", "Y"), SetScreenVariable('selected_button', 'Y'), ToggleScreenVariable('exit_sequence')]
         textbutton 'No':
             style "default_button"
             xsize 380
             text_xalign 0.5
             selected False
-            action [SetVariable("latest_choice", "N"), Return(True)]
-    
-    use cogni_timeup("You ran out of time! Your earnings have been halved.", char_map['cogni']['mood']['default'], "bottom_left", True)
+            if selected_button == 'N':
+                at blink(blink_sec, blink_interval)
+            elif exit_sequence:
+                at fade_out(exit_fade_secs)
+            else:
+                at fade_in(blink_sec)
+            action [SetVariable("latest_choice", "Y"), SetScreenVariable('selected_button', 'N'), ToggleScreenVariable('exit_sequence')]
+    fixed:
+        use cogni_timeup("You ran out of time! Your earnings have been halved.", char_map['cogni']['mood']['default'], "bottom_left", True)
+        at fade_in(0.0)
+
+    if exit_sequence:
+        timer max(blink_sec, exit_fade_secs) action Return(True)
 
 screen binary_text(task):
     use instructions(task)
