@@ -271,7 +271,6 @@ init python:
 
 
   def filter_apartment(obj):
-    store.game_state.time = 'end'
     if (obj['type'] == 'sticky_note'):
       print('performance: ', store.game_state.performance_rating)
       print('time: ', store.game_state.time)
