@@ -674,8 +674,6 @@ style about_label_text:
 screen save():
 
     tag menu
-    frame:
-        style "main_menu_frame"
     use navigation
     # use file_slots(_("Save"))
 
