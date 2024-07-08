@@ -2,6 +2,7 @@
 **/*.mp4
 *.zip
 **/*.zip
+**/*.bak
 **/*.psd
 **/__pycache__
 DataVille/game/saves
@@ -19,4 +20,5 @@ DataVille/log.txt
 candella/
 *.bak
 *.rpymc
+**/*.rpymc
 *.csv#

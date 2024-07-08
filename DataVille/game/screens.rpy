@@ -2040,19 +2040,19 @@ screen overlay(task, earning_flag = False, rent_loss_flag = False, cogni=False, 
             at still_aberate(2.0)
         
 
-        text '{font=fonts/RussoOne-Regular.ttf}TOTAL EARNINGS: $ ' + "{:.2f}".format(float(store.game_state.performance['earnings_minus_rent'])) + '{/font}':
+        text '{font=fonts/RussoOne-Regular.ttf}ACCOUNT BALANCE: $ ' + "{:.2f}".format(float(store.game_state.performance['earnings_minus_rent'])) + '{/font}':
             xalign .90
             color "#FFFFFF"
             ypos 16
             at still_aberate(3.0)
         
         if earning_flag:
-            text '{font=fonts/RussoOne-Regular.ttf}{color=#00000000}TOTAL EARNINGS: $ {/color}' + '{color=#08a121}' + "{:.2f}".format(float(store.game_state.performance['earnings_minus_rent'])) + '{/color}{/font}':
+            text '{font=fonts/RussoOne-Regular.ttf}{color=#00000000}ACCOUNT BALANCE: $ {/color}' + '{color=#08a121}' + "{:.2f}".format(float(store.game_state.performance['earnings_minus_rent'])) + '{/color}{/font}':
                 xalign .90
                 ypos 16
                 at fade_out(1.0)
         elif rent_loss_flag:
-            text '{font=fonts/RussoOne-Regular.ttf}{color=#00000000}TOTAL EARNINGS: $ {/color}' + '{color=#ca0c0c}}' + "{:.2f}".format(float(store.game_state.performance['earnings_minus_rent'])) + '{/color}{/font}':
+            text '{font=fonts/RussoOne-Regular.ttf}{color=#00000000}ACCOUNT BALANCE: $ {/color}' + '{color=#ca0c0c}}' + "{:.2f}".format(float(store.game_state.performance['earnings_minus_rent'])) + '{/color}{/font}':
                 xalign .90
                 ypos 16
                 at fade_out(1.0)
@@ -2065,13 +2065,13 @@ screen overlay(task, earning_flag = False, rent_loss_flag = False, cogni=False, 
 screen overlay_reward(reward, incorrect_choice = False):
     if timer_failed:
         $ reward = float(reward) / 2
-    text '{font=fonts/RussoOne-Regular.ttf}TASK REWARD : $ ' + "{:.2f}".format(float(reward)) + '{/font}':
+    text '{font=fonts/RussoOne-Regular.ttf}TASK REWARD : $ ' + "{:.2f}".format(float(reward)) + '{/font} | ':
         xalign .58
         ypos 16
         color "#FFFFFF"
         at still_aberate(3.0)
     if timer_failed:
-        text '{font=fonts/RussoOne-Regular.ttf}{color=#00000000}TASK REWARD : $ {/color}' + '{color=#ca0c0c}' + "{:.2f}".format(float(reward)) + '{/color}{/font}':
+        text '{font=fonts/RussoOne-Regular.ttf}{color=#00000000}TASK REWARD : $ {/color}' + '{color=#ca0c0c}' + "{:.2f}".format(float(reward)) + '{/color}{/font} | ':
             xalign .58
             ypos 16
             at fade_out(1.0)
@@ -2165,24 +2165,12 @@ screen apartment(data, time, bg_path):
             if not zoom_transition:
                 random.shuffle(data["sticky_note"])
         for i, note in enumerate(data["sticky_note"]):
-<<<<<<< HEAD
-            if i > 3:
-                break
-            if note["performance"] == "default" or note["performance"] == store.game_state.performance_rating or (note["event_flag"] in store.event_flags):
-                text note["text"]:
-                    style "sticky_note"
-                    xsize 129 ysize 132
-                    xpos start_note_positions[i][0] ypos start_note_positions[i][1]
-                    if zoom_transition:
-                        at zoom_sticky_notes(offset_note_positions[i][0], offset_note_positions[i][1], zoom_time)
-=======
             text note["text"]:
                 style "sticky_note"
                 xsize 129 ysize 132
                 xpos start_note_positions[i][0] ypos start_note_positions[i][1]
                 if zoom_transition:
                     at zoom_sticky_notes(offset_note_positions[i][0], offset_note_positions[i][1], zoom_time)
->>>>>>> hab-06-30
 
         # TV Hover button
         if not zoom_transition:
@@ -2212,11 +2200,11 @@ screen apartment(data, time, bg_path):
                 hover Solid("#d3a95620")
                 action [ToggleScreenVariable('zoom_transition')]
         
-    if zoom_transition:
-        image Solid("#000000"):
-            xsize 1920 ysize 1080 pos (0, 0)
-            at fade_in(fade_time)
-        timer max(zoom_time, fade_time) action Return(True)
+        if zoom_transition:
+            image Solid("#000000"):
+                xsize 1920 ysize 1080 pos (0, 0)
+                at fade_in(fade_time)
+            timer max(zoom_time, fade_time) action Return(True)
 
 # # No longer zooming into the notes
 # screen zoomed_note(data):

@@ -230,7 +230,7 @@ label start:
             $ text =  f"{split[count]}"
             $ start_speaker = (not count) and (prev_speaker != message['sender'])
             $ end_speaker = (count == length - 1) and (next_message_set['sender'] != message['sender'])
-            $ render_message(sender['obj'].name, sender['obj'].who_suffix, "check_messages" + text, sender['mood']['default'], start = start_speaker, end = end_speaker)
+            $ render_message(sender['obj'].name, sender['obj'].who_suffix, text, sender['mood']['default'], start = start_speaker, end = end_speaker)
           $ count += 1
           $ prev_speaker = message['sender']
   #manually set task & variables for first loop
@@ -283,7 +283,7 @@ label start:
               $ sender = char_map[message['sender']]
               $ start_speaker = (not count) and (prev_speaker != message['sender'])
               $ end_speaker = (count == length - 1) and (next_message_set['sender'] != message['sender'])
-              $ render_message(sender['obj'].name, sender['obj'].who_suffix, "task_loop1" + text, sender['mood']['default'], position = "bottom_left", start = start_speaker, end = end_speaker)
+              $ render_message(sender['obj'].name, sender['obj'].who_suffix, text, sender['mood']['default'], position = "bottom_left", start = start_speaker, end = end_speaker)
             $ count += 1
             $ prev_speaker = message['sender']
       python:
@@ -301,7 +301,7 @@ label start:
         $ custom_dialogue = task['custom_dialogue']
         $ start_speaker = sender['obj'].name != "cogni"
         $ end_speaker = sender['obj'].name != "cogni"
-        $ render_message(sender['obj'].name, sender['obj'].who_suffix, "task_loop2" + custom_dialogue, sender['mood']['default'], position = "bottom_left", start = start_speaker, end = end_speaker, overlay = True)
+        $ render_message(sender['obj'].name, sender['obj'].who_suffix, custom_dialogue, sender['mood']['default'], position = "bottom_left", start = start_speaker, end = end_speaker, overlay = True)
 
       $ custom_feedback = ""
       $ custom_feedback_sender = ""
@@ -374,7 +374,7 @@ label start:
         $ print('has custom feedback')
         $ start_speaker = sender['obj'].name != "cogni"
         $ end_speaker = sender['obj'].name != "cogni"        
-        $ render_message(sender['obj'].name, sender['obj'].who_suffix, "task_loop_has_custom_feedback" + custom_feedback, sender['mood']['default'], position = "bottom_left", start = start_speaker, end = end_speaker, overlay = True)
+        $ render_message(sender['obj'].name, sender['obj'].who_suffix, custom_feedback, sender['mood']['default'], position = "bottom_left", start = start_speaker, end = end_speaker, overlay = True)
         # show screen message(custom_feedback_sender, [f"{custom_feedback_sender}"])
         # window hide
         hide screen message 
@@ -446,7 +446,7 @@ label start:
             $ sender = char_map[message['sender']]  
             $ start_speaker = (not count) and (prev_speaker != message['sender'])
             $ end_speaker = (count == length - 1) and (next_message_set['sender'] != message['sender'])
-            $ render_message(sender['obj'].name, sender['obj'].who_suffix, "check_messages" + text, sender['mood']['default'], start = start_speaker, end = end_speaker)
+            $ render_message(sender['obj'].name, sender['obj'].who_suffix, text, sender['mood']['default'], start = start_speaker, end = end_speaker)
             $ count += 1
       
       hide screen overlay
