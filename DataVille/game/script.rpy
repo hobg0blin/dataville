@@ -449,7 +449,7 @@ label start:
             $ start_speaker = (not count) and (prev_speaker != message['sender'])
             $ end_speaker = (count == length - 1) and (next_message_set['sender'] != message['sender'])
             $ render_message(sender['obj'].name, sender['obj'].who_suffix, text, sender['mood']['default'], start = start_speaker, end = end_speaker)
-            $ count += 1
+            $ count += 2
       
       hide screen overlay
       hide screen overlay_earnings
@@ -482,7 +482,7 @@ label start:
             $ cleaned = clean(store.apartment_data)
             $ show_computer_screen(store.game_state.ui)
             $ fee_text = f"Your combined fees and rent are ${store.daily_rent * store.game_state.day}. Make sure your earnings exceed this number!"
-            $ render_message(char_map['cogni']['obj'].name, char_map['cogni']['obj'].who_suffix, fee_text, char_map['cogni']['mood']['default'], position = "center")
+            $ render_message(char_map['cogni']['obj'].name, char_map['cogni']['obj'].who_suffix, fee_text, char_map['cogni']['mood']['default'], position = "center", start= True, end = True)
             call task_loop from _call_task_loop_1
         else:
           "game state is broken!!!"
