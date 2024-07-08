@@ -1,11 +1,10 @@
 {b}Image Labeler/ Annotator{/b}
 @Dataville
-{b}Qualifications:{/b}
-• Detail-oriented with a knack for quick task processing
-• Strong command over English communication
-• Ability to grasp technical concepts
-• Self-motivated with a high work ethic
-• Full-time commitment required (min. 30hrs/week)
+Facing eviction? In serious debt? 
+Don’t run out of cash!
+…earn money from home! 
+{b}Responsibilities:{/b}
+• Labeling tasks. Our team of labelers is helping improve our state-of-the-art multimodal AI model.
 {b}Benefits:{/b}
 • Flexible work hours with remote options
 • Attractive salary package
