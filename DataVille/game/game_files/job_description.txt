@@ -1,14 +1,16 @@
-{b}Image Labeler/ Annotator{/b}
-@Dataville
+{b}Image Labeler/ Annotator @ DataVille {/b}
 Facing eviction? In serious debt? 
 Don’t run out of cash!
-…earn money from home! 
+…earn money from home!
+
 {b}Responsibilities:{/b}
-• Labeling tasks. Our team of labelers is helping improve our state-of-the-art multimodal AI model.
+• Labeling tasks. Help improve our state-of-the-art multimodal AI model!
+
 {b}Benefits:{/b}
 • Flexible work hours with remote options
 • Attractive salary package
 • Play a role in positively impacting society
+
 {b}Application Process:{/b}
 1. Click on “Get Started”.
 2. Complete a brief 1-3 min assessment.

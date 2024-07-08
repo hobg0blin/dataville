@@ -103,7 +103,7 @@ init:
   }
 
 # The game starts here.
-default skip_intro = False
+default skip_intro = True
 default no_fail = False
 default start_at_day_end = False
 label start:
@@ -245,7 +245,10 @@ label start:
 
 
 #THIS AUTOMATES GOING THROUGH TASKS WHEN INSTRUCTIONS/ETC. ARE UNNECESSARY
+    $ starting_earnings = store.game_state.performance['earnings_minus_rent']
     label task_loop:
+      hide screen overlay
+      show screen overlay(task)
       # $ show_computer_screen_with_cogni_enter(store.game_state.ui)
       python:
         if not renpy.get_screen('cogni'):
@@ -308,15 +311,16 @@ label start:
 
       show screen timer
 
+      $ aberate_layer('all', 10)
+      
       if (task['type'] == 'sentiment_text' and not 'labels' in task) or task['type'] == 'captcha_image' and not 'correct_images' in task:
         call screen task_error 
         $ task_error = True
       elif is_image:
-        $ aberate_layer('all', 10)
         call screen expression(task['type']) pass (task, images)
       else:
-        $ aberate_layer('all', 10)
         call screen expression(task['type']) pass (task)
+      
       python:
         if not task_error:
             if (task['type'] == 'captcha_image'):
@@ -334,16 +338,22 @@ label start:
                 if 'custom_feedback_sender' in task:
                 #if there's an ethical option AND specific feedback, show that
                     print('hit ethical task: ', task)
+                    print('choice:', latest_choice)
+                    print('correct option: ', correct)
                     custom_feedback_sender = char_map[task['custom_feedback_sender']]
                     if 'ethical_options' in task:
                       ethical = task['ethical_options']
+                      print('ethical option: ', ethical)
                       if 'custom_feedback_ethical' in task and latest_choice == ethical:
                           print('should be showing ethical custom feedback')
                           custom_feedback = task['custom_feedback_ethical'] 
+                          has_custom_feedback = True
                     # if choice is correct and there's feedback for that, show it
                     if 'custom_feedback_correct' in task and latest_choice == correct:
                         print('should be showing correct custom feedback')
+                        print('correct custom feedback: ', task['custom_feedback_correct'])
                         custom_feedback = task['custom_feedback_correct'] 
+                        has_custom_feedback = True
                 task = update_state(store.game_state, binary_correct, task)
                 has_custom_feedback = custom_feedback != ""
         else:
@@ -355,6 +365,10 @@ label start:
       hide screen empty_timer
       hide screen cogni_timeup
       hide screen task_type
+
+      hide screen overlay
+      $ show_green = starting_earnings != store.game_state.performance['earnings_minus_rent']
+      show screen overlay(task, show_green)
 
       if has_custom_feedback:
         $ print('has custom feedback')
@@ -387,9 +401,10 @@ label start:
         jump end
       if (store.game_state.time == "end"):
         python:
-          print('earnings: ', store.game_state.performance['earnings_minus_rent'])
           if (store.game_state.day != 0):
             store.game_state.performance['earnings_minus_rent'] -= (store.daily_rent * store.game_state.day)
+            renpy.hide_screen('overlay')
+            renpy.show_screen('overlay', task = task, rent_loss_flag = True)
           print('earnings minus rent: ', store.game_state.performance['earnings_minus_rent'])
           if store.game_state.performance['earnings_minus_rent'] <= 0:
             store.event_flags.append('rent_fail')
@@ -402,8 +417,6 @@ label start:
           $ print('hitting rent fail state')
           jump end 
       
-
-
         hide screen performance
       # FEEDBACK FROM MANAGER
         #NEW UI STATE
@@ -414,13 +427,12 @@ label start:
             n = 120
             text = message['text']
             split = split_into_sentences(text)
-            print("**interstitial**", split)
             length = len(split)
             count = 0
           while count < length:
             python:
               buttons = None
-              if count >= length - 2:
+              if count >= length - 1:
                 if 'button_1_text' in message:
                   buttons = [message['button_1_text']]
                 if 'button_2_text' in message:
@@ -435,10 +447,10 @@ label start:
             $ start_speaker = (not count) and (prev_speaker != message['sender'])
             $ end_speaker = (count == length - 1) and (next_message_set['sender'] != message['sender'])
             $ render_message(sender['obj'].name, sender['obj'].who_suffix, "check_messages" + text, sender['mood']['default'], start = start_speaker, end = end_speaker)
-            $ count += 2
+            $ count += 1
       
+      hide screen overlay
       $ aberate_layer('all', 0)
-
 
       if store.game_state.day < 4:
         if store.game_state.time == "end":
@@ -452,19 +464,16 @@ label start:
                 $ dream_counter += 1
             $ fade_out_of_dream(0.5)
       
-
-      play music f"dataville_apartment_{store.game_state.performance_rating}.wav" fadein 2.0
-
-      call screen apartment(clean(store.apartment_data), store.game_state.time, apartment_bg_map['apartment_1'])
+      #this is where the next day should start
 
       if store.game_state.day < 4:
         if store.game_state.time == "end":
-            python:
-                day_start()
+            $ day_start()
             if store.game_state.performance_rating != 'bad':
                 play music f"dataville_workspace_{store.game_state.performance_rating}.wav" fadein 2.0
             else:
                 play music f"dataville_workspace_neutral.wav" fadein 2.0
+            call screen apartment(clean(store.apartment_data), store.game_state.time, apartment_bg_map['apartment_1'])
             $ task = store.loop["start_task"]
             $ set_ui_state(task, store.game_state)
             $ cleaned = clean(store.apartment_data)

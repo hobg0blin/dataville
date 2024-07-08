@@ -17,3 +17,6 @@ DataVille/traceback.txt
 DataVille/log.txt
 .DS_Store
 candella/
+*.bak
+*.rpymc
+*.csv#
