@@ -44,7 +44,6 @@ init python:
     :rtype: list[str]
     """
     text = " " + text + "  "
-#    text = text.replace("\n"," ")
     text = re.sub(prefixes,"\\1<prd>",text)
     text = re.sub(websites,"<prd>\\1",text)
     text = re.sub(digits + "[.]" + digits,"\\1<prd>\\2",text)
@@ -58,7 +57,6 @@ init python:
     text = re.sub(" "+suffixes+"[.]"," \\1<prd>",text)
     text = re.sub(" " + alphabets + "[.]"," \\1<prd>",text)
     if "”" in text: text = text.replace(".”","”.")
-#    if "\"" in text: text = text.replace(".\"","\".")
     if "!" in text: text = text.replace("!\"","\"!")
     if "?" in text: text = text.replace("?\"","\"?")
     text = text.replace(".",".<stop>")
@@ -74,7 +72,7 @@ init python:
     # besides at the end, we can use the filter function
     # sentences = list(filter(lambda s: not s.isspace(), sentences))
     
-    sentences = [s.lstrip('\n.') for s in sentences]
+    sentences = [s.lstrip() for s in sentences]
 
     return sentences
   
@@ -84,28 +82,28 @@ init python:
     # CONSTANTS FOR PERFORMANCE COMPARISON
     store.averages = {
         'day_0': {
-          'score': 90,
+          'score': 85,
           'time': 8,
           'earnings': 600
           },
         'day_1': {
-          'score': 90,
-            'time': 8,
+          'score': 85,
+            'time': 4,
           'earnings': 2200
           },
         'day_2': {
-            'score': 90,
-            'time': 8,
+            'score': 85,
+            'time': 5,
           'earnings': 5000
           },
         'day_3': {
-            'score': 85,
-            'time': 8,
+            'score': 80,
+            'time': 5,
           'earnings': 9000
           },
         'day_4': {
-          'score': 85,
-          'time': 8,
+          'score': 75,
+          'time': 6,
           'earnings': 13000
           },
       }
@@ -358,7 +356,7 @@ init python:
   def set_performance_rating():
     if (store.game_state.performance['approval_rate'] >= store.averages['day_' + str(store.game_state.day)]['score']):
       store.game_state.performance_rating = "good"
-    elif (store.game_state.performance['approval_rate'] > (store.averages['day_' + str(store.game_state.day)]['score'] - 25) and  store.game_state.performance['approval_rate'] < (store.averages['day_' + str(store.game_state.day)]['score'])):
+    elif (store.game_state.performance['approval_rate'] > (store.averages['day_' + str(store.game_state.day)]['score'] - 20) and  store.game_state.performance['approval_rate'] < (store.averages['day_' + str(store.game_state.day)]['score'])):
       store.game_state.performance_rating = "neutral"
     else:
       store.game_state.performance_rating = "bad"
@@ -507,14 +505,32 @@ init python:
     renpy.show_layer_at(unblur)
     renpy.with_statement({'master' : Dissolve(0.15)})
   
-  def render_message(who, who_suffix, what, mood, position = "center"):
+  def render_message(who, who_suffix, what, mood, position = "center", start = False, end = False, overlay = False, overlay_time = (0.67, 3, 0.44)):
     """
     Renders message style between emails or cogni from reading the CSV scripts.
     """
     if who != "Cogni":
+      if start:
+        renpy.call_screen("expand_message")
+        renpy.hide_screen("expand_message")
       renpy.call_screen('email_message', who, who_suffix, what, mood)
+      if end:
+        renpy.call_screen("close_message")
+        renpy.hide_screen("expand_message")
     else:
-      renpy.call_screen('cogni', what, mood, position)
+      if overlay:
+        renpy.call_screen('cogni_enter', mood, position, hide_move = True)
+        renpy.call_screen('cogni', what, mood, position)
+        renpy.call_screen('cogni_leave', mood, position, hide_move = True)
+        renpy.show_screen('cogni', None, mood, position, overlay = overlay)
+      else:     
+        if start:
+          renpy.call_screen("cogni_enter", mood, position)
+          # renpy.hide_screen("cogni_enter")
+        renpy.call_screen('cogni', what, mood, position)
+        if end:
+          renpy.call_screen("cogni_leave", mood, position)
+          # renpy.hide_screen("cogni_leave")
 
   def fade_into_dream(duration):
     renpy.show_screen('fade_to_black', duration)
@@ -528,12 +544,13 @@ init python:
     renpy.show("bg black_bg")
     renpy.pause(duration)
   
-  def show_computer_screen(store):
+  def show_computer_screen(store, fade_time = 0.3, wait_time = 0.5):
     renpy.scene()
-    renpy.show_screen("overlay", task = store)
-    renpy.show("bg black_bg", tag="curtain")
-    renpy.show("bg overlay_background", behind="curtain")
-    renpy.hide("curtain")
+    aberate_layer(2.0)
+    renpy.show("overlay_background")
+    renpy.show_screen("overlay", task = store, _layer="master")
+    renpy.with_statement(Dissolve(fade_time))
+    renpy.pause(wait_time)
 
   # because the custom text tag doesn't automatically put in line breaks
   # text can render off the screen
@@ -555,5 +572,87 @@ init python:
     lines.append(line)
     
     return lines
+
+  def aberate_layer(amount = 2.0, layer_choice = "master"):
+    if layer_choice == "all":
+      renpy.show_layer_at(still_aberate(amount), layer="master")
+      renpy.show_layer_at(still_aberate(amount), layer="overlay")
+      renpy.show_layer_at(still_aberate(amount), layer="transient")
+      renpy.show_layer_at(still_aberate(amount), layer="screens")
+    else:
+      renpy.show_layer_at(still_aberate(amount), layer=layer_choice)
+
+  def emoji_selection(state, average):
+    positive_emoji = ["thumbs_up", "star_struck", "heart_eyes"]
+    neutral_emoji = ["not_so_great", "ok", "neutral"]
+    bad_emoji = ["angry", "vomit", "poo"]
+
+    sel_positive_emoji = positive_emoji.copy()
+    sel_neutral_emoji = neutral_emoji.copy()
+    sel_bad_emoji = bad_emoji.copy()
+
+    approval = "neutral"
+    time = "neutral"
+    earnings = "neutral"
+    earnings_minus_rent = "neutral"
+    #FIXME: all variables here should be globals set for tweaking
+    if state["approval_rate"] > average["score"]:
+        approval_index = random.randint(0, len(sel_positive_emoji) - 1)
+        approval = sel_positive_emoji[approval_index]
+        sel_positive_emoji.pop(approval_index)
+    elif state["approval_rate"] <= average["score"] and state["approval_rate"] >= average["score"] - 20:
+        approval_index = random.randint(0, len(sel_neutral_emoji) - 1)
+        approval = sel_neutral_emoji[approval_index]
+        sel_neutral_emoji.pop(approval_index)
+    else:
+        approval_index = random.randint(0, len(sel_bad_emoji) - 1)
+        approval = sel_bad_emoji[approval_index]
+        sel_bad_emoji.pop(approval_index)
+
+    if state["average_time"] < average["time"]:
+        time_index = random.randint(0, len(sel_positive_emoji) - 1)
+        time = sel_positive_emoji[time_index]
+        sel_positive_emoji.pop(time_index)
+    elif state["average_time"] >= average["time"] and state["average_time"] <= average["time"] - 3:
+        time_index = random.randint(0, len(sel_neutral_emoji) - 1)
+        time = sel_neutral_emoji[time_index]
+        sel_neutral_emoji.pop(time_index)
+    else:
+        time_index = random.randint(0, len(sel_bad_emoji) - 1)
+        time = sel_bad_emoji[time_index]
+        sel_bad_emoji.pop(time_index)
+
+    if state["earnings"] > average["earnings"]:
+        if len(sel_positive_emoji) == 1:
+            earnings_index = 0
+        else:
+            earnings_index = random.randint(0, len(sel_positive_emoji) - 1)
+        earnings = sel_positive_emoji[earnings_index]
+        sel_positive_emoji.pop(earnings_index)
+    elif state["earnings"] <= average["earnings"] and state["earnings"] <= average["earnings"] - (average["earnings"] / 10):
+        if len(sel_neutral_emoji) == 1:
+            earnings_index = 0
+        else:
+            earnings_index = random.randint(0, len(sel_neutral_emoji) - 1)
+        earnings = sel_neutral_emoji[earnings_index]
+        sel_neutral_emoji.pop(earnings_index)
+    else:
+        if len(sel_bad_emoji) == 1:
+            earnings_index = 0
+        else:
+            earnings_index = random.randint(0, len(sel_bad_emoji) - 1)
+        earnings = sel_bad_emoji[earnings_index]
+        sel_bad_emoji.pop(earnings_index)
+
+    rent_emoji = bad_emoji.pop(random.randint(0, len(bad_emoji) - 1))
+
+    if state['earnings_minus_rent'] > 100:
+        earnings_minus_rent = positive_emoji.pop(random.randint(0, (len(positive_emoji) - 1)))
+    elif state['earnings_minus_rent'] <= 100 and state['earnings_minus_rent'] > 50:
+        earnings_minus_rent = neutral_emoji.pop(random.randint(0, (len(neutral_emoji) - 1)))
+    else:
+        earnings_minus_rent = bad_emoji.pop(random.randint(0, (len(bad_emoji) - 1)))
+      
+    return {"approval": approval, "time": time, "earnings": earnings, "rent": rent_emoji, "earnings_minus_rent": earnings_minus_rent}
 
   set_initial_variables() 

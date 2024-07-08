@@ -2,7 +2,7 @@ type,task_id,next_task,payment,instructions,time,image_folder,correct_images,cor
 binary_image,start_task,comparison_1,100,Does this image contain a human?,10,binary_img_human,,Y,,,,,,,,,,N,Correct answers are worth $100!,cogni,Looks like you're having problems.,You made the correct choice!,cogni,,,
 comparison_image,comparison_1,comparison_2,100,Select the image(s) containing bicycles.,10,comparison_bicycle,,bicycle,,,,,,,,,,,,,,,,,,
 comparison_image,comparison_2,comparison_3,100,Select the image(s) containing traffic lights.,10,comparison_traffic_light,,light,,,,,,,,,,,,,,,,,,
-comparison_image,comparison_3,caption_1,100,Select the image(s) containing humans.,10,comparison_human,,humans,,,,,,,,,,,,,,,,,,
+comparison_image,comparison_3,caption_1,100,Select the image containing only humans.,10,comparison_human,,humans,,,,,,,,,,,,,,,,,,
 caption_image,caption_1,caption_2,100,Pick the word that best describes this image.,10,caption_human,,2,,1,Alien,2,Human,,,,,,,,,You're really helping me improve!,cogni,,,
 caption_image,caption_2,binary_1,100,Pick the word that best describes this image.,10,caption_alien,,1,,1,Alien,2,Human,,,,,,,,,That was a tough one!,cogni,,,
 binary_text,binary_1,break,100,Does this text contain a subversive element?,10,,,Y,"“Entwining tentacle embrace

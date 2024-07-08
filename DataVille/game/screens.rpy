@@ -1715,10 +1715,15 @@ screen timer:
     python:
         init_time = float(task['time']) * 1000
         timer_failed = False
+        # timer_failed = TrueRRR
     vbox:
         yalign 1.0
         xalign 0.0
-        timer 0.03 repeat True action If(time > 0, true=SetVariable('time', time - 30), false=[SetVariable('timer_failed', True), Show("cogni", None, "You ran out of time! Your earnings have been halved.", char_map['cogni']['mood']['default'], "bottom_left", True)])
+        timer 0.03 repeat True action If(time > 0, true=SetVariable('time', time - 30), false=[
+            SetVariable('timer_failed', True),
+            Show('empty_timer'),
+            # Show('cogni_timeup', None, "You ran out of time! Your earnings have been halved.", char_map['cogni']['mood']['default'], "bottom_left", True),
+            Hide('timer')]) # why hide? because the repeat for the timer means the timer_failed is constantly being set
         bar: 
             value time 
             range timer_range 
@@ -1729,8 +1734,24 @@ screen timer:
             # offset is included to treat the halfway point at 0.0 and timer end at 0.5
             left_bar Solid(Color(hls=(0.0, 0.41, 0.0 if ((init_time - time) / init_time) < 0.5 else (init_time - (time + (init_time * 0.5))) / init_time)))
             right_bar Solid("#D9D9D9")  
-            at alpha_dissolve
-    image "scanlines_overlay" 
+            at alpha_dissolve_quick
+
+screen empty_timer:
+    zorder 10
+    vbox:
+        yalign 1.0
+        xalign 0.0
+        bar: 
+            value 0 
+            range 100
+            xmaximum 1920
+            # hls (0, 41, 0) == #696969
+            # if timer is still less than half way, keep saturation at 0
+            # else, start increaing it by the time left
+            # offset is included to treat the halfway point at 0.0 and timer end at 0.5
+            left_bar Solid(Color(hls=(0.0, 0.41, 0.0)))
+            right_bar Solid("#D9D9D9")
+
     
 # GENERAL 'ALWAYS-ON OVERLAY'
 # TODO:
@@ -1811,8 +1832,9 @@ screen dream(dream_text, buttons = ["Next"]):
             buttons = ["Next"]
         
         # The custom text tag needs to be supplied the font's styles before transformation
-        
-        ficps_normal = "{ficps=14-0.95-30-0.73-1.6}"
+        slide_time = 0.95
+        fade_start = 0.73
+        ficps_normal = "{ficps=14-" + str(slide_time) + "-30-" + str(fade_start) + "-1.6}"
         ficps_instant = "{ficps=1000-1-0-0}"
         dream_font = ''
         font_size = "{size=48}"
@@ -1842,11 +1864,11 @@ screen dream(dream_text, buttons = ["Next"]):
             xalign 0.5 
             if not exit_sequence:
                 if not skip_transition:
-                    for line in text_lines:
+                    for i, line in enumerate(text_lines):
+                        python:
+                            ficps_normal = "{ficps=14-" + str((i * 2.5) + slide_time) + "-30-" + str((i * 2.5) + fade_start) + "-1.6}"
                         text ficps_normal + font_size + dream_font + line + end_tags:
-                            style "dream_text"
-                    # text "{ficps}" + dream_font + "WE ARE GOING TO TEST SOMETHING OUT HERE BECAUSE MAYBE THE SIZE DOES FUCK UP BECAUSE ITS PRE RENDERED OR SOMETHING SHIT" + dream_text + "{/font}{/ficps}":
-                    #     style "dream_text"
+                            style "dream_text"           
                 else:
                     for line in text_lines:
                         text ficps_instant + font_size + dream_font + line + end_tags:
@@ -2015,396 +2037,39 @@ screen overlay(task, cogni=False, button_text=False):
 # streak_text, feed_text, instructions, status, button_text=False):
     window id 'content':
         style "window_nobox"
-        ymaximum 1200
-        xmaximum 1920
+        # ymaximum 1080
+        # xmaximum 1920
         frame id 'status_bar':
             background "images/screens/monitor/overlay.png"
             has hbox
             xsize 1920
-            #TODO: just track number of tasks here
+            # To-do: just track number of tasks here
             #      text 'Performance:' + '\n{size=-5}' + task['performance']
             text '{font=fonts/RussoOne-Regular.ttf}TOTAL EARNINGS: $ ' + "{:.2f}".format(float(store.game_state.performance['earnings_minus_rent'])) + '{/font}' xalign .90 color "#FFFFFF" 
-        hbox id 'cogni':
-            xsize 400
-            ysize 300
-            yalign 0.75
-            xalign 0.2
-            #TODO: diff version of cogni based on performance
-            if cogni:
-                vbox:
-                    spacing 15
-                    xsize 500
-                    text '\n{size=-5}' + task['performance']
-                    image "images/characters/cogni/asst_normal.png"
-        if (button_text):
-            frame id 'overlay_button':
-                xsize 300
-                xalign 0.5
-                yalign 0.55
-                textbutton button_text style "button_click" action Return(True)
-#
-# SELECT DA IMAGES
-screen captcha_image(task, images):
-    use instructions(task)
-    window id 'labeler': 
-        style "window_nobox"
-        xsize 619
-        ysize 619
-        xalign 0.5
-        yalign 0.5
-        grid 3 3:
-            xmaximum 200
-            ymaximum 200
-            spacing 7
-            for i, img in enumerate(images):
-                default strp = ""
-                default btn_selected=False
-                python:
-                    base = os.path.basename(img)
-                    strp = os.path.splitext(base)[0]
-                    selected_image = Transform(f"{img}", matrixcolor=SaturationMatrix(0))
-                    hover_image = Transform(f"{img}", matrixcolor=SepiaMatrix(tint=Color("#464d8aa2")))
-                    print('img: ', img)
-                    def check_selected(img):
-                        if img in images_selected['values']:
-                            return True
-                        else:
-                            return False
-                imagebutton:
-                    style "button_click"
-                    xfill True
-                    yfill True 
-                    idle Transform(f"{img}", size = (200, 200), xpos = 0, ypos = 0)
-                    hover Transform(hover_image, size = (200,200), xpos = 0, ypos = 0)
-                    selected_idle Transform(selected_image, size=(180,180), xpos = 10, ypos = 10)
-                    selected_hover Transform(hover_image, size=(180,180), xpos = 10, ypos = 10)
-                    action [Function(select_image, strp), SelectedIf(check_selected(strp))]
-    window id 'done':
-        textbutton "Done":
-            style "default_button"
-            text_xalign 0.5
-            xsize 380
-            xalign 0.5
-            yalign 0.5
-            action Return(True)
+        # hbox id 'cogni':
+        #     xsize 400
+        #     ysize 300
+        #     yalign 0.75
+        #     xalign 0.2
+        #     #TODO: diff version of cogni based on performance
+        #     if cogni:
+        #         vbox:
+        #             spacing 15
+        #             xsize 500
+        #             text '\n{size=-5}' + task['performance']
+        #             image "images/characters/cogni/asst_normal.png"
+        # if (button_text):
+        #     frame id 'overlay_button':
+        #         xsize 300
+        #         xalign 0.5
+        #         yalign 0.55
+        #         textbutton button_text style "button_click" action Return(True)
+        image "scanlines_overlay"
 
-screen comparison_image(task, images):
-    use instructions(task)
-    # $ random.shuffle(task)
-    window id 'labeler':
-        style "window_nobox"
-        xmaximum 1920
-        ymaximum 1600
-        xalign 0.5
-        yalign 0.5
-        hbox:
-            xalign 0.5
-            spacing 100
-            for img in images:
-                default strp = ""
-                python:
-                    base = os.path.basename(img)
-                    strp = os.path.splitext(base)[0]
-                imagebutton:
-                    xysize (600,600)
-                    # xfill True
-                    # yfill True
-                    idle Transform(img, size = (600, 600), xpos = 0, ypos = 0)
-                    hover Transform(img, size = (625, 625), xpos = -12, ypos = -12)
-                    action [SetVariable("latest_choice", strp), Return(True)]
-
-# SAY YES OR NO TO DA IMAGES
-screen binary_image(task, images):
-    use instructions(task)
-    window id 'labeler':
-        style "window_nobox"
-        xalign 0.5
-        yalign 0.5
-        hbox:
-            spacing 10
-            for i, img in enumerate(images):
-                default strp = ""
-                python:
-                    base = os.path.basename(img)
-                    strp = os.path.splitext(base)[0]
-                image im.Scale(f"{img}", 614, 614)
-
-    hbox id 'done':
-        xmaximum 1920
-        xalign 0.5
-        yalign 0.9
-        spacing 20
-        # Selected False prevents previous prompt selection from carrying over
-        textbutton 'Yes':
-            style "default_button"
-            xsize 380
-            text_xalign 0.5
-            selected False
-            action [SetVariable("latest_choice", "Y"), Return(True)]
-        textbutton 'No':
-            style "default_button"
-            xsize 380
-            text_xalign 0.5
-            selected False
-            action [SetVariable("latest_choice", "N"), Return(True)]
-
-screen binary_text(task):
-    use instructions(task)
-    window id 'labeler':
-        style "window_nobox"
-        xmaximum 1920
-        ymaximum 1080
-        xalign 0.5
-        yalign 0.5
-        vbox id 'text_block':
-            text '{size=+15}{i}'+ task['text_block'] + '{/i}{/size}'
-    hbox id 'done':
-        xmaximum 1920
-        xalign 0.5
-        yalign 0.9
-        spacing 20
-        # Selected False prevents previous prompt selection from carrying over
-        textbutton 'Yes':
-            style "default_button"
-            xsize 380
-            text_xalign 0.5
-            selected False
-            action [SetVariable("latest_choice", "Y"), Return(True)]
-        textbutton 'No':
-            style "default_button"
-            xsize 380
-            text_xalign 0.5
-            selected False
-            action [SetVariable("latest_choice", "N"), Return(True)]
-
-screen task_error():
-    # $ random.shuffle(task)
-    window id 'labeler':
-        style "window_nobox"
-        xmaximum 900
-        ymaximum 900
-        xalign 0.75
-        yalign 0.4
-        vbox id 'text_block':
-            text 'This task is missing something in the CSV!'
-    hbox id 'done':
-        xmaximum 900
-        xalign 0.45
-        yalign 0.7
-        spacing 20
-        frame:
-            textbutton 'Next task' style "button_click" action [SetVariable("latest_choice", "Y"), Return(True)]
-
-screen comparison_text(task, button_text='Done!'):
-    use instructions(task)
-    window id 'labeler':
-        style "window_nobox"
-        xalign 0.5
-        yalign 0.5
-        vbox:
-            hbox:
-                spacing 30
-                for i in task['labels']:
-                    vbox:
-                        xsize 700
-                        text '{size=+4}{i}'+ task['labels'][i]['text'] + '{/i}{/size}'
-                            # xpos start_x_text ypos start_y_text
-                            # action [SetVariable("latest_choice", i), Return(True)]
-            hbox:
-                xalign 0.5
-                spacing 350
-                for i in task['labels']:
-                    textbutton "Option " + i:
-                        style "default_button"
-                        ypos 200
-                        xsize 380
-                        text_xalign 0.5
-                        action [SetVariable("latest_choice", i), Return(True)]
-                # python:
-                #     box['xpos'] = start_x_text
-                #     box['ypos'] = int(start_y_text) + (50*idx)
-            # for some reason if i increase start_y in here it loops when the timer is repeating. this seems insane to me and i would like to find out why (e.g if put start_y += 50 here)
-#  frame id 'done':
-#    xsize 300
-#    xalign 0.5
-#    yalign 0.9
-#    textbutton button_text action Return(True)
-
-screen caption_image(task, images):
-    use instructions(task)
-    # Note: this shuffles because of the timer recalls the screen, which inturn reshuffles the labels
-    # If we want the labels to shuffle, then the tasks need to be shuffled and stored sperately and
-    # outside of the screen, so when the screne is called, the order isn't shuffled again
-    # python:
-    #     from random import shuffle
-    #     shuffled_labels = list(task['labels'])
-    #     shuffle(shuffled_labels)
-    window id 'labeler':
-        style "window_nobox"
-        xmaximum 900
-        ymaximum 900
-        xalign 0.5
-        yalign 0.5
-        image im.Scale(f"{images[0]}", 614, 614)
-
-    hbox:
-        xmaximum 1920
-        xalign 0.5
-        yalign 0.9
-        spacing 20
-        for id in task['labels']:
-            textbutton task['labels'][id]['text']:
-                style "default_button" 
-                xsize 380
-                text_xalign 0.5
-                selected False
-                action [SetVariable("latest_choice", task['labels'][id]['name']), Return(True)]
-
-screen sentiment_text(task):
-    use instructions(task)
-    window id 'labeler':
-        style "window_nobox"
-        xsize 700
-        xalign 0.5
-        yalign 0.5
-        text "{size=+4}{i}" + task['text_block'] + "{/i}{/size}"
-
-    hbox:
-        xalign 0.5
-        yalign 0.9
-        spacing 30
-        for id in task['labels']:
-            textbutton task['labels'][id]['text']:
-                style "default_button" 
-                xminimum 350
-                selected False
-                xalign 0.5
-                yalign 0.1
-                action [SetVariable("latest_choice", task['labels'][id]['name']), Return(True)]
-
-
-
-
-# ORDER THE TEXT
-
-screen order_text(task, button_text='Done!'):
-    zorder 1
-    # this animates random shuffle??? is that supposed to be happening? either renpy.random or regular random does it
-    #ok so use traditional python random library for actual randomization
-    default label_order = []
-    default box = {}
-    python:
-        import random
-        label_count = len(task['labels'].values())
-        label_order = []
-        for x in range(1, label_count + 1):
-            label_order.append(str(x))
-        # disabling random for now because it keeps causing an animation, i don't know why
-        # could just set a random position for them, I guess? Or have them side by side
-            # random.shuffle(label_order)
-    # # does not return a list but changes an existing one, generates same numbers every time
-    # $ renpy.random.shuffle(task)
-
-    window id 'labeler':
-        style "window_nobox"
-        xmaximum 900
-        ymaximum 900
-        xalign 0.5
-        yalign 0.0
-        vbox:
-            for idx, i in enumerate(label_order):
-                $ box = task['labels'][i]
-                drag:
-                    draggable True
-                    drag_name box['name']
-                    xpos start_x_text ypos start_y_text
-                    dragged drag_log
-                frame:
-                    text '{size=-3}'+ box['text']
-                python:
-                    box['xpos'] = start_x_text
-                    box['ypos'] = int(start_y_text) + (50*idx)
-                    # for some reason if i increase start_y in here it loops when the timer is repeating. this seems insane to me and i would like to find out why (e.g if put start_y += 50 here)
-    frame id 'done':
-        xsize 300
-        xalign 0.5
-        yalign 0.9
-        textbutton button_text style "button_click" action Return(True)
-
-screen performance(state, average):
+screen performance(state, average, emojis):
+    layer "master"
     $ print('state: ', state)
     $ print('average: ', average)
-    python:
-        positive_emoji = ["thumbs_up", "star_struck", "heart_eyes"]
-        neutral_emoji = ["not_so_great", "ok", "neutral"]
-        bad_emoji = ["angry", "vomit", "poo"]
-
-        sel_positive_emoji = positive_emoji.copy()
-        sel_neutral_emoji = neutral_emoji.copy()
-        sel_bad_emoji = bad_emoji.copy()
-
-        approval = "neutral"
-        time = "neutral"
-        earnings = "neutral"
-        earnings_minus_rent = "neutral"
-        #FIXME: all variables here should be globals set for tweaking
-        if state["approval_rate"] > average["score"]:
-            approval_index = random.randint(0, len(sel_positive_emoji) - 1)
-            approval = sel_positive_emoji[approval_index]
-            sel_positive_emoji.pop(approval_index)
-        elif state["approval_rate"] <= average["score"] and state["approval_rate"] >= average["score"] - 25:
-            approval_index = random.randint(0, len(sel_neutral_emoji) - 1)
-            approval = sel_neutral_emoji[approval_index]
-            sel_neutral_emoji.pop(approval_index)
-        else:
-            approval_index = random.randint(0, len(sel_bad_emoji) - 1)
-            approval = sel_bad_emoji[approval_index]
-            sel_bad_emoji.pop(approval_index)
-
-        if state["average_time"] < average["time"]:
-            time_index = random.randint(0, len(sel_positive_emoji) - 1)
-            time = sel_positive_emoji[time_index]
-            sel_positive_emoji.pop(time_index)
-        elif state["average_time"] >= average["time"] and state["average_time"] <= average["time"] - 2:
-            time_index = random.randint(0, len(sel_neutral_emoji) - 1)
-            time = sel_neutral_emoji[time_index]
-            sel_neutral_emoji.pop(time_index)
-        else:
-            time_index = random.randint(0, len(sel_bad_emoji) - 1)
-            time = sel_bad_emoji[time_index]
-            sel_bad_emoji.pop(time_index)
-    
-        if state["earnings"] > average["earnings"]:
-            if len(sel_positive_emoji) == 1:
-                earnings_index = 0
-            else:
-                earnings_index = random.randint(0, len(sel_positive_emoji) - 1)
-            earnings = sel_positive_emoji[earnings_index]
-            sel_positive_emoji.pop(earnings_index)
-        elif state["earnings"] <= average["earnings"] and state["earnings"] <= average["earnings"] - (average["earnings"] / 10):
-            if len(sel_neutral_emoji) == 1:
-                earnings_index = 0
-            else:
-                earnings_index = random.randint(0, len(sel_neutral_emoji) - 1)
-            earnings = sel_neutral_emoji[earnings_index]
-            sel_neutral_emoji.pop(earnings_index)
-        else:
-            if len(sel_bad_emoji) == 1:
-                earnings_index = 0
-            else:
-                earnings_index = random.randint(0, len(sel_bad_emoji) - 1)
-            earnings = sel_bad_emoji[earnings_index]
-            sel_bad_emoji.pop(earnings_index)
-
-        rent_emoji = bad_emoji[random.randint(0, len(bad_emoji) - 1)]
-
-        if state['earnings_minus_rent'] > 100:
-            earnings_minus_rent = positive_emoji[random.randint(0, (len(positive_emoji) - 1))]
-        elif state['earnings_minus_rent'] <= 100 and state['earnings_minus_rent'] > 50:
-            earnings_minus_rent = neutral_emoji[random.randint(0, (len(neutral_emoji) - 1))]
-        else:
-            earnings_minus_rent = bad_emoji[random.randint(0, (len(bad_emoji) - 1))]
-            
     frame:
         style "prompt_frame"
         xalign 0.5
@@ -2417,14 +2082,14 @@ screen performance(state, average):
             text(f"Approval rating: {round(state['approval_rate'], 2)}%"):
                 xsize 550
                 yalign 0.5
-            image f"icons/emoji/{approval}.png":
+            image f"icons/emoji/{emojis['approval']}.png":
                 xalign 1.0
         hbox:
             xsize 525
             text(f"Average time: {round(state['average_time'], 1)} seconds"):
                 xsize 550
                 yalign 0.5
-            image f"icons/emoji/{time}.png":
+            image f"icons/emoji/{emojis['time']}.png":
                 xalign 1.0
 
         hbox:
@@ -2432,22 +2097,23 @@ screen performance(state, average):
             text(f"Gross earnings: ${round(state['earnings'], 2)}"):
                 xsize 550
                 yalign 0.5
-            image f"icons/emoji/{earnings}.png":
+            image f"icons/emoji/{emojis['earnings']}.png":
                 xalign 1.0
         hbox:
             xsize 525
             text(f"Rent & fees: -${round((store.daily_rent * store.game_state.day), 2)}"):
                 xsize 550
                 yalign 0.5
-            image f"icons/emoji/{rent_emoji}.png":
+            image f"icons/emoji/{emojis['rent']}.png":
                 xalign 1.0
         hbox:
             xsize 525
             text(f"Net earnings: ${round(state['earnings_minus_rent'], 2)}"):
                 xsize 550
                 yalign 0.5
-            image f"icons/emoji/{earnings_minus_rent}.png":
+            image f"icons/emoji/{emojis['earnings_minus_rent']}.png":
                 xalign 1.0
+
 
 # apartment screens
 # sticky notes zoom
@@ -2455,21 +2121,26 @@ screen performance(state, average):
 # window zoom
 # MAYBE: CAT?
 
-style sticky_note is default:
-    font "fonts/BrownBagLunch.ttf"
-    color "#000000"
-    size 30
-    xalign 0.5
-    yalign 0.5
+screen apartment(data, time, bg_path):
+    default zoom_transition = False
+    default zoom_time = 1.3
+    default fade_time = 1.0
+    
+    image bg_path:
+        xsize 1920 ysize 1080
+        pos (0,0)
+        if zoom_transition:
+            at zoom_computer(zoom_time)
+        else:
+            at fade_in(fade_time)
 
-screen apartment(data, time):
     python:
         computer_sound = "computer.ogg"
         if time == "end":
             btn = "Go to sleep"
-        else:
-            btn = "Back to work"
-        note_positions = [(730, 826), (1104, 828), (1458, 650), (1458, 462)]
+        start_note_positions = [(734, 827), (1103, 828), (1458, 650), (1458, 462)]
+        offset_note_positions = [(-474, 196), (47, 195), (543, -50), (543, -333)]
+
     fixed:
         # We're not doing note clickables anymore, right? - HAB
         # imagebutton:
@@ -2481,24 +2152,28 @@ screen apartment(data, time):
 
         # Notes
         python:
-            random.shuffle(data["sticky_note"])
+            if not zoom_transition:
+                random.shuffle(data["sticky_note"])
         for i, note in enumerate(data["sticky_note"]):
             if i > 3:
                 break
-            hbox:
-                xsize 125 ysize 132
-                xpos note_positions[i][0] ypos note_positions[i][1]
+            if note["performance"] == "default" or note["performance"] == store.game_state.performance_rating or (note["event_flag"] in store.event_flags):
                 text note["text"]:
                     style "sticky_note"
+                    xsize 129 ysize 132
+                    xpos start_note_positions[i][0] ypos start_note_positions[i][1]
+                    if zoom_transition:
+                        at zoom_sticky_notes(offset_note_positions[i][0], offset_note_positions[i][1], zoom_time)
 
         # TV Hover button
-        imagebutton:
-            xpos 50 ypos 567
-            xsize 539 ysize 433
-            activate_sound "audio/tv_2.wav"
-            idle Solid("#00000000")
-            hover Solid("#d3a95620")
-            action Show("zoomed_tv", None, store.apartment_data)
+        if not zoom_transition:
+            imagebutton:
+                xpos 50 ypos 567
+                xsize 539 ysize 433
+                activate_sound "audio/tv_2.wav"
+                idle Solid("#00000000")
+                hover Solid("#d3a95620")
+                action Show("zoomed_tv", None, store.apartment_data)
         
         # Same with windows as notes? - HAB
         # imagebutton:
@@ -2508,35 +2183,37 @@ screen apartment(data, time):
         #   hover Transform("images/room/room/window_with_bg.png", size=(788, 455)) 
         #   action Show("zoomed_window", None, store.apartment_data)
         
-        # Computer Screen Hovor Button
-        imagebutton:
-            xpos 614 ypos 404
-            xsize 837 ysize 456
-            activate_sound "audio/tv_2.wav"
-            idle Solid("#00000000")
-            hover Solid("#d3a95620")
-            action Return(True)
+        # Computer Screen HovorR Button
+        if not zoom_transition:
+            imagebutton:
+                xpos 614 ypos 404
+                xsize 837 ysize 456
+                activate_sound "audio/tv_2.wav"
+                idle Solid("#00000000")
+                hover Solid("#d3a95620")
+                action [ToggleScreenVariable('zoom_transition')]
+        
+    if zoom_transition:
+        image Solid("#000000"):
+            xsize 1920 ysize 1080 pos (0, 0)
+            at fade_in(fade_time)
+        timer max(zoom_time, fade_time) action Return(True)
 
-    # frame:
-    #     xalign 0.1
-    #     yalign 0.9
-    #     textbutton "Set State" action Show("set_state", None)
-
-# No longer zooming into the notes
-screen zoomed_note(data):
-    modal True
-    vbox:
-        xalign 0.5
-        yalign 0
-        image Transform("images/room/room/note.png", size=(1200, 1000)) 
-    vbox:
-        xalign 0.5
-        yalign 0.2
-        for note in data["sticky_note"]:
-            if note["performance"] == "default" or note["performance"] == store.game_state.performance_rating or (note["event_flag"] in store.event_flags):
-                text note["text"]
-    frame:
-        textbutton "X" activate_sound "rustle.wav" action Hide("zoomed_note", None)
+# # No longer zooming into the notes
+# screen zoomed_note(data):
+#     modal True
+#     vbox:
+#         xalign 0.5
+#         yalign 0
+#         image Transform("images/room/room/note.png", size=(1200, 1000)) 
+#     vbox:
+#         xalign 0.5
+#         yalign 0.2
+#         for note in data["sticky_note"]:
+#             if note["performance"] == "default" or note["performance"] == store.game_state.performance_rating or (note["event_flag"] in store.event_flags):
+#                 text note["text"]
+#     frame:
+#         textbutton "X" activate_sound "rustle.wav" action Hide("zoomed_note", None)
 
 screen zoomed_tv(data, index=0):
     modal True

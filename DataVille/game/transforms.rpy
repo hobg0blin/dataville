@@ -55,6 +55,21 @@ transform blink(duration=0.4, interval=0.05):
     time duration
     alpha 0.0
 
+transform fade_and_blink(duration=0.5, interval=0.05):
+    parallel:
+        linear duration alpha 0.0
+    parallel:
+        alpha 1.0
+        pause interval
+        alpha 0.0
+        pause interval
+        alpha 1.0
+        pause interval
+        alpha 0.0
+        pause interval
+
+
+
 transform wait_blur_and_fadeout(wait=0.7, duration=0.7, blur_amount=5):
     pause wait
     blur 0
@@ -111,3 +126,9 @@ transform tv_zoom_in_seq:
 transform on_hide_fade_out:
     on hide:
         fade_out(0.5)
+
+transform zoom_computer(duration = 1.0):
+    easein duration zoom 2.4 xoffset -1500 yoffset -960
+
+transform zoom_sticky_notes(x_trans, y_trans, duration = 1.0):
+    easein duration zoom 2.4 xoffset x_trans yoffset y_trans

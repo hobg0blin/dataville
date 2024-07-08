@@ -42,7 +42,60 @@ style email_message_namebox:
     xalign 0.0
     yalign 0.0
 
-screen email_message(who, who_suffix, what, image_path = None, buttons = ["Continue"]):
+style email_message_what:
+    color "#FFFFFF"
+    size 30
+    slow_cps 60
+
+transform expand(duration=0.5):
+    zoom 0.0
+    linear duration zoom 1.0
+    pause(duration)
+
+transform minimize(duration=0.5):
+    zoom 1.0
+    linear duration zoom 0.0
+    pause(duration)
+
+default expand_time = 0.35
+
+image wire_prompt_frame:
+    "gui/prompt_frame_empty.png"
+    xalign 0.5
+    yalign 0.42
+    xsize 1500
+    ysize 600
+
+transform expand_prompt_frame_ani(expand_time=0.5, interval=0.05):
+    parallel:
+        expand(expand_time)
+    parallel:
+        # blink duration and ending pause should be the same as expand duration
+        blink(expand_time, interval)
+    parallel:
+        still_aberate(2)
+
+transform close_prompt_frame_ani(expand_time=0.5, interval=0.05):
+    parallel:
+        minimize(expand_time)
+    parallel:
+        # blink duration and ending pause should be the same as expand duration
+        blink(expand_time, interval)
+    parallel:
+        still_aberate(2)
+
+screen expand_message(expand_time = 0.35, blink_interval = 0.05):
+    image "wire_prompt_frame":
+        at expand_prompt_frame_ani(expand_time, blink_interval)
+    timer expand_time action [Return(True)]
+
+screen close_message(expand_time = 0.35, blink_interval = 0.05):
+    image "wire_prompt_frame":
+        at close_prompt_frame_ani(expand_time, blink_interval)
+    timer expand_time action [Return(True)]
+
+screen email_message(who, who_suffix, what, image_path = None, buttons = ["Continue"]):  
+    layer "master"
     style_prefix "email_message"
     window:
         id "window"
@@ -57,7 +110,7 @@ screen email_message(who, who_suffix, what, image_path = None, buttons = ["Conti
                         ysize 150
                         xalign 0.0
                         yalign 0.0
-                        at StillAberate
+                        at still_aberate(15.0)
                 text who id "who":
                     color "#FFFFFF"
                     size 72
@@ -65,7 +118,7 @@ screen email_message(who, who_suffix, what, image_path = None, buttons = ["Conti
                         xpos 200
                     else:
                         xpos 0
-                    at StillAberate
+                    at still_aberate(0.5)
                 if who_suffix is not None:
                     text who_suffix id "who_suffix":
                         color "#d2d2d2"
@@ -75,26 +128,26 @@ screen email_message(who, who_suffix, what, image_path = None, buttons = ["Conti
                             xpos 200
                         else:
                             xpos 0
-                        at LightAberate
+                        at still_aberate(0.5)
         text what id "what":
-            color "#FFFFFF"
-            size 30
+            style "email_message_what"
             ypos 200
-            at LightAberate
-            slow_cps preferences.text_cps
-        at LightAberate
+            at still_aberate(0.5)
+        # at still_aberate(1.0)
         
     hbox id 'buttons':
         xalign 0.5
         ypos 900
         spacing 10
         for button_text in buttons:
-            textbutton button_text:
+            button:
                 style "default_button"
                 xsize 300
-                text_xalign 0.5
+                at still_aberate(1.0)
                 action Return(True)
-                at LightAberate
-        at LightAberate
+                text button_text:
+                    style "default_button_text"
+                    xalign 0.5
+                    at still_aberate(10.0)
     
     image "scanlines_overlay"
