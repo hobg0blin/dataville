@@ -313,6 +313,7 @@ label start:
 
       $ aberate_layer('all', 10)
       
+      $ print ("calling a task screen")
       if (task['type'] == 'sentiment_text' and not 'labels' in task) or task['type'] == 'captcha_image' and not 'correct_images' in task:
         call screen task_error 
         $ task_error = True
@@ -366,9 +367,10 @@ label start:
       hide screen cogni_timeup
       hide screen task_type
 
-      hide screen overlay
+      # $ print ("doing the hide and show stuff")
+      hide screen overlay_earnings
       $ show_green = starting_earnings != store.game_state.performance['earnings_minus_rent']
-      show screen overlay(task, show_green)
+      show screen overlay_earnings(earning_flag = show_green)
 
       if has_custom_feedback:
         $ print('has custom feedback')
@@ -403,8 +405,8 @@ label start:
         python:
           if (store.game_state.day != 0):
             store.game_state.performance['earnings_minus_rent'] -= (store.daily_rent * store.game_state.day)
-            renpy.hide_screen('overlay')
-            renpy.show_screen('overlay', task = task, rent_loss_flag = True)
+            renpy.hide_screen('overlay_earnings')
+            renpy.show_screen('overlay_earnings', rent_loss_flag = True)
           print('earnings minus rent: ', store.game_state.performance['earnings_minus_rent'])
           if store.game_state.performance['earnings_minus_rent'] <= 0:
             store.event_flags.append('rent_fail')
@@ -450,6 +452,7 @@ label start:
             $ count += 1
       
       hide screen overlay
+      hide screen overlay_earnings
       $ aberate_layer('all', 0)
 
       if store.game_state.day < 4:
@@ -487,6 +490,7 @@ label start:
         jump end
     label end:
       hide screen overlay
+      hide screen overlay_earnings
       hide screen performance
       hide screen cogni
       $ aberate_layer('all', 0)
