@@ -550,6 +550,7 @@ init python:
     aberate_layer(2.0)
     renpy.show("overlay_background")
     renpy.show_screen("overlay", task = store, _layer="master")
+    renpy.show_screen("overlay_earnings", _layer="master")
     renpy.with_statement(Dissolve(fade_time))
     renpy.pause(wait_time)
 
@@ -582,6 +583,13 @@ init python:
       renpy.show_layer_at(still_aberate(amount), layer="screens")
     else:
       renpy.show_layer_at(still_aberate(amount), layer=layer_choice)
+
+  def task_penalty(payment, case):
+    payment = float(payment) / 2 if timer_failed else float(payment)
+    if case != 1:
+      return payment/case
+    else:
+      return False
 
   def emoji_selection(state, average):
     positive_emoji = ["thumbs_up", "star_struck", "heart_eyes"]

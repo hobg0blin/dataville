@@ -4,9 +4,10 @@
 screen captcha_image(task, images):
     layer "master"
     python:
-        blink_sec, blink_interval, exit_fade_secs = 0.3, 0.07, 0.4
+        blink_sec, blink_interval, exit_fade_secs = 0.3, 0.07, 0.5
 
     default exit_sequence = False
+    default show_penalty = False
 
     if not exit_sequence:
         fixed:
@@ -63,7 +64,12 @@ screen captcha_image(task, images):
             yalign 0.5
             if exit_sequence:
                 at blink(blink_sec, blink_interval)
-            action SetScreenVariable('exit_sequence', True)
+            action [SetScreenVariable('exit_sequence', True)]
+    
+    if exit_sequence:
+        $ show_penalty = task_penalty(task['payment'], check_images(images_selected, task['correct_images']))
+
+    use overlay_reward(task['payment'], show_penalty)
 
     use cogni_timeup("You ran out of time! Your earnings have been halved.", char_map['cogni']['mood']['default'], "bottom_left", True)
 
@@ -73,10 +79,11 @@ screen captcha_image(task, images):
 screen comparison_image(task, images):
     layer "master"
     python:
-        blink_sec, blink_interval, exit_fade_secs = 0.3, 0.1, 0.4
+        blink_sec, blink_interval, exit_fade_secs = 0.3, 0.1, 0.5
 
     default exit_sequence = False
     default selected_button = None
+    default show_penalty = False
 
     if not exit_sequence:
         fixed:
@@ -112,7 +119,15 @@ screen comparison_image(task, images):
                         at fade_out(exit_fade_secs)
                     else:
                         at fade_in(blink_sec)
-                    action [SetVariable("latest_choice", strp), SetScreenVariable("selected_button", img), SetScreenVariable('exit_sequence', True)]
+                    action [
+                        SetVariable("latest_choice", strp), 
+                        SetScreenVariable("selected_button", img),
+                        SetScreenVariable('exit_sequence', True)]
+
+    if selected_button:
+        $ show_penalty = task_penalty(task['payment'], check_binary(latest_choice, task))
+
+    use overlay_reward(task['payment'], show_penalty)
 
     use cogni_timeup("You ran out of time! Your earnings have been halved.", char_map['cogni']['mood']['default'], "bottom_left", True)
 
@@ -123,10 +138,11 @@ screen comparison_image(task, images):
 screen binary_image(task, images):
     layer "master"
     python:
-        blink_sec, blink_interval, exit_fade_secs = 0.3, 0.07, 0.4
+        blink_sec, blink_interval, exit_fade_secs = 0.3, 0.07, 0.5
 
     default exit_sequence = False
     default selected_button = None
+    default show_penalty = False
 
     if not exit_sequence:
         fixed:
@@ -171,7 +187,10 @@ screen binary_image(task, images):
                 at fade_out(exit_fade_secs)
             else:
                 at fade_in(blink_sec)
-            action [SetVariable("latest_choice", "Y"), SetScreenVariable('selected_button', 'Y'), SetScreenVariable('exit_sequence', True)]
+            action [
+                SetVariable("latest_choice", "Y"), 
+                SetScreenVariable('selected_button', 'Y'),
+                SetScreenVariable('exit_sequence', True)]
         textbutton 'No':
             style "default_button"
             xsize 380
@@ -183,20 +202,29 @@ screen binary_image(task, images):
                 at fade_out(exit_fade_secs)
             else:
                 at fade_in(blink_sec)
-            action [SetVariable("latest_choice", "N"), SetScreenVariable('selected_button', 'N'), SetScreenVariable('exit_sequence', True)]
+            action [
+                SetVariable("latest_choice", "N"), 
+                SetScreenVariable('selected_button', 'N'), 
+                SetScreenVariable('exit_sequence', True)]
+
+    if selected_button:
+        $ show_penalty = task_penalty(task['payment'], check_binary(latest_choice, task))
+         
+    use overlay_reward(task['payment'], show_penalty)
 
     use cogni_timeup("You ran out of time! Your earnings have been halved.", char_map['cogni']['mood']['default'], "bottom_left", True)
 
     if exit_sequence:
         timer max(blink_sec, exit_fade_secs) action Return(True)
-
+    
 screen binary_text(task):
     layer "master"  
     python:
-        blink_sec, blink_interval, exit_fade_secs = 0.3, 0.07, 0.4
+        blink_sec, blink_interval, exit_fade_secs = 0.3, 0.07, 0.5
 
     default exit_sequence = False
     default selected_button = None
+    default show_penalty = False
 
     if not exit_sequence:
         fixed:
@@ -237,7 +265,11 @@ screen binary_text(task):
                 at fade_out(exit_fade_secs)
             else:
                 at fade_in(blink_sec)
-            action [SetVariable("latest_choice", "Y"), SetScreenVariable('selected_button', 'Y'), SetScreenVariable('exit_sequence', True)]
+            action [
+                SetVariable("latest_choice", "Y"), 
+                SetScreenVariable('selected_button', 'Y'),
+                SetScreenVariable('show_penalty', task_penalty(task['payment'], check_binary(latest_choice, task))),  
+                SetScreenVariable('exit_sequence', True)]
         textbutton 'No':
             style "default_button"
             xsize 380
@@ -249,7 +281,16 @@ screen binary_text(task):
                 at fade_out(exit_fade_secs)
             else:
                 at fade_in(blink_sec)
-            action [SetVariable("latest_choice", "N"), SetScreenVariable('selected_button', 'N'), SetScreenVariable('exit_sequence', True)]
+            action [
+                SetVariable("latest_choice", "N"), 
+                SetScreenVariable('selected_button', 'N'), 
+                SetScreenVariable('show_penalty', task_penalty(task['payment'], check_binary(latest_choice, task))), 
+                SetScreenVariable('exit_sequence', True)]
+
+    if selected_button:
+        $ show_penalty = task_penalty(task['payment'], check_binary(latest_choice, task))
+         
+    use overlay_reward(task['payment'], show_penalty)
 
     use cogni_timeup("You ran out of time! Your earnings have been halved.", char_map['cogni']['mood']['default'], "bottom_left", True)
 
@@ -278,10 +319,11 @@ screen task_error():
 screen comparison_text(task, button_text='Done!'):
     layer "master"
     python:
-        blink_sec, blink_interval, exit_fade_secs = 0.3, 0.07, 0.4
+        blink_sec, blink_interval, exit_fade_secs = 0.3, 0.07, 0.5
 
     default exit_sequence = False
     default selected_button = None
+    default show_penalty = False
 
     if not exit_sequence:
         fixed:
@@ -323,7 +365,11 @@ screen comparison_text(task, button_text='Done!'):
                             at fade_out(exit_fade_secs)
                         else:
                             at fade_in(blink_sec)
-                        action [SetVariable("latest_choice", i), SetScreenVariable('selected_button', i), SetScreenVariable('exit_sequence', True)]
+                        action [
+                            SetVariable("latest_choice", i),
+                            SetScreenVariable('selected_button', i),
+                            SetScreenVariable('show_penalty', task_penalty(task['payment'], check_binary(latest_choice, task))), 
+                            SetScreenVariable('exit_sequence', True)]
                 # python:
                 #     box['xpos'] = start_x_text
                 #     box['ypos'] = int(start_y_text) + (50*idx)
@@ -333,6 +379,11 @@ screen comparison_text(task, button_text='Done!'):
 #    xalign 0.5
 #    yalign 0.9
 #    textbutton button_text action Return(True)
+    if selected_button:
+        $ show_penalty = task_penalty(task['payment'], check_binary(latest_choice, task))
+         
+    use overlay_reward(task['payment'], show_penalty)
+    
     use cogni_timeup("You ran out of time! Your earnings have been halved.", char_map['cogni']['mood']['default'], "bottom_left", True)
 
     if exit_sequence:
@@ -342,10 +393,11 @@ screen comparison_text(task, button_text='Done!'):
 screen caption_image(task, images):
     layer "master"
     python:
-        blink_sec, blink_interval, exit_fade_secs = 0.3, 0.07, 0.4
+        blink_sec, blink_interval, exit_fade_secs = 0.3, 0.07, 0.5
 
     default exit_sequence = False
     default selected_button = None
+    default show_penalty = False
 
     if not exit_sequence:
         fixed:
@@ -391,8 +443,17 @@ screen caption_image(task, images):
                     at fade_out(exit_fade_secs)
                 else:
                     at fade_in(blink_sec)
-                action [SetVariable("latest_choice", task['labels'][id]['name']), SetScreenVariable('selected_button', task['labels'][id]['name']), SetScreenVariable('exit_sequence', True)]
-
+                action [
+                    SetVariable("latest_choice", task['labels'][id]['name']),
+                    SetScreenVariable('selected_button', task['labels'][id]['name']),
+                    SetScreenVariable('show_penalty', task_penalty(task['payment'], check_binary(latest_choice, task))), 
+                    SetScreenVariable('exit_sequence', True)]
+    
+    if selected_button:
+        $ show_penalty = task_penalty(task['payment'], check_binary(latest_choice, task))
+         
+    use overlay_reward(task['payment'], show_penalty)
+    
     use cogni_timeup("You ran out of time! Your earnings have been halved.", char_map['cogni']['mood']['default'], "bottom_left", True)
 
     if exit_sequence:
@@ -401,10 +462,11 @@ screen caption_image(task, images):
 screen sentiment_text(task):
     layer "master"
     python:
-        blink_sec, blink_interval, exit_fade_secs = 0.3, 0.07, 0.4
+        blink_sec, blink_interval, exit_fade_secs = 0.3, 0.07, 0.5
 
     default exit_sequence = False
     default selected_button = None
+    default show_penalty = False
 
     if not exit_sequence:
         fixed:
@@ -443,8 +505,17 @@ screen sentiment_text(task):
                     at fade_out(exit_fade_secs)
                 else:
                     at fade_in(blink_sec)
-                action [SetVariable("latest_choice", task['labels'][id]['name']), SetScreenVariable('selected_button', task['labels'][id]['name']), SetScreenVariable('exit_sequence', True)]
+                action [
+                    SetVariable("latest_choice", task['labels'][id]['name']),
+                    SetScreenVariable('selected_button', task['labels'][id]['name']),
+                    SetScreenVariable('show_penalty', task_penalty(task['payment'], check_binary(latest_choice, task))), 
+                    SetScreenVariable('exit_sequence', True)]
 
+    if selected_button:
+        $ show_penalty = task_penalty(task['payment'], check_binary(latest_choice, task))
+         
+    use overlay_reward(task['payment'], show_penalty)
+    
     use cogni_timeup("You ran out of time! Your earnings have been halved.", char_map['cogni']['mood']['default'], "bottom_left", True)
 
     if exit_sequence:
