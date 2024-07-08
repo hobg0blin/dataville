@@ -2064,21 +2064,21 @@ screen overlay_reward(reward, incorrect_choice = False):
     if incorrect_choice:
         $ reward = incorrect_choice
     text '{font=fonts/RussoOne-Regular.ttf}TASK REWARD : $ ' + "{:.2f}".format(float(reward)) + '{/font}':
-        xalign .58
+        xalign .50
         ypos 16
         color "#FFFFFF"
         at still_aberate(3.0)
     
     if timer_failed:
         text '{font=fonts/RussoOne-Regular.ttf}{color=#00000000}TASK REWARD : $ {/color}' + '{color=#ca0c0c}' + "{:.2f}".format(float(reward)) + '{/color}{/font} | ':
-            xalign .58
+            xalign .50
             ypos 16
             at fade_out(1.0)
 
     # we do this twice in cases of timer ending and selectino penalty
     if incorrect_choice:
         text '{font=fonts/RussoOne-Regular.ttf}{color=#00000000}TASK REWARD : $ {/color}' + '{color=#ca0c0c}' + "{:.2f}".format(float(reward)) + '{/color}{/font}':
-            xalign .58
+            xalign .50
             ypos 16
             at fade_out(1.0)
 
