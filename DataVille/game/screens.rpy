@@ -2156,6 +2156,10 @@ screen apartment(data, time, bg_path):
             btn = "Go to sleep"
         start_note_positions = [(734, 827), (1103, 828), (1458, 650), (1458, 462)]
         offset_note_positions = [(-474, 196), (47, 195), (543, -50), (543, -333)]
+        random.shuffle(data["sticky_note"])
+        sticky_notes = data["sticky_note"][:4]
+        print('sticky notes: ', sticky_notes)
+
 
     fixed:
         # We're not doing note clickables anymore, right? - HAB
@@ -2167,11 +2171,7 @@ screen apartment(data, time, bg_path):
         #   action Show("zoomed_note", None, store.apartment_data)
 
         # Notes
-        python:
-            if not zoom_transition:
-                random.shuffle(data["sticky_note"])
-            print('sticky notes: ', data["sticky_note"])
-        for i, note in enumerate(data["sticky_note"]):
+        for i, note in enumerate(sticky_notes):
             text note["text"]:
                 style "sticky_note"
                 xsize 129 ysize 132

@@ -275,15 +275,17 @@ init python:
     if (obj['type'] == 'sticky_note'):
       print('performance: ', store.game_state.performance_rating)
       print('time: ', store.game_state.time)
+
     if store.game_state.time != obj['time']:
       if obj['type'] == 'news' and store.game_state.day == 0:
         return True
       else:
+        print('returning false due to time: ', obj)
         return False
     elif obj['performance'] == store.game_state.performance_rating:
       return True
-    elif obj['performance'] == 'bad' and obj['type'] == 'sticky_note' and store.game_state.performance_rating == 'neutral':
-      print('adding sticky note: ', obj)
+    elif (obj['performance'] == 'bad') and (obj['type'] == 'sticky_note' or obj['type'] == 'news') and (store.game_state.performance_rating == 'neutral'):
+      print('adding remapped bad object: ', obj)
     # FIXME: just hard mapping neutral to bad for sticky notes for now, long-term this should be solved in the script and not the code
       return True
     elif obj['performance'] == 'default':
@@ -291,6 +293,7 @@ init python:
     elif obj['performance'] == 'flag_dependent' and 'event_flag' in obj and obj['event_flag'] in store.event_flags:
       return True
     else:
+      print('object getting filtered: ', obj)
       return False
     #SET TV NEWS ITEMS
   def setitem(data, index):

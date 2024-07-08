@@ -394,10 +394,10 @@ label start:
       # $ show_computer_screen(store.game_state.ui)
       # fail states for not making rent, failing the tutorial, or being bad at the game
       $ store.game_state.performance_count[store.game_state.performance_rating] += 1
-      if store.game_state.performance_count['bad'] >= 3 and not no_fail:
-        $ print('three bad states')
-        $ store.event_flags.append('performance_fail')
-        jump end
+      #if store.game_state.performance_count['bad'] >= 3 and not no_fail:
+      #  $ print('three bad states')
+      #  $ store.event_flags.append('performance_fail')
+      #  jump end
       if (store.game_state.day == 0) and store.game_state.time == 'end' and store.game_state.performance['earnings'] < 600 and not no_fail:
         $ store.event_flags.append('tutorial_fail')
         jump end
@@ -470,13 +470,13 @@ label start:
       #this is where the next day should start
 
       if store.game_state.day < 4:
+        call screen apartment(clean(store.apartment_data), store.game_state.time, apartment_bg_map['apartment_1'])
         if store.game_state.time == "end":
             $ day_start()
             if store.game_state.performance_rating != 'bad':
                 play music f"dataville_workspace_{store.game_state.performance_rating}.wav" fadein 2.0
             else:
                 play music f"dataville_workspace_neutral.wav" fadein 2.0
-            call screen apartment(clean(store.apartment_data), store.game_state.time, apartment_bg_map['apartment_1'])
             $ task = store.loop["start_task"]
             $ set_ui_state(task, store.game_state)
             $ cleaned = clean(store.apartment_data)
