@@ -2007,20 +2007,19 @@ screen job_offer(phase, text = None, buttons = None):
                             color "#FFFFFF"
                         action Return(True)
 
-
 screen assistant:
-    window id 'content':
-        ymaximum 1200
-        xmaximum 1600
-        frame id 'status_bar':
-            background "#136366"
-            has hbox
-            xsize 1600
-            image "images/logo_white.png"
-        hbox id 'assistant':
-            xalign 0.3
-            yalign 0.75
-            image "images/characters/cogni/asst_normal.png"
+    # window id 'content':
+    #     ymaximum 1200
+    #     xmaximum 1600
+    #     frame id 'status_bar':
+    #         background "#136366"
+    #         has hbox
+    #         xsize 1600
+    #         image "images/logo_white.png"
+    hbox id 'assistant':
+        xalign 0.3
+        yalign 0.75
+        image "images/characters/cogni/asst_normal.png"
 
 screen instructions(task, xalign_val=0.5, yalign_val=0.13):
     vbox id 'instructions':
@@ -2028,7 +2027,7 @@ screen instructions(task, xalign_val=0.5, yalign_val=0.13):
         yalign yalign_val
         text task['instructions']
 
-screen overlay(task, earning_flag = False, rent_loss_flag = False, cogni=False, button_text=False):
+screen overlay(task, addition = 0, cogni=False, button_text=False):
 # streak_text, feed_text, instructions, status, button_text=False):
     window id 'content':
         style "window_nobox"
@@ -2038,41 +2037,48 @@ screen overlay(task, earning_flag = False, rent_loss_flag = False, cogni=False, 
             xsize 1920
             pos (0, 0)
             at still_aberate(2.0)
-        
 
-        text '{font=fonts/RussoOne-Regular.ttf}ACCOUNT BALANCE: $ ' + "{:.2f}".format(float(store.game_state.performance['earnings_minus_rent'])) + '{/font}':
+screen overlay_earnings(addition = 0, earning_flag = False, rent_loss_flag = False):
+    text '{font=fonts/RussoOne-Regular.ttf}ACCOUNT BALANCE: $ ' + "{:.2f}".format(float(store.game_state.performance['earnings_minus_rent'] + addition)) + '{/font}':
+        xalign .90
+        color "#FFFFFF"
+        ypos 16
+        at still_aberate(3.0)
+    
+    if earning_flag:
+        text '{font=fonts/RussoOne-Regular.ttf}{color=#00000000}ACCOUNT BALANCE: $ {/color}' + '{color=#08a121}' + "{:.2f}".format(float(store.game_state.performance['earnings_minus_rent'] + addition)) + '{/color}{/font}':
             xalign .90
-            color "#FFFFFF"
             ypos 16
-            at still_aberate(3.0)
-        
-        if earning_flag:
-            text '{font=fonts/RussoOne-Regular.ttf}{color=#00000000}ACCOUNT BALANCE: $ {/color}' + '{color=#08a121}' + "{:.2f}".format(float(store.game_state.performance['earnings_minus_rent'])) + '{/color}{/font}':
-                xalign .90
-                ypos 16
-                at fade_out(1.0)
-        elif rent_loss_flag:
-            text '{font=fonts/RussoOne-Regular.ttf}{color=#00000000}ACCOUNT BALANCE: $ {/color}' + '{color=#ca0c0c}}' + "{:.2f}".format(float(store.game_state.performance['earnings_minus_rent'])) + '{/color}{/font}':
-                xalign .90
-                ypos 16
-                at fade_out(1.0)
-
-        if 'payment' in task:
-            use overlay_reward(task['payment'])
-
-        image "scanlines_overlay"
+            at fade_out(1.0)
+    elif rent_loss_flag:
+        text '{font=fonts/RussoOne-Regular.ttf}{color=#00000000}ACCOUNT BALANCE: $ {/color}' + '{color=#ca0c0c}}' + "{:.2f}".format(float(store.game_state.performance['earnings_minus_rent'] + addition)) + '{/color}{/font}':
+            xalign .90
+            ypos 16
+            at fade_out(1.0)
+    
+    image "scanlines_overlay"
 
 screen overlay_reward(reward, incorrect_choice = False):
     if timer_failed:
         $ reward = float(reward) / 2
-    text '{font=fonts/RussoOne-Regular.ttf}TASK REWARD : $ ' + "{:.2f}".format(float(reward)) + '{/font} | ':
-        xalign .58
+    if incorrect_choice:
+        $ reward = incorrect_choice
+    text '{font=fonts/RussoOne-Regular.ttf}TASK REWARD : $ ' + "{:.2f}".format(float(reward)) + '{/font}':
+        xalign .50
         ypos 16
         color "#FFFFFF"
         at still_aberate(3.0)
+    
     if timer_failed:
         text '{font=fonts/RussoOne-Regular.ttf}{color=#00000000}TASK REWARD : $ {/color}' + '{color=#ca0c0c}' + "{:.2f}".format(float(reward)) + '{/color}{/font} | ':
-            xalign .58
+            xalign .50
+            ypos 16
+            at fade_out(1.0)
+
+    # we do this twice in cases of timer ending and selectino penalty
+    if incorrect_choice:
+        text '{font=fonts/RussoOne-Regular.ttf}{color=#00000000}TASK REWARD : $ {/color}' + '{color=#ca0c0c}' + "{:.2f}".format(float(reward)) + '{/color}{/font}':
+            xalign .50
             ypos 16
             at fade_out(1.0)
 

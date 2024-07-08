@@ -21,4 +21,5 @@ candella/
 *.bak
 *.rpymc
 **/*.rpymc
+DataVille/game/tl/None/common.rpymc
 *.csv#

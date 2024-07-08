@@ -246,18 +246,16 @@ style cogni_bubble_center is cogni_bubble:
     xsize 500
     ysize 300
     xpadding 30
-    top_padding 10
-    bottom_padding 44
+    bottom_padding 50
 
 style cogni_bubble_bottom_left is cogni_bubble:
     xsize 500
     ysize 300
     xpadding 30
-    top_padding 10
-    bottom_padding 44
+    bottom_padding 50
 
 style cogni_what:
-    yoffset -50
+    anchor (0.0,0.0)
     xalign 0.5
     yalign 0.5
     text_align 0.5
