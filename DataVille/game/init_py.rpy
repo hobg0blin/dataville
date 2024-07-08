@@ -83,28 +83,28 @@ init python:
     # CONSTANTS FOR PERFORMANCE COMPARISON
     store.averages = {
         'day_0': {
-          'score': 90,
+          'score': 85,
           'time': 8,
           'earnings': 600
           },
         'day_1': {
-          'score': 90,
-            'time': 8,
+          'score': 85,
+            'time': 4,
           'earnings': 2200
           },
         'day_2': {
-            'score': 90,
-            'time': 8,
+            'score': 85,
+            'time': 5,
           'earnings': 5000
           },
         'day_3': {
-            'score': 85,
-            'time': 8,
+            'score': 80,
+            'time': 5,
           'earnings': 9000
           },
         'day_4': {
-          'score': 85,
-          'time': 8,
+          'score': 75,
+          'time': 6,
           'earnings': 13000
           },
       }
@@ -357,7 +357,7 @@ init python:
   def set_performance_rating():
     if (store.game_state.performance['approval_rate'] >= store.averages['day_' + str(store.game_state.day)]['score']):
       store.game_state.performance_rating = "good"
-    elif (store.game_state.performance['approval_rate'] > (store.averages['day_' + str(store.game_state.day)]['score'] - 25) and  store.game_state.performance['approval_rate'] < (store.averages['day_' + str(store.game_state.day)]['score'])):
+    elif (store.game_state.performance['approval_rate'] > (store.averages['day_' + str(store.game_state.day)]['score'] - 20) and  store.game_state.performance['approval_rate'] < (store.averages['day_' + str(store.game_state.day)]['score'])):
       store.game_state.performance_rating = "neutral"
     else:
       store.game_state.performance_rating = "bad"
@@ -609,7 +609,7 @@ init python:
         approval_index = random.randint(0, len(sel_positive_emoji) - 1)
         approval = sel_positive_emoji[approval_index]
         sel_positive_emoji.pop(approval_index)
-    elif state["approval_rate"] <= average["score"] and state["approval_rate"] >= average["score"] - 25:
+    elif state["approval_rate"] <= average["score"] and state["approval_rate"] >= average["score"] - 20:
         approval_index = random.randint(0, len(sel_neutral_emoji) - 1)
         approval = sel_neutral_emoji[approval_index]
         sel_neutral_emoji.pop(approval_index)
@@ -622,7 +622,7 @@ init python:
         time_index = random.randint(0, len(sel_positive_emoji) - 1)
         time = sel_positive_emoji[time_index]
         sel_positive_emoji.pop(time_index)
-    elif state["average_time"] >= average["time"] and state["average_time"] <= average["time"] - 2:
+    elif state["average_time"] >= average["time"] and state["average_time"] <= average["time"] - 3:
         time_index = random.randint(0, len(sel_neutral_emoji) - 1)
         time = sel_neutral_emoji[time_index]
         sel_neutral_emoji.pop(time_index)

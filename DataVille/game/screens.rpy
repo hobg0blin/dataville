@@ -2039,19 +2039,19 @@ screen overlay(task, addition = 0, cogni=False, button_text=False):
             at still_aberate(2.0)
 
 screen overlay_earnings(addition = 0, earning_flag = False, rent_loss_flag = False):
-    text '{font=fonts/RussoOne-Regular.ttf}TOTAL EARNINGS: $ ' + "{:.2f}".format(float(store.game_state.performance['earnings_minus_rent'] + addition)) + '{/font}':
+    text '{font=fonts/RussoOne-Regular.ttf}ACCOUNT BALANCE: $ ' + "{:.2f}".format(float(store.game_state.performance['earnings_minus_rent'] + addition)) + '{/font}':
         xalign .90
         color "#FFFFFF"
         ypos 16
         at still_aberate(3.0)
     
     if earning_flag:
-        text '{font=fonts/RussoOne-Regular.ttf}{color=#00000000}TOTAL EARNINGS: $ {/color}' + '{color=#08a121}' + "{:.2f}".format(float(store.game_state.performance['earnings_minus_rent'] + addition)) + '{/color}{/font}':
+        text '{font=fonts/RussoOne-Regular.ttf}{color=#00000000}ACCOUNT BALANCE: $ {/color}' + '{color=#08a121}' + "{:.2f}".format(float(store.game_state.performance['earnings_minus_rent'] + addition)) + '{/color}{/font}':
             xalign .90
             ypos 16
             at fade_out(1.0)
     elif rent_loss_flag:
-        text '{font=fonts/RussoOne-Regular.ttf}{color=#00000000}TOTAL EARNINGS: $ {/color}' + '{color=#ca0c0c}}' + "{:.2f}".format(float(store.game_state.performance['earnings_minus_rent'] + addition)) + '{/color}{/font}':
+        text '{font=fonts/RussoOne-Regular.ttf}{color=#00000000}ACCOUNT BALANCE: $ {/color}' + '{color=#ca0c0c}}' + "{:.2f}".format(float(store.game_state.performance['earnings_minus_rent'] + addition)) + '{/color}{/font}':
             xalign .90
             ypos 16
             at fade_out(1.0)
@@ -2070,7 +2070,7 @@ screen overlay_reward(reward, incorrect_choice = False):
         at still_aberate(3.0)
     
     if timer_failed:
-        text '{font=fonts/RussoOne-Regular.ttf}{color=#00000000}TASK REWARD : $ {/color}' + '{color=#ca0c0c}' + "{:.2f}".format(float(reward)) + '{/color}{/font}':
+        text '{font=fonts/RussoOne-Regular.ttf}{color=#00000000}TASK REWARD : $ {/color}' + '{color=#ca0c0c}' + "{:.2f}".format(float(reward)) + '{/color}{/font} | ':
             xalign .58
             ypos 16
             at fade_out(1.0)
@@ -2206,11 +2206,11 @@ screen apartment(data, time, bg_path):
                 hover Solid("#d3a95620")
                 action [ToggleScreenVariable('zoom_transition')]
         
-    if zoom_transition:
-        image Solid("#000000"):
-            xsize 1920 ysize 1080 pos (0, 0)
-            at fade_in(fade_time)
-        timer max(zoom_time, fade_time) action Return(True)
+        if zoom_transition:
+            image Solid("#000000"):
+                xsize 1920 ysize 1080 pos (0, 0)
+                at fade_in(fade_time)
+            timer max(zoom_time, fade_time) action Return(True)
 
 # # No longer zooming into the notes
 # screen zoomed_note(data):

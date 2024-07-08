@@ -59,6 +59,34 @@ Eventually, you are forced to work retail at the mall. You hate it.
 One day, while eating a Cinnabon in the food court, you see the mall rent-a-cops chasing a young alien. They violently restrain him, searching for merchandise. You consider interceding but ultimately decide against it. You don’t want to risk your shitty job. After finding a pair of sneakers in his jacket, the youth is carried away. You don’t know what will happen to him next, but it can’t be good.
 
 You’ve finished your snack, and it’s time to return to work. Those shelves aren’t going to stock themselves.",bad,turned_in_landlady_false
+"The alien mothership sets down at the capitol and lights up hawkish senators like fireworks. 
+
+Panic. Mayhem. Society devolves into chaos as the alien legions take their revenge on Earth’s xenophobic inhabitants. ‘You deserve it!’ They scream as their walkers overtake the remains of humanity’s charred cities.
+
+Cowering under your desk, you hear a knock at the door. The mysterious stranger is standing there, complete in his alien military regalia. “You really should have helped us out a bit more, bud. But since you didn't go out of your way to help your bosses, I'll do you a solid.”
+
+He leads you to your new home. It’s small but comfortable. You feel uneasy after they introduce your new ‘roommate’ as your ‘mate.’ As alien children gather outside your enclosure, you begin to realize how things worked out for you. Yes, you’re kept in a zoo, but at least you’re one of the last human survivors. And the keepers always deliver lunch on time. ",good,didnt_help_stranger
+"The alien mothership sets down at the capitol and lights up hawkish senators like fireworks. 
+
+Panic. Mayhem. Society devolves into chaos as the alien legions take their revenge on Earth’s xenophobic inhabitants. ‘You deserve it!’ They scream as their walkers overtake the remains of humanity’s charred cities.
+
+Cowering under your desk, you hear a knock at the door. The mysterious stranger is standing there, complete in his alien military regalia. “You really should have helped us out a bit more, bud. But since you didn't go out of your way to help your bosses, I'll do you a solid.”
+
+He leads you to your new home. It’s small but comfortable. You feel uneasy after they introduce your new ‘roommate’ as your ‘mate.’ As alien children gather outside your enclosure, you begin to realize how things worked out for you. Yes, you’re kept in a zoo, but at least you’re one of the last human survivors. And the keepers always deliver lunch on time. ",bad,didnt_help_stranger
+"The alien mothership sets down at the capitol and lights up hawkish senators like fireworks. 
+
+Panic. Mayhem. Society devolves into chaos as the alien legions take their revenge on Earth’s xenophobic inhabitants. ‘You deserve it!’ They scream as their walkers overtake the remains of humanity’s charred cities.
+
+Cowering under your desk, you hear a knock at the door. The mysterious stranger is standing there, complete in his alien military regalia. “Congratulations. Here’s your pardon. Thanks again for your help, buddy!”
+
+In the new, alien-dominated society you are given a place of honor. Your work to help them has convinced them that human's arent all bad. And, ultimately, the aliens being in charge seems to be working out better. At least you don't have to spend your days clicking boxes anymore.",good,helped_stranger
+"The alien mothership sets down at the capitol and lights up hawkish senators like fireworks. 
+
+Panic. Mayhem. Society devolves into chaos as the alien legions take their revenge on Earth’s xenophobic inhabitants. ‘You deserve it!’ They scream as their walkers overtake the remains of humanity’s charred cities.
+
+Cowering under your desk, you hear a knock at the door. The mysterious stranger is standing there, complete in his alien military regalia. “Congratulations. Here’s your pardon. Thanks again for your help, buddy!”
+
+He leads you to your new home. It’s small but comfortable. You feel uneasy after they introduce your new ‘roommate’ as your ‘mate.’ As alien children gather outside your enclosure, you begin to realize how things worked out for you. Yes, you’re kept in a zoo, but at least you’re one of the last human survivors. And the keepers always deliver lunch on time. ",bad,helped_stranger
 Sorry! You’re not a good fit for the Dataville Corporation. Feel free to reapply if you have a change of heart.,,tutorial_fail
 "You have failed to pay rent. You move back in with your mother. 
 
