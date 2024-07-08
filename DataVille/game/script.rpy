@@ -306,6 +306,11 @@ label start:
       $ task_type = task['type']
       $ task_error = False
 
+      # python:
+      #   if not renpy.get_screen('overlay_reward'):
+      #     renpy.show_screen('overlay_reward', reward = task['payment'])
+      #     renpy.with_statement('Dissolve', 0.3)
+      show screen overlay(task)
       show screen timer
 
       if (task['type'] == 'sentiment_text' and not 'labels' in task) or task['type'] == 'captcha_image' and not 'correct_images' in task:

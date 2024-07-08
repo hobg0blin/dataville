@@ -1715,7 +1715,6 @@ screen timer:
     python:
         init_time = float(task['time']) * 1000
         timer_failed = False
-        # timer_failed = TrueRRR
     vbox:
         yalign 1.0
         xalign 0.0
@@ -1745,10 +1744,6 @@ screen empty_timer:
             value 0 
             range 100
             xmaximum 1920
-            # hls (0, 41, 0) == #696969
-            # if timer is still less than half way, keep saturation at 0
-            # else, start increaing it by the time left
-            # offset is included to treat the halfway point at 0.0 and timer end at 0.5
             left_bar Solid(Color(hls=(0.0, 0.41, 0.0)))
             right_bar Solid("#D9D9D9")
 
@@ -2046,25 +2041,20 @@ screen overlay(task, cogni=False, button_text=False):
             # To-do: just track number of tasks here
             #      text 'Performance:' + '\n{size=-5}' + task['performance']
             text '{font=fonts/RussoOne-Regular.ttf}TOTAL EARNINGS: $ ' + "{:.2f}".format(float(store.game_state.performance['earnings_minus_rent'])) + '{/font}' xalign .90 color "#FFFFFF" 
-        # hbox id 'cogni':
-        #     xsize 400
-        #     ysize 300
-        #     yalign 0.75
-        #     xalign 0.2
-        #     #TODO: diff version of cogni based on performance
-        #     if cogni:
-        #         vbox:
-        #             spacing 15
-        #             xsize 500
-        #             text '\n{size=-5}' + task['performance']
-        #             image "images/characters/cogni/asst_normal.png"
-        # if (button_text):
-        #     frame id 'overlay_button':
-        #         xsize 300
-        #         xalign 0.5
-        #         yalign 0.55
-        #         textbutton button_text style "button_click" action Return(True)
+        
+        if 'payment' in task:
+            use overlay_reward(task['payment'])
+
         image "scanlines_overlay"
+
+screen overlay_reward(reward):
+    if timer_failed:
+        $ reward = float(reward) / 2
+    text '{font=fonts/RussoOne-Regular.ttf}TASK REWARD : $ ' + "{:.2f}".format(float(reward)) + '{/font}':
+        xalign .58
+        ypos 16
+        color "#FFFFFF"
+        at still_aberate(3.0)
 
 screen performance(state, average, emojis):
     layer "master"
