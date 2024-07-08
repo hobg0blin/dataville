@@ -583,6 +583,12 @@ init python:
     else:
       renpy.show_layer_at(still_aberate(amount), layer=layer_choice)
 
+  def task_penalty(payment, case):
+    if case != 1:
+      return int(payment)/int(case)
+    else:
+      return False
+
   def emoji_selection(state, average):
     positive_emoji = ["thumbs_up", "star_struck", "heart_eyes"]
     neutral_emoji = ["not_so_great", "ok", "neutral"]

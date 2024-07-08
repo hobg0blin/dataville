@@ -2007,7 +2007,6 @@ screen job_offer(phase, text = None, buttons = None):
                             color "#FFFFFF"
                         action Return(True)
 
-
 screen assistant:
     window id 'content':
         ymaximum 1200
@@ -2063,14 +2062,21 @@ screen overlay(task, earning_flag = False, rent_loss_flag = False, cogni=False, 
         image "scanlines_overlay"
 
 screen overlay_reward(reward, incorrect_choice = False):
+    default penalty_flag = False
+    
     if timer_failed:
         $ reward = float(reward) / 2
+    if incorrect_choice:
+        $ reward = incorrect_choice
     text '{font=fonts/RussoOne-Regular.ttf}TASK REWARD : $ ' + "{:.2f}".format(float(reward)) + '{/font}':
         xalign .58
         ypos 16
         color "#FFFFFF"
         at still_aberate(3.0)
-    if timer_failed:
+    
+    $ penalty_flag = timer_failed or incorrect_choice
+    $ print('penalty_flag: ', penalty_flag, incorrect_choice, reward)
+    if penalty_flag:
         text '{font=fonts/RussoOne-Regular.ttf}{color=#00000000}TASK REWARD : $ {/color}' + '{color=#ca0c0c}' + "{:.2f}".format(float(reward)) + '{/color}{/font}':
             xalign .58
             ypos 16

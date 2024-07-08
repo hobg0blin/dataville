@@ -121,6 +121,7 @@ screen comparison_image(task, images):
 
 # SAY YES OR NO TO DA IMAGES
 screen binary_image(task, images):
+    default show_penalty = False
     layer "master"
     python:
         blink_sec, blink_interval, exit_fade_secs = 0.3, 0.07, 0.4
@@ -171,7 +172,11 @@ screen binary_image(task, images):
                 at fade_out(exit_fade_secs)
             else:
                 at fade_in(blink_sec)
-            action [SetVariable("latest_choice", "Y"), SetScreenVariable('selected_button', 'Y'), SetScreenVariable('exit_sequence', True)]
+            action [
+                SetVariable("latest_choice", "Y"), 
+                SetScreenVariable('selected_button', 'Y'),
+                SetScreenVariable('show_penalty', task_penalty(task['payment'], check_binary(latest_choice, task))), 
+                SetScreenVariable('exit_sequence', True)]
         textbutton 'No':
             style "default_button"
             xsize 380
@@ -183,12 +188,24 @@ screen binary_image(task, images):
                 at fade_out(exit_fade_secs)
             else:
                 at fade_in(blink_sec)
-            action [SetVariable("latest_choice", "N"), SetScreenVariable('selected_button', 'N'), SetScreenVariable('exit_sequence', True)]
+            action [
+                SetVariable("latest_choice", "N"), 
+                SetScreenVariable('selected_button', 'N'), 
+                SetScreenVariable('show_penalty', task_penalty(task['payment'], check_binary(latest_choice, task))), 
+                SetScreenVariable('exit_sequence', True)]
+
+    if show_penalty:
+        $ renpy.hide_screen('overlay_reward')
+    use overlay_reward(task['payment'], show_penalty)
 
     use cogni_timeup("You ran out of time! Your earnings have been halved.", char_map['cogni']['mood']['default'], "bottom_left", True)
 
+    # if show_penalty:
+    #     $ renpy.hide_screen('overlay_reward')
+
     if exit_sequence:
         timer max(blink_sec, exit_fade_secs) action Return(True)
+    
 
 screen binary_text(task):
     layer "master"  

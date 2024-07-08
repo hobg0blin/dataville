@@ -247,8 +247,8 @@ label start:
 #THIS AUTOMATES GOING THROUGH TASKS WHEN INSTRUCTIONS/ETC. ARE UNNECESSARY
     $ starting_earnings = store.game_state.performance['earnings_minus_rent']
     label task_loop:
-      hide screen overlay
-      show screen overlay(task)
+      # hide screen overlay
+      # show screen overlay(task)
       # $ show_computer_screen_with_cogni_enter(store.game_state.ui)
       python:
         if not renpy.get_screen('cogni'):
