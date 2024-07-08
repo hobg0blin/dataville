@@ -245,7 +245,10 @@ label start:
 
 
 #THIS AUTOMATES GOING THROUGH TASKS WHEN INSTRUCTIONS/ETC. ARE UNNECESSARY
+    $ starting_earnings = store.game_state.performance['earnings_minus_rent']
     label task_loop:
+      hide screen overlay
+      show screen overlay(task)
       # $ show_computer_screen_with_cogni_enter(store.game_state.ui)
       python:
         if not renpy.get_screen('cogni'):
@@ -306,22 +309,18 @@ label start:
       $ task_type = task['type']
       $ task_error = False
 
-      # python:
-      #   if not renpy.get_screen('overlay_reward'):
-      #     renpy.show_screen('overlay_reward', reward = task['payment'])
-      #     renpy.with_statement('Dissolve', 0.3)
-      show screen overlay(task)
       show screen timer
 
+      $ aberate_layer('all', 10)
+      
       if (task['type'] == 'sentiment_text' and not 'labels' in task) or task['type'] == 'captcha_image' and not 'correct_images' in task:
         call screen task_error 
         $ task_error = True
       elif is_image:
-        $ aberate_layer('all', 10)
         call screen expression(task['type']) pass (task, images)
       else:
-        $ aberate_layer('all', 10)
         call screen expression(task['type']) pass (task)
+      
       python:
         if not task_error:
             if (task['type'] == 'captcha_image'):
@@ -367,6 +366,10 @@ label start:
       hide screen cogni_timeup
       hide screen task_type
 
+      hide screen overlay
+      $ show_green = starting_earnings != store.game_state.performance['earnings_minus_rent']
+      show screen overlay(task, show_green)
+
       if has_custom_feedback:
         $ print('has custom feedback')
         $ start_speaker = sender['obj'].name != "cogni"
@@ -398,9 +401,10 @@ label start:
         jump end
       if (store.game_state.time == "end"):
         python:
-          print('earnings: ', store.game_state.performance['earnings_minus_rent'])
           if (store.game_state.day != 0):
             store.game_state.performance['earnings_minus_rent'] -= (store.daily_rent * store.game_state.day)
+            renpy.hide_screen('overlay')
+            renpy.show_screen('overlay', task = task, rent_loss_flag = True)
           print('earnings minus rent: ', store.game_state.performance['earnings_minus_rent'])
           if store.game_state.performance['earnings_minus_rent'] <= 0:
             store.event_flags.append('rent_fail')
@@ -445,6 +449,7 @@ label start:
             $ render_message(sender['obj'].name, sender['obj'].who_suffix, "check_messages" + text, sender['mood']['default'], start = start_speaker, end = end_speaker)
             $ count += 1
       
+      hide screen overlay
       $ aberate_layer('all', 0)
 
       if store.game_state.day < 4:

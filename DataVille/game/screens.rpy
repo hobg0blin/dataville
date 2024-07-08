@@ -2028,26 +2028,41 @@ screen instructions(task, xalign_val=0.5, yalign_val=0.13):
         yalign yalign_val
         text task['instructions']
 
-screen overlay(task, cogni=False, button_text=False):
+screen overlay(task, earning_flag = False, rent_loss_flag = False, cogni=False, button_text=False):
 # streak_text, feed_text, instructions, status, button_text=False):
     window id 'content':
         style "window_nobox"
         # ymaximum 1080
         # xmaximum 1920
-        frame id 'status_bar':
-            background "images/screens/monitor/overlay.png"
-            has hbox
+        image "images/screens/monitor/overlay.png":
             xsize 1920
-            # To-do: just track number of tasks here
-            #      text 'Performance:' + '\n{size=-5}' + task['performance']
-            text '{font=fonts/RussoOne-Regular.ttf}TOTAL EARNINGS: $ ' + "{:.2f}".format(float(store.game_state.performance['earnings_minus_rent'])) + '{/font}' xalign .90 color "#FFFFFF" 
+            pos (0, 0)
+            at still_aberate(2.0)
         
+
+        text '{font=fonts/RussoOne-Regular.ttf}TOTAL EARNINGS: $ ' + "{:.2f}".format(float(store.game_state.performance['earnings_minus_rent'])) + '{/font}':
+            xalign .90
+            color "#FFFFFF"
+            ypos 16
+            at still_aberate(3.0)
+        
+        if earning_flag:
+            text '{font=fonts/RussoOne-Regular.ttf}{color=#00000000}TOTAL EARNINGS: $ {/color}' + '{color=#08a121}' + "{:.2f}".format(float(store.game_state.performance['earnings_minus_rent'])) + '{/color}{/font}':
+                xalign .90
+                ypos 16
+                at fade_out(1.0)
+        elif rent_loss_flag:
+            text '{font=fonts/RussoOne-Regular.ttf}{color=#00000000}TOTAL EARNINGS: $ {/color}' + '{color=#ca0c0c}}' + "{:.2f}".format(float(store.game_state.performance['earnings_minus_rent'])) + '{/color}{/font}':
+                xalign .90
+                ypos 16
+                at fade_out(1.0)
+
         if 'payment' in task:
             use overlay_reward(task['payment'])
 
         image "scanlines_overlay"
 
-screen overlay_reward(reward):
+screen overlay_reward(reward, incorrect_choice = False):
     if timer_failed:
         $ reward = float(reward) / 2
     text '{font=fonts/RussoOne-Regular.ttf}TASK REWARD : $ ' + "{:.2f}".format(float(reward)) + '{/font}':
@@ -2055,6 +2070,11 @@ screen overlay_reward(reward):
         ypos 16
         color "#FFFFFF"
         at still_aberate(3.0)
+    if timer_failed:
+        text '{font=fonts/RussoOne-Regular.ttf}{color=#00000000}TASK REWARD : $ {/color}' + '{color=#ca0c0c}' + "{:.2f}".format(float(reward)) + '{/color}{/font}':
+            xalign .58
+            ypos 16
+            at fade_out(1.0)
 
 screen performance(state, average, emojis):
     layer "master"
