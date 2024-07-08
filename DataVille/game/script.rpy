@@ -103,7 +103,7 @@ init:
   }
 
 # The game starts here.
-default skip_intro = False
+default skip_intro = True
 default no_fail = False
 default start_at_day_end = False
 label start:
@@ -408,8 +408,6 @@ label start:
           $ print('hitting rent fail state')
           jump end 
       
-
-
         hide screen performance
       # FEEDBACK FROM MANAGER
         #NEW UI STATE
@@ -420,13 +418,12 @@ label start:
             n = 120
             text = message['text']
             split = split_into_sentences(text)
-            print("**interstitial**", split)
             length = len(split)
             count = 0
           while count < length:
             python:
               buttons = None
-              if count >= length - 2:
+              if count >= length - 1:
                 if 'button_1_text' in message:
                   buttons = [message['button_1_text']]
                 if 'button_2_text' in message:
@@ -441,10 +438,9 @@ label start:
             $ start_speaker = (not count) and (prev_speaker != message['sender'])
             $ end_speaker = (count == length - 1) and (next_message_set['sender'] != message['sender'])
             $ render_message(sender['obj'].name, sender['obj'].who_suffix, "check_messages" + text, sender['mood']['default'], start = start_speaker, end = end_speaker)
-            $ count += 2
+            $ count += 1
       
       $ aberate_layer('all', 0)
-
 
       if store.game_state.day < 4:
         if store.game_state.time == "end":
@@ -458,19 +454,16 @@ label start:
                 $ dream_counter += 1
             $ fade_out_of_dream(0.5)
       
-
-      play music f"dataville_apartment_{store.game_state.performance_rating}.wav" fadein 2.0
-
-      call screen apartment(clean(store.apartment_data), store.game_state.time, apartment_bg_map['apartment_1'])
+      #this is where the next day should start
 
       if store.game_state.day < 4:
         if store.game_state.time == "end":
-            python:
-                day_start()
+            $ day_start()
             if store.game_state.performance_rating != 'bad':
                 play music f"dataville_workspace_{store.game_state.performance_rating}.wav" fadein 2.0
             else:
                 play music f"dataville_workspace_neutral.wav" fadein 2.0
+            call screen apartment(clean(store.apartment_data), store.game_state.time, apartment_bg_map['apartment_1'])
             $ task = store.loop["start_task"]
             $ set_ui_state(task, store.game_state)
             $ cleaned = clean(store.apartment_data)
