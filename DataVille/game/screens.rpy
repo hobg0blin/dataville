@@ -1715,7 +1715,6 @@ screen timer:
     python:
         init_time = float(task['time']) * 1000
         timer_failed = False
-        # timer_failed = TrueRRR
     vbox:
         yalign 1.0
         xalign 0.0
@@ -1745,10 +1744,6 @@ screen empty_timer:
             value 0 
             range 100
             xmaximum 1920
-            # hls (0, 41, 0) == #696969
-            # if timer is still less than half way, keep saturation at 0
-            # else, start increaing it by the time left
-            # offset is included to treat the halfway point at 0.0 and timer end at 0.5
             left_bar Solid(Color(hls=(0.0, 0.41, 0.0)))
             right_bar Solid("#D9D9D9")
 
@@ -1838,7 +1833,7 @@ screen dream(dream_text, buttons = ["Next"]):
         ficps_instant = "{ficps=1000-1-0-0}"
         dream_font = ''
         font_size = "{size=48}"
-        text_lines = line_split(dream_text, 50)
+        text_lines = line_split(dream_text, 65)
         end_tags = "{/size}{/ficps}"
     
     default exit_sequence = False
@@ -2033,38 +2028,53 @@ screen instructions(task, xalign_val=0.5, yalign_val=0.13):
         yalign yalign_val
         text task['instructions']
 
-screen overlay(task, cogni=False, button_text=False):
+screen overlay(task, earning_flag = False, rent_loss_flag = False, cogni=False, button_text=False):
 # streak_text, feed_text, instructions, status, button_text=False):
     window id 'content':
         style "window_nobox"
         # ymaximum 1080
         # xmaximum 1920
-        frame id 'status_bar':
-            background "images/screens/monitor/overlay.png"
-            has hbox
+        image "images/screens/monitor/overlay.png":
             xsize 1920
-            # To-do: just track number of tasks here
-            #      text 'Performance:' + '\n{size=-5}' + task['performance']
-            text '{font=fonts/RussoOne-Regular.ttf}TOTAL EARNINGS: $ ' + "{:.2f}".format(float(store.game_state.performance['earnings_minus_rent'])) + '{/font}' xalign .90 color "#FFFFFF" 
-        # hbox id 'cogni':
-        #     xsize 400
-        #     ysize 300
-        #     yalign 0.75
-        #     xalign 0.2
-        #     #TODO: diff version of cogni based on performance
-        #     if cogni:
-        #         vbox:
-        #             spacing 15
-        #             xsize 500
-        #             text '\n{size=-5}' + task['performance']
-        #             image "images/characters/cogni/asst_normal.png"
-        # if (button_text):
-        #     frame id 'overlay_button':
-        #         xsize 300
-        #         xalign 0.5
-        #         yalign 0.55
-        #         textbutton button_text style "button_click" action Return(True)
+            pos (0, 0)
+            at still_aberate(2.0)
+        
+
+        text '{font=fonts/RussoOne-Regular.ttf}TOTAL EARNINGS: $ ' + "{:.2f}".format(float(store.game_state.performance['earnings_minus_rent'])) + '{/font}':
+            xalign .90
+            color "#FFFFFF"
+            ypos 16
+            at still_aberate(3.0)
+        
+        if earning_flag:
+            text '{font=fonts/RussoOne-Regular.ttf}{color=#00000000}TOTAL EARNINGS: $ {/color}' + '{color=#08a121}' + "{:.2f}".format(float(store.game_state.performance['earnings_minus_rent'])) + '{/color}{/font}':
+                xalign .90
+                ypos 16
+                at fade_out(1.0)
+        elif rent_loss_flag:
+            text '{font=fonts/RussoOne-Regular.ttf}{color=#00000000}TOTAL EARNINGS: $ {/color}' + '{color=#ca0c0c}}' + "{:.2f}".format(float(store.game_state.performance['earnings_minus_rent'])) + '{/color}{/font}':
+                xalign .90
+                ypos 16
+                at fade_out(1.0)
+
+        if 'payment' in task:
+            use overlay_reward(task['payment'])
+
         image "scanlines_overlay"
+
+screen overlay_reward(reward, incorrect_choice = False):
+    if timer_failed:
+        $ reward = float(reward) / 2
+    text '{font=fonts/RussoOne-Regular.ttf}TASK REWARD : $ ' + "{:.2f}".format(float(reward)) + '{/font}':
+        xalign .58
+        ypos 16
+        color "#FFFFFF"
+        at still_aberate(3.0)
+    if timer_failed:
+        text '{font=fonts/RussoOne-Regular.ttf}{color=#00000000}TASK REWARD : $ {/color}' + '{color=#ca0c0c}' + "{:.2f}".format(float(reward)) + '{/color}{/font}':
+            xalign .58
+            ypos 16
+            at fade_out(1.0)
 
 screen performance(state, average, emojis):
     layer "master"
@@ -2155,6 +2165,7 @@ screen apartment(data, time, bg_path):
             if not zoom_transition:
                 random.shuffle(data["sticky_note"])
         for i, note in enumerate(data["sticky_note"]):
+<<<<<<< HEAD
             if i > 3:
                 break
             if note["performance"] == "default" or note["performance"] == store.game_state.performance_rating or (note["event_flag"] in store.event_flags):
@@ -2164,6 +2175,14 @@ screen apartment(data, time, bg_path):
                     xpos start_note_positions[i][0] ypos start_note_positions[i][1]
                     if zoom_transition:
                         at zoom_sticky_notes(offset_note_positions[i][0], offset_note_positions[i][1], zoom_time)
+=======
+            text note["text"]:
+                style "sticky_note"
+                xsize 129 ysize 132
+                xpos start_note_positions[i][0] ypos start_note_positions[i][1]
+                if zoom_transition:
+                    at zoom_sticky_notes(offset_note_positions[i][0], offset_note_positions[i][1], zoom_time)
+>>>>>>> hab-06-30
 
         # TV Hover button
         if not zoom_transition:

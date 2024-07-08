@@ -20,6 +20,7 @@ init python:
   time = 0
   timer_jump = ''
   store.timer_failed = False
+  earnings_added = False
   task = "start_task`"
   # default captcha image variables
   images_correct = False
