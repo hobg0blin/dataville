@@ -1,10 +1,10 @@
-{b}Image Labeler/ Annotator @ DataVille {/b}
+{b}RLHF Labeler @ DataVille {/b}
 Facing eviction? In serious debt? 
 Don’t run out of cash!
 …earn money from home!
 
 {b}Responsibilities:{/b}
-• Labeling tasks. Help improve our state-of-the-art multimodal AI model!
+• Label AI-generated images and text. Help improve our state-of-the-art multimodal AI model!
 
 {b}Benefits:{/b}
 • Flexible work hours with remote options
