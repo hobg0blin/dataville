@@ -232,7 +232,7 @@ define position_map = {
         "text": {
             "xpos": 100,
             "ypos": 0,
-            "aberate": 3.0
+            "aberate": 4.0
         }
     },
 }
@@ -240,7 +240,7 @@ define position_map = {
 style cogni_bubble:
     # xminimum 300
     anchor (0.0, 1.0)
-    background Frame("images/characters/cogni/cogni_bubble.png")
+    background Frame("images/characters/cogni/speech_bubble.png")
 
 style cogni_bubble_center is cogni_bubble:
     xsize 500
