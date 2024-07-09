@@ -182,7 +182,8 @@ label start:
 
       label intro:
         play music "dataville_apartment_neutral.wav"
-        call screen apartment(clean(store.apartment_data), store.game_state.time, apartment_bg_map['apartment_1'])
+        $ notes = shuffle_notes(clean(store.apartment_data)['sticky_note'])
+        call screen apartment(clean(store.apartment_data), store.game_state.time, apartment_bg_map['apartment_1'], notes)
         hide screen apartment
 
     python:
@@ -470,7 +471,8 @@ label start:
       #this is where the next day should start
 
       if store.game_state.day < 4:
-        call screen apartment(clean(store.apartment_data), store.game_state.time, apartment_bg_map['apartment_1'])
+        $ notes = shuffle_notes(clean(store.apartment_data)['sticky_note'])
+        call screen apartment(clean(store.apartment_data), store.game_state.time, apartment_bg_map['apartment_1'], notes)
         if store.game_state.time == "end":
             $ day_start()
             if store.game_state.performance_rating != 'bad':

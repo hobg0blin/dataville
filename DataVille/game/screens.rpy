@@ -2141,7 +2141,7 @@ screen performance(state, average, emojis):
 # window zoom
 # MAYBE: CAT?
 
-screen apartment(data, time, bg_path):
+screen apartment(data, time, bg_path, sticky_notes):
     default zoom_transition = False
     default zoom_time = 1.3
     default fade_time = 1.0
@@ -2160,20 +2160,8 @@ screen apartment(data, time, bg_path):
             btn = "Go to sleep"
         start_note_positions = [(734, 827), (1103, 828), (1458, 650), (1458, 462)]
         offset_note_positions = [(-474, 196), (47, 195), (543, -50), (543, -333)]
-        random.shuffle(data["sticky_note"])
-        sticky_notes = data["sticky_note"][:4]
-        print('sticky notes: ', sticky_notes)
-
 
     fixed:
-        # We're not doing note clickables anymore, right? - HAB
-        # imagebutton:
-        #   xpos 1200 ypos 300
-        #   activate_sound "audio/rustle.wav"
-        #   idle Transform("images/room/room/note.png", size=(480, 270)) 
-        #   hover Transform("images/room/room/note.png", size=(500, 290)) 
-        #   action Show("zoomed_note", None, store.apartment_data)
-
         # Notes
         for i, note in enumerate(sticky_notes):
             text note["text"]:
@@ -2193,15 +2181,7 @@ screen apartment(data, time, bg_path):
                 hover Solid("#d3a95620")
                 action Show("zoomed_tv", None, store.apartment_data)
         
-        # Same with windows as notes? - HAB
-        # imagebutton:
-        #   xpos 0 ypos 0
-        #   activate_sound "audio/window.mp3"
-        #   idle Transform("images/room/room/window_with_bg.png", size=(768, 432)) 
-        #   hover Transform("images/room/room/window_with_bg.png", size=(788, 455)) 
-        #   action Show("zoomed_window", None, store.apartment_data)
-        
-        # Computer Screen HovorR Button
+        # Computer Screen Hover Button
         if not zoom_transition:
             imagebutton:
                 xpos 614 ypos 404
