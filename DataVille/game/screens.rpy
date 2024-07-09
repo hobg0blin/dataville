@@ -651,7 +651,7 @@ screen about():
             if gui.about:
                 text "[gui.about!t]\n"
 
-            text _("\n Project Leads:\n Brent Bailey\nArnab Chakravarty\n\n Story:\n Ian McNeely\nBrent Bailey\n\n Design:\n Lifei Wang\n Arnab Chakravarty \n Henry Baum \n\n Programming:\n Brent Bailey\nHenry Baum\n\n ML Development:\n Lifei Wang\n\n Music:\n Matt Ross\n\n Development was supported by a Mozilla Creative Media Award. Made with {a=https://www.renpy.org/}Ren'Py{/a} [renpy.version_only].\n\n[renpy.license!t]")
+            text _("\n Project Leads:\nArnab Chakravarty\nBrent Bailey\n\n Story:\nIan McNeely\nBrent Bailey\n\n Design:\nLifei Wang\nArnab Chakravarty \nHenry Baum \n\n Programming:\nBrent Bailey\nHenry Baum\n\n ML Development:\nLifei Wang\n\n Music:\nMatt Ross\n\n Development was supported by a Mozilla Creative Media Award. AI images created with Stable Diffusion, finetuned on a mix of custom-made and open-source images. Made with {a=https://www.renpy.org/}Ren'Py{/a} [renpy.version_only].\n\n[renpy.license!t]")
 
 
 style about_label is gui_label
