@@ -118,7 +118,7 @@ screen email_message(who, who_suffix, what, image_path = None, buttons = ["Conti
                         xpos 200
                     else:
                         xpos 0
-                    at still_aberate(0.5)
+                    at still_aberate(2.0)
                 if who_suffix is not None:
                     text who_suffix id "who_suffix":
                         color "#d2d2d2"
@@ -128,11 +128,11 @@ screen email_message(who, who_suffix, what, image_path = None, buttons = ["Conti
                             xpos 200
                         else:
                             xpos 0
-                        at still_aberate(0.5)
+                        at still_aberate(2.0)
         text what id "what":
             style "email_message_what"
             ypos 200
-            at still_aberate(0.5)
+            at still_aberate(1.0)
         # at still_aberate(1.0)
         
     hbox id 'buttons':
