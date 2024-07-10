@@ -1,6 +1,5 @@
 # SELECT DA IMAGES
 screen captcha_image(task, images):
-    layer "master"
     python:
         blink_sec, blink_interval, exit_fade_secs = 0.3, 0.07, 0.5
 
@@ -33,7 +32,6 @@ screen captcha_image(task, images):
                     strp = os.path.splitext(base)[0]
                     selected_image = Transform(f"{img}", matrixcolor=SaturationMatrix(0))
                     hover_image = Transform(f"{img}", matrixcolor=SepiaMatrix(tint=Color("#464d8aa2")))
-                    print('img: ', img)
                     def check_selected(img):
                         if img in images_selected['values']:
                             return True
@@ -76,7 +74,6 @@ screen captcha_image(task, images):
         timer max(blink_sec, exit_fade_secs) action Return(True)
 
 screen comparison_image(task, images):
-    layer "master"
     python:
         blink_sec, blink_interval, exit_fade_secs = 0.3, 0.1, 0.5
 
@@ -135,7 +132,6 @@ screen comparison_image(task, images):
 
 # SAY YES OR NO TO DA IMAGES
 screen binary_image(task, images):
-    layer "master"
     python:
         blink_sec, blink_interval, exit_fade_secs = 0.3, 0.07, 0.5
 
@@ -217,7 +213,6 @@ screen binary_image(task, images):
         timer max(blink_sec, exit_fade_secs) action Return(True)
     
 screen binary_text(task):
-    layer "master"  
     python:
         blink_sec, blink_interval, exit_fade_secs = 0.3, 0.07, 0.5
 
@@ -316,7 +311,6 @@ screen task_error():
     
 
 screen comparison_text(task, button_text='Done!'):
-    layer "master"
     python:
         blink_sec, blink_interval, exit_fade_secs = 0.3, 0.07, 0.5
 
@@ -391,7 +385,6 @@ screen comparison_text(task, button_text='Done!'):
 
 
 screen caption_image(task, images):
-    layer "master"
     python:
         blink_sec, blink_interval, exit_fade_secs = 0.3, 0.07, 0.5
 
@@ -460,7 +453,6 @@ screen caption_image(task, images):
         timer max(blink_sec, exit_fade_secs) action Return(True)
 
 screen sentiment_text(task):
-    layer "master"
     python:
         blink_sec, blink_interval, exit_fade_secs = 0.3, 0.07, 0.5
 
@@ -525,7 +517,6 @@ screen sentiment_text(task):
 # ORDER THE TEXT
 
 screen order_text(task, button_text='Done!'):
-    layer "master"
     zorder 1
     # this animates random shuffle??? is that supposed to be happening? either renpy.random or regular random does it
     #ok so use traditional python random library for actual randomization

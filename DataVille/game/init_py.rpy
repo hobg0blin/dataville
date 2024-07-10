@@ -173,7 +173,7 @@ init python:
     if (performance_string and len(performance_string) > 0):
         store.game_state.performance_rating = performance_string
     if (event_flag_string and len(event_flag_string) > 0) and event_flag_string not in store.event_flags:
-        print('adding event flag: ', event_flag_string)
+        # print('adding event flag: ', event_flag_string)
         store.event_flags.append(event_flag_string)
 
 
@@ -272,20 +272,20 @@ init python:
 
 
   def filter_apartment(obj):
-    if (obj['type'] == 'sticky_note'):
-      print('performance: ', store.game_state.performance_rating)
-      print('time: ', store.game_state.time)
+    # if (obj['type'] == 'sticky_note'):
+    #   print('performance: ', store.game_state.performance_rating)
+    #   print('time: ', store.game_state.time)
 
     if store.game_state.time != obj['time']:
       if obj['type'] == 'news' and store.game_state.day == 0:
         return True
       else:
-        print('returning false due to time: ', obj)
+        # print('returning false due to time: ', obj)
         return False
     elif obj['performance'] == store.game_state.performance_rating:
       return True
     elif (obj['performance'] == 'bad') and (obj['type'] == 'sticky_note' or obj['type'] == 'news') and (store.game_state.performance_rating == 'neutral'):
-      print('adding remapped bad object: ', obj)
+      # print('adding remapped bad object: ', obj)
     # FIXME: just hard mapping neutral to bad for sticky notes for now, long-term this should be solved in the script and not the code
       return True
     elif obj['performance'] == 'default':
@@ -293,7 +293,7 @@ init python:
     elif obj['performance'] == 'flag_dependent' and 'event_flag' in obj and obj['event_flag'] in store.event_flags:
       return True
     else:
-      print('object getting filtered: ', obj)
+      # print('object getting filtered: ', obj)
       return False
     #SET TV NEWS ITEMS
   def setitem(data, index):
@@ -386,7 +386,7 @@ init python:
 # UPDATE UI VARIABLES 
     reward = int(current_task['payment'])/out
     if store.timer_failed:
-        print("Timer failed! Reducing reward.")
+        # print("Timer failed! Reducing reward.")
         reward = reward/2
         store.timer_failed = False
     performance = performance_feedback(out)
@@ -421,16 +421,16 @@ init python:
                 output = epilogue['text']
                 for event_flag in store.event_flags:
                   if (event_flag == 'tutorial_fail' or event_flag == 'rent_fail' or event_flag == 'performance_fail') and event_flag == epilogue['event_flag']:
-                      print('fail state hit: ', event_flag)
+                      # print('fail state hit: ', event_flag)
                       has_event_flag = True
                   if event_flag == epilogue['event_flag'] and epilogue['performance'] == 'bad' and store.game_state.performance_rating == 'neutral':
                       has_event_flag = True
                   elif event_flag == epilogue['event_flag'] and epilogue['performance'] == store.game_state.performance_rating:
-                      print('event flag based epilogue firing: ', epilogue)
+                      # print('event flag based epilogue firing: ', epilogue)
                       has_event_flag = True
                 if has_event_flag:
                       break
-    print('epilogue output: ', epilogue)
+    # print('epilogue output: ', epilogue)
 
     return output
 
@@ -540,6 +540,7 @@ init python:
     renpy.show_screen('fade_to_black', duration)
     renpy.pause(duration)
     renpy.scene()
+    renpy.show("bg black_bg")
   
   def fade_out_of_dream(duration):
     renpy.hide_screen('dream')
