@@ -2143,7 +2143,6 @@ screen performance(state, average, emojis):
 # MAYBE: CAT?
 
 screen apartment(data, time, bg_path, sticky_notes):
-    layer "master"
     default zoom_transition = False
     default zoom_time = 1.3
     default fade_time = 1.0
@@ -2192,28 +2191,12 @@ screen apartment(data, time, bg_path, sticky_notes):
                 idle Solid("#00000000")
                 hover Solid("#d3a95620")
                 action [ToggleScreenVariable('zoom_transition')]
-
+        
         if zoom_transition:
             image Solid("#000000"):
                 xsize 1920 ysize 1080 pos (0, 0)
                 at fade_in(fade_time)
             timer max(zoom_time, fade_time) action Return(True)
-
-# # No longer zooming into the notes
-# screen zoomed_note(data):
-#     modal True
-#     vbox:
-#         xalign 0.5
-#         yalign 0
-#         image Transform("images/room/room/note.png", size=(1200, 1000)) 
-#     vbox:
-#         xalign 0.5
-#         yalign 0.2
-#         for note in data["sticky_note"]:
-#             if note["performance"] == "default" or note["performance"] == store.game_state.performance_rating or (note["event_flag"] in store.event_flags):
-#                 text note["text"]
-#     frame:
-#         textbutton "X" activate_sound "rustle.wav" action Hide("zoomed_note", None)
 
 screen zoomed_tv(data, index=0):
     modal True
@@ -2221,7 +2204,6 @@ screen zoomed_tv(data, index=0):
         #FIXME: day 0 just reuses start images for now
         # advance through news items
         result = setitem(data, index)
-        print('result: ', result)
         item = result[0]
         index = result[1]
         index +=1
