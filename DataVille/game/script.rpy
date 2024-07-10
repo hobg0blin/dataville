@@ -107,6 +107,7 @@ default skip_intro = False
 default no_fail = False
 default start_at_day_end = False
 label start:
+    $ set_initial_variables()
     image overlay_background = "images/screens/monitor/background.png"
     image bg black_bg = Solid('#000000')
     image bg apartment_bg = "images/apartment/apartment3_1.png"
