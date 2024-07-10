@@ -97,16 +97,19 @@ init:
       }
     },
   }
-
+  
+  image apartment_1 = "images/apartment/apartment3_1.png"
+  
   define apartment_bg_map = {
     "apartment_1": "images/apartment/apartment3_1.png",
   }
-
+  
 # The game starts here.
 default skip_intro = False
 default no_fail = False
 default start_at_day_end = False
 label start:
+    $ set_initial_variables()
     image overlay_background = "images/screens/monitor/background.png"
     image bg black_bg = Solid('#000000')
     image bg apartment_bg = "images/apartment/apartment3_1.png"
@@ -218,7 +221,7 @@ label start:
         while count < length:
           python:
             strip_message = split[count].strip()
-            print('stripped message: ', strip_message)
+            # print('stripped message: ', strip_message)
             if count >= length - 1:
               buttons = message['buttons']
               second_sentence = ""
@@ -314,7 +317,6 @@ label start:
 
       $ aberate_layer('all', 10)
       
-      $ print ("calling a task screen")
       if (task['type'] == 'sentiment_text' and not 'labels' in task) or task['type'] == 'captcha_image' and not 'correct_images' in task:
         call screen task_error 
         $ task_error = True
@@ -339,21 +341,21 @@ label start:
                 correct = task['correct_options']
                 if 'custom_feedback_sender' in task:
                 #if there's an ethical option AND specific feedback, show that
-                    print('hit ethical task: ', task)
-                    print('choice:', latest_choice)
-                    print('correct option: ', correct)
+                    # print('hit ethical task: ', task)
+                    # print('choice:', latest_choice)
+                    # print('correct option: ', correct)
                     custom_feedback_sender = char_map[task['custom_feedback_sender']]
                     if 'ethical_options' in task:
                       ethical = task['ethical_options']
-                      print('ethical option: ', ethical)
+                      # print('ethical option: ', ethical)
                       if 'custom_feedback_ethical' in task and latest_choice == ethical:
-                          print('should be showing ethical custom feedback')
+                          # print('should be showing ethical custom feedback')
                           custom_feedback = task['custom_feedback_ethical'] 
                           has_custom_feedback = True
                     # if choice is correct and there's feedback for that, show it
                     if 'custom_feedback_correct' in task and latest_choice == correct:
-                        print('should be showing correct custom feedback')
-                        print('correct custom feedback: ', task['custom_feedback_correct'])
+                        # print('should be showing correct custom feedback')
+                        # print('correct custom feedback: ', task['custom_feedback_correct'])
                         custom_feedback = task['custom_feedback_correct'] 
                         has_custom_feedback = True
                 task = update_state(store.game_state, binary_correct, task)
@@ -373,15 +375,12 @@ label start:
       show screen overlay_earnings(earning_flag = show_green)
 
       if has_custom_feedback:
-        $ print('has custom feedback')
+        # $ print('has custom feedback')
         $ start_speaker = custom_feedback_sender['obj'].name != "cogni"
-        $ end_speaker = custom_feedback_sender['obj'].name != "cogni"
-        $ print(custom_feedback_sender['obj'].name)       
+        $ end_speaker = custom_feedback_sender['obj'].name != "cogni"     
         $ render_message(custom_feedback_sender['obj'].name, custom_feedback_sender['obj'].who_suffix, custom_feedback, custom_feedback_sender['mood']['default'], position = "bottom_left", start = start_speaker, end = end_speaker, overlay = True)
-        # show screen message(custom_feedback_sender, [f"{custom_feedback_sender}"])
-        # window hide
         hide screen message 
-      #show screen overlay (store.game_state.ui, True)
+
       if (task == 'break'):
         $ day_end()
         call interstitial from _call_interstitial
@@ -408,7 +407,7 @@ label start:
             store.game_state.performance['earnings_minus_rent'] -= (store.daily_rent * store.game_state.day)
             renpy.hide_screen('overlay_earnings')
             renpy.show_screen('overlay_earnings', rent_loss_flag = True)
-          print('earnings minus rent: ', store.game_state.performance['earnings_minus_rent'])
+          # print('earnings minus rent: ', store.game_state.performance['earnings_minus_rent'])
           if store.game_state.performance['earnings_minus_rent'] <= 0:
             store.event_flags.append('rent_fail')
         $ emojis = emoji_selection(store.game_state.performance, store.averages['day_' + str(store.game_state.day)])
@@ -417,7 +416,7 @@ label start:
         hide screen cogni
         call screen cogni_leave(char_map['cogni']['mood']['default'], "bottom_left", hide_bubble = True)
         if 'rent_fail' in store.event_flags and not no_fail:
-          $ print('hitting rent fail state')
+          # $ print('hitting rent fail state')
           jump end 
       
         hide screen performance
@@ -500,8 +499,8 @@ label start:
       scene bg black_bg with Dissolve(3.0)
       $ epilogue = get_epilogue()
       $ split = split_into_sentences(epilogue)
-      $ print('epilogue variable: ', epilogue)
-      $ print('split text: ', split)
+      # $ print('epilogue variable: ', epilogue)
+      # $ print('split text: ', split)
       $ count = 0
       $ length = len(split)
       # scene bg apartment_bg with Dissolve(1.0) 
@@ -513,7 +512,7 @@ label start:
             additional_text = split[count+1]
           else:
             additional_text = ""
-          print('epilogue text: ', split[count])
+          # print('epilogue text: ', split[count])
         call screen epilogue(f"{split[count]} {additional_text}")
         $ count += 2
       call screen epilogue('Thank you for playing DataVille!\na more human world\none click at a time', ['Restart'])

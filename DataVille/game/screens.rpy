@@ -493,6 +493,7 @@ style main_menu_text:
 
 style main_menu_title:
     properties gui.text_properties("title")
+    color "#ffffff6c"
 
 style main_menu_version:
     properties gui.text_properties("version")
@@ -2197,29 +2198,12 @@ screen apartment(data, time, bg_path, sticky_notes):
                 at fade_in(fade_time)
             timer max(zoom_time, fade_time) action Return(True)
 
-# # No longer zooming into the notes
-# screen zoomed_note(data):
-#     modal True
-#     vbox:
-#         xalign 0.5
-#         yalign 0
-#         image Transform("images/room/room/note.png", size=(1200, 1000)) 
-#     vbox:
-#         xalign 0.5
-#         yalign 0.2
-#         for note in data["sticky_note"]:
-#             if note["performance"] == "default" or note["performance"] == store.game_state.performance_rating or (note["event_flag"] in store.event_flags):
-#                 text note["text"]
-#     frame:
-#         textbutton "X" activate_sound "rustle.wav" action Hide("zoomed_note", None)
-
 screen zoomed_tv(data, index=0):
     modal True
     python:
         #FIXME: day 0 just reuses start images for now
         # advance through news items
         result = setitem(data, index)
-        print('result: ', result)
         item = result[0]
         index = result[1]
         index +=1
