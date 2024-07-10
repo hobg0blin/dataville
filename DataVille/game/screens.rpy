@@ -2143,6 +2143,7 @@ screen performance(state, average, emojis):
 # MAYBE: CAT?
 
 screen apartment(data, time, bg_path, sticky_notes):
+    layer "master"
     default zoom_transition = False
     default zoom_time = 1.3
     default fade_time = 1.0
@@ -2191,7 +2192,7 @@ screen apartment(data, time, bg_path, sticky_notes):
                 idle Solid("#00000000")
                 hover Solid("#d3a95620")
                 action [ToggleScreenVariable('zoom_transition')]
-        
+
         if zoom_transition:
             image Solid("#000000"):
                 xsize 1920 ysize 1080 pos (0, 0)

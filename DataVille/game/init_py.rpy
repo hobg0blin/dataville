@@ -540,6 +540,7 @@ init python:
     renpy.show_screen('fade_to_black', duration)
     renpy.pause(duration)
     renpy.scene()
+    renpy.show("bg black_bg")
   
   def fade_out_of_dream(duration):
     renpy.hide_screen('dream')
