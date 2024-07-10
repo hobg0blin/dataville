@@ -473,7 +473,8 @@ label start:
       if store.game_state.day < 4:
         if store.game_state.time == "end":
           $ day_start()
-          call screen apartment(clean(store.apartment_data), store.game_state.time, apartment_bg_map['apartment_1'])
+          $ notes = shuffle_notes(clean(store.apartment_data)['sticky_note'])
+          call screen apartment(clean(store.apartment_data), store.game_state.time, apartment_bg_map['apartment_1'], notes)
           if store.game_state.performance_rating != 'bad':
               play music f"dataville_workspace_{store.game_state.performance_rating}.wav" fadein 2.0
           else:
