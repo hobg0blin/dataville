@@ -2070,7 +2070,7 @@ screen overlay_reward(reward, incorrect_choice = False):
         at still_aberate(3.0)
     
     if timer_failed:
-        text '{font=fonts/RussoOne-Regular.ttf}{color=#00000000}TASK REWARD : $ {/color}' + '{color=#ca0c0c}' + "{:.2f}".format(float(reward)) + '{/color}{/font} | ':
+        text '{font=fonts/RussoOne-Regular.ttf}{color=#00000000}TASK REWARD : $ {/color}' + '{color=#ca0c0c}' + "{:.2f}".format(float(reward)) + '{/color}{/font}':
             xalign .50
             ypos 16
             at fade_out(1.0)
