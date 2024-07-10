@@ -471,21 +471,20 @@ label start:
       #this is where the next day should start
 
       if store.game_state.day < 4:
-        $ notes = shuffle_notes(clean(store.apartment_data)['sticky_note'])
-        call screen apartment(clean(store.apartment_data), store.game_state.time, apartment_bg_map['apartment_1'], notes)
         if store.game_state.time == "end":
-            $ day_start()
-            if store.game_state.performance_rating != 'bad':
-                play music f"dataville_workspace_{store.game_state.performance_rating}.wav" fadein 2.0
-            else:
-                play music f"dataville_workspace_neutral.wav" fadein 2.0
-            $ task = store.loop["start_task"]
-            $ set_ui_state(task, store.game_state)
-            $ cleaned = clean(store.apartment_data)
-            $ show_computer_screen(store.game_state.ui)
-            $ fee_text = f"Your combined fees and rent are ${store.daily_rent * store.game_state.day}. Make sure your earnings exceed this number!"
-            $ render_message(char_map['cogni']['obj'].name, char_map['cogni']['obj'].who_suffix, fee_text, char_map['cogni']['mood']['default'], position = "center", start= True, end = True)
-            call task_loop from _call_task_loop_1
+          $ day_start()
+          call screen apartment(clean(store.apartment_data), store.game_state.time, apartment_bg_map['apartment_1'])
+          if store.game_state.performance_rating != 'bad':
+              play music f"dataville_workspace_{store.game_state.performance_rating}.wav" fadein 2.0
+          else:
+              play music f"dataville_workspace_neutral.wav" fadein 2.0
+          $ task = store.loop["start_task"]
+          $ set_ui_state(task, store.game_state)
+          $ cleaned = clean(store.apartment_data)
+          $ show_computer_screen(store.game_state.ui)
+          $ fee_text = f"Your combined fees and rent are ${store.daily_rent * store.game_state.day}. Make sure your earnings exceed this number!"
+          $ render_message(char_map['cogni']['obj'].name, char_map['cogni']['obj'].who_suffix, fee_text, char_map['cogni']['mood']['default'], position = "center", start= True, end = True)
+          call task_loop from _call_task_loop_1
         else:
           "game state is broken!!!"
       else:
