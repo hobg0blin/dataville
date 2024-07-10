@@ -667,4 +667,9 @@ init python:
       
     return {"approval": approval, "time": time, "earnings": earnings, "rent": rent_emoji, "earnings_minus_rent": earnings_minus_rent}
 
+
+  def shuffle_notes(notes):
+    random.shuffle(notes)
+    return notes[:4]
+
   set_initial_variables() 
