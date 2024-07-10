@@ -1,5 +1,3 @@
-
-
 # SELECT DA IMAGES
 screen captcha_image(task, images):
     layer "master"
@@ -57,6 +55,7 @@ screen captcha_image(task, images):
     
     window id 'done':
         textbutton "Done":
+            selected False
             style "default_button"
             text_xalign 0.5
             xsize 380
@@ -356,6 +355,7 @@ screen comparison_text(task, button_text='Done!'):
                 for i in task['labels']:
                     textbutton "Option " + i:
                         style "default_button"
+                        selected False
                         ypos 200
                         xsize 380
                         text_xalign 0.5
@@ -499,6 +499,7 @@ screen sentiment_text(task):
                 selected False
                 xalign 0.5
                 yalign 0.1
+                text_xalign 0.5
                 if selected_button == task['labels'][id]['name']:
                     at blink(blink_sec, blink_interval)
                 elif exit_sequence:

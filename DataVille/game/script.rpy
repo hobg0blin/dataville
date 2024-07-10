@@ -182,7 +182,8 @@ label start:
 
       label intro:
         play music "dataville_apartment_neutral.wav"
-        call screen apartment(clean(store.apartment_data), store.game_state.time, apartment_bg_map['apartment_1'])
+        $ notes = shuffle_notes(clean(store.apartment_data)['sticky_note'])
+        call screen apartment(clean(store.apartment_data), store.game_state.time, apartment_bg_map['apartment_1'], notes)
         hide screen apartment
 
     python:
@@ -367,16 +368,16 @@ label start:
       hide screen cogni_timeup
       hide screen task_type
 
-      # $ print ("doing the hide and show stuff")
       hide screen overlay_earnings
       $ show_green = starting_earnings != store.game_state.performance['earnings_minus_rent']
       show screen overlay_earnings(earning_flag = show_green)
 
       if has_custom_feedback:
         $ print('has custom feedback')
-        $ start_speaker = sender['obj'].name != "cogni"
-        $ end_speaker = sender['obj'].name != "cogni"        
-        $ render_message(sender['obj'].name, sender['obj'].who_suffix, custom_feedback, sender['mood']['default'], position = "bottom_left", start = start_speaker, end = end_speaker, overlay = True)
+        $ start_speaker = custom_feedback_sender['obj'].name != "cogni"
+        $ end_speaker = custom_feedback_sender['obj'].name != "cogni"
+        $ print(custom_feedback_sender['obj'].name)       
+        $ render_message(custom_feedback_sender['obj'].name, custom_feedback_sender['obj'].who_suffix, custom_feedback, custom_feedback_sender['mood']['default'], position = "bottom_left", start = start_speaker, end = end_speaker, overlay = True)
         # show screen message(custom_feedback_sender, [f"{custom_feedback_sender}"])
         # window hide
         hide screen message 
@@ -472,7 +473,8 @@ label start:
       if store.game_state.day < 4:
         if store.game_state.time == "end":
           $ day_start()
-          call screen apartment(clean(store.apartment_data), store.game_state.time, apartment_bg_map['apartment_1'])
+          $ notes = shuffle_notes(clean(store.apartment_data)['sticky_note'])
+          call screen apartment(clean(store.apartment_data), store.game_state.time, apartment_bg_map['apartment_1'], notes)
           if store.game_state.performance_rating != 'bad':
               play music f"dataville_workspace_{store.game_state.performance_rating}.wav" fadein 2.0
           else:
