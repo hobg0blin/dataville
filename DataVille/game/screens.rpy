@@ -71,12 +71,14 @@ style frame:
     background Frame("gui/frame.png", gui.frame_borders, tile=gui.frame_tile)
 
 style prompt_frame is frame:
-    background Frame("gui/prompt_frame.png", gui.frame_borders, tile=gui.frame_tile)
+    background Frame("gui/prompt_frame.png")
 
 style default_button:
     padding gui.frame_borders.padding
-    background Frame("gui/prompt_frame.png", gui.frame_borders, tile=gui.frame_tile)
+    background Frame("gui/button/custom/background.png")
     activate_sound "click.wav"
+    xminimum 300
+    yminimum 50
 
 ################################################################################
 ## In-game screens
@@ -1970,7 +1972,7 @@ screen job_offer(phase, text = None, buttons = None):
                 xsize 579
                 ysize 94
                 xalign 0.5
-                yalign 0.9
+                yalign 0.92
                 text "{b}{size=36}Get Started":
                     yalign 0.5
                     xalign 0.5
@@ -2004,6 +2006,8 @@ screen job_offer(phase, text = None, buttons = None):
                     button:
                         style "default_button"
                         text button_text:
+                            yalign 0.5
+                            xalign 0.5
                             color "#FFFFFF"
                         action Return(True)
 
@@ -2137,7 +2141,7 @@ screen performance(state, average, emojis):
 # window zoom
 # MAYBE: CAT?
 
-screen apartment(data, time, bg_path):
+screen apartment(data, time, bg_path, sticky_notes):
     default zoom_transition = False
     default zoom_time = 1.3
     default fade_time = 1.0
