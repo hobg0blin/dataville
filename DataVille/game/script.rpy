@@ -368,16 +368,16 @@ label start:
       hide screen cogni_timeup
       hide screen task_type
 
-      # $ print ("doing the hide and show stuff")
       hide screen overlay_earnings
       $ show_green = starting_earnings != store.game_state.performance['earnings_minus_rent']
       show screen overlay_earnings(earning_flag = show_green)
 
       if has_custom_feedback:
         $ print('has custom feedback')
-        $ start_speaker = sender['obj'].name != "cogni"
-        $ end_speaker = sender['obj'].name != "cogni"        
-        $ render_message(sender['obj'].name, sender['obj'].who_suffix, custom_feedback, sender['mood']['default'], position = "bottom_left", start = start_speaker, end = end_speaker, overlay = True)
+        $ start_speaker = custom_feedback_sender['obj'].name != "cogni"
+        $ end_speaker = custom_feedback_sender['obj'].name != "cogni"
+        $ print(custom_feedback_sender['obj'].name)       
+        $ render_message(custom_feedback_sender['obj'].name, custom_feedback_sender['obj'].who_suffix, custom_feedback, custom_feedback_sender['mood']['default'], position = "bottom_left", start = start_speaker, end = end_speaker, overlay = True)
         # show screen message(custom_feedback_sender, [f"{custom_feedback_sender}"])
         # window hide
         hide screen message 
