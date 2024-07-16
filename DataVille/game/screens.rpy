@@ -2056,7 +2056,7 @@ screen overlay_earnings(addition = 0, earning_flag = False, rent_loss_flag = Fal
             ypos 16
             at fade_out(1.0)
     elif rent_loss_flag:
-        text '{font=fonts/RussoOne-Regular.ttf}{color=#00000000}ACCOUNT BALANCE: $ {/color}' + '{color=#ca0c0c}}' + "{:.2f}".format(float(store.game_state.performance['earnings_minus_rent'] + addition)) + '{/color}{/font}':
+        text '{font=fonts/RussoOne-Regular.ttf}{color=#00000000}ACCOUNT BALANCE: $ {/color}' + '{color=#ca0c0c}' + "{:.2f}".format(float(store.game_state.performance['earnings_minus_rent'] + addition)) + '{/color}{/font}':
             xalign .90
             ypos 16
             at fade_out(1.0)
