@@ -32,6 +32,7 @@ screen cogni(what, mood, position="center", overlay=False):
                         style "cogni_what"
                     id "what"
                     at still_aberate(position_map[position]["text"]["aberate"])
+
     # overlay signifies if cogni's dialogue pauses the game or not
     if not overlay:
         button:
