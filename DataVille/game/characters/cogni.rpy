@@ -2,10 +2,16 @@ define cogni = Character("Cogni", who_suffix="AI Assistant", image="images/chara
 
 screen cogni(what, mood, position="center", overlay=False):
     layer "master"
-    window:
+    default cta_flag = False
+
+    if not cta_flag and what:
+        # n characters / cps, cps is set in the style "cogni_what"
+        timer len(what) / 60 action SetScreenVariable('cta_flag', True)
+
+    window:   
         xalign position_map[position]["window"]["xalign"]
         yalign position_map[position]["window"]["yalign"]
-    # two windows, one for the cogni sprite, the other for the bubble
+    # two windows, one for the cogni sprite, the other for the bubble/text
         window: # sprite window
             image mood:
                 fit "contain"
@@ -20,16 +26,19 @@ screen cogni(what, mood, position="center", overlay=False):
                 ypos position_map[position]["text"]["ypos"]
                 id "window"
                 text what:
-                    style "cogni_what"
+                    if cta_flag:
+                        style "cogni_what_no_cps"
+                    else:
+                        style "cogni_what"
                     id "what"
                     at still_aberate(position_map[position]["text"]["aberate"])
     # overlay signifies if cogni's dialogue pauses the game or not
-    if not overlay: 
-        button: # invisable full screen button to advance the dialogue
+    if not overlay:
+        button:
             xsize 1920
             ysize 1080
             pos (0, 0)
-            action Return(True)
+            action If(cta_flag == True, true = Return(True), false = SetScreenVariable("cta_flag", True))
     
     image "scanlines_overlay" 
 
@@ -261,6 +270,13 @@ style cogni_what:
     text_align 0.5
     color "#FFF"
     slow_cps 60
+
+style cogni_what_no_cps:
+    anchor (0.0,0.0)
+    xalign 0.5
+    yalign 0.5
+    text_align 0.5
+    color "#FFF"
 
 # style cogni_window is empty
 # style cogni_namebox is empty
