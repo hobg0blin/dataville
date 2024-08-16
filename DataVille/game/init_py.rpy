@@ -301,7 +301,9 @@ init python:
     if index > length - 1:
         index = 0
     item = data["news"][index]
-    if item["performance"] != "default" and item["performance"] != store.game_state.performance_rating and item["event_flag"] not in store.event_flags:
+    # converting nuetral performance to bad
+    performance = "good" if store.game_state.performance_rating == "good" else "bad"
+    if item["performance"] != "default" and item["performance"] != performance and item["event_flag"] not in store.event_flags:
         index +=1
         return setitem(data, index)
     else:
