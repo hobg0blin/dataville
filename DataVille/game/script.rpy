@@ -234,6 +234,7 @@ label start:
             $ text =  f"{split[count]}"
             $ start_speaker = (not count) and (prev_speaker != message['sender'])
             $ end_speaker = (count == length - 1) and (next_message_set['sender'] != message['sender'])
+            # $ print('check_messages', sender['obj'].name, sender['obj'].who_suffix, text, sender['mood']['default'], start_speaker, end_speaker)
             $ render_message(sender['obj'].name, sender['obj'].who_suffix, text, sender['mood']['default'], start = start_speaker, end = end_speaker)
           $ count += 1
           $ prev_speaker = message['sender']
@@ -287,6 +288,7 @@ label start:
               $ sender = char_map[message['sender']]
               $ start_speaker = (not count) and (prev_speaker != message['sender'])
               $ end_speaker = (count == length - 1) and (next_message_set['sender'] != message['sender'])
+              # $ print('task_loop', sender['obj'].name, sender['obj'].who_suffix, text, sender['mood']['default'], start_speaker, end_speaker)
               $ render_message(sender['obj'].name, sender['obj'].who_suffix, text, sender['mood']['default'], position = "bottom_left", start = start_speaker, end = end_speaker)
             $ count += 1
             $ prev_speaker = message['sender']
@@ -305,6 +307,7 @@ label start:
         $ custom_dialogue = task['custom_dialogue']
         $ start_speaker = sender['obj'].name != "cogni"
         $ end_speaker = sender['obj'].name != "cogni"
+        # $ print('custom_dialogue', sender['obj'].name, sender['obj'].who_suffix, custom_dialogue, sender['mood']['default'], start_speaker, end_speaker)
         $ render_message(sender['obj'].name, sender['obj'].who_suffix, custom_dialogue, sender['mood']['default'], position = "bottom_left", start = start_speaker, end = end_speaker, overlay = True)
 
       $ custom_feedback = ""
@@ -375,9 +378,10 @@ label start:
       show screen overlay_earnings(earning_flag = show_green)
 
       if has_custom_feedback:
-        hide cogni
+        # hide cogni
         $ start_speaker = custom_feedback_sender['obj'].name != "cogni"
-        $ end_speaker = custom_feedback_sender['obj'].name != "cogni"     
+        $ end_speaker = custom_feedback_sender['obj'].name != "cogni" 
+        # $ print('custom_feedback', custom_feedback_sender['obj'].name, custom_feedback_sender['obj'].who_suffix, custom_feedback, custom_feedback_sender['mood']['default'], start_speaker, end_speaker)    
         $ render_message(custom_feedback_sender['obj'].name, custom_feedback_sender['obj'].who_suffix, custom_feedback, custom_feedback_sender['mood']['default'], position = "bottom_left", start = start_speaker, end = end_speaker, overlay = True)
         hide screen message 
 
@@ -412,6 +416,7 @@ label start:
             store.event_flags.append('rent_fail')
         $ emojis = emoji_selection(store.game_state.performance, store.averages['day_' + str(store.game_state.day)])
         show screen performance(store.game_state.performance, store.averages['day_' + str(store.game_state.day)], emojis)
+        # $ print('interstitial_performance_feedback', performance_feedback(store.game_state.performance_rating)['text'])
         $ render_message(char_map['cogni']['obj'].name, char_map['cogni']['obj'].who_suffix, performance_feedback(store.game_state.performance_rating)['text'], char_map['cogni']['mood']['default'], position = "bottom_left", overlay=True)
         hide screen cogni
         call screen cogni_leave(char_map['cogni']['mood']['default'], "bottom_left", hide_bubble = True)
@@ -448,6 +453,7 @@ label start:
             $ sender = char_map[message['sender']]  
             $ start_speaker = (not count) and (prev_speaker != message['sender'])
             $ end_speaker = (count == length - 1) and (next_message_set['sender'] != message['sender'])
+            # $ print('interstitial_message', sender['obj'].name, sender['obj'].who_suffix, text, sender['mood']['default'], start_speaker, end_speaker)
             $ render_message(sender['obj'].name, sender['obj'].who_suffix, text, sender['mood']['default'], start = start_speaker, end = end_speaker)
             $ count += 2
       
@@ -483,6 +489,7 @@ label start:
           $ cleaned = clean(store.apartment_data)
           $ show_computer_screen(store.game_state.ui)
           $ fee_text = f"Your combined fees and rent are ${store.daily_rent * store.game_state.day}. Make sure your earnings exceed this number!"
+          # $ print('interstitial_fee_text', fee_text)
           $ render_message(char_map['cogni']['obj'].name, char_map['cogni']['obj'].who_suffix, fee_text, char_map['cogni']['mood']['default'], position = "center", start= True, end = True)
           call task_loop from _call_task_loop_1
         else:

@@ -1766,7 +1766,7 @@ screen empty_timer:
 
 # COMPUTER screens
 screen message(sender, buttons=None):
-    $ print('buttons: ', buttons)
+    # $ print('buttons: ', buttons)
     python:
         if sender == 'supervisor':
             avatar = "images/characters/alex/alex_nuetral.png"
@@ -2089,8 +2089,8 @@ screen overlay_reward(reward, incorrect_choice = False):
 
 screen performance(state, average, emojis):
     layer "master"
-    $ print('state: ', state)
-    $ print('average: ', average)
+    # $ print('state: ', state)
+    # $ print('average: ', average)
     frame:
         style "prompt_frame"
         xalign 0.5
