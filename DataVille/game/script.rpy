@@ -155,13 +155,13 @@ label start:
       pause 0.7
 
       news_anchor "{cps=30}Good evening, and welcome to our program.{/cps}"
-      news_anchor "{cps=30}Tonight, hiding in the shadows. What the alien menace means for you and your family. I’m joined by Victor Willmington, founder and CEO of the Dataville Corporation.{/cps}"
+      news_anchor "{cps=30}Tonight, *hiding in the shadows*: what the alien menace means for you and your family. I’m joined by Victor Willmington, founder and CEO of the Dataville Corporation.{/cps}"
       news_anchor "{cps=30}Tell me Victor, how does your company see the ongoing alien migratory crisis?{/cps}"
       victor "{cps=30}Where you see a crisis, we at Dataville see an opportunity. This is our chance to restore human society to a safer, simpler time.{/cps}"
       victor "{cps=30}With our patented alien identification AI technology, we’re able to accurately penetrate alien camouflage.{/cps}"
       news_anchor "{cps=30}And you’ve found active partners in the public sector?{/cps}"
       victor "{cps=30}That’s right. Our clients include the Departments of Defense and State, as well as private enterprises looking to ensure their communities are 100 percent human.{/cps}"
-      news_anchor "{cps=30}And what do you say to your critics who accuse the Dataville Corporation of exacerbating racial tensions with the aliens?{/cps}"
+      news_anchor "{cps=30}And what do you say to critics who accuse the Dataville Corporation of exacerbating racial tensions with the aliens?{/cps}"
       victor "{cps=30}Earth was meant for humans. If they have nothing to hide, why are they using camouflage?{/cps}"
       
       image job_page = "images/job_page.png"
