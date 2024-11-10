@@ -1,3 +1,5 @@
+define cogni_cps_setting = 60
+
 define cogni = Character("Cogni", who_suffix="AI Assistant", image="images/characters/cogni/cogni_happy.png")
 
 screen cogni(what, mood, position="center", overlay=False):
@@ -6,7 +8,7 @@ screen cogni(what, mood, position="center", overlay=False):
 
     if not cta_flag and what:
         # n characters / cps, cps is set in the style "cogni_what"
-        timer len(what) / 60 action SetScreenVariable('cta_flag', True)
+        timer len(what) / cogni_cps_setting action SetScreenVariable('cta_flag', True)
 
     window:   
         xalign position_map[position]["window"]["xalign"]
@@ -270,7 +272,7 @@ style cogni_what:
     yalign 0.5
     text_align 0.5
     color "#FFF"
-    slow_cps 60
+    slow_cps cogni_cps_setting
 
 style cogni_what_no_cps:
     anchor (0.0,0.0)
