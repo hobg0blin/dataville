@@ -419,6 +419,9 @@ label start:
         $ emojis = emoji_selection(store.game_state.performance, store.averages['day_' + str(store.game_state.day)])
         show screen performance(store.game_state.performance, store.averages['day_' + str(store.game_state.day)], emojis)
         # $ print('interstitial_performance_feedback', performance_feedback(store.game_state.performance_rating)['text'])
+        # hide and showing cogni again due to CPS text behavior
+        hide screen cogni
+        show screen cogni(None, char_map['cogni']['mood']['default'], position = "bottom_left")
         $ render_message(char_map['cogni']['obj'].name, char_map['cogni']['obj'].who_suffix, performance_feedback(store.game_state.performance_rating)['text'], char_map['cogni']['mood']['default'], position = "bottom_left", overlay=True)
         hide screen cogni
         call screen cogni_leave(char_map['cogni']['mood']['default'], "bottom_left", hide_bubble = True)
