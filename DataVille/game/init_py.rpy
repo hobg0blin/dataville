@@ -309,8 +309,6 @@ init python:
     else:
         return [item, index]
 
-
-#
 # UPDATE STATE BASED ON TIME CHANGE
   def day_start():
     store.game_state.day += 1
