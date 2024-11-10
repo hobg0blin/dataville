@@ -378,7 +378,7 @@ label start:
       show screen overlay_earnings(earning_flag = show_green)
 
       if has_custom_feedback:
-        hide cogni
+        # hide cogni
         $ start_speaker = custom_feedback_sender['obj'].name != "cogni"
         $ end_speaker = custom_feedback_sender['obj'].name != "cogni" 
         # $ print('custom_feedback', custom_feedback_sender['obj'].name, custom_feedback_sender['obj'].who_suffix, custom_feedback, custom_feedback_sender['mood']['default'], start_speaker, end_speaker)    
