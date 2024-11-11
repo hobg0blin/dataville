@@ -105,7 +105,7 @@ init:
   }
   
 # The game starts here.
-default skip_intro = True
+default skip_intro = False
 default no_fail = False
 default start_at_day_end = False
 label start:
