@@ -1766,7 +1766,7 @@ screen empty_timer:
 
 # COMPUTER screens
 screen message(sender, buttons=None):
-    $ print('buttons: ', buttons)
+    # $ print('buttons: ', buttons)
     python:
         if sender == 'supervisor':
             avatar = "images/characters/alex/alex_nuetral.png"
@@ -2089,8 +2089,8 @@ screen overlay_reward(reward, incorrect_choice = False):
 
 screen performance(state, average, emojis):
     layer "master"
-    $ print('state: ', state)
-    $ print('average: ', average)
+    # $ print('state: ', state)
+    # $ print('average: ', average)
     frame:
         style "prompt_frame"
         xalign 0.5
@@ -2209,9 +2209,10 @@ screen zoomed_tv(data, index=0):
         index +=1
 
     image item["image"] xsize 1920 ysize 1080
+    image "images/room/tv_content/TV_frame.png" xsize 1980 ysize 1080
     # window:
     imagebutton:
-        xpos 483 ypos 108
+        xpos 502 ypos 108
         xsize 1092 ysize 870
         activate_sound "remote.ogg"
         idle Solid("#00000000")

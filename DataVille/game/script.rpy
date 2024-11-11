@@ -105,7 +105,7 @@ init:
   }
   
 # The game starts here.
-default skip_intro = False
+default skip_intro = True
 default no_fail = False
 default start_at_day_end = False
 label start:
@@ -155,13 +155,13 @@ label start:
       pause 0.7
 
       news_anchor "{cps=30}Good evening, and welcome to our program.{/cps}"
-      news_anchor "{cps=30}Tonight, hiding in the shadows. What the alien menace means for you and your family. I’m joined by Victor Willmington, founder and CEO of the Dataville Corporation.{/cps}"
+      news_anchor "{cps=30}Tonight, *hiding in the shadows*: what the alien menace means for you and your family. I’m joined by Victor Willmington, founder and CEO of the Dataville Corporation.{/cps}"
       news_anchor "{cps=30}Tell me Victor, how does your company see the ongoing alien migratory crisis?{/cps}"
       victor "{cps=30}Where you see a crisis, we at Dataville see an opportunity. This is our chance to restore human society to a safer, simpler time.{/cps}"
       victor "{cps=30}With our patented alien identification AI technology, we’re able to accurately penetrate alien camouflage.{/cps}"
       news_anchor "{cps=30}And you’ve found active partners in the public sector?{/cps}"
       victor "{cps=30}That’s right. Our clients include the Departments of Defense and State, as well as private enterprises looking to ensure their communities are 100 percent human.{/cps}"
-      news_anchor "{cps=30}And what do you say to your critics who accuse the Dataville Corporation of exacerbating racial tensions with the aliens?{/cps}"
+      news_anchor "{cps=30}And what do you say to critics who accuse the Dataville Corporation of exacerbating racial tensions with the aliens?{/cps}"
       victor "{cps=30}Earth was meant for humans. If they have nothing to hide, why are they using camouflage?{/cps}"
       
       image job_page = "images/job_page.png"
@@ -234,6 +234,7 @@ label start:
             $ text =  f"{split[count]}"
             $ start_speaker = (not count) and (prev_speaker != message['sender'])
             $ end_speaker = (count == length - 1) and (next_message_set['sender'] != message['sender'])
+            # $ print('check_messages', sender['obj'].name, sender['obj'].who_suffix, text, sender['mood']['default'], start_speaker, end_speaker)
             $ render_message(sender['obj'].name, sender['obj'].who_suffix, text, sender['mood']['default'], start = start_speaker, end = end_speaker)
           $ count += 1
           $ prev_speaker = message['sender']
@@ -287,6 +288,7 @@ label start:
               $ sender = char_map[message['sender']]
               $ start_speaker = (not count) and (prev_speaker != message['sender'])
               $ end_speaker = (count == length - 1) and (next_message_set['sender'] != message['sender'])
+              # $ print('task_loop', sender['obj'].name, sender['obj'].who_suffix, text, sender['mood']['default'], start_speaker, end_speaker)
               $ render_message(sender['obj'].name, sender['obj'].who_suffix, text, sender['mood']['default'], position = "bottom_left", start = start_speaker, end = end_speaker)
             $ count += 1
             $ prev_speaker = message['sender']
@@ -305,6 +307,7 @@ label start:
         $ custom_dialogue = task['custom_dialogue']
         $ start_speaker = sender['obj'].name != "cogni"
         $ end_speaker = sender['obj'].name != "cogni"
+        # $ print('custom_dialogue', sender['obj'].name, sender['obj'].who_suffix, custom_dialogue, sender['mood']['default'], start_speaker, end_speaker)
         $ render_message(sender['obj'].name, sender['obj'].who_suffix, custom_dialogue, sender['mood']['default'], position = "bottom_left", start = start_speaker, end = end_speaker, overlay = True)
 
       $ custom_feedback = ""
@@ -375,8 +378,12 @@ label start:
       show screen overlay_earnings(earning_flag = show_green)
 
       if has_custom_feedback:
+        # need to hide and show cogni again due to some odd behavior with CPS text.
+        hide screen cogni
+        show screen cogni(None, char_map['cogni']['mood']['default'], position = "bottom_left")
         $ start_speaker = custom_feedback_sender['obj'].name != "cogni"
         $ end_speaker = custom_feedback_sender['obj'].name != "cogni" 
+        # $ print('custom_feedback', custom_feedback_sender['obj'].name, custom_feedback_sender['obj'].who_suffix, custom_feedback, custom_feedback_sender['mood']['default'], start_speaker, end_speaker)    
         $ render_message(custom_feedback_sender['obj'].name, custom_feedback_sender['obj'].who_suffix, custom_feedback, custom_feedback_sender['mood']['default'], position = "bottom_left", start = start_speaker, end = end_speaker, overlay = True)
         hide screen message 
 
@@ -411,6 +418,10 @@ label start:
             store.event_flags.append('rent_fail')
         $ emojis = emoji_selection(store.game_state.performance, store.averages['day_' + str(store.game_state.day)])
         show screen performance(store.game_state.performance, store.averages['day_' + str(store.game_state.day)], emojis)
+        # $ print('interstitial_performance_feedback', performance_feedback(store.game_state.performance_rating)['text'])
+        # hide and showing cogni again due to CPS text behavior
+        hide screen cogni
+        show screen cogni(None, char_map['cogni']['mood']['default'], position = "bottom_left")
         $ render_message(char_map['cogni']['obj'].name, char_map['cogni']['obj'].who_suffix, performance_feedback(store.game_state.performance_rating)['text'], char_map['cogni']['mood']['default'], position = "bottom_left", overlay=True)
         hide screen cogni
         call screen cogni_leave(char_map['cogni']['mood']['default'], "bottom_left", hide_bubble = True)
@@ -447,6 +458,7 @@ label start:
             $ sender = char_map[message['sender']]  
             $ start_speaker = (not count) and (prev_speaker != message['sender'])
             $ end_speaker = (count == length - 1) and (next_message_set['sender'] != message['sender'])
+            # $ print('interstitial_message', sender['obj'].name, sender['obj'].who_suffix, text, sender['mood']['default'], start_speaker, end_speaker)
             $ render_message(sender['obj'].name, sender['obj'].who_suffix, text, sender['mood']['default'], start = start_speaker, end = end_speaker)
             $ count += 2
       
@@ -482,6 +494,7 @@ label start:
           $ cleaned = clean(store.apartment_data)
           $ show_computer_screen(store.game_state.ui)
           $ fee_text = f"Your combined fees and rent are ${store.daily_rent * store.game_state.day}. Make sure your earnings exceed this number!"
+          # $ print('interstitial_fee_text', fee_text)
           $ render_message(char_map['cogni']['obj'].name, char_map['cogni']['obj'].who_suffix, fee_text, char_map['cogni']['mood']['default'], position = "center", start= True, end = True)
           call task_loop from _call_task_loop_1
         else:
