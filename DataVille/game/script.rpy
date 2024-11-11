@@ -105,7 +105,7 @@ init:
   }
   
 # The game starts here.
-default skip_intro = True
+default skip_intro = False
 default no_fail = False
 default start_at_day_end = False
 label start:
@@ -507,7 +507,7 @@ label start:
       hide screen performance
       hide screen cogni
       $ aberate_layer('all', 0)
-      
+      play music "datavilleoutro.wav"
       scene bg black_bg with Dissolve(3.0)
       $ epilogue = get_epilogue()
       $ split = split_into_sentences(epilogue)

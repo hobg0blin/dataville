@@ -444,7 +444,7 @@ screen main_menu():
 
     ## This ensures that any other menu screen is replaced.
     tag menu
-    
+    $ renpy.music.play("datavilleintro.wav", loop=True)
     add "attract_seq" at VHS
     
     add "tv_hollow"
