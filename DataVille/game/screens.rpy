@@ -2209,9 +2209,10 @@ screen zoomed_tv(data, index=0):
         index +=1
 
     image item["image"] xsize 1920 ysize 1080
+    image "images/room/tv_content/TV_frame.png" xsize 1980 ysize 1080
     # window:
     imagebutton:
-        xpos 483 ypos 108
+        xpos 502 ypos 108
         xsize 1092 ysize 870
         activate_sound "remote.ogg"
         idle Solid("#00000000")

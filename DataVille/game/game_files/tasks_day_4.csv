@@ -4,13 +4,12 @@ captcha_image,captcha_image_1,binary_text_1,500,Select the aliens for removal. ,
 binary_text,binary_text_1,sentiment_1,500,Select the correct option.,10,,,Y,Non-hypothetical: do you suspect anyone in your apartment building might organize subversive activities?,,,,,,,,,,,,,,,,,
 sentiment_text,sentiment_1,sentiment_2,0,Can we count on your support?,10,,,2,"The results are in and, by a tight margin, the labelers and annotators of DataVille have officially voted to unionize. This is a huge success and thanks entirely to the support of workers like you.
 
-Now we need a collective bargaining agreement. They have already flatly stated they will not listen to our demands. Our members have proposed a general strike.  ",1,Join the union.,2,Ignore the union.,,,,,`1,,,Solidarity!,Scab!,tim,,,supported_union
+Now we need a collective bargaining agreement. They have already flatly stated they will not listen to our demands. Our members have proposed a general strike.  ",1,Join the union.,2,Ignore the union.,,,,,`1,,,This fight is just beginning. We'll be counting on you going forward.,Scab!,tim,,,supported_union
 sentiment_text,sentiment_2,captcha_image_2,0,Can we count on your support?,10,,,2,"The results are in and, by a tight margin, the labelers and annotators of DataVille have officially voted to unionize. 
 
 Now we need a collective bargaining agreement. The more workers that participate in writing our demands, the more seriously management will take it.
 
-To be blunt, for those of you that voted against forming a union, it’s not too late to join. 
-",1,Join the union.,2,Ignore the union.,,,,,1,,,Solidarity!,Scab!,tim,,,didnt_support_union
+To be blunt, for those of you that voted against forming a union, it’s not too late to join. ",1,Join the union.,2,Ignore the union.,,,,,1,,,Thanks for the change of heart. There's power in the union!,Scab!,tim,,,didnt_support_union
 captcha_image,captcha_image_2,binary_1,500,Select the aliens for removal. ,10,crowd_shot_2,"third_arm_3,third_arm_4,third_arm_7,third_arm_6,third_arm_0",,,,,,,,,,,,,,,,,,,
 binary_text,binary_1,captcha_image_3,500,Does this text contain a subversive element?,10,,,Y,"“I cannot and will not recant anything, for to go against conscience is neither right nor safe. Here I stand, I can do no other.”",,,,,,,,,,,,,,,,,
 captcha_image,captcha_image_3,captcha_image_4,0,Select the squares to target.,10,subway,subway_1,,,,,,,,,,,,"Error. I HOPE YOU'RE HAPPY! @ [[source_undefined]
@@ -22,5 +21,5 @@ You have no idea how much you’ve helped us. We can finally integrate without t
 captcha_image,captcha_image_5,captcha_image_6,500,Select the aliens for removal. ,10,crowd_shot_3,"crowd_shot_3_0, crowd_shot_3_2, crowd_shot_3_3,crowd_shot_3_4, crowd_shot_3_5, crowd_shot_3_6, crowd_shot_3_7, crowd_shot_3_8",,,,,,,,,,,,,,,,,,,
 captcha_image,captcha_image_6,captcha_image_7,500,Select the aliens for removal. ,10,crowd_shot_4,"crowd_shot_4_0, crowd_shot_4_2, crowd_shot_4_4, crowd_shot_4_5, crowd_shot_4_6, crowd_shot_4_7, crowd_shot_4_8",,,,,,,,,,,,,,,,,,,
 caption_image,captcha_image_7,captcha_image_8,1000,Is this senior military commander human?,10,general,,1,,1,Alien,2,Human,,,,,2,Pick Alien. VERY important! $1000.,supervisor,You blew it. ,Noice. ,supervisor,accused_general_true,accused_general_false,followed_alex_twice_true
-caption_image,captcha_image_8,captcha_image_9,500,Is this State Department official human?,10,state_official,,1,,1,Alien,2,Human,,,,,2,,,,,,hid_sd_false,hid_sd_true,turned_in_vet_true
-caption_image,captcha_image_9,break,500,Non-hypothetical: It’s your landlady. Is this target a human?,10,landlady,,2,,1,Yes.,2,No.,,,,,1,,,,,,turned_in_landlady_true,turned_in_landlady_false,turned_in_vet_false
+caption_image,captcha_image_8,captcha_image_9,500,Is this State Department official human?,10,state_official,,1,,1,Alien,2,Human,,,,,2,"You've shown your loyalty, and I need your help: they're trying to regulate us out of the market! Pick alien if you want the company to survive.",supervisor,Our shareholders are going to be delighted.,Our stock price is on your head.,,hid_sd_false,hid_sd_true,turned_in_vet_true
+caption_image,captcha_image_9,break,500,Non-hypothetical: It’s your landlady. Is this target a human?,10,landlady,,2,,1,Yes.,2,No.,,,,,1,"If you want to keep your job, you're going to have to make some sacrifices. This is your last chance.",supervisor,Thanks. You just might have a future here.,You'll regret this.,,turned_in_landlady_true,turned_in_landlady_false,turned_in_vet_false
