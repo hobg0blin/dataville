@@ -2216,8 +2216,6 @@ screen zoomed_tv(data, index=0):
         ypos 135
         at still_aberate(5.0)
     
-    
-
     image "images/room/tv_content/chyron.png":
         # fit "scale-down"
         alpha 0.85
@@ -2225,7 +2223,7 @@ screen zoomed_tv(data, index=0):
         ysize 130
         xpos 610
         ypos 635
-        # at still_aberate(5.0)
+        at still_aberate(3.0)
 
     image "scanlines_overlay"
 
@@ -2237,6 +2235,12 @@ screen zoomed_tv(data, index=0):
         ysize 54
         xpos 610
         ypos 635
+        text "{b}BREAKING NEWS{/b}":
+            xalign 0.5
+            yalign 0.5
+            size 25
+            color "#FFFFFF"
+            at still_aberate(7.0)
     
     # ticker news text
     frame:
