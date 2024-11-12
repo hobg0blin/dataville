@@ -2220,13 +2220,32 @@ screen zoomed_tv(data, index=0):
 
     image "images/room/tv_content/chyron.png":
         # fit "scale-down"
+        alpha 0.85
         xsize 870
         ysize 130
         xpos 610
         ypos 635
-        at still_aberate(5.0)
+        # at still_aberate(5.0)
 
     image "scanlines_overlay"
+
+    # breaking news text
+    frame:
+        background "#00000000"
+        # background "#00FF0077"
+        xsize 251
+        ysize 54
+        xpos 610
+        ypos 635
+    
+    # ticker news text
+    frame:
+        background "#00000000"
+        # background "#00FF0077"
+        xsize 863
+        ysize 78
+        xpos 618
+        ypos 688
 
     if show_noise:
         add "tv_noise" as tv_noise:
@@ -2236,7 +2255,7 @@ screen zoomed_tv(data, index=0):
     if show_noise:
         timer 0.3 action ToggleLocalVariable("show_noise")
 
-    image "images/room/tv_content/TV_frame.png" xsize 1980 ysize 1080
+    # image "images/room/tv_content/TV_frame.png" xsize 1980 ysize 1080
     # window:
     imagebutton:
         xpos 502 ypos 108
