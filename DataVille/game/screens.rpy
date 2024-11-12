@@ -2241,15 +2241,42 @@ screen zoomed_tv(data, index=0):
             size 25
             color "#FFFFFF"
             at still_aberate(7.0)
-    
+
+    python:
+        limit = 70  # this is the limit to how many characters can fit in the marquee without overlapping.
+        ticker_text = item["text"].upper()
+        if len(ticker_text) < (limit // 2):
+            ticker_text += (" " * (limit - len(ticker_text) * 2)) + ticker_text
+
     # ticker news text
-    frame:
-        background "#00000000"
-        # background "#00FF0077"
+    marquee:
         xsize 863
         ysize 78
         xpos 618
         ypos 688
+        always_animate True
+        animation marquee_pan(7.0)
+        frame:
+            background "#00000000"
+            # background "#00FF0077"
+            xsize 2000
+            yfill True
+            xalign 0.0
+            ypos -5
+            # xsize 863
+            # ysize 78
+            # text "{b}" + "0123456789" * 10 + "{/b}":
+            text "{b}" + ticker_text + "{/b}":
+                layout 'nobreak'
+                # yalign 0.0
+                size 44
+                color "#ffffffff"
+                at FastAberate
+            text "{b}" + ticker_text + "{/b}":
+                layout 'nobreak'
+                # yalign 0.0
+                size 44
+                color "#131313"
 
     if show_noise:
         add "tv_noise" as tv_noise:
@@ -2259,7 +2286,7 @@ screen zoomed_tv(data, index=0):
     if show_noise:
         timer 0.3 action ToggleLocalVariable("show_noise")
 
-    # image "images/room/tv_content/TV_frame.png" xsize 1980 ysize 1080
+    image "images/room/tv_content/TV_frame.png" xsize 1980 ysize 1080
     # window:
     imagebutton:
         xpos 502 ypos 108
