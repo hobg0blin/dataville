@@ -2199,6 +2199,7 @@ screen apartment(data, time, bg_path, sticky_notes):
             timer max(zoom_time, fade_time) action Return(True)
 
 screen zoomed_tv(data, index=0):
+    default show_noise = True
     modal True
     python:
         #FIXME: day 0 just reuses start images for now
@@ -2213,6 +2214,17 @@ screen zoomed_tv(data, index=0):
         xsize 910
         xpos 583
         ypos 135
+        at still_aberate(5.0)
+    
+    image "scanlines_overlay"
+
+    if show_noise:
+        add "tv_noise" as tv_noise:
+            xsize 910
+            xpos 583
+            ypos 165
+    if show_noise:
+        timer 0.3 action ToggleLocalVariable("show_noise")
 
     image "images/room/tv_content/TV_frame.png" xsize 1980 ysize 1080
     # window:
