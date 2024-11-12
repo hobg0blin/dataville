@@ -12,7 +12,7 @@ Happy labeling!",message,bad,end,supervisor,,,A hard day’s work!,,
 1,You did what you felt was right. So why do you feel so anxious?,message,flag_dependent,end,stranger,,,Nice. Can't wait to move to a cabin in the woods.,,became_unabomber
 1,You're advancing in your job. So why do you feel conflicted?,message,flag_dependent,end,supervisor,,,Nice. Don't want to move to a cabin in the woods.,,not_unabomber
 1,Official opening of Montana Resettlement Zone.,news,default,start,,tv_content,refugee_modded.jpg,,,
-,Immigration reform stalls over issue of illegal aliens.,news,good,start,,tv_content,congress_modded.jpg,,,
+1,Immigration reform stalls over issue of illegal aliens.,news,good,start,,tv_content,congress_modded.jpg,,,
 1,Congress makes progress on the legal status of aliens.,news,bad,start,,tv_content,congress_modded.jpg,,,
 1,Scientists: alien camouflage 'amazing.’,news,default,start,,tv_content,facial_modded.jpg,,,
 1,Economic data reveals low consumer confidence.,news,default,start,,tv_content,economy_modded.jpg,,,
