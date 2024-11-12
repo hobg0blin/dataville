@@ -2200,6 +2200,13 @@ screen apartment(data, time, bg_path, sticky_notes):
 
 screen zoomed_tv(data, index=0):
     default show_noise = True
+    default aberate_flag = False
+
+    if not aberate_flag:
+        timer 5.3 action ToggleScreenVariable("aberate_flag")
+    else:
+        timer 0.15 action ToggleScreenVariable("aberate_flag")
+
     modal True
     python:
         #FIXME: day 0 just reuses start images for now
@@ -2214,7 +2221,10 @@ screen zoomed_tv(data, index=0):
         xsize 910
         xpos 583
         ypos 135
-        at still_aberate(5.0)
+        if aberate_flag:
+            at fast_aberate(20.0, 20.0)
+        else:
+            at still_aberate(3.0)
     
     image "images/room/tv_content/chyron.png":
         # fit "scale-down"
@@ -2223,14 +2233,13 @@ screen zoomed_tv(data, index=0):
         ysize 130
         xpos 610
         ypos 635
-        at still_aberate(3.0)
+        at still_aberate(2.0)
 
     image "scanlines_overlay"
 
     # breaking news text
     frame:
         background "#00000000"
-        # background "#00FF0077"
         xsize 251
         ysize 54
         xpos 610
@@ -2240,7 +2249,10 @@ screen zoomed_tv(data, index=0):
             yalign 0.5
             size 25
             color "#FFFFFF"
-            at still_aberate(7.0)
+            if aberate_flag:
+                at fast_aberate(20.0, 20.0)
+            else:
+                at still_aberate(5.0)
 
     python:
         limit = 70  # this is the limit to how many characters can fit in the marquee without overlapping.
@@ -2258,20 +2270,20 @@ screen zoomed_tv(data, index=0):
         animation marquee_pan(7.0)
         frame:
             background "#00000000"
-            # background "#00FF0077"
             xsize 2000
             yfill True
             xalign 0.0
             ypos -5
-            # xsize 863
-            # ysize 78
-            # text "{b}" + "0123456789" * 10 + "{/b}":
+            # this is for creating the aberate effect
             text "{b}" + ticker_text + "{/b}":
                 layout 'nobreak'
                 # yalign 0.0
                 size 44
                 color "#ffffffff"
-                at FastAberate
+                if aberate_flag:
+                    at fast_aberate(20.0, 20.0)
+                else:
+                    at still_aberate(1.5)
             text "{b}" + ticker_text + "{/b}":
                 layout 'nobreak'
                 # yalign 0.0

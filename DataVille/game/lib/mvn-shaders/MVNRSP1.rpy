@@ -21,6 +21,7 @@ init python:
    
     aberrationVars="""
     uniform float u_aberrationAmount;
+    uniform float u_aberrationTime;
     """
 
 
@@ -134,6 +135,25 @@ init python:
     aAberrationShader = """
         vec2 uv = v_tex_coord;        
         float offset =  cos(u_time * 1.3 * 3.14159) * (u_aberrationAmount * 0.001) ;
+        vec2 redUV = uv + vec2(offset, 0);
+        vec2 greenUV = uv;
+        vec2 blueUV = uv - vec2(offset, 0);
+        vec2 alphaUV = uv;
+
+
+        vec4 red = texture2D(tex0, redUV);
+        vec4 green = texture2D(tex0, greenUV);
+        vec4 blue = texture2D(tex0, blueUV);
+        vec4 alpha = texture2D(tex0, alphaUV);
+
+
+        gl_FragColor = vec4(red.r, green.g, blue.b, alpha.a);
+        """
+    
+    # Modified Shader to control offset and time
+    aAberrationShader2 = """
+        vec2 uv = v_tex_coord;        
+        float offset =  cos(u_time * u_aberrationTime * 3.14159) * (u_aberrationAmount * 0.001) ;
         vec2 redUV = uv + vec2(offset, 0);
         vec2 greenUV = uv;
         vec2 blueUV = uv - vec2(offset, 0);
@@ -397,6 +417,13 @@ init python:
         fragment_functions="",
         vertex_200="",
         fragment_200=aAberrationShader)
+    
+    renpy.register_shader("MakeVisualNovels.AnimatedAberration2",
+        variables=commonVars+aberrationVars,
+        vertex_functions="",
+        fragment_functions="",
+        vertex_200="",
+        fragment_200=aAberrationShader2)
 
 
     renpy.register_shader("MakeVisualNovels.StillAberration",
@@ -449,11 +476,3 @@ init python:
         fragment_functions=hsvFunctions,
         vertex_200="",
         fragment_200=mangaStyleShader)
-
-
-
-
-
-
-
-
