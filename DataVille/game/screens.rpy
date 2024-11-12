@@ -2216,6 +2216,16 @@ screen zoomed_tv(data, index=0):
         ypos 135
         at still_aberate(5.0)
     
+    
+
+    image "images/room/tv_content/chyron.png":
+        # fit "scale-down"
+        xsize 870
+        ysize 130
+        xpos 610
+        ypos 635
+        at still_aberate(5.0)
+
     image "scanlines_overlay"
 
     if show_noise:
