@@ -2208,7 +2208,12 @@ screen zoomed_tv(data, index=0):
         index = result[1]
         index +=1
 
-    image item["image"] xsize 1920 ysize 1080
+    image item["image"]:
+        fit "scale-down"
+        xsize 910
+        xpos 583
+        ypos 135
+
     image "images/room/tv_content/TV_frame.png" xsize 1980 ysize 1080
     # window:
     imagebutton:
