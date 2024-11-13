@@ -17,6 +17,10 @@ transform still_aberate(amount=10.0):
     shader "MakeVisualNovels.StillAberration"
     u_aberrationAmount(amount)
 
+transform fast_aberate(amount=10.0, time=1.3):
+    shader "MakeVisualNovels.AnimatedAberration2"
+    u_aberrationAmount(amount)
+    u_aberrationTime(time)
 # ------------------------------------
 
 

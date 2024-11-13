@@ -2199,6 +2199,14 @@ screen apartment(data, time, bg_path, sticky_notes):
             timer max(zoom_time, fade_time) action Return(True)
 
 screen zoomed_tv(data, index=0):
+    default show_noise = True
+    default aberate_flag = False
+
+    if not aberate_flag:
+        timer 5.3 action ToggleScreenVariable("aberate_flag")
+    else:
+        timer 0.15 action ToggleScreenVariable("aberate_flag")
+
     modal True
     python:
         #FIXME: day 0 just reuses start images for now
@@ -2208,7 +2216,88 @@ screen zoomed_tv(data, index=0):
         index = result[1]
         index +=1
 
-    image item["image"] xsize 1920 ysize 1080
+    image item["image"]:
+        fit "scale-down"
+        xsize 910
+        xpos 583
+        ypos 135
+        if aberate_flag:
+            at fast_aberate(20.0, 20.0)
+        else:
+            at still_aberate(3.0)
+    
+    image "images/room/tv_content/chyron.png":
+        # fit "scale-down"
+        alpha 0.85
+        xsize 870
+        ysize 130
+        xpos 610
+        ypos 635
+        at still_aberate(2.0)
+
+    image "scanlines_overlay"
+
+    # breaking news text
+    frame:
+        background "#00000000"
+        xsize 251
+        ysize 54
+        xpos 610
+        ypos 635
+        text "{b}BREAKING NEWS{/b}":
+            xalign 0.5
+            yalign 0.5
+            size 25
+            color "#FFFFFF"
+            if aberate_flag:
+                at fast_aberate(20.0, 20.0)
+            else:
+                at still_aberate(5.0)
+
+    python:
+        limit = 70  # this is the limit to how many characters can fit in the marquee without overlapping.
+        ticker_text = item["text"].upper()
+        if len(ticker_text) < (limit // 2):
+            ticker_text += (" " * (limit - len(ticker_text) * 2)) + ticker_text
+
+    # ticker news text
+    marquee:
+        xsize 863
+        ysize 78
+        xpos 618
+        ypos 688
+        always_animate True
+        animation marquee_pan(7.0)
+        frame:
+            background "#00000000"
+            xsize 2000
+            yfill True
+            xalign 0.0
+            ypos -5
+            # this is for creating the aberate effect
+            text "{b}" + ticker_text + "{/b}":
+                layout 'nobreak'
+                # yalign 0.0
+                size 44
+                color "#ffffffff"
+                if aberate_flag:
+                    at fast_aberate(20.0, 20.0)
+                else:
+                    at still_aberate(1.5)
+            text "{b}" + ticker_text + "{/b}":
+                layout 'nobreak'
+                # yalign 0.0
+                size 44
+                color "#131313"
+
+    if show_noise:
+        add "tv_noise" as tv_noise:
+            xsize 910
+            xpos 583
+            ypos 165
+    if show_noise:
+        timer 0.3 action ToggleLocalVariable("show_noise")
+
     image "images/room/tv_content/TV_frame.png" xsize 1980 ysize 1080
     # window:
     imagebutton:
