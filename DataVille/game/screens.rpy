@@ -372,12 +372,13 @@ style navigation_button_text:
 ## https://www.renpy.org/doc/html/screen_special.html#main-menu
 
 image attract_seq:
-    "images/screens/00-title/title-00.png"
-    pos (0, 0)
-    xoffset 410
-    zoom 1.0
-    linear 5 xoffset 200 yoffset 50 zoom 1.1
-
+    "images/screens/00-title/title-00.jpg"
+    pos (200, 0)
+    xoffset 200
+    yoffset -50
+    zoom 1.8
+    linear 5 xoffset 100 yoffset 50 zoom 1.2
+    
     "tv_noise"
     pos (700, 145)
     xoffset 0
@@ -387,9 +388,10 @@ image attract_seq:
 
     "images/screens/00-title/title-01.png"
     pos (0, 0)
-    xoffset 410
-    zoom 1.2
-    linear 5 xoffset 400 yoffset 50 zoom 1.0
+    xoffset 700
+    yoffset 175
+    zoom 0.6
+    linear 5 xoffset -100 yoffset -100 zoom 1.0
 
     "tv_noise"
     pos (700, 145)
@@ -400,10 +402,10 @@ image attract_seq:
 
     "images/screens/00-title/title-02.png"
     pos (0, 0)
-    xoffset 0
-    yoffset 100
-    zoom 1.3
-    linear 5 xoffset 400 yoffset 50 zoom 1.0
+    xoffset -300
+    yoffset -450
+    zoom 1.35
+    linear 5 xoffset 500 yoffset 125 zoom 0.8
 
     "tv_noise"
     pos (700, 145)
@@ -413,12 +415,12 @@ image attract_seq:
     pause 0.2
 
     "images/screens/00-title/title-03.png"
-    pos (0, 0)
-    xoffset 410
-    yoffset 0
-    zoom 0.96
-    linear 5 xoffset 500 yoffset 50 zoom 1.1
-    
+    pos (-400, 0)
+    xoffset 510
+    yoffset -350
+    zoom 1.4
+    linear 5 xoffset 300 yoffset 100 zoom 1.1
+
     "tv_noise"
     pos (700, 145)
     xoffset 0
