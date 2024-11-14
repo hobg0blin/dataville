@@ -306,6 +306,15 @@ style quick_button_text:
 
 
 screen navigation():
+    if not main_menu:
+        add "tv_noise":
+            pos (700, 145)
+            xoffset 0
+            yoffset 0
+            zoom 1.1
+            at VHS
+        add "tv_hollow"
+    
     vbox:
         style_prefix "navigation"
 
