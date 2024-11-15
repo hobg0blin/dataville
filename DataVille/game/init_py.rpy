@@ -434,6 +434,9 @@ init python:
 
     return output
 
+  def test_all_epilogues():
+    with open(renpy.loader.transfn('game_files/epilogues.csv'), 'r') as epilogues:
+      return list(csv.DictReader(epilogues))
 
 # IMAGE TASK FUNCTIONS
   # could use periodic function to constantly update box position
