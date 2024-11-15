@@ -508,14 +508,16 @@ label start:
       play music "datavilleoutro.wav"
       scene bg black_bg with Dissolve(3.0)
       $ epilogue = get_epilogue()
-      $ split = split_into_sentences(epilogue)
+      $ split = split_into_sentences(epilogue["text"])
       # $ print('epilogue variable: ', epilogue)
       # $ print('split text: ', split)
       $ count = 0
       $ length = len(split)
       # scene bg apartment_bg with Dissolve(1.0) 
       # $ blur_master()
-
+      hide screen dream
+      $ renpy.show(epilogue["image"], layer="master", at_list=[fade_in(1.0)])
+      pause 1.0
       while count < length:
         python:
           if count <= length -2:
@@ -527,7 +529,6 @@ label start:
         $ count += 2
       call screen epilogue('Thank you for playing DataVille!\na more human world\none click at a time', ['Restart'])
       # This ends the game.
-      hide screen dream
       # clear store and return to start
       $ set_initial_variables() 
       # if we want to send them to the main menu:

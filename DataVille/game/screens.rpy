@@ -2456,18 +2456,18 @@ screen epilogue(input_text, buttons = ["Next"]):
         # wait is used to wait until underline_blink is finished
         # look at transforms.rpy for the blink transform it's duration and interval times
         wait_time, exit_duration = 0.5, 0.4
-
+    
+    default fade_time = 1.0
+    default fade_done = False
     default exit_sequence = False
     default selected_button = None
     default skip_transition = False
-
+    
     # once again, another invisable button to make the text appear instantly
     button:
         xsize 1920
         ysize 1080
         action SetScreenVariable("skip_transition", True)
-
-    image Solid("#000000", xsize = 1920, ysize= 1080)
 
     window id 'content':
         style "window_nobox"
@@ -2489,7 +2489,7 @@ screen epilogue(input_text, buttons = ["Next"]):
                         style "epilogue_text"
                 
             else:
-                text input_text:
+                text "{cps=1000}" + input_text + "{/cps}":
                     style "epilogue_text"
                     at fade_out(exit_duration)
 

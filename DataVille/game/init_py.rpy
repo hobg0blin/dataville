@@ -413,12 +413,12 @@ init python:
       return task
 
   def get_epilogue():
-    output = ""
+    output = None
     with open(renpy.loader.transfn('game_files/epilogues.csv'), 'r') as epilogues: 
         reader = csv.DictReader(epilogues)
         has_event_flag = False
         for epilogue in reader:
-                output = epilogue['text']
+                output = epilogue
                 for event_flag in store.event_flags:
                   if (event_flag == 'tutorial_fail' or event_flag == 'rent_fail' or event_flag == 'performance_fail') and event_flag == epilogue['event_flag']:
                       # print('fail state hit: ', event_flag)
@@ -671,5 +671,10 @@ init python:
   def shuffle_notes(notes):
     random.shuffle(notes)
     return notes[:4]
+
+  # making the epilogue background images
+  epilogue_images = os.listdir(os.path.join(config.basedir, "game", "images", "epilogues"))
+  for file in epilogue_images:
+    renpy.image("images/epilogues/" + file, "images/epilogues/" + file)
 
   set_initial_variables() 
