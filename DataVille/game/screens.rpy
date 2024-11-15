@@ -307,14 +307,8 @@ style quick_button_text:
 
 screen navigation():
     if not main_menu:
-        add "tv_noise":
-            pos (700, 145)
-            xoffset 0
-            yoffset 0
-            zoom 1.1
-            at VHS
-        add "tv_hollow"
-    
+        on "show" action Function(renpy.show, "blurred_tv_screen", layer="master")
+        on "hide" action Function(renpy.hide, "blurred_tv_screen", layer="master")
     vbox:
         style_prefix "navigation"
 
@@ -520,13 +514,12 @@ style main_menu_version:
 ## transcluded (placed) inside it.
 
 screen game_menu(title, scroll=None, yinitial=0.0):
-
     style_prefix "game_menu"
 
     if main_menu:
         add gui.main_menu_background
     else:
-        add gui.game_menu_background
+        add "blurred_tv_screen"
 
     frame:
         style "game_menu_outer_frame"
@@ -603,7 +596,7 @@ style game_menu_outer_frame:
     bottom_padding 45
     top_padding 180
 
-    background "gui/overlay/game_menu.png"
+    # background "gui/overlay/game_menu.png"
 
 style game_menu_navigation_frame:
     xsize 420
