@@ -114,7 +114,7 @@ label start:
     image bg apartment_bg = "images/apartment/apartment3_1.png"
     image bg gray_bg = Solid('#464645')
     if not skip_intro:
-      play music "dataville_workspace_neutral.wav" fadein 2.0
+      play music "dataville_workspace_neutral.wav" loop fadein 2.0
 
       image tv_overlay:
         "images/screens/00-title/tv_hollow.png"
@@ -183,7 +183,7 @@ label start:
       $ fade_out_of_dream(0.5)
 
       label intro:
-        play music "dataville_apartment_neutral.wav"
+        play music "dataville_apartment_neutral.wav" loop
         $ notes = shuffle_notes(clean(store.apartment_data)['sticky_note'])
         call screen apartment(clean(store.apartment_data), store.game_state.time, apartment_bg_map['apartment_1'], notes)
         hide screen apartment
@@ -194,7 +194,7 @@ label start:
     if store.game_state.time == "end":
         jump interstitial
 
-    play music "dataville_workspace_neutral.wav" fadein 2.0
+    play music "dataville_workspace_neutral.wav" loop fadein 2.0
     
     # manually check messsages on first loop 
     $ cleaned = clean(store.apartment_data)
@@ -485,9 +485,9 @@ label start:
           $ notes = shuffle_notes(clean(store.apartment_data)['sticky_note'])
           call screen apartment(clean(store.apartment_data), store.game_state.time, apartment_bg_map['apartment_1'], notes)
           if store.game_state.performance_rating != 'bad':
-              play music f"dataville_workspace_{store.game_state.performance_rating}.wav" fadein 2.0
+              play music f"dataville_workspace_{store.game_state.performance_rating}.wav" loop fadein 2.0
           else:
-              play music f"dataville_workspace_neutral.wav" fadein 2.0
+              play music f"dataville_workspace_neutral.wav" loop fadein 2.0
           $ task = store.loop["start_task"]
           $ set_ui_state(task, store.game_state)
           $ cleaned = clean(store.apartment_data)
@@ -506,7 +506,7 @@ label start:
       hide screen performance
       hide screen cogni
       $ aberate_layer('all', 0)
-      play music "datavilleoutro.wav"
+      play music "datavilleoutro.wav" loop
       scene bg black_bg with Dissolve(3.0)
       
       # testing purposes
