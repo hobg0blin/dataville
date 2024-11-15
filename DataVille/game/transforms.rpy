@@ -167,4 +167,4 @@ transform zoom_sticky_notes(x_trans, y_trans, duration = 1.0):
     easein duration zoom 2.4 xoffset x_trans yoffset y_trans
 
 transform zoom_computer_tv(duration = 1.0):
-    easein duration zoom 2.4 xoffset -1350 yoffset -100
+    easein duration zoom 2.4 xoffset -1510 yoffset -200

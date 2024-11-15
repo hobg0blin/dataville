@@ -2158,13 +2158,13 @@ screen apartment(data, time, bg_path, sticky_notes):
     default zoom_time = 1.3
     default fade_time = 1.0
     default new_tv = True
-    default switch_flag = False
+    default switch_flag = False # Switch to TV overlays
 
     timer fade_time action SetScreenVariable('switch_flag', True)
 
     if switch_flag:
         image "images/apartment/apartment3_oldtv.png":
-            align (0, 1.0)
+            pos(-3, 552)
             if zoom_transition:
                 at zoom_computer_tv(zoom_time)
         if new_tv:
