@@ -97,11 +97,9 @@ init:
       }
     },
   }
-  
-  image apartment_1 = "images/apartment/apartment3_1.png"
-  
+
   define apartment_bg_map = {
-    "apartment_1": "images/apartment/apartment3_1.png",
+    "apartment_1": "images/apartment/apartment3_1_overlay.png",
   }
   
 # The game starts here.
