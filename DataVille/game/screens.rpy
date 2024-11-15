@@ -2265,7 +2265,6 @@ screen zoomed_tv(data, index=0):
         ypos 635
         at still_aberate(2.0)
 
-
     # breaking news text
     frame:
         background "#00000000"
@@ -2334,7 +2333,13 @@ screen zoomed_tv(data, index=0):
         action Show("zoomed_tv", None, data, index)
     frame:
         style "intro_prompt"
-        textbutton "X" activate_sound "tv_2.wav" action Hide("zoomed_tv", None)
+        imagebutton:
+            pos (50, 25)
+            xsize 125 ysize 125
+            idle Transform("images/icons/arrow-back-solid.svg", xsize=125, ysize=125, alpha=0.2)
+            hover Transform("images/icons/arrow-back-solid.svg", xsize=125, ysize=125, alpha=0.8)
+            activate_sound "tv_2.wav" 
+            action Hide("zoomed_tv", None)
 
 screen zoomed_window(data):
     modal True
