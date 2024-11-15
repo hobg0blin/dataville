@@ -5,13 +5,48 @@ transform scroll_up:
     linear 0.7 yoffset -47
     repeat
 
+transform scroll_up2:
+    yoffset 0
+    linear 0.7 yoffset -97
+    repeat
+
 image scanlines_overlay:
     "images/scanlines.png"
     size (1920, 10000)
     pos(0, 0)
     alpha 0.05
     scroll_up
+
+image scanlines_overlay_tighter:
+    "images/scanlines.png"
+    size (1920, 20000)
+    pos(0, 0)
+    alpha 0.10
+    scroll_up2
 # ----
+
+transform tv_aberate:
+    still_aberate(5.0)
+    pause 4.8
+    fast_aberate(20.0, 20.0)
+    pause 0.15
+    still_aberate(5.0)
+    pause 2.8
+    fast_aberate(13.0, 10.0)
+    pause 0.3
+    still_aberate(5.0)
+    pause 2.8
+    fast_aberate(8.0, 15.0)
+    pause 0.1
+    still_aberate(5.0)
+    pause 0.6
+    fast_aberate(13.0, 10.0)
+    pause 0.3
+    still_aberate(5.0)
+    pause 0.2
+    fast_aberate(12.0, 20.0)
+    pause 0.2
+    repeat
 
 transform fade_in(duration=0.5):
     alpha 0
@@ -130,3 +165,6 @@ transform zoom_computer(duration = 1.0):
 
 transform zoom_sticky_notes(x_trans, y_trans, duration = 1.0):
     easein duration zoom 2.4 xoffset x_trans yoffset y_trans
+
+transform zoom_computer_tv(duration = 1.0):
+    easein duration zoom 2.4 xoffset -1350 yoffset -100

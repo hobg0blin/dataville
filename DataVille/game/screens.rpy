@@ -2157,15 +2157,54 @@ screen apartment(data, time, bg_path, sticky_notes):
     default zoom_transition = False
     default zoom_time = 1.3
     default fade_time = 1.0
-    
-    image bg_path:
-        xsize 1920 ysize 1080
-        pos (0,0)
-        if zoom_transition:
-            at zoom_computer(zoom_time)
-        else:
+    default new_tv = True
+    default switch_flag = False
+
+    timer fade_time action SetScreenVariable('switch_flag', True)
+
+    if switch_flag:
+        image "images/apartment/apartment3_oldtv.png":
+            align (0, 1.0)
+            if zoom_transition:
+                at zoom_computer_tv(zoom_time)
+        if new_tv:
+            add "new_tv_ani":
+                pos(-3, 552)
+                zoom 1.0
+                if zoom_transition:
+                    at zoom_computer_tv(zoom_time)
+                else:
+                    at fade_in(0.15)
+
+    # TV Hover button
+    if not zoom_transition and switch_flag:
+        imagebutton:
+            pos(107, 608)
+            xsize 429 ysize 288
+            activate_sound "audio/tv_2.wav"
+            idle Solid("#00000000")
+            hover Transform("tv_noise", xsize=429, ysize=288, alpha=0.2)
+            action [SetScreenVariable('new_tv', False), Show("zoomed_tv", None, store.apartment_data)]
             at fade_in(fade_time)
 
+    if switch_flag:
+        image bg_path:
+            xsize 1920 ysize 1080
+            pos (0,0)
+            if zoom_transition:
+                at zoom_computer(zoom_time)
+    else:
+        image "images/apartment/apartment3_off.png": 
+            xsize 1920 ysize 1080
+            pos (0,0)
+            if zoom_transition:
+                at zoom_computer(zoom_time)
+            else:
+                at fade_in(fade_time)
+    
+    # add "apartment3_1":
+    #     at fade_in(fade_time)
+    
     python:
         computer_sound = "computer.ogg"
         if time == "end":
@@ -2182,16 +2221,6 @@ screen apartment(data, time, bg_path, sticky_notes):
                 xpos start_note_positions[i][0] ypos start_note_positions[i][1]
                 if zoom_transition:
                     at zoom_sticky_notes(offset_note_positions[i][0], offset_note_positions[i][1], zoom_time)
-
-        # TV Hover button
-        if not zoom_transition:
-            imagebutton:
-                xpos 50 ypos 567
-                xsize 539 ysize 433
-                activate_sound "audio/tv_2.wav"
-                idle Solid("#00000000")
-                hover Solid("#d3a95620")
-                action Show("zoomed_tv", None, store.apartment_data)
         
         # Computer Screen Hover Button
         if not zoom_transition:
@@ -2211,12 +2240,6 @@ screen apartment(data, time, bg_path, sticky_notes):
 
 screen zoomed_tv(data, index=0):
     default show_noise = True
-    default aberate_flag = False
-
-    if not aberate_flag:
-        timer 5.3 action ToggleScreenVariable("aberate_flag")
-    else:
-        timer 0.15 action ToggleScreenVariable("aberate_flag")
 
     modal True
     python:
@@ -2232,13 +2255,9 @@ screen zoomed_tv(data, index=0):
         xsize 910
         xpos 583
         ypos 135
-        if aberate_flag:
-            at fast_aberate(20.0, 20.0)
-        else:
-            at still_aberate(3.0)
+        at tv_aberate
     
     image "images/room/tv_content/chyron.png":
-        # fit "scale-down"
         alpha 0.85
         xsize 870
         ysize 130
@@ -2246,7 +2265,6 @@ screen zoomed_tv(data, index=0):
         ypos 635
         at still_aberate(2.0)
 
-    image "scanlines_overlay"
 
     # breaking news text
     frame:
@@ -2260,10 +2278,7 @@ screen zoomed_tv(data, index=0):
             yalign 0.5
             size 25
             color "#FFFFFF"
-            if aberate_flag:
-                at fast_aberate(20.0, 20.0)
-            else:
-                at still_aberate(5.0)
+            at tv_aberate    
 
     python:
         limit = 70  # this is the limit to how many characters can fit in the marquee without overlapping.
@@ -2291,10 +2306,7 @@ screen zoomed_tv(data, index=0):
                 # yalign 0.0
                 size 44
                 color "#ffffffff"
-                if aberate_flag:
-                    at fast_aberate(20.0, 20.0)
-                else:
-                    at still_aberate(1.5)
+                at tv_aberate
             text "{b}" + ticker_text + "{/b}":
                 layout 'nobreak'
                 # yalign 0.0
@@ -2308,6 +2320,8 @@ screen zoomed_tv(data, index=0):
             ypos 165
     if show_noise:
         timer 0.3 action ToggleLocalVariable("show_noise")
+    
+    image "scanlines_overlay_tighter"
 
     image "images/room/tv_content/TV_frame.png" xsize 1980 ysize 1080
     # window:
