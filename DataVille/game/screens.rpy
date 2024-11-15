@@ -452,10 +452,10 @@ image tv_hollow:
 # image right_pos = Solid("#ff0000", xpos = 1595, ypos = 0, xsize = 5, ysize = 1080)
 
 screen main_menu():
-
+    $ renpy.music.play("datavilleintro.wav", loop=True, if_changed=True)
     ## This ensures that any other menu screen is replaced.
     tag menu
-    $ renpy.music.play("datavilleintro.wav", loop=True)
+
     add "attract_seq" at VHS
     
     add "tv_hollow"
