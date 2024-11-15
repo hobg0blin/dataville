@@ -2476,26 +2476,40 @@ screen epilogue(input_text, buttons = ["Next"]):
         xsize 1920
         ysize 1080
         vbox:
-            yalign 0.3
+            yalign 0.97
             xalign 0.5 
             if not exit_sequence:
                 if not skip_transition:
-                    text input_text:
-                        style "epilogue_text"
+                    window:
+                        text input_text:
+                            xalign 0.5
+                            style "epilogue_text_shadow"
+                            at blur(3)
+                        text input_text:
+                            align (0.5, 0)
+                            style "epilogue_text"
                 else: 
                     # why does the click to skip cps animation doesn't work?
                     # setting the cps stupid high to make it appear instantly
-                    text "{cps=1000}" + input_text + "{/cps}":
-                        style "epilogue_text"
+                    window:
+                        text "{cps=1000}" + input_text + "{/cps}":
+                            xalign 0.5
+                            style "epilogue_text_shadow"
+                            at blur(3)
+                        text "{cps=1000}" + input_text + "{/cps}":
+                            align (0.5, 0)
+                            style "epilogue_text"
                 
             else:
-                text "{cps=1000}" + input_text + "{/cps}":
-                    style "epilogue_text"
-                    at fade_out(exit_duration)
+                window:
+                    text "{cps=1000}" + input_text + "{/cps}":
+                        align (0.5, 0)
+                        style "epilogue_text"
+                        at fade_out(exit_duration)
 
         hbox id 'buttons':
             xalign 0.5
-            yalign 0.7
+            yalign 0.93
             spacing 250
             for i, button_text in enumerate(buttons):
                 if not exit_sequence:

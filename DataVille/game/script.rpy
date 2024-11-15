@@ -531,7 +531,7 @@ label start:
         call screen epilogue('Thank you for playing DataVille!\na more human world\none click at a time', ['Restart'])
         $ epi_counter += 1
       call screen epilogue('End of Tests', ['Restart'])
-
+      jump start
       # $ epilogue = get_epilogue()
       $ split = split_into_sentences(epilogue["text"])
       # $ print('epilogue variable: ', epilogue)
