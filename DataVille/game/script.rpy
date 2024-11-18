@@ -559,4 +559,5 @@ label start:
       # if we want to send them to the main menu:
       # $ MainMenu(confirm=True)
 
+      jump start
       #return

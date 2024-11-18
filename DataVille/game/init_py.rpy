@@ -113,7 +113,7 @@ init python:
   # STATE TRACKING VARIABLES
     store.event_flags = []
     store.game_state.time = 'start'
-    store.game_state.day = 3
+    store.game_state.day = -1
     store.game_state.performance_rating = 'neutral'
     store.game_state.performance_count = {'good': 0, 'bad': 0, 'neutral': 0}
     store.game_state.task_count = 0
