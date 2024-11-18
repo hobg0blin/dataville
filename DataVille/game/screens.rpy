@@ -2208,12 +2208,17 @@ screen apartment(data, time, bg_path, sticky_notes):
     fixed:
         # Notes
         for i, note in enumerate(sticky_notes):
-            text note["text"]:
-                style "sticky_note"
-                xsize 129 ysize 132
-                xpos start_note_positions[i][0] ypos start_note_positions[i][1]
-                if zoom_transition:
-                    at zoom_sticky_notes(offset_note_positions[i][0], offset_note_positions[i][1], zoom_time)
+            if not zoom_transition and switch_flag:
+                imagebutton:
+                    style "sticky_note"
+                    xsize 129 ysize 132
+                    xpos start_note_positions[i][0] ypos start_note_positions[i][1]
+                    activate_sound "audio/tv_2.wav"
+                    idle Solid("#00000000")
+                    hover Solid("#d3a95620")
+                    action [Show("zoomed_note", None, note["text"])]
+                    if zoom_transition:
+                        at zoom_sticky_notes(offset_note_positions[i][0], offset_note_positions[i][1], zoom_time)
         
         # Computer Screen Hover Button
         if not zoom_transition:
@@ -2334,16 +2339,21 @@ screen zoomed_tv(data, index=0):
             activate_sound "tv_2.wav" 
             action Hide("zoomed_tv", None)
 
-screen zoomed_window(data):
+screen zoomed_note(text):
     modal True
-    frame:
-        xalign 0
-        yalign 0
-    vbox:
-        xalign 0.2
-        image Transform(data["window_background"], size=(1000, 1000))
-    image Transform("images/room/room/window.png", size=(2500, 1200))
-    textbutton "X" action Hide("zoomed_window", None)
+    window:
+        style "window_nobox"
+        xalign 0.5
+        yalign 0.5
+        xsize 1920
+        ysize 1080
+        imagebutton: 
+            idle "images/apartment/note.png"
+            hover "images/apartment/note.png"
+            xalign 0.5
+            yalign 0.5
+            action Hide("zoomed_note", None)
+
 
 screen set_state():
     modal True
