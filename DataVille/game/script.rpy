@@ -103,11 +103,10 @@ init:
   }
   
 # The game starts here.
-default skip_intro = False
+default skip_intro = True
 default no_fail = False
 default start_at_day_end = False
 label start:
-    jump end
     $ set_initial_variables()
     image overlay_background = "images/screens/monitor/background.png"
     image bg black_bg = Solid('#000000')
@@ -509,30 +508,31 @@ label start:
       play music "datavilleoutro.wav" loop
       scene bg black_bg with Dissolve(3.0)
       
-      # testing purposes
-      $ epilogues = test_all_epilogues()
-      $ epi_len = len(epilogues)
-      $ epi_counter = 0
-      while epi_counter < epi_len:
-        $ split = split_into_sentences(epilogues[epi_counter]["text"])
-        $ count = 0
-        $ length = len(split)
-        hide screen dream
-        $ renpy.show(epilogues[epi_counter]["image"], layer="master", at_list=[fade_in(1.0)])
-        pause 1.0
-        while count < length:
-          python:
-            if count <= length -2:
-              additional_text = split[count+1]
-            else:
-              additional_text = ""
-          call screen epilogue(f"{split[count]} {additional_text}")
-          $ count += 2
-        call screen epilogue('Thank you for playing DataVille!\na more human world\none click at a time', ['Restart'])
-        $ epi_counter += 1
-      call screen epilogue('End of Tests', ['Restart'])
-      jump start
-      # $ epilogue = get_epilogue()
+      # testing purposes / tests all epilogue screens
+      # $ epilogues = test_all_epilogues()
+      # $ epi_len = len(epilogues)
+      # $ epi_counter = 0
+      # while epi_counter < epi_len:
+      #   $ split = split_into_sentences(epilogues[epi_counter]["text"])
+      #   $ count = 0
+      #   $ length = len(split)
+      #   hide screen dream
+      #   $ renpy.show(epilogues[epi_counter]["image"], layer="master", at_list=[fade_in(1.0)])
+      #   pause 1.0
+      #   while count < length:
+      #     python:
+      #       if count <= length -2:
+      #         additional_text = split[count+1]
+      #       else:
+      #         additional_text = ""
+      #     call screen epilogue(f"{split[count]} {additional_text}")
+      #     $ count += 2
+      #   call screen epilogue('Thank you for playing DataVille!\na more human world\none click at a time', ['Restart'])
+      #   $ epi_counter += 1
+      # call screen epilogue('End of Tests', ['Restart'])
+      # jump start
+
+      $ epilogue = get_epilogue()
       $ split = split_into_sentences(epilogue["text"])
       # $ print('epilogue variable: ', epilogue)
       # $ print('split text: ', split)
@@ -557,7 +557,6 @@ label start:
       # clear store and return to start
       $ set_initial_variables() 
       # if we want to send them to the main menu:
-#      $ MainMenu(confirm=True)
+      # $ MainMenu(confirm=True)
 
-      jump start
       #return

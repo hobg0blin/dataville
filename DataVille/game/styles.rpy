@@ -10,7 +10,7 @@ style dream_button_text:
 
 style epilogue_text:
     color "#FFFFFF"
-    outlines [(2, "#00000088", 0, 1)]
+    outlines [(2, "#00000088", 0, 0)]
     size 36
     italic True
     xmaximum 0.8
@@ -19,7 +19,7 @@ style epilogue_text:
 
 style epilogue_text_shadow:
     color "#000000"
-    outlines [(3, "#00000088", 0, 1)]
+    outlines [(2, "#00000088", 0, 2)]
     italic True
     size 36
     xmaximum 0.8

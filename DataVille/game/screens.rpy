@@ -2484,7 +2484,7 @@ screen epilogue(input_text, buttons = ["Next"]):
                         text input_text:
                             xalign 0.5
                             style "epilogue_text_shadow"
-                            at blur(3)
+                            at blur(4)
                         text input_text:
                             align (0.5, 0)
                             style "epilogue_text"
@@ -2495,7 +2495,7 @@ screen epilogue(input_text, buttons = ["Next"]):
                         text "{cps=1000}" + input_text + "{/cps}":
                             xalign 0.5
                             style "epilogue_text_shadow"
-                            at blur(3)
+                            at blur(4)
                         text "{cps=1000}" + input_text + "{/cps}":
                             align (0.5, 0)
                             style "epilogue_text"
