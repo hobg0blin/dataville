@@ -103,7 +103,7 @@ init:
   }
   
 # The game starts here.
-default skip_intro = False
+default skip_intro = True
 default no_fail = False
 default start_at_day_end = False
 label start:
@@ -113,7 +113,7 @@ label start:
     image bg apartment_bg = "images/apartment/apartment3_1.png"
     image bg gray_bg = Solid('#464645')
     if not skip_intro:
-      play music "dataville_workspace_neutral.wav" fadein 2.0
+      play music "dataville_workspace_neutral.wav" loop fadein 2.0
 
       image tv_overlay:
         "images/screens/00-title/tv_hollow.png"
@@ -182,7 +182,7 @@ label start:
       $ fade_out_of_dream(0.5)
 
       label intro:
-        play music "dataville_apartment_neutral.wav"
+        play music "dataville_apartment_neutral.wav" loop
         $ notes = shuffle_notes(clean(store.apartment_data)['sticky_note'])
         call screen apartment(clean(store.apartment_data), store.game_state.time, apartment_bg_map['apartment_1'], notes)
         hide screen apartment
@@ -193,7 +193,7 @@ label start:
     if store.game_state.time == "end":
         jump interstitial
 
-    play music "dataville_workspace_neutral.wav" fadein 2.0
+    play music "dataville_workspace_neutral.wav" loop fadein 2.0
     
     # manually check messsages on first loop 
     $ cleaned = clean(store.apartment_data)
@@ -484,9 +484,9 @@ label start:
           $ notes = shuffle_notes(clean(store.apartment_data)['sticky_note'])
           call screen apartment(clean(store.apartment_data), store.game_state.time, apartment_bg_map['apartment_1'], notes)
           if store.game_state.performance_rating != 'bad':
-              play music f"dataville_workspace_{store.game_state.performance_rating}.wav" fadein 2.0
+              play music f"dataville_workspace_{store.game_state.performance_rating}.wav" loop fadein 2.0
           else:
-              play music f"dataville_workspace_neutral.wav" fadein 2.0
+              play music f"dataville_workspace_neutral.wav" loop fadein 2.0
           $ task = store.loop["start_task"]
           $ set_ui_state(task, store.game_state)
           $ cleaned = clean(store.apartment_data)
@@ -505,17 +505,44 @@ label start:
       hide screen performance
       hide screen cogni
       $ aberate_layer('all', 0)
-      play music "datavilleoutro.wav"
+      play music "datavilleoutro.wav" loop
       scene bg black_bg with Dissolve(3.0)
+      
+      # testing purposes / tests all epilogue screens
+      # $ epilogues = test_all_epilogues()
+      # $ epi_len = len(epilogues)
+      # $ epi_counter = 0
+      # while epi_counter < epi_len:
+      #   $ split = split_into_sentences(epilogues[epi_counter]["text"])
+      #   $ count = 0
+      #   $ length = len(split)
+      #   hide screen dream
+      #   $ renpy.show(epilogues[epi_counter]["image"], layer="master", at_list=[fade_in(1.0)])
+      #   pause 1.0
+      #   while count < length:
+      #     python:
+      #       if count <= length -2:
+      #         additional_text = split[count+1]
+      #       else:
+      #         additional_text = ""
+      #     call screen epilogue(f"{split[count]} {additional_text}")
+      #     $ count += 2
+      #   call screen epilogue('Thank you for playing DataVille!\na more human world\none click at a time', ['Restart'])
+      #   $ epi_counter += 1
+      # call screen epilogue('End of Tests', ['Restart'])
+      # jump start
+
       $ epilogue = get_epilogue()
-      $ split = split_into_sentences(epilogue)
+      $ split = split_into_sentences(epilogue["text"])
       # $ print('epilogue variable: ', epilogue)
       # $ print('split text: ', split)
       $ count = 0
       $ length = len(split)
       # scene bg apartment_bg with Dissolve(1.0) 
       # $ blur_master()
-
+      hide screen dream
+      $ renpy.show(epilogue["image"], layer="master", at_list=[fade_in(1.0)])
+      pause 1.0
       while count < length:
         python:
           if count <= length -2:
@@ -527,11 +554,10 @@ label start:
         $ count += 2
       call screen epilogue('Thank you for playing DataVille!\na more human world\none click at a time', ['Restart'])
       # This ends the game.
-      hide screen dream
       # clear store and return to start
       $ set_initial_variables() 
       # if we want to send them to the main menu:
-#      $ MainMenu(confirm=True)
+      # $ MainMenu(confirm=True)
 
       jump start
       #return

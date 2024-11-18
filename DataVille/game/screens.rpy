@@ -2456,18 +2456,18 @@ screen epilogue(input_text, buttons = ["Next"]):
         # wait is used to wait until underline_blink is finished
         # look at transforms.rpy for the blink transform it's duration and interval times
         wait_time, exit_duration = 0.5, 0.4
-
+    
+    default fade_time = 1.0
+    default fade_done = False
     default exit_sequence = False
     default selected_button = None
     default skip_transition = False
-
+    
     # once again, another invisable button to make the text appear instantly
     button:
         xsize 1920
         ysize 1080
         action SetScreenVariable("skip_transition", True)
-
-    image Solid("#000000", xsize = 1920, ysize= 1080)
 
     window id 'content':
         style "window_nobox"
@@ -2476,26 +2476,40 @@ screen epilogue(input_text, buttons = ["Next"]):
         xsize 1920
         ysize 1080
         vbox:
-            yalign 0.3
+            yalign 0.97
             xalign 0.5 
             if not exit_sequence:
                 if not skip_transition:
-                    text input_text:
-                        style "epilogue_text"
+                    window:
+                        text input_text:
+                            xalign 0.5
+                            style "epilogue_text_shadow"
+                            at blur(4)
+                        text input_text:
+                            align (0.5, 0)
+                            style "epilogue_text"
                 else: 
                     # why does the click to skip cps animation doesn't work?
                     # setting the cps stupid high to make it appear instantly
-                    text "{cps=1000}" + input_text + "{/cps}":
-                        style "epilogue_text"
+                    window:
+                        text "{cps=1000}" + input_text + "{/cps}":
+                            xalign 0.5
+                            style "epilogue_text_shadow"
+                            at blur(4)
+                        text "{cps=1000}" + input_text + "{/cps}":
+                            align (0.5, 0)
+                            style "epilogue_text"
                 
             else:
-                text input_text:
-                    style "epilogue_text"
-                    at fade_out(exit_duration)
+                window:
+                    text "{cps=1000}" + input_text + "{/cps}":
+                        align (0.5, 0)
+                        style "epilogue_text"
+                        at fade_out(exit_duration)
 
         hbox id 'buttons':
             xalign 0.5
-            yalign 0.7
+            yalign 0.93
             spacing 250
             for i, button_text in enumerate(buttons):
                 if not exit_sequence:
