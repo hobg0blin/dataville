@@ -2210,7 +2210,6 @@ screen apartment(data, time, bg_path, sticky_notes):
         for i, note in enumerate(sticky_notes):
             if not zoom_transition and switch_flag:
                 imagebutton:
-                    style "sticky_note"
                     xsize 129 ysize 132
                     xpos start_note_positions[i][0] ypos start_note_positions[i][1]
                     activate_sound "audio/tv_2.wav"
@@ -2339,7 +2338,7 @@ screen zoomed_tv(data, index=0):
             activate_sound "tv_2.wav" 
             action Hide("zoomed_tv", None)
 
-screen zoomed_note(text):
+screen zoomed_note(note_text):
     modal True
     window:
         style "window_nobox"
@@ -2347,12 +2346,15 @@ screen zoomed_note(text):
         yalign 0.5
         xsize 1920
         ysize 1080
-        imagebutton: 
+        background "#00000074"
+        imagebutton:
             idle "images/apartment/note.png"
             hover "images/apartment/note.png"
             xalign 0.5
             yalign 0.5
             action Hide("zoomed_note", None)
+        text note_text:
+            style "sticky_note"
 
 
 screen set_state():
