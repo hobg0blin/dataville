@@ -334,9 +334,9 @@ init python:
   # SCORING FUNCTIONS
 
   def performance_feedback(out):
-      good = ["You’re really doing it!", "You’re labeling faster than 81% of DataVille Annotators!", "Great accuracy!", "Keep it up!", "Aim for that performance incentive!"]
-      mid = ["Your performance is reasonable", "Your output is compatible with 70% of other labelers.", "You could be doing better."]
-      bad = ["Accuracy is important. Don’t be afraid to look carefully!", "Oof. Hope you do better next time.", "You’ll need to do better if you want the incentive bonus!", "Stay focused.", "That wasn’t great - do you need clearer instructions?"]
+      good = ["You’re really doing it!", "You’re labeling faster than 81% of DataVille Annotators!", "Great accuracy!", "Keep it up!", "Aim for that performance incentive!", "I could learn a lot from you!", "You're a pretty impressive human."]
+      mid = ["Your performance is reasonable", "Your output is compatible with 70% of other labelers.", "You could be doing better.", "You're going to have to pick it up if you want to stay at this company."]
+      bad = ["Accuracy is important. Don’t be afraid to look carefully!", "Oof. Hope you do better next time.", "You’ll need to do better if you want the incentive bonus!", "Stay focused.", "That wasn’t great - do you need clearer instructions?", "With that type of performance I'll be replacing you soon."]
       if (out == "good" or out == 1):
         return {'text': random.choice(good), 'score': 100}
       elif (out == "neutral" or out == 2):

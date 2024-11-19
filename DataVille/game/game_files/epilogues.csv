@@ -9,7 +9,7 @@ Uncertainty and fear spread throughout society.  You take comfort in your stable
 
 One day, while watching the news, you see the general Alex asked you to identify falsely as an alien. He is testifying before congress about the benefits of alien integration into the army.  You are certain there are larger forces at work here, but you don’t dare confess your fears to your coworkers – you are too dependent on your health insurance.
 
- You often catch yourself staring out the office window for inordinate lengths of time. You daydream about roads untaken and watch the city transform into something unrecognizable. You see alien immigrants segregated into servile, menial roles. You can’t help but reflect on how unfair life is.",good,accused_general_false,images/epilogues/epilog12.png
+ You often catch yourself staring out the office window for inordinate lengths of time. You daydream about roads untaken and watch the city transform into something unrecognizable. You see alien immigrants segregated into servile, menial roles. Humans aren't faring much better, as places like Dataville start to automate away their jbos, too. You can’t help but reflect on how unfair life is.",good,accused_general_false,images/epilogues/epilog12.png
 "After several months of unpaid rent, your kindly old landlady politely evicts you. You never thought you’d miss your Dataville gig – but here you are.
 
 You are forced to move back in with your mother. Your dating life screeches to a halt. Your self worth plummets. 
@@ -35,7 +35,7 @@ You can’t help feeling regret.",good,hid_sd_false,images/epilogues/epilog10.pn
 It’s an under-the-table-job. That’s probably why so many aliens work in the kitchen. You recognize some of them as aliens you identified. They’re nice. Sometimes you drink beer together after your shift and talk about their old planet.They miss it. Your unfamiliar city confuses and frustrates them, but they have no choice but to keep on living and working hard.
 
 You do too.",bad,hid_sd_false,images/epilogues/epilog4.png
-"You continue your boring, repetitive work for the Dataville Corporation. 
+"You continue your boring, repetitive work for the Dataville Corporation, enjoying a modest pay raise and benefits in your new permanent position.
 
 One day you’re called into a meeting with your supervisor, Alex. Some of your responses have raised concerns about accuracy, specifically false positives. You are forced to endure hours of remedial corporate training  about unconscious bias, racial prejudice, and sexual harassment. The sessions are long and unpaid.
 
@@ -52,7 +52,7 @@ Time to return to the job hunt.   ",bad,turned_in_landlady_true,images/epilogues
 As part of Dataville’s ongoing public sector partnerships, you are invited to work as an alien detection specialist in a State Department office. You leap at the opportunity to start a new, more substantive chapter of your career. 
 
 However, you are disappointed to discover the job is merely administering monotonous tests to junior staffers and interns. You are a glorified TSA agent screening unhappy people, but at least you can pay the bills. ",good,turned_in_landlady_false,images/epilogues/epilog11.png
-"You are disappointed when the Dataville Corporation lays you off. Fixating on what you could have done differently, you embark on a long, painful parade of rejection as you apply for new jobs. You begin to question your self-worth: what exactly are you qualified to do?
+"You are disappointed when the Dataville Corporation lays you off. Fixating on what you could have done differently, you embark on a long, painful parade of rejection as you apply for new jobs. Unfortunately, most of them are already being automated away by places like Dataville. You begin to question your self-worth: what exactly are you qualified to do?
 
 Eventually, you are forced to work retail at the mall. You hate it. 
 
@@ -65,7 +65,7 @@ Panic. Mayhem. Society devolves into chaos as the alien legions take their reven
 
 Cowering under your desk, you hear a knock at the door. The mysterious stranger is standing there, complete in his alien military regalia. “You really should have helped us out a bit more, bud. But since you didn't go out of your way to help your bosses, I'll do you a solid.”
 
-He leads you to your new home. It’s small but comfortable. You feel uneasy after they introduce your new ‘roommate’ as your ‘mate.’ As alien children gather outside your enclosure, you begin to realize how things worked out for you. Yes, you’re kept in a zoo, but at least you’re one of the last human survivors. And the keepers always deliver lunch on time. ",good,didnt_help_stranger,images/epilogues/epilog2.png
+He leads you to your new home. It’s small but comfortable. You feel uneasy after they introduce your new ‘roommate’ as your ‘mate.’ As alien children gather outside your enclosure, you begin to realize how things worked out for you. Yes, you’re kept in a zoo, but at least you’re alive. And the keepers always deliver lunch on time. ",good,didnt_help_stranger,images/epilogues/epilog2.png
 "The alien mothership sets down at the capitol and lights up hawkish senators like fireworks. 
 
 Panic. Mayhem. Society devolves into chaos as the alien legions take their revenge on Earth’s xenophobic inhabitants. ‘You deserve it!’ They scream as their walkers overtake the remains of humanity’s charred cities.
@@ -73,7 +73,7 @@ Panic. Mayhem. Society devolves into chaos as the alien legions take their reven
 Cowering under your desk, you hear a knock at the door. The mysterious stranger is standing there, complete in his alien military regalia. “You really should have helped us out a bit more, bud. But since you didn't go out of your way to help your bosses, I'll do you a solid.”
 
 He leads you to your new home. It’s small but comfortable. You feel uneasy after they introduce your new ‘roommate’ as your ‘mate.’ As alien children gather outside your enclosure, you begin to realize how things worked out for you. Yes, you’re kept in a zoo, but at least you’re one of the last human survivors. And the keepers always deliver lunch on time. ",bad,didnt_help_stranger,images/epilogues/epilog2.png
-"The alien mothership sets down at the capitol and lights up hawkish senators like fireworks. 
+"You have a few days to enjoy the comforts of your new position before you look out your window and see the sky set aflame.  The alien mothership sets down at the capitol and lights up hawkish senators like fireworks. 
 
 Panic. Mayhem. Society devolves into chaos as the alien legions take their revenge on Earth’s xenophobic inhabitants. ‘You deserve it!’ They scream as their walkers overtake the remains of humanity’s charred cities.
 
