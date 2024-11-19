@@ -34,8 +34,9 @@ style epilogue_button_text:
 style sticky_note:
     font "fonts/BrownBagLunch.ttf"
     color "#000000"
-    size 30
-    xsize 129 ysize 132
-    xalign 0.0
-    yalign 0.0
-    xoffset 5
+    size 105
+    xsize 680
+    ysize 645
+    xalign 0.5
+    yalign 0.5
+    yoffset -45

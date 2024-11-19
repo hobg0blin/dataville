@@ -183,8 +183,12 @@ label start:
       $ fade_out_of_dream(0.5)
 
       label intro:
-        play music "dataville_apartment_neutral.wav" loop
-        $ notes = shuffle_notes(clean(store.apartment_data)['sticky_note'])
+        play music "dataville_apartment_neutral.wav"
+        python:
+          notes = shuffle_notes(clean(store.apartment_data)['sticky_note'])
+          random_scribble_base = list(range(1, 9))[0:4]
+          for i in range(0, 4):
+            notes[i]['image'] = f"scribble_base_{random_scribble_base[i]}"
         call screen apartment(clean(store.apartment_data), store.game_state.time, apartment_bg_map['apartment_1'], notes)
         hide screen apartment
 
@@ -486,7 +490,11 @@ label start:
       if store.game_state.day < 4:
         if store.game_state.time == "end":
           $ day_start()
-          $ notes = shuffle_notes(clean(store.apartment_data)['sticky_note'])
+          python:
+            notes = shuffle_notes(clean(store.apartment_data)['sticky_note'])
+            random_scribble_base = list(range(1, 9))[0:4]
+            for i in range(0, 4):
+              notes[i]['image'] = f"scribble_base_{random_scribble_base[i]}"
           call screen apartment(clean(store.apartment_data), store.game_state.time, apartment_bg_map['apartment_1'], notes)
           if store.game_state.performance_rating != 'bad':
               play music f"dataville_workspace_{store.game_state.performance_rating}.wav" loop fadein 2.0
