@@ -2476,6 +2476,9 @@ screen epilogue(input_text, buttons = ["Next"]):
         xsize 1920
         ysize 1080
         action SetScreenVariable("skip_transition", True)
+    
+    image Solid("#000000AA", xsize = 1920, ysize= 380):
+        align (0.0, 1.0)
 
     window id 'content':
         style "window_nobox"
@@ -2484,45 +2487,38 @@ screen epilogue(input_text, buttons = ["Next"]):
         xsize 1920
         ysize 1080
         vbox:
-            yalign 0.97
+            yalign 0.88
             xalign 0.5 
             if not exit_sequence:
                 if not skip_transition:
                     window:
+                        # text input_text:
+                        #     style "epilogue_text_shadow"
+                        #     at blur(40)
                         text input_text:
-                            xalign 0.5
-                            style "epilogue_text_shadow"
-                            at blur(4)
-                        text input_text:
-                            align (0.5, 0)
                             style "epilogue_text"
                 else: 
-                    # why does the click to skip cps animation doesn't work?
-                    # setting the cps stupid high to make it appear instantly
                     window:
+                        # text "{cps=1000}" + input_text + "{/cps}":
+                        #     style "epilogue_text_shadow"
+                        #     at blur(40)
                         text "{cps=1000}" + input_text + "{/cps}":
-                            xalign 0.5
-                            style "epilogue_text_shadow"
-                            at blur(4)
-                        text "{cps=1000}" + input_text + "{/cps}":
-                            align (0.5, 0)
                             style "epilogue_text"
                 
             else:
                 window:
                     text "{cps=1000}" + input_text + "{/cps}":
-                        align (0.5, 0)
                         style "epilogue_text"
                         at fade_out(exit_duration)
 
         hbox id 'buttons':
             xalign 0.5
-            yalign 0.93
+            yalign 0.95
             spacing 250
             for i, button_text in enumerate(buttons):
                 if not exit_sequence:
                     button:
-                        hover_background Solid("#FFFFFF", ysize = 4, yoffset = 60)
+                        hover_background Solid("#FFFFFF", ysize = 4, yoffset = 90)
                         idle_background None
                         action [SetScreenVariable("selected_button", i), ToggleScreenVariable("exit_sequence")]
                         fixed:
@@ -2533,7 +2529,7 @@ screen epilogue(input_text, buttons = ["Next"]):
                 else:
                     if i == selected_button:
                         button:
-                            background "underline_blink"
+                            background Transform("underline_blink", yoffset=30)
                             fixed:
                                 fit_first True
                                 xalign 0.5
