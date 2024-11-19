@@ -114,7 +114,7 @@ label start:
     image bg gray_bg = Solid('#464645')
     
     if not skip_intro:
-      play music "dataville_workspace_neutral.wav" loop fadein 2.0
+      play music "dataville_workspace_neutral.ogg" loop fadein 2.0
 
       image tv_overlay:
         "images/screens/00-title/tv_hollow.png"
@@ -183,7 +183,7 @@ label start:
       $ fade_out_of_dream(0.5)
 
       label intro:
-        play music "dataville_apartment_neutral.wav"
+        play music "dataville_apartment_neutral.ogg"
         python:
           notes = shuffle_notes(clean(store.apartment_data)['sticky_note'])
           random_scribble_base = list(range(1, 9))[0:4]
@@ -198,7 +198,7 @@ label start:
     if store.game_state.time == "end":
         jump interstitial
 
-    play music "dataville_workspace_neutral.wav" loop fadein 2.0
+    play music "dataville_workspace_neutral.ogg" loop fadein 2.0
     
     # manually check messsages on first loop 
     $ cleaned = clean(store.apartment_data)
@@ -495,11 +495,15 @@ label start:
             random_scribble_base = list(range(1, 9))[0:4]
             for i in range(0, 4):
               notes[i]['image'] = f"scribble_base_{random_scribble_base[i]}"
+          if store.game_state.performance_rating != 'bad':
+              play music f"dataville_apartment_{store.game_state.performance_rating}.ogg" loop
+          else:
+              play music f"dataville_apartment_bad.ogg" loop fadein 2.0
           call screen apartment(clean(store.apartment_data), store.game_state.time, apartment_bg_map['apartment_1'], notes)
           if store.game_state.performance_rating != 'bad':
-              play music f"dataville_workspace_{store.game_state.performance_rating}.wav" loop fadein 2.0
+              play music f"dataville_workspace_{store.game_state.performance_rating}.ogg" loop
           else:
-              play music f"dataville_workspace_neutral.wav" loop fadein 2.0
+              play music f"dataville_workspace_bad.ogg" loop fadein 2.0
           $ task = store.loop["start_task"]
           $ set_ui_state(task, store.game_state)
           $ cleaned = clean(store.apartment_data)
@@ -518,7 +522,7 @@ label start:
       hide screen performance
       hide screen cogni
       $ aberate_layer('all', 0)
-      play music "datavilleoutro.wav" loop
+      play music "datavilleoutro.ogg" loop
       scene bg black_bg with Dissolve(3.0)
       
       # testing purposes / tests all epilogue screens

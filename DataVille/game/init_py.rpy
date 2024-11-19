@@ -349,7 +349,6 @@ init python:
       for dependency in dependencies:
         cleaned_dep = dependency.strip()
         new_task = ""
-      
         if cleaned_dep not in store.event_flags:
             if next_task != 'break':
                 if next_task['next_task'] == 'break': 
@@ -379,10 +378,6 @@ init python:
       store.event_flags.append(current_task['ethical_choice_event_flag'])
     if store.latest_score == 1 and 'correct_choice_event_flag' in current_task:
       store.event_flags.append(current_task['correct_choice_event_flag'])
-    #if event flag dependency isn't met, skip task
-      if ('event_flag_dependency' in next_task):
-        dependencies = next_task['event_flag_dependency'].split(',')
-        next_task = check_dependencies(dependencies, next_task)
     # UPDATE UI VARIABLES 
     reward = int(current_task['payment'])/out
     if store.timer_failed:
@@ -404,6 +399,10 @@ init python:
       next_task = 'break'
     else:
       next_task = store.loop[current_task['next_task']]
+      #if event flag dependency isn't met, skip task
+      if ('event_flag_dependency' in next_task):
+        dependencies = next_task['event_flag_dependency'].split(',')
+        next_task = check_dependencies(dependencies, next_task)
     return set_ui_state(next_task, state, performance_text, reward)
 
   def set_ui_state( task, state, performance_text = '', reward = 0):

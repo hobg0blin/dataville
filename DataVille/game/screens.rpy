@@ -76,7 +76,7 @@ style prompt_frame is frame:
 style default_button:
     padding gui.frame_borders.padding
     background Frame("gui/button/custom/background.png")
-    activate_sound "click.wav"
+    activate_sound "click.ogg"
     xminimum 300
     yminimum 50
 
@@ -446,7 +446,7 @@ image tv_hollow:
 # image right_pos = Solid("#ff0000", xpos = 1595, ypos = 0, xsize = 5, ysize = 1080)
 
 screen main_menu():
-    $ renpy.music.play("datavilleintro.wav", loop=True, if_changed=True)
+    $ renpy.music.play("datavilleintro.ogg", loop=True, if_changed=True)
     ## This ensures that any other menu screen is replaced.
     tag menu
 
@@ -1715,7 +1715,7 @@ style slider_slider:
 
 
 style button_click:
-    activate_sound "click.wav"
+    activate_sound "click.ogg"
 
 screen timer:
     zorder 10
@@ -2016,20 +2016,6 @@ screen job_offer(phase, text = None, buttons = None):
                             color "#FFFFFF"
                         action Return(True)
 
-screen assistant:
-    # window id 'content':
-    #     ymaximum 1200
-    #     xmaximum 1600
-    #     frame id 'status_bar':
-    #         background "#136366"
-    #         has hbox
-    #         xsize 1600
-    #         image "images/logo_white.png"
-    hbox id 'assistant':
-        xalign 0.3
-        yalign 0.75
-        image "images/characters/cogni/asst_normal.png"
-
 screen instructions(task, xalign_val=0.5, yalign_val=0.13):
     vbox id 'instructions':
         xalign xalign_val
@@ -2174,7 +2160,7 @@ screen apartment(data, time, bg_path, sticky_notes):
         imagebutton:
             pos(107, 608)
             xsize 429 ysize 288
-            activate_sound "audio/tv_2.wav"
+            activate_sound "audio/tv_2.ogg"
             idle Solid("#00000000")
             hover Transform("tv_noise", xsize=429, ysize=288, alpha=0.2)
             action [SetScreenVariable('new_tv', False), Show("zoomed_tv", None, store.apartment_data)]
@@ -2195,9 +2181,6 @@ screen apartment(data, time, bg_path, sticky_notes):
             else:
                 at fade_in(fade_time)
     
-    # add "apartment3_1":
-    #     at fade_in(fade_time)
-    
     python:
         computer_sound = "computer.ogg"
         if time == "end":
@@ -2212,7 +2195,7 @@ screen apartment(data, time, bg_path, sticky_notes):
                 imagebutton:
                     xsize 129 ysize 132
                     xpos start_note_positions[i][0] ypos start_note_positions[i][1]
-                    activate_sound "audio/rustle.wav"
+                    activate_sound "audio/rustle.ogg"
                     idle note['image']
                     hover "scribble_hover"
                     action [Show("zoomed_note", None, note["text"])]
@@ -2224,7 +2207,7 @@ screen apartment(data, time, bg_path, sticky_notes):
             imagebutton:
                 xpos 614 ypos 404
                 xsize 837 ysize 456
-                activate_sound "audio/tv_2.wav"
+                activate_sound "audio/tv_2.ogg"
                 idle Solid("#00000000")
                 hover Solid("#d3a95620")
                 action [ToggleScreenVariable('zoom_transition')]
@@ -2335,7 +2318,7 @@ screen zoomed_tv(data, index=0):
             xsize 125 ysize 125
             idle Transform("images/icons/arrow-back-solid.svg", xsize=125, ysize=125, alpha=0.4)
             hover Transform("images/icons/arrow-back-solid.svg", xsize=125, ysize=125, alpha=0.8)
-            activate_sound "tv_2.wav" 
+            activate_sound "tv_2.ogg" 
             action Hide("zoomed_tv", None)
 
 screen zoomed_note(note_text):
@@ -2352,7 +2335,7 @@ screen zoomed_note(note_text):
             align (0.0, 0.0)
             xsize 1920
             ysize 1080
-            activate_sound "audio/rustle.wav" 
+            activate_sound "audio/rustle.ogg" 
             action Hide("zoomed_note", None)
         
         image "images/apartment/note.png":
@@ -2366,7 +2349,7 @@ screen zoomed_note(note_text):
             xsize 125 ysize 125
             idle Transform("images/icons/arrow-back-solid.svg", xsize=125, ysize=125, alpha=0.4)
             hover Transform("images/icons/arrow-back-solid.svg", xsize=125, ysize=125, alpha=0.8)
-            activate_sound "audio/rustle.wav" 
+            activate_sound "audio/rustle.ogg" 
             action Hide("zoomed_note", None)
 
 
