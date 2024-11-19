@@ -149,7 +149,7 @@ label start:
       show tv_overlay:
         pos (0, 0)  
         tv_zoom_in_seq
-      $renpy.pause(3.3)
+      $ renpy.pause(3.3)
       scene interview with Dissolve(1.0)
       pause 0.7
 
