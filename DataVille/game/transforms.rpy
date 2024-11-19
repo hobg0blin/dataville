@@ -138,8 +138,8 @@ transform speech_bubble:
     xalign 0.3
     yalign 0.75
 
-transform blur:
-    blur 30
+transform blur(amount = 30):
+    blur amount
     
 transform unblur:
     blur 0

@@ -295,13 +295,14 @@ init python:
     else:
       # print('object getting filtered: ', obj)
       return False
-    #SET TV NEWS ITEMS
+  
+  #SET TV NEWS ITEMS
   def setitem(data, index):
     length = len([x for x in data["news"] if x["time"] == store.game_state.time])
     if index > length - 1:
         index = 0
     item = data["news"][index]
-    # converting nuetral performance to bad
+    # converting neutral performance to bad
     performance = "good" if store.game_state.performance_rating == "good" else "bad"
     if item["performance"] != "default" and item["performance"] != performance and item["event_flag"] not in store.event_flags:
         index +=1
@@ -309,7 +310,12 @@ init python:
     else:
         return [item, index]
 
-# UPDATE STATE BASED ON TIME CHANGE
+  def filter_dreams(dream_data):
+    performance = "good" if store.game_state.performance_rating == "good" else "bad"
+    return [x for x in dream_data if x["performance"] == performance or x["performance"] == "default"]
+
+
+  # UPDATE STATE BASED ON TIME CHANGE
   def day_start():
     store.game_state.day += 1
     day = str(store.game_state.day)
@@ -321,12 +327,11 @@ init python:
     store.game_state.time = 'end'
     day = str(store.game_state.day)
 
-
-# update state with "outcomes" attribute from current loop, based on
-# performance. should always take the form of {1: (BEST OUTCOME), 2: (MEDIUM
-# OUTCOME), 3: (WORST OUTCOME)}
-# TODO: account for "ethical" vs. "correct" result
-# SCORING FUNCTIONS
+  # update state with "outcomes" attribute from current loop, based on
+  # performance. should always take the form of {1: (BEST OUTCOME), 2: (MEDIUM
+  # OUTCOME), 3: (WORST OUTCOME)}
+  # TODO: account for "ethical" vs. "correct" result
+  # SCORING FUNCTIONS
 
   def performance_feedback(out):
       good = ["You’re really doing it!", "You’re labeling faster than 81% of DataVille Annotators!", "Great accuracy!", "Keep it up!", "Aim for that performance incentive!"]
@@ -338,6 +343,7 @@ init python:
         return {'text': random.choice(mid), 'score': 66}
       else:
         return {'text': random.choice(bad), 'score': 33}
+  
   def check_dependencies(dependencies, next_task):
       set_performance_rating()
       for dependency in dependencies:
@@ -365,25 +371,19 @@ init python:
     else:
       store.game_state.performance_rating = "bad"
 
-# update task after it's scored, update state with scores
+  # update task after it's scored, update state with scores
   def update_state(state, out, current_task):
-# ADD ANY EVENT FLAGS
+    # ADD ANY EVENT FLAGS
     is_ethical = check_ethical(latest_choice, current_task)
     if is_ethical and 'ethical_choice_event_flag' in current_task:
       store.event_flags.append(current_task['ethical_choice_event_flag'])
     if store.latest_score == 1 and 'correct_choice_event_flag' in current_task:
       store.event_flags.append(current_task['correct_choice_event_flag'])
-# HANDLE NEXT TASK LOGIC
-    if (current_task['next_task'] == 'break'):
-      set_performance_rating()
-      next_task = 'break'
-    else:
-      next_task = store.loop[current_task['next_task']]
     #if event flag dependency isn't met, skip task
       if ('event_flag_dependency' in next_task):
         dependencies = next_task['event_flag_dependency'].split(',')
         next_task = check_dependencies(dependencies, next_task)
-# UPDATE UI VARIABLES 
+    # UPDATE UI VARIABLES 
     reward = int(current_task['payment'])/out
     if store.timer_failed:
         # print("Timer failed! Reducing reward.")
@@ -398,6 +398,12 @@ init python:
     # TIME TRACKER
     store.game_state.performance['total_time'] = (store.game_state.performance['total_time'] + (10 - (time/1000)))    
     store.game_state.performance['average_time'] = (store.game_state.performance['total_time'] /store.game_state.task_count)    
+    # HANDLE NEXT TASK LOGIC
+    if (current_task['next_task'] == 'break'):
+      set_performance_rating()
+      next_task = 'break'
+    else:
+      next_task = store.loop[current_task['next_task']]
     return set_ui_state(next_task, state, performance_text, reward)
 
   def set_ui_state( task, state, performance_text = '', reward = 0):
@@ -413,12 +419,12 @@ init python:
       return task
 
   def get_epilogue():
-    output = ""
+    output = None
     with open(renpy.loader.transfn('game_files/epilogues.csv'), 'r') as epilogues: 
         reader = csv.DictReader(epilogues)
         has_event_flag = False
         for epilogue in reader:
-                output = epilogue['text']
+                output = epilogue
                 for event_flag in store.event_flags:
                   if (event_flag == 'tutorial_fail' or event_flag == 'rent_fail' or event_flag == 'performance_fail') and event_flag == epilogue['event_flag']:
                       # print('fail state hit: ', event_flag)
@@ -434,6 +440,9 @@ init python:
 
     return output
 
+  def test_all_epilogues():
+    with open(renpy.loader.transfn('game_files/epilogues.csv'), 'r') as epilogues:
+      return list(csv.DictReader(epilogues))
 
 # IMAGE TASK FUNCTIONS
   # could use periodic function to constantly update box position
@@ -671,5 +680,10 @@ init python:
   def shuffle_notes(notes):
     random.shuffle(notes)
     return notes[:4]
+
+  # making the epilogue background images
+  epilogue_images = os.listdir(os.path.join(config.basedir, "game", "images", "epilogues"))
+  for file in epilogue_images:
+    renpy.image("images/epilogues/" + file, "images/epilogues/" + file)
 
   set_initial_variables() 

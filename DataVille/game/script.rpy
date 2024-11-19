@@ -103,7 +103,7 @@ init:
   }
   
 # The game starts here.
-default skip_intro = False
+default skip_intro = True
 default no_fail = False
 default start_at_day_end = False
 label start:
@@ -112,8 +112,9 @@ label start:
     image bg black_bg = Solid('#000000')
     image bg apartment_bg = "images/apartment/apartment3_1.png"
     image bg gray_bg = Solid('#464645')
+    
     if not skip_intro:
-      play music "dataville_workspace_neutral.wav" fadein 2.0
+      play music "dataville_workspace_neutral.wav" loop fadein 2.0
 
       image tv_overlay:
         "images/screens/00-title/tv_hollow.png"
@@ -197,7 +198,7 @@ label start:
     if store.game_state.time == "end":
         jump interstitial
 
-    play music "dataville_workspace_neutral.wav" fadein 2.0
+    play music "dataville_workspace_neutral.wav" loop fadein 2.0
     
     # manually check messsages on first loop 
     $ cleaned = clean(store.apartment_data)
@@ -406,16 +407,19 @@ label start:
       #  $ print('three bad states')
       #  $ store.event_flags.append('performance_fail')
       #  jump end
-      if (store.game_state.day == 0) and store.game_state.time == 'end' and store.game_state.performance['earnings'] < 600 and not no_fail:
+      # To get less than $500 on the first day, you need to get 3 incorrect tasks.
+      if (store.game_state.day == 0) and store.game_state.time == 'end' and store.game_state.performance['earnings'] <= 500 and not no_fail:
         $ store.event_flags.append('tutorial_fail')
         jump end
       if (store.game_state.time == "end"):
         python:
+          # Deduct rent from earnings
           if (store.game_state.day != 0):
             store.game_state.performance['earnings_minus_rent'] -= (store.daily_rent * store.game_state.day)
             renpy.hide_screen('overlay_earnings')
             renpy.show_screen('overlay_earnings', rent_loss_flag = True)
           # print('earnings minus rent: ', store.game_state.performance['earnings_minus_rent'])
+          # Bank acount is in the red
           if store.game_state.performance['earnings_minus_rent'] <= 0:
             store.event_flags.append('rent_fail')
         $ emojis = emoji_selection(store.game_state.performance, store.averages['day_' + str(store.game_state.day)])
@@ -472,9 +476,10 @@ label start:
         if store.game_state.time == "end":
             $ fade_into_dream(2.0)
             $ dream_counter = 0
-            $ dream_len = len(store.apartment_data['dream'])
+            $ dream_data = filter_dreams(store.apartment_data['dream'])
+            $ dream_len = len(dream_data)
             while dream_counter < dream_len:
-                $ dream = store.apartment_data['dream'][dream_counter]
+                $ dream = dream_data[dream_counter]
                 if dream['time'] != 'start':
                     call screen dream(dream['text'], dream['buttons'])
                 $ dream_counter += 1
@@ -492,9 +497,9 @@ label start:
               notes[i]['image'] = f"scribble_base_{random_scribble_base[i]}"
           call screen apartment(clean(store.apartment_data), store.game_state.time, apartment_bg_map['apartment_1'], notes)
           if store.game_state.performance_rating != 'bad':
-              play music f"dataville_workspace_{store.game_state.performance_rating}.wav" fadein 2.0
+              play music f"dataville_workspace_{store.game_state.performance_rating}.wav" loop fadein 2.0
           else:
-              play music f"dataville_workspace_neutral.wav" fadein 2.0
+              play music f"dataville_workspace_neutral.wav" loop fadein 2.0
           $ task = store.loop["start_task"]
           $ set_ui_state(task, store.game_state)
           $ cleaned = clean(store.apartment_data)
@@ -513,17 +518,44 @@ label start:
       hide screen performance
       hide screen cogni
       $ aberate_layer('all', 0)
-      play music "datavilleoutro.wav"
+      play music "datavilleoutro.wav" loop
       scene bg black_bg with Dissolve(3.0)
+      
+      # testing purposes / tests all epilogue screens
+      # $ epilogues = test_all_epilogues()
+      # $ epi_len = len(epilogues)
+      # $ epi_counter = 0
+      # while epi_counter < epi_len:
+      #   $ split = split_into_sentences(epilogues[epi_counter]["text"])
+      #   $ count = 0
+      #   $ length = len(split)
+      #   hide screen dream
+      #   $ renpy.show(epilogues[epi_counter]["image"], layer="master", at_list=[fade_in(1.0)])
+      #   pause 1.0
+      #   while count < length:
+      #     python:
+      #       if count <= length -2:
+      #         additional_text = split[count+1]
+      #       else:
+      #         additional_text = ""
+      #     call screen epilogue(f"{split[count]} {additional_text}")
+      #     $ count += 2
+      #   call screen epilogue('Thank you for playing DataVille!\na more human world\none click at a time', ['Restart'])
+      #   $ epi_counter += 1
+      # call screen epilogue('End of Tests', ['Restart'])
+      # jump start
+
       $ epilogue = get_epilogue()
-      $ split = split_into_sentences(epilogue)
+      $ split = split_into_sentences(epilogue["text"])
       # $ print('epilogue variable: ', epilogue)
       # $ print('split text: ', split)
       $ count = 0
       $ length = len(split)
       # scene bg apartment_bg with Dissolve(1.0) 
       # $ blur_master()
-
+      hide screen dream
+      $ renpy.show(epilogue["image"], layer="master", at_list=[fade_in(1.0)])
+      pause 1.0
       while count < length:
         python:
           if count <= length -2:
@@ -535,11 +567,10 @@ label start:
         $ count += 2
       call screen epilogue('Thank you for playing DataVille!\na more human world\none click at a time', ['Restart'])
       # This ends the game.
-      hide screen dream
       # clear store and return to start
       $ set_initial_variables() 
       # if we want to send them to the main menu:
-#      $ MainMenu(confirm=True)
+      # $ MainMenu(confirm=True)
 
       jump start
       #return
