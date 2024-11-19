@@ -495,11 +495,15 @@ label start:
             random_scribble_base = list(range(1, 9))[0:4]
             for i in range(0, 4):
               notes[i]['image'] = f"scribble_base_{random_scribble_base[i]}"
+          if store.game_state.performance_rating != 'bad':
+              play music f"dataville_apartment_{store.game_state.performance_rating}.ogg" loop
+          else:
+              play music f"dataville_apartment_bad.ogg" loop fadein 2.0
           call screen apartment(clean(store.apartment_data), store.game_state.time, apartment_bg_map['apartment_1'], notes)
           if store.game_state.performance_rating != 'bad':
-              play music f"dataville_workspace_{store.game_state.performance_rating}.ogg" loop fadein 2.0
+              play music f"dataville_workspace_{store.game_state.performance_rating}.ogg" loop
           else:
-              play music f"dataville_workspace_neutral.ogg" loop fadein 2.0
+              play music f"dataville_workspace_bad.ogg" loop fadein 2.0
           $ task = store.loop["start_task"]
           $ set_ui_state(task, store.game_state)
           $ cleaned = clean(store.apartment_data)
