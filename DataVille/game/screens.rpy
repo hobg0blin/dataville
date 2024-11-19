@@ -2208,13 +2208,13 @@ screen apartment(data, time, bg_path, sticky_notes):
     fixed:
         # Notes
         for i, note in enumerate(sticky_notes):
-            if not zoom_transition and switch_flag:
+            if not zoom_transition:
                 imagebutton:
                     xsize 129 ysize 132
                     xpos start_note_positions[i][0] ypos start_note_positions[i][1]
                     activate_sound "audio/tv_2.wav"
-                    idle Solid("#00000000")
-                    hover Solid("#d3a95620")
+                    idle note['image']
+                    hover "scribble_hover"
                     action [Show("zoomed_note", None, note["text"])]
                     if zoom_transition:
                         at zoom_sticky_notes(offset_note_positions[i][0], offset_note_positions[i][1], zoom_time)
