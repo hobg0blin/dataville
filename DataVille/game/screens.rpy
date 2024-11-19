@@ -2016,20 +2016,6 @@ screen job_offer(phase, text = None, buttons = None):
                             color "#FFFFFF"
                         action Return(True)
 
-screen assistant:
-    # window id 'content':
-    #     ymaximum 1200
-    #     xmaximum 1600
-    #     frame id 'status_bar':
-    #         background "#136366"
-    #         has hbox
-    #         xsize 1600
-    #         image "images/logo_white.png"
-    hbox id 'assistant':
-        xalign 0.3
-        yalign 0.75
-        image "images/characters/cogni/asst_normal.png"
-
 screen instructions(task, xalign_val=0.5, yalign_val=0.13):
     vbox id 'instructions':
         xalign xalign_val
@@ -2194,9 +2180,6 @@ screen apartment(data, time, bg_path, sticky_notes):
                 at zoom_computer(zoom_time)
             else:
                 at fade_in(fade_time)
-    
-    # add "apartment3_1":
-    #     at fade_in(fade_time)
     
     python:
         computer_sound = "computer.ogg"
