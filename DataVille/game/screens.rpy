@@ -2212,7 +2212,7 @@ screen apartment(data, time, bg_path, sticky_notes):
                 imagebutton:
                     xsize 129 ysize 132
                     xpos start_note_positions[i][0] ypos start_note_positions[i][1]
-                    activate_sound "audio/tv_2.wav"
+                    activate_sound "audio/rustle.wav"
                     idle note['image']
                     hover "scribble_hover"
                     action [Show("zoomed_note", None, note["text"])]
@@ -2333,7 +2333,7 @@ screen zoomed_tv(data, index=0):
         imagebutton:
             pos (50, 25)
             xsize 125 ysize 125
-            idle Transform("images/icons/arrow-back-solid.svg", xsize=125, ysize=125, alpha=0.2)
+            idle Transform("images/icons/arrow-back-solid.svg", xsize=125, ysize=125, alpha=0.4)
             hover Transform("images/icons/arrow-back-solid.svg", xsize=125, ysize=125, alpha=0.8)
             activate_sound "tv_2.wav" 
             action Hide("zoomed_tv", None)
@@ -2347,14 +2347,27 @@ screen zoomed_note(note_text):
         xsize 1920
         ysize 1080
         background "#00000074"
-        imagebutton:
-            idle "images/apartment/note.png"
-            hover "images/apartment/note.png"
+
+        button:
+            align (0.0, 0.0)
+            xsize 1920
+            ysize 1080
+            activate_sound "audio/rustle.wav" 
+            action Hide("zoomed_note", None)
+        
+        image "images/apartment/note.png":
             xalign 0.5
             yalign 0.5
-            action Hide("zoomed_note", None)
         text note_text:
             style "sticky_note"
+        
+        imagebutton:
+            pos (50, 25)
+            xsize 125 ysize 125
+            idle Transform("images/icons/arrow-back-solid.svg", xsize=125, ysize=125, alpha=0.4)
+            hover Transform("images/icons/arrow-back-solid.svg", xsize=125, ysize=125, alpha=0.8)
+            activate_sound "audio/rustle.wav" 
+            action Hide("zoomed_note", None)
 
 
 screen set_state():
