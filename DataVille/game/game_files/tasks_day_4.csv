@@ -4,7 +4,7 @@ captcha_image,captcha_image_1,binary_text_1,500,Select the aliens for removal. ,
 binary_text,binary_text_1,sentiment_1,500,Select the correct option.,10,,,Y,Non-hypothetical: do you suspect anyone in your apartment building might organize subversive activities?,,,,,,,,,,,,,,,,,
 sentiment_text,sentiment_1,sentiment_2,0,Can we count on your support?,10,,,2,"The results are in and, by a tight margin, the labelers and annotators of DataVille have officially voted to unionize. This is a huge success and thanks entirely to the support of workers like you.
 
-Now we need a collective bargaining agreement. They have already flatly stated they will not listen to our demands. Our members have proposed a general strike.  ",1,Join the union.,2,Ignore the union.,,,,,`1,,,This fight is just beginning. We'll be counting on you going forward.,Scab!,tim,,,supported_union
+Now we need a collective bargaining agreement. They have already flatly stated they will not listen to our demands. Our members have proposed a general strike.  ",1,Join the union.,2,Ignore the union.,,,,,1,,,This fight is just beginning. We'll be counting on you going forward.,Scab!,tim,,,supported_union
 sentiment_text,sentiment_2,captcha_image_2,0,Can we count on your support?,10,,,2,"The results are in and, by a tight margin, the labelers and annotators of DataVille have officially voted to unionize. 
 
 Now we need a collective bargaining agreement. The more workers that participate in writing our demands, the more seriously management will take it.
