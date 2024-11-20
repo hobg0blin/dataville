@@ -103,7 +103,7 @@ init:
   }
   
 # The game starts here.
-default skip_intro = False
+default skip_intro = True
 default no_fail = False
 default start_at_day_end = False
 label start:
@@ -569,11 +569,11 @@ label start:
           # print('epilogue text: ', split[count])
         call screen epilogue(f"{split[count]} {additional_text}")
         $ count += 2
-      call screen epilogue('Thank you for playing DataVille!\na more human world\none click at a time', ['Return to Main Menu'])
+      show screen epilogue('Thank you for playing DataVille!\na more human world\none click at a time', ['Return to Main Menu'])
+      pause
+      $ MainMenu(confirm=False, save=False)
+      $ set_initial_variables() 
       # This ends the game.
       # clear store and return to start
-      $ set_initial_variables() 
       # if we want to send them to the main menu
-      $ MainMenu(confirm=True)
       # jump start
-      #return

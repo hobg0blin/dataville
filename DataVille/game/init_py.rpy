@@ -114,7 +114,7 @@ init python:
     store.event_flags = []
     store.game_state.time = 'start'
     store.game_state.day = -1
-    store.game_state.performance_rating = 'neutral'
+    store.game_state.performance_rating = ''
     store.game_state.performance_count = {'good': 0, 'bad': 0, 'neutral': 0}
     store.game_state.task_count = 0
     store.apartment_file = ""
@@ -421,20 +421,25 @@ init python:
     output = None
     with open(renpy.loader.transfn('game_files/epilogues.csv'), 'r') as epilogues: 
         reader = csv.DictReader(epilogues)
-        has_event_flag = False
+        has_non_fail_event_flag = False
         for epilogue in reader:
+          for event_flag in store.event_flags:
+            if (event_flag == 'tutorial_fail' or event_flag == 'rent_fail' or event_flag == 'performance_fail') and event_flag == epilogue['event_flag']:
                 output = epilogue
-                for event_flag in store.event_flags:
-                  if (event_flag == 'tutorial_fail' or event_flag == 'rent_fail' or event_flag == 'performance_fail') and event_flag == epilogue['event_flag']:
-                      # print('fail state hit: ', event_flag)
-                      has_event_flag = True
-                  if event_flag == epilogue['event_flag'] and epilogue['performance'] == 'bad' and store.game_state.performance_rating == 'neutral':
-                      has_event_flag = True
-                  elif event_flag == epilogue['event_flag'] and epilogue['performance'] == store.game_state.performance_rating:
-                      # print('event flag based epilogue firing: ', epilogue)
-                      has_event_flag = True
-                if has_event_flag:
-                      break
+                # don't break on this
+            elif event_flag == epilogue['event_flag'] and epilogue['performance'] == 'bad' and store.game_state.performance_rating == 'neutral':
+                output = epilogue
+                has_non_fail_event_flag = True
+                break
+            elif event_flag == epilogue['event_flag'] and epilogue['performance'] == store.game_state.performance_rating:
+                # print('event flag based epilogue firing: ', epilogue)
+                output = epilogue
+                has_non_fail_event_flag = True
+                break
+            else:
+              pass
+          if has_non_fail_event_flag:
+            break
     # print('epilogue output: ', epilogue)
 
     return output
