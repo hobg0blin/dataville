@@ -103,7 +103,7 @@ init:
   }
   
 # The game starts here.
-default skip_intro = True
+default skip_intro = False
 default no_fail = False
 default start_at_day_end = False
 label start:
@@ -420,7 +420,7 @@ label start:
             renpy.show_screen('overlay_earnings', rent_loss_flag = True)
           # print('earnings minus rent: ', store.game_state.performance['earnings_minus_rent'])
           # Bank acount is in the red
-          if store.game_state.performance['earnings_minus_rent'] <= 0:
+          if store.game_state.performance['earnings_minus_rent'] <= 0 and store.game_state.day < 4:
             store.event_flags.append('rent_fail')
         $ emojis = emoji_selection(store.game_state.performance, store.averages['day_' + str(store.game_state.day)])
         show screen performance(store.game_state.performance, store.averages['day_' + str(store.game_state.day)], emojis)
@@ -569,10 +569,9 @@ label start:
           # print('epilogue text: ', split[count])
         call screen epilogue(f"{split[count]} {additional_text}")
         $ count += 2
-      show screen epilogue('Thank you for playing DataVille!\na more human world\none click at a time', ['Return to Main Menu'])
-      pause
-      $ MainMenu(confirm=False, save=False)
-      $ set_initial_variables() 
+      call screen epilogue('Thank you for playing DataVille!\na more human world\none click at a time', ['Return to Main Menu'])
+      hide screen epilogue
+      $ MainMenu(confirm=False)()
       # This ends the game.
       # clear store and return to start
       # if we want to send them to the main menu
