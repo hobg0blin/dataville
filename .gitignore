@@ -23,3 +23,4 @@ candella/
 **/*.rpymc
 DataVille/game/tl/None/common.rpymc
 *.csv#
+DataVille-11.20/*

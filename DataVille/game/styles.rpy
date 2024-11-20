@@ -18,7 +18,7 @@ style epilogue_text:
     xmaximum 0.8
     text_align 0.5
     slow_cps 40
-    align (0.5, 0)
+    align (0.5, 0.5)
 
 style epilogue_text_shadow:
     yalign 0.5
@@ -30,7 +30,7 @@ style epilogue_text_shadow:
     text_align 0.5
     slow_cps 40
     yoffset -20
-    xalign 0.5
+    align (0.5, 0.5)
 
 style epilogue_button_text:
     color "#FFFFFF"

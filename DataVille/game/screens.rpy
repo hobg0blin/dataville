@@ -2487,7 +2487,7 @@ screen epilogue(input_text, buttons = ["Next"]):
         xsize 1920
         ysize 1080
         vbox:
-            yalign 0.88
+            yalign 0.85
             xalign 0.5 
             if not exit_sequence:
                 if not skip_transition:
