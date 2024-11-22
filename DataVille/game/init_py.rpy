@@ -685,9 +685,4 @@ init python:
     random.shuffle(notes)
     return notes[:4]
 
-  # making the epilogue background images
-  epilogue_images = os.listdir(os.path.join(config.basedir, "game", "images", "epilogues"))
-  for file in epilogue_images:
-    renpy.image("images/epilogues/" + file, "images/epilogues/" + file)
-
   set_initial_variables() 

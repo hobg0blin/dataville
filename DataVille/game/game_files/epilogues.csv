@@ -1,94 +1,94 @@
 text,performance,event_flag,image
 "Your unscrupulous ambition is rewarded handsomely as you climb the ranks of the Dataville Corporation, ultimately reaching a position as a high-level manager. Throughout your career, you label thousands of individuals as aliens, accurately and otherwise. 
 
-You become reasonably wealthy and live in comfort. At night, you often lie awake considering the repercussions of your actions. There is no amount of money that can silence your doubts. In the morning, you return to work with a smile. These ‘aliens’ aren’t going to detect themselves…",good,accused_general_true,images/epilogues/epilog1.png
+You become reasonably wealthy and live in comfort. At night, you often lie awake considering the repercussions of your actions. There is no amount of money that can silence your doubts. In the morning, you return to work with a smile. These ‘aliens’ aren’t going to detect themselves…",good,accused_general_true,epilog1
 "Alex invites you to a Zoom meeting. He’s obligated to release you from your current role as an annotator/labeler due to your poor performance. However, due to your unflinching loyalty, he’d like to offer you a new position as his personal assistant. You receive a modest raise and health insurance. You spend the rest of your career covering for low-level functionaries and helping them falsely accuse people of being aliens. 
 
-Uncertainty and fear spread throughout society.  You take comfort in your stable, though modest, lifestyle. Self-preservation will have to suffice. If you could only sleep at night… ",bad,accused_general_true,images/epilogues/epilog1.png
+Uncertainty and fear spread throughout society.  You take comfort in your stable, though modest, lifestyle. Self-preservation will have to suffice. If you could only sleep at night… ",bad,accused_general_true,images/epilogues/epilog1
 "You continue your work with the DataVille corporation in your new, permanent position as a coordinator. The health insurance is nice. 
 
 One day, while watching the news, you see the general Alex asked you to identify falsely as an alien. He is testifying before congress about the benefits of alien integration into the army.  You are certain there are larger forces at work here, but you don’t dare confess your fears to your coworkers – you are too dependent on your health insurance.
 
- You often catch yourself staring out the office window for inordinate lengths of time. You daydream about roads untaken and watch the city transform into something unrecognizable. You see alien immigrants segregated into servile, menial roles. Humans aren't faring much better, as places like Dataville start to automate away their jbos, too. You can’t help but reflect on how unfair life is.",good,accused_general_false,images/epilogues/epilog12.png
+ You often catch yourself staring out the office window for inordinate lengths of time. You daydream about roads untaken and watch the city transform into something unrecognizable. You see alien immigrants segregated into servile, menial roles. Humans aren't faring much better, as places like Dataville start to automate away their jbos, too. You can’t help but reflect on how unfair life is.",good,accused_general_false,epilog12
 "After several months of unpaid rent, your kindly old landlady politely evicts you. You never thought you’d miss your Dataville gig – but here you are.
 
 You are forced to move back in with your mother. Your dating life screeches to a halt. Your self worth plummets. 
 
 One day, your mother is watching conservative cable news and you see a familiar face: it’s the general you refused to falsely mark as an alien. The pundits are attacking his inclusive views on immigration. Your mother is outraged, as  usual. ‘When are we gonna get tough on these guys?’ She mutters to herself. 
 
-It’s not worth arguing with her. You silently return to your job search. You’ll take any job, so long as it gets you out of your mom’s house. ",bad,accused_general_false,images/epilogues/epilog5.png
+It’s not worth arguing with her. You silently return to your job search. You’ll take any job, so long as it gets you out of your mom’s house. ",bad,accused_general_false,epilog5
 "After an internal review, Alex is fired by the Dataville Corporation for questionable management decisions. A spot opens and you are invited to become a permanent coordinator on the Dataville admin team. However, you grow disenchanted with the company’s unethical practices. You go out of your way to sabotage the detection program’s effectiveness, routinely sabotaging requests to protect the innocent.
 
-Out your window, you watch society shift rapidly as more immigrants arrive. The city’s character feels unrecognizably foreign. You have mixed feelings watching your old neighborhood change, hoping there’s a place for you in this new world. There’s always a place for you at the Dataville Corporation. ",good,hid_sd_true,images/epilogues/epilog6.png
+Out your window, you watch society shift rapidly as more immigrants arrive. The city’s character feels unrecognizably foreign. You have mixed feelings watching your old neighborhood change, hoping there’s a place for you in this new world. There’s always a place for you at the Dataville Corporation. ",good,hid_sd_true,epilog6
 "Fired for poor performance and facing eviction, you pour yourself a stiff drink. You wonder how you will survive. The phone rings. An alien voice speaks.
 
 “It’s me. I didn’t forget about you. Let’s meet up.”
 
-Your heart jumps when you finally see your mysterious contact in person at a local bar. He offers you a new job: taking down the Dataville Corporation. The pay is terrible, but at least you enjoy your new work. And at the end of the day, isn’t that what really matters? You sigh whimsically as you rig the detonator. ",bad,hid_sd_true,images/epilogues/epilog8.png
+Your heart jumps when you finally see your mysterious contact in person at a local bar. He offers you a new job: taking down the Dataville Corporation. The pay is terrible, but at least you enjoy your new work. And at the end of the day, isn’t that what really matters? You sigh whimsically as you rig the detonator. ",bad,hid_sd_true,epilog8
 "Under Alex’s mentorship, you continue your work for the Dataville Corporation, steadily climbing the ladder until you become a supervisor. Your team appreciates that you worked your way up, and you think of yourself as a ‘cool’ boss. 
 
 One day, you are assigned a confidential project auditing previous high-profile detections. You come across the dossier of the government official you falsely labeled as an alien. He was a facilities manager for the State Department in Virginia, showing no signs of disloyalty or clandestine activity. His wife and two children were also labeled as possible aliens and forcibly relocated to a Federal resettlement camp. 
 
-You can’t help feeling regret.",good,hid_sd_false,images/epilogues/epilog10.png
+You can’t help feeling regret.",good,hid_sd_false,epilog10
 "You are indignant and outraged when Dataville dismisses you after everything you’ve done for the company. However, on your last day, Alex surprises you with an ‘extra bonus for loyalty’. He also connects you with his cousin who runs a restaurant and is always looking for servers with ‘team spirit’. 
 
 It’s an under-the-table-job. That’s probably why so many aliens work in the kitchen. You recognize some of them as aliens you identified. They’re nice. Sometimes you drink beer together after your shift and talk about their old planet.They miss it. Your unfamiliar city confuses and frustrates them, but they have no choice but to keep on living and working hard.
 
-You do too.",bad,hid_sd_false,images/epilogues/epilog4.png
+You do too.",bad,hid_sd_false,epilog4
 "You continue your boring, repetitive work for the Dataville Corporation, enjoying a modest pay raise and benefits in your new permanent position.
 
 One day you’re called into a meeting with your supervisor, Alex. Some of your responses have raised concerns about accuracy, specifically false positives. You are forced to endure hours of remedial corporate training  about unconscious bias, racial prejudice, and sexual harassment. The sessions are long and unpaid.
 
-You regret ever falsely identifying your landlady as an alien and resolve to be more accurate. Nothing could be worse than these training sessions.",good,turned_in_landlady_true,images/epilogues/epilog12.png
+You regret ever falsely identifying your landlady as an alien and resolve to be more accurate. Nothing could be worse than these training sessions.",good,turned_in_landlady_true,epilog12
 "Your contract finishes unceremoniously, and you are officially unemployed again. 
 
 One day, you hear banging in the hallway. You poke your head out to watch a team of federal security contractors removing your elderly landlady in cuffs. They ignore her tears as she emotionally protests her innocence. A heavy-handed officer silences her with his baton. 
 
 You drink your coffee and consider what to do next. Looks like you won’t be seeing her again, but at least you don’t have to pay rent anymore.
 
-Time to return to the job hunt.   ",bad,turned_in_landlady_true,images/epilogues/epilog13.png
+Time to return to the job hunt.   ",bad,turned_in_landlady_true,epilog13
 "The Dataville Corporation rewards your diligent effort with a modest promotion and pay raise, making your life more bearable. Although you don’t feel rich, you are no longer preoccupied with how you will pay rent. 
 
 As part of Dataville’s ongoing public sector partnerships, you are invited to work as an alien detection specialist in a State Department office. You leap at the opportunity to start a new, more substantive chapter of your career. 
 
-However, you are disappointed to discover the job is merely administering monotonous tests to junior staffers and interns. You are a glorified TSA agent screening unhappy people, but at least you can pay the bills. ",good,turned_in_landlady_false,images/epilogues/epilog11.png
+However, you are disappointed to discover the job is merely administering monotonous tests to junior staffers and interns. You are a glorified TSA agent screening unhappy people, but at least you can pay the bills. ",good,turned_in_landlady_false,epilog11
 "You are disappointed when the Dataville Corporation lays you off. Fixating on what you could have done differently, you embark on a long, painful parade of rejection as you apply for new jobs. Unfortunately, most of them are already being automated away by places like Dataville. You begin to question your self-worth: what exactly are you qualified to do?
 
 Eventually, you are forced to work retail at the mall. You hate it. 
 
 One day, while eating a Cinnabon in the food court, you see the mall rent-a-cops chasing a young alien. They violently restrain him, searching for merchandise. You consider interceding but ultimately decide against it. You don’t want to risk your shitty job. After finding a pair of sneakers in his jacket, the youth is carried away. You don’t know what will happen to him next, but it can’t be good.
 
-You’ve finished your snack, and it’s time to return to work. Those shelves aren’t going to stock themselves.",bad,turned_in_landlady_false,images/epilogues/epilog16.png
+You’ve finished your snack, and it’s time to return to work. Those shelves aren’t going to stock themselves.",bad,turned_in_landlady_false,epilog16
 "The alien mothership sets down at the capitol and lights up hawkish senators like fireworks. 
 
 Panic. Mayhem. Society devolves into chaos as the alien legions take their revenge on Earth’s xenophobic inhabitants. ‘You deserve it!’ They scream as their walkers overtake the remains of humanity’s charred cities.
 
 Cowering under your desk, you hear a knock at the door. The mysterious stranger is standing there, complete in his alien military regalia. “You really should have helped us out a bit more, bud. But since you didn't go out of your way to help your bosses, I'll do you a solid.”
 
-He leads you to your new home. It’s small but comfortable. You feel uneasy after they introduce your new ‘roommate’ as your ‘mate.’ As alien children gather outside your enclosure, you begin to realize how things worked out for you. Yes, you’re kept in a zoo, but at least you’re alive. And the keepers always deliver lunch on time. ",good,didnt_help_stranger,images/epilogues/epilog2.png
+He leads you to your new home. It’s small but comfortable. You feel uneasy after they introduce your new ‘roommate’ as your ‘mate.’ As alien children gather outside your enclosure, you begin to realize how things worked out for you. Yes, you’re kept in a zoo, but at least you’re alive. And the keepers always deliver lunch on time. ",good,didnt_help_stranger,epilog2
 "The alien mothership sets down at the capitol and lights up hawkish senators like fireworks. 
 
 Panic. Mayhem. Society devolves into chaos as the alien legions take their revenge on Earth’s xenophobic inhabitants. ‘You deserve it!’ They scream as their walkers overtake the remains of humanity’s charred cities.
 
 Cowering under your desk, you hear a knock at the door. The mysterious stranger is standing there, complete in his alien military regalia. “You really should have helped us out a bit more, bud. But since you didn't go out of your way to help your bosses, I'll do you a solid.”
 
-He leads you to your new home. It’s small but comfortable. You feel uneasy after they introduce your new ‘roommate’ as your ‘mate.’ As alien children gather outside your enclosure, you begin to realize how things worked out for you. Yes, you’re kept in a zoo, but at least you’re one of the last human survivors. And the keepers always deliver lunch on time. ",bad,didnt_help_stranger,images/epilogues/epilog2.png
+He leads you to your new home. It’s small but comfortable. You feel uneasy after they introduce your new ‘roommate’ as your ‘mate.’ As alien children gather outside your enclosure, you begin to realize how things worked out for you. Yes, you’re kept in a zoo, but at least you’re one of the last human survivors. And the keepers always deliver lunch on time. ",bad,didnt_help_stranger,epilog2
 "You have a few days to enjoy the comforts of your new position before you look out your window and see the sky set aflame.  The alien mothership sets down at the capitol and lights up hawkish senators like fireworks. 
 
 Panic. Mayhem. Society devolves into chaos as the alien legions take their revenge on Earth’s xenophobic inhabitants. ‘You deserve it!’ They scream as their walkers overtake the remains of humanity’s charred cities.
 
 Cowering under your desk, you hear a knock at the door. The mysterious stranger is standing there, complete in his alien military regalia. “Congratulations. Here’s your pardon. Thanks again for your help, buddy!”
 
-In the new, alien-dominated society you are given a place of honor. Your work to help them has convinced them that humans aren't all bad. And, ultimately, the aliens being in charge seems to be working out better. At least you don't have to spend your days clicking boxes anymore.",good,helped_stranger,images/epilogues/epilog2.png
+In the new, alien-dominated society you are given a place of honor. Your work to help them has convinced them that humans aren't all bad. And, ultimately, the aliens being in charge seems to be working out better. At least you don't have to spend your days clicking boxes anymore.",good,helped_stranger,epilog2
 "The alien mothership sets down at the capitol and lights up hawkish senators like fireworks. 
 
 Panic. Mayhem. Society devolves into chaos as the alien legions take their revenge on Earth’s xenophobic inhabitants. ‘You deserve it!’ They scream as their walkers overtake the remains of humanity’s charred cities.
 
 Cowering under your desk, you hear a knock at the door. The mysterious stranger is standing there, complete in his alien military regalia. “Congratulations. Here’s your pardon. Thanks again for your help, buddy!”
 
-In the new, alien-dominated society you are given a place of honor. Your work to help them has convinced them that humans aren't all bad. And, ultimately, the aliens being in charge seems to be working out better. At least you don't have to spend your days clicking boxes anymore.",bad,helped_stranger,images/epilogues/epilog2.png
-Sorry! You’re not a good fit for the Dataville Corporation. Feel free to reapply if you have a change of heart.,,tutorial_fail,images/epilogues/end2.png
+In the new, alien-dominated society you are given a place of honor. Your work to help them has convinced them that humans aren't all bad. And, ultimately, the aliens being in charge seems to be working out better. At least you don't have to spend your days clicking boxes anymore.",bad,helped_stranger,epilog2
+Sorry! You’re not a good fit for the Dataville Corporation. Feel free to reapply if you have a change of heart.,,tutorial_fail,end2
 "You have failed to pay rent. You move back in with your mother. 
 
-Better luck next time!",,rent_fail,images/epilogues/end1.png
-Your work quality has been designated as “unsatisfactory.” Your services are no longer required by the Dataville Corporation. Good luck in your future endeavors. ,,performance_fail,images/epilogues/end3.png
+Better luck next time!",,rent_fail,end1
+Your work quality has been designated as “unsatisfactory.” Your services are no longer required by the Dataville Corporation. Good luck in your future endeavors. ,,performance_fail,end3
