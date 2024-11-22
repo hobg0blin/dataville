@@ -519,7 +519,7 @@ screen game_menu(title, scroll=None, yinitial=0.0):
     if main_menu:
         add gui.main_menu_background
     else:
-        add "blurred_tv_screen"
+        add gui.game_menu_background
 
     frame:
         style "game_menu_outer_frame"
@@ -1613,23 +1613,22 @@ screen quick_menu():
 
     zorder 100
 
-    if quick_menu:
+    # if quick_menu:
 
-        hbox:
-            style_prefix "quick"
+    #     hbox:
+    #         style_prefix "quick"
 
-            xalign 0.5
-            yalign 1.0
+    #         xalign 0.5
+    #         yalign 1.0
 
-            textbutton _("Back") action Rollback()
-            textbutton _("Skip") action Skip() alternate Skip(fast=True, confirm=True)
-            textbutton _("Auto") action Preference("auto-forward", "toggle")
-            textbutton _("Menu") action ShowMenu()
+    #         textbutton _("Back") action Rollback()
+    #         textbutton _("Skip") action Skip() alternate Skip(fast=True, confirm=True)
+    #         textbutton _("Auto") action Preference("auto-forward", "toggle")
+    #         textbutton _("Menu") action ShowMenu()
 
 
 style window:
     variant "small"
-    background "gui/phone/textbox.png"
 
 style radio_button:
     variant "small"
@@ -1645,11 +1644,10 @@ style nvl_window:
 
 style main_menu_frame:
     variant "small"
-    background "gui/phone/overlay/main_menu.png"
 
 style game_menu_outer_frame:
     variant "small"
-    background "gui/phone/overlay/game_menu.png"
+    background "images/desk_overhead_blur.png"
 
 style game_menu_navigation_frame:
     variant "small"
@@ -1961,18 +1959,31 @@ screen job_offer(phase, text = None, buttons = None):
             xsize 1418
             ysize 923
             style "prompt_frame"
-            python:
-                text_file = renpy.open_file('game_files/job_description.txt', 'utf-8')
-                counter = 0
-            for row in text_file:
-                python:
-                    cleaned = str(row).replace("b'", '').replace('\n', '')
-                text '\n' * counter + cleaned:
+            viewport:
+                ysize 680
+                scrollbars "vertical"
+                mousewheel True
+                draggable "touch"
+
+                text """{b}RLHF Labeler @ DataVille {/b}
+Facing eviction? In serious debt? 
+Don’t run out of cash!
+…earn money from home!
+                
+{b}Responsibilities:{/b}
+• Label AI-generated images and text. Help improve our state-of-the-art multimodal AI model!
+                
+{b}Benefits:{/b}
+• Flexible work hours with remote options
+• Attractive salary package
+• Play a role in positively impacting society
+                
+{b}Application Process:{/b}
+1. Click on “Get Started”.
+2. Complete a brief 1-3 min assessment.
+3. Await our response and commence your professional journey with us.""":
                     color "#FFFFFF"
-                $ counter += 1
-            python:
-                text_file.close()
-                del text_file
+
             button:
                 xsize 579
                 ysize 94
@@ -2002,6 +2013,7 @@ screen job_offer(phase, text = None, buttons = None):
                 yalign 0.4
                 xalign 0.5
                 text text: 
+                    text_align 0.5
                     color "#FFFFFF"
             hbox id 'buttons':
                 yalign 0.8
@@ -2059,22 +2071,18 @@ screen overlay_reward(reward, incorrect_choice = False):
     if incorrect_choice:
         $ reward = incorrect_choice
     text '{font=fonts/RussoOne-Regular.ttf}TASK REWARD : $ ' + "{:.2f}".format(float(reward)) + '{/font}':
-        xalign .50
-        ypos 16
-        color "#FFFFFF"
+        style "task_reward_text"
         at still_aberate(3.0)
     
     if timer_failed:
         text '{font=fonts/RussoOne-Regular.ttf}{color=#00000000}TASK REWARD : $ {/color}' + '{color=#ca0c0c}' + "{:.2f}".format(float(reward)) + '{/color}{/font}':
-            xalign .50
-            ypos 16
+            style "task_reward_text"
             at fade_out(1.0)
 
     # we do this twice in cases of timer ending and selectino penalty
     if incorrect_choice:
         text '{font=fonts/RussoOne-Regular.ttf}{color=#00000000}TASK REWARD : $ {/color}' + '{color=#ca0c0c}' + "{:.2f}".format(float(reward)) + '{/color}{/font}':
-            xalign .50
-            ypos 16
+            style "task_reward_text"
             at fade_out(1.0)
 
 screen performance(state, average, emojis):

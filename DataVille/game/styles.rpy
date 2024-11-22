@@ -47,3 +47,15 @@ style sticky_note:
     xalign 0.5
     yalign 0.5
     yoffset -45
+
+style task_reward_text:
+    xalign .50
+    ypos 16
+    color "#FFFFFF"
+
+style task_reward_text:
+    variant "small" 
+    xalign .50
+    ypos 16
+    color "#FFFFFF"
+    xoffset -175
