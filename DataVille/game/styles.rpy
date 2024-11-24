@@ -59,3 +59,11 @@ style task_reward_text:
     ypos 16
     color "#FFFFFF"
     xoffset -175
+
+style default_button:
+    padding gui.frame_borders.padding
+    xpadding 40
+    background Frame("gui/button/custom/background.png")
+    activate_sound "click.ogg"
+    xminimum 300
+    yminimum 50

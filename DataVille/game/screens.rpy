@@ -73,13 +73,6 @@ style frame:
 style prompt_frame is frame:
     background Frame("gui/prompt_frame.png")
 
-style default_button:
-    padding gui.frame_borders.padding
-    background Frame("gui/button/custom/background.png")
-    activate_sound "click.ogg"
-    xminimum 300
-    yminimum 50
-
 ################################################################################
 ## In-game screens
 ################################################################################
@@ -1939,16 +1932,14 @@ screen job_offer(phase, text = None, buttons = None):
     if phase == 1:
         image "images/job_page.png"
  
-        button:
+        textbutton "Apply":
             xsize 579
             ysize 94
             xpos 670
             ypos 792
+            text_xalign 0.5
+            text_yalign 0.5
             style "default_button"
-            text "{b}{size=36}Apply":
-                yalign 0.5
-                xalign 0.5
-                color "#FFFFFF"
             action Return(True)
     elif phase == 2:
         image "images/job_page_blur.png" at alpha_dissolve_quick
@@ -1984,15 +1975,13 @@ Don’t run out of cash!
 3. Await our response and commence your professional journey with us.""":
                     color "#FFFFFF"
 
-            button:
+            textbutton "Get Started":
                 xsize 579
                 ysize 94
                 xalign 0.5
                 yalign 0.92
-                text "{b}{size=36}Get Started":
-                    yalign 0.5
-                    xalign 0.5
-                    color "#FFFFFF"
+                text_xalign 0.5
+                text_yalign 0.5
                 style "default_button"
                 action Return(True)
     else:
@@ -2020,12 +2009,10 @@ Don’t run out of cash!
                 xalign 0.5
                 spacing 15
                 for button_text in buttons:
-                    button:
+                    textbutton button_text:
                         style "default_button"
-                        text button_text:
-                            yalign 0.5
-                            xalign 0.5
-                            color "#FFFFFF"
+                        text_yalign 0.5
+                        text_xalign 0.5
                         action Return(True)
 
 screen instructions(task, xalign_val=0.5, yalign_val=0.13):
