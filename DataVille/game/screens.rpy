@@ -163,12 +163,29 @@ style interview_namebox_victor is namebox:
     xalign 0.30
     yalign 1.5
 
+style interview_namebox_anchor is namebox:
+    variant "small"
+    xalign 0.70
+    yalign 1.1
+
+style interview_namebox_victor is namebox:
+    variant "small"
+    xalign 0.30
+    yalign 1.1
 
 style say_label:
     properties gui.text_properties("name", accent=True)
     xalign gui.name_xalign
     yalign 0.5
     size 24
+    italic True
+
+style say_label:
+    variant "small"
+    properties gui.text_properties("name", accent=True)
+    xalign gui.name_xalign
+    yalign 0.5
+    size 32
     italic True
 
 style say_dialogue:
@@ -182,11 +199,11 @@ style say_dialogue:
 
 style interview_say_dialogue:
     properties gui.text_properties("dialogue")
-    text_align 1.0
     size 42
 
-    xpos gui.dialogue_xpos
-    xsize gui.dialogue_width
+    # xpos gui.dialogue_xpos
+    xalign 0.5
+    # xsize gui.dialogue_width
     ypos gui.dialogue_ypos
 
     adjust_spacing False
@@ -194,7 +211,7 @@ style interview_say_dialogue:
 style interview_say_dialogue:
     variant "small"
     properties gui.text_properties("dialogue")
-
+    size 52
     # xpos gui.dialogue_xpos
     xalign 0.5
     ypos gui.dialogue_ypos
