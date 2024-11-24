@@ -7,6 +7,7 @@ style dream_text:
 style dream_button_text:
     color "#FFFFFF"
     hover_color "#FFFFFF"
+    text_align 0.5
 
 style epilogue_text:
     yalign 0.5

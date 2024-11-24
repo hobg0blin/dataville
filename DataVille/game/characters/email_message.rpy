@@ -50,7 +50,7 @@ style email_message_what:
 style email_message_what:
     variant "small"
     color "#FFFFFF"
-    size 38
+    size 40
     slow_cps 60
 
 transform expand(duration=0.5):

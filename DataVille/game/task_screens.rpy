@@ -2,6 +2,7 @@
 screen captcha_image(task, images):
     python:
         blink_sec, blink_interval, exit_fade_secs = 0.3, 0.07, 0.5
+        mobile_mode = renpy.variant("small")
 
     default exit_sequence = False
     default show_penalty = False
@@ -14,7 +15,7 @@ screen captcha_image(task, images):
         fixed:
             use instructions(task)
             at fade_out(exit_fade_secs)
-    window id 'labeler': 
+    window id 'labeler':
         style "window_nobox"
         xsize 619
         ysize 619
@@ -52,6 +53,8 @@ screen captcha_image(task, images):
                         at fade_in(blink_sec)
     
     window id 'done':
+        if mobile_mode:
+            yalign 1.05
         textbutton "Done":
             selected False
             style "default_button"
@@ -471,14 +474,21 @@ screen sentiment_text(task):
 
     window id 'labeler':
         style "window_nobox"
-        xsize 700
+        xsize 900
         xalign 0.5
         yalign 0.5
-        text "{size=+4}{i}" + task['text_block'] + "{/i}{/size}":
-            if exit_sequence:
-                at fade_out(exit_fade_secs)
-            else:
-                at fade_in(blink_sec)
+        viewport:
+            scrollbars "vertical"
+            draggable True
+            mousewheel True
+            vscrollbar_unscrollable "hide"
+            ysize 600
+            text "{size=+4}{i}" + task['text_block'] + "{/i}{/size}":
+
+                if exit_sequence:
+                    at fade_out(exit_fade_secs)
+                else:
+                    at fade_in(blink_sec)
 
     hbox:
         xalign 0.5
