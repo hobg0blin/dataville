@@ -58,7 +58,7 @@ style task_reward_text:
     xalign .50
     ypos 16
     color "#FFFFFF"
-    xoffset -175
+    xoffset -100
 
 style balance_text:
     xalign .90

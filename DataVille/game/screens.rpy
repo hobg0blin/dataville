@@ -2123,42 +2123,42 @@ screen performance(state, average, emojis):
         style "prompt_frame"
         xalign 0.5
         yalign 0.2
-        xsize 600
+        xsize 700
         xpadding 50
         has vbox
         hbox:
-            xsize 525
+            xsize 625
             text(f"Approval rating: {round(state['approval_rate'], 2)}%"):
-                xsize 550
+                xsize 650
                 yalign 0.5
             image f"icons/emoji/{emojis['approval']}.png":
                 xalign 1.0
         hbox:
-            xsize 525
+            xsize 625
             text(f"Average time: {round(state['average_time'], 1)} seconds"):
-                xsize 550
+                xsize 650
                 yalign 0.5
             image f"icons/emoji/{emojis['time']}.png":
                 xalign 1.0
 
         hbox:
-            xsize 525
+            xsize 625
             text(f"Gross earnings: ${round(state['earnings'], 2)}"):
-                xsize 550
+                xsize 650
                 yalign 0.5
             image f"icons/emoji/{emojis['earnings']}.png":
                 xalign 1.0
         hbox:
-            xsize 525
+            xsize 625
             text(f"Rent & fees: -${round((store.daily_rent * store.game_state.day), 2)}"):
-                xsize 550
+                xsize 650
                 yalign 0.5
             image f"icons/emoji/{emojis['rent']}.png":
                 xalign 1.0
         hbox:
-            xsize 525
+            xsize 625
             text(f"Net earnings: ${round(state['earnings_minus_rent'], 2)}"):
-                xsize 550
+                xsize 650
                 yalign 0.5
             image f"icons/emoji/{emojis['earnings_minus_rent']}.png":
                 xalign 1.0
