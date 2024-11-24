@@ -658,7 +658,7 @@ screen about():
             if gui.about:
                 text "[gui.about!t]\n"
 
-            text _("\n Project Leads:\nArnab Chakravarty\nBrent Bailey\n\n Story:\nIan McNeely\nBrent Bailey\n\n Design:\nLifei Wang\nArnab Chakravarty \nHenry Baum \n\n Programming:\nBrent Bailey\nHenry Baum\n\n ML Development:\nLifei Wang\n\n Music:\nMatt Ross\n\n Development was supported by a Mozilla Creative Media Award. AI images created with Stable Diffusion, finetuned on a mix of custom-made and open-source images. Made with {a=https://www.renpy.org/}Ren'Py{/a} [renpy.version_only].\n\n[renpy.license!t]")
+            text _("\n Project Leads:\nArnab Chakravarty\nBrent Bailey\n\n Story:\nIan McNeely\nBrent Bailey\n\n Design:\nLifei Wang\nArnab Chakravarty \nHenry Baum \n\n Programming:\nBrent Bailey\nHenry Baum\n\n ML Development:\nLifei Wang\n\n Music:\nMatt Ross\n\n \nA full list of assets used under a Creative Commmons license can be found {a=https://docs.google.com/document/d/1TI6jKvw5lXMbCfFNyeNMKES9YxGqImPAZpJJQgcVVV0/edit?usp=sharing}here{/a}. Development was supported by a Mozilla Creative Media Award. AI images created with Stable Diffusion, finetuned by a paid artist on a mix of custom-made and open-source images. Made with {a=https://www.renpy.org/}Ren'Py{/a} [renpy.version_only].\n\n[renpy.license!t] \nSpecial thanks to our playtesters: \nKate Mason\nMaarvi Khawaja\nAugust Luhrs\nSchuyler Devos\nCasey Conchinha\nDustin Long\nRyan Wagahoff\nCalder Hussman\nVictoria Levchenko\nAndrés Cuuervo\nJeremy Lawrence\nAnd everyone at Wonderville Playtest night.")
 
 
 style about_label is gui_label
