@@ -281,6 +281,25 @@ style cogni_what_no_cps:
     text_align 0.5
     color "#FFF"
 
+style cogni_what:
+    variant "small"
+    size 40
+    anchor (0.0,0.0)
+    xalign 0.5
+    yalign 0.5
+    text_align 0.5
+    color "#FFF"
+    slow_cps cogni_cps_setting
+
+style cogni_what_no_cps:
+    variant "small"
+    size 40
+    anchor (0.0,0.0)
+    xalign 0.5
+    yalign 0.5
+    text_align 0.5
+    color "#FFF"
+
 # style cogni_window is empty
 # style cogni_namebox is empty
 # style cogni_who is default

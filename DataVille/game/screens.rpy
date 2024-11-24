@@ -73,13 +73,6 @@ style frame:
 style prompt_frame is frame:
     background Frame("gui/prompt_frame.png")
 
-style default_button:
-    padding gui.frame_borders.padding
-    background Frame("gui/button/custom/background.png")
-    activate_sound "click.ogg"
-    xminimum 300
-    yminimum 50
-
 ################################################################################
 ## In-game screens
 ################################################################################
@@ -145,10 +138,10 @@ style window_wbox:
     ysize gui.textbox_height
     background Image("gui/textbox.png", xalign=0.5, yalign=1.0)
 
-style interview_dialogue:
+style interview_window:
     xalign 0.5
-    xfill True
-    yalign 0.2
+    xfill False
+    yalign 0.1
     ysize gui.textbox_height
     background None
 
@@ -162,19 +155,65 @@ style namebox:
     background Frame("gui/namebox.png", gui.namebox_borders, tile=gui.namebox_tile, xalign=gui.name_xalign)
     padding gui.namebox_borders.padding
 
-style interview_namebox is namebox:
-    yalign 0.15
+style interview_namebox_anchor is namebox:
+    xalign 0.70
+    yalign 1.5
+
+style interview_namebox_victor is namebox:
+    xalign 0.30
+    yalign 1.5
+
+style interview_namebox_anchor is namebox:
+    variant "small"
+    xalign 0.70
+    yalign 1.1
+
+style interview_namebox_victor is namebox:
+    variant "small"
+    xalign 0.30
+    yalign 1.1
 
 style say_label:
     properties gui.text_properties("name", accent=True)
     xalign gui.name_xalign
     yalign 0.5
+    size 24
+    italic True
+
+style say_label:
+    variant "small"
+    properties gui.text_properties("name", accent=True)
+    xalign gui.name_xalign
+    yalign 0.5
+    size 32
+    italic True
 
 style say_dialogue:
     properties gui.text_properties("dialogue")
 
     xpos gui.dialogue_xpos
     xsize gui.dialogue_width
+    ypos gui.dialogue_ypos
+
+    adjust_spacing False
+
+style interview_say_dialogue:
+    properties gui.text_properties("dialogue")
+    size 42
+
+    # xpos gui.dialogue_xpos
+    xalign 0.5
+    # xsize gui.dialogue_width
+    ypos gui.dialogue_ypos
+
+    adjust_spacing False
+
+style interview_say_dialogue:
+    variant "small"
+    properties gui.text_properties("dialogue")
+    size 52
+    # xpos gui.dialogue_xpos
+    xalign 0.5
     ypos gui.dialogue_ypos
 
     adjust_spacing False
@@ -519,7 +558,7 @@ screen game_menu(title, scroll=None, yinitial=0.0):
     if main_menu:
         add gui.main_menu_background
     else:
-        add "blurred_tv_screen"
+        add gui.game_menu_background
 
     frame:
         style "game_menu_outer_frame"
@@ -1613,23 +1652,22 @@ screen quick_menu():
 
     zorder 100
 
-    if quick_menu:
+    # if quick_menu:
 
-        hbox:
-            style_prefix "quick"
+    #     hbox:
+    #         style_prefix "quick"
 
-            xalign 0.5
-            yalign 1.0
+    #         xalign 0.5
+    #         yalign 1.0
 
-            textbutton _("Back") action Rollback()
-            textbutton _("Skip") action Skip() alternate Skip(fast=True, confirm=True)
-            textbutton _("Auto") action Preference("auto-forward", "toggle")
-            textbutton _("Menu") action ShowMenu()
+    #         textbutton _("Back") action Rollback()
+    #         textbutton _("Skip") action Skip() alternate Skip(fast=True, confirm=True)
+    #         textbutton _("Auto") action Preference("auto-forward", "toggle")
+    #         textbutton _("Menu") action ShowMenu()
 
 
 style window:
     variant "small"
-    background "gui/phone/textbox.png"
 
 style radio_button:
     variant "small"
@@ -1645,11 +1683,10 @@ style nvl_window:
 
 style main_menu_frame:
     variant "small"
-    background "gui/phone/overlay/main_menu.png"
 
 style game_menu_outer_frame:
     variant "small"
-    background "gui/phone/overlay/game_menu.png"
+    background "images/desk_overhead_blur.png"
 
 style game_menu_navigation_frame:
     variant "small"
@@ -1941,16 +1978,14 @@ screen job_offer(phase, text = None, buttons = None):
     if phase == 1:
         image "images/job_page.png"
  
-        button:
+        textbutton "Apply":
             xsize 579
             ysize 94
             xpos 670
             ypos 792
+            text_xalign 0.5
+            text_yalign 0.5
             style "default_button"
-            text "{b}{size=36}Apply":
-                yalign 0.5
-                xalign 0.5
-                color "#FFFFFF"
             action Return(True)
     elif phase == 2:
         image "images/job_page_blur.png" at alpha_dissolve_quick
@@ -1961,27 +1996,38 @@ screen job_offer(phase, text = None, buttons = None):
             xsize 1418
             ysize 923
             style "prompt_frame"
-            python:
-                text_file = renpy.open_file('game_files/job_description.txt', 'utf-8')
-                counter = 0
-            for row in text_file:
-                python:
-                    cleaned = str(row).replace("b'", '').replace('\n', '')
-                text '\n' * counter + cleaned:
+            viewport:
+                ysize 680
+                scrollbars "vertical"
+                mousewheel True
+                draggable "touch"
+
+                text """{b}RLHF Labeler @ DataVille {/b}
+Facing eviction? In serious debt? 
+Don’t run out of cash!
+…earn money from home!
+                
+{b}Responsibilities:{/b}
+• Label AI-generated images and text. Help improve our state-of-the-art multimodal AI model!
+                
+{b}Benefits:{/b}
+• Flexible work hours with remote options
+• Attractive salary package
+• Play a role in positively impacting society
+                
+{b}Application Process:{/b}
+1. Click on “Get Started”.
+2. Complete a brief 1-3 min assessment.
+3. Await our response and commence your professional journey with us.""":
                     color "#FFFFFF"
-                $ counter += 1
-            python:
-                text_file.close()
-                del text_file
-            button:
+
+            textbutton "Get Started":
                 xsize 579
                 ysize 94
                 xalign 0.5
                 yalign 0.92
-                text "{b}{size=36}Get Started":
-                    yalign 0.5
-                    xalign 0.5
-                    color "#FFFFFF"
+                text_xalign 0.5
+                text_yalign 0.5
                 style "default_button"
                 action Return(True)
     else:
@@ -2002,18 +2048,17 @@ screen job_offer(phase, text = None, buttons = None):
                 yalign 0.4
                 xalign 0.5
                 text text: 
+                    text_align 0.5
                     color "#FFFFFF"
             hbox id 'buttons':
                 yalign 0.8
                 xalign 0.5
                 spacing 15
                 for button_text in buttons:
-                    button:
+                    textbutton button_text:
                         style "default_button"
-                        text button_text:
-                            yalign 0.5
-                            xalign 0.5
-                            color "#FFFFFF"
+                        text_yalign 0.5
+                        text_xalign 0.5
                         action Return(True)
 
 screen instructions(task, xalign_val=0.5, yalign_val=0.13):
@@ -2035,20 +2080,17 @@ screen overlay(task, addition = 0, cogni=False, button_text=False):
 
 screen overlay_earnings(addition = 0, earning_flag = False, rent_loss_flag = False):
     text '{font=fonts/RussoOne-Regular.ttf}ACCOUNT BALANCE: $ ' + "{:.2f}".format(float(store.game_state.performance['earnings_minus_rent'] + addition)) + '{/font}':
-        xalign .90
+        style "balance_text"
         color "#FFFFFF"
-        ypos 16
         at still_aberate(3.0)
     
     if earning_flag:
         text '{font=fonts/RussoOne-Regular.ttf}{color=#00000000}ACCOUNT BALANCE: $ {/color}' + '{color=#08a121}' + "{:.2f}".format(float(store.game_state.performance['earnings_minus_rent'] + addition)) + '{/color}{/font}':
-            xalign .90
-            ypos 16
+            style "balance_text"
             at fade_out(1.0)
     elif rent_loss_flag:
         text '{font=fonts/RussoOne-Regular.ttf}{color=#00000000}ACCOUNT BALANCE: $ {/color}' + '{color=#ca0c0c}' + "{:.2f}".format(float(store.game_state.performance['earnings_minus_rent'] + addition)) + '{/color}{/font}':
-            xalign .90
-            ypos 16
+            style "balance_text"
             at fade_out(1.0)
     
     image "scanlines_overlay"
@@ -2059,22 +2101,18 @@ screen overlay_reward(reward, incorrect_choice = False):
     if incorrect_choice:
         $ reward = incorrect_choice
     text '{font=fonts/RussoOne-Regular.ttf}TASK REWARD : $ ' + "{:.2f}".format(float(reward)) + '{/font}':
-        xalign .50
-        ypos 16
-        color "#FFFFFF"
+        style "task_reward_text"
         at still_aberate(3.0)
     
     if timer_failed:
         text '{font=fonts/RussoOne-Regular.ttf}{color=#00000000}TASK REWARD : $ {/color}' + '{color=#ca0c0c}' + "{:.2f}".format(float(reward)) + '{/color}{/font}':
-            xalign .50
-            ypos 16
+            style "task_reward_text"
             at fade_out(1.0)
 
     # we do this twice in cases of timer ending and selectino penalty
     if incorrect_choice:
         text '{font=fonts/RussoOne-Regular.ttf}{color=#00000000}TASK REWARD : $ {/color}' + '{color=#ca0c0c}' + "{:.2f}".format(float(reward)) + '{/color}{/font}':
-            xalign .50
-            ypos 16
+            style "task_reward_text"
             at fade_out(1.0)
 
 screen performance(state, average, emojis):
@@ -2085,42 +2123,42 @@ screen performance(state, average, emojis):
         style "prompt_frame"
         xalign 0.5
         yalign 0.2
-        xsize 600
+        xsize 700
         xpadding 50
         has vbox
         hbox:
-            xsize 525
+            xsize 625
             text(f"Approval rating: {round(state['approval_rate'], 2)}%"):
-                xsize 550
+                xsize 650
                 yalign 0.5
             image f"icons/emoji/{emojis['approval']}.png":
                 xalign 1.0
         hbox:
-            xsize 525
+            xsize 625
             text(f"Average time: {round(state['average_time'], 1)} seconds"):
-                xsize 550
+                xsize 650
                 yalign 0.5
             image f"icons/emoji/{emojis['time']}.png":
                 xalign 1.0
 
         hbox:
-            xsize 525
+            xsize 625
             text(f"Gross earnings: ${round(state['earnings'], 2)}"):
-                xsize 550
+                xsize 650
                 yalign 0.5
             image f"icons/emoji/{emojis['earnings']}.png":
                 xalign 1.0
         hbox:
-            xsize 525
+            xsize 625
             text(f"Rent & fees: -${round((store.daily_rent * store.game_state.day), 2)}"):
-                xsize 550
+                xsize 650
                 yalign 0.5
             image f"icons/emoji/{emojis['rent']}.png":
                 xalign 1.0
         hbox:
-            xsize 525
+            xsize 625
             text(f"Net earnings: ${round(state['earnings_minus_rent'], 2)}"):
-                xsize 550
+                xsize 650
                 yalign 0.5
             image f"icons/emoji/{emojis['earnings_minus_rent']}.png":
                 xalign 1.0

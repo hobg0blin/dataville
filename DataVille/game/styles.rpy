@@ -7,6 +7,7 @@ style dream_text:
 style dream_button_text:
     color "#FFFFFF"
     hover_color "#FFFFFF"
+    text_align 0.5
 
 style epilogue_text:
     yalign 0.5
@@ -47,3 +48,32 @@ style sticky_note:
     xalign 0.5
     yalign 0.5
     yoffset -45
+
+style task_reward_text:
+    xalign .50
+    ypos 16
+    color "#FFFFFF"
+
+style task_reward_text:
+    variant "small" 
+    xalign .50
+    ypos 16
+    color "#FFFFFF"
+    xoffset -100
+
+style balance_text:
+    xalign .90
+    ypos 16
+
+style balance_text:
+    variant "small"
+    xalign 0.98
+    ypos 16
+
+style default_button:
+    padding gui.frame_borders.padding
+    xpadding 40
+    background Frame("gui/button/custom/background.png")
+    activate_sound "click.ogg"
+    xminimum 300
+    yminimum 50

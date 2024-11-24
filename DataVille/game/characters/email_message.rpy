@@ -44,7 +44,13 @@ style email_message_namebox:
 
 style email_message_what:
     color "#FFFFFF"
-    size 30
+    size 32
+    slow_cps 60
+
+style email_message_what:
+    variant "small"
+    color "#FFFFFF"
+    size 40
     slow_cps 60
 
 transform expand(duration=0.5):
@@ -129,11 +135,16 @@ screen email_message(who, who_suffix, what, image_path = None, buttons = ["Conti
                         else:
                             xpos 0
                         at still_aberate(2.0)
-        text what id "what":
-            style "email_message_what"
+        viewport:
             ypos 200
-            at still_aberate(1.0)
-        # at still_aberate(1.0)
+            scrollbars "vertical"
+            draggable True
+            mousewheel True
+            vscrollbar_unscrollable "hide"
+            text what id "what":
+                style "email_message_what"
+                ypos 200
+                at still_aberate(1.0)
         
     hbox id 'buttons':
         xalign 0.5
