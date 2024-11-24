@@ -60,6 +60,15 @@ style task_reward_text:
     color "#FFFFFF"
     xoffset -175
 
+style balance_text:
+    xalign .90
+    ypos 16
+
+style balance_text:
+    variant "small"
+    xalign 0.98
+    ypos 16
+
 style default_button:
     padding gui.frame_borders.padding
     xpadding 40

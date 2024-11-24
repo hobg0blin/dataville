@@ -2034,20 +2034,17 @@ screen overlay(task, addition = 0, cogni=False, button_text=False):
 
 screen overlay_earnings(addition = 0, earning_flag = False, rent_loss_flag = False):
     text '{font=fonts/RussoOne-Regular.ttf}ACCOUNT BALANCE: $ ' + "{:.2f}".format(float(store.game_state.performance['earnings_minus_rent'] + addition)) + '{/font}':
-        xalign .90
+        style "balance_text"
         color "#FFFFFF"
-        ypos 16
         at still_aberate(3.0)
     
     if earning_flag:
         text '{font=fonts/RussoOne-Regular.ttf}{color=#00000000}ACCOUNT BALANCE: $ {/color}' + '{color=#08a121}' + "{:.2f}".format(float(store.game_state.performance['earnings_minus_rent'] + addition)) + '{/color}{/font}':
-            xalign .90
-            ypos 16
+            style "balance_text"
             at fade_out(1.0)
     elif rent_loss_flag:
         text '{font=fonts/RussoOne-Regular.ttf}{color=#00000000}ACCOUNT BALANCE: $ {/color}' + '{color=#ca0c0c}' + "{:.2f}".format(float(store.game_state.performance['earnings_minus_rent'] + addition)) + '{/color}{/font}':
-            xalign .90
-            ypos 16
+            style "balance_text"
             at fade_out(1.0)
     
     image "scanlines_overlay"
