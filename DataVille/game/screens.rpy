@@ -138,10 +138,10 @@ style window_wbox:
     ysize gui.textbox_height
     background Image("gui/textbox.png", xalign=0.5, yalign=1.0)
 
-style interview_dialogue:
+style interview_window:
     xalign 0.5
-    xfill True
-    yalign 0.2
+    xfill False
+    yalign 0.1
     ysize gui.textbox_height
     background None
 
@@ -155,19 +155,48 @@ style namebox:
     background Frame("gui/namebox.png", gui.namebox_borders, tile=gui.namebox_tile, xalign=gui.name_xalign)
     padding gui.namebox_borders.padding
 
-style interview_namebox is namebox:
-    yalign 0.15
+style interview_namebox_anchor is namebox:
+    xalign 0.70
+    yalign 1.5
+
+style interview_namebox_victor is namebox:
+    xalign 0.30
+    yalign 1.5
+
 
 style say_label:
     properties gui.text_properties("name", accent=True)
     xalign gui.name_xalign
     yalign 0.5
+    size 24
+    italic True
 
 style say_dialogue:
     properties gui.text_properties("dialogue")
 
     xpos gui.dialogue_xpos
     xsize gui.dialogue_width
+    ypos gui.dialogue_ypos
+
+    adjust_spacing False
+
+style interview_say_dialogue:
+    properties gui.text_properties("dialogue")
+    text_align 1.0
+    size 42
+
+    xpos gui.dialogue_xpos
+    xsize gui.dialogue_width
+    ypos gui.dialogue_ypos
+
+    adjust_spacing False
+
+style interview_say_dialogue:
+    variant "small"
+    properties gui.text_properties("dialogue")
+
+    # xpos gui.dialogue_xpos
+    xalign 0.5
     ypos gui.dialogue_ypos
 
     adjust_spacing False

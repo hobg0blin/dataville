@@ -50,21 +50,23 @@ init:
   define news_anchor = Character(
     "News Anchor", 
     image="images/news_anchor.jpg", 
-    window_style="interview_dialogue", 
-    what_text_align=1.0, 
+    window_style="interview_window",
+    what_style="interview_say_dialogue",
+    what_text_align=0.5, 
     color="#b9b9b9", 
-    namebox_style="interview_namebox",
-    who_size=18,
+    namebox_style="interview_namebox_anchor",
     what_slow_cps=preferences.text_cps
     )
   define victor = Character(
     "Victor", 
     image="images/victor.avif", 
-    window_style="interview_dialogue", 
-    what_text_align=0.0, 
+    window_style="interview_window",
+    what_style="interview_say_dialogue",
+    what_text_align=0.5, 
     color="#b9b9b9", 
-    namebox_style="interview_namebox",
-    who_size=18)
+    namebox_style="interview_namebox_victor",
+    what_slow_cps=preferences.text_cps
+    )
 
   define char_map = {
     "supervisor": {
